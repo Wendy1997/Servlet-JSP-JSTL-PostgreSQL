@@ -1,0 +1,313 @@
+/* 
+=====
+Body 
+=====
+*/
+*{
+	font-family: 'Lato', sans-serif;
+	background-color: black;
+	text-decoration: none;
+	color: white;
+}
+
+body{
+	background-color: black;
+}
+
+#detail{
+	padding-bottom: 0;
+}
+
+.box{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.box-window{
+	height: 400px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+.absolute{
+	overflow-y: hidden;
+}
+
+/* 
+=====
+Font 
+=====
+*/
+
+a{
+	-moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+	color: gray;
+}
+
+a:hover{
+	color: white;
+	text-decoration: none;
+}
+
+#logo{
+	border-bottom: 1px solid white;
+	width: 0px;
+	display: inline-block;
+	-moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+	color: gray;
+}
+
+#logo:hover{
+	color: white;
+	text-decoration: none;
+	width: 100%;
+}
+
+
+.confirmation{
+	width: 600px;
+    height: 100px;
+	position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.title{
+	-moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+    text-decoration: none;
+}
+
+.title:hover{
+	font-size: 45px;
+	text-shadow: 0 0 50px white;
+}
+
+.invoice{
+	margin-bottom: 0px;
+}
+
+/*
+=====
+Form
+=====
+*/
+
+.form-group{
+	width: 75%;
+}
+
+.btn{
+	font-size: 35px;
+	margin-top: 25px;
+}
+
+.btn:hover{
+	box-shadow: 0 0 10px white;
+}
+
+#form1{
+	margin-bottom: 50px;
+}
+
+.form-control{
+	background-color: black;
+	color: white;
+	border-color: gray;
+	border-radius: 5px;
+	border-width: 1px;
+}
+
+.form-control:focus{
+	background-color: black;
+	color: white;
+	border-color: white;
+	border-radius: 5px;
+	border-width: 1px;
+	box-shadow: 0 0 10px white;
+}
+
+.form-control:hover{
+	background-color: black;
+	color: white;
+	border-color: white;
+	border-width: 1px;
+}
+
+/*
+=====
+Bootstrap
+=====
+*/
+.jumbotron{
+	background-color: black;
+	border-radius: 0px;
+}
+
+/*
+=====
+Circle
+=====
+*/
+
+.circle{
+	width: 150px;
+	height: 150px;
+	background-color: gray;
+	border-radius: 100px;
+	margin-bottom: 10px;
+
+	-moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+}
+
+.circle:hover{
+	box-shadow: 0 0 30px white;
+	width: 160px;
+	height: 160px;
+	opacity: 1;
+}
+
+.smallCircle{
+	width: 50px;
+	height: 50px;
+	background-color: gray;
+	border-radius: 100px;
+	display: inline-block;
+
+	-moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+}
+
+/*
+=====
+Table
+=====
+*/
+
+.table-responsive{
+	height: 600px;
+	overflow: auto;
+	margin-bottom: 50px;
+}
+
+th{
+	-moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;	
+}
+
+th:hover{
+	background-color: white;
+	color: black;
+}
+
+/*
+=====
+Stripe
+=====
+*/
+
+.stripe{
+	width: 90%;
+	height: 1px;
+	background-color: white;
+}
+
+/*
+=====
+Close Button
+=====
+*/
+.close{
+	margin: 50px;
+	color: gray; 
+    opacity: 1;
+
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in;
+}
+
+.close:hover{
+	color: white;
+	text-shadow: 0 0 10px white;
+	opacity: 1;
+}
+
+/*
+=====
+Dummy Image
+=====
+*/
+
+.dummy-image{
+	width: 300px;
+	height: 400px;
+	background-color: gray;
+}
+
+@media screen and (max-width: 1200px) {
+	.circle{
+		width: 120px;
+		height: 120px;
+	}
+
+	.circle:hover{
+		width: 130px;
+		height: 130px;
+	}
+}
+
+@media screen and (max-width: 991px) {
+	.circle{
+		width: 200px;
+		height: 200px;
+	}
+
+	.circle:hover{
+		width: 210px;
+		height: 210px;
+	}
+}
+
+
+/* Extra small devices (phones, up to 480px) */
+@media screen and (max-width: 574px) {
+	h1{
+		font-size: 30px;
+	}
+	h2{
+		font-size: 25px;
+	}
+	p{
+		font-size: 15px;
+	}
+
+	.circle{
+		width: 150px;
+		height: 150px;
+	}
+
+	.circle:hover{
+		width: 170px;
+		height: 170px;
+	}
+}

@@ -4,6 +4,8 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
+    <!-- Index -->
+
     <servlet>
         <servlet-name>index</servlet-name>
         <servlet-class>Controller.StoreController</servlet-class>
@@ -14,6 +16,8 @@
         <url-pattern>/index.jsp</url-pattern>
     </servlet-mapping>
 
+    <!-- Store Login -->
+
     <servlet>
         <servlet-name>store_login</servlet-name>
         <servlet-class>Controller.StoreController</servlet-class>
@@ -21,8 +25,10 @@
 
     <servlet-mapping>
         <servlet-name>store_login</servlet-name>
-        <url-pattern>/store_login</url-pattern>
+        <url-pattern>/index</url-pattern>
     </servlet-mapping>
+
+    <!-- Account Login -->
 
     <servlet>
         <servlet-name>account_login</servlet-name>
@@ -33,6 +39,79 @@
         <servlet-name>account_login</servlet-name>
         <url-pattern>/account_login</url-pattern>
     </servlet-mapping>
+
+    <!-- Admin Menu -->
+
+    <servlet>
+        <servlet-name>admin</servlet-name>
+        <servlet-class>Controller.AdminController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>admin</servlet-name>
+        <url-pattern>/admin</url-pattern>
+    </servlet-mapping>
+
+    <!-- Film Database -->
+
+    <servlet>
+        <servlet-name>film</servlet-name>
+        <servlet-class>Controller.FilmController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>film</servlet-name>
+        <url-pattern>/admin/film</url-pattern>
+    </servlet-mapping>
+
+    <!-- Add Film -->
+
+    <servlet>
+        <servlet-name>addfilm</servlet-name>
+        <servlet-class>Controller.FilmController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>addfilm</servlet-name>
+        <url-pattern>/admin/film/add</url-pattern>
+    </servlet-mapping>
+
+    <!-- Edit Film -->
+
+    <servlet>
+        <servlet-name>editfilm</servlet-name>
+        <servlet-class>Controller.FilmController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>editfilm</servlet-name>
+        <url-pattern>/admin/film/edit</url-pattern>
+    </servlet-mapping>
+
+    <!-- Delete Film -->
+
+    <servlet>
+        <servlet-name>deletefilm</servlet-name>
+        <servlet-class>Controller.FilmController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>deletefilm</servlet-name>
+        <url-pattern>/admin/film/delete</url-pattern>
+    </servlet-mapping>
+
+    <!-- Account Database -->
+
+    <servlet>
+        <servlet-name>account</servlet-name>
+        <servlet-class>Controller.FilmController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>account</servlet-name>
+        <url-pattern>/admin/account</url-pattern>
+    </servlet-mapping>
+
 </web-app>
 
 

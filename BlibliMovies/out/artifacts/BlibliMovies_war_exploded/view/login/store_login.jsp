@@ -5,12 +5,12 @@
 
     <!-- Title -->
     <div class="jumbotron">
-        <h1 class="title">Welcome to BlibliMovies</h1>
+        <h1 class="title">Point of Sales System </h1>
     </div>
 
     <!-- Form -->
     <div class="container-fluid">
-        <form action="/store_login" method="post">
+        <form action="/account_login" method="post">
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="name" class="form-control" id="username" name="username" required>

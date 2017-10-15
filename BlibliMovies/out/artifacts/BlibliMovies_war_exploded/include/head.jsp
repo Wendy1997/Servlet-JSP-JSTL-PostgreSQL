@@ -4,8 +4,20 @@
 <head>
     <title>BlibliMovies</title>
 
-    <link rel="stylesheet" type="text/css"  href="../css/bootstrap.css"></link>
-    <link rel="stylesheet" type="text/css"  href="../css/bootstrap-grid.css"></link>
-    <link rel="stylesheet" type="text/css"  href="../css/bootstrap-reboot.css"></link>
+    <!-- JQuery -->
+    <script href="../../js/jquery-3.2.1.min.js"></script>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css"  href="${pageContext.request.contextPath}/css/bootstrap.css"></link>
+    <link rel="stylesheet" type="text/css"  href="${pageContext.request.contextPath}/css/bootstrap-grid.css"></link>
+    <link rel="stylesheet" type="text/css"  href="${pageContext.request.contextPath}/css/bootstrap-reboot.css"></link>
+    <script href="../../bootstrap.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css"  href="${pageContext.request.contextPath}/css/style.css"></link>
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
 </head>
 <body>
