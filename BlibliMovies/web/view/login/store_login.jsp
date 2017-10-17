@@ -10,7 +10,7 @@
 
     <!-- Form -->
     <div class="container-fluid">
-        <form action="/account_login" method="post">
+        <form action="/" method="post">
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="name" class="form-control" id="username" name="username" required>

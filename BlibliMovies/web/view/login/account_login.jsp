@@ -11,7 +11,7 @@
 
     <!-- Form -->
     <div class="container-fluid">
-        <form action="/admin" method="post">
+        <form action="/login" method="post">
             <div class="form-group">
                 <label for="username">Username:</label>
                 <input type="name" class="form-control" id="username" name="username" required>

@@ -4,113 +4,101 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
-    <!-- Index -->
+    <!--&lt;!&ndash; Index &ndash;&gt;-->
 
-    <servlet>
-        <servlet-name>index</servlet-name>
-        <servlet-class>Controller.StoreController</servlet-class>
-    </servlet>
+    <!--<servlet>-->
+        <!--<servlet-name>index</servlet-name>-->
+        <!--<servlet-class>Controller.StoreController</servlet-class>-->
+    <!--</servlet>-->
 
-    <servlet-mapping>
-        <servlet-name>index</servlet-name>
-        <url-pattern>/index.jsp</url-pattern>
-    </servlet-mapping>
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>index</servlet-name>-->
+        <!--<url-pattern>/index.jsp</url-pattern>-->
+    <!--</servlet-mapping>-->
 
-    <!-- Store Login -->
+    <!--&lt;!&ndash; Account Login &ndash;&gt;-->
 
-    <servlet>
-        <servlet-name>store_login</servlet-name>
-        <servlet-class>Controller.StoreController</servlet-class>
-    </servlet>
+    <!--<servlet>-->
+        <!--<servlet-name>account_login</servlet-name>-->
+        <!--<servlet-class>Controller.AccountController</servlet-class>-->
+    <!--</servlet>-->
 
-    <servlet-mapping>
-        <servlet-name>store_login</servlet-name>
-        <url-pattern>/index</url-pattern>
-    </servlet-mapping>
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>account_login</servlet-name>-->
+        <!--<url-pattern>/account_login</url-pattern>-->
+    <!--</servlet-mapping>-->
 
-    <!-- Account Login -->
+    <!--&lt;!&ndash; Admin Menu &ndash;&gt;-->
 
-    <servlet>
-        <servlet-name>account_login</servlet-name>
-        <servlet-class>Controller.AccountController</servlet-class>
-    </servlet>
+    <!--<servlet>-->
+        <!--<servlet-name>admin</servlet-name>-->
+        <!--<servlet-class>Controller.AdminController</servlet-class>-->
+    <!--</servlet>-->
 
-    <servlet-mapping>
-        <servlet-name>account_login</servlet-name>
-        <url-pattern>/account_login</url-pattern>
-    </servlet-mapping>
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>admin</servlet-name>-->
+        <!--<url-pattern>/admin</url-pattern>-->
+    <!--</servlet-mapping>-->
 
-    <!-- Admin Menu -->
+    <!--&lt;!&ndash; Film Database &ndash;&gt;-->
 
-    <servlet>
-        <servlet-name>admin</servlet-name>
-        <servlet-class>Controller.AdminController</servlet-class>
-    </servlet>
+    <!--<servlet>-->
+        <!--<servlet-name>film</servlet-name>-->
+        <!--<servlet-class>Controller.FilmController</servlet-class>-->
+    <!--</servlet>-->
 
-    <servlet-mapping>
-        <servlet-name>admin</servlet-name>
-        <url-pattern>/admin</url-pattern>
-    </servlet-mapping>
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>film</servlet-name>-->
+        <!--<url-pattern>/admin/film</url-pattern>-->
+    <!--</servlet-mapping>-->
 
-    <!-- Film Database -->
+    <!--&lt;!&ndash; Add Film &ndash;&gt;-->
 
-    <servlet>
-        <servlet-name>film</servlet-name>
-        <servlet-class>Controller.FilmController</servlet-class>
-    </servlet>
+    <!--<servlet>-->
+        <!--<servlet-name>addfilm</servlet-name>-->
+        <!--<servlet-class>Controller.FilmController</servlet-class>-->
+    <!--</servlet>-->
 
-    <servlet-mapping>
-        <servlet-name>film</servlet-name>
-        <url-pattern>/admin/film</url-pattern>
-    </servlet-mapping>
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>addfilm</servlet-name>-->
+        <!--<url-pattern>/admin/film/add</url-pattern>-->
+    <!--</servlet-mapping>-->
 
-    <!-- Add Film -->
+    <!--&lt;!&ndash; Edit Film &ndash;&gt;-->
 
-    <servlet>
-        <servlet-name>addfilm</servlet-name>
-        <servlet-class>Controller.FilmController</servlet-class>
-    </servlet>
+    <!--<servlet>-->
+        <!--<servlet-name>editfilm</servlet-name>-->
+        <!--<servlet-class>Controller.FilmController</servlet-class>-->
+    <!--</servlet>-->
 
-    <servlet-mapping>
-        <servlet-name>addfilm</servlet-name>
-        <url-pattern>/admin/film/add</url-pattern>
-    </servlet-mapping>
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>editfilm</servlet-name>-->
+        <!--<url-pattern>/admin/film/edit</url-pattern>-->
+    <!--</servlet-mapping>-->
 
-    <!-- Edit Film -->
+    <!--&lt;!&ndash; Delete Film &ndash;&gt;-->
 
-    <servlet>
-        <servlet-name>editfilm</servlet-name>
-        <servlet-class>Controller.FilmController</servlet-class>
-    </servlet>
+    <!--<servlet>-->
+        <!--<servlet-name>deletefilm</servlet-name>-->
+        <!--<servlet-class>Controller.FilmController</servlet-class>-->
+    <!--</servlet>-->
 
-    <servlet-mapping>
-        <servlet-name>editfilm</servlet-name>
-        <url-pattern>/admin/film/edit</url-pattern>
-    </servlet-mapping>
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>deletefilm</servlet-name>-->
+        <!--<url-pattern>/admin/film/delete</url-pattern>-->
+    <!--</servlet-mapping>-->
 
-    <!-- Delete Film -->
+    <!--&lt;!&ndash; Account Database &ndash;&gt;-->
 
-    <servlet>
-        <servlet-name>deletefilm</servlet-name>
-        <servlet-class>Controller.FilmController</servlet-class>
-    </servlet>
+    <!--<servlet>-->
+        <!--<servlet-name>account</servlet-name>-->
+        <!--<servlet-class>Controller.FilmController</servlet-class>-->
+    <!--</servlet>-->
 
-    <servlet-mapping>
-        <servlet-name>deletefilm</servlet-name>
-        <url-pattern>/admin/film/delete</url-pattern>
-    </servlet-mapping>
-
-    <!-- Account Database -->
-
-    <servlet>
-        <servlet-name>account</servlet-name>
-        <servlet-class>Controller.FilmController</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>account</servlet-name>
-        <url-pattern>/admin/account</url-pattern>
-    </servlet-mapping>
+    <!--<servlet-mapping>-->
+        <!--<servlet-name>account</servlet-name>-->
+        <!--<url-pattern>/admin/account</url-pattern>-->
+    <!--</servlet-mapping>-->
 
 </web-app>
 
