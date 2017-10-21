@@ -2,6 +2,8 @@ package Controller.Film;
 
 import DAO.FilmDAO;
 import Model.Film;
+import Service.FilmService;
+import Service.FilmServiceDatabase;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,14 +14,13 @@ import java.io.IOException;
 
 @WebServlet("/admin/film/edit")
 public class Edit extends HttpServlet{
-    FilmDAO filmDAO;
+    FilmService filmService = new FilmServiceDatabase();
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        filmDAO = new FilmDAO();
         String address = "/view/database/film/film_edit.jsp";
 
         try {
-            Film film = filmDAO.getFilm(request.getParameter("id"));
+            Film film = filmService.getFilm(request.getParameter("id"));
             request.setAttribute("film", film);
         } catch (Exception e){
             System.out.println(e.getMessage());
@@ -29,7 +30,6 @@ public class Edit extends HttpServlet{
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        filmDAO = new FilmDAO();
 
         try{
             Film film = new Film(
@@ -50,7 +50,7 @@ public class Edit extends HttpServlet{
                     request.getParameter("sinopsis"));
 
 
-            filmDAO.updateFilm(film);
+            filmService.updateFilm(film);
 
             String address = "/view/database/success.jsp";
             request.setAttribute("title", "Film");

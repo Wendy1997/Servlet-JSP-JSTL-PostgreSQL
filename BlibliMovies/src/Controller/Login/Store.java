@@ -2,6 +2,8 @@ package Controller.Login;
 
 import DAO.StoreAccountDAO;
 import Model.StoreAccount;
+import Service.StoreAccountService;
+import Service.StoreAccountServiceDatabase;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,7 +15,7 @@ import java.sql.SQLException;
 
 @WebServlet("/")
 public class Store extends HttpServlet {
-    StoreAccountDAO storeDAO;
+    StoreAccountService storeAccountService = new StoreAccountServiceDatabase();
 
     /**
      * Suatu Controller yang akan me redirect menuju halaman Store Login dan melakukan logout
@@ -47,14 +49,13 @@ public class Store extends HttpServlet {
      * @throws IOException
      */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        storeDAO = new StoreAccountDAO();
         String address = "/view/login/store_login.jsp";
 
         /*
             Pengecekan form
          */
         try {
-            StoreAccount store = storeDAO.getStoreAccount(request.getParameter("username"));
+            StoreAccount store = storeAccountService.getStoreAccount(request.getParameter("username"));
             if(store != null){
                 if(store.getPassword().equals(request.getParameter("password"))) {
                     address = "/view/login/account_login.jsp";

@@ -4,6 +4,7 @@ import Model.Account;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.List;
 
 public class AccountDAO {
     public static final String database = "org.postgresql.Driver";
@@ -27,9 +28,9 @@ public class AccountDAO {
         }
     }
 
-    public Account getAccount(String account) throws SQLException{
+    public Account getAccount(String username) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM account where username = ?");
-        ps.setString(1, account);
+        ps.setString(1, username);
 
         ResultSet rs = ps.executeQuery();
 
@@ -42,11 +43,11 @@ public class AccountDAO {
         return output;
     }
 
-    public ArrayList<Account> getAllAccount() throws SQLException{
+    public List<Account> getAllAccount() throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM account");
         ResultSet rs = ps.executeQuery();
 
-        ArrayList<Account> accounts = new ArrayList<Account>();
+        List<Account> accounts = new ArrayList<Account>();
         while(rs.next()){
             accounts.add(new Account(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4)));
         }
@@ -62,9 +63,9 @@ public class AccountDAO {
 
     }
 
-    public void deleteAccount(Account account) throws SQLException{
+    public void deleteAccount(String account) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("DELETE FROM account where username = ?");
-        ps.setString(1, account.getUsername());
+        ps.setString(1, account);
         ps.executeUpdate();
     }
 

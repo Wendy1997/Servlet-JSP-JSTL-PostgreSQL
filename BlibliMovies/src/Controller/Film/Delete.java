@@ -2,6 +2,8 @@ package Controller.Film;
 
 import DAO.FilmDAO;
 import Model.Film;
+import Service.FilmService;
+import Service.FilmServiceDatabase;
 import jdk.nashorn.internal.runtime.ECMAException;
 
 import javax.servlet.ServletException;
@@ -10,18 +12,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 
 @WebServlet("/admin/film/delete")
 public class Delete extends HttpServlet {
-    FilmDAO filmDAO;
+    FilmService filmService = new FilmServiceDatabase();
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        filmDAO = new FilmDAO();
-
         try{
-            Film film = filmDAO.getFilm(request.getParameter("id"));
+            Film film = filmService.getFilm(request.getParameter("id"));
 
-            filmDAO.deleteFilm(film);
+            filmService.deleteFilm(film.getId() + "");
 
             String address = "/view/database/success.jsp";
             request.setAttribute("title", "Film");

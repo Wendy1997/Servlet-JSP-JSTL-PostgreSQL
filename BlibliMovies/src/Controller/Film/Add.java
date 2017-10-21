@@ -2,6 +2,8 @@ package Controller.Film;
 
 import DAO.FilmDAO;
 import Model.Film;
+import Service.FilmService;
+import Service.FilmServiceDatabase;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +14,7 @@ import java.io.IOException;
 
 @WebServlet("/admin/film/add")
 public class Add extends HttpServlet {
-    FilmDAO filmDAO;
+    FilmService filmService = new FilmServiceDatabase();
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String address = "/view/database/film/film_add.jsp";
@@ -20,7 +22,6 @@ public class Add extends HttpServlet {
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        filmDAO = new FilmDAO();
 
         try{
             Film film = new Film(
@@ -39,7 +40,7 @@ public class Add extends HttpServlet {
                     request.getParameter("actor"),
                     request.getParameter("sinopsis"));
 
-            filmDAO.addFilm(film);
+            filmService.addFilm(film);
 
             String address = "/view/database/success.jsp";
             request.setAttribute("title", "Film");

@@ -1,6 +1,8 @@
 package Controller.Login;
 
 import DAO.AccountDAO;
+import Service.AccountService;
+import Service.AccountServiceDatabase;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +14,7 @@ import java.sql.SQLException;
 
 @WebServlet("/login")
 public class Account extends HttpServlet {
-    AccountDAO accountDAO;
+    AccountService accountService = new AccountServiceDatabase();
 
     /**
      * Validasi apakah sudah login, untuk mengakses halaman login, dan Logout
@@ -53,14 +55,13 @@ public class Account extends HttpServlet {
      * @throws IOException
      */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        accountDAO = new AccountDAO();
         String address = "/view/login/account_login.jsp";
 
         /*
             Validasi pada database Account
          */
         try{
-            Model.Account account = accountDAO.getAccount(request.getParameter("username"));
+            Model.Account account = accountService.getAccount(request.getParameter("username"));
 
             if(account != null){
                 if(account.getPassword().equals(request.getParameter("password"))){

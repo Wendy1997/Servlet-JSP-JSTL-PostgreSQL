@@ -110,9 +110,9 @@ public class FilmDAO {
         ps.executeUpdate();
     }
 
-    public void deleteFilm(Film film) throws SQLException{
+    public void deleteFilm(String id) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("DELETE FROM film where id = ?");
-        ps.setString(1, film.getId() + "");
+        ps.setString(1, id);
         ps.executeUpdate();
     }
 
@@ -136,28 +136,4 @@ public class FilmDAO {
         ps.executeUpdate();
     }
 
-    public static void main(String[] args){
-        Film film = new Film(
-                Integer.parseInt("1"),
-                "blibli",
-                "coveasdasdeer",
-                "nama",
-                "genre",
-                Integer.parseInt("1"),
-                "director",
-                Double.parseDouble("1"),
-                Integer.parseInt("1"),
-                "2017-08-08",
-                "2017-08-08",
-                "language",
-                "subtitle",
-                "actor",
-                "sinopsis");
-        FilmDAO filmDAO = new FilmDAO();
-        try{
-            filmDAO.updateFilm(film);
-        } catch (SQLException e){
-            System.out.println(e.getMessage());
-        }
-    }
 }
