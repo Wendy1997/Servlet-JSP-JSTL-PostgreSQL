@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css"  href="${pageContext.request.contextPath}/css/bootstrap.css"></link>
     <link rel="stylesheet" type="text/css"  href="${pageContext.request.contextPath}/css/bootstrap-grid.css"></link>
     <link rel="stylesheet" type="text/css"  href="${pageContext.request.contextPath}/css/bootstrap-reboot.css"></link>
-    <script href="../../bootstrap.js"></script>
+    <script href="${pageContext.request.contextPath}/js/bootstrap.js"></script>
 
     <!-- CSS -->
     <link rel="stylesheet" type="text/css"  href="${pageContext.request.contextPath}/css/style.css"></link>

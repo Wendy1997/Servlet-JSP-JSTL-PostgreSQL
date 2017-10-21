@@ -9,9 +9,9 @@
 
     <!-- Confirmation -->
     <div class="confirmation">
-        <h1 class="title">Film Deleted</h1>
+        <h1 class="title"><c:out value="${title} ${complete}"></c:out></h1>
         <div class="stripe"></div><br>
-        <a href="/admin/film">Film ></a>
+        <a href="<c:out value="${link}"></c:out>"><c:out value="${title} >"></c:out></a>
     </div>
 </div>
 

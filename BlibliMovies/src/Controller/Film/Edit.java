@@ -10,20 +10,30 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/admin/film/add")
-public class Add extends HttpServlet {
+@WebServlet("/admin/film/edit")
+public class Edit extends HttpServlet{
     FilmDAO filmDAO;
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String address = "/view/database/film/film_add.jsp";
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+        filmDAO = new FilmDAO();
+        String address = "/view/database/film/film_edit.jsp";
+
+        try {
+            Film film = filmDAO.getFilm(request.getParameter("id"));
+            request.setAttribute("film", film);
+        } catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
         request.getRequestDispatcher(address).forward(request, response);
     }
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         filmDAO = new FilmDAO();
 
         try{
             Film film = new Film(
+                    Integer.parseInt(request.getParameter("id")),
                     (String)request.getSession().getAttribute("storename"),
                     request.getParameter("cover"),
                     request.getParameter("nama"),
@@ -39,14 +49,16 @@ public class Add extends HttpServlet {
                     request.getParameter("actor"),
                     request.getParameter("sinopsis"));
 
-            filmDAO.addFilm(film);
+
+            filmDAO.updateFilm(film);
 
             String address = "/view/database/success.jsp";
             request.setAttribute("title", "Film");
-            request.setAttribute("complete", "Created");
+            request.setAttribute("complete", "Updated");
             request.setAttribute("link", "/admin/film");
 
-            request.getRequestDispatcher(address).forward(request,response);
+            request.getRequestDispatcher(address).forward(request, response);
+
         } catch (Exception e){
             System.out.println(e.getMessage());
         }

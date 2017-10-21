@@ -58,7 +58,7 @@ public class Store extends HttpServlet {
             if(store != null){
                 if(store.getPassword().equals(request.getParameter("password"))) {
                     address = "/view/login/account_login.jsp";
-                    request.getSession().setAttribute("storename", store.getNama());
+                    request.getSession().setAttribute("storename", store.getUsername());
                 }
             }
             response.sendRedirect("/login");

@@ -35,8 +35,8 @@
                         <td><c:out value="${films.title}"></c:out></td>
                         <td><c:out value="${films.genre}"></c:out></td>
                         <td><c:out value="${films.director}"></c:out></td>
-                        <td><a href="/admin/film/edit">Edit</a></td>
-                        <td><a href="/admin/film/delete">Delete</a></td>
+                        <td><a <c:out value='href=/admin/film/edit?id=${films.id}'></c:out>>Edit</a></td>
+                        <td><a <c:out value='href=/admin/film/delete?id=${films.id}'></c:out>>Delete</a></td>
                     </tr>
                     </c:forEach>
 

@@ -13,11 +13,28 @@ public class Film {
     private String startTime;
     private String endTime;
     private String language;
-    private String subtititle;
+    private String subtitle;
     private String actor;
     private String sinopsis;
 
-    public Film(int id, String storename, String cover, String title, String genre, int duration, String director, double rating, int reviewTotal, String startTime, String endTime, String language, String subtititle, String actor, String sinopsis) {
+    public Film(String storename, String cover, String title, String genre, int duration, String director, double rating, int reviewTotal, String startTime, String endTime, String language, String subtitle, String actor, String sinopsis) {
+        this.storename = storename;
+        this.cover = cover;
+        this.title = title;
+        this.genre = genre;
+        this.duration = duration;
+        this.director = director;
+        this.rating = rating;
+        this.reviewTotal = reviewTotal;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.language = language;
+        this.subtitle = subtitle;
+        this.actor = actor;
+        this.sinopsis = sinopsis;
+    }
+
+    public Film(int id, String storename, String cover, String title, String genre, int duration, String director, double rating, int reviewTotal, String startTime, String endTime, String language, String subtitle, String actor, String sinopsis) {
         this.id = id;
         this.storename = storename;
         this.cover = cover;
@@ -30,7 +47,7 @@ public class Film {
         this.startTime = startTime;
         this.endTime = endTime;
         this.language = language;
-        this.subtititle = subtititle;
+        this.subtitle = subtitle;
         this.actor = actor;
         this.sinopsis = sinopsis;
     }
@@ -131,12 +148,12 @@ public class Film {
         this.language = language;
     }
 
-    public String getSubtititle() {
-        return subtititle;
+    public String getSubtitle() {
+        return subtitle;
     }
 
-    public void setSubtititle(String subtititle) {
-        this.subtititle = subtititle;
+    public void setSubtitle(String subtitle) {
+        this.subtitle = subtitle;
     }
 
     public String getActor() {
