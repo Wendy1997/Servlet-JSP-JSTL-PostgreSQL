@@ -15,17 +15,14 @@ public class AccountDAO {
     Connection conn;
 
     public AccountDAO(){
+
         try {
             Class.forName(database);
-        } catch (ClassNotFoundException e){
+            conn = DriverManager.getConnection(url, username, password);
+        } catch (Exception e){
             System.out.println(e.getMessage());
         }
 
-        try {
-            conn = DriverManager.getConnection(url, username, password);
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
     }
 
     public Account getAccount(String username) throws SQLException{
@@ -60,7 +57,7 @@ public class AccountDAO {
         ps.setString(2, account.getStorename());
         ps.setString(3, account.getPassword());
         ps.setString(4, account.getRole());
-
+        ps.executeUpdate();
     }
 
     public void deleteAccount(String account) throws SQLException{
@@ -70,8 +67,10 @@ public class AccountDAO {
     }
 
     public void updateAccount(Account account) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("UPDATE account where username = ?");
-        ps.setString(1, account.getUsername());
+        PreparedStatement ps = conn.prepareStatement("UPDATE account set password = ?, type = ? where username = ?");
+        ps.setString(1, account.getPassword());
+        ps.setString(2, account.getRole());
+        ps.setString(3, account.getUsername());
         ps.executeUpdate();
     }
 }

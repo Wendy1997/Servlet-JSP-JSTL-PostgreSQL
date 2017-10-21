@@ -15,30 +15,26 @@
         <br><br>
 
         <!-- Forms -->
-        <form action="account_edit_confirmation.html">
+        <form action="/admin/account/edit" method="post">
             <div class="row">
                 <div class="col-lg-6" id="form1">
                     <h2>Data Account</h2><br>
 
                     <div class="form-group">
-                        <label for="username">Username:</label>
-                        <input type="name" class="form-control" id="username" required>
-                    </div>
-
-                    <div class="form-group">
                         <label for="password">Password:</label>
-                        <input type="name" class="form-control" id="password" required>
+                        <input type="name" class="form-control" name="password" id="password" value="${account.password}" required>
                     </div>
 
                     <div class="form-group">
                         <label for="role">Role:</label>
-                        <select class="form-control" id="role" required>
+                        <select class="form-control" id="role" name="role" value="${account.role}" required>
                             <option disabled selected value> -- pilih Role -- </option>
-                            <option>Admin</option>
-                            <option>Cashier</option>
+                            <option value="Admin">Admin</option>
+                            <option value="Cashier">Cashier</option>
                         </select>
                     </div>
 
+                    <input type="hidden" name="username" value="${account.username}">
                     <button type="submit" class="btn btn-default">Submit ></button>
                 </div>
             </div>

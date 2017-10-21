@@ -20,13 +20,8 @@ public class FilmDAO {
 
         try {
             Class.forName(database);
-        } catch (ClassNotFoundException e){
-            System.out.println(e.getMessage());
-        }
-
-        try {
             conn = DriverManager.getConnection(url, username, password);
-        } catch (SQLException e) {
+        } catch (Exception e){
             System.out.println(e.getMessage());
         }
     }
@@ -39,15 +34,15 @@ public class FilmDAO {
 
         Film output;
         if(rs.next()){
-            output = new Film(Integer.parseInt(rs.getString(1)),
+            output = new Film(rs.getInt(1),
                     rs.getString(2),
                     rs.getString(3),
                     rs.getString(4),
                     rs.getString(5),
-                    Integer.parseInt(rs.getString(6)),
+                    rs.getInt(6),
                     rs.getString(7),
-                    Integer.parseInt(rs.getString(8)),
-                    Integer.parseInt(rs.getString(9)),
+                    rs.getInt(8),
+                    rs.getInt(9),
                     rs.getString(10).substring(0,10),
                     rs.getString(11).substring(0,10),
                     rs.getString(12),
@@ -68,15 +63,15 @@ public class FilmDAO {
 
         List<Film> films = new ArrayList<Film>();
         while(rs.next()){
-            films.add(new Film(Integer.parseInt(rs.getString(1)),
+            films.add(new Film(rs.getInt(1),
                     rs.getString(2),
                     rs.getString(3),
                     rs.getString(4),
                     rs.getString(5),
-                    Integer.parseInt(rs.getString(6)),
+                    rs.getInt(6),
                     rs.getString(7),
-                    Integer.parseInt(rs.getString(8)),
-                    Integer.parseInt(rs.getString(9)),
+                    rs.getInt(8),
+                    rs.getInt(9),
                     rs.getString(10),
                     rs.getString(11),
                     rs.getString(12),

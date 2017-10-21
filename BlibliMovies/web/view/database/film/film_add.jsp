@@ -111,13 +111,9 @@
                         <label for="studio1">Studio 1:</label>
                         <select class="form-control" id="studio1" name="studio1" required>
                             <option disabled selected value> -- pilih Studio -- </option>
-                            <option>A</option>
-                            <option>B</option>
-                            <option>C</option>
-                            <option>D</option>
-                            <option>E</option>
-                            <option>F</option>
-                            <option>G</option>
+                            <c:forEach items="${studio}" var="studio">
+                                <option value="<c:out value='${studio.id}'></c:out>"><c:out value="${studio.name}"></c:out></option>
+                            </c:forEach>
                         </select>
                     </div>
 
@@ -130,13 +126,9 @@
                         <label for="studio2">Studio 2:</label>
                         <select class="form-control" id="studio2" name="studio2">
                             <option disabled selected value> -- pilih Studio -- </option>
-                            <option>A</option>
-                            <option>B</option>
-                            <option>C</option>
-                            <option>D</option>
-                            <option>E</option>
-                            <option>F</option>
-                            <option>G</option>
+                            <c:forEach items="${studio}" var="studio">
+                                <option value="<c:out value='${studio.id}'></c:out>"><c:out value="${studio.name}"></c:out></option>
+                            </c:forEach>
                         </select>
                     </div>
 
@@ -149,13 +141,9 @@
                         <label for="studio3">Studio 3:</label>
                         <select class="form-control" id="studio3" name="studio3">
                             <option disabled selected value> -- pilih Studio -- </option>
-                            <option>A</option>
-                            <option>B</option>
-                            <option>C</option>
-                            <option>D</option>
-                            <option>E</option>
-                            <option>F</option>
-                            <option>G</option>
+                            <c:forEach items="${studio}" var="studio">
+                                <option value="<c:out value='${studio.id}'></c:out>"><c:out value="${studio.name}"></c:out></option>
+                            </c:forEach>
                         </select>
                     </div>
 
@@ -168,13 +156,9 @@
                         <label for="studio4">Studio 4:</label>
                         <select class="form-control" id="studio4" name="studio4">
                             <option disabled selected value> -- pilih Studio -- </option>
-                            <option>A</option>
-                            <option>B</option>
-                            <option>C</option>
-                            <option>D</option>
-                            <option>E</option>
-                            <option>F</option>
-                            <option>G</option>
+                            <c:forEach items="${studio}" var="studio">
+                                <option value="<c:out value='${studio.id}'></c:out>"><c:out value="${studio.name}"></c:out></option>
+                            </c:forEach>
                         </select>
                     </div>
 
@@ -187,13 +171,9 @@
                         <label for="studio5">Studio 5:</label>
                         <select class="form-control" id="studio5" name="studio5">
                             <option disabled selected value> -- pilih Studio -- </option>
-                            <option>A</option>
-                            <option>B</option>
-                            <option>C</option>
-                            <option>D</option>
-                            <option>E</option>
-                            <option>F</option>
-                            <option>G</option>
+                            <c:forEach items="${studio}" var="studio">
+                                <option value="<c:out value='${studio.id}'></c:out>"><c:out value="${studio.name}"></c:out></option>
+                            </c:forEach>
                         </select>
                     </div>
 
@@ -206,13 +186,9 @@
                         <label for="studio6">Studio 6:</label>
                         <select class="form-control" id="studio6" name="studio6">
                             <option disabled selected value> -- pilih Studio -- </option>
-                            <option>A</option>
-                            <option>B</option>
-                            <option>C</option>
-                            <option>D</option>
-                            <option>E</option>
-                            <option>F</option>
-                            <option>G</option>
+                            <c:forEach items="${studio}" var="studio">
+                                <option value="<c:out value='${studio.id}'></c:out>"><c:out value="${studio.name}"></c:out></option>
+                            </c:forEach>
                         </select>
                     </div>
 
@@ -225,13 +201,9 @@
                         <label for="studio7">Studio 7:</label>
                         <select class="form-control" id="studio7" name="studio7">
                             <option disabled selected value> -- pilih Studio -- </option>
-                            <option>A</option>
-                            <option>B</option>
-                            <option>C</option>
-                            <option>D</option>
-                            <option>E</option>
-                            <option>F</option>
-                            <option>G</option>
+                            <c:forEach items="${studio}" var="studio">
+                                <option value="<c:out value='${studio.id}'></c:out>"><c:out value="${studio.name}"></c:out></option>
+                            </c:forEach>
                         </select>
                     </div>
 
@@ -244,13 +216,9 @@
                         <label for="studio8">Studio 8:</label>
                         <select class="form-control" id="studio8" name="studio8">
                             <option disabled selected value> -- pilih Studio -- </option>
-                            <option>A</option>
-                            <option>B</option>
-                            <option>C</option>
-                            <option>D</option>
-                            <option>E</option>
-                            <option>F</option>
-                            <option>G</option>
+                            <c:forEach items="${studio}" var="studio">
+                                <option value="<c:out value='${studio.id}'></c:out>"><c:out value="${studio.name}"></c:out></option>
+                            </c:forEach>
                         </select>
                     </div>
                 </div>

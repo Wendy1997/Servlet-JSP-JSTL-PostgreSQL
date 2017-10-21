@@ -12,8 +12,8 @@
     </database>
     <schema id="4" parent="2" name="public">
       <ObjectId>2200</ObjectId>
-      <IntrospectionTimestamp>2017-10-21.15:49:38.819</IntrospectionTimestamp>
-      <IntrospectionStateNumber>610</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2017-10-21.19:43:38.349</IntrospectionTimestamp>
+      <IntrospectionStateNumber>666</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -32,104 +32,110 @@
     <schema id="9" parent="2" name="information_schema">
       <ObjectId>12113</ObjectId>
     </schema>
-    <sequence id="10" parent="4" name="studio_id_seq">
-      <ObjectId>32783</ObjectId>
-      <StateNumber>609</StateNumber>
-      <SequenceIdentity>1</SequenceIdentity>
-      <BelongsToColumn>1</BelongsToColumn>
-    </sequence>
-    <sequence id="11" parent="4" name="film_id_seq">
+    <sequence id="10" parent="4" name="film_id_seq">
       <ObjectId>32780</ObjectId>
       <StateNumber>590</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <BelongsToColumn>1</BelongsToColumn>
     </sequence>
-    <table id="12" parent="4" name="account">
+    <sequence id="11" parent="4" name="foodandbeverages_id_seq">
+      <ObjectId>32786</ObjectId>
+      <StateNumber>639</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <sequence id="12" parent="4" name="studio_id_seq">
+      <ObjectId>32783</ObjectId>
+      <StateNumber>609</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+    </sequence>
+    <table id="13" parent="4" name="account">
       <ObjectId>24587</ObjectId>
-      <StateNumber>568</StateNumber>
+      <StateNumber>665</StateNumber>
     </table>
-    <table id="13" parent="4" name="film">
+    <table id="14" parent="4" name="film">
       <ObjectId>24695</ObjectId>
       <StateNumber>584</StateNumber>
     </table>
-    <table id="14" parent="4" name="filmticket">
+    <table id="15" parent="4" name="filmticket">
       <ObjectId>24748</ObjectId>
       <StateNumber>576</StateNumber>
     </table>
-    <table id="15" parent="4" name="foodandbeverages">
+    <table id="16" parent="4" name="foodandbeverages">
       <ObjectId>24685</ObjectId>
       <StateNumber>571</StateNumber>
     </table>
-    <table id="16" parent="4" name="invoice">
+    <table id="17" parent="4" name="invoice">
       <ObjectId>24620</ObjectId>
       <StateNumber>570</StateNumber>
     </table>
-    <table id="17" parent="4" name="ledger">
+    <table id="18" parent="4" name="ledger">
       <ObjectId>24660</ObjectId>
       <StateNumber>570</StateNumber>
     </table>
-    <table id="18" parent="4" name="membercard">
+    <table id="19" parent="4" name="membercard">
       <ObjectId>24597</ObjectId>
       <StateNumber>570</StateNumber>
     </table>
-    <table id="19" parent="4" name="orderdetail">
+    <table id="20" parent="4" name="orderdetail">
       <ObjectId>24645</ObjectId>
       <StateNumber>570</StateNumber>
     </table>
-    <table id="20" parent="4" name="promo">
+    <table id="21" parent="4" name="promo">
       <ObjectId>24607</ObjectId>
       <StateNumber>568</StateNumber>
     </table>
-    <table id="21" parent="4" name="screeningtime">
+    <table id="22" parent="4" name="screeningtime">
       <ObjectId>24728</ObjectId>
       <StateNumber>576</StateNumber>
     </table>
-    <table id="22" parent="4" name="seat">
+    <table id="23" parent="4" name="seat">
       <ObjectId>24718</ObjectId>
       <StateNumber>576</StateNumber>
     </table>
-    <table id="23" parent="4" name="storeaccount">
+    <table id="24" parent="4" name="storeaccount">
       <ObjectId>24582</ObjectId>
-      <StateNumber>575</StateNumber>
+      <StateNumber>665</StateNumber>
     </table>
-    <table id="24" parent="4" name="studio">
+    <table id="25" parent="4" name="studio">
       <ObjectId>24708</ObjectId>
       <StateNumber>576</StateNumber>
     </table>
-    <column id="25" parent="12" name="username">
+    <column id="26" parent="13" name="username">
       <Position>1</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>565</StateNumber>
     </column>
-    <column id="26" parent="12" name="storeusername">
+    <column id="27" parent="13" name="storeusername">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>565</StateNumber>
     </column>
-    <column id="27" parent="12" name="password">
+    <column id="28" parent="13" name="password">
       <Position>3</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>565</StateNumber>
     </column>
-    <column id="28" parent="12" name="type">
+    <column id="29" parent="13" name="type">
       <Position>4</Position>
       <DataType>varchar(10)|0</DataType>
       <StateNumber>565</StateNumber>
     </column>
-    <index id="29" parent="12" name="account_pkey">
+    <index id="30" parent="13" name="account_pkey">
       <ObjectId>24590</ObjectId>
       <ColNames>username</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="30" parent="12" name="account_pkey">
+    <key id="31" parent="13" name="account_pkey">
       <ObjectId>24591</ObjectId>
       <ColNames>username</ColNames>
       <UnderlyingIndexName>account_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="31" parent="12" name="account_storeusername_fkey">
-      <ObjectId>24592</ObjectId>
+    <foreign-key id="32" parent="13" name="account_storeaccount_username_fk">
+      <ObjectId>32790</ObjectId>
       <ColNames>storeusername</ColNames>
       <RefTableId>24582</RefTableId>
       <RefColPositions>1</RefColPositions>
@@ -137,7 +143,7 @@
       <RefKeyName>storeaccount_pkey</RefKeyName>
       <RefColNames>username</RefColNames>
     </foreign-key>
-    <column id="32" parent="13" name="id">
+    <column id="33" parent="14" name="id">
       <Position>1</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
@@ -145,88 +151,88 @@
       <SequenceName>film_id_seq</SequenceName>
       <DefaultExpression>nextval(&apos;film_id_seq&apos;::regclass)</DefaultExpression>
     </column>
-    <column id="33" parent="13" name="storeusername">
+    <column id="34" parent="14" name="storeusername">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>572</StateNumber>
     </column>
-    <column id="34" parent="13" name="cover">
+    <column id="35" parent="14" name="cover">
       <Position>3</Position>
       <DataType>varchar(150)|0</DataType>
       <StateNumber>572</StateNumber>
     </column>
-    <column id="35" parent="13" name="title">
+    <column id="36" parent="14" name="title">
       <Position>4</Position>
       <DataType>varchar(50)|0</DataType>
       <StateNumber>572</StateNumber>
     </column>
-    <column id="36" parent="13" name="genre">
+    <column id="37" parent="14" name="genre">
       <Position>5</Position>
       <DataType>varchar(15)|0</DataType>
       <StateNumber>572</StateNumber>
     </column>
-    <column id="37" parent="13" name="duration">
+    <column id="38" parent="14" name="duration">
       <Position>6</Position>
       <DataType>integer|0</DataType>
       <StateNumber>572</StateNumber>
     </column>
-    <column id="38" parent="13" name="director">
+    <column id="39" parent="14" name="director">
       <Position>7</Position>
       <DataType>varchar(50)|0</DataType>
       <StateNumber>572</StateNumber>
     </column>
-    <column id="39" parent="13" name="rating">
+    <column id="40" parent="14" name="rating">
       <Position>8</Position>
       <DataType>double precision|0</DataType>
       <StateNumber>584</StateNumber>
     </column>
-    <column id="40" parent="13" name="reviewtotal">
+    <column id="41" parent="14" name="reviewtotal">
       <Position>9</Position>
       <DataType>integer|0</DataType>
       <StateNumber>572</StateNumber>
     </column>
-    <column id="41" parent="13" name="starttime">
+    <column id="42" parent="14" name="starttime">
       <Position>10</Position>
       <DataType>timestamp|0</DataType>
       <StateNumber>572</StateNumber>
     </column>
-    <column id="42" parent="13" name="endtime">
+    <column id="43" parent="14" name="endtime">
       <Position>11</Position>
       <DataType>timestamp|0</DataType>
       <StateNumber>572</StateNumber>
     </column>
-    <column id="43" parent="13" name="language">
+    <column id="44" parent="14" name="language">
       <Position>12</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>572</StateNumber>
     </column>
-    <column id="44" parent="13" name="subtitle">
+    <column id="45" parent="14" name="subtitle">
       <Position>13</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>572</StateNumber>
     </column>
-    <column id="45" parent="13" name="actor">
+    <column id="46" parent="14" name="actor">
       <Position>14</Position>
       <DataType>varchar(50)|0</DataType>
       <StateNumber>572</StateNumber>
     </column>
-    <column id="46" parent="13" name="synopsis">
+    <column id="47" parent="14" name="synopsis">
       <Position>15</Position>
       <DataType>text|0</DataType>
       <StateNumber>572</StateNumber>
     </column>
-    <index id="47" parent="13" name="film_pkey">
+    <index id="48" parent="14" name="film_pkey">
       <ObjectId>24701</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="48" parent="13" name="film_pkey">
+    <key id="49" parent="14" name="film_pkey">
       <ObjectId>24702</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>film_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="49" parent="13" name="film_storeusername_fkey">
+    <foreign-key id="50" parent="14" name="film_storeusername_fkey">
       <ObjectId>24703</ObjectId>
       <ColNames>storeusername</ColNames>
       <RefTableId>24582</RefTableId>
@@ -235,49 +241,49 @@
       <RefKeyName>storeaccount_pkey</RefKeyName>
       <RefColNames>username</RefColNames>
     </foreign-key>
-    <column id="50" parent="14" name="id">
+    <column id="51" parent="15" name="id">
       <Position>1</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>576</StateNumber>
     </column>
-    <column id="51" parent="14" name="filmid">
+    <column id="52" parent="15" name="filmid">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>576</StateNumber>
     </column>
-    <column id="52" parent="14" name="studioid">
+    <column id="53" parent="15" name="studioid">
       <Position>3</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>576</StateNumber>
     </column>
-    <column id="53" parent="14" name="seatnumber">
+    <column id="54" parent="15" name="seatnumber">
       <Position>4</Position>
       <DataType>varchar(5)|0</DataType>
       <StateNumber>576</StateNumber>
     </column>
-    <column id="54" parent="14" name="screeningid">
+    <column id="55" parent="15" name="screeningid">
       <Position>5</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>576</StateNumber>
     </column>
-    <column id="55" parent="14" name="price">
+    <column id="56" parent="15" name="price">
       <Position>6</Position>
       <DataType>integer|0</DataType>
       <StateNumber>576</StateNumber>
     </column>
-    <index id="56" parent="14" name="filmticket_pkey">
+    <index id="57" parent="15" name="filmticket_pkey">
       <ObjectId>24751</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="57" parent="14" name="filmticket_pkey">
+    <key id="58" parent="15" name="filmticket_pkey">
       <ObjectId>24752</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>filmticket_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="58" parent="14" name="filmticket_filmid_fkey">
+    <foreign-key id="59" parent="15" name="filmticket_filmid_fkey">
       <ObjectId>24753</ObjectId>
       <ColNames>filmid</ColNames>
       <RefTableId>24695</RefTableId>
@@ -286,7 +292,7 @@
       <RefKeyName>film_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="59" parent="14" name="filmticket_studioid_fkey">
+    <foreign-key id="60" parent="15" name="filmticket_studioid_fkey">
       <ObjectId>24758</ObjectId>
       <ColNames>studioid</ColNames>
       <RefTableId>24708</RefTableId>
@@ -295,7 +301,7 @@
       <RefKeyName>studio_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="60" parent="14" name="filmticket_seatnumber_fkey">
+    <foreign-key id="61" parent="15" name="filmticket_seatnumber_fkey">
       <ObjectId>24763</ObjectId>
       <ColNames>seatnumber</ColNames>
       <RefTableId>24718</RefTableId>
@@ -304,7 +310,7 @@
       <RefKeyName>seat_pkey</RefKeyName>
       <RefColNames>number</RefColNames>
     </foreign-key>
-    <foreign-key id="61" parent="14" name="filmticket_screeningid_fkey">
+    <foreign-key id="62" parent="15" name="filmticket_screeningid_fkey">
       <ObjectId>24768</ObjectId>
       <ColNames>screeningid</ColNames>
       <RefTableId>24728</RefTableId>
@@ -313,54 +319,56 @@
       <RefKeyName>screeningtime_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="62" parent="15" name="id">
+    <column id="63" parent="16" name="id">
       <Position>1</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>571</StateNumber>
+      <StateNumber>640</StateNumber>
+      <SequenceName>foodandbeverages_id_seq</SequenceName>
+      <DefaultExpression>nextval(&apos;foodandbeverages_id_seq&apos;::regclass)</DefaultExpression>
     </column>
-    <column id="63" parent="15" name="storeusername">
+    <column id="64" parent="16" name="storeusername">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>571</StateNumber>
     </column>
-    <column id="64" parent="15" name="cover">
+    <column id="65" parent="16" name="cover">
       <Position>3</Position>
       <DataType>varchar(150)|0</DataType>
       <StateNumber>571</StateNumber>
     </column>
-    <column id="65" parent="15" name="name">
+    <column id="66" parent="16" name="name">
       <Position>4</Position>
       <DataType>varchar(50)|0</DataType>
       <StateNumber>571</StateNumber>
     </column>
-    <column id="66" parent="15" name="type">
+    <column id="67" parent="16" name="type">
       <Position>5</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>571</StateNumber>
     </column>
-    <column id="67" parent="15" name="size">
+    <column id="68" parent="16" name="size">
       <Position>6</Position>
       <DataType>varchar(10)|0</DataType>
       <StateNumber>571</StateNumber>
     </column>
-    <column id="68" parent="15" name="price">
+    <column id="69" parent="16" name="price">
       <Position>7</Position>
       <DataType>integer|0</DataType>
       <StateNumber>571</StateNumber>
     </column>
-    <index id="69" parent="15" name="foodandbeverages_pkey">
+    <index id="70" parent="16" name="foodandbeverages_pkey">
       <ObjectId>24688</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="70" parent="15" name="foodandbeverages_pkey">
+    <key id="71" parent="16" name="foodandbeverages_pkey">
       <ObjectId>24689</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>foodandbeverages_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="71" parent="15" name="foodandbeverages_storeusername_fkey">
+    <foreign-key id="72" parent="16" name="foodandbeverages_storeusername_fkey">
       <ObjectId>24690</ObjectId>
       <ColNames>storeusername</ColNames>
       <RefTableId>24582</RefTableId>
@@ -369,54 +377,54 @@
       <RefKeyName>storeaccount_pkey</RefKeyName>
       <RefColNames>username</RefColNames>
     </foreign-key>
-    <column id="72" parent="16" name="id">
+    <column id="73" parent="17" name="id">
       <Position>1</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>568</StateNumber>
     </column>
-    <column id="73" parent="16" name="memberid">
+    <column id="74" parent="17" name="memberid">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>568</StateNumber>
     </column>
-    <column id="74" parent="16" name="accountusername">
+    <column id="75" parent="17" name="accountusername">
       <Position>3</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>568</StateNumber>
     </column>
-    <column id="75" parent="16" name="storeusername">
+    <column id="76" parent="17" name="storeusername">
       <Position>4</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>568</StateNumber>
     </column>
-    <column id="76" parent="16" name="promoid">
+    <column id="77" parent="17" name="promoid">
       <Position>5</Position>
       <DataType>varchar(10)|0</DataType>
       <StateNumber>568</StateNumber>
     </column>
-    <column id="77" parent="16" name="orderdate">
+    <column id="78" parent="17" name="orderdate">
       <Position>6</Position>
       <DataType>timestamp|0</DataType>
       <StateNumber>568</StateNumber>
     </column>
-    <column id="78" parent="16" name="totalprice">
+    <column id="79" parent="17" name="totalprice">
       <Position>7</Position>
       <DataType>integer|0</DataType>
       <StateNumber>568</StateNumber>
     </column>
-    <index id="79" parent="16" name="invoice_pkey">
+    <index id="80" parent="17" name="invoice_pkey">
       <ObjectId>24623</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="80" parent="16" name="invoice_pkey">
+    <key id="81" parent="17" name="invoice_pkey">
       <ObjectId>24624</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>invoice_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="81" parent="16" name="invoice_memberid_fkey">
+    <foreign-key id="82" parent="17" name="invoice_memberid_fkey">
       <ObjectId>24625</ObjectId>
       <ColNames>memberid</ColNames>
       <RefTableId>24597</RefTableId>
@@ -425,7 +433,7 @@
       <RefKeyName>membercard_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="82" parent="16" name="invoice_accountusername_fkey">
+    <foreign-key id="83" parent="17" name="invoice_accountusername_fkey">
       <ObjectId>24630</ObjectId>
       <ColNames>accountusername</ColNames>
       <RefTableId>24587</RefTableId>
@@ -434,7 +442,7 @@
       <RefKeyName>account_pkey</RefKeyName>
       <RefColNames>username</RefColNames>
     </foreign-key>
-    <foreign-key id="83" parent="16" name="invoice_storeusername_fkey">
+    <foreign-key id="84" parent="17" name="invoice_storeusername_fkey">
       <ObjectId>24635</ObjectId>
       <ColNames>storeusername</ColNames>
       <RefTableId>24582</RefTableId>
@@ -443,7 +451,7 @@
       <RefKeyName>storeaccount_pkey</RefKeyName>
       <RefColNames>username</RefColNames>
     </foreign-key>
-    <foreign-key id="84" parent="16" name="invoice_promoid_fkey">
+    <foreign-key id="85" parent="17" name="invoice_promoid_fkey">
       <ObjectId>24640</ObjectId>
       <ColNames>promoid</ColNames>
       <RefTableId>24607</RefTableId>
@@ -452,64 +460,64 @@
       <RefKeyName>promo_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="85" parent="17" name="id">
+    <column id="86" parent="18" name="id">
       <Position>1</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>570</StateNumber>
     </column>
-    <column id="86" parent="17" name="invoiceid">
+    <column id="87" parent="18" name="invoiceid">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>570</StateNumber>
     </column>
-    <column id="87" parent="17" name="orderdetailid">
+    <column id="88" parent="18" name="orderdetailid">
       <Position>3</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>570</StateNumber>
     </column>
-    <column id="88" parent="17" name="memberid">
+    <column id="89" parent="18" name="memberid">
       <Position>4</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>570</StateNumber>
     </column>
-    <column id="89" parent="17" name="storeusername">
+    <column id="90" parent="18" name="storeusername">
       <Position>5</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>570</StateNumber>
     </column>
-    <column id="90" parent="17" name="date">
+    <column id="91" parent="18" name="date">
       <Position>6</Position>
       <DataType>timestamp|0</DataType>
       <StateNumber>570</StateNumber>
     </column>
-    <column id="91" parent="17" name="itemname">
+    <column id="92" parent="18" name="itemname">
       <Position>7</Position>
       <DataType>varchar(30)|0</DataType>
       <StateNumber>570</StateNumber>
     </column>
-    <column id="92" parent="17" name="quantity">
+    <column id="93" parent="18" name="quantity">
       <Position>8</Position>
       <DataType>integer|0</DataType>
       <StateNumber>570</StateNumber>
     </column>
-    <column id="93" parent="17" name="price">
+    <column id="94" parent="18" name="price">
       <Position>9</Position>
       <DataType>integer|0</DataType>
       <StateNumber>570</StateNumber>
     </column>
-    <index id="94" parent="17" name="ledger_pkey">
+    <index id="95" parent="18" name="ledger_pkey">
       <ObjectId>24663</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="95" parent="17" name="ledger_pkey">
+    <key id="96" parent="18" name="ledger_pkey">
       <ObjectId>24664</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>ledger_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="96" parent="17" name="ledger_invoiceid_fkey">
+    <foreign-key id="97" parent="18" name="ledger_invoiceid_fkey">
       <ObjectId>24665</ObjectId>
       <ColNames>invoiceid</ColNames>
       <RefTableId>24620</RefTableId>
@@ -518,7 +526,7 @@
       <RefKeyName>invoice_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="97" parent="17" name="ledger_orderdetailid_fkey">
+    <foreign-key id="98" parent="18" name="ledger_orderdetailid_fkey">
       <ObjectId>24670</ObjectId>
       <ColNames>orderdetailid</ColNames>
       <RefTableId>24645</RefTableId>
@@ -527,7 +535,7 @@
       <RefKeyName>orderdetail_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="98" parent="17" name="ledger_memberid_fkey">
+    <foreign-key id="99" parent="18" name="ledger_memberid_fkey">
       <ObjectId>24675</ObjectId>
       <ColNames>memberid</ColNames>
       <RefTableId>24597</RefTableId>
@@ -536,7 +544,7 @@
       <RefKeyName>membercard_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="99" parent="17" name="ledger_storeusername_fkey">
+    <foreign-key id="100" parent="18" name="ledger_storeusername_fkey">
       <ObjectId>24680</ObjectId>
       <ColNames>storeusername</ColNames>
       <RefTableId>24582</RefTableId>
@@ -545,54 +553,54 @@
       <RefKeyName>storeaccount_pkey</RefKeyName>
       <RefColNames>username</RefColNames>
     </foreign-key>
-    <column id="100" parent="18" name="id">
+    <column id="101" parent="19" name="id">
       <Position>1</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>566</StateNumber>
     </column>
-    <column id="101" parent="18" name="storeusername">
+    <column id="102" parent="19" name="storeusername">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>566</StateNumber>
     </column>
-    <column id="102" parent="18" name="fullname">
+    <column id="103" parent="19" name="fullname">
       <Position>3</Position>
       <DataType>varchar(50)|0</DataType>
       <StateNumber>566</StateNumber>
     </column>
-    <column id="103" parent="18" name="gender">
+    <column id="104" parent="19" name="gender">
       <Position>4</Position>
       <DataType>varchar(8)|0</DataType>
       <StateNumber>566</StateNumber>
     </column>
-    <column id="104" parent="18" name="birthdate">
+    <column id="105" parent="19" name="birthdate">
       <Position>5</Position>
       <DataType>timestamp|0</DataType>
       <StateNumber>566</StateNumber>
     </column>
-    <column id="105" parent="18" name="phonenumber">
+    <column id="106" parent="19" name="phonenumber">
       <Position>6</Position>
       <DataType>varchar(15)|0</DataType>
       <StateNumber>566</StateNumber>
     </column>
-    <column id="106" parent="18" name="email">
+    <column id="107" parent="19" name="email">
       <Position>7</Position>
       <DataType>varchar(30)|0</DataType>
       <StateNumber>566</StateNumber>
     </column>
-    <index id="107" parent="18" name="membercard_pkey">
+    <index id="108" parent="19" name="membercard_pkey">
       <ObjectId>24600</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="108" parent="18" name="membercard_pkey">
+    <key id="109" parent="19" name="membercard_pkey">
       <ObjectId>24601</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>membercard_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="109" parent="18" name="membercard_storeusername_fkey">
+    <foreign-key id="110" parent="19" name="membercard_storeusername_fkey">
       <ObjectId>24602</ObjectId>
       <ColNames>storeusername</ColNames>
       <RefTableId>24582</RefTableId>
@@ -601,54 +609,54 @@
       <RefKeyName>storeaccount_pkey</RefKeyName>
       <RefColNames>username</RefColNames>
     </foreign-key>
-    <column id="110" parent="19" name="id">
+    <column id="111" parent="20" name="id">
       <Position>1</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>569</StateNumber>
     </column>
-    <column id="111" parent="19" name="invoiceid">
+    <column id="112" parent="20" name="invoiceid">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>569</StateNumber>
     </column>
-    <column id="112" parent="19" name="storeusername">
+    <column id="113" parent="20" name="storeusername">
       <Position>3</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>569</StateNumber>
     </column>
-    <column id="113" parent="19" name="itemname">
+    <column id="114" parent="20" name="itemname">
       <Position>4</Position>
       <DataType>varchar(30)|0</DataType>
       <StateNumber>569</StateNumber>
     </column>
-    <column id="114" parent="19" name="quantity">
+    <column id="115" parent="20" name="quantity">
       <Position>5</Position>
       <DataType>integer|0</DataType>
       <StateNumber>569</StateNumber>
     </column>
-    <column id="115" parent="19" name="price">
+    <column id="116" parent="20" name="price">
       <Position>6</Position>
       <DataType>integer|0</DataType>
       <StateNumber>569</StateNumber>
     </column>
-    <column id="116" parent="19" name="discountstatus">
+    <column id="117" parent="20" name="discountstatus">
       <Position>7</Position>
       <DataType>varchar(10)|0</DataType>
       <StateNumber>569</StateNumber>
     </column>
-    <index id="117" parent="19" name="orderdetail_pkey">
+    <index id="118" parent="20" name="orderdetail_pkey">
       <ObjectId>24648</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="118" parent="19" name="orderdetail_pkey">
+    <key id="119" parent="20" name="orderdetail_pkey">
       <ObjectId>24649</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>orderdetail_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="119" parent="19" name="orderdetail_invoiceid_fkey">
+    <foreign-key id="120" parent="20" name="orderdetail_invoiceid_fkey">
       <ObjectId>24650</ObjectId>
       <ColNames>invoiceid</ColNames>
       <RefTableId>24620</RefTableId>
@@ -657,7 +665,7 @@
       <RefKeyName>invoice_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="120" parent="19" name="orderdetail_storeusername_fkey">
+    <foreign-key id="121" parent="20" name="orderdetail_storeusername_fkey">
       <ObjectId>24655</ObjectId>
       <ColNames>storeusername</ColNames>
       <RefTableId>24582</RefTableId>
@@ -666,49 +674,49 @@
       <RefKeyName>storeaccount_pkey</RefKeyName>
       <RefColNames>username</RefColNames>
     </foreign-key>
-    <column id="121" parent="20" name="id">
+    <column id="122" parent="21" name="id">
       <Position>1</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>567</StateNumber>
     </column>
-    <column id="122" parent="20" name="storeusername">
+    <column id="123" parent="21" name="storeusername">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>567</StateNumber>
     </column>
-    <column id="123" parent="20" name="name">
+    <column id="124" parent="21" name="name">
       <Position>3</Position>
       <DataType>varchar(50)|0</DataType>
       <StateNumber>567</StateNumber>
     </column>
-    <column id="124" parent="20" name="description">
+    <column id="125" parent="21" name="description">
       <Position>4</Position>
       <DataType>text|0</DataType>
       <StateNumber>567</StateNumber>
     </column>
-    <column id="125" parent="20" name="status">
+    <column id="126" parent="21" name="status">
       <Position>5</Position>
       <DataType>varchar(10)|0</DataType>
       <StateNumber>567</StateNumber>
     </column>
-    <column id="126" parent="20" name="discountamount">
+    <column id="127" parent="21" name="discountamount">
       <Position>6</Position>
       <DataType>integer|0</DataType>
       <StateNumber>567</StateNumber>
     </column>
-    <index id="127" parent="20" name="promo_pkey">
+    <index id="128" parent="21" name="promo_pkey">
       <ObjectId>24613</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="128" parent="20" name="promo_pkey">
+    <key id="129" parent="21" name="promo_pkey">
       <ObjectId>24614</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>promo_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="129" parent="20" name="promo_storeusername_fkey">
+    <foreign-key id="130" parent="21" name="promo_storeusername_fkey">
       <ObjectId>24615</ObjectId>
       <ColNames>storeusername</ColNames>
       <RefTableId>24582</RefTableId>
@@ -717,49 +725,49 @@
       <RefKeyName>storeaccount_pkey</RefKeyName>
       <RefColNames>username</RefColNames>
     </foreign-key>
-    <column id="130" parent="21" name="id">
+    <column id="131" parent="22" name="id">
       <Position>1</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>575</StateNumber>
     </column>
-    <column id="131" parent="21" name="filmid">
+    <column id="132" parent="22" name="filmid">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>575</StateNumber>
     </column>
-    <column id="132" parent="21" name="studioid">
+    <column id="133" parent="22" name="studioid">
       <Position>3</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>575</StateNumber>
     </column>
-    <column id="133" parent="21" name="storeusername">
+    <column id="134" parent="22" name="storeusername">
       <Position>4</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>575</StateNumber>
     </column>
-    <column id="134" parent="21" name="time">
+    <column id="135" parent="22" name="time">
       <Position>5</Position>
       <DataType>timestamp|0</DataType>
       <StateNumber>575</StateNumber>
     </column>
-    <column id="135" parent="21" name="duration">
+    <column id="136" parent="22" name="duration">
       <Position>6</Position>
       <DataType>integer|0</DataType>
       <StateNumber>575</StateNumber>
     </column>
-    <index id="136" parent="21" name="screeningtime_pkey">
+    <index id="137" parent="22" name="screeningtime_pkey">
       <ObjectId>24731</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="137" parent="21" name="screeningtime_pkey">
+    <key id="138" parent="22" name="screeningtime_pkey">
       <ObjectId>24732</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>screeningtime_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="138" parent="21" name="screeningtime_filmid_fkey">
+    <foreign-key id="139" parent="22" name="screeningtime_filmid_fkey">
       <ObjectId>24733</ObjectId>
       <ColNames>filmid</ColNames>
       <RefTableId>24695</RefTableId>
@@ -768,7 +776,7 @@
       <RefKeyName>film_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="139" parent="21" name="screeningtime_studioid_fkey">
+    <foreign-key id="140" parent="22" name="screeningtime_studioid_fkey">
       <ObjectId>24738</ObjectId>
       <ColNames>studioid</ColNames>
       <RefTableId>24708</RefTableId>
@@ -777,7 +785,7 @@
       <RefKeyName>studio_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="140" parent="21" name="screeningtime_storeusername_fkey">
+    <foreign-key id="141" parent="22" name="screeningtime_storeusername_fkey">
       <ObjectId>24743</ObjectId>
       <ColNames>storeusername</ColNames>
       <RefTableId>24582</RefTableId>
@@ -786,29 +794,29 @@
       <RefKeyName>storeaccount_pkey</RefKeyName>
       <RefColNames>username</RefColNames>
     </foreign-key>
-    <column id="141" parent="22" name="number">
+    <column id="142" parent="23" name="number">
       <Position>1</Position>
       <DataType>varchar(5)|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>574</StateNumber>
     </column>
-    <column id="142" parent="22" name="studioid">
+    <column id="143" parent="23" name="studioid">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>574</StateNumber>
     </column>
-    <index id="143" parent="22" name="seat_pkey">
+    <index id="144" parent="23" name="seat_pkey">
       <ObjectId>24721</ObjectId>
       <ColNames>number</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="144" parent="22" name="seat_pkey">
+    <key id="145" parent="23" name="seat_pkey">
       <ObjectId>24722</ObjectId>
       <ColNames>number</ColNames>
       <UnderlyingIndexName>seat_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="145" parent="22" name="seat_studioid_fkey">
+    <foreign-key id="146" parent="23" name="seat_studioid_fkey">
       <ObjectId>24723</ObjectId>
       <ColNames>studioid</ColNames>
       <RefTableId>24708</RefTableId>
@@ -817,34 +825,34 @@
       <RefKeyName>studio_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="146" parent="23" name="username">
+    <column id="147" parent="24" name="username">
       <Position>1</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>564</StateNumber>
     </column>
-    <column id="147" parent="23" name="password">
+    <column id="148" parent="24" name="password">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>564</StateNumber>
     </column>
-    <column id="148" parent="23" name="storename">
+    <column id="149" parent="24" name="storename">
       <Position>3</Position>
       <DataType>varchar(50)|0</DataType>
       <StateNumber>564</StateNumber>
     </column>
-    <index id="149" parent="23" name="storeaccount_pkey">
+    <index id="150" parent="24" name="storeaccount_pkey">
       <ObjectId>24585</ObjectId>
       <ColNames>username</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="150" parent="23" name="storeaccount_pkey">
+    <key id="151" parent="24" name="storeaccount_pkey">
       <ObjectId>24586</ObjectId>
       <ColNames>username</ColNames>
       <UnderlyingIndexName>storeaccount_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="151" parent="24" name="id">
+    <column id="152" parent="25" name="id">
       <Position>1</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
@@ -852,33 +860,33 @@
       <SequenceName>studio_id_seq</SequenceName>
       <DefaultExpression>nextval(&apos;studio_id_seq&apos;::regclass)</DefaultExpression>
     </column>
-    <column id="152" parent="24" name="storeusername">
+    <column id="153" parent="25" name="storeusername">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>573</StateNumber>
     </column>
-    <column id="153" parent="24" name="name">
+    <column id="154" parent="25" name="name">
       <Position>3</Position>
       <DataType>varchar(50)|0</DataType>
       <StateNumber>573</StateNumber>
     </column>
-    <column id="154" parent="24" name="type">
+    <column id="155" parent="25" name="type">
       <Position>4</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>573</StateNumber>
     </column>
-    <index id="155" parent="24" name="studio_pkey">
+    <index id="156" parent="25" name="studio_pkey">
       <ObjectId>24711</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="156" parent="24" name="studio_pkey">
+    <key id="157" parent="25" name="studio_pkey">
       <ObjectId>24712</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>studio_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="157" parent="24" name="studio_storeusername_fkey">
+    <foreign-key id="158" parent="25" name="studio_storeusername_fkey">
       <ObjectId>24713</ObjectId>
       <ColNames>storeusername</ColNames>
       <RefTableId>24582</RefTableId>

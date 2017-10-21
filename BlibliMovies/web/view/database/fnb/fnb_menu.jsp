@@ -7,7 +7,7 @@
     <!-- Title -->
     <div class="jumbotron">
         <h1 class="title">Food and Beverages</h1><br>
-        <a href="fnb_create.html"><h5>Create New Food and Beverages</h5></a>
+        <a href="/admin/fnb/add"><h5>Create New Food and Beverages</h5></a>
     </div>
 
     <!-- Form -->
@@ -20,324 +20,26 @@
                     <th>Cover</th>
                     <th>Nama</th>
                     <th>Jenis</th>
+                    <th>Ukuran</th>
                     <th>Harga</th>
-                    <th>Deskripsi</th>
                     <th></th>
                     <th></th>
                 </tr>
                 </thead>
 
                 <tbody>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="fnb_edit.html">Edit</a></td>
-                    <td><a href="fnb_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="fnb_edit.html">Edit</a></td>
-                    <td><a href="fnb_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="fnb_edit.html">Edit</a></td>
-                    <td><a href="fnb_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="fnb_edit.html">Edit</a></td>
-                    <td><a href="fnb_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="fnb_edit.html">Edit</a></td>
-                    <td><a href="fnb_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="fnb_edit.html">Edit</a></td>
-                    <td><a href="fnb_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="fnb_edit.html">Edit</a></td>
-                    <td><a href="fnb_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="fnb_edit.html">Edit</a></td>
-                    <td><a href="fnb_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="fnb_edit.html">Edit</a></td>
-                    <td><a href="fnb_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="fnb_edit.html">Edit</a></td>
-                    <td><a href="fnb_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="fnb_edit.html">Edit</a></td>
-                    <td><a href="fnb_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="fnb_edit.html">Edit</a></td>
-                    <td><a href="fnb_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="fnb_edit.html">Edit</a></td>
-                    <td><a href="fnb_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="fnb_edit.html">Edit</a></td>
-                    <td><a href="fnb_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="fnb_edit.html">Edit</a></td>
-                    <td><a href="fnb_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="fnb_edit.html">Edit</a></td>
-                    <td><a href="fnb_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="fnb_edit.html">Edit</a></td>
-                    <td><a href="fnb_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="fnb_edit.html">Edit</a></td>
-                    <td><a href="fnb_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="fnb_edit.html">Edit</a></td>
-                    <td><a href="fnb_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="fnb_edit.html">Edit</a></td>
-                    <td><a href="fnb_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="fnb_edit.html">Edit</a></td>
-                    <td><a href="fnb_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="fnb_edit.html">Edit</a></td>
-                    <td><a href="fnb_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="fnb_edit.html">Edit</a></td>
-                    <td><a href="fnb_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="fnb_edit.html">Edit</a></td>
-                    <td><a href="fnb_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="fnb_edit.html">Edit</a></td>
-                    <td><a href="fnb_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="fnb_edit.html">Edit</a></td>
-                    <td><a href="fnb_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="fnb_edit.html">Edit</a></td>
-                    <td><a href="fnb_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="fnb_edit.html">Edit</a></td>
-                    <td><a href="fnb_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="fnb_edit.html">Edit</a></td>
-                    <td><a href="fnb_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="fnb_edit.html">Edit</a></td>
-                    <td><a href="fnb_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="fnb_edit.html">Edit</a></td>
-                    <td><a href="fnb_delete_confirmation.html">Delete</a></td>
-                </tr>
+                    <c:forEach items="${fnbs}" var="fnbs">
+                        <tr>
+                            <td scope="row"><c:out value="${fnbs.id}"></c:out></td>
+                            <td><c:out value="${fnbs.cover}"></c:out></td>
+                            <td><c:out value="${fnbs.name}"></c:out></td>
+                            <td><c:out value="${fnbs.type}"></c:out></td>
+                            <td><c:out value="${fnbs.size}"></c:out></td>
+                            <td><c:out value="${fnbs.price}"></c:out></td>
+                            <td><a <c:out value='href=/admin/fnb/edit?id=${fnbs.id}'></c:out>>Edit</a></td>
+                            <td><a <c:out value='href=/admin/fnb/delete?id=${fnbs.id}'></c:out>>Delete</a></td>
+                        </tr>
+                    </c:forEach>
                 </tbody>
             </table>
         </div>

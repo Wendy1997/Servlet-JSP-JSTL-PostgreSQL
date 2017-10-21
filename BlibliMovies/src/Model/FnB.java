@@ -6,11 +6,20 @@ public class FnB {
     private String cover;
     private String name;
     private String type;
-    private char size;
+    private String size;
     private int price;
 
-    public FnB(int id, String storename, String cover, String name, String type, char size, int price) {
+    public FnB(int id, String storename, String cover, String name, String type, String size, int price) {
         this.id = id;
+        this.storename = storename;
+        this.cover = cover;
+        this.name = name;
+        this.type = type;
+        this.size = size;
+        this.price = price;
+    }
+
+    public FnB(String storename, String cover, String name, String type, String size, int price) {
         this.storename = storename;
         this.cover = cover;
         this.name = name;
@@ -59,11 +68,11 @@ public class FnB {
         this.type = type;
     }
 
-    public char getSize() {
+    public String getSize() {
         return size;
     }
 
-    public void setSize(char size) {
+    public void setSize(String size) {
         this.size = size;
     }
 

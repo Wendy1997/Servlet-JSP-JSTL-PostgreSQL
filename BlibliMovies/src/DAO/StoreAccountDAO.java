@@ -15,13 +15,8 @@ public class StoreAccountDAO {
     public StoreAccountDAO(){
         try {
             Class.forName(database);
-        } catch (ClassNotFoundException e){
-            System.out.println(e.getMessage());
-        }
-
-        try {
             conn = DriverManager.getConnection(url, username, password);
-        } catch (SQLException e) {
+        } catch (Exception e){
             System.out.println(e.getMessage());
         }
     }
