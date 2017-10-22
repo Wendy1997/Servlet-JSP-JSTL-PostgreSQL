@@ -15,7 +15,6 @@
             <table class="table table-hover">
                 <thead>
                 <tr>
-                    <th>No</th>
                     <th>ID</th>
                     <th>Date</th>
                     <th>Total</th>
@@ -27,226 +26,17 @@
                 </thead>
 
                 <tbody>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="invoice_detail.html">Detail</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="invoice_detail.html">Detail</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="invoice_detail.html">Detail</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="invoice_detail.html">Detail</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="invoice_detail.html">Detail</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="invoice_detail.html">Detail</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="invoice_detail.html">Detail</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="invoice_detail.html">Detail</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="invoice_detail.html">Detail</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="invoice_detail.html">Detail</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="invoice_detail.html">Detail</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="invoice_detail.html">Detail</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="invoice_detail.html">Detail</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="invoice_detail.html">Detail</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="invoice_detail.html">Detail</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="invoice_detail.html">Detail</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="invoice_detail.html">Detail</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="invoice_detail.html">Detail</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="invoice_detail.html">Detail</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="invoice_detail.html">Detail</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="invoice_detail.html">Detail</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="invoice_detail.html">Detail</a></td>
-                </tr>
+                    <c:forEach items="${invoices}" var="invoices">
+                        <tr>
+                            <td scope="row"><c:out value="${invoices.id}"></c:out></td>
+                            <td><c:out value="${invoices.orderDate}"></c:out></td>
+                            <td><c:out value="${invoices.totalPrice}"></c:out></td>
+                            <td><c:out value="${invoices.memberId == 0 ? 'False' : 'True'}"></c:out></td>
+                            <td><c:out value="${invoices.memberId == 0 ? 'Null' : invoices.memberId}"></c:out></td>
+                            <td><c:out value="${invoices.totalPrice}"></c:out></td>
+                            <td><a <c:out value='href=/admin/invoice/detail?id=${invoices.id}'></c:out>>Detail</a></td>
+                        </tr>
+                    </c:forEach>
                 </tbody>
             </table>
         </div>

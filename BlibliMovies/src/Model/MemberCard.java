@@ -19,6 +19,15 @@ public class MemberCard {
         this.email = email;
     }
 
+    public MemberCard(String storename, String fullname, String gender, String birthDate, String phoneNumber, String email) {
+        this.storename = storename;
+        this.fullname = fullname;
+        this.gender = gender;
+        this.birthDate = birthDate;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+    }
+
     public int getId() {
         return id;
     }

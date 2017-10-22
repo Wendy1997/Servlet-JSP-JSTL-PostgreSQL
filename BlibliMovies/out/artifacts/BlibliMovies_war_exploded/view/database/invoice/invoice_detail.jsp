@@ -15,12 +15,12 @@
             <div class="row">
                 <div class="col-lg-8">
                     <h2>Invoice</h2>
-                    <h3>Order ID: 060004787</h3>
+                    <h3>Order ID: ${invoice.id}</h3>
                     <div class="stripe"></div><br>
                 </div>
                 <div class="col-lg-4" align="right">
                     <h4>Order Date:</h4>
-                    <h4>25.08.2017</h4>
+                    <h4>${invoice.orderDate}</h4>
                 </div>
             </div>
 
@@ -31,117 +31,39 @@
             </div>
 
             <div class="box-window">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="row box">
-                            <div class="col-lg-2">
-                                <div class="smallCircle"></div>
-                            </div>
-                            <div class="col-lg-10">
-                                <p class="invoice">Lalallaasjfbaldjbakdfbakdfbjak</p>
-                                <p class="invoice">asddbdgbdfwdcadvwva</p>
+                <c:forEach var="orderDetails" items="${orderDetails}">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="row box">
+                                <div class="col-lg-2">
+                                    <div class="smallCircle"></div>
+                                </div>
+                                <div class="col-lg-10">
+                                    <p class="invoice">${orderDetails.itemName}</p>
+                                        <%--<p class="invoice">asddbdgbdfwdcadvwva</p>--%>
+                                </div>
                             </div>
                         </div>
+                        <div class="col-lg-3" align="center">
+                            <p>x${orderDetails.quantity}</p>
+                        </div>
+                        <div class="col-lg-3" align="right">
+                            Rp ${orderDetails.price},-
+                        </div>
                     </div>
-                    <div class="col-lg-3" align="center">
-                        <p>x3</p>
-                    </div>
-                    <div class="col-lg-3" align="right">
-                        Rp 25.000,-
-                    </div>
-                </div>
+                </c:forEach>
 
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="row box">
-                            <div class="col-lg-2">
-                                <div class="smallCircle"></div>
-                            </div>
-                            <div class="col-lg-10">
-                                <p class="invoice">Lalallaasjfbaldjbakdfbakdfbjak</p>
-                                <p class="invoice">asddbdgbdfwdcadvwva</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3" align="center">
-                        <p>x3</p>
-                    </div>
-                    <div class="col-lg-3" align="right">
-                        Rp 25.000,-
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="row box">
-                            <div class="col-lg-2">
-                                <div class="smallCircle"></div>
-                            </div>
-                            <div class="col-lg-10">
-                                <p class="invoice">Lalallaasjfbaldjbakdfbakdfbjak</p>
-                                <p class="invoice">asddbdgbdfwdcadvwva</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3" align="center">
-                        <p>x3</p>
-                    </div>
-                    <div class="col-lg-3" align="right">
-                        Rp 25.000,-
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="row box">
-                            <div class="col-lg-2">
-                                <div class="smallCircle"></div>
-                            </div>
-                            <div class="col-lg-10">
-                                <p class="invoice">Lalallaasjfbaldjbakdfbakdfbjak</p>
-                                <p class="invoice">asddbdgbdfwdcadvwva</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3" align="center">
-                        <p>x3</p>
-                    </div>
-                    <div class="col-lg-3" align="right">
-                        Rp 25.000,-
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="row box">
-                            <div class="col-lg-2">
-                                <div class="smallCircle"></div>
-                            </div>
-                            <div class="col-lg-10">
-                                <p class="invoice">Lalallaasjfbaldjbakdfbakdfbjak</p>
-                                <p class="invoice">asddbdgbdfwdcadvwva</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3" align="center">
-                        <p>x3</p>
-                    </div>
-                    <div class="col-lg-3" align="right">
-                        Rp 25.000,-
-                    </div>
-                </div>
-            </div>
 
             <div class="row">
-                <dir class="col-lg-6">
-                    <p>Total: Rp. 215.000 ,-</p>
-                    <p>Member Discount: 20%</p>
-                </dir>
+                <div class="col-lg-6">
+                    <p>Total: Rp. ${invoice.memberId == 0 ? invoice.totalPrice : invoice.totalPrice + invoice.totalPrice * promo.discountAmount / 100 } ,-</p>
+                    <p>Member Discount: ${invoice.memberId == 0 ? "-" : promo.discountAmount} %</p>
+                </div>
 
-                <dir class="col-lg-6" align="right">
+                <div class="col-lg-6" align="right">
                     <p>Amount Payable</p>
-                    <p><strong>Rp. 217.000 ,-</strong></p>
-                </dir>
+                    <p><strong>Rp. ${invoice.totalPrice} ,-</strong></p>
+                </div>
             </div>
 
         </div>

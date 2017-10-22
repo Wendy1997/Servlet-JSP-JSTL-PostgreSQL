@@ -22,7 +22,7 @@
                 <p>Food and Beverages</p>
             </div>
 
-            <div class="col-lg-2" onclick="document.location.href = '/admin/member';">
+            <div class="col-lg-2" onclick="document.location.href = '/admin/membercard';">
                 <div class="circle"></div>
                 <p>Member Card</p>
             </div>

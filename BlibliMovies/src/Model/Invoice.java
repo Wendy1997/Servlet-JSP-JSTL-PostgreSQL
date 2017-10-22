@@ -19,6 +19,15 @@ public class Invoice {
         this.totalPrice = totalPrice;
     }
 
+    public Invoice(int memberId, String accountUsername, String storeName, int promoId, String orderDate, int totalPrice) {
+        this.memberId = memberId;
+        this.accountUsername = accountUsername;
+        this.storeName = storeName;
+        this.promoId = promoId;
+        this.orderDate = orderDate;
+        this.totalPrice = totalPrice;
+    }
+
     public int getId() {
         return id;
     }

@@ -25,16 +25,15 @@
                 </thead>
 
                 <tbody>
-                <c:forEach items="${accounts}" var="accounts">
-                    <tr>
-                        <td scope="row"><c:out value="${accounts.username}"></c:out></td>
-                        <td><c:out value="${accounts.password}"></c:out></td>
-                        <td><c:out value="${accounts.role}"></c:out></td>
-                        <td><a <c:out value='href=/admin/account/edit?id=${accounts.username}'></c:out>>Edit</a></td>
-                        <td><a <c:out value='href=/admin/account/delete?id=${accounts.username}'></c:out>>Delete</a></td>
-                    </tr>
-                </c:forEach>
-
+                    <c:forEach items="${accounts}" var="accounts">
+                        <tr>
+                            <td scope="row"><c:out value="${accounts.username}"></c:out></td>
+                            <td><c:out value="${accounts.password}"></c:out></td>
+                            <td><c:out value="${accounts.role}"></c:out></td>
+                            <td><a <c:out value='href=/admin/account/edit?id=${accounts.username}'></c:out>>Edit</a></td>
+                            <td><a <c:out value='href=/admin/account/delete?id=${accounts.username}'></c:out>>Delete</a></td>
+                        </tr>
+                    </c:forEach>
                 </tbody>
             </table>
         </div>
