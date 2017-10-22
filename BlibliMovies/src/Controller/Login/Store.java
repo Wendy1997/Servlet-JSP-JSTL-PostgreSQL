@@ -62,7 +62,13 @@ public class Store extends HttpServlet {
                     request.getSession().setAttribute("storename", store.getUsername());
                 }
             }
-            response.sendRedirect("/login");
+
+            address = "/view/database/success.jsp";
+            request.setAttribute("title", "Login");
+            request.setAttribute("complete", "Sukses");
+            request.setAttribute("link", "/login");
+
+            request.getRequestDispatcher(address).forward(request, response);
         } catch (SQLException e){
             System.out.println(e.getMessage());
         }

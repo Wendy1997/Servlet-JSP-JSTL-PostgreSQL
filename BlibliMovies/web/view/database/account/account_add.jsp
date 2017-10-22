@@ -34,8 +34,8 @@
                         <label for="role">Role:</label>
                         <select class="form-control" id="role" name="role" required>
                             <option disabled selected value> -- pilih Role -- </option>
-                            <option value="Admin">Admin</option>
-                            <option value="Cashier">Cashier</option>
+                            <option value="admin">Admin</option>
+                            <option value="cashier">Cashier</option>
                         </select>
                     </div>
 

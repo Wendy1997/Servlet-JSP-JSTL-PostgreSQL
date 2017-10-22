@@ -23,9 +23,10 @@ public class PromoDAO {
 
     }
 
-    public Promo getPromo(String id) throws SQLException {
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM promo where id = ?");
+    public Promo getPromo(String id, String storename) throws SQLException {
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM promo where id = ? and storeusername = ?");
         ps.setString(1, id);
+        ps.setString(2, storename);
 
         ResultSet rs = ps.executeQuery();
 

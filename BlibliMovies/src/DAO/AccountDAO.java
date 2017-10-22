@@ -25,9 +25,10 @@ public class AccountDAO {
 
     }
 
-    public Account getAccount(String username) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM account where username = ?");
+    public Account getAccount(String username, String storename) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM account where username = ? and storeusername = ?");
         ps.setString(1, username);
+        ps.setString(2, storename);
 
         ResultSet rs = ps.executeQuery();
 
@@ -40,8 +41,10 @@ public class AccountDAO {
         return output;
     }
 
-    public List<Account> getAllAccount() throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM account");
+    public List<Account> getAllAccount(String storename) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM account where storeusername = ?");
+        ps.setString(1, storename);
+        System.out.println(storename);
         ResultSet rs = ps.executeQuery();
 
         List<Account> accounts = new ArrayList<Account>();
@@ -60,17 +63,19 @@ public class AccountDAO {
         ps.executeUpdate();
     }
 
-    public void deleteAccount(String account) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("DELETE FROM account where username = ?");
+    public void deleteAccount(String account, String storename) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("DELETE FROM account where username = ? and storeusername = ?");
         ps.setString(1, account);
+        ps.setString(2, storename);
         ps.executeUpdate();
     }
 
     public void updateAccount(Account account) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("UPDATE account set password = ?, type = ? where username = ?");
+        PreparedStatement ps = conn.prepareStatement("UPDATE account set password = ?, type = ? where username = ? and storeusername = ?");
         ps.setString(1, account.getPassword());
         ps.setString(2, account.getRole());
         ps.setString(3, account.getUsername());
+        ps.setString(4, account.getStorename());
         ps.executeUpdate();
     }
 }

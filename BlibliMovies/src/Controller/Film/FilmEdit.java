@@ -19,10 +19,28 @@ public class FilmEdit extends HttpServlet{
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         String address = "/view/database/film/film_edit.jsp";
 
+        // Validasi apakah sudah login store
+        if(request.getSession().getAttribute("storename") == null){
+            address = "/view/login/store_login.jsp";
+            request.getRequestDispatcher(address).forward(request, response);
+        }
+
+        // Validasi apakah sudah login akun
+        else if (request.getSession().getAttribute("role") == null){
+            address = "/view/login/account_login.jsp";
+            request.getRequestDispatcher(address).forward(request, response);
+        }
+
+        // Validasi apakah sudah login as admin
+        else if(!request.getSession().getAttribute("role").equals("admin")){
+            address = "/view/login/account_login.jsp";
+            request.getRequestDispatcher(address).forward(request, response);
+        }
+
         try {
-            Film film = filmService.getFilm(request.getParameter("id"));
+            Film film = filmService.getFilm(request.getParameter("id"), (String)request.getSession().getAttribute("storename"));
             request.setAttribute("film", film);
-            request.setAttribute("studio", filmService.getAllStudio());
+            request.setAttribute("studio", filmService.getAllStudio((String)request.getSession().getAttribute("storename")));
         } catch (Exception e){
             System.out.println(e.getMessage());
         }

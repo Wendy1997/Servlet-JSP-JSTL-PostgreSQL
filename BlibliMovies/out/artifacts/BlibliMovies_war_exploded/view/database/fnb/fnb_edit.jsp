@@ -35,8 +35,8 @@
                         <select class="form-control" id="type" name="type" value="${fnb.type}" required>
                             <option disabled selected value> -- pilih Jenis -- </option>
                             <option value="Food" ${fnb.type == 'Food' ? 'selected' : ''}>Food</option>
-                            <option value="Beverages" ${fnb.type == 'Food' ? 'selected' : ''}>Beverages</option>
-                            <option value="Combo" ${fnb.type == 'Food' ? 'selected' : ''}>Combo</option>
+                            <option value="Beverages" ${fnb.type == 'Beverages' ? 'selected' : ''}>Beverages</option>
+                            <option value="Combo" ${fnb.type == 'Combo' ? 'selected' : ''}>Combo</option>
                         </select>
                     </div>
 

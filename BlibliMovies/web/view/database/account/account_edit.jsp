@@ -29,8 +29,8 @@
                         <label for="role">Role:</label>
                         <select class="form-control" id="role" name="role" value="${account.role}" required>
                             <option disabled selected value> -- pilih Role -- </option>
-                            <option value="Admin" ${account.role == 'Admin' ? 'selected' : ''}>Admin</option>
-                            <option value="Cashier" ${account.role == 'Cashier' ? 'selected' : ''}>Cashier</option>
+                            <option value="admin" ${account.role == 'admin' ? 'selected' : ''}>Admin</option>
+                            <option value="cashier" ${account.role == 'cashier' ? 'selected' : ''}>Cashier</option>
                         </select>
                     </div>
 

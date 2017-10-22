@@ -26,9 +26,10 @@ public class FnBDAO {
         }
     }
 
-    public FnB getFnB(String fnb) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM foodandbeverages where id = ?");
+    public FnB getFnB(String fnb, String storename) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM foodandbeverages where id = ? and storeusername = ?");
         ps.setString(1, fnb);
+        ps.setString(2, storename);
 
         ResultSet rs = ps.executeQuery();
 
@@ -48,8 +49,9 @@ public class FnBDAO {
         return output;
     }
 
-    public List<FnB> getAllFnB() throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM foodandbeverages");
+    public List<FnB> getAllFnB(String storename) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM foodandbeverages where storeusername = ?");
+        ps.setString(1, storename);
 
         ResultSet rs = ps.executeQuery();
 
@@ -81,9 +83,10 @@ public class FnBDAO {
         ps.executeUpdate();
     }
 
-    public void deleteFnB(String id) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("DELETE FROM foodandbeverages where id = ?");
+    public void deleteFnB(String id, String storename) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("DELETE FROM foodandbeverages where id = ? AND storeusername = ?");
         ps.setString(1, id);
+        ps.setString(2, storename);
         ps.executeUpdate();
     }
 

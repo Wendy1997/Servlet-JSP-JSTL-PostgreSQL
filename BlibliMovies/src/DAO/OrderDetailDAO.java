@@ -25,9 +25,10 @@ public class OrderDetailDAO {
 
     }
 
-    public List<OrderDetail> getAllOrderDetail(String id) throws SQLException {
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM orderdetail where invoiceid = ?");
+    public List<OrderDetail> getAllOrderDetail(String id, String storename) throws SQLException {
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM orderdetail where invoiceid = ? AND storeusername = ?");
         ps.setString(1, id);
+        ps.setString(2, storename);
         ResultSet rs = ps.executeQuery();
 
         List<OrderDetail> orderDetails = new ArrayList<OrderDetail>();

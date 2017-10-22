@@ -10,13 +10,13 @@ public class AccountServiceDatabase implements AccountService {
     AccountDAO accountDAO = new AccountDAO();
 
     @Override
-    public Account getAccount(String username) throws SQLException{
-        return accountDAO.getAccount(username);
+    public Account getAccount(String username, String storename) throws SQLException{
+        return accountDAO.getAccount(username, storename);
     }
 
     @Override
-    public List<Account> getAllAccount() throws SQLException{
-        return accountDAO.getAllAccount();
+    public List<Account> getAllAccount(String storename) throws SQLException{
+        return accountDAO.getAllAccount(storename);
     }
 
     @Override
@@ -25,8 +25,8 @@ public class AccountServiceDatabase implements AccountService {
     }
 
     @Override
-    public void deleteAccount(String account) throws SQLException{
-        accountDAO.deleteAccount(account);
+    public void deleteAccount(String username, String storename) throws SQLException{
+        accountDAO.deleteAccount(username, storename);
     }
 
     @Override

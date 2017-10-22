@@ -25,8 +25,9 @@ public class StudioDAO {
         }
     }
 
-    public List<Studio> getAllStudio() throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM studio");
+    public List<Studio> getAllStudio(String storename) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM studio where storeusername = ?");
+        ps.setString(1, storename);
 
         ResultSet rs = ps.executeQuery();
 

@@ -16,29 +16,19 @@ import java.sql.SQLException;
 public class Account extends HttpServlet {
     AccountService accountService = new AccountServiceDatabase();
 
-    /**
-     * Validasi apakah sudah login, untuk mengakses halaman login, dan Logout
-     *
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException
-     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         String address = "/view/login/account_login.jsp";
 
-        /*
-            Validasi apakah sudah login
-         */
+        // Validasi apakah sudah login store
         if(request.getSession().getAttribute("storename") == null){
+            System.out.println("trakakaka");
             address = "/view/login/store_login.jsp";
         }
 
-        /*
-            Validasi jika ingin logout
-         */
+        //Validasi jika ingin logout
         if(request.getParameter("page") != null){
             if(request.getParameter("page").equals("logout")){
+                System.out.println("lalalal");
                 request.getSession().removeAttribute("role");
             }
         }
@@ -57,11 +47,8 @@ public class Account extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         String address = "/view/login/account_login.jsp";
 
-        /*
-            Validasi pada database Account
-         */
         try{
-            Model.Account account = accountService.getAccount(request.getParameter("username"));
+            Model.Account account = accountService.getAccount(request.getParameter("username"), (String)request.getSession().getAttribute("storename"));
 
             if(account != null){
                 if(account.getPassword().equals(request.getParameter("password"))){
@@ -69,7 +56,13 @@ public class Account extends HttpServlet {
                     address = "/view/menu/admin_menu.jsp";
                 }
             }
-            response.sendRedirect("/admin");
+
+            address = "/view/database/success.jsp";
+            request.setAttribute("title", "Login");
+            request.setAttribute("complete", "Sukses");
+            request.setAttribute("link", "/admin");
+
+            request.getRequestDispatcher(address).forward(request, response);
         } catch (SQLException e){
             System.out.println(e.getMessage());
         }

@@ -7,9 +7,9 @@ import java.util.List;
 
 public interface MemberCardService {
 
-    MemberCard getMemberCard(String id) throws SQLException;
-    List<MemberCard> getAllMemberCard() throws SQLException;
+    MemberCard getMemberCard(String id, String storename) throws SQLException;
+    List<MemberCard> getAllMemberCard(String storename) throws SQLException;
     void addMemberCard(MemberCard memberCard) throws SQLException;
-    void deleteMemberCard(String id) throws SQLException;
+    void deleteMemberCard(String id, String storename) throws SQLException;
     void updateAccout(MemberCard memberCard) throws SQLException;
 }

@@ -16,22 +16,22 @@ public class InvoiceServiceDatabase implements InvoiceService {
     PromoDAO promoDAO = new PromoDAO();
 
     @Override
-    public Invoice getInvoice(String id) throws SQLException {
-        return invoiceDAO.getInvoice(id);
+    public Invoice getInvoice(String id, String storename) throws SQLException {
+        return invoiceDAO.getInvoice(id, storename);
     }
 
     @Override
-    public List<Invoice> getAllInvoice() throws SQLException {
-        return invoiceDAO.getAllInvoice();
+    public List<Invoice> getAllInvoice(String storename) throws SQLException {
+        return invoiceDAO.getAllInvoice(storename);
     }
 
     @Override
-    public List<OrderDetail> getAllOrderDetail(String id) throws SQLException {
-        return orderDetailDAO.getAllOrderDetail(id);
+    public List<OrderDetail> getAllOrderDetail(String id, String storename) throws SQLException {
+        return orderDetailDAO.getAllOrderDetail(id, storename);
     }
 
     @Override
-    public Promo getPromo(String id) throws SQLException{
-        return promoDAO.getPromo(id);
+    public Promo getPromo(String id, String storename) throws SQLException{
+        return promoDAO.getPromo(id, storename);
     }
 }

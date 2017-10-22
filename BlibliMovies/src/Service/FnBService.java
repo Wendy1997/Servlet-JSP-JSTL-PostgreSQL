@@ -9,9 +9,9 @@ import java.util.List;
 
 public interface FnBService {
 
-    FnB getFnB(String id) throws SQLException;
-    List<FnB> getAllFnB() throws SQLException;
+    FnB getFnB(String id, String storename) throws SQLException;
+    List<FnB> getAllFnB(String storename) throws SQLException;
     void addFnB(FnB fnb) throws SQLException;
-    void deleteFnB(String id) throws SQLException;
+    void deleteFnB(String id, String storename) throws SQLException;
     void updateFnB(FnB fnb) throws SQLException;
 }

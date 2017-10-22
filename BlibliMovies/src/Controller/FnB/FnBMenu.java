@@ -1,4 +1,4 @@
-package Controller.Film;
+package Controller.FnB;
 
 import DAO.FilmDAO;
 import Model.Film;
@@ -24,8 +24,26 @@ public class FnBMenu extends HttpServlet{
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String address = "/view/database/fnb/fnb_menu.jsp";
 
+        // Validasi apakah sudah login store
+        if(request.getSession().getAttribute("storename") == null){
+            address = "/view/login/store_login.jsp";
+            request.getRequestDispatcher(address).forward(request, response);
+        }
+
+        // Validasi apakah sudah login akun
+        else if (request.getSession().getAttribute("role") == null){
+            address = "/view/login/account_login.jsp";
+            request.getRequestDispatcher(address).forward(request, response);
+        }
+
+        // Validasi apakah sudah login as admin
+        else if(!request.getSession().getAttribute("role").equals("admin")){
+            address = "/view/login/account_login.jsp";
+            request.getRequestDispatcher(address).forward(request, response);
+        }
+
         try{
-            List<FnB> fnbs = fnbService.getAllFnB();
+            List<FnB> fnbs = fnbService.getAllFnB((String)request.getSession().getAttribute("storename"));
             request.setAttribute("fnbs", fnbs);
 
             request.getRequestDispatcher(address).forward(request, response);

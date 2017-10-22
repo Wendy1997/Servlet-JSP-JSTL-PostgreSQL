@@ -10,12 +10,12 @@ import java.util.List;
 public interface FilmService {
     FilmDAO filmDAO = new FilmDAO();
 
-    Film getFilm(String id) throws SQLException;
-    List<Film> getAllFilm() throws SQLException;
+    Film getFilm(String id, String storename) throws SQLException;
+    List<Film> getAllFilm(String storename) throws SQLException;
     void addFilm(Film film) throws SQLException;
-    void deleteFilm(String id) throws SQLException;
+    void deleteFilm(String id, String storename) throws SQLException;
     void updateFilm(Film film) throws SQLException;
 
-    List<Studio> getAllStudio() throws SQLException;
+    List<Studio> getAllStudio(String storename) throws SQLException;
 
 }

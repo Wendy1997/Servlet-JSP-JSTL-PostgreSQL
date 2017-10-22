@@ -26,9 +26,10 @@ public class FilmDAO {
         }
     }
 
-    public Film getFilm(String film) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM film where id = ?");
+    public Film getFilm(String film, String storename) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM film where id = ? and storeusername = ?");
         ps.setString(1, film);
+        ps.setString(2, storename);
 
         ResultSet rs = ps.executeQuery();
 
@@ -56,8 +57,9 @@ public class FilmDAO {
         return output;
     }
 
-    public List<Film> getAllFilm() throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM film");
+    public List<Film> getAllFilm(String storename) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM film where storeusername = ?");
+        ps.setString(1, storename);
 
         ResultSet rs = ps.executeQuery();
 
@@ -105,9 +107,10 @@ public class FilmDAO {
         ps.executeUpdate();
     }
 
-    public void deleteFilm(String id) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("DELETE FROM film where id = ?");
+    public void deleteFilm(String id, String storename) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("DELETE FROM film where id = ? and storeusername = ?");
         ps.setString(1, id);
+        ps.setString(2, storename);
         ps.executeUpdate();
     }
 

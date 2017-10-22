@@ -22,12 +22,30 @@ public class InvoiceDetail extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         String address = "/view/database/invoice/invoice_detail.jsp";
 
+        // Validasi apakah sudah login store
+        if(request.getSession().getAttribute("storename") == null){
+            address = "/view/login/store_login.jsp";
+            request.getRequestDispatcher(address).forward(request, response);
+        }
+
+        // Validasi apakah sudah login akun
+        else if (request.getSession().getAttribute("role") == null){
+            address = "/view/login/account_login.jsp";
+            request.getRequestDispatcher(address).forward(request, response);
+        }
+
+        // Validasi apakah sudah login as admin
+        else if(!request.getSession().getAttribute("role").equals("admin")){
+            address = "/view/login/account_login.jsp";
+            request.getRequestDispatcher(address).forward(request, response);
+        }
+
         try{
-            Invoice invoice = invoiceService.getInvoice(request.getParameter("id"));
-            List<OrderDetail> orderDetails = invoiceService.getAllOrderDetail(request.getParameter("id"));
+            Invoice invoice = invoiceService.getInvoice(request.getParameter("id"), (String)request.getSession().getAttribute("storename"));
+            List<OrderDetail> orderDetails = invoiceService.getAllOrderDetail(request.getParameter("id"), (String)request.getSession().getAttribute("storename"));
 
             if(invoice.getMemberId() != 0){
-                Promo promo = invoiceService.getPromo("1");
+                Promo promo = invoiceService.getPromo("1", (String)request.getSession().getAttribute("storename"));
                 request.setAttribute("promo", promo);
             }
 

@@ -25,9 +25,10 @@ public class InvoiceDAO {
 
     }
 
-    public Invoice getInvoice(String username) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM invoice where id = ?");
+    public Invoice getInvoice(String username, String storename) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM invoice where id = ? and storeusername = ?");
         ps.setString(1, username);
+        ps.setString(2, storename);
 
         ResultSet rs = ps.executeQuery();
 
@@ -46,8 +47,9 @@ public class InvoiceDAO {
         return output;
     }
 
-    public List<Invoice> getAllInvoice() throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM invoice");
+    public List<Invoice> getAllInvoice(String storename) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM invoice where storeusername = ?");
+        ps.setString(1, storename);
         ResultSet rs = ps.executeQuery();
 
         List<Invoice> invoices = new ArrayList<Invoice>();

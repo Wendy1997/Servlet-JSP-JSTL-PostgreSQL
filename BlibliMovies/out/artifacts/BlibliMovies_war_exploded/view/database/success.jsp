@@ -11,8 +11,15 @@
     <div class="confirmation">
         <h1 class="title"><c:out value="${title} ${complete}"></c:out></h1>
         <div class="stripe"></div><br>
-        <a href="<c:out value="${link}"></c:out>"><c:out value="${title} >"></c:out></a>
+        <a id="link" href="<c:out value="${link}"></c:out>"><c:out value="${title} >"></c:out></a>
     </div>
 </div>
+
+<script>
+    setTimeout(
+        function () {
+            window.location.href = document.getElementById("link");
+        }, 3000);
+</script>
 
 <%@ include file = "/include/foot.jsp" %>

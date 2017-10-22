@@ -25,9 +25,10 @@ public class MemberCardDAO {
 
     }
 
-    public MemberCard getMemberCard(String id) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM membercard where id = ?");
+    public MemberCard getMemberCard(String id, String storename) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM membercard where id = ? and storeusername = ?");
         ps.setString(1, id);
+        ps.setString(2, storename);
 
         ResultSet rs = ps.executeQuery();
 
@@ -46,8 +47,9 @@ public class MemberCardDAO {
         return output;
     }
 
-    public List<MemberCard> getAllMemberCard() throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM membercard");
+    public List<MemberCard> getAllMemberCard(String storename) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM membercard where storeusername = ?");
+        ps.setString(1, storename);
         ResultSet rs = ps.executeQuery();
 
         List<MemberCard> memberCards = new ArrayList<MemberCard>();
@@ -74,9 +76,10 @@ public class MemberCardDAO {
         ps.executeUpdate();
     }
 
-    public void deleteMemberCard(String id) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("DELETE FROM membercard where username = ?");
+    public void deleteMemberCard(String id, String storename) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("DELETE FROM membercard where username = ? and storeusername = ?");
         ps.setString(1, id);
+        ps.setString(2, storename);
         ps.executeUpdate();
     }
 

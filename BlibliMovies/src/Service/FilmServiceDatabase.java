@@ -13,13 +13,13 @@ public class FilmServiceDatabase implements FilmService {
     StudioDAO studioDAO = new StudioDAO();
 
     @Override
-    public Film getFilm(String id) throws SQLException{
-        return filmDAO.getFilm(id);
+    public Film getFilm(String id, String storename) throws SQLException{
+        return filmDAO.getFilm(id, storename);
     }
 
     @Override
-    public List<Film> getAllFilm() throws SQLException{
-        return filmDAO.getAllFilm();
+    public List<Film> getAllFilm(String storename) throws SQLException{
+        return filmDAO.getAllFilm(storename);
     }
 
     @Override
@@ -28,8 +28,8 @@ public class FilmServiceDatabase implements FilmService {
     }
 
     @Override
-    public void deleteFilm(String id) throws SQLException{
-        filmDAO.deleteFilm(id);
+    public void deleteFilm(String id, String storename) throws SQLException{
+        filmDAO.deleteFilm(id, storename);
 
     }
 
@@ -39,7 +39,7 @@ public class FilmServiceDatabase implements FilmService {
     }
 
     @Override
-    public List<Studio> getAllStudio() throws SQLException {
-        return studioDAO.getAllStudio();
+    public List<Studio> getAllStudio(String storename) throws SQLException {
+        return studioDAO.getAllStudio(storename);
     }
 }

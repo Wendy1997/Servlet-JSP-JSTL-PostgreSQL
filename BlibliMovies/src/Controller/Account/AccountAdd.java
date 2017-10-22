@@ -19,6 +19,22 @@ public class AccountAdd extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String address = "/view/database/account/account_add.jsp";
+
+        // Validasi apakah sudah login store
+        if(request.getSession().getAttribute("storename") == null){
+            address = "/view/login/store_login.jsp";
+        }
+
+        // Validasi apakah sudah login akun
+        else if (request.getSession().getAttribute("role") == null){
+            address = "/view/login/account_login.jsp";
+        }
+
+        // Validasi apakah sudah login as admin
+        else if(!request.getSession().getAttribute("role").equals("admin")){
+            address = "/view/login/account_login.jsp";
+        }
+
         request.getRequestDispatcher(address).forward(request, response);
     }
 

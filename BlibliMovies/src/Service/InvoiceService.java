@@ -9,10 +9,10 @@ import java.util.List;
 
 public interface InvoiceService {
 
-    Invoice getInvoice(String id) throws SQLException;
-    List<Invoice> getAllInvoice() throws SQLException;
+    Invoice getInvoice(String id, String storename) throws SQLException;
+    List<Invoice> getAllInvoice(String storename) throws SQLException;
 
-    List<OrderDetail> getAllOrderDetail(String id) throws SQLException;
+    List<OrderDetail> getAllOrderDetail(String id, String storename) throws SQLException;
 
-    Promo getPromo(String id) throws SQLException;
+    Promo getPromo(String id, String storename) throws SQLException;
 }
