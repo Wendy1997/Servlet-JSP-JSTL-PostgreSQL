@@ -4,30 +4,40 @@ import Model.Film;
 import Model.Studio;
 import Model.Studio;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 public class StudioDAO {
-    public static final String database = "org.postgresql.Driver";
-    public static final String url = "jdbc:postgresql://localhost:5432/bliblimovies";
-    public static final String username = "postgres";
-    public static final String password = "wendy1997";
 
     Connection conn;
 
     public StudioDAO(){
 
+        Properties prop = new Properties();
+        InputStream input = null;
+
         try {
-            Class.forName(database);
-            conn = DriverManager.getConnection(url, username, password);
+            ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+            input = classLoader.getResourceAsStream("config.properties");
+
+            // load a properties file
+            prop.load(input);
+
+            System.out.println(prop.getProperty("database"));
+
+            Class.forName(prop.getProperty("database"));
+            conn = DriverManager.getConnection(prop.getProperty("url"), prop.getProperty("user"), prop.getProperty("password"));
         } catch (Exception e){
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 
     public List<Studio> getAllStudio(String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM studio where storeusername = ?");
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM studio where storeusername = ? and status = true");
         ps.setString(1, storename);
 
         ResultSet rs = ps.executeQuery();
@@ -45,7 +55,7 @@ public class StudioDAO {
     }
 
     public Studio getStudio(String studio, String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM studio where id = ? and storeusername = ?");
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM studio where id = ? and storeusername = ? and status = true");
         ps.setString(1, studio);
         ps.setString(2, storename);
 
@@ -78,7 +88,7 @@ public class StudioDAO {
     }
 
     public void deleteStudio(String id, String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("DELETE FROM studio where id = ? AND storeusername = ?");
+        PreparedStatement ps = conn.prepareStatement("update studio set status = false where id = ? AND storeusername = ?");
         ps.setString(1, id);
         ps.setString(2, storename);
         ps.executeUpdate();

@@ -2,27 +2,37 @@ package DAO;
 
 import Model.FnB;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 public class FnBDAO {
-    public static final String database = "org.postgresql.Driver";
-    public static final String url = "jdbc:postgresql://localhost:5432/bliblimovies";
-    public static final String username = "postgres";
-    public static final String password = "wendy1997";
 
     Connection conn;
 
     public FnBDAO(){
 
+        Properties prop = new Properties();
+        InputStream input = null;
+
         try {
-            Class.forName(database);
-            conn = DriverManager.getConnection(url, username, password);
+            ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+            input = classLoader.getResourceAsStream("config.properties");
+
+            // load a properties file
+            prop.load(input);
+
+            System.out.println(prop.getProperty("database"));
+
+            Class.forName(prop.getProperty("database"));
+            conn = DriverManager.getConnection(prop.getProperty("url"), prop.getProperty("user"), prop.getProperty("password"));
         } catch (Exception e){
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 

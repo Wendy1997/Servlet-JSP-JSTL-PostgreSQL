@@ -2,31 +2,40 @@ package DAO;
 
 import Model.MemberCard;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 public class MemberCardDAO {
-    public static final String database = "org.postgresql.Driver";
-    public static final String url = "jdbc:postgresql://localhost:5432/bliblimovies";
-    public static final String username = "postgres";
-    public static final String password = "wendy1997";
 
     Connection conn;
 
     public MemberCardDAO(){
 
-        try {
-            Class.forName(database);
-            conn = DriverManager.getConnection(url, username, password);
-        } catch (Exception e){
-            System.out.println(e.getMessage());
-        }
+        Properties prop = new Properties();
+        InputStream input = null;
 
+        try {
+            ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+            input = classLoader.getResourceAsStream("config.properties");
+
+            // load a properties file
+            prop.load(input);
+
+            System.out.println(prop.getProperty("database"));
+
+            Class.forName(prop.getProperty("database"));
+            conn = DriverManager.getConnection(prop.getProperty("url"), prop.getProperty("user"), prop.getProperty("password"));
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public MemberCard getMemberCard(String id, String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM membercard where id = ? and storeusername = ?");
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM membercard where id = ? and storeusername = ? and status = true");
         ps.setString(1, id);
         ps.setString(2, storename);
 
@@ -48,7 +57,7 @@ public class MemberCardDAO {
     }
 
     public List<MemberCard> getAllMemberCard(String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM membercard where storeusername = ?");
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM membercard where storeusername = ? and status = true");
         ps.setString(1, storename);
         ResultSet rs = ps.executeQuery();
 
@@ -77,7 +86,7 @@ public class MemberCardDAO {
     }
 
     public void deleteMemberCard(String id, String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("DELETE FROM membercard where username = ? and storeusername = ?");
+        PreparedStatement ps = conn.prepareStatement("UPDATE membercard set status = false where username = ? and storeusername = ?");
         ps.setString(1, id);
         ps.setString(2, storename);
         ps.executeUpdate();

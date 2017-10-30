@@ -2,31 +2,40 @@ package DAO;
 
 import Model.Account;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 public class AccountDAO {
-    public static final String database = "org.postgresql.Driver";
-    public static final String url = "jdbc:postgresql://localhost:5432/bliblimovies";
-    public static final String username = "postgres";
-    public static final String password = "wendy1997";
-
     Connection conn;
 
     public AccountDAO(){
 
-        try {
-            Class.forName(database);
-            conn = DriverManager.getConnection(url, username, password);
-        } catch (Exception e){
-            System.out.println(e.getMessage());
-        }
+        Properties prop = new Properties();
+        InputStream input = null;
 
+        try {
+            ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+            input = classLoader.getResourceAsStream("config.properties");
+
+            // load a properties file
+            prop.load(input);
+
+            System.out.println(prop.getProperty("database"));
+
+            Class.forName(prop.getProperty("database"));
+            conn = DriverManager.getConnection(prop.getProperty("url"), prop.getProperty("user"), prop.getProperty("password"));
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public Account getAccount(String username, String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM account where username = ? and storeusername = ?");
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM account where username = ? and storeusername = ? and status = true");
         ps.setString(1, username);
         ps.setString(2, storename);
 
@@ -42,7 +51,7 @@ public class AccountDAO {
     }
 
     public List<Account> getAllAccount(String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM account where storeusername = ?");
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM account where storeusername = ? and status = true");
         ps.setString(1, storename);
         System.out.println(storename);
         ResultSet rs = ps.executeQuery();
@@ -55,7 +64,7 @@ public class AccountDAO {
     }
 
     public void addAccount(Account account) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("INSERT INTO account VALUES (?,?,?,?)");
+        PreparedStatement ps = conn.prepareStatement("INSERT INTO account (username, storeusername, password, type) VALUES (?,?,?,?)");
         ps.setString(1,account.getUsername());
         ps.setString(2, account.getStorename());
         ps.setString(3, account.getPassword());
@@ -64,7 +73,7 @@ public class AccountDAO {
     }
 
     public void deleteAccount(String account, String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("DELETE FROM account where username = ? and storeusername = ?");
+        PreparedStatement ps = conn.prepareStatement("UPDATE account set status = false where username = ? and storeusername = ?");
         ps.setString(1, account);
         ps.setString(2, storename);
         ps.executeUpdate();

@@ -2,29 +2,38 @@ package DAO;
 
 import Model.Promo;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.sql.*;
+import java.util.Properties;
 
 public class PromoDAO {
-    public static final String database = "org.postgresql.Driver";
-    public static final String url = "jdbc:postgresql://localhost:5432/bliblimovies";
-    public static final String username = "postgres";
-    public static final String password = "wendy1997";
 
     Connection conn;
 
     public PromoDAO(){
 
-        try {
-            Class.forName(database);
-            conn = DriverManager.getConnection(url, username, password);
-        } catch (Exception e){
-            System.out.println(e.getMessage());
-        }
+        Properties prop = new Properties();
+        InputStream input = null;
 
+        try {
+            ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+            input = classLoader.getResourceAsStream("config.properties");
+
+            // load a properties file
+            prop.load(input);
+
+            System.out.println(prop.getProperty("database"));
+
+            Class.forName(prop.getProperty("database"));
+            conn = DriverManager.getConnection(prop.getProperty("url"), prop.getProperty("user"), prop.getProperty("password"));
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public Promo getPromo(String id, String storename) throws SQLException {
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM promo where id = ? and storeusername = ?");
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM promo where id = ? and storeusername = ? and status = true");
         ps.setString(1, id);
         ps.setString(2, storename);
 

@@ -4,28 +4,38 @@ import Model.Film;
 import Model.ScreeningTime;
 import Model.ScreeningTime;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 public class ScreeningTimeDAO {
-    public static final String database = "org.postgresql.Driver";
-    public static final String url = "jdbc:postgresql://localhost:5432/bliblimovies";
-    public static final String username = "postgres";
-    public static final String password = "wendy1997";
 
     Connection conn;
 
     public ScreeningTimeDAO(){
 
-        try {
-            Class.forName(database);
-            conn = DriverManager.getConnection(url, username, password);
-        } catch (Exception e){
-            System.out.println(e.getMessage());
-        }
+        Properties prop = new Properties();
+        InputStream input = null;
 
+        try {
+            ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+            input = classLoader.getResourceAsStream("config.properties");
+
+            // load a properties file
+            prop.load(input);
+
+            System.out.println(prop.getProperty("database"));
+
+            Class.forName(prop.getProperty("database"));
+            conn = DriverManager.getConnection(prop.getProperty("url"), prop.getProperty("user"), prop.getProperty("password"));
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
+
     public void addScreeningTime(ScreeningTime screeningTime) throws SQLException{
 
         PreparedStatement ps = conn.prepareStatement("INSERT INTO screeningTime (filmid, studioid, storeusername, time, duration) VALUES (?,?,?,CAST(? AS TIME),?)");
@@ -39,7 +49,7 @@ public class ScreeningTimeDAO {
     }
 
     public ScreeningTime getScreeningTime(String id, String film_id, String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("select * from screeningtime where id = ? and storeusername = ? and filmid = ?");
+        PreparedStatement ps = conn.prepareStatement("select * from screeningtime where id = ? and storeusername = ? and filmid = ? and status = true");
         ps.setString(1, id);
         ps.setString(2, storename);
         ps.setString(3, film_id);
@@ -62,7 +72,7 @@ public class ScreeningTimeDAO {
     }
 
     public List<ScreeningTime> getAllScreeningTime(String storename, String filmid) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("select * from screeningtime where storeusername = ? and filmid = ?");
+        PreparedStatement ps = conn.prepareStatement("select * from screeningtime where storeusername = ? and filmid = ? and status = true");
         ps.setString(1, storename);
         ps.setString(2, filmid);
 
@@ -94,7 +104,7 @@ public class ScreeningTimeDAO {
     }
 
     public void deleteScreeningTime(String id, String filmid, String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("DELETE FROM screeningtime where id = ? and filmid = ? and storeusername = ?");
+        PreparedStatement ps = conn.prepareStatement("UPDATE screeningtime set status = true where id = ? and filmid = ? and storeusername = ?");
         ps.setString(1, id + "");
         ps.setString(2, filmid + "");
         ps.setString(3, storename);
