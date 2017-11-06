@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="bliblimovies@localhost" uuid="9858d229-4f9c-440b-ae10-8fdddfeabd56">
+    <data-source name="bliblimovies@localhost" uuid="54228e0a-66fb-405f-a40c-278ed4229e2d">
       <database-info product="PostgreSQL" version="9.6.4" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.1.1">
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>

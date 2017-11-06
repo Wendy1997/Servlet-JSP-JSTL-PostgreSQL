@@ -28,6 +28,7 @@ public class Store extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         String address = "/view/login/store_login.jsp";
 
+
         /*
             Validasi Log out
          */

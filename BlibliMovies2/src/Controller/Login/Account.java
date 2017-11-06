@@ -28,7 +28,6 @@ public class Account extends HttpServlet {
         //Validasi jika ingin logout
         if(request.getParameter("page") != null){
             if(request.getParameter("page").equals("logout")){
-                System.out.println("lalalal");
                 request.getSession().removeAttribute("role");
             }
         }
