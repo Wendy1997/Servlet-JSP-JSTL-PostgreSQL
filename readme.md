@@ -1,12 +1,12 @@
-#Servlet-JSP-JSTL-PostgreSQL
+# Servlet-JSP-JSTL-PostgreSQL
 
 Hi everyone,
 
 In this project, i just made a CRUD system using Java Servlet for the backend, JSP + JSTL for the frontend and include the PostgreSQL for the database system.
 
-#How to Install
+# How to Install
 
-##Setting Database
+## Setting Database
 
 1. Install the latest of PostgreSQL
 2. Open the psql
@@ -17,13 +17,13 @@ In this project, i just made a CRUD system using Java Servlet for the backend, J
 7. Run
 8. Database successfully installed
 
-##Setting IntellIJ
+## Setting IntellIJ
 
 1. Open with IntellIJ (such as import or open) with BlibliMovies2 as root folder
 2. Change the configuration in BlibliMovies2/src/config.properties with your user, password and url of your database
 3. Just run in with Tomcat that include in files
 
-###FAQ
+### FAQ
 
 1. Q: If port is unavalaible
 A: Change the port at tomcat configuration http port as 8089 or smth and jmx port with 1089 or smth
@@ -31,4 +31,4 @@ A: Change the port at tomcat configuration http port as 8089 or smth and jmx por
 2. Q: If driver can't access driver of the database
 A: Copy the postgresql.jar file to the Tomcat lib
 
-##Good Luck ;)
+## Good Luck ;)
