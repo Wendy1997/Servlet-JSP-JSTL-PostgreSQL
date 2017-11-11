@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.List;
+
 public class Film {
     private int id;
     private String storename;
@@ -16,6 +18,7 @@ public class Film {
     private String subtitle;
     private String actor;
     private String sinopsis;
+    private List<ScreeningTime> screeningTimes;
 
     public Film(String storename, String cover, String title, String genre, int duration, String director, double rating, int reviewTotal, String startTime, String endTime, String language, String subtitle, String actor, String sinopsis) {
         this.storename = storename;
@@ -170,5 +173,13 @@ public class Film {
 
     public void setSinopsis(String sinopsis) {
         this.sinopsis = sinopsis;
+    }
+
+    public List<ScreeningTime> getScreeningTimes(){
+        return this.screeningTimes;
+    }
+
+    public void setScreeningTimes(List<ScreeningTime> screeningTimes){
+        this.screeningTimes = screeningTimes;
     }
 }

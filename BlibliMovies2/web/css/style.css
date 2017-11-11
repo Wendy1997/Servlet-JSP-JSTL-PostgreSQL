@@ -288,6 +288,17 @@ Dummy Image
 	}
 }
 
+/*
+==================
+Nav Bar
+==================
+*/
+
+.row li{
+	padding: 0px 10px;
+}
+
+
 
 /* Extra small devices (phones, up to 480px) */
 @media screen and (max-width: 574px) {
@@ -310,4 +321,63 @@ Dummy Image
 		width: 170px;
 		height: 170px;
 	}
+}
+
+/* Film Choose */
+
+/* Style the tab */
+div.tab {
+	overflow: hidden;
+	/*border: 1px solid #ccc;*/
+	/*border-right: 1px solid white;*/
+	background-color: #f1f1f1;
+	background-color: black;
+	height: 30px;
+}
+/* Style the buttons inside the tab */
+div.tab button {
+	background-color: inherit;
+	border-width: 1px;
+	float: left;
+	/*border-right: 1px solid white;*/
+	width: 60px;
+	outline: none;
+	cursor: pointer;
+	padding: 0 10px;
+	transition: 0.3s;
+	font-size: 16px;
+}
+/* Change background color of buttons on hover */
+div.tab button:hover {
+	background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+div.tab button.active {
+	background-color: #ccc;
+}
+
+.smallSquare {
+	height: 35px;
+	width: 35px;
+	display: inline-block;
+	border-radius: 10px;
+	/*background-color: #666789;*/
+	background-color: #666878;
+	margin: 2px;
+}
+
+.smallSquare:hover {
+	background-color: #5bcc7f;
+	background-color: #41c179;
+
+}
+
+.selectedSeat {
+	background-color: #41c179;
+	background-color: #4da55e;
+}
+
+.unavailableSeat {
+	background-color: #c14040;
 }

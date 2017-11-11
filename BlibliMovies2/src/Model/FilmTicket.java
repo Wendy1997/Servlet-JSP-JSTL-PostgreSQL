@@ -4,17 +4,28 @@ public class FilmTicket {
     private int id;
     private int filmId;
     private int studioId;
-    private int seatNumber;
+    private String seatNumber;
     private int screeningId;
     private int price;
+    private String storeusername;
 
-    public FilmTicket(int id, int filmId, int studioId, int seatNumber, int screeningId, int price) {
+    public FilmTicket(int id, int filmId, int studioId, String seatNumber, int screeningId, int price, String storeusername) {
         this.id = id;
         this.filmId = filmId;
         this.studioId = studioId;
         this.seatNumber = seatNumber;
         this.screeningId = screeningId;
         this.price = price;
+        this.storeusername = storeusername;
+    }
+
+    public FilmTicket(int filmId, int studioId, String seatNumber, int screeningId, int price, String storeusername) {
+        this.filmId = filmId;
+        this.studioId = studioId;
+        this.seatNumber = seatNumber;
+        this.screeningId = screeningId;
+        this.price = price;
+        this.storeusername = storeusername;
     }
 
     public int getId() {
@@ -41,11 +52,11 @@ public class FilmTicket {
         this.studioId = studioId;
     }
 
-    public int getSeatNumber() {
+    public String getSeatNumber() {
         return seatNumber;
     }
 
-    public void setSeatNumber(int seatNumber) {
+    public void setSeatNumber(String seatNumber) {
         this.seatNumber = seatNumber;
     }
 
@@ -63,5 +74,13 @@ public class FilmTicket {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public String getStoreusername(){
+        return this.storeusername;
+    }
+
+    public void setStoreusername(String storeusername){
+        this.storeusername = storeusername;
     }
 }
