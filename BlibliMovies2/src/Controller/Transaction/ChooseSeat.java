@@ -1,5 +1,6 @@
 package Controller.Transaction;
 
+import Model.Film;
 import Model.FilmTicket;
 import Model.Seat;
 import Service.*;
@@ -28,12 +29,13 @@ public class ChooseSeat extends HttpServlet {
         try{
 
             List<FilmTicket> filmTicketList = filmTicketService.getAllTickets(request.getParameter("id"),request.getParameter("studioid"),request.getParameter("screeningid"),"blibli");
-
+            Film film = filmService.getFilm(request.getParameter("id"), "blibli");
+            System.out.println(request.getParameter("id"));
             request.setAttribute("filmid", request.getParameter("id"));
             request.setAttribute("studioid", request.getParameter("studioid"));
             request.setAttribute("screeningid", request.getParameter("screeningid"));
             request.setAttribute("filmTickets",filmTicketList);
-            request.setAttribute("film", filmService.getFilm(request.getParameter("filmid"), "blibli"));
+            request.setAttribute("film", film);
         }catch (SQLException e){
             e.printStackTrace();
         }

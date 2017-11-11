@@ -27,259 +27,14 @@
 
             <div class="container">
                 <div class="fnbcontainer-responsive row">
-
-                    <div class="col-md-2">
-                        <div>
-                            <img class="circle" src="src/img/popcorn.jpg" style="width:120px;height:120px;">
+                    <c:forEach items="${fnblist}" var="fnb">
+                        <div id="${fnb.name} ${fnb.size}" class="col-md-2">
+                            <div>
+                                <img class="circle" src="src/img/popcorn.jpg" style="width:120px;height:120px;">
+                            </div>
+                            <p>${fnb.name} ${fnb.size}</p>
                         </div>
-                        <p>Popcorn (S)</p>
-                    </div>
-
-                    <div class="col-md-2">
-                        <div>
-                            <img class="circle" src="src/img/popcorn.jpg" style="width:120px;height:120px;">
-                        </div>
-                        <p>Popcorn (M)</p>
-                    </div>
-
-                    <div class="col-md-2">
-                        <div>
-                            <img class="circle" src="src/img/popcorn.jpg" style="width:120px;height:120px;">
-                        </div>
-                        <p>Popcorn (L)</p>
-                    </div>
-
-                    <div class="col-md-2">
-                        <div>
-                            <img class="circle" src="src/img/fanta.jpg" style="width:120px;height:120px;">
-                        </div>
-                        <p>Fanta (S)</p>
-                    </div>
-
-                    <div class="col-lg-2">
-                        <div>
-                            <img class="circle" src="src/img/fanta.jpg" style="width:120px;height:120px;">
-                        </div>
-                        <p>Fanta (M)</p>
-                    </div>
-
-                    <div class="col-lg-2">
-                        <div>
-                            <img class="circle" src="src/img/fanta.jpg" style="width:120px;height:120px;">
-                        </div>
-                        <p>Fanta (L)</p>
-                    </div>
-
-                    <div class="col-lg-2">
-                        <div>
-                            <img class="circle" src="src/img/cocacola.jpg" style="width:120px;height:120px;">
-                        </div>
-                        <p>Coca Cola (S)</p>
-                    </div>
-
-                    <div class="col-lg-2">
-                        <div>
-                            <img class="circle" src="src/img/cocacola.jpg" style="width:120px;height:120px;">
-                        </div>
-                        <p>Coca Cola (M)</p>
-                    </div>
-
-                    <div class="col-lg-2">
-                        <div>
-                            <img class="circle" src="src/img/cocacola.jpg" style="width:120px;height:120px;">
-                        </div>
-                        <p>Coca Cola (L)</p>
-                    </div>
-
-                    <div class="col-md-2">
-                        <div>
-                            <img class="circle" src="src/img/popcorn.jpg" style="width:120px;height:120px;">
-                        </div>
-                        <p>Popcorn (S)</p>
-                    </div>
-
-                    <div class="col-md-2">
-                        <div>
-                            <img class="circle" src="src/img/popcorn.jpg" style="width:120px;height:120px;">
-                        </div>
-                        <p>Popcorn (M)</p>
-                    </div>
-
-                    <div class="col-md-2">
-                        <div>
-                            <img class="circle" src="src/img/popcorn.jpg" style="width:120px;height:120px;">
-                        </div>
-                        <p>Popcorn (L)</p>
-                    </div>
-
-                    <div class="col-md-2">
-                        <div>
-                            <img class="circle" src="src/img/fanta.jpg" style="width:120px;height:120px;">
-                        </div>
-                        <p>Fanta (S)</p>
-                    </div>
-
-                    <div class="col-lg-2">
-                        <div>
-                            <img class="circle" src="src/img/fanta.jpg" style="width:120px;height:120px;">
-                        </div>
-                        <p>Fanta (M)</p>
-                    </div>
-
-                    <div class="col-lg-2">
-                        <div>
-                            <img class="circle" src="src/img/fanta.jpg" style="width:120px;height:120px;">
-                        </div>
-                        <p>Fanta (L)</p>
-                    </div>
-
-                    <div class="col-lg-2">
-                        <div>
-                            <img class="circle" src="src/img/cocacola.jpg" style="width:120px;height:120px;">
-                        </div>
-                        <p>Coca Cola (S)</p>
-                    </div>
-
-                    <div class="col-lg-2">
-                        <div>
-                            <img class="circle" src="src/img/cocacola.jpg" style="width:120px;height:120px;">
-                        </div>
-                        <p>Coca Cola (M)</p>
-                    </div>
-
-                    <div class="col-lg-2">
-                        <div>
-                            <img class="circle" src="src/img/cocacola.jpg" style="width:120px;height:120px;">
-                        </div>
-                        <p>Coca Cola (L)</p>
-                    </div>
-
-                    <div class="col-md-2">
-                        <div>
-                            <img class="circle" src="src/img/popcorn.jpg" style="width:120px;height:120px;">
-                        </div>
-                        <p>Popcorn (S)</p>
-                    </div>
-
-                    <div class="col-md-2">
-                        <div>
-                            <img class="circle" src="src/img/popcorn.jpg" style="width:120px;height:120px;">
-                        </div>
-                        <p>Popcorn (M)</p>
-                    </div>
-
-                    <div class="col-md-2">
-                        <div>
-                            <img class="circle" src="src/img/popcorn.jpg" style="width:120px;height:120px;">
-                        </div>
-                        <p>Popcorn (L)</p>
-                    </div>
-
-                    <div class="col-md-2">
-                        <div>
-                            <img class="circle" src="src/img/fanta.jpg" style="width:120px;height:120px;">
-                        </div>
-                        <p>Fanta (S)</p>
-                    </div>
-
-                    <div class="col-lg-2">
-                        <div>
-                            <img class="circle" src="src/img/fanta.jpg" style="width:120px;height:120px;">
-                        </div>
-                        <p>Fanta (M)</p>
-                    </div>
-
-                    <div class="col-lg-2">
-                        <div>
-                            <img class="circle" src="src/img/fanta.jpg" style="width:120px;height:120px;">
-                        </div>
-                        <p>Fanta (L)</p>
-                    </div>
-
-                    <div class="col-lg-2">
-                        <div>
-                            <img class="circle" src="src/img/cocacola.jpg" style="width:120px;height:120px;">
-                        </div>
-                        <p>Coca Cola (S)</p>
-                    </div>
-
-                    <div class="col-lg-2">
-                        <div>
-                            <img class="circle" src="src/img/cocacola.jpg" style="width:120px;height:120px;">
-                        </div>
-                        <p>Coca Cola (M)</p>
-                    </div>
-
-                    <div class="col-lg-2">
-                        <div>
-                            <img class="circle" src="src/img/cocacola.jpg" style="width:120px;height:120px;">
-                        </div>
-                        <p>Coca Cola (L)</p>
-                    </div>
-
-                    <div class="col-md-2">
-                        <div>
-                            <img class="circle" src="src/img/popcorn.jpg" style="width:120px;height:120px;">
-                        </div>
-                        <p>Popcorn (S)</p>
-                    </div>
-
-                    <div class="col-md-2">
-                        <div>
-                            <img class="circle" src="src/img/popcorn.jpg" style="width:120px;height:120px;">
-                        </div>
-                        <p>Popcorn (M)</p>
-                    </div>
-
-                    <div class="col-md-2">
-                        <div>
-                            <img class="circle" src="src/img/popcorn.jpg" style="width:120px;height:120px;">
-                        </div>
-                        <p>Popcorn (L)</p>
-                    </div>
-
-                    <div class="col-md-2">
-                        <div>
-                            <img class="circle" src="src/img/fanta.jpg" style="width:120px;height:120px;">
-                        </div>
-                        <p>Fanta (S)</p>
-                    </div>
-
-                    <div class="col-lg-2">
-                        <div>
-                            <img class="circle" src="src/img/fanta.jpg" style="width:120px;height:120px;">
-                        </div>
-                        <p>Fanta (M)</p>
-                    </div>
-
-                    <div class="col-lg-2">
-                        <div>
-                            <img class="circle" src="src/img/fanta.jpg" style="width:120px;height:120px;">
-                        </div>
-                        <p>Fanta (L)</p>
-                    </div>
-
-                    <div class="col-lg-2">
-                        <div>
-                            <img class="circle" src="src/img/cocacola.jpg" style="width:120px;height:120px;">
-                        </div>
-                        <p>Coca Cola (S)</p>
-                    </div>
-
-                    <div class="col-lg-2">
-                        <div>
-                            <img class="circle" src="src/img/cocacola.jpg" style="width:120px;height:120px;">
-                        </div>
-                        <p>Coca Cola (M)</p>
-                    </div>
-
-                    <div class="col-lg-2">
-                        <div>
-                            <img class="circle" src="src/img/cocacola.jpg" style="width:120px;height:120px;">
-                        </div>
-                        <p>Coca Cola (L)</p>
-                    </div>
-
+                    </c:forEach>
                 </div>
             </div>
             <!-- <div class="container-fluid">
@@ -308,146 +63,7 @@
                     </div>
                 </div>
 
-                <div class="box-window summarycontainer-responsive">
-                    <div class="row">
-                        <div class="col-lg-7">
-                            <div class="row box">
-                                <div class="col-lg-4">
-                                    <div class="smallCircle"></div>
-                                </div>
-                                <div class="col-lg-8">
-                                    <p class="invoice">Lalallaasjfbaldjbakdfbakdfbjak</p>
-                                    <p class="invoice">asddbdgbdfwdcadvwva</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2" align="center">
-                            <p>x3</p>
-                        </div>
-                        <div class="col-lg-3" align="right">
-                            Rp 25.000,-
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-7">
-                            <div class="row box">
-                                <div class="col-lg-4">
-                                    <div class="smallCircle"></div>
-                                </div>
-                                <div class="col-lg-8">
-                                    <p class="invoice">Lalallaasjfbaldjbakdfbakdfbjak</p>
-                                    <p class="invoice">asddbdgbdfwdcadvwva</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2" align="center">
-                            <p>x3</p>
-                        </div>
-                        <div class="col-lg-3" align="right">
-                            Rp 25.000,-
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-7">
-                            <div class="row box">
-                                <div class="col-lg-4">
-                                    <div class="smallCircle"></div>
-                                </div>
-                                <div class="col-lg-8">
-                                    <p class="invoice">Lalallaasjfbaldjbakdfbakdfbjak</p>
-                                    <p class="invoice">asddbdgbdfwdcadvwva</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2" align="center">
-                            <p>x3</p>
-                        </div>
-                        <div class="col-lg-3" align="right">
-                            Rp 25.000,-
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-7">
-                            <div class="row box">
-                                <div class="col-lg-4">
-                                    <div class="smallCircle"></div>
-                                </div>
-                                <div class="col-lg-8">
-                                    <p class="invoice">Lalallaasjfbaldjbakdfbakdfbjak</p>
-                                    <p class="invoice">asddbdgbdfwdcadvwva</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2" align="center">
-                            <p>x3</p>
-                        </div>
-                        <div class="col-lg-3" align="right">
-                            Rp 25.000,-
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-7">
-                            <div class="row box">
-                                <div class="col-lg-4">
-                                    <div class="smallCircle"></div>
-                                </div>
-                                <div class="col-lg-8">
-                                    <p class="invoice">Lalallaasjfbaldjbakdfbakdfbjak</p>
-                                    <p class="invoice">asddbdgbdfwdcadvwva</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2" align="center">
-                            <p>x3</p>
-                        </div>
-                        <div class="col-lg-3" align="right">
-                            Rp 25.000,-
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-7">
-                            <div class="row box">
-                                <div class="col-lg-4">
-                                    <div class="smallCircle"></div>
-                                </div>
-                                <div class="col-lg-8">
-                                    <p class="invoice">Lalallaasjfbaldjbakdfbakdfbjak</p>
-                                    <p class="invoice">asddbdgbdfwdcadvwva</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2" align="center">
-                            <p>x3</p>
-                        </div>
-                        <div class="col-lg-3" align="right">
-                            Rp 25.000,-
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-7">
-                            <div class="row box">
-                                <div class="col-lg-4">
-                                    <div class="smallCircle"></div>
-                                </div>
-                                <div class="col-lg-8">
-                                    <p class="invoice">Lalallaasjfbaldjbakdfbakdfbjak</p>
-                                    <p class="invoice">asddbdgbdfwdcadvwva</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2" align="center">
-                            <p>x3</p>
-                        </div>
-                        <div class="col-lg-3" align="right">
-                            Rp 25.000,-
-                        </div>
-                    </div>
+                <div id="keranjang" class="box-window summarycontainer-responsive">
 
                     <div class="row">
                         <div class="col-lg-7">
@@ -488,3 +104,22 @@
 </div>
 
 <%@ include file = "/include/foot.jsp" %>
+
+<script>
+    $(document).ready(function () {
+
+
+       <%--$('.col-md-2').click(function () {--%>
+           <%--$.ajax({--%>
+               <%--type: 'POST',--%>
+               <%--url: "/cashier/seat",--%>
+               <%--dataType: "JSON",--%>
+               <%--data: {tickets: listTicket.toString(),--%>
+                   <%--filmid: ${filmid},--%>
+                   <%--screeningid: ${screeningid},--%>
+                   <%--studioid: ${studioid}--%>
+               <%--},--%>
+               <%--success: window.location.href = "/cashier/fnb"--%>
+           <%--});--%>
+
+</script>

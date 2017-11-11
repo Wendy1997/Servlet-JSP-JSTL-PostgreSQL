@@ -55,10 +55,10 @@
 
         <div class="detail" style="margin-left:80px; display: inline-block;">
             <div class="row">
-                <div style="font-size: 18px">Avatar The Legend of Korra</div>
+                <div style="font-size: 18px">${film.title}</div>
             </div>
             <div class="row">
-                <div>Genre/Duration</div>
+                <div>${film.genre}/${film.duration}</div>
             </div>
 
         </div>
@@ -142,7 +142,7 @@
                   screeningid: ${screeningid},
                   studioid: ${studioid}
               },
-                success: window.location.href = "cashier/fnb"
+                success: window.location.href = "/cashier/fnb"
            });
         });
     });

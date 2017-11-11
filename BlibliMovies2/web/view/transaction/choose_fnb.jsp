@@ -121,5 +121,5 @@
                <%--},--%>
                <%--success: window.location.href = "/cashier/fnb"--%>
            <%--});--%>
-      
+
 </script>
