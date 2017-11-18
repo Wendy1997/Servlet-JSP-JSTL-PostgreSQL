@@ -28,7 +28,7 @@
             <div class="container">
                 <div class="fnbcontainer-responsive row">
                     <c:forEach items="${fnblist}" var="fnb">
-                        <div id="${fnb.name} ${fnb.size}" class="col-md-2">
+                        <div id="${fnb.id}" class="col-md-2">
                             <div>
                                 <img class="circle" src="src/img/popcorn.jpg" style="width:120px;height:120px;">
                             </div>
@@ -37,6 +37,7 @@
                     </c:forEach>
                 </div>
             </div>
+
             <!-- <div class="container-fluid">
                 <form class="row" action="">
                   <input type="radio" name="food" value="food"> Food
@@ -46,8 +47,6 @@
             </div> -->
 
         </div>
-
-
 
         <div class="container-fluid thumnail col-lg-4" align="center">
             <!-- Title -->
@@ -63,42 +62,27 @@
                     </div>
                 </div>
 
-                <div id="keranjang" class="box-window summarycontainer-responsive">
+                <div id="keranjang" class="box-window summarycontainer-responsive"></div>
 
-                    <div class="row">
-                        <div class="col-lg-7">
-                            <div class="row box">
-                                <div class="col-lg-4">
-                                    <div class="smallCircle"></div>
-                                </div>
-                                <div class="col-lg-8">
-                                    <p class="invoice">Lalallaasjfbaldjbakdfbakdfbjak</p>
-                                    <p class="invoice">asddbdgbdfwdcadvwva</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-2" align="center">
-                            <p>x3</p>
-                        </div>
-                        <div class="col-lg-3" align="right">
-                            Rp 25.000,-
-                        </div>
-                    </div>
-
-                </div>
+                <p>Masukkan ID Member(Jika ada)</p>
+                <input type="name" class="form-control" id="member" name="member" required>
+                <button type="submit" class="btn btn-default" id="memberAccept">Accept ></button>
 
                 <div class="row">
                     <dir class="col-lg-6">
-                        <p>Total: Rp. 215.000 ,-</p>
-                        <p>Member Discount: 20%</p>
+                        <p id="total">Total: Rp. 0 ,-</p>
+                        <p id="discount">Member Discount: 0%</p>
                     </dir>
 
                     <dir class="col-lg-6" align="right">
                         <p>Amount Payable</p>
-                        <p><strong>Rp. 217.000 ,-</strong></p>
+                        <p><strong id="amount">Rp. 0 ,-</strong></p>
                     </dir>
                 </div>
             </div>
+
+            <button type="submit" class="btn btn-default" id="accept">Accept ></button>
+
         </div>
     </div>
 </div>
@@ -106,20 +90,90 @@
 <%@ include file = "/include/foot.jsp" %>
 
 <script>
+
+    var listBuy = [];
+    var harga = 0;
+    var diskon = 0;
+
+    function deleteContent(id, jumlah, price) {
+        $('#'+id+jumlah).remove();
+        listBuy[id] -= jumlah;
+
+        harga -= price;
+        hargaFinal = harga - (harga * diskon / 100);
+
+        $('#total')[0].innerHTML = "Total: Rp. "+ harga +" ,-";
+        $('#amount')[0].innerHTML = "Rp. "+ hargaFinal +" ,-";
+    }
+
     $(document).ready(function () {
+       $('.col-md-2').click(function () {
+          var jumlah = prompt("Masukkan jumlah");
+           $.ajax({
+               type: 'POST',
+               dataType: "JSON",
+               url: "/view/fnb",
+               data: {
+                   id: $(this).attr("id")
+               },
+               success: function(response){
 
+                   if(listBuy[response.id] == null){
+                       listBuy[response.id] = parseInt(jumlah);
+                   } else {
+                       listBuy[response.id] += parseInt(jumlah);
+                   }
 
-       <%--$('.col-md-2').click(function () {--%>
-           <%--$.ajax({--%>
-               <%--type: 'POST',--%>
-               <%--url: "/cashier/seat",--%>
-               <%--dataType: "JSON",--%>
-               <%--data: {tickets: listTicket.toString(),--%>
-                   <%--filmid: ${filmid},--%>
-                   <%--screeningid: ${screeningid},--%>
-                   <%--studioid: ${studioid}--%>
-               <%--},--%>
-               <%--success: window.location.href = "/cashier/fnb"--%>
-           <%--});--%>
+                   var price = response.price * jumlah;
+
+                   $('#keranjang')[0].innerHTML += '<div id="'+response.id+jumlah+'" class="row">\n' +
+                       '                        <div class="col-lg-7">\n' +
+                       '                            <div class="row box">\n' +
+                       '                                <div class="col-lg-4">\n' +
+                       '                                    <div class="smallCircle"></div>\n' +
+                       '                                </div>\n' +
+                       '                                <div class="col-lg-8">\n' +
+                       '                                    <p class="invoice">'+ response.name + '</p>\n' +
+                       '                                    <p class="invoice">'+ response.type + '</p>\n' +
+                       '                                </div>\n' +
+                       '                            </div>\n' +
+                       '                        </div>\n' +
+                       '                        <div class="col-lg-2" align="center">\n' +
+                       '                            <p>x'+ jumlah +'</p>\n' +
+                       '                        </div>\n' +
+                       '                        <div class="col-lg-3" align="right">\n' +
+                       '                            Rp '+ price +' ,- ' +
+                       '                            <p onclick="deleteContent('+response.id+","+jumlah+","+price+')">x</p>\n' +
+                       '                        </div>\n' +
+                       '                    </div>';
+
+                   harga += price;
+                   hargaFinal = harga - (harga * diskon / 100);
+
+                   $('#total')[0].innerHTML = "Total: Rp. "+ harga +" ,-";
+                   $('#amount')[0].innerHTML = "Rp. "+ hargaFinal +" ,-";
+               }
+           });
+           console.log(listBuy);
+       });
+
+       $('#memberAccept').click(function () {
+           $.ajax({
+               type: 'POST',
+               dataType: "JSON",
+               url: "/check/member",
+               data: {
+                   id: $('#member').val()
+               },
+               success: function(response) {
+                    diskon = response;
+                    $('#discount')[0].innerHTML = 'Member Discount: ' + diskon + '%';
+
+                    hargaFinal = harga - (harga * diskon / 100);
+                    $('#amount')[0].innerHTML = "Rp. "+ hargaFinal +" ,-";
+               }
+           });
+       });
+    });
 
 </script>

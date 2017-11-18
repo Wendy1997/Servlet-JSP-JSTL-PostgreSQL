@@ -25,8 +25,6 @@ public class InvoiceDAO {
             // load a properties file
             prop.load(input);
 
-            System.out.println(prop.getProperty("database"));
-
             Class.forName(prop.getProperty("database"));
             conn = DriverManager.getConnection(prop.getProperty("url"), prop.getProperty("user"), prop.getProperty("password"));
         } catch (Exception e){

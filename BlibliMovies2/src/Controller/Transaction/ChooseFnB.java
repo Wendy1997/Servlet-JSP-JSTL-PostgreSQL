@@ -25,7 +25,7 @@ public class ChooseFnB extends HttpServlet{
         } catch (SQLException e){
             e.printStackTrace();
         }
+
         request.getRequestDispatcher(address).forward(request, response);
     }
-
 }

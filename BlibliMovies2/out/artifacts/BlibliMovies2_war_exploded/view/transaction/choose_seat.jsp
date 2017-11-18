@@ -132,7 +132,6 @@
             }
         });
         $('#accept').click(function () {
-           console.log(listTicket);
             $.ajax({
               type: 'POST',
               url: "/cashier/seat",
