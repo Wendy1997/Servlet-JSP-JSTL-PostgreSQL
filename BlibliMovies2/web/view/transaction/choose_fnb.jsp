@@ -66,6 +66,12 @@
 
                 <p>Masukkan ID Member(Jika ada)</p>
                 <input type="name" class="form-control" id="member" name="member" required>
+                <input type="hidden" id="filmid" name="filmid" value="${film.id}">
+                <input type="hidden" id="screeningid" name="screeningid" value="${screening.id}">
+                <input type="hidden" id="studioid" name="studioid" value="${studio.id}">
+                <input type="hidden" id="ticket" name="ticket" value="${ticketQuantity}">
+                <input type="hidden" id="studioPrice" name="studioid" value="${studio.price}">
+                <input type="hidden" id="filmTitle" name="ticket" value="${film.title}">
                 <button type="submit" class="btn btn-default" id="memberAccept">Accept ></button>
 
                 <div class="row">
@@ -92,12 +98,16 @@
 <script>
 
     var listBuy = [];
+    var listHarga = [];
     var harga = 0;
+    var hargaFinal = 0;
     var diskon = 0;
+    var hasFilm = false;
 
     function deleteContent(id, jumlah, price) {
         $('#'+id+jumlah).remove();
         listBuy[id] -= jumlah;
+        listHarga[id] -= price;
 
         harga -= price;
         hargaFinal = harga - (harga * diskon / 100);
@@ -118,13 +128,15 @@
                },
                success: function(response){
 
+                   var price = response.price * jumlah;
+
                    if(listBuy[response.id] == null){
                        listBuy[response.id] = parseInt(jumlah);
+                       listHarga[response.id] = parseInt(price);
                    } else {
                        listBuy[response.id] += parseInt(jumlah);
+                       listHarga[response.id] += parseInt(price);
                    }
-
-                   var price = response.price * jumlah;
 
                    $('#keranjang')[0].innerHTML += '<div id="'+response.id+jumlah+'" class="row">\n' +
                        '                        <div class="col-lg-7">\n' +
@@ -154,6 +166,8 @@
                    $('#amount')[0].innerHTML = "Rp. "+ hargaFinal +" ,-";
                }
            });
+
+
            console.log(listBuy);
        });
 
@@ -174,6 +188,72 @@
                }
            });
        });
+
+       $('#accept').click(function () {
+           var jsonListBuy = "";
+           for(var key in listBuy) {
+               jsonListBuy += key + ',' + listBuy[key] + ';';
+           }
+           console.log(jsonListBuy);
+           $.ajax({
+               type: 'POST',
+               dataType: "JSON",
+               url: "/cashier/fnb",
+               data: {
+                   member: $('#member').val(),
+                   fnb: jsonListBuy,
+                   totalHarga: hargaFinal,
+                   hasFilm: hasFilm,
+                   idFilm: $('#filmTitle').val() + "," + $('#ticket').val() + "," + $('#studioPrice').val()
+               },
+               success: function(response) {
+                   window.location.href = "/cashier/invoice?id=" + response;
+               },
+               error: function (response) {
+                   console.log(response);
+               }
+           });
+       });
+
+       var ticket = $('#ticket').val().length;
+
+        if(ticket !== 0){
+            var namaFilm = $('#filmTitle').val();
+           var jumlah = $('#ticket').val();
+           var studioPrice = $('#studioPrice').val();
+           var price = parseInt(jumlah) * parseInt(studioPrice);
+
+           listBuy[namaFilm] = parseInt(jumlah);
+           listHarga[namaFilm] = parseInt(price);
+
+           $('#keranjang')[0].innerHTML += '<div id="'+namaFilm + jumlah+'" class="row">\n' +
+               '                        <div class="col-lg-7">\n' +
+               '                            <div class="row box">\n' +
+               '                                <div class="col-lg-4">\n' +
+               '                                    <div class="smallCircle"></div>\n' +
+               '                                </div>\n' +
+               '                                <div class="col-lg-8">\n' +
+               '                                    <p class="invoice">'+ namaFilm + '</p>\n' +
+               '                                    <p class="invoice">tickets</p>\n' +
+               '                                </div>\n' +
+               '                            </div>\n' +
+               '                        </div>\n' +
+               '                        <div class="col-lg-2" align="center">\n' +
+               '                            <p>x'+ jumlah +'</p>\n' +
+               '                        </div>\n' +
+               '                        <div class="col-lg-3" align="right">\n' +
+               '                            Rp '+ price +' ,- ' +
+               '                        </div>\n' +
+               '                    </div>';
+
+           harga += price;
+           hargaFinal = harga - (harga * diskon / 100);
+
+           $('#total')[0].innerHTML = "Total: Rp. "+ harga +" ,-";
+           $('#amount')[0].innerHTML = "Rp. "+ hargaFinal +" ,-";
+
+           hasFilm = true;
+       }
     });
 
 </script>

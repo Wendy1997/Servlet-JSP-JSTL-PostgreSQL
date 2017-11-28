@@ -28,6 +28,13 @@ public class Invoice {
         this.totalPrice = totalPrice;
     }
 
+    public Invoice(String accountUsername, String storeName, String orderDate, int totalPrice) {
+        this.accountUsername = accountUsername;
+        this.storeName = storeName;
+        this.orderDate = orderDate;
+        this.totalPrice = totalPrice;
+    }
+
     public int getId() {
         return id;
     }

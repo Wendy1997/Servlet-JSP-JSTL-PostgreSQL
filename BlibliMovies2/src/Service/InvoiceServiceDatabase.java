@@ -26,12 +26,32 @@ public class InvoiceServiceDatabase implements InvoiceService {
     }
 
     @Override
+    public void addInvoice(Invoice invoice) throws SQLException {
+        invoiceDAO.addInvoice(invoice);
+    }
+
+    @Override
+    public Invoice getInvoice(Invoice invoice) throws SQLException {
+        return invoiceDAO.getInvoice(invoice);
+    }
+
+    @Override
     public List<OrderDetail> getAllOrderDetail(String id, String storename) throws SQLException {
         return orderDetailDAO.getAllOrderDetail(id, storename);
     }
 
     @Override
+    public void addOrderDetail(OrderDetail orderDetail) throws SQLException {
+        orderDetailDAO.addOrderDetail(orderDetail);
+    }
+
+    @Override
     public Promo getPromo(String id, String storename) throws SQLException{
         return promoDAO.getPromo(id, storename);
+    }
+
+    @Override
+    public Promo getPromo(String storename) throws SQLException {
+        return promoDAO.getPromo(storename);
     }
 }

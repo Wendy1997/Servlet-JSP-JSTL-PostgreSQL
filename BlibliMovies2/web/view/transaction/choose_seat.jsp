@@ -141,7 +141,7 @@
                   screeningid: ${screeningid},
                   studioid: ${studioid}
               },
-                success: window.location.href = "/cashier/fnb"
+                success: window.location.href = "/cashier/fnb?film=" + ${filmid} + "&screeningid=" + ${screeningid} + "&studioid=" + ${studioid} + "&ticketQuantity=" + listTicket.length
            });
         });
     });

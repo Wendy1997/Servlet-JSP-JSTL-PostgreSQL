@@ -50,4 +50,24 @@ public class PromoDAO {
         }
         return output;
     }
+
+    public Promo getPromo(String storename) throws SQLException {
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM promo where storeusername = ? and status = true");
+        ps.setString(1, storename);
+
+        ResultSet rs = ps.executeQuery();
+
+        Promo output;
+        if(rs.next()){
+            output = new Promo(rs.getInt(1),
+                    rs.getString(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                    rs.getBoolean(5),
+                    rs.getInt(6));
+        } else{
+            output = null;
+        }
+        return output;
+    }
 }

@@ -11,8 +11,12 @@ public interface InvoiceService {
 
     Invoice getInvoice(String id, String storename) throws SQLException;
     List<Invoice> getAllInvoice(String storename) throws SQLException;
+    void addInvoice(Invoice invoice) throws SQLException;
+    Invoice getInvoice(Invoice invoice) throws  SQLException;
 
     List<OrderDetail> getAllOrderDetail(String id, String storename) throws SQLException;
+    void addOrderDetail(OrderDetail orderDetail) throws SQLException;
 
     Promo getPromo(String id, String storename) throws SQLException;
+    Promo getPromo(String storename) throws SQLException;
 }

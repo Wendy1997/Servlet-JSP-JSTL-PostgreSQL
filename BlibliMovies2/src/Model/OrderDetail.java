@@ -19,6 +19,15 @@ public class OrderDetail {
         this.discountStatus = discountStatus;
     }
 
+    public OrderDetail(int invoiceId, String storename, String itemName, int quantity, int price, boolean discountStatus) {
+        this.invoiceId = invoiceId;
+        this.storename = storename;
+        this.itemName = itemName;
+        this.quantity = quantity;
+        this.price = price;
+        this.discountStatus = discountStatus;
+    }
+
     public int getId() {
         return id;
     }

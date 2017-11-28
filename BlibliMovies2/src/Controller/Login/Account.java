@@ -21,7 +21,6 @@ public class Account extends HttpServlet {
 
         // Validasi apakah sudah login store
         if(request.getSession().getAttribute("storename") == null){
-            System.out.println("trakakaka");
             address = "/view/login/store_login.jsp";
         }
 
@@ -29,6 +28,7 @@ public class Account extends HttpServlet {
         if(request.getParameter("page") != null){
             if(request.getParameter("page").equals("logout")){
                 request.getSession().removeAttribute("role");
+                request.getSession().removeAttribute("username");
             }
         }
 
@@ -52,6 +52,7 @@ public class Account extends HttpServlet {
             if(account != null){
                 if(account.getPassword().equals(request.getParameter("password"))){
                     request.getSession().setAttribute("role", account.getRole());
+                    request.getSession().setAttribute("username", account.getUsername());
                     address = "/view/menu/admin_menu.jsp";
                 }
             }

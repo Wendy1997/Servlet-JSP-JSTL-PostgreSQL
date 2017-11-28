@@ -3,6 +3,7 @@ package Controller.Transaction;
 import Model.Film;
 import Model.FilmTicket;
 import Model.Seat;
+import Model.Studio;
 import Service.*;
 
 import javax.servlet.Servlet;
@@ -30,7 +31,6 @@ public class ChooseSeat extends HttpServlet {
 
             List<FilmTicket> filmTicketList = filmTicketService.getAllTickets(request.getParameter("id"),request.getParameter("studioid"),request.getParameter("screeningid"),"blibli");
             Film film = filmService.getFilm(request.getParameter("id"), "blibli");
-            System.out.println(request.getParameter("id"));
             request.setAttribute("filmid", request.getParameter("id"));
             request.setAttribute("studioid", request.getParameter("studioid"));
             request.setAttribute("screeningid", request.getParameter("screeningid"));
@@ -49,9 +49,12 @@ public class ChooseSeat extends HttpServlet {
         String[] seatList = request.getParameter("tickets").split(",");
 
         try {
+
+            Studio studio = filmService.getStudio(request.getParameter("studioid"), "blibli");
+
             for(int i = 0; i < seatList.length; i++){
                 if(!seatList[i].isEmpty())
-                    filmTicketService.addTicket(new FilmTicket(Integer.parseInt(request.getParameter("filmid")), Integer.parseInt(request.getParameter("studioid")), seatList[i], Integer.parseInt(request.getParameter("screeningid")), 0, "blibli"));
+                    filmTicketService.addTicket(new FilmTicket(Integer.parseInt(request.getParameter("filmid")), Integer.parseInt(request.getParameter("studioid")), seatList[i], Integer.parseInt(request.getParameter("screeningid")), studio.getPrice(), "blibli"));
             }
         } catch (SQLException e){
             e.printStackTrace();

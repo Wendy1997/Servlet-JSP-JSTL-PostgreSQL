@@ -51,4 +51,15 @@ public class OrderDetailDAO {
         return orderDetails;
     }
 
+    public void addOrderDetail(OrderDetail orderDetail) throws SQLException {
+        PreparedStatement ps = conn.prepareStatement("INSERT INTO orderdetail (invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES (?,?,?,?,?,?)");
+        ps.setInt(1, orderDetail.getInvoiceId());
+        ps.setString(2, orderDetail.getStorename());
+        ps.setString(3, orderDetail.getItemName());
+        ps.setInt(4, orderDetail.getQuantity());
+        ps.setInt(5, orderDetail.getPrice());
+        ps.setBoolean(6, orderDetail.isDiscountStatus());
+
+        ps.executeUpdate();
+    }
 }
