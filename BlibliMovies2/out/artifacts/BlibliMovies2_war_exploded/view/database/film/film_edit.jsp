@@ -15,14 +15,14 @@
         <br><br>
 
         <!-- Forms -->
-        <form action="/admin/film/edit" method="post">
+        <form action="/admin/film/edit" method="post" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-lg-6" id="form1">
                     <h2>Data Film</h2><br>
 
                     <div class="form-group">
-                        <label for="cover">Cover:</label>
-                        <input type="name" class="form-control" id="cover" name="cover" value="${film.cover}" required>
+                        <label for="file">Cover:</label>
+                        <input type="file" class="form-control" id="file" name="file" value="${film.cover}">
                     </div>
 
                     <div class="form-group">

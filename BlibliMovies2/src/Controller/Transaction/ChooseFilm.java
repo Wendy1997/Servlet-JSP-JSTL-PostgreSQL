@@ -25,6 +25,7 @@ public class ChooseFilm extends HttpServlet {
             List<Film> films = filmService.getAllFilm("blibli");
             for(int i = 0; i < films.size(); i++){
                 films.get(i).setScreeningTimes(filmService.getAllScreeningTime("blibli", films.get(i).getId()+ ""));
+                films.get(i).setCover("/uploads" + films.get(i).getCover());
             }
             request.setAttribute("films", films);
         } catch (SQLException e){

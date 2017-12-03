@@ -15,14 +15,14 @@
         <br><br>
 
         <!-- Forms -->
-        <form action="/admin/fnb/add" method="post">
+        <form action="/admin/fnb/add" method="post" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-lg-6" id="form1">
                     <h2>Data Food and Beverages</h2><br>
 
                     <div class="form-group">
-                        <label for="cover">Cover:</label>
-                        <input type="name" class="form-control" id="cover" name="cover" required>
+                        <label for="file">Cover:</label>
+                        <input type="file" class="form-control" id="file" name="file" required>
                     </div>
 
                     <div class="form-group">

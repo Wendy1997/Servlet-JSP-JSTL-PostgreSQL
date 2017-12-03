@@ -23,6 +23,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
 @WebServlet("/cashier/fnb")
@@ -36,14 +37,19 @@ public class ChooseFnB extends HttpServlet{
 
         try{
             if(!(request.getParameter("ticketQuantity") == null)){
-                String[] seatList = request.getParameter("ticketQuantity").split(",");
-                request.setAttribute("ticketQuantity", seatList.length);
+                request.setAttribute("ticketQuantity", request.getParameter("ticketQuantity"));
                 request.setAttribute("film", filmService.getFilm(request.getParameter("film"), "blibli"));
                 request.setAttribute("studio", filmService.getStudio(request.getParameter("studioid"), "blibli"));
                 request.setAttribute("screening", filmService.getScreeningTime(request.getParameter("screeningid"), request.getParameter("film"), "blibli"));
             }
 
-            request.setAttribute("fnblist", fnBService.getAllFnB("blibli"));
+            List<FnB> fnBList = fnBService.getAllFnB("blibli");
+
+            for(int i = 0; i < fnBList.size(); i++){
+                fnBList.get(i).setCover("/uploads" + fnBList.get(i).getCover());
+            }
+
+            request.setAttribute("fnblist", fnBList);
         } catch (SQLException e){
             e.printStackTrace();
         }

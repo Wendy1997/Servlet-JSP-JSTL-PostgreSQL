@@ -168,6 +168,10 @@ Circle
 	border-radius: 100px;
 	margin-bottom: 10px;
 
+	background-size:     cover;                      /* <------ */
+	background-repeat:   no-repeat;
+	background-position: center center;
+
 	-moz-transition: all .2s ease-in;
     -o-transition: all .2s ease-in;
     -webkit-transition: all .2s ease-in;
@@ -262,12 +266,20 @@ Dummy Image
 	width: 300px;
 	height: 400px;
 	background-color: gray;
+	background-size:     cover;                      /* <------ */
+	background-repeat:   no-repeat;
+	background-position: center center;
+
 }
 
 @media screen and (max-width: 1200px) {
 	.circle{
 		width: 120px;
 		height: 120px;
+
+		background-size:     cover;                      /* <------ */
+		background-repeat:   no-repeat;
+		background-position: center center;
 	}
 
 	.circle:hover{
@@ -280,6 +292,10 @@ Dummy Image
 	.circle{
 		width: 200px;
 		height: 200px;
+
+		background-size:     cover;                      /* <------ */
+		background-repeat:   no-repeat;
+		background-position: center center;
 	}
 
 	.circle:hover{
@@ -315,6 +331,10 @@ Nav Bar
 	.circle{
 		width: 150px;
 		height: 150px;
+
+		background-size:     cover;                      /* <------ */
+		background-repeat:   no-repeat;
+		background-position: center center;
 	}
 
 	.circle:hover{

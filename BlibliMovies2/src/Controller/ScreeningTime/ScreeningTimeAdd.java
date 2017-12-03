@@ -54,6 +54,7 @@ public class ScreeningTimeAdd extends HttpServlet{
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         try{
+            System.out.println(request.getParameter("filmid"));
             ScreeningTime screeningTime = new ScreeningTime(Integer.parseInt(request.getParameter("filmid")),
                     Integer.parseInt(request.getParameter("studio")),
                     (String) request.getSession().getAttribute("storename"),

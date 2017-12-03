@@ -25,6 +25,7 @@ public class ChooseFilmDetail extends HttpServlet {
 
         try{
             Film film = filmService.getFilm(request.getParameter("id"), "blibli");
+            film.setCover("/uploads" + film.getCover());
 
             ScreeningTime screeningTime = filmService.getScreeningTime(request.getParameter("screeningtime"), request.getParameter("id"), "blibli");
             Studio studio = filmService.getStudio(screeningTime.getStudioId() + "", "blibli");

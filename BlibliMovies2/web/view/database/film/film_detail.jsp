@@ -17,7 +17,9 @@
         <!-- Content -->
         <div class="row">
             <div class="col-lg-3" align="center" id="form1">
-                <div class="dummy-image"></div><br>
+                <div class="dummy-image" style="background-image: url('${film.cover}')">
+                    <%--<img src="${film.cover}">--%>
+                </div><br>
             </div>
             <div class="col-lg-5" id="form1">
                 <p>Director: ${film.director} </p>
@@ -38,8 +40,8 @@
                 </c:forEach>
 
                 <br>
-                <a href="/admin/edit?id=${film.id}}"><h2>Edit ></h2></a><br>
-                <a href="/admin/delete?id=${film.id}"><h2>Delete ></h2></a>
+                <a href="/admin/film/edit?id=${film.id}"><h2>Edit ></h2></a><br>
+                <a href="/admin/film/delete?id=${film.id}"><h2>Delete ></h2></a>
             </div>
         </div>
     </div>

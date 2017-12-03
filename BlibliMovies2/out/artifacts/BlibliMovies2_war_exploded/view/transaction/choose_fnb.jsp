@@ -30,7 +30,7 @@
                     <c:forEach items="${fnblist}" var="fnb">
                         <div id="${fnb.id}" class="col-md-2">
                             <div>
-                                <img class="circle" src="src/img/popcorn.jpg" style="width:120px;height:120px;">
+                                <img class="circle" style="background-image:url('${fnb.cover}');width:120px;height:120px;">
                             </div>
                             <p>${fnb.name} ${fnb.size}</p>
                         </div>

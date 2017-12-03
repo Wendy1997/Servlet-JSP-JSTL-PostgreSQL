@@ -16,7 +16,7 @@
         <!-- Content -->
         <div class="row">
             <div class="col-lg-3" align="center" id="form1">
-                <div class="dummy-image"></div><br>
+                <div class="dummy-image" style="background-image: url('${film.cover}');"></div><br>
             </div>
             <div class="col-lg-5" id="form1">
                 <p>Director: ${film.director} </p>
@@ -29,7 +29,7 @@
                 <p>${film.sinopsis}</p>
             </div>
             <div class="col-lg-4">
-                <a href="/cashier/seat?id=${film.id}&screeningid=${screeningtime.id}&studioid=${studio.id}"><h2>Pick Your Seat ></h2></a>
+                <a href="/cashier/seat?id=${film.id}&screeningid=${screeningTime.id}&studioid=${studio.id}"><h2>Pick Your Seat ></h2></a>
             </div>
         </div>
     </div>

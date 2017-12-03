@@ -56,6 +56,8 @@ public class FilmDetail extends HttpServlet{
                 }
             }
 
+            film.setCover("/uploads" + film.getCover());
+
             request.setAttribute("film", film);
             request.setAttribute("screeningTime", screeningList);
 

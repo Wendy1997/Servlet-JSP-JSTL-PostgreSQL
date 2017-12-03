@@ -26,7 +26,7 @@
                     <div class="col-lg-10">
                         <div class="row box">
                             <div class="col-md-2">
-                                <div class="circle"  src="src/img/fanta.jpg"  style="width:100px;height:100px;"></div>
+                                <div class="circle" style="background-image:url('${film.cover}');width:100px;height:100px;"></div>
                             </div>
                             <div class="col-md-10">
                                 <div style="font-size: 18px">${film.title}</div>
@@ -63,7 +63,7 @@
                         <div class="col-lg-7">
                             <div class="row box">
                                 <div class="col-lg-5">
-                                    <div class="circle"  src="src/img/fanta.jpg"  style="width:75px;height:75px;"></div>
+                                    <div class="circle" style="background-image:url('${film.cover}');width:75px;height:75px;"></div>
                                 </div>
                                 <div class="col-lg-7">
                                     <div style="font-size: 18px">${film.title}</div>

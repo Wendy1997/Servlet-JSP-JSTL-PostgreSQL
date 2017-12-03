@@ -7,7 +7,7 @@
     <!-- Title -->
     <div class="jumbotron">
         <h1 class="title">Screening Time</h1><br>
-        <a href="/admin/screentime/add"><h5>Create New Screening Time</h5></a>
+        <a href="/admin/screentime/add?filmid=${film.id}&duration=${film.duration}"><h5>Create New Screening Time</h5></a>
     </div>
 
     <!-- Form -->

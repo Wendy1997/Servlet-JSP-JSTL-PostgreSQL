@@ -52,7 +52,7 @@
 
                 <div class="row">
                     <div class="col-lg-6">
-                        <p>Total: Rp. ${invoice.memberId == 0 ? invoice.totalPrice : invoice.totalPrice + invoice.totalPrice * promo.discountAmount / 100 } ,-</p>
+                        <p>Total: Rp. ${invoice.memberId == 0 ? invoice.totalPrice : invoice.totalPrice * 100 / (100 - promo.discountAmount) } ,-</p>
                         <p>Member Discount: ${invoice.memberId == 0 ? "-" : promo.discountAmount} %</p>
                     </div>
 
