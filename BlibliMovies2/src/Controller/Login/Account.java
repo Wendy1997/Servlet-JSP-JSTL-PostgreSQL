@@ -53,14 +53,14 @@ public class Account extends HttpServlet {
                 if(account.getPassword().equals(request.getParameter("password"))){
                     request.getSession().setAttribute("role", account.getRole());
                     request.getSession().setAttribute("username", account.getUsername());
-                    address = "/view/menu/admin_menu.jsp";
+                    address = "/view/menu/" + account.getRole() + "_menu.jsp";
                 }
             }
 
             address = "/view/database/success.jsp";
             request.setAttribute("title", "Login");
             request.setAttribute("complete", "Sukses");
-            request.setAttribute("link", "/admin");
+            request.setAttribute("link", "/" + account.getRole());
 
             request.getRequestDispatcher(address).forward(request, response);
         } catch (SQLException e){

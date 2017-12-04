@@ -35,7 +35,7 @@ public class FnBDAO {
     }
 
     public FnB getFnB(String fnb, String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM foodandbeverages where id = ? and storeusername = ?");
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM foodandbeverages where id = ? and storeusername = ? and status = true");
         ps.setString(1, fnb);
         ps.setString(2, storename);
 
@@ -58,7 +58,7 @@ public class FnBDAO {
     }
 
     public List<FnB> getAllFnB(String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM foodandbeverages where storeusername = ?");
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM foodandbeverages where storeusername = ? and status = true");
         ps.setString(1, storename);
 
         ResultSet rs = ps.executeQuery();
@@ -92,14 +92,14 @@ public class FnBDAO {
     }
 
     public void deleteFnB(String id, String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("DELETE FROM foodandbeverages where id = ? AND storeusername = ?");
+        PreparedStatement ps = conn.prepareStatement("UPDATE foodandbeverages set status = false where id = ? AND storeusername = ?");
         ps.setString(1, id);
         ps.setString(2, storename);
         ps.executeUpdate();
     }
 
     public void updateFnB(FnB fnb) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("UPDATE foodandbeverages set cover = ?, name = ?, type = ?, size = ?, price = ? where id = ? and storeusername = ?");
+        PreparedStatement ps = conn.prepareStatement("UPDATE foodandbeverages set cover = ?, name = ?, type = ?, size = ?, price = ? where id = ? and storeusername = ? and status = true");
 
         ps.setString(1, fnb.getCover());
         ps.setString(2, fnb.getName());

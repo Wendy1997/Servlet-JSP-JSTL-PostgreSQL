@@ -21,10 +21,22 @@ public class ChooseFilm extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         String address = "/view/transaction/choose_film.jsp";
 
+        // Validasi apakah sudah login store
+        if(request.getSession().getAttribute("storename") == null){
+            address = "/view/login/store_login.jsp";
+            request.getRequestDispatcher(address).forward(request, response);
+        }
+
+        // Validasi apakah sudah login akun
+        else if (request.getSession().getAttribute("role") == null){
+            address = "/view/login/account_login.jsp";
+            request.getRequestDispatcher(address).forward(request, response);
+        }
+
         try{
-            List<Film> films = filmService.getAllFilm("blibli");
+            List<Film> films = filmService.getAllFilm((String)request.getSession().getAttribute("storename"));
             for(int i = 0; i < films.size(); i++){
-                films.get(i).setScreeningTimes(filmService.getAllScreeningTime("blibli", films.get(i).getId()+ ""));
+                films.get(i).setScreeningTimes(filmService.getAllScreeningTime((String)request.getSession().getAttribute("storename"), films.get(i).getId()+ ""));
                 films.get(i).setCover("/uploads" + films.get(i).getCover());
             }
             request.setAttribute("films", films);

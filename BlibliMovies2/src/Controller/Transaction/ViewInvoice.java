@@ -23,11 +23,11 @@ public class ViewInvoice extends HttpServlet {
         String address = "/view/transaction/view_invoice.jsp";
 
         try{
-            Invoice invoice = invoiceService.getInvoice(request.getParameter("id"), "blibli");
-            List<OrderDetail> orderDetails = invoiceService.getAllOrderDetail(request.getParameter("id"), "blibli");
+            Invoice invoice = invoiceService.getInvoice(request.getParameter("id"), (String)request.getSession().getAttribute("storename"));
+            List<OrderDetail> orderDetails = invoiceService.getAllOrderDetail(request.getParameter("id"), (String)request.getSession().getAttribute("storename"));
 
             if(invoice.getMemberId() != 0){
-                Promo promo = invoiceService.getPromo("1", "blibli");
+                Promo promo = invoiceService.getPromo("1", (String)request.getSession().getAttribute("storename"));
                 request.setAttribute("promo", promo);
             }
 

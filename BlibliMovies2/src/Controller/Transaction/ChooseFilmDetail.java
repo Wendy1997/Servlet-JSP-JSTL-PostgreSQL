@@ -23,12 +23,24 @@ public class ChooseFilmDetail extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         String address = "/view/transaction/confirmation_film.jsp";
 
+        // Validasi apakah sudah login store
+        if(request.getSession().getAttribute("storename") == null){
+            address = "/view/login/store_login.jsp";
+            request.getRequestDispatcher(address).forward(request, response);
+        }
+
+        // Validasi apakah sudah login akun
+        else if (request.getSession().getAttribute("role") == null){
+            address = "/view/login/account_login.jsp";
+            request.getRequestDispatcher(address).forward(request, response);
+        }
+
         try{
-            Film film = filmService.getFilm(request.getParameter("id"), "blibli");
+            Film film = filmService.getFilm(request.getParameter("id"), (String)request.getSession().getAttribute("storename"));
             film.setCover("/uploads" + film.getCover());
 
-            ScreeningTime screeningTime = filmService.getScreeningTime(request.getParameter("screeningtime"), request.getParameter("id"), "blibli");
-            Studio studio = filmService.getStudio(screeningTime.getStudioId() + "", "blibli");
+            ScreeningTime screeningTime = filmService.getScreeningTime(request.getParameter("screeningtime"), request.getParameter("id"), (String)request.getSession().getAttribute("storename"));
+            Studio studio = filmService.getStudio(screeningTime.getStudioId() + "", (String)request.getSession().getAttribute("storename"));
 
             request.setAttribute("film", film);
             request.setAttribute("screeningTime", screeningTime);

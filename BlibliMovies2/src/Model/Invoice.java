@@ -7,9 +7,9 @@ public class Invoice {
     private String storeName;
     private int promoId;
     private String orderDate;
-    private int totalPrice;
+    private double totalPrice;
 
-    public Invoice(int id, int memberId, String accountUsername, String storeName, int promoId, String orderDate, int totalPrice) {
+    public Invoice(int id, int memberId, String accountUsername, String storeName, int promoId, String orderDate, double totalPrice) {
         this.id = id;
         this.memberId = memberId;
         this.accountUsername = accountUsername;
@@ -19,7 +19,7 @@ public class Invoice {
         this.totalPrice = totalPrice;
     }
 
-    public Invoice(int memberId, String accountUsername, String storeName, int promoId, String orderDate, int totalPrice) {
+    public Invoice(int memberId, String accountUsername, String storeName, int promoId, String orderDate, double totalPrice) {
         this.memberId = memberId;
         this.accountUsername = accountUsername;
         this.storeName = storeName;
@@ -28,7 +28,7 @@ public class Invoice {
         this.totalPrice = totalPrice;
     }
 
-    public Invoice(String accountUsername, String storeName, String orderDate, int totalPrice) {
+    public Invoice(String accountUsername, String storeName, String orderDate, double totalPrice) {
         this.accountUsername = accountUsername;
         this.storeName = storeName;
         this.orderDate = orderDate;
@@ -83,7 +83,7 @@ public class Invoice {
         this.orderDate = orderDate;
     }
 
-    public int getTotalPrice() {
+    public double getTotalPrice() {
         return totalPrice;
     }
 

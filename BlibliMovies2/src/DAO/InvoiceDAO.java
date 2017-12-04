@@ -47,7 +47,7 @@ public class InvoiceDAO {
                     rs.getString(4),
                     rs.getInt(5),
                     rs.getString(6),
-                    rs.getInt(7));
+                    rs.getDouble(7));
         } else{
             output = null;
         }
@@ -59,7 +59,7 @@ public class InvoiceDAO {
         ps.setString(1,invoice.getAccountUsername());
         ps.setString(2,invoice.getStoreName());
         ps.setTimestamp(3,java.sql.Timestamp.valueOf(invoice.getOrderDate()));
-        ps.setInt(4,invoice.getTotalPrice());
+        ps.setDouble(4,invoice.getTotalPrice());
         ResultSet rs = ps.executeQuery();
 
         Invoice output;
@@ -70,7 +70,7 @@ public class InvoiceDAO {
                     rs.getString(4),
                     rs.getInt(5),
                     rs.getString(6),
-                    rs.getInt(7));
+                    rs.getDouble(7));
         } else{
             output = null;
         }
@@ -90,7 +90,7 @@ public class InvoiceDAO {
                     rs.getString(4),
                     rs.getInt(5),
                     rs.getString(6).substring(0,10),
-                    rs.getInt(7)));
+                    rs.getDouble(7)));
         }
         return invoices;
     }
@@ -101,7 +101,7 @@ public class InvoiceDAO {
             ps.setString(1,invoice.getAccountUsername());
             ps.setString(2,invoice.getStoreName());
             ps.setTimestamp(3,java.sql.Timestamp.valueOf(invoice.getOrderDate()));
-            ps.setInt(4,invoice.getTotalPrice());
+            ps.setDouble(4,invoice.getTotalPrice());
             ps.executeUpdate();
         }
         else {
@@ -111,7 +111,7 @@ public class InvoiceDAO {
             ps.setString(3,invoice.getStoreName());
             ps.setInt(4,invoice.getPromoId());
             ps.setTimestamp(5,java.sql.Timestamp.valueOf(invoice.getOrderDate()));
-            ps.setInt(6,invoice.getTotalPrice());
+            ps.setDouble(6,invoice.getTotalPrice());
             ps.executeUpdate();
         }
     }

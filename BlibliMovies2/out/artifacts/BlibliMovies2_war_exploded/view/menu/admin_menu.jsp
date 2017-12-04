@@ -42,6 +42,20 @@
                 <p>Account</p>
             </div>
         </div>
+
+        <div class="row" style="float: none; margin: 0 auto;">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-2"></div>
+            <div class="col-lg-2" onclick="document.location.href = '/cashier/film';">
+                <div class="circle"></div>
+                <p>Film Transaction</p>
+            </div>
+
+            <div class="col-lg-2" onclick="document.location.href = '/cashier/fnb';">
+                <div class="circle"></div>
+                <p>FnB Transaction</p>
+            </div>
+        </div>
     </div>
 
 </div>

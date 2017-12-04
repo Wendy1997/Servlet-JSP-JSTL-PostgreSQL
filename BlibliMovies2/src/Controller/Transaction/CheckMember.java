@@ -24,7 +24,7 @@ public class CheckMember extends HttpServlet{
         String id = request.getParameter("id");
 
         try {
-            MemberCard memberCard = memberCardService.getMemberCard(id, "blibli");
+            MemberCard memberCard = memberCardService.getMemberCard(id, (String)request.getSession().getAttribute("storename"));
             PrintWriter out = response.getWriter();
             if(memberCard == null){
                 out.print("0");

@@ -26,7 +26,7 @@
 
             <div class="row">
                 <div class="col-lg-12">
-                    <h3>Order Details:</h3>
+                    <h3>Order Details:</h3><br>
                 </div>
             </div>
 
@@ -35,9 +35,6 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="row box">
-                                <div class="col-lg-2">
-                                    <div class="smallCircle"></div>
-                                </div>
                                 <div class="col-lg-10">
                                     <p class="invoice">${orderDetails.itemName}</p>
                                         <%--<p class="invoice">asddbdgbdfwdcadvwva</p>--%>
@@ -55,7 +52,7 @@
 
 
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-6"><br>
                     <p>Total: Rp. ${invoice.memberId == 0 ? invoice.totalPrice : invoice.totalPrice * 100 / (100 - promo.discountAmount)} ,-</p>
                     <p>Member Discount: ${invoice.memberId == 0 ? "-" : promo.discountAmount} %</p>
                 </div>
