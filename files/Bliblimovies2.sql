@@ -759,8 +759,8 @@ INSERT INTO account (username, storeusername, password, type, status) VALUES ('l
 -- Data for Name: accountrole; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO accountrole (id, role, storeusername, status) VALUES (2, 'cashier', 'blibli', NULL);
-INSERT INTO accountrole (id, role, storeusername, status) VALUES (1, 'admin', 'blibli', NULL);
+INSERT INTO accountrole (id, role, storeusername, status) VALUES (2, 'cashier', 'blibli', true);
+INSERT INTO accountrole (id, role, storeusername, status) VALUES (1, 'admin', 'blibli', true);
 
 
 --
@@ -1011,7 +1011,7 @@ SELECT pg_catalog.setval('invoice_id_seq', 73, true);
 --
 
 INSERT INTO membercard (id, storeusername, fullname, gender, birthdate, phonenumber, email, status) VALUES ('2', 'blibli', 'asd', 'Pria', '2017-12-31 00:00:00', '12312', 'wendydamar.wb@gmail.com', true);
-INSERT INTO membercard (id, storeusername, fullname, gender, birthdate, phonenumber, email, status) VALUES ('1', 'blibli', 'Tampan', 'Pria', '2017-12-31 00:00:00', '123', 'wendydamar.wb@gmail.com', true);
+INSERT INTO membercard (id, storeusername, fullname, gender, birthdate, phonenumber, email, status) VALUES ('1', 'blibli', 'Tampan', 'Wanita', '2017-12-31 00:00:00', '123', 'wendydamar.wb@gmail.com', true);
 
 
 --
