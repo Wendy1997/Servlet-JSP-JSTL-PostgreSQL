@@ -1,9 +1,7 @@
 package Service;
 
 import DAO.FilmDAO;
-import Model.Film;
-import Model.ScreeningTime;
-import Model.Studio;
+import Model.*;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -27,4 +25,17 @@ public interface FilmService {
     ScreeningTime getScreeningTime(String id, String filmId, String storename) throws SQLException;
     void updateScreeningTime(ScreeningTime screeningTime) throws SQLException;
     void deleteScreeningTime(String id, String filmid, String storename) throws SQLException;
+
+    FilmGenre getFilmGenre(String id, String storename) throws SQLException;
+    List<FilmGenre> getAllFilmGenre(String storename) throws SQLException;
+    void addFilmGenre(FilmGenre filmGenre) throws SQLException;
+    void deleteFilmGenre(String filmGenre, String storename) throws SQLException;
+    void updateFilmGenre(FilmGenre filmGenre) throws SQLException;
+
+    StudioType getStudioType(String id, String storename) throws SQLException;
+    List<StudioType> getAllStudioType(String storename) throws SQLException;
+    void addStudioType(StudioType studioType) throws SQLException;
+    void deleteStudioType(String studioType, String storename) throws SQLException;
+    void updateStudioType(StudioType studioType) throws SQLException;
+
 }

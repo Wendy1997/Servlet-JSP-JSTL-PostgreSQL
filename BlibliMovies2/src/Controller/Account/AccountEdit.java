@@ -2,6 +2,7 @@ package Controller.Account;
 
 import DAO.AccountDAO;
 import Model.Account;
+import Model.AccountRole;
 import Service.AccountService;
 import Service.AccountServiceDatabase;
 
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet("/admin/account/edit")
 public class AccountEdit extends HttpServlet{
@@ -40,6 +42,9 @@ public class AccountEdit extends HttpServlet{
         try {
             Account account = accountService.getAccount(request.getParameter("id"), (String)request.getSession().getAttribute("storename"));
             request.setAttribute("account", account);
+            List<AccountRole> accountRoleList = accountService.getAllAccountRole((String)request.getSession().getAttribute("storename"));
+            System.out.println(accountRoleList.toString());
+            request.setAttribute("role", accountRoleList);
         } catch (Exception e){
             System.out.println(e.getMessage());
         }

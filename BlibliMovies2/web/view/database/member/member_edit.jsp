@@ -29,8 +29,9 @@
                         <label for="gender">Gender:</label>
                         <select class="form-control" id="gender" name="gender"${memberCard.gender} required>
                             <option disabled selected value> -- pilih Jenis -- </option>
-                            <option value="Pria" ${memberCard.gender == 'Pria' ? 'selected' : ''}>Pria</option>
-                            <option value="Wanita" ${memberCard.gender == 'Wanita' ? 'selected' : ''}>Wanita</option>
+                            <c:forEach items="${gender}" var="gender">
+                                <option value="${gender.gender}" ${memberCard.gender == gender.gender ? 'selected' : ''}>${gender.gender}</option>
+                            </c:forEach>
                         </select>
                     </div>
 

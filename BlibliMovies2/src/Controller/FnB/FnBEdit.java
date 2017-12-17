@@ -2,6 +2,8 @@ package Controller.FnB;
 
 import DAO.FnBDAO;
 import Model.FnB;
+import Model.FnBSize;
+import Model.FnBType;
 import Service.FnBService;
 import Service.FnBServiceDatabase;
 
@@ -16,6 +18,7 @@ import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 @WebServlet("/admin/fnb/edit")@MultipartConfig(fileSizeThreshold=1024*1024*10, 	// 10 MB
         maxFileSize=1024*1024*50,      	// 50 MB
@@ -48,6 +51,12 @@ public class FnBEdit extends HttpServlet{
         try {
             FnB fnb = fnbService.getFnB(request.getParameter("id"), (String)request.getSession().getAttribute("storename"));
             request.setAttribute("fnb", fnb);
+
+            List<FnBSize> fnBSizeList = fnbService.getAllFnBSize((String)request.getSession().getAttribute("storename"));
+            List<FnBType> fnBTypeList = fnbService.getAllFnBType((String)request.getSession().getAttribute("storename"));
+
+            request.setAttribute("size", fnBSizeList);
+            request.setAttribute("type", fnBTypeList);
         } catch (Exception e){
             System.out.println(e.getMessage());
         }

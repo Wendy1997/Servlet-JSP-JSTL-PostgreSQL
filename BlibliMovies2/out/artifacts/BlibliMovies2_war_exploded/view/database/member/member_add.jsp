@@ -29,8 +29,9 @@
                         <label for="gender">Gender:</label>
                         <select class="form-control" id="gender" name="gender" required>
                             <option disabled selected value> -- pilih Jenis -- </option>
-                            <option value="Pria">Pria</option>
-                            <option value="Wanita">Wanita</option>
+                            <c:forEach items="${gender}" var="gender">
+                                <option value="${gender.gender}">${gender.gender}</option>
+                            </c:forEach>
                         </select>
                     </div>
 

@@ -34,8 +34,9 @@
                         <label for="role">Role:</label>
                         <select class="form-control" id="role" name="role" required>
                             <option disabled selected value> -- pilih Role -- </option>
-                            <option value="admin">Admin</option>
-                            <option value="cashier">Cashier</option>
+                            <c:forEach var="role" items="${role}">
+                                <option value="${role.role}">${role.role}</option>
+                            </c:forEach>
                         </select>
                     </div>
 

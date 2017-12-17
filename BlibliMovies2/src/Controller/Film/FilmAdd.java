@@ -2,6 +2,7 @@ package Controller.Film;
 
 import DAO.FilmDAO;
 import Model.Film;
+import Model.FilmGenre;
 import Model.ScreeningTime;
 import Model.Studio;
 import Service.FilmService;
@@ -15,8 +16,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 @WebServlet("/admin/film/add")
 @MultipartConfig(fileSizeThreshold=1024*1024*10, 	// 10 MB
@@ -45,6 +48,13 @@ public class FilmAdd extends HttpServlet {
         else if(!request.getSession().getAttribute("role").equals("admin")){
             address = "/view/login/account_login.jsp";
             request.getRequestDispatcher(address).forward(request, response);
+        }
+
+        try{
+            List<FilmGenre> filmGenreList = filmService.getAllFilmGenre((String)request.getSession().getAttribute("storename"));
+            request.setAttribute("genre", filmGenreList);
+        }catch (SQLException e){
+            e.printStackTrace();
         }
 
         request.getRequestDispatcher(address).forward(request, response);

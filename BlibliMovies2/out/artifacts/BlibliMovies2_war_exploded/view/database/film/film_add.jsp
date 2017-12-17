@@ -34,13 +34,9 @@
                         <label for="genre">Genre:</label>
                         <select class="form-control" id="genre" name="genre" required>
                             <option disabled selected value> -- pilih Genre -- </option>
-                            <option>Action</option>
-                            <option>Horror</option>
-                            <option>Romance</option>
-                            <option>Melodrama</option>
-                            <option>Adventure</option>
-                            <option>Comedy</option>
-                            <option>Fantasy</option>
+                            <c:forEach var="genre" items="${genre}">
+                                <option value="${genre.genre}">${genre.genre}</option>
+                            </c:forEach>
                         </select>
                     </div>
 

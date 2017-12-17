@@ -34,13 +34,9 @@
                         <label for="genre">Genre:</label>
                         <select class="form-control" id="genre" name="genre" value="${film.genre}" required>
                             <option disabled selected value> -- pilih Genre -- </option>
-                            <option value="Action" ${film.genre == 'Action' ? 'selected' : ''}>Action</option>
-                            <option value="Horror" ${film.genre == 'Horror' ? 'selected' : ''}>Horror</option>
-                            <option value="Romance" ${film.genre == 'Romance' ? 'selected' : ''}>Romance</option>
-                            <option value="Melodrama" ${film.genre == 'Melodrama' ? 'selected' : ''}>Melodrama</option>
-                            <option value="Adventure" ${film.genre == 'Adventure' ? 'selected' : ''}>Adventure</option>
-                            <option value="Comedy" ${film.genre == 'Comedy' ? 'selected' : ''}>Comedy</option>
-                            <option value="Fantasy" ${film.genre == 'Fantasy' ? 'selected' : ''}]>Fantasy</option>
+                            <c:forEach var="genre" items="${genre}">
+                                <option value="${genre.genre}" ${film.genre == genre.genre ? 'selected' : ''}>${genre.genre}</option>
+                            </c:forEach>
                         </select>
                     </div>
 

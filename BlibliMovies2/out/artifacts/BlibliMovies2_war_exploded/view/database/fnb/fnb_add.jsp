@@ -34,9 +34,9 @@
                         <label for="type">Jenis:</label>
                         <select class="form-control" id="type" name="type" required>
                             <option disabled selected value> -- pilih Jenis -- </option>
-                            <option value="Food">Food</option>
-                            <option value="Beverages">Beverages</option>
-                            <option value="Combo">Combo</option>
+                            <c:forEach items="${type}" var="type">
+                                <option value="${type.type}">${type.type}</option>
+                            </c:forEach>
                         </select>
                     </div>
 
@@ -44,9 +44,9 @@
                         <label for="size">Ukuran:</label>
                         <select class="form-control" id="size" name="size" required>
                             <option disabled selected value> -- pilih Jenis -- </option>
-                            <option value="Regular">Regular</option>
-                            <option value="Large">Large</option>
-                            <option value="Jumbo">Jumbo</option>
+                            <c:forEach items="${size}" var="size">
+                                <option value="${size.size}">${size.size}</option>
+                            </c:forEach>
                         </select>
                     </div>
 

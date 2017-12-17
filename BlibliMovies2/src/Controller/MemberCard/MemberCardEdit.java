@@ -2,6 +2,7 @@ package Controller.MemberCard;
 
 import DAO.MemberCardDAO;
 import Model.MemberCard;
+import Model.MemberGender;
 import Service.MemberCardService;
 import Service.MemberCardServiceDatabase;
 
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet("/admin/membercard/edit")
 public class MemberCardEdit extends HttpServlet{
@@ -40,6 +42,9 @@ public class MemberCardEdit extends HttpServlet{
         try {
             MemberCard memberCard = memberCardService.getMemberCard(request.getParameter("id"), (String)request.getSession().getAttribute("storename"));
             request.setAttribute("memberCard", memberCard);
+
+            List<MemberGender> memberGenderList = memberCardService.getAllMemberGender((String)request.getSession().getAttribute("storename"));
+            request.setAttribute("gender", memberGenderList);
         } catch (Exception e){
             System.out.println(e.getMessage());
         }

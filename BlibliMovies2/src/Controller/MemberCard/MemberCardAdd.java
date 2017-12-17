@@ -2,6 +2,7 @@ package Controller.MemberCard;
 
 import DAO.MemberCardDAO;
 import Model.MemberCard;
+import Model.MemberGender;
 import Service.MemberCardService;
 import Service.MemberCardServiceDatabase;
 
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 @WebServlet("/admin/membercard/add")
 public class MemberCardAdd extends HttpServlet {
@@ -33,6 +35,13 @@ public class MemberCardAdd extends HttpServlet {
         // Validasi apakah sudah login as admin
         else if(!request.getSession().getAttribute("role").equals("admin")){
             address = "/view/login/account_login.jsp";
+        }
+
+        try{
+            List<MemberGender> memberGenderList = memberCardService.getAllMemberGender((String)request.getSession().getAttribute("storename"));
+            request.setAttribute("gender", memberGenderList);
+        }catch (SQLException e){
+            e.printStackTrace();
         }
 
         request.getRequestDispatcher(address).forward(request, response);

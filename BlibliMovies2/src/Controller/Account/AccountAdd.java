@@ -2,6 +2,7 @@ package Controller.Account;
 
 import DAO.AccountDAO;
 import Model.Account;
+import Model.AccountRole;
 import Service.AccountService;
 import Service.AccountServiceDatabase;
 
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 @WebServlet("/admin/account/add")
 public class AccountAdd extends HttpServlet {
@@ -33,6 +35,13 @@ public class AccountAdd extends HttpServlet {
         // Validasi apakah sudah login as admin
         else if(!request.getSession().getAttribute("role").equals("admin")){
             address = "/view/login/account_login.jsp";
+        }
+
+        try{
+            List<AccountRole> accountRoleList = accountService.getAllAccountRole((String)request.getSession().getAttribute("storename"));
+            request.setAttribute("role", accountRoleList);
+        }catch (SQLException e){
+            e.printStackTrace();
         }
 
         request.getRequestDispatcher(address).forward(request, response);

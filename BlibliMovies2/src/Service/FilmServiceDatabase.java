@@ -1,11 +1,7 @@
 package Service;
 
-import DAO.FilmDAO;
-import DAO.ScreeningTimeDAO;
-import DAO.StudioDAO;
-import Model.Film;
-import Model.ScreeningTime;
-import Model.Studio;
+import DAO.*;
+import Model.*;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -14,6 +10,8 @@ public class FilmServiceDatabase implements FilmService {
     FilmDAO filmDAO = new FilmDAO();
     StudioDAO studioDAO = new StudioDAO();
     ScreeningTimeDAO screeningTimeDAO = new ScreeningTimeDAO();
+    FilmGenreDAO filmGenreDAO = new FilmGenreDAO();
+    StudioTypeDAO studioTypeDAO = new StudioTypeDAO();
 
     @Override
     public Film getFilm(String id, String storename) throws SQLException{
@@ -90,5 +88,55 @@ public class FilmServiceDatabase implements FilmService {
     @Override
     public void deleteScreeningTime(String id, String filmid, String storename) throws SQLException{
         screeningTimeDAO.deleteScreeningTime(id, filmid, storename);
+    }
+
+    @Override
+    public FilmGenre getFilmGenre(String id, String storename) throws SQLException {
+        return filmGenreDAO.getFilmGenre(id, storename);
+    }
+
+    @Override
+    public List<FilmGenre> getAllFilmGenre(String storename) throws SQLException {
+        return filmGenreDAO.getAllFilmGenre(storename);
+    }
+
+    @Override
+    public void addFilmGenre(FilmGenre filmGenre) throws SQLException {
+        filmGenreDAO.addFilmGenre(filmGenre);
+    }
+
+    @Override
+    public void deleteFilmGenre(String filmGenre, String storename) throws SQLException {
+        filmGenreDAO.deleteFilmGenre(filmGenre, storename);
+    }
+
+    @Override
+    public void updateFilmGenre(FilmGenre filmGenre) throws SQLException {
+        filmGenreDAO.updateFilmGenre(filmGenre);
+    }
+
+    @Override
+    public StudioType getStudioType(String id, String storename) throws SQLException {
+        return studioTypeDAO.getStudioType(id, storename);
+    }
+
+    @Override
+    public List<StudioType> getAllStudioType(String storename) throws SQLException {
+        return studioTypeDAO.getAllStudioType(storename);
+    }
+
+    @Override
+    public void addStudioType(StudioType studioType) throws SQLException {
+        studioTypeDAO.addStudioType(studioType);
+    }
+
+    @Override
+    public void deleteStudioType(String studioType, String storename) throws SQLException {
+        studioTypeDAO.deleteStudioType(studioType, storename);
+    }
+
+    @Override
+    public void updateStudioType(StudioType studioType) throws SQLException {
+        studioTypeDAO.updateStudioType(studioType);
     }
 }

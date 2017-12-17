@@ -1,7 +1,10 @@
 package Controller.FnB;
 
 import DAO.FnBDAO;
+import Model.FilmGenre;
 import Model.FnB;
+import Model.FnBSize;
+import Model.FnBType;
 import Service.FnBService;
 import Service.FnBServiceDatabase;
 
@@ -17,6 +20,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 import java.util.zip.Adler32;
 
 @WebServlet("/admin/fnb/add")
@@ -43,6 +47,18 @@ public class FnBAdd extends HttpServlet{
         // Validasi apakah sudah login as admin
         else if(!request.getSession().getAttribute("role").equals("admin")){
             address = "/view/login/account_login.jsp";
+        }
+
+        try{
+            List<FnBSize> fnBSizeList = fnbDAO.getAllFnBSize((String)request.getSession().getAttribute("storename"));
+            List<FnBType> fnBTypeList = fnbDAO.getAllFnBType((String)request.getSession().getAttribute("storename"));
+            System.out.println(fnBSizeList.toString());
+            System.out.println(fnBTypeList.toString());
+
+            request.setAttribute("size", fnBSizeList);
+            request.setAttribute("type", fnBTypeList);
+        }catch (SQLException e){
+            e.printStackTrace();
         }
 
         request.getRequestDispatcher(address).forward(request, response);

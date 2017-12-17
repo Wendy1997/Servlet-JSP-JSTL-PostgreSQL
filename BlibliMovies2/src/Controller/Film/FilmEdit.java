@@ -2,6 +2,7 @@ package Controller.Film;
 
 import DAO.FilmDAO;
 import Model.Film;
+import Model.FilmGenre;
 import Service.FilmService;
 import Service.FilmServiceDatabase;
 
@@ -16,6 +17,7 @@ import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 @WebServlet("/admin/film/edit")
 @MultipartConfig(fileSizeThreshold=1024*1024*10, 	// 10 MB
@@ -48,8 +50,10 @@ public class FilmEdit extends HttpServlet{
 
         try {
             Film film = filmService.getFilm(request.getParameter("id"), (String)request.getSession().getAttribute("storename"));
-
             request.setAttribute("film", film);
+
+            List<FilmGenre> filmGenreList = filmService.getAllFilmGenre((String)request.getSession().getAttribute("storename"));
+            request.setAttribute("genre", filmGenreList);
         } catch (Exception e){
             System.out.println(e.getMessage());
         }

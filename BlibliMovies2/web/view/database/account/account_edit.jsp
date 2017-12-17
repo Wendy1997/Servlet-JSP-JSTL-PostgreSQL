@@ -29,8 +29,9 @@
                         <label for="role">Role:</label>
                         <select class="form-control" id="role" name="role" value="${account.role}" required>
                             <option disabled selected value> -- pilih Role -- </option>
-                            <option value="admin" ${account.role == 'admin' ? 'selected' : ''}>Admin</option>
-                            <option value="cashier" ${account.role == 'cashier' ? 'selected' : ''}>Cashier</option>
+                            <c:forEach var="role" items="${role}">
+                                <option value="${role.role}" ${role.role == account.role ? 'selected' : ''}>${role.role}</option>
+                            </c:forEach>
                         </select>
                     </div>
 
