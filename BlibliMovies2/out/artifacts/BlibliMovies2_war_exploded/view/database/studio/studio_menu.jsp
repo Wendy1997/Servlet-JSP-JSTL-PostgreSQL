@@ -6,8 +6,8 @@
 
     <!-- Title -->
     <div class="jumbotron">
-        <h1 class="title">Genres</h1><br>
-        <a href="/admin/filmgenre/add"><h5>Create New Genres</h5></a>
+        <h1 class="title">Studio</h1><br>
+        <a href="/admin/studio/add"><h5>Create New Studio</h5></a>
     </div>
 
     <!-- Form -->
@@ -17,19 +17,23 @@
                 <thead>
                 <tr>
                     <th>No</th>
-                    <th>Genre</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Price</th>
                     <th></th>
                     <th></th>
                 </tr>
                 </thead>
 
                 <tbody>
-                    <c:forEach items="${genre}" var="genre">
+                    <c:forEach items="${studios}" var="studios">
                         <tr>
-                            <td scope="row"><c:out value="${genre.id}"></c:out></td>
-                            <td><c:out value="${genre.genre}"></c:out></td>
-                            <td><a <c:out value='href=/admin/filmgenre/edit?id=${genre.id}'></c:out>>Edit</a></td>
-                            <td><a <c:out value='href=/admin/filmgenre/delete?id=${genre.id}'></c:out>>Delete</a></td>
+                            <td scope="row"><c:out value="${studios.id}"></c:out></td>
+                            <td><c:out value="${studios.name}"></c:out></td>
+                            <td><c:out value="${studios.type}"></c:out></td>
+                            <td><c:out value="${studios.price}"></c:out></td>
+                            <td><a <c:out value='href=/admin/studio/edit?id=${studios.id}'></c:out>>Edit</a></td>
+                            <td><a <c:out value='href=/admin/studio/delete?id=${studios.id}'></c:out>>Delete</a></td>
                         </tr>
                     </c:forEach>
                 </tbody>

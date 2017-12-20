@@ -1,9 +1,9 @@
 package Controller.Studio;
 
-import Model.MemberCard;
-import Model.MemberGender;
-import Service.MemberCardService;
-import Service.MemberCardServiceDatabase;
+import Model.Studio;
+import Model.StudioType;
+import Service.FilmService;
+import Service.FilmServiceDatabase;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,12 +14,12 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet("/admin/membercard/add")
+@WebServlet("/admin/studio/add")
 public class StudioAdd extends HttpServlet {
-    MemberCardService memberCardService = new MemberCardServiceDatabase();
+    FilmService studioService = new FilmServiceDatabase();
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String address = "/view/database/member/member_add.jsp";
+        String address = "/view/database/studio/studio_add.jsp";
 
         // Validasi apakah sudah login store
         if(request.getSession().getAttribute("storename") == null){
@@ -37,8 +37,8 @@ public class StudioAdd extends HttpServlet {
         }
 
         try{
-            List<MemberGender> memberGenderList = memberCardService.getAllMemberGender((String)request.getSession().getAttribute("storename"));
-            request.setAttribute("gender", memberGenderList);
+            List<StudioType> studioTypeList = studioService.getAllStudioType((String)request.getSession().getAttribute("storename"));
+            request.setAttribute("type", studioTypeList);
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -49,19 +49,17 @@ public class StudioAdd extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         try{
-            MemberCard memberCard = new MemberCard( (String)request.getSession().getAttribute("storename"),
-                    request.getParameter("fullname"),
-                    request.getParameter("gender"),
-                    request.getParameter("birthdate"),
-                    request.getParameter("phonenumber"),
-                    request.getParameter("email"));
+            Studio studio = new Studio( (String)request.getSession().getAttribute("storename"),
+                    request.getParameter("name"),
+                    request.getParameter("type"),
+                    Integer.parseInt(request.getParameter("price")));
 
-            memberCardService.addMemberCard(memberCard);
+            studioService.addStudio(studio);
 
             String address = "/view/database/success.jsp";
-            request.setAttribute("title", "MemberCard");
+            request.setAttribute("title", "Studio");
             request.setAttribute("complete", "Created");
-            request.setAttribute("link", "/admin/membercard");
+            request.setAttribute("link", "/admin/studio");
 
             request.getRequestDispatcher(address).forward(request,response);
         } catch (Exception e){

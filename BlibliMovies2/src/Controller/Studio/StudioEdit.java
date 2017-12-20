@@ -1,9 +1,9 @@
 package Controller.Studio;
 
-import Model.MemberCard;
-import Model.MemberGender;
-import Service.MemberCardService;
-import Service.MemberCardServiceDatabase;
+import Model.Studio;
+import Model.StudioType;
+import Service.FilmService;
+import Service.FilmServiceDatabase;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,12 +13,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/admin/membercard/edit")
+@WebServlet("/admin/studio/edit")
 public class StudioEdit extends HttpServlet{
-    MemberCardService memberCardService = new MemberCardServiceDatabase();
+    FilmService studioService = new FilmServiceDatabase();
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        String address = "/view/database/member/member_edit.jsp";
+        String address = "/view/database/studio/studio_edit.jsp";
 
         // Validasi apakah sudah login store
         if(request.getSession().getAttribute("storename") == null){
@@ -39,11 +39,11 @@ public class StudioEdit extends HttpServlet{
         }
 
         try {
-            MemberCard memberCard = memberCardService.getMemberCard(request.getParameter("id"), (String)request.getSession().getAttribute("storename"));
-            request.setAttribute("memberCard", memberCard);
+            Studio studio = studioService.getStudio(request.getParameter("id"), (String)request.getSession().getAttribute("storename"));
+            request.setAttribute("studio", studio);
 
-            List<MemberGender> memberGenderList = memberCardService.getAllMemberGender((String)request.getSession().getAttribute("storename"));
-            request.setAttribute("gender", memberGenderList);
+            List<StudioType> studioTypeList = studioService.getAllStudioType((String)request.getSession().getAttribute("storename"));
+            request.setAttribute("type", studioTypeList);
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
@@ -54,20 +54,18 @@ public class StudioEdit extends HttpServlet{
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
         try{
-            MemberCard memberCard = new MemberCard( Integer.parseInt(request.getParameter("id")),
+            Studio studio = new Studio( Integer.parseInt(request.getParameter("id")),
                     (String)request.getSession().getAttribute("storename"),
-                    request.getParameter("fullname"),
-                    request.getParameter("gender"),
-                    request.getParameter("birthdate"),
-                    request.getParameter("phonenumber"),
-                    request.getParameter("email"));
+                    request.getParameter("name"),
+                    request.getParameter("type"),
+                    Integer.parseInt(request.getParameter("price")));
 
-            memberCardService.updateAccout(memberCard);
+            studioService.updateStudio(studio);
 
             String address = "/view/database/success.jsp";
-            request.setAttribute("title", "MemberCard");
+            request.setAttribute("title", "Studio");
             request.setAttribute("complete", "Updated");
-            request.setAttribute("link", "/admin/membercard");
+            request.setAttribute("link", "/admin/studio");
 
             request.getRequestDispatcher(address).forward(request, response);
 

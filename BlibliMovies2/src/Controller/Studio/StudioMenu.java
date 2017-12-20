@@ -1,8 +1,8 @@
 package Controller.Studio;
 
-import Model.MemberCard;
-import Service.MemberCardService;
-import Service.MemberCardServiceDatabase;
+import Model.Studio;
+import Service.FilmService;
+import Service.FilmServiceDatabase;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,12 +13,12 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet("/admin/membercard")
+@WebServlet("/admin/studio")
 public class StudioMenu extends HttpServlet{
-    MemberCardService memberCardService = new MemberCardServiceDatabase();
+    FilmService studioService = new FilmServiceDatabase();
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String address = "/view/database/member/member_menu.jsp";
+        String address = "/view/database/studio/studio_menu.jsp";
 
         // Validasi apakah sudah login store
         if(request.getSession().getAttribute("storename") == null){
@@ -39,8 +39,8 @@ public class StudioMenu extends HttpServlet{
         }
 
         try{
-            List<MemberCard> memberCards = memberCardService.getAllMemberCard((String)request.getSession().getAttribute("storename"));
-            request.setAttribute("memberCards", memberCards);
+            List<Studio> studios = studioService.getAllStudio((String)request.getSession().getAttribute("storename"));
+            request.setAttribute("studios", studios);
 
             request.getRequestDispatcher(address).forward(request, response);
         } catch (SQLException e){
