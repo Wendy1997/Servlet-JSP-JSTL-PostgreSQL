@@ -13,46 +13,49 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-2" onclick="document.location.href = '/admin/film';">
-                <div class="circle"></div>
+                <div class="circle" style="background-image: url('/assets/icon/film.png')"></div>
                 <p>Film</p>
             </div>
 
             <div class="col-lg-2" onclick="document.location.href = '/admin/fnb';">
-                <div class="circle"></div>
+                <div class="circle" style="background-image: url('/assets/icon/fnb.png')"></div>
                 <p>Food and Beverages</p>
             </div>
 
             <div class="col-lg-2" onclick="document.location.href = '/admin/membercard';">
-                <div class="circle"></div>
+                <div class="circle" style="background-image: url('/assets/icon/member.png')"></div>
                 <p>Member Card</p>
             </div>
 
             <div class="col-lg-2" onclick="document.location.href = '/admin/invoice';">
-                <div class="circle"></div>
+                <div class="circle" style="background-image: url('/assets/icon/invoice.png')"></div>
                 <p>Invoice</p>
             </div>
 
             <div class="col-lg-2" onclick="document.location.href = '/admin/ledger';">
-                <div class="circle"></div>
+                <div class="circle" style="background-image: url('/assets/icon/ledger.png')"></div>
                 <p>Ledger</p>
             </div>
 
             <div class="col-lg-2" onclick="document.location.href = '/admin/account';">
-                <div class="circle"></div>
+                <div class="circle" style="background-image: url('/assets/icon/account.jpg')"></div>
                 <p>Account</p>
             </div>
         </div>
 
         <div class="row" style="float: none; margin: 0 auto;">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-2"></div>
+            <div class="col-lg-3"></div>
+            <div class="col-lg-2" onclick="document.location.href = '/admin/studio';">
+                <div class="circle" style="background-image: url('/assets/icon/studio.png')"></div>
+                <p>Studio</p>
+            </div>
             <div class="col-lg-2" onclick="document.location.href = '/cashier/film';">
-                <div class="circle"></div>
+                <div class="circle" style="background-image: url('/assets/icon/filmTransaction.png')"></div>
                 <p>Film Transaction</p>
             </div>
 
             <div class="col-lg-2" onclick="document.location.href = '/cashier/fnb';">
-                <div class="circle"></div>
+                <div class="circle" style="background-image: url('/assets/icon/fnbTransaction.png')"></div>
                 <p>FnB Transaction</p>
             </div>
         </div>

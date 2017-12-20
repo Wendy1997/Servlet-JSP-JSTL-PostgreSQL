@@ -6,7 +6,8 @@
 
     <!-- Title -->
     <div class="jumbotron">
-        <h1 class="title">Studio</h1><br>
+        <h1 class="title">Studio</h1>
+        <a href="/admin/studiotype"><h6>Type Database</h6></a><br>
         <a href="/admin/studio/add"><h5>Create New Studio</h5></a>
     </div>
 
