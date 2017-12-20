@@ -126,11 +126,6 @@ public class InvoiceDAO {
         ps.setDouble(2, Double.parseDouble(month));
         ps.setDouble(3, Double.parseDouble(year));
         ps.setString(4, storename);
-        System.out.println("SELECT * FROM invoice where " +
-                "EXTRACT (day from orderdate) = "+day+ " AND " +
-                "EXTRACT (month from orderdate) = "+month+" and " +
-                "EXTRACT (year from orderdate) = "+year+" and " +
-                "storeusername = "+storename+"");
         ResultSet rs = ps.executeQuery();
 
         List<Invoice> invoices = new ArrayList<Invoice>();

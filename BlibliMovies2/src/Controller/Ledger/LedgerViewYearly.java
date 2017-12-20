@@ -21,7 +21,6 @@ public class LedgerViewYearly extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
-            System.out.println(request.getParameter("date"));
             List<Invoice> invoiceList = invoiceService.getYearlyInvoice(request.getParameter("date"), (String)request.getSession().getAttribute("storename"));
             Gson gson = new Gson();
             String output = gson.toJson(invoiceList);

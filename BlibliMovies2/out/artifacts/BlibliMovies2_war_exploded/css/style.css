@@ -8,8 +8,6 @@ Body
 	background-color: black;
 	text-decoration: none;
 	color: white;
-	margin: 0;
-	padding: 0;
 }
 
 #detail{
@@ -31,34 +29,18 @@ Body
 	overflow-y: hidden;
 }
 
-html, body{
-	height: 100vh;
-	background-color: black;
-	overflow-y: auto;
-	overflow-x: hidden;
+body{
+	margin: 0;
+	padding: 0;
 }
 
-.container-fluid .table-responsive {
-	overflow-y: none;
-	height: 400px;
-}
-
-
-.tab{
-	margin: 0cm 0.3cm;
-}
-
-.p-2.active-tab {
-	color: white;
-}
-
-/*
+/* 
 =====
-Font
+Font 
 =====
 */
 
-a, .p-2 {
+a{
 	-moz-transition: all .2s ease-in;
 	-o-transition: all .2s ease-in;
 	-webkit-transition: all .2s ease-in;
@@ -218,6 +200,7 @@ Circle
 Table
 =====
 */
+
 .table-responsive{
 	height: 600px;
 	overflow: auto;
@@ -241,16 +224,13 @@ th:hover{
 Stripe
 =====
 */
+
 .stripe{
 	width: 90%;
 	height: 1px;
 	background-color: white;
 }
 
-#navbarStripe {
-	margin-left:25px;
-	width: 94%;
-}
 /*
 =====
 Close Button
@@ -278,872 +258,75 @@ Close Button
 Dummy Image
 =====
 */
+
 .dummy-image{
 	width: 300px;
 	height: 400px;
 	background-color: gray;
 }
 
-/*
-=====
-Responsive
-=====
-*/
-/* Large devices (Desktop) */
-@media screen and (min-width: 1281px) {
-	::-webkit-scrollbar {
-		width: 12px;
+@media screen and (max-width: 1200px) {
+	.circle{
+		width: 120px;
+		height: 120px;
 	}
 
-	/*::-webkit-scrollbar-track {
-	    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	    border-radius: 10px;
+	.circle:hover{
+		width: 130px;
+		height: 130px;
 	}
-
-	::-webkit-scrollbar-thumb {
-	    border-radius: 10px;
-	    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
-	}
-	*/
-
-	#navbarStripe.stripe.summary {
-		margin-left: 15px;
-		width: 92%;
-	}
-
-	#thumbnail {
-		width:100px;
-		height:100px;
-	}
-
-	/*	.col-lg-2 .circle {
-            width: 135px;
-            height: 135px;
-        }*/
-
-
-	.navbar-default .d-flex.flex-row {
-		margin: -15px -10px 0px 0px;
-	}
-
-	.box-window.summarycontainer-responsive , .filmcontainer-responsive.row , .box-window.synopsiscontainer-responsive {
-		height:550px;
-		overflow-y: auto;
-		overflow-x: hidden;
-	}
-
-	#screen {
-		width: 400px;
-		margin-top: 10px;
-	}
-
-	.angka {
-		height: 35px;
-		width: 35px;
-		margin-left:5px;
-	}
-
-	.smallSquare {
-		height: 35px;
-		width: 35px;
-		border-radius: 10px;
-	}
-
-	.legend {
-		margin-right:70px;
-		margin-top: 20px;
-	}
-
-	#btnChooseSeat {
-		display: inline-block;
-	}
-
-	#dtlChooseSeat {
-		margin-left:80px;
-		display: inline-block;
-	}
-
 }
 
-/* Medium devices (Tablet) */
-@media screen and (min-width: 801px) and (max-width: 1280px) {
+@media screen and (max-width: 991px) {
 	.circle{
-		width: 80px;
-		height: 80px;
+		width: 200px;
+		height: 200px;
 	}
 
-	#thumbnail {
-		width: 90px;
-		height: 90px;
+	.circle:hover{
+		width: 210px;
+		height: 210px;
 	}
+}
 
-	.col-xl-10 {
-		width: 100%;
-	}
 
-	.container.film {
-		margin-left: 20px;
-	}
-
-	/*	.col-lg-2 {
-            margin: 1rem auto;
-            width: 33%;
-        }
-
-        .col-lg-2 .circle {
-            width: 135px;
-            height: 135px;
-        }*/
-
-	.container-fluid.thumbnail.col-lg-4 {
-		margin-top: 15px;
-	}
-
-	.col-xl-7 {
-		width: 75%;
-	}
-
-	.box-window.synopsiscontainer-responsive , .filmcontainer-responsive.row  {
-		height: 86vh;
-	}
-
-	#screen {
-		width: 60%;
-		font-size: 28px;
-		height: 2.6rem;
-	}
-
-	.smallSquare {
-		height: 50px;
-		width: 50px;
-		border-radius: 15px;
-	}
-
-	#seat-number {
-		text-align: center;
-		font-size: 20px;
-	}
-
-	.angka {
-		height: 60px;
-		width: 60px;
-	}
-
-	.legend {
-		margin-top: 14px;
-		/*font-style: 18px;*/
-	}
-
-	.section  {
-		display: flex;
-	}
-
-	#btnChooseSeat {
-		margin-top: -10px;
-		display: inline-block;
-	}
-
-	#btnChooseSeat button {
+/* Extra small devices (phones, up to 480px) */
+@media screen and (max-width: 574px) {
+	h1{
 		font-size: 30px;
-		margin: 0 auto;
 	}
-
-	#dtlChooseSeat {
-		display: inline-block;
+	h2{
+		font-size: 25px;
 	}
-
-	.row #txtChosenMovie {
-		font-size: 24px;
-	}
-
-	#txtChosenMovieDetail {
-		font-size: 20px;
-	}
-
-	.box-window .row .col-lg-7 .row.box .col-lg-2 {
-		width: 20%;
-		padding: 10px;
-		margin: 10px;
-	}
-
-	.box-window .row .col-lg-7 .row.box .col-lg-10 {
-		width: 50%;
-		padding: 10px;
-		margin: 10px;
-	}
-
-	/*.box-window .row .col-lg-7 .row.box {
-		padding:0;
-		margin: 0px;
-	}*/
-
-	.box-window .row .col-lg-7 {
-		width: 50%
-		/*padding: 10px;
-		margin: 10px;*/
-	}
-
-	.box-window .row .col-lg-2 {
-		width: 20%;
-		padding: 20px;
-		margin: 10px;
-	}
-
-	.box-window .row .col-lg-3 {
-		width: 20%;
-		padding: 20px;
-		margin: 10px;
-	}
-
-}
-
-/* Small devices (Bigger Phone) */
-@media screen and (min-width: 481px) and (max-width: 800px) {
-	.row.box .col-lg-2 {
-		width: 18%;
-	}
-
-
-
-	.row.box .col-lg-10 {
-		width: 82%;
-	}
-
-	.navbar.navbar-default .d-flex.flex-row {
-		margin-left: 5px;
-	}
-
-	#navbarStripe {
-		width: 92%;
-		margin-left: 30px;
+	p{
+		font-size: 15px;
 	}
 
 	.circle{
-		width: 80px;
-		height: 80px;
+		width: 150px;
+		height: 150px;
 	}
 
-	#screen {
-		width: 75%;
-		font-size: 24px;
-		height: 2.4rem;
-	}
-
-	.smallSquare {
-		height: 45px;
-		width: 45px;
-		border-radius: 15px;
-	}
-
-	#seat-number {
-		text-align: center;
-		font-size: 18px;
-	}
-
-	.angka {
-		height: 45px;
-		width: 45px;
-		margin-left: 6px;
-	}
-
-	.legend {
-		margin-top: 14px;
-	}
-
-	.section  {
-		display: flex;
-	}
-
-	#btnChooseSeat {
-		margin-top: -10px;
-		display: inline-block;
-	}
-
-	#btnChooseSeat button {
-		font-size: 24px;
-		margin: 0 auto;
-	}
-
-	#dtlChooseSeat {
-		display: inline-block;
-	}
-
-	.col-md-7.d-inline {
-		padding: 10px;
-	}
-
-	.col-md-4  {
-		text-align: center;
-	}
-
-	#txtMovieSubtitle {
-
-	}
-
-	.row #txtChosenMovie {
-		font-size: 20px;
-	}
-
-	#txtChosenMovieDetail {
-		font-size: 16px;
-	}
-
-	.row.cashier {
-		height: 100vh;
-	}
-
-	.fnbcontainer-responsive.row {
-		width: 92vw;
-		height: 80vh;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
-
-	.fnbcontainer-responsive.row .col-lg-2 {
-		width: 33%;
-		margin: 1em 0;
-	}
-
-	.fnbcontainer-responsive.row .col-lg-2 p {
-		width: 120%;
-		height: auto;
-	}
-
-	.col-md-2 p{
-		font-size: 14px;
-		text-align: center;
-		width: 100%;
-	}
-
-	.container-fluid.thumbnail.col-lg-4 .row.amount {
-		padding: 2rem;
-		font-size: 20px;
-		margin: 0 auto !important;
-		width: 100% !important;
-		position: absolute;
-	}
-
-	.box-window.summarycontainer-responsive , .box-window.synopsiscontainer-responsive , #txtSynopsis, .stripe.synopsis, .col-lg-12 h5 , #txtSummary , .stripe.summary {
-		display: none;
-	}
-
-	/*.box-window .row .col-lg-7 .row.box .col-lg-2 .smallCircle {
-		width: 35px;
-		height: 35px;
-		margin-top: 8px;
-	}*/
-
-	.box-window .row .col-lg-7 .row.box .col-lg-2 {
-		width: 20%;
-		padding: 10px;
-		margin: 10px;
-	}
-
-	.box-window .row .col-lg-7 .row.box .col-lg-10 {
-		width: 60%;
-		padding: 10px;
-		margin: 10px;
-	}
-
-	/*.box-window .row .col-lg-7 .row.box {
-		padding:0;
-		margin: 0px;
-	}*/
-
-	.box-window .row .col-lg-7 {
-		width: 50%
-		/*padding: 10px;
-		margin: 10px;*/
-	}
-
-	.box-window .row .col-lg-2 {
-		width: 20%;
-		padding: 20px;
-		margin: 10px;
-	}
-
-	.box-window .row .col-lg-3 {
-		width: 20%;
-		padding: 20px;
-		margin: 10px;
+	.circle:hover{
+		width: 170px;
+		height: 170px;
 	}
 }
 
-/* Extra small devices (Phone) */
-@media screen and (min-width: 320px) and (max-width: 480px) {
-	/*	.col-lg-2 {
-            margin: 1rem auto;
-            width: 33%;
-        }
-    */
-	.col-lg-2 .circle {
-		width: 75px;
-		height: 75px;
-	}
-
-	.row.cashier {
-		height: 90vh;
-	}
-
-	.container-fluid.thumbnail.col-lg-8.cashier {
-		height: 70vh;
-	}
-
-	.col-xs-12 {
-		width: 75%;
-	}
-
-	.col-xs-6 {
-		width: 25%;
-	}
-
-	.col-lg-8 h3 , .col-lg-4 h4 , .jumbotron a h5 {
-		font-size: 16px;
-	}
-
-	.container-fluid .container {
-		margin-top: -30px;
-	}
-
-	.navbar-default .d-flex.flex-row {
-		margin: -10px -10px -5px 0px;
-	}
-
-	.p-2 {
-		font-size: 13px;
-	}
-
-	body {
-		margin: 2%;
-	}
-
-	h1 , .navbar-header a , .btn.btn-default {
-		font-size: 18px;
-	}
-
-	h2 , .row.box .col-lg-10 #txtMovieTitle {
-		font-size: 16px;
-	}
-
-	#navbarStripe {
-		width: 88%;
-	}
-
-	.container.film , .container.seat {
-		margin: 0;
-		overflow: auto;
-	}
-
-	.filmcontainer-responsive.row {
-		margin-left: 0;
-	}
-
-	.circle , #thumbnail.circle {
-		width: 70px;
-		height: 70px;
-	}
-
-	.container {
-		margin-top: -10px;
-	}
-
-	/*	.col-lg-2 {
-            width: 30%;
-        }
-    */
-	.row.box .col-lg-10 {
-		width: 70%;
-	}
-
-	.row.box .col-lg-10 .tab {
-		width: initial;
-		height: 80px;
-
-		display: -webkit-flex; /* Safari */
-		-webkit-flex-wrap: wrap; /* Safari 6.1+ */
-		display: flex;
-		flex-wrap: wrap;
-	}
-
-	.row.box .col-lg-10 .tab .tablinks {
-		width: 54px;
-		font-size: 12px;
-	}
-
-	.row.box .col-lg-10 #txtMovieSubtitle , #txtChosenMovieDetail {
-		font-size: 14px;
-	}
-
-	button.close {
-		margin-right: 15px;
-		margin-top: 30px;
-	}
-
-	.dummy-image {
-		width: 100%;
-	}
-
-	.jumbotron h2 , .col-lg-4 {
-		margin-top: 8px;
-	}
-
-	#form1.col-lg-3 , #form1.col-lg-5 , #form1.col-lg-6 {
-		margin: 0px;
-	}
-
-	.link {
-		width: 40%;
-		margin-top: -10px;
-	}
-
-	.confirmation {
-		width: 85%;
-	}
-
-	#screen {
-		width: 75%;
-		font-size: 14px;
-		margin-top: 0px;
-		height: 1.4rem;
-	}
-
-	.smallSquare {
-		height: 20px;
-		width: 20px;
-		border-radius: 7px;
-	}
-
-	.angka {
-		height: 20px;
-		width: 20px;
-		margin-left: 6px;
-		font-size: 12px;
-	}
-
-	#seat-number {
-		text-align: center;
-		font-size: 12px;
-	}
-
-	.row #txtChosenMovie {
-		font-size: 16px;
-	}
-
-	.col-md-7.d-inline {
-		padding: 10px;
-	}
-
-	.legend {
-		margin-top: 14px;
-	}
-
-	.section  {
-		display: flex;
-		flex-direction:
-				column-reverse;
-	}
-
-	#btnChooseSeat {
-		margin-top: -20px;
-		display: inline-block;
-	}
-
-	#btnChooseSeat button {
-		/*margin-top: -10px;*/
-		font-size: 18px;
-		margin: 0 auto;
-		/*vertical-align: middle;*/
-		/*text-align: center;*/
-	}
-
-	#dtlChooseSeat {
-		margin: 0 0 0 20px;
-		display: inline-block;
-	}
-
-	.col-md-4  {
-		text-align: center;
-	}
-
-	#txtSummary {
-		font-size: 12px;
-	}
-
-	.container.fnb  {
-		height: 80vh;
-		margin: 0 auto;
-		text-align: center;
-	}
-
-	.fnbcontainer-responsive.row {
-		width: 88vw;
-		height: 80vh;
-		margin: 0 auto;
-		overflow-y: auto;
-	}
-
-	.fnbcontainer-responsive.row .col-lg-2 {
-		width: 30%;
-		margin: 3px;
-	}
-
-	.container-fluid.thumbnail.col-lg-4 .row.amount {
-		padding: 1rem 0rem 0rem 0rem;
-		font-size: 13px;
-		left: 15px;
-		bottom: 0;
-		margin: 0 auto !important;
-		width: 100% !important;
-		position: absolute;
-	}
-
-	.row.amount .col-md-7 {
-		width: 55%;
-	}
-
-	.row.amount .col-md-5 {
-		width: 45%;
-	}
-
-	.col-lg-2 p , .col-md-2 p{
-		font-size: 12px;
-		text-align: center;
-		width: 100%;
-	}
-
-	.box-window.summarycontainer-responsive , .box-window.synopsiscontainer-responsive , #txtSynopsis, .stripe.synopsis, .col-lg-12 h5 , #txtSummary , .stripe.summary {
-		display: none;
-	}
-
-	#logoutDesktop {
-		display: none;
-	}
-
-	#logoutMobile {
-		display: inline-block;
-	}
-
-	.container-fluid .container .table-responsive {
-		overflow: auto;
-		height: 300px;
-	}
-
-	.stripe{
-		width: 90%;
-		height: 1px;
-		background-color: white;
-	}
-
-	.col-md-2 {
-		width: 33%;
-	}
-
-	/*.box-window .row .col-lg-7 .row.box {
-		margin: 10px;
-	}*/
-
-	.box-window .row .col-lg-7 .row.box .col-lg-2 .smallCircle {
-		width: 35px;
-		height: 35px;
-		margin-top: 8px;
-	}
-
-	.box-window .row .col-lg-7 .row.box .col-lg-2 {
-		width: 20%;
-		padding: 0;
-		margin: 0px;
-	}
-
-	.box-window .row .col-lg-7 .row.box .col-lg-10 {
-		width: 60%;
-		padding: 0;
-		margin: 10px;
-	}
-
-	.box-window .row .col-lg-7 .row.box {
-		/*width: 0%*/
-		padding:0;
-		margin: 0px;
-	}
-
-	.box-window .row .col-lg-7 {
-		padding: 10px;
-		margin: 10px;
-	}
-
-	.box-window .row .col-lg-2 {
-		width: 40%;
-		margin: 10px
-	}
-
-	.box-window .row .col-lg-3 {
-		width: 40%;
-		padding: 0;
-		margin: 10px;
-	}
-}
-
-#logoutDesktop {
-	display: inline-block;
-}
-
-#logoutMobile {
-	display: none;
-}
-
-.col-lg-2 {
-	margin: 1rem auto;
-	width: 33%;
-}
-
-.col-lg-2 .circle {
-	width: 135px;
-	height: 135px;
-}
-
-/*
-=====
-CSS For Film Choose page
-=====
-*/
-/* Style the buttons inside the tab */
-div.tab button {
-	background-color: inherit;
-	float: left;
-	/*border-right: 1px solid white;*/
-	width: 60px;
-	outline: none;
-	cursor: pointer;
-	padding: 0 10px;
-	transition: 0.3s;
-	font-size: 16px;
-}
-
-/* Change background color of buttons on hover */
-div.tab button:hover {
-	background-color: #ddd;
-}
-
-
-
-#txtMovieTitle {
-	font-size: 18px;
-}
-
-.tablinks a {
+/* css for fnb page */
+.active-tab {
 	color: white;
 }
-
-.row.box .col-lg-10 .tab {
-	margin-top: 15px;
-	margin-left: -3px;
+.tab{
+	margin: 0cm 0.3cm 0cm 0.3cm;
 }
 
-#txtSynopsis {
-	margin-bottom: 15px;
+.fnbcontainer-responsive{
+	height: 500px;
+	overflow: auto;
 }
 
-#smallThumbnail {
-	width:75px;
-	height:75px;
-}
-
-.rating {
-	height: 20px; width: 100px;
-}
-
-p {
-	margin-right: 15px;
-}
-
-/*
-=====
-CSS For Seat Choose page
-=====
-*/
-.col-lg-12 .col-md-4, .col-lg-12 .col-md-8 {
-	float: left;
-}
-
-#screen {
-	background-color: #666878;
-	border-radius: 5px;
-	margin: 0 auto;
-	vertical-align: middle;
-	text-align: center;
-	margin-bottom: 20px;
-}
-
-#seat-number {
-	text-align: center;
-}
-
-.smallSquare {
-	display: inline-block;
-	background-color: #666878;
-	margin: 2px;
-}
-
-.smallSquare:hover {
-	background-color: #41c179;
-}
-
-.angka {
-	display: inline-block;
-}
-
-
-.legend {
-	display: inline-block;
-}
-
-.legends {
-	padding: 0 8px;
-}
-
-.selectedSeat {
-	background-color: #4da55e;
-}
-
-.unavailableSeat {
-	background-color: #c14040;
-}
-
-#txtChosenMovie {
-	font-size: 18px;
-}
-
-/*
-=====
-CSS For Cashier FnB page
-=====
-*/
-/* css for fnb page */
-.container.fnb {
-	height: 350px;
-}
-
-.box-window.summarycontainer-responsive {
-	height: 450px;
+.summarycontainer-responsive{
+	height: 365px;
 	overflow-y: scroll;
-}
-
-.fnbcontainer-responsive {
-	height: 480px;
-	text-align: center;
-	overflow-y: scroll;
-}
-
-/*.col-md-2 .circle, .col-lg-2 .circle {
-	width: 100px;
-	height: 100px;
-}*/
-
-#txtSummary {
-	text-align: center;
-}
-
-.container-fluid.thumbnail.col-lg-4 .row.amount {
-	margin-top: 20px;
 }

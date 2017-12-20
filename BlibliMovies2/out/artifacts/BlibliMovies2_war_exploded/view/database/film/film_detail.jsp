@@ -40,8 +40,8 @@
                 </c:forEach>
 
                 <br>
-                <a href="/admin/film/edit?id=${film.id}"><h2>Edit ></h2></a><br>
-                <a href="/admin/film/delete?id=${film.id}"><h2>Delete ></h2></a>
+                <a class="link" href="/admin/film/edit?id=${film.id}"><h2>Edit ></h2></a><br>
+                <a class="link" href="/admin/film/delete?id=${film.id}"><h2>Delete ></h2></a>
             </div>
         </div>
     </div>

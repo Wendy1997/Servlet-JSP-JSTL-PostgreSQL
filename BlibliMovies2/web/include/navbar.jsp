@@ -6,7 +6,8 @@
         </div>
 
         <ul class="nav navbar-nav">
-            <li class="active"><a href="/index?page=logout">Logout from this Store</a></li>
+            <li class="active" id="logoutDesktop"><a href="/index?page=logout">Logout from this Store</a></li>
+            <li class="active" id="logoutMobile"><a href="/index?page=logout">Logout from this Store</a></li>
         </ul>
     </div>
 </nav>

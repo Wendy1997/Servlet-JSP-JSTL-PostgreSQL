@@ -3,33 +3,29 @@
 
 <div class="container-fluid">
 <div class="row">
-    <div class="container-fluid thumnail col-lg-8" >
+    <div class="container-fluid thumbnail col-lg-8" >
 
         <!-- List Film -->
         <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <ul class="nav navbar-nav" >
-                    <div class="row">
-                        <li><a href="#" class="tab active-tab" style="color: white">Ticket</a></li>
-                        <li><a href="#" class="tab">Pick Your Seat</a></li>
-                        <li><a href="#" class="tab">Snack and Beverages</a></li>
-                    </div>
-                </ul>
+            <div class="d-flex flex-row">
+                <div class="p-2">Ticket</div>
+                <div class="p-2">Pick Your Seat</div>
+                <div class="p-2 active-tab">Snack and Beverages
             </div>
         </nav>
 
-        <div class="stripe" style="margin-left:25px;width: 97.5%"></div><br>
+        <div class="stripe" id="navbarStripe"></div><br>
 
-        <div class="container">
-            <div class="fnbcontainer-responsive row">
+        <div class="container film">
+            <div class="filmcontainer-responsive row">
                 <c:forEach items="${films}" var="film">
-                    <div class="col-lg-10">
+                    <div class="col-xl-10">
                         <div class="row box">
-                            <div class="col-md-2">
-                                <div class="circle" style="background-image:url('${film.cover}');width:100px;height:100px;"></div>
+                            <div class="col-lg-2">
+                                <div class="circle" id="thumbnail" src="${film.cover}"></div>
                             </div>
-                            <div class="col-md-10">
-                                <div style="font-size: 18px">${film.title}</div>
+                            <div class="col-lg-10">
+                                <div id="txtMovieTitle">${film.title}</div>
                                 <div>${film.subtitle}</div>
 
                                 <div class="tab" style="margin-top: 15px; margin-left: -3px;">
@@ -48,32 +44,32 @@
 
 
 
-    <div class="container-fluid thumnail col-lg-4">
+    <div class="container-fluid thumbnail col-lg-4">
         <!-- Title -->
         <div >
-            <h4 style="margin-bottom: 14px">Synopsis</h4>
+            <h4 id="txtSynopsis">Synopsis</h4>
         </div>
-        <div class="stripe"></div><br>
+        <div class="stripe synopsis"></div><br>
 
         <div class="container-fluid">
 
-            <div class="box-window summarycontainer-responsive" style="height:550px; margin-right: 10px">
+            <div class="box-window synopsiscontainer-responsive">
                 <c:forEach items="${films}" var="film">
                     <div class="row">
-                        <div class="col-lg-7">
+                        <div class="col-xl-7">
                             <div class="row box">
                                 <div class="col-lg-5">
-                                    <div class="circle" style="background-image:url('${film.cover}');width:75px;height:75px;"></div>
+                                    <div class="circle" id="smallThumbnail" src="${film.cover}"></div>
                                 </div>
                                 <div class="col-lg-7">
-                                    <div style="font-size: 18px">${film.title}</div>
-                                    <div>${film.subtitle}</div>
-                                    <p>${film.rating}/5 (${film.reviewTotal})</p>
+                                    <div id="txtMovieTitle">${film.title}</div>
+                                    <div id="txtMovieSubtitle">${film.subtitle}</div>
+                                    <p class="rating">${film.rating}/5 (${film.reviewTotal})</p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <p style="margin-right: 15px">${film.sinopsis}</p>
+                    <p>${film.sinopsis}</p>
                 </c:forEach>
             </div>
 
