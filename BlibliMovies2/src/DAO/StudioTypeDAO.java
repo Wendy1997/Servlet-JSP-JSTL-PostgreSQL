@@ -31,7 +31,7 @@ public class StudioTypeDAO {
 
     public StudioType getStudioType(String id, String storename) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM studioType where id = ? and storeusername = ? and status = true");
-        ps.setString(1, id);
+        ps.setInt(1, Integer.parseInt(id));
         ps.setString(2, storename);
 
         ResultSet rs = ps.executeQuery();
@@ -66,7 +66,7 @@ public class StudioTypeDAO {
 
     public void deleteStudioType(String studioType, String storename) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE studioType set status = false where id = ? and storeusername = ?");
-        ps.setString(1, studioType);
+        ps.setInt(1, Integer.parseInt(studioType));
         ps.setString(2, storename);
         ps.executeUpdate();
     }
@@ -74,7 +74,7 @@ public class StudioTypeDAO {
     public void updateStudioType(StudioType studioType) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE studioType set type = ? where id = ? and storeusername = ? and status = true");
         ps.setString(1, studioType.getType());
-        ps.setString(2, studioType.getId());
+        ps.setInt(2, Integer.parseInt(studioType.getId()));
         ps.setString(3, studioType.getStorename());
         ps.executeUpdate();
     }

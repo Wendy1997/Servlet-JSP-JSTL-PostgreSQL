@@ -36,6 +36,29 @@ public class InvoiceServiceDatabase implements InvoiceService {
     }
 
     @Override
+    public List<Invoice> getDailyInvoice(String date, String storename) throws SQLException {
+        String[] dateList = date.split("-");
+        return invoiceDAO.getDailyInvoice(dateList[2], dateList[1], dateList[0], storename);
+    }
+
+    @Override
+    public List<Invoice> getWeeklyInvoice(String date, String storename) throws SQLException {
+        String[] dateList = date.split("-");
+        return invoiceDAO.getWeeklyInvoice(dateList[1], dateList[0], storename);
+    }
+
+    @Override
+    public List<Invoice> getMonthlyInvoice(String date, String storename) throws SQLException {
+        String[] dateList = date.split("-");
+        return invoiceDAO.getMonthlyInvoice(dateList[1], dateList[0], storename);
+    }
+
+    @Override
+    public List<Invoice> getYearlyInvoice(String year, String storename) throws SQLException {
+        return invoiceDAO.getYearlyInvoice(year, storename);
+    }
+
+    @Override
     public List<OrderDetail> getAllOrderDetail(String id, String storename) throws SQLException {
         return orderDetailDAO.getAllOrderDetail(id, storename);
     }

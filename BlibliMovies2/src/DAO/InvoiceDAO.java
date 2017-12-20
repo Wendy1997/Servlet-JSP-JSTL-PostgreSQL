@@ -115,4 +115,96 @@ public class InvoiceDAO {
             ps.executeUpdate();
         }
     }
+
+    public List<Invoice> getDailyInvoice(String day, String month, String year, String storename) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM invoice where " +
+                "EXTRACT (day from orderdate) = ? AND " +
+                "EXTRACT (month from orderdate) = ? and " +
+                "EXTRACT (year from orderdate) = ? and " +
+                "storeusername = ?");
+        ps.setString(1, day);
+        ps.setString(2, month);
+        ps.setString(3, year);
+        ps.setString(4, storename);
+        ResultSet rs = ps.executeQuery();
+
+        List<Invoice> invoices = new ArrayList<Invoice>();
+        while(rs.next()){
+            invoices.add(new Invoice(rs.getInt(1),
+                    rs.getInt(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                    rs.getInt(5),
+                    rs.getString(6).substring(0,10),
+                    rs.getDouble(7)));
+        }
+        return invoices;
+    }
+
+    public List<Invoice> getWeeklyInvoice(String week, String year, String storename) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM invoice where " +
+                "EXTRACT (week from orderdate) = ? and " +
+                "EXTRACT (year from orderdate) = ? and " +
+                "storeusername = ?");
+        ps.setString(1, week);
+        ps.setString(2, year);
+        ps.setString(3, storename);
+        ResultSet rs = ps.executeQuery();
+
+        List<Invoice> invoices = new ArrayList<Invoice>();
+        while(rs.next()){
+            invoices.add(new Invoice(rs.getInt(1),
+                    rs.getInt(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                    rs.getInt(5),
+                    rs.getString(6).substring(0,10),
+                    rs.getDouble(7)));
+        }
+        return invoices;
+    }
+
+    public List<Invoice> getMonthlyInvoice(String month, String year, String storename) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM invoice where " +
+                "EXTRACT (month from orderdate) = ? and " +
+                "EXTRACT (year from orderdate) = ? and " +
+                "storeusername = ?");
+        ps.setString(1, month);
+        ps.setString(2, year);
+        ps.setString(3, storename);
+        ResultSet rs = ps.executeQuery();
+
+        List<Invoice> invoices = new ArrayList<Invoice>();
+        while(rs.next()){
+            invoices.add(new Invoice(rs.getInt(1),
+                    rs.getInt(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                    rs.getInt(5),
+                    rs.getString(6).substring(0,10),
+                    rs.getDouble(7)));
+        }
+        return invoices;
+    }
+
+    public List<Invoice> getYearlyInvoice(String year, String storename) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM invoice where " +
+                "EXTRACT (year from orderdate) = ? and " +
+                "storeusername = ?");
+        ps.setString(1, year);
+        ps.setString(2, storename);
+        ResultSet rs = ps.executeQuery();
+
+        List<Invoice> invoices = new ArrayList<Invoice>();
+        while(rs.next()){
+            invoices.add(new Invoice(rs.getInt(1),
+                    rs.getInt(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                    rs.getInt(5),
+                    rs.getString(6).substring(0,10),
+                    rs.getDouble(7)));
+        }
+        return invoices;
+    }
 }

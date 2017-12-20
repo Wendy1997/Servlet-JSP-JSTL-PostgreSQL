@@ -34,7 +34,7 @@ public class FnBSizeDAO {
 
     public FnBSize getFnBSize(String id, String storename) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM fnBSize where id = ? and storeusername = ? and status = true");
-        ps.setString(1, id);
+        ps.setInt(1, Integer.parseInt(id));
         ps.setString(2, storename);
 
         ResultSet rs = ps.executeQuery();
@@ -69,7 +69,7 @@ public class FnBSizeDAO {
 
     public void deleteFnBSize(String fnBSize, String storename) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE fnBSize set status = false where id = ? and storeusername = ?");
-        ps.setString(1, fnBSize);
+        ps.setInt(1, Integer.parseInt(fnBSize));
         ps.setString(2, storename);
         ps.executeUpdate();
     }
@@ -77,7 +77,7 @@ public class FnBSizeDAO {
     public void updateFnBSize(FnBSize fnBSize) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE fnBSize set size = ? where id = ? and storeusername = ? and status = true");
         ps.setString(1, fnBSize.getSize());
-        ps.setString(2, fnBSize.getId());
+        ps.setInt(2, Integer.parseInt(fnBSize.getId()));
         ps.setString(3, fnBSize.getStorename());
         ps.executeUpdate();
     }

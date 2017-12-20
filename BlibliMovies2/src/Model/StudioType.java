@@ -3,6 +3,7 @@ package Model;
 public class StudioType {
     private String id;
     private String type;
+    private String storename;
 
     public StudioType(String id, String type, String storename) {
         this.id = id;
@@ -10,7 +11,10 @@ public class StudioType {
         this.storename = storename;
     }
 
-    private String storename;
+    public StudioType(String type, String storename) {
+        this.type = type;
+        this.storename = storename;
+    }
 
     public String getId() {
         return id;
