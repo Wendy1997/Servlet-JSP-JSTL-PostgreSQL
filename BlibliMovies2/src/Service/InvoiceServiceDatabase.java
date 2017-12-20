@@ -44,7 +44,7 @@ public class InvoiceServiceDatabase implements InvoiceService {
     @Override
     public List<Invoice> getWeeklyInvoice(String date, String storename) throws SQLException {
         String[] dateList = date.split("-");
-        return invoiceDAO.getWeeklyInvoice(dateList[1], dateList[0], storename);
+        return invoiceDAO.getWeeklyInvoice(dateList[1].substring(1), dateList[0], storename);
     }
 
     @Override

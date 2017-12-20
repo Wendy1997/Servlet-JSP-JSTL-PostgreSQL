@@ -122,10 +122,15 @@ public class InvoiceDAO {
                 "EXTRACT (month from orderdate) = ? and " +
                 "EXTRACT (year from orderdate) = ? and " +
                 "storeusername = ?");
-        ps.setString(1, day);
-        ps.setString(2, month);
-        ps.setString(3, year);
+        ps.setDouble(1, Double.parseDouble(day));
+        ps.setDouble(2, Double.parseDouble(month));
+        ps.setDouble(3, Double.parseDouble(year));
         ps.setString(4, storename);
+        System.out.println("SELECT * FROM invoice where " +
+                "EXTRACT (day from orderdate) = "+day+ " AND " +
+                "EXTRACT (month from orderdate) = "+month+" and " +
+                "EXTRACT (year from orderdate) = "+year+" and " +
+                "storeusername = "+storename+"");
         ResultSet rs = ps.executeQuery();
 
         List<Invoice> invoices = new ArrayList<Invoice>();
@@ -146,8 +151,8 @@ public class InvoiceDAO {
                 "EXTRACT (week from orderdate) = ? and " +
                 "EXTRACT (year from orderdate) = ? and " +
                 "storeusername = ?");
-        ps.setString(1, week);
-        ps.setString(2, year);
+        ps.setDouble(1, Double.parseDouble(week));
+        ps.setDouble(2, Double.parseDouble(year));
         ps.setString(3, storename);
         ResultSet rs = ps.executeQuery();
 
@@ -169,8 +174,8 @@ public class InvoiceDAO {
                 "EXTRACT (month from orderdate) = ? and " +
                 "EXTRACT (year from orderdate) = ? and " +
                 "storeusername = ?");
-        ps.setString(1, month);
-        ps.setString(2, year);
+        ps.setDouble(1, Double.parseDouble(month));
+        ps.setDouble(2, Double.parseDouble(year));
         ps.setString(3, storename);
         ResultSet rs = ps.executeQuery();
 
@@ -191,7 +196,7 @@ public class InvoiceDAO {
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM invoice where " +
                 "EXTRACT (year from orderdate) = ? and " +
                 "storeusername = ?");
-        ps.setString(1, year);
+        ps.setDouble(1, Double.parseDouble(year));
         ps.setString(2, storename);
         ResultSet rs = ps.executeQuery();
 

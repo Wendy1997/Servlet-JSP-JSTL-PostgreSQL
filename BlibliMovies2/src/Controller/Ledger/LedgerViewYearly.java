@@ -3,45 +3,30 @@ package Controller.Ledger;
 import Model.Invoice;
 import Service.InvoiceService;
 import Service.InvoiceServiceDatabase;
+import com.google.gson.Gson;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 
 @WebServlet("/admin/ledger/yearly")
-public class LedgerViewYearly {
+public class LedgerViewYearly extends HttpServlet {
     InvoiceService invoiceService = new InvoiceServiceDatabase();
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String address = "/view/database/ledger/ledger_yearly";
-
-        // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storename") == null){
-            address = "/view/login/store_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
-        }
-
-        // Validasi apakah sudah login akun
-        else if (request.getSession().getAttribute("role") == null){
-            address = "/view/login/account_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
-        }
-
-        // Validasi apakah sudah login as admin
-        else if(!request.getSession().getAttribute("role").equals("admin")){
-            address = "/view/login/account_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
-        }
-
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
-            List<Invoice> invoiceList = invoiceService.getMonthlyInvoice(request.getParameter("date"), (String)request.getSession().getAttribute("storename"));
-
-            request.setAttribute("invoice", invoiceList);
-            request.getRequestDispatcher(address).forward(request, response);
+            System.out.println(request.getParameter("date"));
+            List<Invoice> invoiceList = invoiceService.getYearlyInvoice(request.getParameter("date"), (String)request.getSession().getAttribute("storename"));
+            Gson gson = new Gson();
+            String output = gson.toJson(invoiceList);
+            PrintWriter out = response.getWriter();
+            out.print(output);
         } catch (SQLException e){
             e.printStackTrace();
         }
