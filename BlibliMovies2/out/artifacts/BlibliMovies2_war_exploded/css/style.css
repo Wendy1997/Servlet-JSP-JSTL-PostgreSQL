@@ -97,6 +97,11 @@ a:hover{
 	margin-bottom: 0px;
 }
 
+#invoiceView{
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
 /*
 =====
 Form
@@ -224,7 +229,7 @@ Stripe
 =====
 */
 .stripe{
-	width: 90%;
+	width: 100%;
 	height: 1px;
 	background-color: white;
 }
