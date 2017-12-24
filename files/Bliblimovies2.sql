@@ -800,6 +800,7 @@ INSERT INTO film (id, storeusername, cover, title, genre, duration, director, ra
 INSERT INTO film (id, storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('24', 'blibli', '\blibli\film\Wendy''s (2017).jpg', 'Wendy''s', 'Action', 12, '12', 12, 12, '2017-12-05 00:00:00', '2017-12-07 00:00:00', 'Jawa', 'Jawa', 'Wendy', 'Wendy Damar', false);
 INSERT INTO film (id, storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('6', 'blibli', 'asd', 'ad', 'Action', 123, 'asda', 13, 123, '2017-12-31 00:00:00', '2017-01-01 00:00:00', 'asdasd', 'asd', 'asd', 'asd', false);
 INSERT INTO film (id, storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('9', 'blibli', 'asda', 'asdasd', 'Action', 13123, 'asdasd', 13123, 313, '2017-12-31 00:00:00', '2017-12-31 00:00:00', 'asdasd', 'asdasd', 'asdasd', 'asd', false);
+INSERT INTO film (id, storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('34', 'blibli', '/blibli/film/asda (2017) [20171224142203].jpg', 'asda', 'Action', 123, '123', 123, 123, '2017-12-30 00:00:00', '2017-12-31 00:00:00', '12', '123', '123', 'akuganteng', true);
 INSERT INTO film (id, storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('18', 'blibli', 'asd', 'asd', 'Action', 1, 'asdas', 12312, 1231, '2017-12-31 00:00:00', '2016-12-31 00:00:00', '123', '123', '1123', '123
 ', false);
 INSERT INTO film (id, storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('15', 'blibli', 'asd', 'asdasd', 'Action', 1231, 'asdasd', 123, 1123, '2017-12-31 00:00:00', '0012-12-12 00:00:00', 'aadds', 'asasd', 'asdasd', 'asdasd', false);
@@ -807,13 +808,14 @@ INSERT INTO film (id, storeusername, cover, title, genre, duration, director, ra
 INSERT INTO film (id, storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('14', NULL, 'asda', 'asdasd', 'Action', 13123, 'asdasd', 13123, 313, '2017-12-31 00:00:00', '2017-12-31 00:00:00', 'asdasd', 'asdasd', 'asdasd', 'asd', false);
 INSERT INTO film (id, storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('11', 'blibli', 'asda', 'asdasd', 'Action', 13123, 'asdasd', 13123, 313, '2017-12-31 00:00:00', '2017-12-31 00:00:00', 'asdasd', 'asdasd', 'asdasd', 'asd', false);
 INSERT INTO film (id, storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('12', 'blibli', 'asda', 'asdasd', 'Action', 13123, 'asdasd', 13123, 313, '2017-12-31 00:00:00', '2017-12-31 00:00:00', 'asdasd', 'asdasd', 'asdasd', 'asd', false);
+INSERT INTO film (id, storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('33', 'blibli', '/blibli/film/asd (2017) [20171224142058].jpg', 'asd', 'Horror', 123, 'asd', 12, 12, '2017-12-31 00:00:00', '2017-12-31 00:00:00', 'asd', 'asd', 'asd', 'To check for any empty file input in the form while uploding any file to the server best way follow my instructions 1. use @MultipartConfig() at the top of your servlet class 2. add the following method to your class private InputStream getImageStream(HttpServletRequest request, String image){ try { Part part ', true);
 
 
 --
 -- Name: film_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('film_id_seq', 32, true);
+SELECT pg_catalog.setval('film_id_seq', 34, true);
 
 
 --
@@ -827,13 +829,15 @@ INSERT INTO filmgenre (id, genre, storeusername, status) VALUES (6, 'Comedy', 'b
 INSERT INTO filmgenre (id, genre, storeusername, status) VALUES (5, 'Adventure', 'blibli', true);
 INSERT INTO filmgenre (id, genre, storeusername, status) VALUES (4, 'Melodrama', 'blibli', true);
 INSERT INTO filmgenre (id, genre, storeusername, status) VALUES (3, 'Romance', 'blibli', true);
+INSERT INTO filmgenre (id, genre, storeusername, status) VALUES (8, 'mantapgg', 'blibli', false);
+INSERT INTO filmgenre (id, genre, storeusername, status) VALUES (9, 'aleleleandro', 'blibli', false);
 
 
 --
 -- Name: filmgenre_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('filmgenre_id_seq', 7, true);
+SELECT pg_catalog.setval('filmgenre_id_seq', 9, true);
 
 
 --
@@ -863,13 +867,16 @@ INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, st
 INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeusername) VALUES ('27', '32', '4', 'A8', '13', 30000, 'blibli');
 INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeusername) VALUES ('28', '32', '4', 'A7', '13', 30000, 'blibli');
 INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeusername) VALUES ('29', '32', '4', 'A3', '13', 30000, 'blibli');
+INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeusername) VALUES ('30', '32', '4', 'C7', '13', 30000, 'blibli');
+INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeusername) VALUES ('31', '32', '4', 'D4', '13', 30000, 'blibli');
+INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeusername) VALUES ('32', '32', '4', 'D5', '13', 30000, 'blibli');
 
 
 --
 -- Name: filmticket_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('filmticket_id_seq', 29, true);
+SELECT pg_catalog.setval('filmticket_id_seq', 32, true);
 
 
 --
@@ -879,13 +886,14 @@ SELECT pg_catalog.setval('filmticket_id_seq', 29, true);
 INSERT INTO fnbsize (id, size, storeusername, status) VALUES (3, 'Jumbo', 'blibli', true);
 INSERT INTO fnbsize (id, size, storeusername, status) VALUES (2, 'Large', 'blibli', true);
 INSERT INTO fnbsize (id, size, storeusername, status) VALUES (1, 'Regular', 'blibli', true);
+INSERT INTO fnbsize (id, size, storeusername, status) VALUES (4, 'Besarrr Banget', 'blibli', false);
 
 
 --
 -- Name: fnbsize_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('fnbsize_id_seq', 3, true);
+SELECT pg_catalog.setval('fnbsize_id_seq', 4, true);
 
 
 --
@@ -895,13 +903,14 @@ SELECT pg_catalog.setval('fnbsize_id_seq', 3, true);
 INSERT INTO fnbtype (id, type, storeusername, status) VALUES (3, 'Combo', 'blibli', true);
 INSERT INTO fnbtype (id, type, storeusername, status) VALUES (1, 'Food', 'blibli', true);
 INSERT INTO fnbtype (id, type, storeusername, status) VALUES (2, 'Beverages', 'blibli', true);
+INSERT INTO fnbtype (id, type, storeusername, status) VALUES (4, 'barubgt', 'blibli', false);
 
 
 --
 -- Name: fnbtype_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('fnbtype_id_seq', 3, true);
+SELECT pg_catalog.setval('fnbtype_id_seq', 4, true);
 
 
 --
@@ -909,13 +918,14 @@ SELECT pg_catalog.setval('fnbtype_id_seq', 3, true);
 --
 
 INSERT INTO foodandbeverages (id, storeusername, cover, name, type, size, price, status) VALUES ('7', 'blibli', '/blibli/fnb/wendyyyy (Regular) [20171203233054].jpg', 'wendyyyy', 'Food', 'Regular', 23232323, true);
+INSERT INTO foodandbeverages (id, storeusername, cover, name, type, size, price, status) VALUES ('8', 'blibli', '/blibli/fnb/Walala (Jumbo) [20171221135750].jpg', 'Walala', 'Combo', 'Jumbo', 10000, true);
 
 
 --
 -- Name: foodandbeverages_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('foodandbeverages_id_seq', 7, true);
+SELECT pg_catalog.setval('foodandbeverages_id_seq', 8, true);
 
 
 --
@@ -924,7 +934,6 @@ SELECT pg_catalog.setval('foodandbeverages_id_seq', 7, true);
 
 INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('1', NULL, 'ndi', 'blibli', NULL, '2017-10-22 12:16:54.509', 10000);
 INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('2', '1', 'ndi', 'blibli', NULL, '2017-10-22 12:16:54.509', 10000);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('4', NULL, 'ndi', 'blibli', NULL, '2017-11-19 16:14:15', 13200);
 INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('5', NULL, 'ndi', 'blibli', NULL, '2017-11-19 16:16:52', 1320);
 INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('9', NULL, 'ndi', 'blibli', NULL, '2017-11-19 09:19:33.575', 100);
 INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('10', NULL, 'ndi', 'blibli', NULL, '2017-11-19 16:20:11', 13200);
@@ -991,13 +1000,23 @@ INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orde
 INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('71', NULL, 'ndi', 'blibli', NULL, '2017-12-04 13:34:48', 23292323);
 INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('72', '1', 'ndi', 'blibli', '1', '2017-12-04 13:36:33', 54000);
 INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('73', '1', 'ndi', 'blibli', '1', '2017-12-04 13:40:05', 27118.799999999999);
+INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('4', NULL, 'ndi', 'blibli', NULL, '2016-11-19 16:14:15', 13200);
+INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('74', NULL, 'ndi', 'blibli', NULL, '2017-12-21 13:51:18', 1161616150);
+INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('75', NULL, 'ndi', 'blibli', NULL, '2017-12-21 13:54:46', 23232323);
+INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('76', '1', 'ndi', 'blibli', '1', '2017-12-21 13:56:40', 209090907);
+INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('77', NULL, 'ndi', 'blibli', NULL, '2017-12-21 13:58:24', 10000);
+INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('78', '1', 'ndi', 'blibli', '1', '2017-12-21 13:58:44', 45000);
+INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('79', '1', 'ndi', 'blibli', '1', '2017-12-21 20:33:25', 90000);
+INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('80', '1', 'ndi', 'blibli', '1', '2017-12-24 13:43:49', 72000);
+INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('81', '1', 'ndi', 'blibli', '1', '2017-12-24 13:49:49', 72000);
+INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('82', NULL, 'ndi', 'blibli', NULL, '2017-12-24 14:00:06', 60000);
 
 
 --
 -- Name: invoice_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('invoice_id_seq', 73, true);
+SELECT pg_catalog.setval('invoice_id_seq', 82, true);
 
 
 --
@@ -1118,13 +1137,25 @@ INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price
 INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('76', '72', 'blibli', '11111', 2, 30000, 'true');
 INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('77', '73', 'blibli', '11111', 1, 30000, 'true');
 INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('78', '73', 'blibli', 'Mempeseona', 1, 132, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('79', '74', 'blibli', 'wendyyyy', 50, 23232323, 'false');
+INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('80', '75', 'blibli', 'wendyyyy', 1, 23232323, 'false');
+INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('81', '76', 'blibli', 'wendyyyy', 10, 23232323, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('82', '77', 'blibli', 'Walala', 1, 10000, 'false');
+INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('83', '78', 'blibli', 'Walala', 5, 10000, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('84', '79', 'blibli', 'Walala', 10, 10000, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('85', '80', 'blibli', '11111', 2, 30000, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('86', '80', 'blibli', 'Walala', 2, 10000, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('87', '80', 'blibli', 'wendyyyy', 0, 23232323, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('88', '81', 'blibli', '11111', 2, 30000, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('89', '81', 'blibli', 'Walala', 2, 10000, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('90', '82', 'blibli', '11111', 2, 30000, 'true');
 
 
 --
 -- Name: orderdetail_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('orderdetail_id_seq', 78, true);
+SELECT pg_catalog.setval('orderdetail_id_seq', 90, true);
 
 
 --
@@ -1150,13 +1181,15 @@ INSERT INTO screeningtime (id, filmid, studioid, storeusername, "time", duration
 INSERT INTO screeningtime (id, filmid, studioid, storeusername, "time", duration, status) VALUES ('3', '6', '2', 'blibli', '23:56:00', 123, true);
 INSERT INTO screeningtime (id, filmid, studioid, storeusername, "time", duration, status) VALUES ('9', '6', '3', 'blibli', '23:56:00', 123, true);
 INSERT INTO screeningtime (id, filmid, studioid, storeusername, "time", duration, status) VALUES ('13', '32', '4', 'blibli', '17:03:00', 1, true);
+INSERT INTO screeningtime (id, filmid, studioid, storeusername, "time", duration, status) VALUES ('14', '32', '10', 'blibli', '12:12:00', 1, true);
+INSERT INTO screeningtime (id, filmid, studioid, storeusername, "time", duration, status) VALUES ('15', '32', '10', 'blibli', '23:58:00', 1, true);
 
 
 --
 -- Name: screeningtime_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('screeningtime_id_seq', 13, true);
+SELECT pg_catalog.setval('screeningtime_id_seq', 15, true);
 
 
 --
@@ -1991,13 +2024,15 @@ INSERT INTO studio (id, storeusername, name, type, price, status) VALUES ('2', '
 INSERT INTO studio (id, storeusername, name, type, price, status) VALUES ('7', 'blibli', 'E', 'Regular', 500000, true);
 INSERT INTO studio (id, storeusername, name, type, price, status) VALUES ('5', 'blibli', 'G', 'VIP', 700000, true);
 INSERT INTO studio (id, storeusername, name, type, price, status) VALUES ('3', 'blibli', 'F', 'Regular', 60000, true);
+INSERT INTO studio (id, storeusername, name, type, price, status) VALUES ('9', 'blibli', 'Mantap', 'Regular', 123, false);
+INSERT INTO studio (id, storeusername, name, type, price, status) VALUES ('10', 'blibli', 'Alalal', 'Regular', 123123, true);
 
 
 --
 -- Name: studio_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('studio_id_seq', 8, true);
+SELECT pg_catalog.setval('studio_id_seq', 10, true);
 
 
 --
@@ -2007,13 +2042,14 @@ SELECT pg_catalog.setval('studio_id_seq', 8, true);
 INSERT INTO studiotype (id, type, storeusername, status) VALUES (1, 'Regular', 'blibli', true);
 INSERT INTO studiotype (id, type, storeusername, status) VALUES (2, 'Suite', 'blibli', true);
 INSERT INTO studiotype (id, type, storeusername, status) VALUES (3, 'VIP', 'blibli', true);
+INSERT INTO studiotype (id, type, storeusername, status) VALUES (4, 'WawwBgt', 'blibli', false);
 
 
 --
 -- Name: studiotype_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('studiotype_id_seq', 3, true);
+SELECT pg_catalog.setval('studiotype_id_seq', 4, true);
 
 
 --
