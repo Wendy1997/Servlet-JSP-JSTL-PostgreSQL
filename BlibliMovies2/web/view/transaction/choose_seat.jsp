@@ -37,9 +37,9 @@
 
         <div class="legend" align="left" style="margin-right:70px;margin-top: 20px; display: inline-block;">
             <div class="row">
-                <div class="smallSquare unavailableSeat"></div>
-                <div class="smallSquare" style="margin: 0 40px"></div>
-                <div class="smallSquare selectedSeat"></div>
+                <div class="smallSquare nonSeat unavailableSeat"></div>
+                <div class="smallSquare nonSeat" style="margin: 0 40px"></div>
+                <div class="smallSquare nonSeat selectedSeat"></div>
             </div>
             <div class="row">
                 <div>Taken</div>
@@ -114,20 +114,24 @@
 
     $(document).ready(function () {
         $(".smallSquare").click(function(e){
-            if ($(this).hasClass('smallSquare unavailableSeat'))
-                $(this).click(false);
-            else {
-                if ($(this).hasClass(addClass)){
-                    $(this).removeClass(addClass);
-                    pointer--;
-                    var index = listTicket.indexOf($(this).attr('id'));
-                    listTicket.splice(index, index + 1);
-                    window.alert($(this).attr('id') + " canceled.\n jumlah tiket " + pointer + "\n list tiket = " + listTicket.toString() + "\n");
-                } else {
-                    $(this).addClass(addClass);
-                    pointer++;
-                    listTicket.push($(this).attr('id'));
-                    window.alert($(this).attr('id') + " canceled.\n jumlah tiket " + pointer + "\n list tiket = " + listTicket.toString());
+            if($(this).hasClass('nonSeat')){
+                console.log('asdasd');
+            } else {
+                if ($(this).hasClass('smallSquare unavailableSeat'))
+                    $(this).click(false);
+                else {
+                    if ($(this).hasClass(addClass)){
+                        $(this).removeClass(addClass);
+                        pointer--;
+                        var index = listTicket.indexOf($(this).attr('id'));
+                        listTicket.splice(index, index + 1);
+                        window.alert($(this).attr('id') + " canceled.\n jumlah tiket " + pointer + "\n list tiket = " + listTicket.toString() + "\n");
+                    } else {
+                        $(this).addClass(addClass);
+                        pointer++;
+                        listTicket.push($(this).attr('id'));
+                        window.alert($(this).attr('id') + " canceled.\n jumlah tiket " + pointer + "\n list tiket = " + listTicket.toString());
+                    }
                 }
             }
         });
