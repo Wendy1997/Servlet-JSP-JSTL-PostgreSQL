@@ -63,11 +63,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="view_invoice.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="view_invoice.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/view/transaction/view_invoice.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
-              <caret line="167" column="12" lean-forward="false" selection-start-line="167" selection-start-column="12" selection-end-line="167" selection-end-column="12" />
+            <state relative-caret-position="321">
+              <caret line="168" column="11" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="171" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -137,6 +137,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="invoice_detail.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/view/database/invoice/invoice_detail.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="507">
+              <caret line="83" column="15" lean-forward="false" selection-start-line="83" selection-start-column="15" selection-end-line="83" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="emailFoot.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/include/emailFoot.jsp">
           <provider selected="true" editor-type-id="text-editor">
@@ -152,16 +162,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="87">
               <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChooseSeat.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/Transaction/ChooseSeat.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="36" column="21" lean-forward="true" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -266,12 +266,12 @@
         <option value="$PROJECT_DIR$/web/css/style.css" />
         <option value="$PROJECT_DIR$/web/js/autoPrint.js" />
         <option value="$PROJECT_DIR$/src/Controller/Transaction/ViewMember.java" />
-        <option value="$PROJECT_DIR$/web/view/database/invoice/invoice_detail.jsp" />
         <option value="$PROJECT_DIR$/web/include/head.jsp" />
         <option value="$PROJECT_DIR$/web/include/emailFoot.jsp" />
         <option value="$PROJECT_DIR$/web/include/emailHead.jsp" />
         <option value="$PROJECT_DIR$/web/view/transaction/choose_fnb.jsp" />
         <option value="$PROJECT_DIR$/web/view/transaction/view_invoice.jsp" />
+        <option value="$PROJECT_DIR$/web/view/database/invoice/invoice_detail.jsp" />
       </list>
     </option>
   </component>
@@ -792,12 +792,12 @@
       <workItem from="1513848288091" duration="2684000" />
       <workItem from="1513858889569" duration="11752000" />
       <workItem from="1513927650245" duration="53000" />
-      <workItem from="1514089992524" duration="7114000" />
+      <workItem from="1514089992524" duration="7239000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="270230000" />
+    <option name="totallyTimeSpent" value="270355000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1148,14 +1148,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/view/database/invoice/invoice_detail.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Transaction/ChooseSeat.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63">
@@ -1234,8 +1226,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/view/transaction/view_invoice.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="167" column="12" lean-forward="false" selection-start-line="167" selection-start-column="12" selection-end-line="167" selection-end-column="12" />
+        <state relative-caret-position="321">
+          <caret line="168" column="11" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="171" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/invoice/invoice_detail.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="507">
+          <caret line="83" column="15" lean-forward="false" selection-start-line="83" selection-start-column="15" selection-end-line="83" selection-end-column="15" />
           <folding />
         </state>
       </provider>
