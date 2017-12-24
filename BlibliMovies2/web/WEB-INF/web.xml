@@ -20,4 +20,19 @@
         <servlet-name>default</servlet-name>
         <url-pattern>*.png</url-pattern>
     </servlet-mapping>
+    <error-page>
+        <!-- Missing resource -->
+        <error-code>404</error-code>
+        <location>/view/error/error404.jsp</location>
+    </error-page>
+    <!--<error-page>-->
+        <!--&lt;!&ndash; Uncaught exception &ndash;&gt;-->
+        <!--<error-code>500</error-code>-->
+        <!--<location>/view/error/error500.jsp</location>-->
+    <!--</error-page>-->
+    <error-page>
+        <!-- Unsupported servlet method -->
+        <error-code>503</error-code>
+        <location>/view/error/error503.jsp</location>
+    </error-page>
 </web-app>

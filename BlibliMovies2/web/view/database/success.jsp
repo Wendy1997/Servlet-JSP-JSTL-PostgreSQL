@@ -5,7 +5,7 @@
 <div class="container-fluid" align="center">
 
     <!-- Close Button -->
-    <button type="button" class="close" onclick="document.location.href = 'film_menu.html';">&times;</button>
+    <a type="button" class="close" href="<c:out value="${link}"></c:out>">&times;</a>
 
     <!-- Confirmation -->
     <div class="confirmation">

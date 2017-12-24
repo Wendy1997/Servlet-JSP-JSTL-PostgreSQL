@@ -243,6 +243,7 @@ Close Button
 	margin: 50px;
 	color: gray;
 	opacity: 1;
+	background-color: black;
 
 	-moz-transition: all .2s ease-in;
 	-o-transition: all .2s ease-in;
