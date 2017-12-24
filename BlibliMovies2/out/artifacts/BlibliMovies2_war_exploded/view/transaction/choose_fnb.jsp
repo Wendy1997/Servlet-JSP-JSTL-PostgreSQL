@@ -107,6 +107,9 @@
     function deleteContent(id, jumlah, price) {
         $('#'+id+jumlah).remove();
         listBuy[id] -= jumlah;
+        if(listBuy[id] == 0){
+            delete listBuy[id];
+        }
         listHarga[id] -= price;
 
         harga -= price;

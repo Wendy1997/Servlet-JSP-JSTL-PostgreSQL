@@ -1,5 +1,4 @@
 <%@ include file = "/include/head.jsp" %>
-
 <!-- Content -->
 <div class="container-fluid">
 
@@ -61,23 +60,68 @@
             </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
     <script>
+        function print() {
+            var doc = new jsPDF('p', 'pt', [$('.jumbotron').width(), $('.jumbotron').height()]);
+            $('*').css('background-color', 'white');
+            $('*').css('color', 'black');
+            $('.stripe').css('background-color', 'black');
+            doc.text(10, 10, 'This is a test');
+            doc.addHTML(
+                $('.jumbotron').get(0), function () {
+                    doc.autoPrint();
+                    doc.save('[Invoice] ' + ${invoice.id});
+                });
+            $('*').css('background-color', 'black');
+            $('*').css('color', 'white');
+            $('.stripe').css('background-color', 'white');
+        }
         $(document).ready(function () {
+            console.log($('.jumbotron').get(0));
             $('#accept').click(function () {
-                var doc = new jsPDF('p', 'pt', [$('.jumbotron').width(), $('.jumbotron').height()]);
-                $('*').css('background-color', 'white');
-                $('*').css('color', 'black');
-                $('.stripe').css('background-color', 'black');
-                doc.text(10, 10, 'This is a test');
-                doc.addHTML(
-                    $('.jumbotron').get(0), function () {
-                        doc.autoPrint();
-                        doc.save('[Invoice] ' + ${invoice.id});
-                    });
-                $('*').css('background-color', 'black');
-                $('*').css('color', 'white');
-                $('.stripe').css('background-color', 'white');
+                print();
 
+                if(${invoice.memberId == 0 ? false : true}){
+                    console.log("masuk");
+                    var email;
+                    var name;
+                    console.log($("html").html());
+                    $.ajax({
+                        type: 'POST',
+                        url: "/cashier/member",
+                        dataType: "JSON",
+                        data: {
+                            memberid: ${invoice.memberId}
+                        },
+                        success: function (response) {
+                            $.ajax({
+                                type: 'POST',
+                                url: "https://api.elasticemail.com/v2/email/send",
+                                dataType: "JSON",
+                                data: {
+                                    apikey: "312ad91b-ecd9-48bf-b0db-14b304b67fe0",
+                                    bodyHtml: "<html>" + $("html").html() + "</html",
+                                    bodyText: "Thank You " + response.fullname + "! \nAnd here the invoice:",
+                                    from: "wendy.damar51@ui.ac.id",
+                                    fromName: "Wendy Keren Sangat",
+                                    to: response.email,
+                                    replyToName: "Sayang",
+                                    subject: "Thank You!"
+                                },
+                                success: function (response) {
+                                    console.log(response);
+                                },
+                                error: function (response) {
+                                    console.log(response);
+                                }
+
+                            });
+                        }
+                    });
+
+                    // console.log(email + name);
+                }
             });
         });
     </script>
