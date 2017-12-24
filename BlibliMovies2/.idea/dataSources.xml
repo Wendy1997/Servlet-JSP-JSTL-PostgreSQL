@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="bliblimovies@localhost" uuid="54228e0a-66fb-405f-a40c-278ed4229e2d">
-      <driver-ref>postgresql</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:5432/bliblimovies</jdbc-url>
-      <driver-properties>
-        <property name="ApplicationName" value="DataGrip" />
-      </driver-properties>
-    </data-source>
     <data-source source="LOCAL" name="bliblimovies@localhost" uuid="112536c1-cb39-4da3-99bb-703607a9810c">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>

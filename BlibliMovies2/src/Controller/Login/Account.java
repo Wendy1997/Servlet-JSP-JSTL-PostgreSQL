@@ -53,14 +53,23 @@ public class Account extends HttpServlet {
                 if(account.getPassword().equals(request.getParameter("password"))){
                     request.getSession().setAttribute("role", account.getRole());
                     request.getSession().setAttribute("username", account.getUsername());
-                    address = "/view/menu/" + account.getRole() + "_menu.jsp";
-                }
-            }
+                    address = "/view/database/success.jsp";
+                    request.setAttribute("title", "Login");
+                    request.setAttribute("complete", "Sukses");
+                    request.setAttribute("link", "/" + account.getRole());
 
-            address = "/view/database/success.jsp";
-            request.setAttribute("title", "Login");
-            request.setAttribute("complete", "Sukses");
-            request.setAttribute("link", "/" + account.getRole());
+                }else{
+                    address = "/view/database/success.jsp";
+                    request.setAttribute("title", "Login");
+                    request.setAttribute("complete", "Gagal");
+                    request.setAttribute("link", "/login");
+                }
+            } else{
+                address = "/view/database/success.jsp";
+                request.setAttribute("title", "Login");
+                request.setAttribute("complete", "Gagal");
+                request.setAttribute("link", "/login");
+            }
 
             request.getRequestDispatcher(address).forward(request, response);
         } catch (SQLException e){

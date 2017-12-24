@@ -11,18 +11,20 @@
 
         <!-- Content -->
 
-        <div class="col-lg-9" id="form1">
+        <div class="=col-lg-12" id="form1">
             <div class="row">
-                <div class="col-lg-8">
+                <div class="col-lg-8 col-xs-12">
                     <h2>Invoice</h2>
                     <h3>Order ID: ${invoice.id}</h3>
                     <div class="stripe"></div><br>
                 </div>
-                <div class="col-lg-4" align="right">
+                <div class="col-lg-4 col-xs-6" align="right">
                     <h4>Order Date:</h4>
                     <h4>${invoice.orderDate}</h4>
                 </div>
             </div>
+
+            <div class="stripe" align="center"></div><br>
 
             <div class="row">
                 <div class="col-lg-12">
@@ -33,7 +35,7 @@
             <div class="box-window">
                 <c:forEach var="orderDetails" items="${orderDetails}">
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-lg-7">
                             <div class="row box">
                                 <div class="col-lg-10">
                                     <p class="invoice">${orderDetails.itemName}</p>
@@ -41,7 +43,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3" align="center">
+                        <div class="col-lg-2" align="center">
                             <p>x${orderDetails.quantity}</p>
                         </div>
                         <div class="col-lg-3" align="right">

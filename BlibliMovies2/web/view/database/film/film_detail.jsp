@@ -5,7 +5,7 @@
 <div class="container-fluid">
 
     <!-- Close Button -->
-    <button type="button" class="close" onclick="document.location.href = 'film_menu.html';">&times;</button>
+    <a type="button" class="close" href="javascript:history.back()">&times;</a>
 
     <div class="jumbotron" id="detail">
 
@@ -40,8 +40,8 @@
                 </c:forEach>
 
                 <br>
-                <a href="/admin/film/edit?id=${film.id}"><h2>Edit ></h2></a><br>
-                <a href="/admin/film/delete?id=${film.id}"><h2>Delete ></h2></a>
+                <a class="link" href="/admin/film/edit?id=${film.id}"><h2>Edit ></h2></a><br>
+                <a class="link" href="/admin/film/delete?id=${film.id}"><h2>Delete ></h2></a>
             </div>
         </div>
     </div>

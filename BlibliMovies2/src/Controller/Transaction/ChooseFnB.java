@@ -32,8 +32,6 @@ public class ChooseFnB extends HttpServlet{
     InvoiceService invoiceService = new InvoiceServiceDatabase();
     FilmService filmService = new FilmServiceDatabase();
 
-
-
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String address = "/view/transaction/choose_fnb.jsp";
 

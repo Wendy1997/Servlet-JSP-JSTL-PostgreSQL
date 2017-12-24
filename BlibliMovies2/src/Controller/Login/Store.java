@@ -59,15 +59,24 @@ public class Store extends HttpServlet {
             StoreAccount store = storeAccountService.getStoreAccount(request.getParameter("username"));
             if(store != null){
                 if(store.getPassword().equals(request.getParameter("password"))) {
-                    address = "/view/login/account_login.jsp";
                     request.getSession().setAttribute("storename", store.getUsername());
-                }
-            }
+                    address = "/view/database/success.jsp";
+                    request.setAttribute("title", "Login");
+                    request.setAttribute("complete", "Sukses");
+                    request.setAttribute("link", "/login");
 
-            address = "/view/database/success.jsp";
-            request.setAttribute("title", "Login");
-            request.setAttribute("complete", "Sukses");
-            request.setAttribute("link", "/login");
+                } else{
+                    address = "/view/database/success.jsp";
+                    request.setAttribute("title", "Login");
+                    request.setAttribute("complete", "Gagal");
+                    request.setAttribute("link", "/login");
+                }
+            } else {
+                address = "/view/database/success.jsp";
+                request.setAttribute("title", "Login");
+                request.setAttribute("complete", "Gagal");
+                request.setAttribute("link", "/login");
+            }
 
             request.getRequestDispatcher(address).forward(request, response);
         } catch (SQLException e){

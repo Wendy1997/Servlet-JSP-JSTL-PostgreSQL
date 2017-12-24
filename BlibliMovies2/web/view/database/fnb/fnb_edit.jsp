@@ -5,7 +5,7 @@
 <div class="container-fluid">
 
     <!-- Close Button -->
-    <button type="button" class="close" onclick="document.location.href = 'fnb_menu.html';">&times;</button>
+    <a type="button" class="close" href="javascript:history.back()">&times;</a>
 
     <div class="jumbotron">
 

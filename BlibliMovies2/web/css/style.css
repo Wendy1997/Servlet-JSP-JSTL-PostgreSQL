@@ -4,14 +4,10 @@ Body
 =====
 */
 *{
-	font-family: 'Lato', sans-serif;
+	font-family: "Lato";
 	background-color: black;
 	text-decoration: none;
 	color: white;
-}
-
-body{
-	background-color: black;
 }
 
 #detail{
@@ -33,17 +29,23 @@ body{
 	overflow-y: hidden;
 }
 
+body{
+	background-color:black;
+	margin: 0;
+	padding: 0;
+}
+
 /* 
 =====
 Font 
 =====
 */
 
-a{
+a, .p-2 {
 	-moz-transition: all .2s ease-in;
-    -o-transition: all .2s ease-in;
-    -webkit-transition: all .2s ease-in;
-    transition: all .2s ease-in;
+	-o-transition: all .2s ease-in;
+	-webkit-transition: all .2s ease-in;
+	transition: all .2s ease-in;
 	color: gray;
 }
 
@@ -57,9 +59,9 @@ a:hover{
 	width: 0px;
 	display: inline-block;
 	-moz-transition: all .2s ease-in;
-    -o-transition: all .2s ease-in;
-    -webkit-transition: all .2s ease-in;
-    transition: all .2s ease-in;
+	-o-transition: all .2s ease-in;
+	-webkit-transition: all .2s ease-in;
+	transition: all .2s ease-in;
 	color: gray;
 }
 
@@ -72,21 +74,21 @@ a:hover{
 
 .confirmation{
 	width: 600px;
-    height: 100px;
+	height: 100px;
 	position: absolute;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
 }
 
 .title{
 	-moz-transition: all .2s ease-in;
-    -o-transition: all .2s ease-in;
-    -webkit-transition: all .2s ease-in;
-    transition: all .2s ease-in;
-    text-decoration: none;
+	-o-transition: all .2s ease-in;
+	-webkit-transition: all .2s ease-in;
+	transition: all .2s ease-in;
+	text-decoration: none;
 }
 
 .title:hover{
@@ -162,27 +164,17 @@ Circle
 */
 
 .circle{
-	width: 150px;
-	height: 150px;
 	background-color: gray;
 	border-radius: 100px;
 	margin-bottom: 10px;
 
-	background-size:     cover;                      /* <------ */
-	background-repeat:   no-repeat;
-	background-position: center center;
-
 	-moz-transition: all .2s ease-in;
-    -o-transition: all .2s ease-in;
-    -webkit-transition: all .2s ease-in;
-    transition: all .2s ease-in;
-}
+	-o-transition: all .2s ease-in;
+	-webkit-transition: all .2s ease-in;
+	transition: all .2s ease-in;
 
-.circle:hover{
-	box-shadow: 0 0 30px white;
-	width: 160px;
-	height: 160px;
-	opacity: 1;
+	width: 120px;
+	height: 120px;
 }
 
 .smallCircle{
@@ -193,9 +185,9 @@ Circle
 	display: inline-block;
 
 	-moz-transition: all .2s ease-in;
-    -o-transition: all .2s ease-in;
-    -webkit-transition: all .2s ease-in;
-    transition: all .2s ease-in;
+	-o-transition: all .2s ease-in;
+	-webkit-transition: all .2s ease-in;
+	transition: all .2s ease-in;
 }
 
 /*
@@ -212,9 +204,9 @@ Table
 
 th{
 	-moz-transition: all .2s ease-in;
-    -o-transition: all .2s ease-in;
-    -webkit-transition: all .2s ease-in;
-    transition: all .2s ease-in;	
+	-o-transition: all .2s ease-in;
+	-webkit-transition: all .2s ease-in;
+	transition: all .2s ease-in;
 }
 
 th:hover{
@@ -241,13 +233,13 @@ Close Button
 */
 .close{
 	margin: 50px;
-	color: gray; 
-    opacity: 1;
+	color: gray;
+	opacity: 1;
 
-    -moz-transition: all .2s ease-in;
-    -o-transition: all .2s ease-in;
-    -webkit-transition: all .2s ease-in;
-    transition: all .2s ease-in;
+	-moz-transition: all .2s ease-in;
+	-o-transition: all .2s ease-in;
+	-webkit-transition: all .2s ease-in;
+	transition: all .2s ease-in;
 }
 
 .close:hover{
@@ -266,58 +258,199 @@ Dummy Image
 	width: 300px;
 	height: 400px;
 	background-color: gray;
-	background-size:     cover;                      /* <------ */
-	background-repeat:   no-repeat;
-	background-position: center center;
-
 }
 
-@media screen and (max-width: 1200px) {
-	.circle{
-		width: 120px;
-		height: 120px;
+/**/
 
-		background-size:     cover;                      /* <------ */
-		background-repeat:   no-repeat;
-		background-position: center center;
+#logoutDesktop {
+	display: inline-block;
+}
+
+#logoutMobile {
+	display: none;
+}
+
+.tab , .rating {
+	margin: 0.3cm 0.3cm 0cm 0cm;
+}
+
+.active-tab {
+	color: white;
+}
+
+.tablinks a {
+	color: white;
+}
+
+#txtSynopsis {
+	margin-top: 15px;
+}
+
+.stripe.synopsis {
+	margin-top: 14px;
+}
+
+#screen {
+	background-color: #666878;
+	border-radius: 5px;
+	margin: 0 auto;
+	vertical-align: middle;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+#seat-number {
+	text-align: center;
+}
+
+.smallSquare {
+	display: inline-block;
+	background-color: #666878;
+	margin: 2px;
+}
+
+.smallSquare:hover {
+	background-color: #41c179;
+}
+
+.angka , .legend{
+	display: inline-block;
+}
+
+.legends {
+	padding: 0 8px;
+}
+
+.selectedSeat {
+	background-color: #4da55e;
+}
+
+.unavailableSeat {
+	background-color: #c14040;
+}
+
+/**/
+@media screen and (min-width:1200px) {
+	#screen {
+		width: 400px;
+		margin-top: 20px;
 	}
 
-	.circle:hover{
-		width: 130px;
-		height: 130px;
+	.angka {
+		height: 35px;
+		width: 35px;
+		margin-left:5px;
+	}
+
+	.smallSquare {
+		height: 35px;
+		width: 35px;
+		border-radius: 10px;
+	}
+
+	.legend {
+		margin-right:70px;
+		margin-top: 20px;
+	}
+
+	#btnChooseSeat {
+		display: inline-block;
+	}
+
+	#dtlChooseSeat {
+		margin-left:80px;
+		display: inline-block;
 	}
 }
 
-@media screen and (max-width: 991px) {
-	.circle{
-		width: 200px;
-		height: 200px;
-
-		background-size:     cover;                      /* <------ */
-		background-repeat:   no-repeat;
-		background-position: center center;
+@media screen and (min-width:992px) and (max-width: 1199px) {
+	#screen {
+		width: 60%;
+		font-size: 28px;
+		height: 2.6rem;
 	}
 
-	.circle:hover{
-		width: 210px;
-		height: 210px;
+	.smallSquare {
+		height: 50px;
+		width: 50px;
+		border-radius: 15px;
+	}
+
+	#seat-number {
+		text-align: center;
+		font-size: 20px;
+	}
+
+	.angka {
+		height: 60px;
+		width: 60px;
+	}
+
+	.legend {
+		margin-top: 14px;
+	}
+
+	.section  {
+		display: flex;
+	}
+
+	#btnChooseSeat {
+		margin-top: -10px;
+		display: inline-block;
+	}
+
+	#dtlChooseSeat {
+		display: inline-block;
 	}
 }
 
-/*
-==================
-Nav Bar
-==================
-*/
+@media screen and (min-width:768px) and (max-width: 991px) {
+	#screen {
+		margin-top: 20px;
+		width: 75%;
+	}
 
-.row li{
-	padding: 0px 10px;
+	.smallSquare {
+		height: 45px;
+		width: 45px;
+		border-radius: 13px;
+	}
+
+	#seat-number {
+		text-align: center;
+		font-size: 18px;
+	}
+
+	.angka {
+		height: 45px;
+		width: 45px;
+		margin-left: 6px;
+	}
+
+	.legend {
+		margin-top: 14px;
+	}
+
+	.section  {
+		display: flex;
+	}
+
+	#btnChooseSeat {
+		margin-top: -10px;
+		display: inline-block;
+	}
+
+	#btnChooseSeat button {
+		font-size: 24px;
+		margin: 0 auto;
+	}
+
+	#dtlChooseSeat {
+		display: inline-block;
+	}
 }
 
-
-
-/* Extra small devices (phones, up to 480px) */
-@media screen and (max-width: 574px) {
+@media screen and (min-width:481px) and (max-width: 767px) {
 	h1{
 		font-size: 30px;
 	}
@@ -329,75 +462,139 @@ Nav Bar
 	}
 
 	.circle{
-		width: 150px;
-		height: 150px;
-
-		background-size:     cover;                      /* <------ */
-		background-repeat:   no-repeat;
-		background-position: center center;
+		width: 110px;
+		height: 110px;
 	}
 
-	.circle:hover{
-		width: 170px;
-		height: 170px;
+	#screen {
+		margin-top: 20px;
+		width: 75%;
+	}
+
+	.smallSquare {
+		height: 45px;
+		width: 45px;
+		border-radius: 13px;
+	}
+
+	#seat-number {
+		text-align: center;
+		font-size: 18px;
+	}
+
+	.angka {
+		height: 45px;
+		width: 45px;
+		margin-left: 6px;
+	}
+
+	.legend {
+		margin-top: 14px;
+	}
+
+	.section  {
+		display: flex;
+	}
+
+	#btnChooseSeat {
+		margin-top: -10px;
+		display: inline-block;
+	}
+
+	#btnChooseSeat button {
+		font-size: 24px;
+		margin: 0 auto;
+	}
+
+	#dtlChooseSeat {
+		display: inline-block;
+	}
+
+}
+
+@media screen and (max-width: 480px) {
+	#logoutDesktop {
+		display: none;
+	}
+
+	#logoutMobile {
+		display: inline-block;
+	}
+
+	.confirmation {
+		width: 85%;
+	}
+
+	.stripe#navbarStripe {
+		margin-left: 15px;
+	}
+
+	.circle {
+		width: 65px;
+		height: 65px;
+	}
+
+	.container-fluid.thumbnail.col-md-11.col-lg-6.col-xl-5 {
+		display: none;
+	}
+
+	#screen {
+		width: 75%;
+		margin-top: 20px;
+	}
+
+	.smallSquare {
+		height: 20px;
+		width: 20px;
+		border-radius: 6px;
+	}
+
+	.angka {
+		height: 20px;
+		width: 20px;
+		/*font-size: 12px;*/
+	}
+
+	#seat-number {
+		text-align: center;
+		font-size: 12px;
+	}
+
+	.legend {
+		margin-top: 14px;
+	}
+
+	.section  {
+		display: flex;
+		flex-direction: column-reverse;
+	}
+
+	#btnChooseSeat {
+		margin-top: -20px;
+		display: inline-block;
+	}
+
+	#btnChooseSeat button {
+		/*margin-top: 50px;*/
+		/*font-size: 18px;*/
+		margin: 0 auto;
+	}
+
+	#dtlChooseSeat {
+		margin: 0 0 0 20px;
+		display: inline-block;
 	}
 }
 
-/* Film Choose */
+/* css for fnb page */
 
-/* Style the tab */
-div.tab {
-	overflow: hidden;
-	/*border: 1px solid #ccc;*/
-	/*border-right: 1px solid white;*/
-	background-color: #f1f1f1;
-	background-color: black;
-	height: 30px;
-}
-/* Style the buttons inside the tab */
-div.tab button {
-	background-color: inherit;
-	border-width: 1px;
-	float: left;
-	/*border-right: 1px solid white;*/
-	width: 60px;
-	outline: none;
-	cursor: pointer;
-	padding: 0 10px;
-	transition: 0.3s;
-	font-size: 16px;
-}
-/* Change background color of buttons on hover */
-div.tab button:hover {
-	background-color: #ddd;
+.fnbcontainer-responsive {
+	height: 500px;
+	overflow: auto;
 }
 
-/* Create an active/current tablink class */
-div.tab button.active {
-	background-color: #ccc;
+.summarycontainer-responsive {
+	height: 365px;
+	overflow-y: scroll;
 }
 
-.smallSquare {
-	height: 35px;
-	width: 35px;
-	display: inline-block;
-	border-radius: 10px;
-	/*background-color: #666789;*/
-	background-color: #666878;
-	margin: 2px;
-}
-
-.smallSquare:hover {
-	background-color: #5bcc7f;
-	background-color: #41c179;
-
-}
-
-.selectedSeat {
-	background-color: #41c179;
-	background-color: #4da55e;
-}
-
-.unavailableSeat {
-	background-color: #c14040;
-}

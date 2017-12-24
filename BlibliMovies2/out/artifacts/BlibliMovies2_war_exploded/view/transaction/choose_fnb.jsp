@@ -2,58 +2,37 @@
 <%@ include file = "/include/navbarAccount.jsp" %>
 
 <div class="container-fluid">
-    <div class="row">
-        <div class="container-fluid thumnail col-lg-8" align="center" >
-            <!-- Title -->
-            <!-- <div >
-                <h1 class="title">Food and Beverages</h1><br>
-            </div> -->
-
-            <!-- List fnb -->
+    <div class="row cashier">
+        <div class="container-fluid thumbnail col-lg-8">
 
             <nav class="navbar navbar-default">
-                <div class="container-fluid">
-                    <ul class=" nav navbar-nav" >
-                        <div class="row">
-                            <li><a href="#" class="tab">Ticket</a></li>
-                            <li><a href="#" class="tab">Pick Your Seat</a></li>
-                            <li><a href="#" class="tab active-tab">Snack and Beverages</a></li>
-                        </div>
-                    </ul>
+                <div class="d-flex flex-row">
+                    <div class="p-2">Ticket</div>
+                    <div class="p-2 active-tab">Pick Your Seat</div>
+                    <div class="p-2">Snack and Beverages</div>
                 </div>
             </nav>
 
-            <div class="stripe"></div><br>
+            <div class="stripe" id="navbarStripe"></div><br>
 
-            <div class="container">
+            <div class="container fnb">
                 <div class="fnbcontainer-responsive row">
                     <c:forEach items="${fnblist}" var="fnb">
                         <div id="${fnb.id}" class="col-md-2">
-                            <div>
-                                <img class="circle" style="background-image:url('${fnb.cover}');width:120px;height:120px;">
-                            </div>
+                            <img class="circle" id="thumbnail" src="${fnb.cover}">
                             <p>${fnb.name} ${fnb.size}</p>
                         </div>
                     </c:forEach>
                 </div>
             </div>
-
-            <!-- <div class="container-fluid">
-                <form class="row" action="">
-                  <input type="radio" name="food" value="food"> Food
-                  <input type="radio" name="beverages" value="beverages"> Beverages
-                  <input type="radio" name="combo" value="combo"> Combo
-                </form>
-            </div> -->
-
         </div>
 
-        <div class="container-fluid thumnail col-lg-4" align="center">
+        <div class="container-fluid thumbnail col-lg-4 cashier">
             <!-- Title -->
             <div >
-                <h3>Summary</h3>
+                <h3 id="txtSummary">Summary</h3>
             </div>
-            <div class="stripe"></div><br>
+            <div class="stripe summary" id="navbarStripe"></div><br>
 
             <div class="container-fluid">
                 <div class="row">
@@ -74,16 +53,16 @@
                 <input type="hidden" id="filmTitle" name="ticket" value="${film.title}">
                 <button type="submit" class="btn btn-default" id="memberAccept">Accept ></button>
 
-                <div class="row">
-                    <dir class="col-lg-6">
+                <div class="row amount">
+                    <div class="col-md-7">
                         <p id="total">Total: Rp. 0 ,-</p>
                         <p id="discount">Member Discount: 0%</p>
-                    </dir>
+                    </div>
 
-                    <dir class="col-lg-6" align="right">
+                    <div class="col-md-5">
                         <p>Amount Payable</p>
                         <p><strong id="amount">Rp. 0 ,-</strong></p>
-                    </dir>
+                    </div>
                 </div>
             </div>
 

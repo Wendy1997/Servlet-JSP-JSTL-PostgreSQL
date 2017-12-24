@@ -6,301 +6,354 @@
 
     <!-- Title -->
     <div class="jumbotron">
-        <h1 class="title">Film</h1><br>
-        <a href="film_create.html"><h5>Create New Film</h5></a>
+        <h1 class="title">Ledger</h1><br>
     </div>
 
-    <!-- Form -->
-    <div class="container">
-        <div class="table-responsive">
-            <table class="table table-hover">
-                <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Cover</th>
-                    <th>Nama</th>
-                    <th>Genre</th>
-                    <th>Director</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-                </thead>
+    <div class="tab" style="width: 240px; margin:0 auto;">
+            <button class="tablinks" onclick="openReport(event, 'Daily')">Daily</button>
+            <button class="tablinks" onclick="openReport(event, 'Weekly')">Weekly</button>
+            <button class="tablinks" onclick="openReport(event, 'Monthly')">Monthly</button>
+            <button class="tablinks" onclick="openReport(event, 'Yearly')">Yearly</button>
+        </div>
+    </div>
 
-                <tbody>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="film_edit.html">Edit</a></td>
-                    <td><a href="film_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="film_edit.html">Edit</a></td>
-                    <td><a href="film_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="film_edit.html">Edit</a></td>
-                    <td><a href="film_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="film_edit.html">Edit</a></td>
-                    <td><a href="film_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="film_edit.html">Edit</a></td>
-                    <td><a href="film_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="film_edit.html">Edit</a></td>
-                    <td><a href="film_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="film_edit.html">Edit</a></td>
-                    <td><a href="film_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="film_edit.html">Edit</a></td>
-                    <td><a href="film_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="film_edit.html">Edit</a></td>
-                    <td><a href="film_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="film_edit.html">Edit</a></td>
-                    <td><a href="film_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="film_edit.html">Edit</a></td>
-                    <td><a href="film_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="film_edit.html">Edit</a></td>
-                    <td><a href="film_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="film_edit.html">Edit</a></td>
-                    <td><a href="film_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="film_edit.html">Edit</a></td>
-                    <td><a href="film_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="film_edit.html">Edit</a></td>
-                    <td><a href="film_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="film_edit.html">Edit</a></td>
-                    <td><a href="film_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="film_edit.html">Edit</a></td>
-                    <td><a href="film_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="film_edit.html">Edit</a></td>
-                    <td><a href="film_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="film_edit.html">Edit</a></td>
-                    <td><a href="film_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="film_edit.html">Edit</a></td>
-                    <td><a href="film_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="film_edit.html">Edit</a></td>
-                    <td><a href="film_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="film_edit.html">Edit</a></td>
-                    <td><a href="film_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="film_edit.html">Edit</a></td>
-                    <td><a href="film_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="film_edit.html">Edit</a></td>
-                    <td><a href="film_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="film_edit.html">Edit</a></td>
-                    <td><a href="film_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="film_edit.html">Edit</a></td>
-                    <td><a href="film_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="film_edit.html">Edit</a></td>
-                    <td><a href="film_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="film_edit.html">Edit</a></td>
-                    <td><a href="film_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="film_edit.html">Edit</a></td>
-                    <td><a href="film_delete_confirmation.html">Delete</a></td>
-                </tr>
-                <tr>
-                    <td scope="row">asd</td>
-                    <td>asd</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td><a href="film_edit.html">Edit</a></td>
-                    <td><a href="film_delete_confirmation.html">Delete</a></td>
-                </tr>
-                </tbody>
-            </table>
+    <br>
+
+    <div id="Daily" class="tabcontent">
+        <div class="col-lg-6">
+            <!-- ledger -->
+            <div class="container">
+                <div class="table-responsive">
+                    <p> Date : <input type="date" class="form-control" style="display: inline-block" name="day" id="day" /> </p>
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>ID</th>
+                            <th>Date</th>
+                            <th>Member</th>
+                            <th>Cashier</th>
+                            <th>Total Price</th>
+                        </tr>
+                        </thead>
+                        <tbody id="day-content"></tbody>
+                    </table>
+                    <div id="day-notif">Harap Tunggu</div>
+                    <div id="day-income"><h4> Total Income = Rp 40.000,-</h4></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="Weekly" class="tabcontent">
+        <div class="col-lg-6">
+            <!-- ledger -->
+            <div class="container">
+                <div class="table-responsive">
+                    <p> Week : <input type="week" class="form-control" style="display: inline-block" name="week" id="week" /> </p>
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>ID</th>
+                            <th>Date</th>
+                            <th>Member</th>
+                            <th>Cashier</th>
+                            <th>Total Price</th>
+                        </tr>
+                        </thead>
+                        <tbody id="week-content"></tbody>
+                    </table>
+                    <div id="week-notif">Harap Tunggu</div>
+                    <div id="week-income"><h4> Total Income = Rp 40.000,-</h4></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="Monthly" class="tabcontent">
+        <div class="col-lg-6">
+            <!-- ledger -->
+            <div class="container">
+                <div class="table-responsive">
+                    <p> Month : <input type="month" class="form-control" style="display: inline-block" name="month" id="month" /></p>
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>ID</th>
+                            <th>Date</th>
+                            <th>Member</th>
+                            <th>Cashier</th>
+                            <th>Total Price</th>
+                        </tr>
+                        </thead>
+                        <tbody id="month-content"></tbody>
+                    </table>
+                    <div id="month-notif">Harap Tunggu</div>
+                    <div id="month-income"><h4> Total Income = Rp 40.000,-</h4></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="Yearly" class="tabcontent">
+        <div class="col-lg-6">
+            <!-- ledger -->
+            <div class="container">
+                <div class="table-responsive">
+                    <p>Year : <select class="form-control" id="year" name="year"></select></p>
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>ID</th>
+                            <th>Date</th>
+                            <th>Member</th>
+                            <th>Cashier</th>
+                            <th>Total Price</th>
+                        </tr>
+                        </thead>
+                        <tbody id="year-content"></tbody>
+                    </table>
+                    <div id="year-notif">Harap Tunggu</div>
+                    <div id="year-income"><h4> Total Income = Rp 40.000,-</h4></div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
+<script>
+    function openReport(evt, timeRange) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(timeRange).style.display = "block";
+
+        if(timeRange == 'Daily'){
+            getLedgerDay();
+        } else if (timeRange == 'Weekly'){
+            getLedgerWeek();
+        } else if (timeRange == 'Monthly'){
+            getLedgerMonth();
+        } else{
+            getLedgerYear();
+        }
+    }
+
+    function prepare(){
+        $('#day').attr("value", ${year} + "-" + ${month} + "-" + ${day});
+        $('#week').attr("value", ${year} + "-W" + ${week});
+        $('#month').attr("value", ${year} + "-" + ${month});
+
+        var start = 1900;
+        var end = new Date().getFullYear();
+        var options = "";
+        for(var year = start ; year <=end; year++){
+            if(year == ${year}){
+                options += "<option value='"+year+"' selected>"+ year +"</option>";
+            } else{
+                options += "<option value='"+year+"'>"+ year +"</option>";
+            }
+        }
+        document.getElementById("year").innerHTML = options;
+    }
+
+    function getLedgerDay(){
+        $.ajax({
+            type: 'POST',
+            dataType: "JSON",
+            url: "/admin/ledger/daily",
+            data: {
+                date: $('#day').val()
+            },
+            success: function(response) {
+                if(response.length == 0){
+                    var income = 0.0;
+                    document.getElementById("day-income").innerHTML = "<h4>Total Income = Rp " + income + ",-</h4>";
+
+                    document.getElementById("day-notif").innerHTML = "<p>Invoice tidak ditemukan</p>";
+
+                    var output = "<tr></tr>";
+                    document.getElementById("day-content").innerHTML = output;
+                } else {
+                    var income = 0.0;
+                    var output = "";
+                    for(var key in response) {
+                        output += "<tr>\n" +
+                            "<td>" + (parseInt(key)+1) + "</td>\n" +
+                            "<td>" + response[key].id + "</td>\n" +
+                            "<td>" + response[key].orderDate + "</td>\n" +
+                            "<td>" + response[key].memberId + "</td>\n" +
+                            "<td>" + response[key].accountUsername + "</td>\n" +
+                            "<td>" + response[key].totalPrice + "</td>\n" +
+                            "</tr>\n";
+                        income += parseFloat(response[key].totalPrice);
+                    }
+                    document.getElementById("day-income").innerHTML = "<h4>Total Income = Rp " + income + ",-";
+                    document.getElementById("day-content").innerHTML = output;
+                    document.getElementById("day-notif").innerHTML = "";
+                }
+            },
+            error: function (response) {
+                console.log(response);
+            }
+        });
+    }
+
+    function getLedgerWeek(){
+        $.ajax({
+            type: 'POST',
+            dataType: "JSON",
+            url: "/admin/ledger/weekly",
+            data: {
+                date: $('#week').val()
+            },
+            success: function(response) {
+                if(response.length == 0){
+                    var income = 0.0;
+                    document.getElementById("week-income").innerHTML = "<h4>Total Income = Rp " + income + ",-</h4>";
+
+                    document.getElementById("week-notif").innerHTML = "<p>Invoice tidak ditemukan</p>";
+
+                    var output = "<tr></tr>";
+                    document.getElementById("week-content").innerHTML = output;
+                } else {
+                    var income = 0.0;
+                    var output = "";
+                    for(var key in response) {
+                        output += "<tr>\n" +
+                            "<td>" + (parseInt(key)+1) + "</td>\n" +
+                            "<td>" + response[key].id + "</td>\n" +
+                            "<td>" + response[key].orderDate + "</td>\n" +
+                            "<td>" + response[key].memberId + "</td>\n" +
+                            "<td>" + response[key].accountUsername + "</td>\n" +
+                            "<td>" + response[key].totalPrice + "</td>\n" +
+                            "</tr>\n";
+                        income += parseFloat(response[key].totalPrice);
+                    }
+                    document.getElementById("week-income").innerHTML = "<h4>Total Income = Rp " + income + ",-";
+                    document.getElementById("week-content").innerHTML = output;
+                    document.getElementById("week-notif").innerHTML = "";
+                }
+            },
+            error: function (response) {
+                console.log(response);
+            }
+        });
+    }
+
+    function getLedgerMonth(){
+        $.ajax({
+            type: 'POST',
+            dataType: "JSON",
+            url: "/admin/ledger/monthly",
+            data: {
+                date: $('#month').val()
+            },
+            success: function(response) {
+                if(response.length == 0){
+                    var income = 0.0;
+                    document.getElementById("month-income").innerHTML = "<h4>Total Income = Rp " + income + ",-</h4>";
+
+                    document.getElementById("month-notif").innerHTML = "<p>Invoice tidak ditemukan</p>";
+
+                    var output = "<tr></tr>";
+                    document.getElementById("month-content").innerHTML = output;
+                } else {
+                    var income = 0.0;
+                    var output = "";
+                    for(var key in response) {
+                        output += "<tr>\n" +
+                            "<td>" + (parseInt(key)+1) + "</td>\n" +
+                            "<td>" + response[key].id + "</td>\n" +
+                            "<td>" + response[key].orderDate + "</td>\n" +
+                            "<td>" + response[key].memberId + "</td>\n" +
+                            "<td>" + response[key].accountUsername + "</td>\n" +
+                            "<td>" + response[key].totalPrice + "</td>\n" +
+                            "</tr>\n";
+                        income += parseFloat(response[key].totalPrice);
+                    }
+                    document.getElementById("month-income").innerHTML = "<h4>Total Income = Rp " + income + ",-";
+                    document.getElementById("month-content").innerHTML = output;
+                    document.getElementById("month-notif").innerHTML = "";
+                }
+            },
+            error: function (response) {
+                console.log(response);
+            }
+        });
+    }
+
+    function getLedgerYear(){
+        $.ajax({
+            type: 'POST',
+            dataType: "JSON",
+            url: "/admin/ledger/yearly",
+            data: {
+                date: $('#year').val()
+            },
+            success: function(response) {
+                if(response.length == 0){
+                    var income = 0.0;
+                    document.getElementById("year-income").innerHTML = "<h4>Total Income = Rp " + income + ",-</h4>";
+
+                    document.getElementById("year-notif").innerHTML = "<p>Invoice tidak ditemukan</p>";
+
+                    var output = "<tr></tr>";
+                    document.getElementById("year-content").innerHTML = output;
+                } else {
+                    var income = 0.0;
+                    var output = "";
+                    for(var key in response) {
+                        output += "<tr>\n" +
+                            "<td>" + (parseInt(key)+1) + "</td>\n" +
+                            "<td>" + response[key].id + "</td>\n" +
+                            "<td>" + response[key].orderDate + "</td>\n" +
+                            "<td>" + response[key].memberId + "</td>\n" +
+                            "<td>" + response[key].accountUsername + "</td>\n" +
+                            "<td>" + response[key].totalPrice + "</td>\n" +
+                            "</tr>\n";
+                        income += parseFloat(response[key].totalPrice);
+                    }
+                    document.getElementById("year-income").innerHTML = "<h4>Total Income = Rp " + income + ",-";
+                    document.getElementById("year-content").innerHTML = output;
+                    document.getElementById("year-notif").innerHTML = "";
+                }
+            },
+            error: function (response) {
+                console.log(response);
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        prepare();
+        openReport(event, 'Daily');
+
+        $('#day').change(function () {
+          getLedgerDay();
+        });
+
+        $('#week').change(function () {
+            getLedgerWeek();
+        });
+
+        $('#month').change(function () {
+            getLedgerMonth();
+        });
+
+        $('#year').change(function () {
+            getLedgerYear();
+        });
+    });
+
+</script>
 <%@ include file = "/include/foot.jsp" %>
