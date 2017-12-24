@@ -240,7 +240,7 @@ Close Button
 =====
 */
 .close{
-	margin: 50px;
+	margin: 30px;
 	color: gray;
 	opacity: 1;
 
@@ -270,7 +270,13 @@ Dummy Image
 	background-position: center center;
 }
 
-@media screen and (max-width: 1200px) {
+/*
+=====
+Responsive
+=====
+*/
+/* Large devices (Desktop) */
+@media screen and (min-width: 1200px) {
 	.circle{
 		width: 120px;
 		height: 120px;
@@ -280,7 +286,8 @@ Dummy Image
 	}
 }
 
-@media screen and (max-width: 991px) {
+/* Medium devices (Tablet) */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
 	.circle {
 		width: 200px;
 		height: 200px;
@@ -290,17 +297,17 @@ Dummy Image
 	}
 }
 
-/*
- -==================
- -Nav Bar
- -==================
-*/
-
-.row li {
-	padding: 0px 10px;
+/* Small devices (Bigger Phone) */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+	
 }
+
+@media screen and (min-width: 481px) and (max-width: 767px) {
+
+}
+
 /* Extra small devices (phones, up to 480px) */
-@media screen and (max-width: 574px) {
+@media screen and (max-width: 480px) {
 	h1 {
 		font-size: 30px;
 	}
@@ -320,6 +327,16 @@ Dummy Image
 		background-repeat: no-repeat;
 		background-position: center center;
 	}
+}
+
+/*
+ -==================
+ -Nav Bar
+ -==================
+*/
+
+.row li {
+	padding: 0px 10px;
 }
 
 /* Film Choose */

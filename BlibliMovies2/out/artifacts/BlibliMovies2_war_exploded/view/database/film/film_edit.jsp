@@ -16,8 +16,8 @@
 
         <!-- Forms -->
         <form action="/admin/film/edit" method="post" enctype="multipart/form-data">
-            <div class="row">
-                <div class="col-lg-6" id="form1">
+            <div>
+                <div class="col-md-7 col-lg-6" id="form1">
                     <h2>Data Film</h2><br>
 
                     <div class="form-group">

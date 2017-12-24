@@ -17,7 +17,7 @@
         <!-- Forms -->
         <form action="/admin/account/add" method="post">
             <div class="row">
-                <div class="col-lg-6" id="form1">
+                <div class="col-12 col-xs-12 col-sm-12 col-md-8 col-lg-6 col-xl-6" id="form1">
                     <h2>Data Account</h2><br>
 
                     <div class="form-group">

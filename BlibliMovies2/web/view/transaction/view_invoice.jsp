@@ -26,16 +26,16 @@
                 </div>
             </div>
 
-            <div class="box-window">
+            <div class="box-window" >
                 <c:forEach var="orderDetails" items="${orderDetails}">
                     <div class="row">
-                        <div class="col-lg-6">
+                        <div class="col-6 col-lg-6">
                             <p class="invoice">${orderDetails.itemName}</p>
                         </div>
-                        <div class="col-lg-3" align="center">
+                        <div class="col-3 col-lg-3" align="center">
                             <p>x${orderDetails.quantity}</p>
                         </div>
-                        <div class="col-lg-3" align="right">
+                        <div class="col-3 col-lg-3" align="right">
                             Rp ${orderDetails.price},-
                         </div>
                     </div>
