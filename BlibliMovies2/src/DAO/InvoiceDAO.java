@@ -115,4 +115,101 @@ public class InvoiceDAO {
             ps.executeUpdate();
         }
     }
+
+    public List<Invoice> getDailyInvoice(String day, String month, String year, String storename) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM invoice where " +
+                "EXTRACT (day from orderdate) = ? AND " +
+                "EXTRACT (month from orderdate) = ? and " +
+                "EXTRACT (year from orderdate) = ? and " +
+                "storeusername = ?");
+        ps.setDouble(1, Double.parseDouble(day));
+        ps.setDouble(2, Double.parseDouble(month));
+        ps.setDouble(3, Double.parseDouble(year));
+        ps.setString(4, storename);
+        System.out.println("SELECT * FROM invoice where " +
+                "EXTRACT (day from orderdate) = "+day+ " AND " +
+                "EXTRACT (month from orderdate) = "+month+" and " +
+                "EXTRACT (year from orderdate) = "+year+" and " +
+                "storeusername = "+storename+"");
+        ResultSet rs = ps.executeQuery();
+
+        List<Invoice> invoices = new ArrayList<Invoice>();
+        while(rs.next()){
+            invoices.add(new Invoice(rs.getInt(1),
+                    rs.getInt(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                    rs.getInt(5),
+                    rs.getString(6).substring(0,10),
+                    rs.getDouble(7)));
+        }
+        return invoices;
+    }
+
+    public List<Invoice> getWeeklyInvoice(String week, String year, String storename) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM invoice where " +
+                "EXTRACT (week from orderdate) = ? and " +
+                "EXTRACT (year from orderdate) = ? and " +
+                "storeusername = ?");
+        ps.setDouble(1, Double.parseDouble(week));
+        ps.setDouble(2, Double.parseDouble(year));
+        ps.setString(3, storename);
+        ResultSet rs = ps.executeQuery();
+
+        List<Invoice> invoices = new ArrayList<Invoice>();
+        while(rs.next()){
+            invoices.add(new Invoice(rs.getInt(1),
+                    rs.getInt(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                    rs.getInt(5),
+                    rs.getString(6).substring(0,10),
+                    rs.getDouble(7)));
+        }
+        return invoices;
+    }
+
+    public List<Invoice> getMonthlyInvoice(String month, String year, String storename) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM invoice where " +
+                "EXTRACT (month from orderdate) = ? and " +
+                "EXTRACT (year from orderdate) = ? and " +
+                "storeusername = ?");
+        ps.setDouble(1, Double.parseDouble(month));
+        ps.setDouble(2, Double.parseDouble(year));
+        ps.setString(3, storename);
+        ResultSet rs = ps.executeQuery();
+
+        List<Invoice> invoices = new ArrayList<Invoice>();
+        while(rs.next()){
+            invoices.add(new Invoice(rs.getInt(1),
+                    rs.getInt(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                    rs.getInt(5),
+                    rs.getString(6).substring(0,10),
+                    rs.getDouble(7)));
+        }
+        return invoices;
+    }
+
+    public List<Invoice> getYearlyInvoice(String year, String storename) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM invoice where " +
+                "EXTRACT (year from orderdate) = ? and " +
+                "storeusername = ?");
+        ps.setDouble(1, Double.parseDouble(year));
+        ps.setString(2, storename);
+        ResultSet rs = ps.executeQuery();
+
+        List<Invoice> invoices = new ArrayList<Invoice>();
+        while(rs.next()){
+            invoices.add(new Invoice(rs.getInt(1),
+                    rs.getInt(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                    rs.getInt(5),
+                    rs.getString(6).substring(0,10),
+                    rs.getDouble(7)));
+        }
+        return invoices;
+    }
 }

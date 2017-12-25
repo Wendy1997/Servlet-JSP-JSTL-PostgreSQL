@@ -11,6 +11,11 @@ public class FnBSize {
         this.storename = storename;
     }
 
+    public FnBSize(String size, String storename) {
+        this.size = size;
+        this.storename = storename;
+    }
+
     public String getId() {
         return id;
     }

@@ -34,7 +34,7 @@ public class FnBTypeDAO {
 
     public FnBType getFnBType(String id, String storename) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM fnBType where id = ? and storeusername = ? and status = true");
-        ps.setString(1, id);
+        ps.setInt(1, Integer.parseInt(id));
         ps.setString(2, storename);
 
         ResultSet rs = ps.executeQuery();
@@ -69,7 +69,7 @@ public class FnBTypeDAO {
 
     public void deleteFnBType(String fnBType, String storename) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE fnBType set status = false where id = ? and storeusername = ?");
-        ps.setString(1, fnBType);
+        ps.setInt(1, Integer.parseInt(fnBType));
         ps.setString(2, storename);
         ps.executeUpdate();
     }
@@ -77,7 +77,7 @@ public class FnBTypeDAO {
     public void updateFnBType(FnBType fnBType) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE fnBType set type = ? where id = ? and storeusername = ? and status = true");
         ps.setString(1, fnBType.getType());
-        ps.setString(2, fnBType.getId());
+        ps.setInt(2, Integer.parseInt(fnBType.getId()));
         ps.setString(3, fnBType.getStorename());
         ps.executeUpdate();
     }

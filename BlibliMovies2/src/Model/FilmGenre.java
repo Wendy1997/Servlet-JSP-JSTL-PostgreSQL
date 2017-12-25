@@ -11,6 +11,11 @@ public class FilmGenre {
         this.storename = storename;
     }
 
+    public FilmGenre(String genre, String storename) {
+        this.genre = genre;
+        this.storename = storename;
+    }
+
     public String getId() {
         return id;
     }

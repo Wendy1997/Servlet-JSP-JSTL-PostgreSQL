@@ -14,6 +14,11 @@ public interface InvoiceService {
     void addInvoice(Invoice invoice) throws SQLException;
     Invoice getInvoice(Invoice invoice) throws  SQLException;
 
+    List<Invoice> getDailyInvoice(String date, String storename) throws SQLException;
+    List<Invoice> getWeeklyInvoice(String date, String storename) throws SQLException;
+    List<Invoice> getMonthlyInvoice(String date, String storename) throws SQLException;
+    List<Invoice> getYearlyInvoice(String date, String storename) throws SQLException;
+
     List<OrderDetail> getAllOrderDetail(String id, String storename) throws SQLException;
     void addOrderDetail(OrderDetail orderDetail) throws SQLException;
 

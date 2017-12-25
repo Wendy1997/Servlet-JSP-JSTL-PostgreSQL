@@ -1,7 +1,7 @@
 package Controller.Studio;
 
-import DAO.StudioDAO;
 import Model.Studio;
+import Model.StudioType;
 import Service.FilmService;
 import Service.FilmServiceDatabase;
 
@@ -12,13 +12,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.zip.Adler32;
+import java.util.List;
 
 @WebServlet("/admin/studio/add")
-public class StudioAdd extends HttpServlet{
-    FilmService studioDAO = new FilmServiceDatabase();
+public class StudioAdd extends HttpServlet {
+    FilmService studioService = new FilmServiceDatabase();
 
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String address = "/view/database/studio/studio_add.jsp";
 
         // Validasi apakah sudah login store
@@ -36,24 +36,33 @@ public class StudioAdd extends HttpServlet{
             address = "/view/login/account_login.jsp";
         }
 
+        try{
+            List<StudioType> studioTypeList = studioService.getAllStudioType((String)request.getSession().getAttribute("storename"));
+            request.setAttribute("type", studioTypeList);
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
         request.getRequestDispatcher(address).forward(request, response);
     }
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         try{
-            Studio studio = new Studio((String)request.getSession().getAttribute("storeusername"),
+            Studio studio = new Studio( (String)request.getSession().getAttribute("storename"),
                     request.getParameter("name"),
                     request.getParameter("type"),
                     Integer.parseInt(request.getParameter("price")));
 
-            studioDAO.addStudio(studio);
+            studioService.addStudio(studio);
 
             String address = "/view/database/success.jsp";
             request.setAttribute("title", "Studio");
             request.setAttribute("complete", "Created");
             request.setAttribute("link", "/admin/studio");
+
             request.getRequestDispatcher(address).forward(request,response);
-        } catch (SQLException e){
+        } catch (Exception e){
             System.out.println(e.getMessage());
         }
     }

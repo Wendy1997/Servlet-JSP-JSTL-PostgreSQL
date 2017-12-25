@@ -34,7 +34,7 @@ public class FilmGenreDAO {
 
     public FilmGenre getFilmGenre(String id, String storename) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM filmGenre where id = ? and storeusername = ? and status = true");
-        ps.setString(1, id);
+        ps.setInt(1, Integer.parseInt(id));
         ps.setString(2, storename);
 
         ResultSet rs = ps.executeQuery();
@@ -69,7 +69,7 @@ public class FilmGenreDAO {
 
     public void deleteFilmGenre(String filmGenre, String storename) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE filmGenre set status = false where id = ? and storeusername = ?");
-        ps.setString(1, filmGenre);
+        ps.setInt(1, Integer.parseInt(filmGenre));
         ps.setString(2, storename);
         ps.executeUpdate();
     }
@@ -77,7 +77,7 @@ public class FilmGenreDAO {
     public void updateFilmGenre(FilmGenre filmGenre) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE filmGenre set genre = ? where id = ? and storeusername = ? and status = true");
         ps.setString(1, filmGenre.getGenre());
-        ps.setString(2, filmGenre.getId());
+        ps.setInt(2, Integer.parseInt(filmGenre.getId()));
         ps.setString(3, filmGenre.getStorename());
         ps.executeUpdate();
     }

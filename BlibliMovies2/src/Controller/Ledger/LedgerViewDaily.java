@@ -1,6 +1,11 @@
 package Controller.Ledger;
 
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
+import Model.Invoice;
+import Model.OrderDetail;
+import Model.Promo;
+import Service.InvoiceService;
+import Service.InvoiceServiceDatabase;
+import com.google.gson.Gson;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,12 +13,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.List;
 
-@WebServlet("/ledger")
+@WebServlet("/admin/ledger/daily")
 public class LedgerViewDaily extends HttpServlet {
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        String address = "";
+    InvoiceService invoiceService = new InvoiceServiceDatabase();
 
-        request.getRequestDispatcher(address).forward(request, response);
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try{
+            List<Invoice> invoiceList = invoiceService.getDailyInvoice(request.getParameter("date"), (String)request.getSession().getAttribute("storename"));
+            System.out.println(invoiceList.toString());
+            Gson gson = new Gson();
+            String output = gson.toJson(invoiceList);
+            PrintWriter out = response.getWriter();
+            out.print(output);
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
     }
 }

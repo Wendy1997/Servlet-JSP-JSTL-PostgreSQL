@@ -53,6 +53,7 @@ public class Account extends HttpServlet {
                 if(account.getPassword().equals(request.getParameter("password"))){
                     request.getSession().setAttribute("role", account.getRole());
                     request.getSession().setAttribute("username", account.getUsername());
+
                     address = "/view/database/success.jsp";
                     request.setAttribute("title", "Login");
                     request.setAttribute("complete", "Sukses");
@@ -70,7 +71,6 @@ public class Account extends HttpServlet {
                 request.setAttribute("complete", "Gagal");
                 request.setAttribute("link", "/login");
             }
-
             request.getRequestDispatcher(address).forward(request, response);
         } catch (SQLException e){
             System.out.println(e.getMessage());

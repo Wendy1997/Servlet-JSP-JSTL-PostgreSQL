@@ -11,6 +11,11 @@ public class FnBType {
         this.storename = storename;
     }
 
+    public FnBType(String type, String storename) {
+        this.type = type;
+        this.storename = storename;
+    }
+
     public String getId() {
         return id;
     }

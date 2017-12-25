@@ -3,22 +3,22 @@
 
 <div class="container-fluid">
     <div class="row cashier">
-        <div class="container-fluid thumbnail col-lg-8">
+        <div class="container-fluid thumbnail col-12 col-sm-12 col-md-11 col-lg-6 col-xl-7">
 
             <nav class="navbar navbar-default">
                 <div class="d-flex flex-row">
                     <div class="p-2">Ticket</div>
-                    <div class="p-2 active-tab">Pick Your Seat</div>
-                    <div class="p-2">Snack and Beverages</div>
+                    <div class="p-2">Pick Your Seat</div>
+                    <div class="p-2 active-tab">Snack and Beverages</div>
                 </div>
             </nav>
 
-            <div class="stripe" id="navbarStripe"></div><br>
+            <div class="stripe"></div><br>
 
             <div class="container fnb">
                 <div class="fnbcontainer-responsive row">
                     <c:forEach items="${fnblist}" var="fnb">
-                        <div id="${fnb.id}" class="col-md-2">
+                        <div id="${fnb.id}" class="col-3 col-sm-3 col-md-3 col-lg-4 col-xl-3">
                             <img class="circle" id="thumbnail" src="${fnb.cover}">
                             <p>${fnb.name} ${fnb.size}</p>
                         </div>
@@ -27,16 +27,16 @@
             </div>
         </div>
 
-        <div class="container-fluid thumbnail col-lg-4 cashier">
+        <div class="container-fluid thumbnail col-md-11 col-lg-6 col-xl-5 cashier">
             <!-- Title -->
             <div >
-                <h3 id="txtSummary">Summary</h3>
+                <h4 id="txtSummary">Summary</h4>
             </div>
-            <div class="stripe summary" id="navbarStripe"></div><br>
+            <div class="stripe summary"></div><br>
 
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-md-12 col-lg-12 col-xl-10">
                         <h5>Order Details:</h5>
                     </div>
                 </div>
@@ -86,6 +86,9 @@
     function deleteContent(id, jumlah, price) {
         $('#'+id+jumlah).remove();
         listBuy[id] -= jumlah;
+        if(listBuy[id] == 0){
+            delete listBuy[id];
+        }
         listHarga[id] -= price;
 
         harga -= price;

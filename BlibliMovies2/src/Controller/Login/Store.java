@@ -60,6 +60,7 @@ public class Store extends HttpServlet {
             if(store != null){
                 if(store.getPassword().equals(request.getParameter("password"))) {
                     request.getSession().setAttribute("storename", store.getUsername());
+
                     address = "/view/database/success.jsp";
                     request.setAttribute("title", "Login");
                     request.setAttribute("complete", "Sukses");
@@ -77,7 +78,6 @@ public class Store extends HttpServlet {
                 request.setAttribute("complete", "Gagal");
                 request.setAttribute("link", "/login");
             }
-
             request.getRequestDispatcher(address).forward(request, response);
         } catch (SQLException e){
             System.out.println(e.getMessage());

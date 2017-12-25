@@ -6,7 +6,8 @@
 
     <!-- Title -->
     <div class="jumbotron">
-        <h1 class="title">Film</h1><br>
+        <h1 class="title">Film</h1>
+        <a href="/admin/filmgenre"><h6>Genre Database</h6></a><br>
         <a href="/admin/film/add"><h5>Create New Film</h5></a>
     </div>
 

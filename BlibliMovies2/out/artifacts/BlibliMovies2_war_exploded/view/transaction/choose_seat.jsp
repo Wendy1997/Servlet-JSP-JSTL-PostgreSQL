@@ -1,66 +1,65 @@
 <%@ include file = "/include/head.jsp" %>
 <%@ include file = "/include/navbarAccount.jsp" %>
 
-<!-- Content -->
 <div class="container-fluid" align="center">
+    <div class="row">
+        <nav class="navbar navbar-default">
+            <div class="d-flex flex-row">
+                <div class="p-2">Ticket</div>
+                <div class="p-2">Pick Your Seat</div>
+                <div class="p-2 active-tab">Snack and Beverages</div>
+            </div>
+        </nav>
 
-    <!-- List Seat -->
-    <nav class="navbar navbar-default">
-        <div class="d-flex flex-row">
-            <div class="p-2">Ticket</div>
-            <div class="p-2">Pick Your Seat</div>
-            <div class="p-2 active-tab">Snack and Beverages</div>
-        </div>
-    </nav>
+        <!-- Title -->
+        <div class="stripe"></div>
 
-    <!-- Title -->
-    <div class="stripe" id="navbarStripe"></div>
+        <div class="container seat">
+            <div class="seatcontainer-responsive row">
+                <div class="col-lg-12">
+                    <div id="screen">SCREEN</div>
 
-    <div class="container seat">
-        <div class="seatcontainer-responsive row">
-            <div class="col-lg-12">
-                <div id="screen">SCREEN</div>
+                    <!-- Forms -->
+                    <form id="cancel" action="javascript:history.back()"></form>
 
-                <!-- Forms -->
-                <form id="cancel" action="film_detail.html"></form>
+                    <div id="seat-number"></div>
 
-                <div id="seat-number"></div>
-
-                <div class="col-md-4">
-                    <div class="legend" align="center">
-                        <div class="row">
-                            <div class="legends">
-                                <div class="smallSquare nonSeat unavailableSeat"></div>
-                                <div>Taken</div>
-                            </div>
-                            <div class="legends">
-                                <div class="smallSquare nonSeat"></div>
-                                <div>Available</div>
-                            </div>
-                            <div class="legends">
-                                <div class="smallSquare nonSeat selectedSeat"></div>
-                                <div>Choosen</div>
+                    <div class="col-md-4">
+                        <div class="legend" align="center">
+                            <div class="row">
+                                <div class="legends">
+                                    <div class="smallSquare nonSeat unavailableSeat"></div>
+                                    <div>Taken</div>
+                                </div>
+                                <div class="legends">
+                                    <div class="smallSquare nonSeat"></div>
+                                    <div>Available</div>
+                                </div>
+                                <div class="legends">
+                                    <div class="smallSquare nonSeat selectedSeat"></div>
+                                    <div>Choosen</div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col-md-8">
-                    <div class="legend" align="center">
-                        <div class="section">
-                            <div class="col-md-5 d-inline">
-                                <div class="button" id="btnChooseSeat">
-                                    <button type="submit" class="btn btn-default" id="accept">Accept ></button>
-                                    <button type="hidden" class="btn btn-default" form="cancel" />Cancel ></button>
-                                </div>
-                            </div>
-                            <div class="col-md-7 d-inline">
-                                <div class="detail" id="dtlChooseSeat">
-                                    <div class="row">
-                                        <div id="txtChosenMovie">${film.title}</div>
+                    <div class="col-md-8">
+                        <div class="legend" align="center">
+                            <div class="section">
+                                <div class="col-md-5 d-inline">
+                                    <div class="button" id="btnChooseSeat">
+                                        <button type="submit" class="btn btn-default" id="accept">Accept ></button>
+                                        <button type="hidden" class="btn btn-default" form="cancel" />Cancel ></button>
                                     </div>
-                                    <div class="row">
-                                        <div id="txtChosenMovieDetail">${film.genre}/${film.duration}</div>
+                                </div>
+                                <div class="col-md-7 d-inline">
+                                    <div class="detail" id="dtlChooseSeat">
+                                        <div class="row">
+                                            <div id="txtChosenMovie">${film.title}</div>
+                                        </div>
+                                        <div class="row">
+                                            <div id="txtChosenMovieDetail">${film.genre}/${film.duration}</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -86,7 +85,8 @@
 
     for (var i = 1; i <= 10; i++) {
 
-        wrapper.innerHTML += '<div class="angka">' + cornerAlphabet;
+//        wrapper.innerHTML += '<div class="angka">' + cornerAlphabet;
+        wrapper.innerHTML += '<div style="display:inline-block; width:35px; vertical-align:top; padding-right:20px">' + cornerAlphabet;
         wrapper.innerHTML += '<div class="row" style="display:inline-block; padding:10px"><div class="rounded"></div>';
 
         for (var j = 1; j <= 10; j++) {
