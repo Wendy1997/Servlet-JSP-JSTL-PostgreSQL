@@ -30,7 +30,7 @@
     <div id="screen" style="background-color: #666878; border-radius: 5px; width: 400px; margin-bottom:50px;margin-left:20px;text-align: center;">SCREEN</div>
 
     <!-- Forms -->
-    <form id="cancel" action="film_detail.html"></form>
+    <form id="cancel" action="javascript:history.back()"></form>
 
 
         <div id="seat-number"></div>
