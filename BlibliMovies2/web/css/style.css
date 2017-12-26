@@ -278,7 +278,7 @@ Dummy Image
 	background-position: center center;
 }
 
-/**/
+/* Begin */
 
 #logoutDesktop {
 	display: inline-block;
@@ -319,6 +319,7 @@ Dummy Image
 	margin: 0 auto;
 	vertical-align: middle;
 	text-align: center;
+	margin-top: 25px;
 	margin-bottom: 20px;
 }
 
@@ -327,16 +328,29 @@ Dummy Image
 }
 
 .smallSquare {
+	height: 45px;
+	width: 45px;
+	border-radius: 13px;
+	margin: 4px;
 	display: inline-block;
 	background-color: #666878;
-	margin: 2px;
 }
 
 .smallSquare:hover {
 	background-color: #41c179;
 }
 
-.angka , .legend{
+.legend {
+	width: inherit;
+	margin-top: 8px;
+	display: inline-block;
+}
+
+.section {
+	display: flex;
+}
+
+#btnChooseSeat {
 	display: inline-block;
 }
 
@@ -348,40 +362,43 @@ Dummy Image
 	background-color: #4da55e;
 }
 
-.unavailableSeat {
+.unavailableSeat , .unavailableSeat:hover {
 	background-color: #c14040;
 }
 
-/**/
+.nonseat {
+	pointer-events:none;
+}
+
+.huruf {
+	display:inline-block;
+	width:35px;
+	vertical-align:top;
+	padding-right:20px;
+}
+
+.angka {
+	height: 55px;
+	width: 55px;
+	display: inline-block;
+}
+
+.row.seat {
+	display:inline-block;
+	padding:10px;
+}
+
+/* End */
+
 @media screen and (min-width:1200px) {
 	.filmcontainer-responsive.row , .box-window.synopsiscontainer-responsive {
 		height: 80vh;
 	}
 
 	#screen {
-		width: 400px;
-		margin-top: 20px;
-	}
-
-	.angka {
-		height: 35px;
-		width: 35px;
-		margin-left:5px;
-	}
-
-	.smallSquare {
-		height: 35px;
-		width: 35px;
-		border-radius: 10px;
-	}
-
-	.legend {
-		margin-right:70px;
-		margin-top: 20px;
-	}
-
-	#btnChooseSeat {
-		display: inline-block;
+		width: 50%;
+		line-height: 1.8rem;
+		font-size: 18px;
 	}
 
 	#dtlChooseSeat {
@@ -397,41 +414,23 @@ Dummy Image
 
 	#screen {
 		width: 60%;
-		font-size: 28px;
-		height: 2.6rem;
-	}
-
-	.smallSquare {
-		height: 50px;
-		width: 50px;
-		border-radius: 15px;
-	}
-
-	#seat-number {
-		text-align: center;
-		font-size: 20px;
-	}
-
-	.angka {
-		height: 60px;
-		width: 60px;
-	}
-
-	.legend {
-		margin-top: 14px;
-	}
-
-	.section  {
-		display: flex;
+		line-height: 2rem;
 	}
 
 	#btnChooseSeat {
-		margin-top: -10px;
-		display: inline-block;
+		margin-top: -40px;
 	}
 
 	#dtlChooseSeat {
-		display: inline-block;
+		margin-top: -10px;
+	}
+
+	#txtchosenmovie {
+		font-size: 28px;
+	}
+
+	#txtchosenmoviedetail {
+		font-size: 24px;
 	}
 }
 
@@ -453,47 +452,25 @@ Dummy Image
 	}
 
 	#screen {
-		margin-top: 20px;
-		width: 75%;
+		width: 60%;
+		line-height: 1.8rem;
 	}
 
 	.smallSquare {
-		height: 45px;
-		width: 45px;
-		border-radius: 13px;
-	}
-
-	#seat-number {
-		text-align: center;
-		font-size: 18px;
+		height: 35px;
+		width: 35px;
+		border-radius: 12px;
+		margin: 2px;
 	}
 
 	.angka {
-		height: 45px;
-		width: 45px;
-		margin-left: 10px;
+		height: 40px;
+		width: 40px;
 	}
 
-	.legend {
-		margin-top: 50px;
-	}
-
-	.section  {
-		display: flex;
-	}
-
-	#btnChooseSeat {
-		margin-top: -10px;
-		display: inline-block;
-	}
-
-	#btnChooseSeat button , #txtchosenmovie {
-		font-size: 30px;
+	#btnChooseSeat button {
+		font-size: 20px;
 		margin: 0 auto;
-	}
-
-	#dtlChooseSeat {
-		display: inline-block;
 	}
 }
 
@@ -522,38 +499,23 @@ Dummy Image
 	}
 
 	#screen {
-		margin-top: 20px;
 		width: 75%;
 	}
 
 	.smallSquare {
-		height: 45px;
-		width: 45px;
-		border-radius: 13px;
-	}
-
-	#seat-number {
-		text-align: center;
-		font-size: 18px;
+		height: 30px;
+		width: 30px;
+		border-radius: 10px;
+		margin: 2px;
 	}
 
 	.angka {
-		height: 45px;
-		width: 45px;
-		margin-left: 6px;
+		height: 35px;
+		width: 35px;
 	}
 
-	.legend {
-		margin-top: 14px;
-	}
-
-	.section  {
-		display: flex;
-	}
-
-	#btnChooseSeat {
-		margin-top: -10px;
-		display: inline-block;
+	.section {
+		flex-direction: column-reverse;
 	}
 
 	#btnChooseSeat button {
@@ -602,36 +564,28 @@ Dummy Image
 		height: 20px;
 		width: 20px;
 		border-radius: 6px;
+		margin: 2px;
 	}
 
 	.angka {
-		height: 20px;
-		width: 20px;
+		height: 25px;
+		width: 25px;
+		padding-left: 16px;
 	}
 
 	#seat-number {
-		text-align: center;
 		font-size: 12px;
 	}
 
-	.legend {
-		margin-top: 14px;
-	}
-
-	.section  {
-		display: flex;
+	.section {
 		flex-direction: column-reverse;
 	}
 
-	#btnChooseSeat {
-		margin-top: -20px;
-		display: inline-block;
-	}
-
 	#btnChooseSeat button {
-		/*margin-top: 50px;*/
-		/*font-size: 18px;*/
+		margin-top: 50px;
+		font-size: 18px;
 		margin: 0 auto;
+		display: inline-block;
 	}
 
 	#dtlChooseSeat {

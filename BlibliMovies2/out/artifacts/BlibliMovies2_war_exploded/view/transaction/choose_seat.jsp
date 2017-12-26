@@ -16,7 +16,8 @@
 
         <div class="container seat">
             <div class="seatcontainer-responsive row">
-                <div class="col-lg-12">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+
                     <div id="screen">SCREEN</div>
 
                     <!-- Forms -->
@@ -24,47 +25,50 @@
 
                     <div id="seat-number"></div>
 
-                    <div class="col-md-4">
-                        <div class="legend" align="center">
-                            <div class="row">
-                                <div class="legends">
-                                    <div class="smallSquare nonSeat unavailableSeat"></div>
-                                    <div>Taken</div>
+                    <div class="row">
+                        <div class="col-12 col-sm-12 col-md-4 col-lg-3 col-xl-4">
+                            <div class="legend">
+                                <div class="row">
+                                    <div class="legends">
+                                        <div class="smallSquare nonSeat unavailableSeat"></div>
+                                        <div>Taken</div>
+                                    </div>
+                                    <div class="legends">
+                                        <div class="smallSquare nonSeat"></div>
+                                        <div>Available</div>
+                                    </div>
+                                    <div class="legends">
+                                        <div class="smallSquare nonSeat selectedSeat"></div>
+                                        <div>Choosen</div>
+                                    </div>
                                 </div>
-                                <div class="legends">
-                                    <div class="smallSquare nonSeat"></div>
-                                    <div>Available</div>
-                                </div>
-                                <div class="legends">
-                                    <div class="smallSquare nonSeat selectedSeat"></div>
-                                    <div>Choosen</div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-12 col-md-8 col-lg-9 col-xl-8">
+                            <div class="legend">
+                                <div class="section">
+                                    <div class="col-md-4 col-lg-5 col-xl-6 d-inline">
+                                        <div id="btnChooseSeat">
+                                            <button type="submit" class="btn btn-default" id="accept">Accept ></button>
+                                            <button type="hidden" class="btn btn-default" form="cancel" />Cancel ></button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8 col-lg-7 col-xl-6 d-inline">
+                                        <div id="dtlChooseSeat">
+                                            <div class="row">
+                                                <div id="txtChosenMovie">${film.title}</div>
+                                            </div>
+                                            <div class="row">
+                                                <div id="txtChosenMovieDetail">${film.genre}/${film.duration}</div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-8">
-                        <div class="legend" align="center">
-                            <div class="section">
-                                <div class="col-md-5 d-inline">
-                                    <div class="button" id="btnChooseSeat">
-                                        <button type="submit" class="btn btn-default" id="accept">Accept ></button>
-                                        <button type="hidden" class="btn btn-default" form="cancel" />Cancel ></button>
-                                    </div>
-                                </div>
-                                <div class="col-md-7 d-inline">
-                                    <div class="detail" id="dtlChooseSeat">
-                                        <div class="row">
-                                            <div id="txtChosenMovie">${film.title}</div>
-                                        </div>
-                                        <div class="row">
-                                            <div id="txtChosenMovieDetail">${film.genre}/${film.duration}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -84,10 +88,8 @@
     var cornerAlphabet = 'J';
 
     for (var i = 1; i <= 10; i++) {
-
-//        wrapper.innerHTML += '<div class="angka">' + cornerAlphabet;
-        wrapper.innerHTML += '<div style="display:inline-block; width:35px; vertical-align:top; padding-right:20px">' + cornerAlphabet;
-        wrapper.innerHTML += '<div class="row" style="display:inline-block; padding:10px"><div class="rounded"></div>';
+        wrapper.innerHTML += '<div class="huruf">' + cornerAlphabet;
+        wrapper.innerHTML += '<div class="row seat"><div class="rounded"></div>';
 
         for (var j = 1; j <= 10; j++) {
 
@@ -109,7 +111,7 @@
     </c:forEach>
 
     for (var i = 1; i <= 10; i++) {
-        wrapper.innerHTML += '<div style="height: 35px;width: 35px;display: inline-block;margin-left:5px">' + angka + '</div>';
+        wrapper.innerHTML += '<div class="angka">' + angka + '</div>';
         angka++;
     }
 
