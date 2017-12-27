@@ -45,7 +45,7 @@
 
         <div class="row" style="float: none; margin: 0 auto;">
             <%--<div class="col-lg-2"></div>--%>
-            <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" onclick="document.location.href = '/cashier/film';">
+            <div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4" onclick="document.location.href = '/admin/studio';">
                 <div class="circle" style="background-image: url('/assets/icon/studio.png')"></div>
                 <p>Studio</p>
             </div>

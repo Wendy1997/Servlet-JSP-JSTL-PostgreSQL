@@ -21,7 +21,7 @@
                         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-10">
                             <div class="row box">
                                 <div class="col-3 col-sm-3 col-md-3 col-lg-4 col-xl-3">
-                                    <div class="circle" id="thumbnail" src="${film.cover}"></div>
+                                    <div class="circle" id="thumbnail" style="background-image: url('${film.cover}')"></div>
                                 </div>
                                 <div class="col-9 col-sm-9 col-md-9 col-lg-8 col-xl-9">
                                     <div id="txtMovieTitle">${film.title}</div>

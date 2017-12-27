@@ -13,7 +13,7 @@
                     <h2>Invoice</h2>
                     <h4>Order ID: ${invoice.id}</h4>
                 </div>
-                <div class="col-lg-6" align="right">
+                <div class="col-lg-4" align="right">
                     <h5>Order Date:</h5>
                     <h5>${invoice.orderDate}</h5>
                 </div>

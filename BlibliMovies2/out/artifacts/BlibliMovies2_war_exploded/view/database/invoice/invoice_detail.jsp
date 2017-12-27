@@ -9,13 +9,13 @@
 
         <div class="col-lg-12" id="form1">
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-8 col-xs-12">
                     <h2>Invoice</h2>
                     <h4>Order ID: ${invoice.id}</h4>
                 </div>
-                <div class="col-lg-6" align="right">
-                    <h5>Order Date:</h5>
-                    <h5>${invoice.orderDate}</h5>
+                <div class="col-lg-4 col-xs-6" align="right">
+                    <h4>Order Date:</h4>
+                    <h4>${invoice.orderDate}</h4>
                 </div>
                 <div class="stripe"></div><br>
             </div>
@@ -41,10 +41,10 @@
                     </div>
                 </c:forEach>
 
-
                 <div class="row">
-                    <div class="col-lg-6"><br>
-                        <p>Total: Rp. ${invoice.memberId == 0 ? invoice.totalPrice : invoice.totalPrice * 100 / (100 - promo.discountAmount) } ,-</p>
+                    <div class="col-lg-6">
+                        <br>
+                        <p>Total: Rp. ${invoice.memberId == 0 ? invoice.totalPrice : invoice.totalPrice * 100 / (100 - promo.discountAmount)} ,-</p>
                         <p>Member Discount: ${invoice.memberId == 0 ? "-" : promo.discountAmount} %</p>
                     </div>
 
@@ -84,5 +84,5 @@
             });
         });
     </script>
-
+    
 <%@ include file = "/include/foot.jsp" %>

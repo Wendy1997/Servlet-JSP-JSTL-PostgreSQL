@@ -12,12 +12,12 @@
     <!-- Menu -->
     <div class="container">
         <div class="row">
-            <div class="col-lg-6" onclick="document.location.href = '/cashier/film';">
+            <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6" onclick="document.location.href = '/cashier/film';">
                 <div class="circle" style="background-image: url('/assets/icon/filmTransaction.png')"></div>
                 <p>Film Transaction</p>
             </div>
 
-            <div class="col-lg-6" onclick="document.location.href = '/cashier/fnb';">
+            <div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6" onclick="document.location.href = '/cashier/fnb';">
                 <div class="circle" style="background-image: url('/assets/icon/fnbTransaction.png')"></div>
                 <p>FnB Transaction</p>
             </div>

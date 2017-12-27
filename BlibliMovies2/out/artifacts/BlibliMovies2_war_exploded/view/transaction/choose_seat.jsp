@@ -1,68 +1,77 @@
 <%@ include file = "/include/head.jsp" %>
 <%@ include file = "/include/navbarAccount.jsp" %>
+<div class="container-fluid">
+    <div class="row">
+        <nav class="navbar navbar-default">
+            <div class="d-flex flex-row">
+                <div class="p-2">Ticket</div>
+                <div class="p-2">Pick Your Seat</div>
+                <div class="p-2 active-tab">Snack and Beverages</div>
+            </div>
+        </nav>
 
-<!-- Content -->
-<div class="container-fluid" align="center" >
+        <!-- Title -->
+        <div class="stripe"></div>
 
-    <!-- List nav bar film -->
+        <div class="container seat">
+            <div class="seatcontainer-responsive row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
 
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <ul class=" nav navbar-nav" >
-                <div class="row">
-                    <li><a href="#" class="tab">Ticket</a></li>
-                    <li><a href="#" class="tab active-tab">Pick Your Seat</a></li>
-                    <li><a href="#" class="tab">Snack and Beverages</a></li>
+                    <div id="screen">SCREEN</div>
+
+                    <!-- Forms -->
+                    <form id="cancel" action="javascript:history.back()"></form>
+
+                    <div id="seat-number"></div>
+
+                    <div class="row nonSeat">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-3">
+                            <div class="legend">
+                                <div class="row">
+                                    <div class="legends">
+                                        <div class="smallSquare nonSeat unavailableSeat"></div>
+                                        <div>Taken</div>
+                                    </div>
+                                    <div class="legends">
+                                        <div class="smallSquare nonSeat"></div>
+                                        <div>Available</div>
+                                    </div>
+                                    <div class="legends">
+                                        <div class="smallSquare nonSeat selectedSeat"></div>
+                                        <div>Choosen</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-9">
+                            <div class="legend">
+                                <div class="section">
+                                    <div class="col-xl-6 d-inline">
+                                        <div id="btnChooseSeat">
+                                            <button type="submit" class="btn btn-default" id="accept">Accept ></button>
+                                            <button type="hidden" class="btn btn-default" form="cancel" />Cancel ></button>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 d-inline">
+                                        <div id="dtlChooseSeat">
+                                            <div class="row">
+                                                <div id="txtChosenMovie">${film.title}</div>
+                                            </div>
+                                            <div class="row">
+                                                <div id="txtChosenMovieDetail">${film.genre}/${film.duration}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Close Button
-    <button type="button" class="close" onclick="document.location.href = 'film_menu.html';">&times;</button> -->
-
-    <!-- <div class="jumbotron"> -->
-
-    <!-- Title -->
-    <div class="stripe"></div>
-    <br><br>
-
-    <div id="screen" style="background-color: #666878; border-radius: 5px; width: 400px; margin-bottom:50px;margin-left:20px;text-align: center;">SCREEN</div>
-
-    <!-- Forms -->
-    <form id="cancel" action="javascript:history.back()"></form>
-
-
-        <div id="seat-number"></div>
-
-        <div class="legend" align="left" style="margin-right:70px;margin-top: 20px; display: inline-block;">
-            <div class="row">
-                <div class="smallSquare nonSeat unavailableSeat"></div>
-                <div class="smallSquare nonSeat" style="margin: 0 40px"></div>
-                <div class="smallSquare nonSeat selectedSeat"></div>
-            </div>
-            <div class="row">
-                <div>Taken</div>
-                <div style="margin: 0 20px">Available</div>
-                <div>Choosen</div>
             </div>
         </div>
-
-        <div class="button" style="display: inline-block;">
-            <button type="submit" class="btn btn-default" id="accept">Accept ></button>
-            <button type="hidden" class="btn btn-default" form="cancel" />Cancel ></button>
-        </div>
-
-        <div class="detail" style="margin-left:80px; display: inline-block;">
-            <div class="row">
-                <div style="font-size: 18px">${film.title}</div>
-            </div>
-            <div class="row">
-                <div>${film.genre}/${film.duration}</div>
-            </div>
-
-        </div>
-
+    </div>
 </div>
 
 <script>
@@ -78,14 +87,11 @@
     var cornerAlphabet = 'J';
 
     for (var i = 1; i <= 10; i++) {
-
-        wrapper.innerHTML += '<div style="display:inline-block; width:35px; vertical-align:top; padding-right:20px">' + cornerAlphabet;
-        wrapper.innerHTML += '<div class="row" style="display:inline-block; padding:10px"><div class="rounded"></div>';
+        wrapper.innerHTML += '<div class="huruf">' + cornerAlphabet;
+        wrapper.innerHTML += '<div class="row seat"><div class="rounded"></div>';
 
         for (var j = 1; j <= 10; j++) {
 
-            // buat unavailable seat (masih nembak asal sih)
-            // wrapper.innerHTML += '<div class="smallSquare unavailableSeat" id="' + huruf + angka + '" style="cursor: not-allowed; outline: 0 !important"></div>';
             wrapper.innerHTML += '<div class="smallSquare" id="' + huruf + angka + '"></div>';
             angka++;
         }
@@ -104,7 +110,7 @@
     </c:forEach>
 
     for (var i = 1; i <= 10; i++) {
-        wrapper.innerHTML += '<div style="height: 35px;width: 35px;display: inline-block;margin-left:5px">' + angka + '</div>';
+        wrapper.innerHTML += '<div class="angka">' + angka + '</div>';
         angka++;
     }
 
@@ -113,14 +119,14 @@
     var listTicket = new Array();
 
     $(document).ready(function () {
-        $(".smallSquare").click(function(e){
+        $(".smallSquare").click(function(e) {
             if($(this).hasClass('nonSeat')){
                 console.log('asdasd');
             } else {
                 if ($(this).hasClass('smallSquare unavailableSeat'))
                     $(this).click(false);
                 else {
-                    if ($(this).hasClass(addClass)){
+                    if ($(this).hasClass(addClass)) {
                         $(this).removeClass(addClass);
                         pointer--;
                         var index = listTicket.indexOf($(this).attr('id'));
@@ -130,7 +136,7 @@
                         $(this).addClass(addClass);
                         pointer++;
                         listTicket.push($(this).attr('id'));
-                        window.alert($(this).attr('id') + " canceled.\n jumlah tiket " + pointer + "\n list tiket = " + listTicket.toString());
+                        window.alert($(this).attr('id') + " booked.\n jumlah tiket " + pointer + "\n list tiket = " + listTicket.toString());
                     }
                 }
             }
