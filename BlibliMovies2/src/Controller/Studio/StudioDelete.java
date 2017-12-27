@@ -54,4 +54,3 @@ public class StudioDelete extends HttpServlet {
         }
     }
 }
-
