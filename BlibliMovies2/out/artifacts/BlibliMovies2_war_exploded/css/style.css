@@ -304,7 +304,7 @@ Dummy Image
 	width: 12px;
 }
 
-.filmcontainer-responsive.row , .box-window.synopsiscontainer-responsive {
+.filmcontainer-responsive.row , .box-window.synopsiscontainer-responsive , .fnbcontainer-responsive.row , .box-window.summarycontainer-responsive {
 	overflow-y: auto;
 	overflow-x: hidden;
 }
@@ -340,8 +340,11 @@ Dummy Image
 	background-color: #41c179;
 }
 
+.row.nonSeat {
+	text-align: center;
+}
+
 .legend {
-	width: inherit;
 	margin-top: 8px;
 	display: inline-block;
 }
@@ -350,8 +353,18 @@ Dummy Image
 	display: flex;
 }
 
+#txtChosenMovie {
+	margin-top: -10px;
+	font-size: 34px;
+}
+
+#txtChosenMovieDetail {
+	font-size: 28px;
+}
+
 #btnChooseSeat {
 	display: inline-block;
+	margin: 0 auto;
 }
 
 .legends {
@@ -366,8 +379,8 @@ Dummy Image
 	background-color: #c14040;
 }
 
-.nonseat {
-	pointer-events:none;
+.legends .nonSeat {
+	pointer-events: none;
 }
 
 .huruf {
@@ -384,15 +397,23 @@ Dummy Image
 }
 
 .row.seat {
-	display:inline-block;
-	padding:10px;
+	display: inline-block;
+	padding: 10px;
+}
+
+.row.amount {
+	margin: 16px 0 -16px 0;
 }
 
 /* End */
 
 @media screen and (min-width:1200px) {
-	.filmcontainer-responsive.row , .box-window.synopsiscontainer-responsive {
+	.filmcontainer-responsive.row , .box-window.synopsiscontainer-responsive , .fnbcontainer-responsive.row {
 		height: 80vh;
+	}
+
+	.box-window.summarycontainer-responsive {
+		height: 35vh;
 	}
 
 	#screen {
@@ -400,16 +421,39 @@ Dummy Image
 		line-height: 1.8rem;
 		font-size: 18px;
 	}
+	
+	.row.nonSeat {
+		margin-left: 60px;
+	}
+
+	.legend {
+		width: inherit;
+	}
+
+	.section {
+		padding: 0 40px;
+	}
+	
+	.col-xl-6.d-inline {
+		text-align: left;
+	}
+
+	#btnChooseSeat button {
+		font-size: 34px;
+	}
 
 	#dtlChooseSeat {
-		margin-left:80px;
-		display: inline-block;
+		margin-left: 80px;
 	}
 }
 
 @media screen and (min-width:992px) and (max-width: 1199px) {
-	.filmcontainer-responsive.row , .box-window.synopsiscontainer-responsive {
+	.filmcontainer-responsive.row , .box-window.synopsiscontainer-responsive , .fnbcontainer-responsive.row {
 		height: 88vh;
+	}
+
+	.box-window.summarycontainer-responsive {
+		height: 60vh;
 	}
 
 	#screen {
@@ -417,20 +461,33 @@ Dummy Image
 		line-height: 2rem;
 	}
 
-	#btnChooseSeat {
-		margin-top: -40px;
+	div.col-12.col-sm-12.col-md-12.col-lg-12.col-xl-3 {
+		display: contents;
+	}
+
+	.row.nonSeat {
+		margin-top: 8px;
+	}
+
+	.section {
+		flex-direction: column-reverse;
 	}
 
 	#dtlChooseSeat {
-		margin-top: -10px;
+		padding: 24px 0;
+		display: inline-block;
 	}
 
-	#txtchosenmovie {
+	#txtChosenMovie {
+		font-size: 32px;
+	}
+
+	#txtChosenMovieDetail {
 		font-size: 28px;
 	}
 
-	#txtchosenmoviedetail {
-		font-size: 24px;
+	#btnChooseSeat button {
+		font-size: 32px;
 	}
 }
 
@@ -439,15 +496,19 @@ Dummy Image
 		height: 85vh;
 	}
 
+	.fnbcontainer-responsive.row {
+		height: 42vh;
+	}
+
 	.row.cashier .container-fluid.thumbnail.col-12.col-sm-12.col-md-11.col-lg-6.col-xl-7 {
 		height: 50vh;
 	}
 
-	.container-fluid.thumbnail.col-lg-6.col-xl-5 , .col-md-12.col-lg-12.col-xl-10 h5, #keranjang {
+	.container-fluid.thumbnail.col-lg-6.col-xl-5 , .col-lg-12.col-xl-10 h5, #keranjang , #txtSummary {
 		display: none;
 	}
 
-	.container-fluid.thumbnail.col-md-11.col-lg-6.col-xl-5.cashier {
+	.container-fluid.thumbnail.col-11.col-sm-11.col-md-11.col-lg-6.col-xl-5.cashier {
 		display: block;
 	}
 
@@ -468,10 +529,35 @@ Dummy Image
 		width: 40px;
 	}
 
-	#btnChooseSeat button {
-		font-size: 20px;
-		margin: 0 auto;
+	div.col-12.col-sm-12.col-md-12.col-lg-12.col-xl-3 {
+		display: contents;
 	}
+
+	.row.nonSeat {
+		margin-top: 8px;
+	}
+
+	.section {
+		flex-direction: column-reverse;
+	}
+
+	#txtChosenMovie {
+		font-size: 28px;
+	}
+
+	#txtChosenMovieDetail {
+		font-size: 22px;
+	}
+
+	#btnChooseSeat button {
+		font-size: 28px;
+	}
+
+	#dtlChooseSeat {
+		padding: 24px 0;
+		display: inline-block;
+	}
+
 }
 
 @media screen and (min-width:481px) and (max-width: 767px) {
@@ -494,7 +580,32 @@ Dummy Image
 		height: 82vh;
 	}
 
+	.fnbcontainer-responsive.row {
+		height: 55vh;
+	}
+
+	.container-fluid.cashier input {
+		height: 16px;
+	}
+
+	.row.amount {
+		margin: 8px 0 0 0;
+	}
+
 	.container-fluid.thumbnail.col-lg-6.col-xl-5 {
+		font-size: 14px;
+	}
+
+	.row.cashier button {
+		margin: 0;
+		font-size: 16px;
+	}
+
+	.row.cashier .container-fluid.thumbnail.col-12.col-sm-12.col-md-11.col-lg-6.col-xl-7 {
+		height: 65vh;
+	}
+
+	.col-lg-12.col-xl-10 h5, #keranjang , #txtSummary {
 		display: none;
 	}
 
@@ -514,19 +625,34 @@ Dummy Image
 		width: 35px;
 	}
 
+	div.col-12.col-sm-12.col-md-12.col-lg-12.col-xl-3 {
+		display: contents;
+	}
+
+	.row.nonSeat {
+		margin-top: 8px;
+	}
+
 	.section {
 		flex-direction: column-reverse;
 	}
 
+	#txtChosenMovie {
+		font-size: 24px;
+	}
+
+	#txtChosenMovieDetail {
+		font-size: 18px;
+	}
+
 	#btnChooseSeat button {
 		font-size: 24px;
-		margin: 0 auto;
 	}
 
 	#dtlChooseSeat {
+		margin: 24px 0;
 		display: inline-block;
 	}
-
 }
 
 @media screen and (max-width: 480px) {
@@ -551,7 +677,28 @@ Dummy Image
 		height: 78vh;
 	}
 
+	.fnbcontainer-responsive.row {
+		height: 40vh;
+	}
+
+	.container-fluid.cashier input {
+		height: 16px;
+	}
+
+	.row.amount {
+		margin: 8px 0 0 0;
+	}
+
 	.container-fluid.thumbnail.col-lg-6.col-xl-5 {
+		font-size: 12px;
+	}
+
+	.row.cashier button {
+		margin: 0;
+		font-size: 14px;
+	}
+
+	.col-lg-12.col-xl-10 h5, #keranjang , #txtSummary {
 		display: none;
 	}
 
@@ -577,25 +724,33 @@ Dummy Image
 		font-size: 12px;
 	}
 
+	div.col-12.col-sm-12.col-md-12.col-lg-12.col-xl-3 {
+		display: contents;
+	}
+
 	.section {
 		flex-direction: column-reverse;
 	}
 
-	#btnChooseSeat button {
-		margin-top: 50px;
+	#txtChosenMovie {
 		font-size: 18px;
-		margin: 0 auto;
-		display: inline-block;
+	}
+
+	#txtChosenMovieDetail {
+		font-size: 14px;
+	}
+
+	#btnChooseSeat button {
+		font-size: 18px;
+		margin-top: 0px;
 	}
 
 	#dtlChooseSeat {
-		margin: 0 0 0 20px;
 		display: inline-block;
 	}
 }
 
-/* Film Choose */
-/* Style the tab */
+/* Film Choose - Style the tab */
 div.tab {
 	overflow: hidden;
 	background-color: #f1f1f1;
@@ -625,16 +780,3 @@ div.tab button:hover {
 div.tab button.active {
 	background-color: #ccc;
 }
-
-/* css for fnb page */
-
-.fnbcontainer-responsive {
-	height: 500px;
-	overflow: auto;
-}
-
-.summarycontainer-responsive {
-	height: 365px;
-	overflow-y: scroll;
-}
-

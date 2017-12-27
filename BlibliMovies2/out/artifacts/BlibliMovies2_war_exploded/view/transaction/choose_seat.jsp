@@ -1,7 +1,7 @@
 <%@ include file = "/include/head.jsp" %>
 <%@ include file = "/include/navbarAccount.jsp" %>
 
-<div class="container-fluid" align="center">
+<div class="container-fluid">
     <div class="row">
         <nav class="navbar navbar-default">
             <div class="d-flex flex-row">
@@ -25,8 +25,8 @@
 
                     <div id="seat-number"></div>
 
-                    <div class="row">
-                        <div class="col-12 col-sm-12 col-md-4 col-lg-3 col-xl-4">
+                    <div class="row nonSeat">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-3">
                             <div class="legend">
                                 <div class="row">
                                     <div class="legends">
@@ -45,16 +45,16 @@
                             </div>
                         </div>
 
-                        <div class="col-12 col-sm-12 col-md-8 col-lg-9 col-xl-8">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-9">
                             <div class="legend">
                                 <div class="section">
-                                    <div class="col-md-4 col-lg-5 col-xl-6 d-inline">
+                                    <div class="col-xl-6 d-inline">
                                         <div id="btnChooseSeat">
                                             <button type="submit" class="btn btn-default" id="accept">Accept ></button>
                                             <button type="hidden" class="btn btn-default" form="cancel" />Cancel ></button>
                                         </div>
                                     </div>
-                                    <div class="col-md-8 col-lg-7 col-xl-6 d-inline">
+                                    <div class="col-xl-6 d-inline">
                                         <div id="dtlChooseSeat">
                                             <div class="row">
                                                 <div id="txtChosenMovie">${film.title}</div>

@@ -18,7 +18,7 @@
             <div class="container fnb">
                 <div class="fnbcontainer-responsive row">
                     <c:forEach items="${fnblist}" var="fnb">
-                        <div id="${fnb.id}" class="col-3 col-sm-3 col-md-3 col-lg-4 col-xl-3">
+                        <div id="${fnb.id}" class="col-4 col-sm-4 col-md-3 col-lg-4 col-xl-3">
                             <img class="circle" id="thumbnail" src="${fnb.cover}">
                             <p>${fnb.name} ${fnb.size}</p>
                         </div>
@@ -27,7 +27,7 @@
             </div>
         </div>
 
-        <div class="container-fluid thumbnail col-md-11 col-lg-6 col-xl-5 cashier">
+        <div class="container-fluid thumbnail col-11 col-sm-11 col-md-11 col-lg-6 col-xl-5 cashier">
             <!-- Title -->
             <div >
                 <h4 id="txtSummary">Summary</h4>
@@ -36,7 +36,7 @@
 
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-12 col-lg-12 col-xl-10">
+                    <div class="col-lg-12 col-xl-10">
                         <h5>Order Details:</h5>
                     </div>
                 </div>
@@ -54,12 +54,12 @@
                 <button type="submit" class="btn btn-default" id="memberAccept">Accept ></button>
 
                 <div class="row amount">
-                    <div class="col-md-7">
+                    <div class="col-7 col-sm-7 col-md-7 col-lg-7 col-xl-7">
                         <p id="total">Total: Rp. 0 ,-</p>
                         <p id="discount">Member Discount: 0%</p>
                     </div>
 
-                    <div class="col-md-5">
+                    <div class="col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5">
                         <p>Amount Payable</p>
                         <p><strong id="amount">Rp. 0 ,-</strong></p>
                     </div>
