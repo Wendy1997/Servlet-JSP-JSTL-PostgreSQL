@@ -34,12 +34,9 @@
                         <label for="type">Jenis:</label>
                         <select class="form-control" id="type" name="type" value="${fnb.type}" required>
                             <option disabled selected value> -- pilih Jenis -- </option>
-                            <c:forEach items="${}">
-
+                            <c:forEach items="${type}" var="type">
+                                <option value="${type.id}" ${fnb.type == type.id ? 'selected' : ''}>${type.type}</option>
                             </c:forEach>
-                            <option value="Food" ${fnb.type == 'Food' ? 'selected' : ''}>Food</option>
-                            <option value="Beverages" ${fnb.type == 'Beverages' ? 'selected' : ''}>Beverages</option>
-                            <option value="Combo" ${fnb.type == 'Combo' ? 'selected' : ''}>Combo</option>
                         </select>
                     </div>
 
@@ -47,9 +44,9 @@
                         <label for="size">Ukuran:</label>
                         <select class="form-control" id="size" name="size" value="${fnb.size}" required>
                             <option disabled selected value> -- pilih Jenis -- </option>
-                            <option value="Regular" ${fnb.size == 'Regular' ? 'selected' : ''}>Regular</option>
-                            <option value="Large" ${fnb.size == 'Large' ? 'selected' : ''}>Large</option>
-                            <option value="Jumbo" ${fnb.size == 'Combo' ? 'selected' : ''}>Jumbo</option>
+                            <c:forEach items="${size}" var="size">
+                                <option value="${size.id}" ${fnb.size == size.id ? 'selected' : ''}>${size.size}</option>
+                            </c:forEach>
                         </select>
                     </div>
 

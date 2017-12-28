@@ -41,7 +41,7 @@ public class FnBTypeDAO {
 
         FnBType output;
         if(rs.next()){
-            output = new FnBType(rs.getString(1), rs.getString(2), rs.getInt(3));
+            output = new FnBType(rs.getInt(1), rs.getString(2), rs.getInt(3));
         } else{
             output = null;
         }
@@ -55,7 +55,7 @@ public class FnBTypeDAO {
 
         List<FnBType> fnBTypes = new ArrayList<FnBType>();
         while(rs.next()){
-            fnBTypes.add(new FnBType(rs.getString(1), rs.getString(2), rs.getInt(3)));
+            fnBTypes.add(new FnBType(rs.getInt(1), rs.getString(2), rs.getInt(3)));
         }
         return fnBTypes;
     }
@@ -77,7 +77,7 @@ public class FnBTypeDAO {
     public void updateFnBType(FnBType fnBType) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE fnBType set type = ? where id = ? and storeid = ? and status = true");
         ps.setString(1, fnBType.getType());
-        ps.setInt(2, Integer.parseInt(fnBType.getId()));
+        ps.setInt(2, fnBType.getId());
         ps.setInt(3, fnBType.getStoreID());
         ps.executeUpdate();
     }

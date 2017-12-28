@@ -35,8 +35,16 @@
                             <td scope="row"><c:out value="${fnbs.id}"></c:out></td>
                             <td><c:out value="${fnbs.cover}"></c:out></td>
                             <td><c:out value="${fnbs.name}"></c:out></td>
-                            <td><c:out value="${fnbs.type}"></c:out></td>
-                            <td><c:out value="${fnbs.size}"></c:out></td>
+                            <td>
+                                <c:forEach items="${type}" var="type">
+                                    ${type.id == fnbs.type ? type.type : ""}
+                                </c:forEach>
+                            </td>
+                            <td>
+                                <c:forEach items="${size}" var="size">
+                                    ${size.id == fnbs.size ? size.size : ""}
+                                </c:forEach>
+                            </td>
                             <td><c:out value="${fnbs.price}"></c:out></td>
                             <td><a <c:out value='href=/admin/fnb/edit?id=${fnbs.id}'></c:out>>Edit</a></td>
                             <td><a <c:out value='href=/admin/fnb/delete?id=${fnbs.id}'></c:out>>Delete</a></td>

@@ -47,8 +47,8 @@ public class FnBDAO {
                     rs.getInt(2),
                     rs.getString(3),
                     rs.getString(4),
-                    rs.getString(5),
-                    rs.getString(6),
+                    rs.getInt(5),
+                    rs.getInt(6),
                     rs.getInt(7)
             );
         } else{
@@ -69,8 +69,8 @@ public class FnBDAO {
                     rs.getInt(2),
                     rs.getString(3),
                     rs.getString(4),
-                    rs.getString(5),
-                    rs.getString(6),
+                    rs.getInt(5),
+                    rs.getInt(6),
                     rs.getInt(7)
             ));
         }
@@ -84,8 +84,8 @@ public class FnBDAO {
         ps.setInt(1, fnb.getStoreID());
         ps.setString(2, fnb.getCover());
         ps.setString(3, fnb.getName());
-        ps.setString(4, fnb.getType());
-        ps.setString(5, fnb.getSize());
+        ps.setInt(4, fnb.getType());
+        ps.setInt(5, fnb.getSize());
         ps.setInt(6, fnb.getPrice());
 
         ps.executeUpdate();
@@ -103,8 +103,8 @@ public class FnBDAO {
 
         ps.setString(1, fnb.getCover());
         ps.setString(2, fnb.getName());
-        ps.setString(3, fnb.getType());
-        ps.setString(4, fnb.getSize());
+        ps.setInt(3, fnb.getType());
+        ps.setInt(4, fnb.getSize());
         ps.setInt(5, fnb.getPrice());
         ps.setString(6, fnb.getId() + "");
         ps.setInt(7, fnb.getStoreID());

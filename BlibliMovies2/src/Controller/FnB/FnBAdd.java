@@ -52,8 +52,6 @@ public class FnBAdd extends HttpServlet{
         try{
             List<FnBSize> fnBSizeList = fnbDAO.getAllFnBSize((int)request.getSession().getAttribute("storeid"));
             List<FnBType> fnBTypeList = fnbDAO.getAllFnBType((int)request.getSession().getAttribute("storeid"));
-            System.out.println(fnBSizeList.toString());
-            System.out.println(fnBTypeList.toString());
 
             request.setAttribute("size", fnBSizeList);
             request.setAttribute("type", fnBTypeList);
@@ -92,8 +90,8 @@ public class FnBAdd extends HttpServlet{
             FnB fnb = new FnB((int)request.getSession().getAttribute("storeid"),
                     "/" + (int)request.getSession().getAttribute("storeid") + "/fnb/" + request.getParameter("name") + " (" + request.getParameter("size") + ") [" + dateNow + "].jpg",
                     request.getParameter("name"),
-                    request.getParameter("type"),
-                    request.getParameter("size"),
+                    Integer.parseInt(request.getParameter("type")),
+                    Integer.parseInt(request.getParameter("size")),
                     Integer.parseInt(request.getParameter("price")));
 
             fnbDAO.addFnB(fnb);

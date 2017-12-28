@@ -3,6 +3,8 @@ package Controller.FnB;
 import DAO.FilmDAO;
 import Model.Film;
 import Model.FnB;
+import Model.FnBSize;
+import Model.FnBType;
 import Service.FilmService;
 import Service.FilmServiceDatabase;
 import Service.FnBService;
@@ -44,6 +46,11 @@ public class FnBMenu extends HttpServlet{
 
         try{
             List<FnB> fnbs = fnbService.getAllFnB((int)request.getSession().getAttribute("storeid"));
+            List<FnBSize> fnBSizeList = fnbService.getAllFnBSize((int)request.getSession().getAttribute("storeid"));
+            List<FnBType> fnBTypeList = fnbService.getAllFnBType((int)request.getSession().getAttribute("storeid"));
+
+            request.setAttribute("size", fnBSizeList);
+            request.setAttribute("type", fnBTypeList);
             request.setAttribute("fnbs", fnbs);
 
             request.getRequestDispatcher(address).forward(request, response);

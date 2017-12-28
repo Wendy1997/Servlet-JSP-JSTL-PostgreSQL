@@ -1,11 +1,11 @@
 package Model;
 
 public class FnBSize {
-    private String id;
+    private int id;
     private String size;
     private int storeid;
 
-    public FnBSize(String id, String size, int storeid) {
+    public FnBSize(int id, String size, int storeid) {
         this.id = id;
         this.size = size;
         this.storeid = storeid;
@@ -16,11 +16,11 @@ public class FnBSize {
         this.storeid = storeid;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

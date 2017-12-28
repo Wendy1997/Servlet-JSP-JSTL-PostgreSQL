@@ -55,7 +55,7 @@ public class FnBTypeEdit extends HttpServlet{
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
         try{
-            FnBType fnbType = new FnBType( request.getParameter("id"),
+            FnBType fnbType = new FnBType( Integer.parseInt(request.getParameter("id")),
                     request.getParameter("type"),
                     (int)request.getSession().getAttribute("storeid"));
             fnbService.updateFnBType(fnbType);

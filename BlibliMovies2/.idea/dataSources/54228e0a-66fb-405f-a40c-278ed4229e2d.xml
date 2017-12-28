@@ -28,8 +28,8 @@
     </role>
     <schema id="6" parent="3" name="public">
       <ObjectId>2200</ObjectId>
-      <IntrospectionTimestamp>2017-12-28.13:27:47.533</IntrospectionTimestamp>
-      <IntrospectionStateNumber>4740</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2017-12-28.13:45:13.847</IntrospectionTimestamp>
+      <IntrospectionStateNumber>4749</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -189,15 +189,15 @@
     </table>
     <table id="34" parent="6" name="fnbsize">
       <ObjectId>41637</ObjectId>
-      <StateNumber>4644</StateNumber>
+      <StateNumber>4749</StateNumber>
     </table>
     <table id="35" parent="6" name="fnbtype">
       <ObjectId>41643</ObjectId>
-      <StateNumber>4649</StateNumber>
+      <StateNumber>4747</StateNumber>
     </table>
     <table id="36" parent="6" name="foodandbeverages">
       <ObjectId>41649</ObjectId>
-      <StateNumber>4655</StateNumber>
+      <StateNumber>4749</StateNumber>
     </table>
     <table id="37" parent="6" name="invoice">
       <ObjectId>41655</ObjectId>
@@ -664,6 +664,7 @@
       <RefTableId>41698</RefTableId>
       <RefColPositions>4</RefColPositions>
       <RefTableName>storeaccount</RefTableName>
+      <RefKeyName>storeaccount_id_pk</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
     <column id="118" parent="35" name="id">
@@ -717,6 +718,7 @@
       <RefTableId>41698</RefTableId>
       <RefColPositions>4</RefColPositions>
       <RefTableName>storeaccount</RefTableName>
+      <RefKeyName>storeaccount_id_pk</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
     <column id="127" parent="36" name="id">
@@ -744,13 +746,13 @@
     </column>
     <column id="131" parent="36" name="type">
       <Position>5</Position>
-      <DataType>varchar(20)|0</DataType>
-      <StateNumber>3392</StateNumber>
+      <DataType>integer|0</DataType>
+      <StateNumber>4746</StateNumber>
     </column>
     <column id="132" parent="36" name="size">
       <Position>6</Position>
-      <DataType>varchar(10)|0</DataType>
-      <StateNumber>3392</StateNumber>
+      <DataType>integer|0</DataType>
+      <StateNumber>4748</StateNumber>
     </column>
     <column id="133" parent="36" name="price">
       <Position>7</Position>
@@ -780,23 +782,26 @@
       <RefTableId>41698</RefTableId>
       <RefColPositions>4</RefColPositions>
       <RefTableName>storeaccount</RefTableName>
+      <RefKeyName>storeaccount_id_pk</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="138" parent="36" name="foodandbeverages_fnbtype_type_fk">
-      <ObjectId>41843</ObjectId>
+    <foreign-key id="138" parent="36" name="foodandbeverages_fnbtype_id_fk">
+      <ObjectId>42186</ObjectId>
       <ColNames>type</ColNames>
       <RefTableId>41643</RefTableId>
-      <RefColPositions>2</RefColPositions>
+      <RefColPositions>1</RefColPositions>
       <RefTableName>fnbtype</RefTableName>
-      <RefColNames>type</RefColNames>
+      <RefKeyName>fnbtype_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="139" parent="36" name="foodandbeverages_fnbsize_size_fk">
-      <ObjectId>41838</ObjectId>
+    <foreign-key id="139" parent="36" name="foodandbeverages_fnbsize_id_fk">
+      <ObjectId>42195</ObjectId>
       <ColNames>size</ColNames>
       <RefTableId>41637</RefTableId>
-      <RefColPositions>2</RefColPositions>
+      <RefColPositions>1</RefColPositions>
       <RefTableName>fnbsize</RefTableName>
-      <RefColNames>size</RefColNames>
+      <RefKeyName>fnbsize_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
     </foreign-key>
     <column id="140" parent="37" name="id">
       <Position>1</Position>

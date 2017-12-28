@@ -5,11 +5,11 @@ public class FnB {
     private int storeid;
     private String cover;
     private String name;
-    private String type;
-    private String size;
+    private int type;
+    private int size;
     private int price;
 
-    public FnB(int id, int storeid, String cover, String name, String type, String size, int price) {
+    public FnB(int id, int storeid, String cover, String name, int type, int size, int price) {
         this.id = id;
         this.storeid = storeid;
         this.cover = cover;
@@ -19,7 +19,7 @@ public class FnB {
         this.price = price;
     }
 
-    public FnB(int storeid, String cover, String name, String type, String size, int price) {
+    public FnB(int storeid, String cover, String name, int type, int size, int price) {
         this.storeid = storeid;
         this.cover = cover;
         this.name = name;
@@ -60,19 +60,19 @@ public class FnB {
         this.name = name;
     }
 
-    public String getType() {
+    public int getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(int type) {
         this.type = type;
     }
 
-    public String getSize() {
+    public int getSize() {
         return size;
     }
 
-    public void setSize(String size) {
+    public void setSize(int size) {
         this.size = size;
     }
 

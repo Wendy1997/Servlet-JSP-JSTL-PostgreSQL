@@ -55,7 +55,7 @@ public class FnBSizeEdit extends HttpServlet{
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
         try{
-            FnBSize fnbSize = new FnBSize( request.getParameter("id"),
+            FnBSize fnbSize = new FnBSize( Integer.parseInt(request.getParameter("id")),
                     request.getParameter("size"),
                     (int)request.getSession().getAttribute("storeid"));
             fnbService.updateFnBSize(fnbSize);

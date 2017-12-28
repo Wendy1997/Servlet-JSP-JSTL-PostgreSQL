@@ -104,8 +104,8 @@ public class FnBEdit extends HttpServlet{
                 (int)request.getSession().getAttribute("storeid"),
                 "/" + (int)request.getSession().getAttribute("storeid") + "/film/" + request.getParameter("name") + " (" + request.getParameter("size") + ") [" + randomNumber + "].jpg",
                 request.getParameter("name"),
-                request.getParameter("type"),
-                request.getParameter("size"),
+                Integer.parseInt(request.getParameter("type")),
+                Integer.parseInt(request.getParameter("size")),
                 Integer.parseInt(request.getParameter("price")));
 
             fnbService.updateFnB(fnb);
