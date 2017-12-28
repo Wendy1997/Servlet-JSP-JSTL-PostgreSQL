@@ -748,6 +748,15 @@ Dummy Image
 	#dtlChooseSeat {
 		display: inline-block;
 	}
+
+	.container.ledger .table-responsive .table.table-hover {
+		font-size: 12px;
+	}
+
+	.ledger.total-income h4 {
+		font-size: 20px;
+	}
+
 }
 
 /* Film Choose - Style the tab */

@@ -9,7 +9,8 @@
         <h1 class="title">Ledger</h1><br>
     </div>
 
-    <div class="tab" style="width: 240px; margin:0 auto;">
+    <div class="container">
+        <div class="nav nav-tabs">
             <button class="tablinks" onclick="openReport(event, 'Daily')">Daily</button>
             <button class="tablinks" onclick="openReport(event, 'Weekly')">Weekly</button>
             <button class="tablinks" onclick="openReport(event, 'Monthly')">Monthly</button>
@@ -20,11 +21,11 @@
     <br>
 
     <div id="Daily" class="tabcontent">
-        <div class="col-lg-6">
+        <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <!-- ledger -->
-            <div class="container">
+            <div class="container ledger">
                 <div class="table-responsive">
-                    <p> Date : <input type="date" class="form-control" style="display: inline-block" name="day" id="day" /> </p>
+                    <p class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" style="float: left"> Date : <input type="date" class="form-control" style="display: inline-block" name="day" id="day" /> </p>
                     <table class="table table-hover">
                         <thead>
                         <tr>
@@ -39,18 +40,18 @@
                         <tbody id="day-content"></tbody>
                     </table>
                     <div id="day-notif">Harap Tunggu</div>
-                    <div id="day-income"><h4> Total Income = Rp 40.000,-</h4></div>
+                    <div id="day-income" class="ledger total-income"><h4> Total Income = Rp 40.000,-</h4></div>
                 </div>
             </div>
         </div>
     </div>
 
     <div id="Weekly" class="tabcontent">
-        <div class="col-lg-6">
+        <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <!-- ledger -->
-            <div class="container">
+            <div class="container ledger">
                 <div class="table-responsive">
-                    <p> Week : <input type="week" class="form-control" style="display: inline-block" name="week" id="week" /> </p>
+                    <p class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" style="float: left"> Week : <input type="week" class="form-control" style="display: inline-block" name="week" id="week" /> </p>
                     <table class="table table-hover">
                         <thead>
                         <tr>
@@ -65,18 +66,18 @@
                         <tbody id="week-content"></tbody>
                     </table>
                     <div id="week-notif">Harap Tunggu</div>
-                    <div id="week-income"><h4> Total Income = Rp 40.000,-</h4></div>
+                    <div id="week-income" class="ledger total-income"><h4> Total Income = Rp 40.000,-</h4></div>
                 </div>
             </div>
         </div>
     </div>
 
     <div id="Monthly" class="tabcontent">
-        <div class="col-lg-6">
+        <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <!-- ledger -->
-            <div class="container">
+            <div class="container ledger">
                 <div class="table-responsive">
-                    <p> Month : <input type="month" class="form-control" style="display: inline-block" name="month" id="month" /></p>
+                    <p class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" style="float: left"> Month : <input type="month" class="form-control" style="display: inline-block" name="month" id="month" /></p>
                     <table class="table table-hover">
                         <thead>
                         <tr>
@@ -91,18 +92,18 @@
                         <tbody id="month-content"></tbody>
                     </table>
                     <div id="month-notif">Harap Tunggu</div>
-                    <div id="month-income"><h4> Total Income = Rp 40.000,-</h4></div>
+                    <div id="month-income" class="ledger total-income"><h4> Total Income = Rp 40.000,-</h4></div>
                 </div>
             </div>
         </div>
     </div>
 
     <div id="Yearly" class="tabcontent">
-        <div class="col-lg-6">
+        <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
             <!-- ledger -->
-            <div class="container">
+            <div class="container ledger">
                 <div class="table-responsive">
-                    <p>Year : <select class="form-control" id="year" name="year"></select></p>
+                    <p class="col-12 col-xs-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" style="float: left">Year : <select class="form-control" id="year" name="year"></select></p>
                     <table class="table table-hover">
                         <thead>
                         <tr>
@@ -117,7 +118,7 @@
                         <tbody id="year-content"></tbody>
                     </table>
                     <div id="year-notif">Harap Tunggu</div>
-                    <div id="year-income"><h4> Total Income = Rp 40.000,-</h4></div>
+                    <div id="year-income" class="ledger total-income"><h4> Total Income = Rp 40.000,-</h4></div>
                 </div>
             </div>
         </div>
