@@ -45,11 +45,13 @@ public class AccountDAO {
         } else{
             output = null;
         }
+
+        ps.close();
         return output;
     }
 
     public List<Account> getAllAccount(int storeid) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM account where storeid = ? and status = true");
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM account where storeid = ? and status = true ORDER BY id");
         ps.setInt(1, storeid);
         System.out.println(storeid);
         ResultSet rs = ps.executeQuery();
@@ -58,6 +60,8 @@ public class AccountDAO {
         while(rs.next()){
             accounts.add(new Account(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getInt(6)));
         }
+
+        ps.close();
         return accounts;
     }
 
@@ -68,6 +72,7 @@ public class AccountDAO {
         ps.setString(3, account.getPassword());
         ps.setInt(4, account.getRoleid());
         ps.executeUpdate();
+        ps.close();
     }
 
     public void deleteAccount(String account, int storeid) throws SQLException{
@@ -75,6 +80,7 @@ public class AccountDAO {
         ps.setString(1, account);
         ps.setInt(2, storeid);
         ps.executeUpdate();
+        ps.close();
     }
 
     public void updateAccount(Account account) throws SQLException{
@@ -84,5 +90,6 @@ public class AccountDAO {
         ps.setString(3, account.getUsername());
         ps.setInt(4, account.getStoreid());
         ps.executeUpdate();
+        ps.close();
     }
 }

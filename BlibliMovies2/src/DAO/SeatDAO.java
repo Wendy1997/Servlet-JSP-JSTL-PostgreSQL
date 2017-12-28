@@ -49,6 +49,8 @@ public class SeatDAO {
         } else{
             output = null;
         }
+
+        ps.close();
         return output;
     }
 }

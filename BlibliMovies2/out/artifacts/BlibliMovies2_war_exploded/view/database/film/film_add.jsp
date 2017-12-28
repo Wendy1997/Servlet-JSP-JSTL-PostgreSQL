@@ -21,11 +21,6 @@
                     <h2>Data Film</h2><br>
 
                     <div class="form-group">
-                        <label for="file">Cover:</label>
-                        <input type="file" class="form-control" id="file" name="file" required>
-                    </div>
-
-                    <div class="form-group">
                         <label for="nama">Nama:</label>
                         <input type="name" class="form-control" id="nama" name="nama" required>
                     </div>
@@ -88,6 +83,12 @@
                     <div class="form-group">
                         <label for="sinopsis">Sinopsis:</label>
                         <textarea class="form-control" rows="10" id="sinopsis" name="sinopsis" required></textarea>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="file">Cover:</label>
+                        <input type="file" class="form-control" id="file" name="file" accept=".jpg, .png" required>
                     </div>
                 </div>
 

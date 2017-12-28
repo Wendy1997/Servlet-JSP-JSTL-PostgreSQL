@@ -55,6 +55,10 @@ public class Film {
         this.sinopsis = sinopsis;
     }
 
+    public Film(){
+
+    }
+
     public int getId() {
         return id;
     }

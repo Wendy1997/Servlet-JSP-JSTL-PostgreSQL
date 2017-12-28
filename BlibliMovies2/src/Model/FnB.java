@@ -19,6 +19,10 @@ public class FnB {
         this.price = price;
     }
 
+    public FnB() {
+
+    }
+
     public FnB(int storeid, String cover, String name, int type, int size, int price) {
         this.storeid = storeid;
         this.cover = cover;

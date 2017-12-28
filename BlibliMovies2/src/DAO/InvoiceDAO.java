@@ -51,6 +51,8 @@ public class InvoiceDAO {
         } else{
             output = null;
         }
+
+        ps.close();
         return output;
     }
 
@@ -74,11 +76,13 @@ public class InvoiceDAO {
         } else{
             output = null;
         }
+
+        ps.close();
         return output;
     }
 
     public List<Invoice> getAllInvoice(int storeid) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM invoice where storeid = ?");
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM invoice where storeid = ? ORDER BY id");
         ps.setInt(1, storeid);
         ResultSet rs = ps.executeQuery();
 
@@ -92,6 +96,8 @@ public class InvoiceDAO {
                     rs.getString(6).substring(0,10),
                     rs.getDouble(7)));
         }
+
+        ps.close();
         return invoices;
     }
 
@@ -103,6 +109,7 @@ public class InvoiceDAO {
             ps.setTimestamp(3,java.sql.Timestamp.valueOf(invoice.getOrderDate()));
             ps.setDouble(4,invoice.getTotalPrice());
             ps.executeUpdate();
+            ps.close();
         }
         else {
             PreparedStatement ps = conn.prepareStatement("INSERT INTO invoice (memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES (?,?,?,?,?,?)");
@@ -113,6 +120,7 @@ public class InvoiceDAO {
             ps.setTimestamp(5,java.sql.Timestamp.valueOf(invoice.getOrderDate()));
             ps.setDouble(6,invoice.getTotalPrice());
             ps.executeUpdate();
+            ps.close();
         }
     }
 
@@ -138,6 +146,8 @@ public class InvoiceDAO {
                     rs.getString(6).substring(0,10),
                     rs.getDouble(7)));
         }
+
+        ps.close();
         return invoices;
     }
 
@@ -161,6 +171,8 @@ public class InvoiceDAO {
                     rs.getString(6).substring(0,10),
                     rs.getDouble(7)));
         }
+
+        ps.close();
         return invoices;
     }
 
@@ -184,6 +196,8 @@ public class InvoiceDAO {
                     rs.getString(6).substring(0,10),
                     rs.getDouble(7)));
         }
+
+        ps.close();
         return invoices;
     }
 
@@ -205,6 +219,8 @@ public class InvoiceDAO {
                     rs.getString(6).substring(0,10),
                     rs.getDouble(7)));
         }
+
+        ps.close();
         return invoices;
     }
 }

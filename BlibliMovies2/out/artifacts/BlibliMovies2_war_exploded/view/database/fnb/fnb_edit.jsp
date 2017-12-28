@@ -21,11 +21,6 @@
                     <h2>Data Food and Beverages</h2><br>
 
                     <div class="form-group">
-                        <label for="file">Cover:</label>
-                        <input type="file" class="form-control" id="file" name="file" value="${film.cover}">
-                    </div>
-
-                    <div class="form-group">
                         <label for="name">Nama:</label>
                         <input type="name" class="form-control" name="name" id="name" value="${fnb.name}" required>
                     </div>
@@ -53,6 +48,11 @@
                     <div class="form-group">
                         <label for="price">Harga:</label>
                         <input type="number" class="form-control" id="price" name="price" value="${fnb.price}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="file">Cover:</label>
+                        <input type="file" class="form-control" id="file" name="file" accept=".jpg, .png" value="${film.cover}">
                     </div>
 
                     <input type="hidden" name="id" value="${fnb.id}">

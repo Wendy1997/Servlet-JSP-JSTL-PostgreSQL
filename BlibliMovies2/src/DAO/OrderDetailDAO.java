@@ -33,7 +33,7 @@ public class OrderDetailDAO {
     }
 
     public List<OrderDetail> getAllOrderDetail(String id, int storeid) throws SQLException {
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM orderdetail where invoiceid = ? AND storeid = ?");
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM orderdetail where invoiceid = ? AND storeid = ? ORDER BY id");
         ps.setString(1, id);
         ps.setInt(2, storeid);
         ResultSet rs = ps.executeQuery();
@@ -48,6 +48,8 @@ public class OrderDetailDAO {
                     rs.getInt(6),
                     rs.getBoolean(7)));
         }
+
+        ps.close();
         return orderDetails;
     }
 
@@ -61,5 +63,6 @@ public class OrderDetailDAO {
         ps.setBoolean(6, orderDetail.isDiscountStatus());
 
         ps.executeUpdate();
+        ps.close();
     }
 }

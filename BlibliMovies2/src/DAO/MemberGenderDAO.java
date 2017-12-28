@@ -45,11 +45,13 @@ public class MemberGenderDAO {
         } else{
             output = null;
         }
+
+        ps.close();
         return output;
     }
 
     public List<MemberGender> getAllMemberGender(int storeid) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM memberGender where storeid = ? and status = true");
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM memberGender where storeid = ? and status = true ORDER BY id");
         ps.setInt(1, storeid);
         ResultSet rs = ps.executeQuery();
 
@@ -57,6 +59,8 @@ public class MemberGenderDAO {
         while(rs.next()){
             memberGenders.add(new MemberGender(rs.getInt(1), rs.getString(2), rs.getInt(3)));
         }
+
+        ps.close();
         return memberGenders;
     }
 
@@ -65,6 +69,7 @@ public class MemberGenderDAO {
         ps.setInt(1, memberGender.getStoreID());
         ps.setString(2, memberGender.getGender());
         ps.executeUpdate();
+        ps.close();
     }
 
     public void deleteMemberGender(String memberGender, int storeid) throws SQLException{
@@ -72,6 +77,7 @@ public class MemberGenderDAO {
         ps.setString(1, memberGender);
         ps.setInt(2, storeid);
         ps.executeUpdate();
+        ps.close();
     }
 
     public void updateMemberGender(MemberGender memberGender) throws SQLException{
@@ -80,5 +86,6 @@ public class MemberGenderDAO {
         ps.setInt(2, memberGender.getId());
         ps.setInt(3, memberGender.getStoreID());
         ps.executeUpdate();
+        ps.close();
     }
 }

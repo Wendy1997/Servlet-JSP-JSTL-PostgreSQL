@@ -44,6 +44,7 @@ public class ScreeningTimeDAO {
         ps.setInt(5, screeningTime.getDuration());
 
         ps.executeUpdate();
+        ps.close();
     }
 
     public ScreeningTime getScreeningTime(String id, String film_id, int storeid) throws SQLException{
@@ -66,11 +67,12 @@ public class ScreeningTimeDAO {
             output = null;
         }
 
+        ps.close();
         return output;
     }
 
     public List<ScreeningTime> getAllScreeningTime(int storeid, String filmid) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("select * from screeningtime where storeid = ? and filmid = ? and status = true");
+        PreparedStatement ps = conn.prepareStatement("select * from screeningtime where storeid = ? and filmid = ? and status = true ORDER BY id");
         ps.setInt(1, storeid);
         ps.setString(2, filmid);
 
@@ -87,6 +89,7 @@ public class ScreeningTimeDAO {
             );
         }
 
+        ps.close();
         return outputList;
     }
 
@@ -99,6 +102,7 @@ public class ScreeningTimeDAO {
         ps.setInt(5, screeningTime.getStoreID());
         ps.setString(6, screeningTime.getFilmId() + "");
         ps.executeUpdate();
+        ps.close();
     }
 
     public void deleteScreeningTime(String id, String filmid, int storeid) throws SQLException{
@@ -107,5 +111,6 @@ public class ScreeningTimeDAO {
         ps.setString(2, filmid + "");
         ps.setInt(3, storeid);
         ps.executeUpdate();
+        ps.close();
     }
 }

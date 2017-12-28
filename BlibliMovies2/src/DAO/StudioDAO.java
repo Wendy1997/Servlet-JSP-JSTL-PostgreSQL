@@ -35,7 +35,7 @@ public class StudioDAO {
     }
 
     public List<Studio> getAllStudio(int storeid) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM studio where storeid = ? and status = true");
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM studio where storeid = ? and status = true ORDER BY id");
         ps.setInt(1, storeid);
 
         ResultSet rs = ps.executeQuery();
@@ -49,6 +49,8 @@ public class StudioDAO {
                     rs.getInt(5)
             ));
         }
+
+        ps.close();
         return studios;
     }
 
@@ -70,6 +72,8 @@ public class StudioDAO {
         } else{
             output = null;
         }
+
+        ps.close();
         return output;
     }
 
@@ -83,6 +87,7 @@ public class StudioDAO {
         ps.setInt(4, studio.getPrice());
 
         ps.executeUpdate();
+        ps.close();
     }
 
     public void deleteStudio(String id, int storeid) throws SQLException{
@@ -90,6 +95,7 @@ public class StudioDAO {
         ps.setString(1, id);
         ps.setInt(2, storeid);
         ps.executeUpdate();
+        ps.close();
     }
 
     public void updateStudio(Studio studio) throws SQLException{
@@ -102,6 +108,7 @@ public class StudioDAO {
         ps.setInt(5, studio.getStoreID());
 
         ps.executeUpdate();
+        ps.close();
     }
 
 }

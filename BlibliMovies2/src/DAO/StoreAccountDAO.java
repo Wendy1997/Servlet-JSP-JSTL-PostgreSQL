@@ -42,6 +42,8 @@ public class StoreAccountDAO {
         } else{
             output = null;
         }
+
+        ps.close();
         return output;
     }
 }

@@ -57,7 +57,7 @@ public class AccountEdit extends HttpServlet{
         try{
             Account account = new Account( request.getParameter("username"),
                     (int)request.getSession().getAttribute("storeid"),
-                    request.getParameter("password"),
+                    request.getParameter("password").hashCode() + "",
                     Integer.parseInt(request.getParameter("role")));
             accountService.updateAccout(account);
 

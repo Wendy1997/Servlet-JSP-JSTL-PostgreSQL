@@ -48,6 +48,8 @@ public class PromoDAO {
         } else{
             output = null;
         }
+
+        ps.close();
         return output;
     }
 
@@ -68,6 +70,8 @@ public class PromoDAO {
         } else{
             output = null;
         }
+
+        ps.close();
         return output;
     }
 }

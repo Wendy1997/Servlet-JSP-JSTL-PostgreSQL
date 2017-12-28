@@ -62,11 +62,13 @@ public class FilmDAO {
         } else{
             output = null;
         }
+
+        ps.close();
         return output;
     }
 
     public List<Film> getAllFilm(int storeid) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM film where storeid = ? and status = true");
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM film where storeid = ? and status = true ORDER BY id");
         ps.setInt(1, storeid);
 
         ResultSet rs = ps.executeQuery();
@@ -90,6 +92,8 @@ public class FilmDAO {
                     rs.getString(15)
                     ));
         }
+
+        ps.close();
         return films;
     }
 
@@ -113,6 +117,7 @@ public class FilmDAO {
         ps.setString(14, film.getSinopsis());
 
         ps.executeUpdate();
+        ps.close();
     }
 
     public void deleteFilm(String id, int storeid) throws SQLException{
@@ -120,6 +125,7 @@ public class FilmDAO {
         ps.setString(1, id);
         ps.setInt(2, storeid);
         ps.executeUpdate();
+        ps.close();
     }
 
     public void updateFilm(Film film) throws SQLException{
@@ -140,6 +146,7 @@ public class FilmDAO {
         ps.setString(14, film.getId() + "");
         ps.setInt(15, film.getStoreID());
         ps.executeUpdate();
+        ps.close();
     }
 
 }

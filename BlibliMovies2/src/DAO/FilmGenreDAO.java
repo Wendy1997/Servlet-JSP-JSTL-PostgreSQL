@@ -45,11 +45,13 @@ public class FilmGenreDAO {
         } else{
             output = null;
         }
+
+        ps.close();
         return output;
     }
 
     public List<FilmGenre> getAllFilmGenre(int storeid) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM filmGenre where storeid = ? and status = true");
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM filmGenre where storeid = ? and status = true ORDER BY id");
         ps.setInt(1, storeid);
         ResultSet rs = ps.executeQuery();
 
@@ -57,6 +59,8 @@ public class FilmGenreDAO {
         while(rs.next()){
             filmGenres.add(new FilmGenre(rs.getInt(1), rs.getString(2), rs.getInt(3)));
         }
+
+        ps.close();
         return filmGenres;
     }
 
@@ -65,6 +69,7 @@ public class FilmGenreDAO {
         ps.setInt(1, filmGenre.getStoreID());
         ps.setString(2, filmGenre.getGenre());
         ps.executeUpdate();
+        ps.close();
     }
 
     public void deleteFilmGenre(String filmGenre, int storeid) throws SQLException{
@@ -72,6 +77,7 @@ public class FilmGenreDAO {
         ps.setInt(1, Integer.parseInt(filmGenre));
         ps.setInt(2, storeid);
         ps.executeUpdate();
+        ps.close();
     }
 
     public void updateFilmGenre(FilmGenre filmGenre) throws SQLException{
@@ -80,5 +86,6 @@ public class FilmGenreDAO {
         ps.setInt(2, filmGenre.getId());
         ps.setInt(3, filmGenre.getStoreID());
         ps.executeUpdate();
+        ps.close();
     }
 }

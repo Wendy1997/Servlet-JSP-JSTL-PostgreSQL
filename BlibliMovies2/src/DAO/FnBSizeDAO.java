@@ -45,11 +45,13 @@ public class FnBSizeDAO {
         } else{
             output = null;
         }
+
+        ps.close();
         return output;
     }
 
     public List<FnBSize> getAllFnBSize(int storeid) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM fnBSize where storeid = ? and status = true");
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM fnBSize where storeid = ? and status = true ORDER BY id");
         ps.setInt(1, storeid);
         ResultSet rs = ps.executeQuery();
 
@@ -57,6 +59,8 @@ public class FnBSizeDAO {
         while(rs.next()){
             fnBSizes.add(new FnBSize(rs.getInt(1), rs.getString(2), rs.getInt(3)));
         }
+
+        ps.close();
         return fnBSizes;
     }
 
@@ -65,6 +69,7 @@ public class FnBSizeDAO {
         ps.setInt(1, fnBSize.getStoreID());
         ps.setString(2, fnBSize.getSize());
         ps.executeUpdate();
+        ps.close();
     }
 
     public void deleteFnBSize(String fnBSize, int storeid) throws SQLException{
@@ -72,6 +77,7 @@ public class FnBSizeDAO {
         ps.setInt(1, Integer.parseInt(fnBSize));
         ps.setInt(2, storeid);
         ps.executeUpdate();
+        ps.close();
     }
 
     public void updateFnBSize(FnBSize fnBSize) throws SQLException{
@@ -80,5 +86,6 @@ public class FnBSizeDAO {
         ps.setInt(2, fnBSize.getId());
         ps.setInt(3, fnBSize.getStoreID());
         ps.executeUpdate();
+        ps.close();
     }
 }
