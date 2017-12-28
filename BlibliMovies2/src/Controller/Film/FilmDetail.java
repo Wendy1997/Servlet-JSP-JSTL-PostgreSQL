@@ -2,6 +2,7 @@ package Controller.Film;
 
 import DAO.FilmDAO;
 import Model.Film;
+import Model.FilmGenre;
 import Model.ScreeningTime;
 import Service.FilmService;
 import Service.FilmServiceDatabase;
@@ -43,7 +44,7 @@ public class FilmDetail extends HttpServlet{
         try{
             Film film = filmService.getFilm(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
             List<ScreeningTime> screeningTimeList = filmService.getAllScreeningTime((int)request.getSession().getAttribute("storeid"), request.getParameter("id"));
-
+            FilmGenre filmGenre = filmService.getFilmGenre(film.getGenre() + "", (int)request.getSession().getAttribute("storeid"));
             Map<Integer, List<ScreeningTime>> screeningList = new TreeMap<>();
 
             for(int i = 0; i < screeningTimeList.size(); i++){
@@ -59,6 +60,7 @@ public class FilmDetail extends HttpServlet{
             film.setCover("/uploads" + film.getCover());
 
             request.setAttribute("film", film);
+            request.setAttribute("genre", filmGenre);
             request.setAttribute("screeningTime", screeningList);
 
             request.getRequestDispatcher(address).forward(request, response);

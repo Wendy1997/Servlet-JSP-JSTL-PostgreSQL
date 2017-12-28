@@ -7,7 +7,7 @@ public class Film {
     private int storeid;
     private String cover;
     private String title;
-    private String genre;
+    private int genreid;
     private int duration;
     private String director;
     private double rating;
@@ -20,11 +20,11 @@ public class Film {
     private String sinopsis;
     private List<ScreeningTime> screeningTimes;
 
-    public Film(int storeid, String cover, String title, String genre, int duration, String director, double rating, int reviewTotal, String startTime, String endTime, String language, String subtitle, String actor, String sinopsis) {
+    public Film(int storeid, String cover, String title, int genreid, int duration, String director, double rating, int reviewTotal, String startTime, String endTime, String language, String subtitle, String actor, String sinopsis) {
         this.storeid = storeid;
         this.cover = cover;
         this.title = title;
-        this.genre = genre;
+        this.genreid = genreid;
         this.duration = duration;
         this.director = director;
         this.rating = rating;
@@ -37,12 +37,12 @@ public class Film {
         this.sinopsis = sinopsis;
     }
 
-    public Film(int id, int storeid, String cover, String title, String genre, int duration, String director, double rating, int reviewTotal, String startTime, String endTime, String language, String subtitle, String actor, String sinopsis) {
+    public Film(int id, int storeid, String cover, String title, int genreid, int duration, String director, double rating, int reviewTotal, String startTime, String endTime, String language, String subtitle, String actor, String sinopsis) {
         this.id = id;
         this.storeid = storeid;
         this.cover = cover;
         this.title = title;
-        this.genre = genre;
+        this.genreid = genreid;
         this.duration = duration;
         this.director = director;
         this.rating = rating;
@@ -87,12 +87,12 @@ public class Film {
         this.title = title;
     }
 
-    public String getGenre() {
-        return genre;
+    public int getGenre() {
+        return genreid;
     }
 
-    public void setGenre(String genre) {
-        this.genre = genre;
+    public void setGenre(int genreidid) {
+        this.genreid = genreid;
     }
 
     public int getDuration() {

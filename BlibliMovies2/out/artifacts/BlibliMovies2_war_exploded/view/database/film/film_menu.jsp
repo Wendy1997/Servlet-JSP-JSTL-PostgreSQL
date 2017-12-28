@@ -35,7 +35,11 @@
                         <td scope="row"><c:out value="${films.id}"></c:out></td>
                         <td><c:out value="${films.cover}"></c:out></td>
                         <td><c:out value="${films.title}"></c:out></td>
-                        <td><c:out value="${films.genre}"></c:out></td>
+                        <td>
+                            <c:forEach items="${genre}" var="genre">
+                                ${genre.id == films.genre ? genre.genre : ""}
+                            </c:forEach>
+                        </td>
                         <td><c:out value="${films.director}"></c:out></td>
                         <td><a <c:out value='href=/admin/film/edit?id=${films.id}'></c:out>>Edit</a></td>
                         <td><a <c:out value='href=/admin/film/delete?id=${films.id}'></c:out>>Delete</a></td>

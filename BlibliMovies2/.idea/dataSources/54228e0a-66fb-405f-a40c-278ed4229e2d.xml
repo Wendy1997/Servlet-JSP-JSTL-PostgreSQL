@@ -28,8 +28,8 @@
     </role>
     <schema id="6" parent="3" name="public">
       <ObjectId>2200</ObjectId>
-      <IntrospectionTimestamp>2017-12-28.11:19:05.141</IntrospectionTimestamp>
-      <IntrospectionStateNumber>4733</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2017-12-28.13:27:47.533</IntrospectionTimestamp>
+      <IntrospectionStateNumber>4740</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -177,11 +177,11 @@
     </table>
     <table id="31" parent="6" name="film">
       <ObjectId>41617</ObjectId>
-      <StateNumber>4627</StateNumber>
+      <StateNumber>4740</StateNumber>
     </table>
     <table id="32" parent="6" name="filmgenre">
       <ObjectId>41626</ObjectId>
-      <StateNumber>4634</StateNumber>
+      <StateNumber>4740</StateNumber>
     </table>
     <table id="33" parent="6" name="filmticket">
       <ObjectId>41632</ObjectId>
@@ -387,8 +387,8 @@
     </column>
     <column id="71" parent="31" name="genre">
       <Position>5</Position>
-      <DataType>varchar(15)|0</DataType>
-      <StateNumber>3377</StateNumber>
+      <DataType>integer|0</DataType>
+      <StateNumber>4739</StateNumber>
     </column>
     <column id="72" parent="31" name="duration">
       <Position>6</Position>
@@ -463,15 +463,17 @@
       <RefTableId>41698</RefTableId>
       <RefColPositions>4</RefColPositions>
       <RefTableName>storeaccount</RefTableName>
+      <RefKeyName>storeaccount_id_pk</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="86" parent="31" name="film_filmgenre_genre_fk">
-      <ObjectId>41793</ObjectId>
+    <foreign-key id="86" parent="31" name="film_filmgenre_id_fk">
+      <ObjectId>42177</ObjectId>
       <ColNames>genre</ColNames>
       <RefTableId>41626</RefTableId>
-      <RefColPositions>2</RefColPositions>
+      <RefColPositions>1</RefColPositions>
       <RefTableName>filmgenre</RefTableName>
-      <RefColNames>genre</RefColNames>
+      <RefKeyName>filmgenre_id_pk</RefKeyName>
+      <RefColNames>id</RefColNames>
     </foreign-key>
     <column id="87" parent="32" name="id">
       <Position>1</Position>
@@ -524,6 +526,7 @@
       <RefTableId>41698</RefTableId>
       <RefColPositions>4</RefColPositions>
       <RefTableName>storeaccount</RefTableName>
+      <RefKeyName>storeaccount_id_pk</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
     <column id="96" parent="33" name="id">

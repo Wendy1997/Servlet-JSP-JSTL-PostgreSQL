@@ -89,7 +89,7 @@ public class FilmAdd extends HttpServlet {
                     (int)request.getSession().getAttribute("storeid"),
                     "/" + (int)request.getSession().getAttribute("storeid") + "/film/" + request.getParameter("nama") + " (" + request.getParameter("waktu_mulai").substring(0,4) + ") [" + dateNow + "].jpg",
                 request.getParameter("nama"),
-                request.getParameter("genre"),
+                Integer.parseInt(request.getParameter("genre")),
                 Integer.parseInt(request.getParameter("durasi")),
                 request.getParameter("director"),
                 Double.parseDouble(request.getParameter("rating")),

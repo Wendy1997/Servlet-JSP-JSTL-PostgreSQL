@@ -47,7 +47,7 @@ public class FilmDAO {
                     rs.getInt(2),
                     rs.getString(3),
                     rs.getString(4),
-                    rs.getString(5),
+                    rs.getInt(5),
                     rs.getInt(6),
                     rs.getString(7),
                     rs.getInt(8),
@@ -77,7 +77,7 @@ public class FilmDAO {
                     rs.getInt(2),
                     rs.getString(3),
                     rs.getString(4),
-                    rs.getString(5),
+                    rs.getInt(5),
                     rs.getInt(6),
                     rs.getString(7),
                     rs.getInt(8),
@@ -100,7 +100,7 @@ public class FilmDAO {
         ps.setInt(1, film.getStoreID());
         ps.setString(2, film.getCover());
         ps.setString(3, film.getTitle());
-        ps.setString(4, film.getGenre());
+        ps.setInt(4, film.getGenre());
         ps.setInt(5, film.getDuration());
         ps.setString(6, film.getDirector());
         ps.setDouble(7, film.getRating());
@@ -126,7 +126,7 @@ public class FilmDAO {
         PreparedStatement ps = conn.prepareStatement("UPDATE film set cover = ?, title = ?, genre = ?, duration = ?, director = ?, rating = ?, reviewtotal = ?, starttime = ?, endtime = ?, language = ?, subtitle = ?, actor = ?, synopsis = ? where id = ? and storeid = ?");
         ps.setString(1, film.getCover());
         ps.setString(2, film.getTitle());
-        ps.setString(3, film.getGenre());
+        ps.setInt(3, film.getGenre());
         ps.setInt(4, film.getDuration());
         ps.setString(5, film.getDirector());
         ps.setDouble(6, film.getRating());

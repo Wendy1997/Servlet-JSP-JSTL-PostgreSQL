@@ -2,6 +2,7 @@ package Controller.Film;
 
 import DAO.FilmDAO;
 import Model.Film;
+import Model.FilmGenre;
 import Service.FilmService;
 import Service.FilmServiceDatabase;
 
@@ -41,8 +42,10 @@ public class FilmMenu extends HttpServlet{
 
         try{
             List<Film> films = filmService.getAllFilm((int)request.getSession().getAttribute("storeid"));
-            request.setAttribute("films", films);
+            List<FilmGenre> filmGenreList = filmService.getAllFilmGenre((int)request.getSession().getAttribute("storeid"));
 
+            request.setAttribute("genre", filmGenreList);
+            request.setAttribute("films", films);
             request.getRequestDispatcher(address).forward(request, response);
         } catch (SQLException e){
             System.out.println(e.getMessage());

@@ -55,7 +55,7 @@ public class FilmGenreEdit extends HttpServlet{
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
         try{
-            FilmGenre filmGenre = new FilmGenre( request.getParameter("id"),
+            FilmGenre filmGenre = new FilmGenre( Integer.parseInt(request.getParameter("id")),
                     request.getParameter("genre"),
                     (int)request.getSession().getAttribute("storeid"));
             filmService.updateFilmGenre(filmGenre);

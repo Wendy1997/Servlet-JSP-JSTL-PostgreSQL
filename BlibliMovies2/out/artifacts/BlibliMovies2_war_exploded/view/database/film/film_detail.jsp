@@ -12,7 +12,7 @@
         <!-- Title -->
         <h1>${film.title}</h1>
         <div class="stripe"></div>
-        <h2>${film.genre}/${film.duration}</h2><br>
+        <h2>${genre.genre}/${film.duration}</h2><br>
 
         <!-- Content -->
         <div class="row">

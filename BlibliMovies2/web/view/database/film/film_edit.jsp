@@ -35,7 +35,7 @@
                         <select class="form-control" id="genre" name="genre" value="${film.genre}" required>
                             <option disabled selected value> -- pilih Genre -- </option>
                             <c:forEach var="genre" items="${genre}">
-                                <option value="${genre.genre}" ${film.genre == genre.genre ? 'selected' : ''}>${genre.genre}</option>
+                                <option value="${genre.id}" ${film.genre == genre.id ? 'selected' : ''}>${genre.genre}</option>
                             </c:forEach>
                         </select>
                     </div>
