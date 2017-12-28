@@ -63,101 +63,119 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="StudioEdit.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/Studio/StudioEdit.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="59" column="66" lean-forward="false" selection-start-line="59" selection-start-column="66" selection-end-line="59" selection-end-column="66" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StudioMenu.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/Studio/StudioMenu.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="45" column="12" lean-forward="false" selection-start-line="45" selection-start-column="12" selection-end-line="45" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StudioTypeAdd.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/StudioType/StudioTypeAdd.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-474">
-              <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StudioTypeDelete.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/StudioType/StudioTypeDelete.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StudioTypeEdit.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/StudioType/StudioTypeEdit.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="51" column="96" lean-forward="false" selection-start-line="51" selection-start-column="96" selection-end-line="51" selection-end-column="96" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StudioTypeMenu.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/StudioType/StudioTypeMenu.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-306">
-              <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="studio_add.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/view/database/studio/studio_add.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="32" column="56" lean-forward="false" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="studio_edit.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/view/database/studio/studio_edit.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="32" column="83" lean-forward="false" selection-start-line="32" selection-start-column="83" selection-end-line="32" selection-end-column="83" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="studio_menu.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/view/database/studio/studio_menu.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="35" column="75" lean-forward="false" selection-start-line="35" selection-start-column="75" selection-end-line="35" selection-end-column="75" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="member_menu.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/view/database/member/member_menu.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="36" column="35" lean-forward="true" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="91" />
+            <state relative-caret-position="399">
+              <caret line="43" column="86" lean-forward="true" selection-start-line="43" selection-start-column="86" selection-end-line="43" selection-end-column="86" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MemberGenderDAO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/DAO/MemberGenderDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="268">
+              <caret line="77" column="25" lean-forward="true" selection-start-line="77" selection-start-column="25" selection-end-line="77" selection-end-column="25" />
+              <folding>
+                <marker date="1514445132549" expanded="true" signature="1043:1116" ph="SELECT * FRO... memberGender" />
+                <marker date="1514445132549" expanded="true" signature="1580:1642" ph="SELECT * FRO... memberGender" />
+                <marker date="1514445132549" expanded="true" signature="2095:2150" ph="INSERT INTO memberGender... " />
+                <marker date="1514445132549" expanded="true" signature="2433:2500" ph="UPDATE memberGender... " />
+                <marker date="1514445132549" expanded="true" signature="2746:2827" ph="UPDATE memberGender... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MemberCardDAO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/DAO/MemberCardDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="83" column="5" lean-forward="true" selection-start-line="83" selection-start-column="5" selection-end-line="83" selection-end-column="5" />
+              <folding>
+                <marker date="1514446082112" expanded="true" signature="1006:1077" ph="SELECT * FRO... membercard" />
+                <marker date="1514446082112" expanded="true" signature="1734:1794" ph="SELECT * FRO... membercard" />
+                <marker date="1514446082112" expanded="true" signature="2430:2532" ph="INSERT INTO membercard... " />
+                <marker date="1514446082112" expanded="true" signature="3021:3086" ph="UPDATE membercard... " />
+                <marker date="1514446082112" expanded="true" signature="3316:3434" ph="UPDATE membercard... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScreeningTimeAdd.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/ScreeningTime/ScreeningTimeAdd.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="237">
+              <caret line="68" column="101" lean-forward="true" selection-start-line="68" selection-start-column="41" selection-end-line="68" selection-end-column="101" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScreeningTimeDelete.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/ScreeningTime/ScreeningTimeDelete.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScreeningTimeDAO.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/DAO/ScreeningTimeDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="104" column="93" lean-forward="false" selection-start-line="104" selection-start-column="93" selection-end-line="104" selection-end-column="93" />
+              <folding>
+                <marker date="1514446647343" expanded="true" signature="1065:1167" ph="INSERT INTO screeningTime... " />
+                <marker date="1514446647343" expanded="true" signature="1614:1703" ph="select * fro... screeningtime" />
+                <marker date="1514446647343" expanded="true" signature="2380:2458" ph="select * fro... screeningtime" />
+                <marker date="1514446647343" expanded="true" signature="3117:3236" ph="UPDATE screeningtime... " />
+                <marker date="1514446647343" expanded="true" signature="3745:3828" ph="UPDATE screeningtime... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScreeningTimeUpdate.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/ScreeningTime/ScreeningTimeUpdate.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="387">
+              <caret line="44" column="73" lean-forward="false" selection-start-line="44" selection-start-column="43" selection-end-line="44" selection-end-column="73" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="screeningTime_menu.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/view/database/screening/screeningTime_menu.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="429">
+              <caret line="38" column="65" lean-forward="false" selection-start-line="38" selection-start-column="65" selection-end-line="38" selection-end-column="65" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="screeningTime_edit.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/view/database/screening/screeningTime_edit.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="32" column="62" lean-forward="true" selection-start-line="32" selection-start-column="62" selection-end-line="32" selection-end-column="62" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScreeningTimeMenu.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/ScreeningTime/ScreeningTimeMenu.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-147">
+              <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -177,7 +195,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>String storeid</find>
       <find>String storename</find>
       <find>(String)request.getSession().getAttribute(&quot;storename&quot;))</find>
       <find>Integer.parseInt((String)request.getSession().getAttribute(&quot;storename&quot;))</find>
@@ -207,6 +224,7 @@
       <find>String gender</find>
       <find>String type</find>
       <find>String id</find>
+      <find>userna</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -217,11 +235,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Controller/Login/Account.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Account/AccountMenu.java" />
-        <option value="$PROJECT_DIR$/web/view/database/account/account_menu.jsp" />
-        <option value="$PROJECT_DIR$/src/Model/FilmGenre.java" />
-        <option value="$PROJECT_DIR$/src/Model/Film.java" />
         <option value="$PROJECT_DIR$/src/DAO/FilmDAO.java" />
         <option value="$PROJECT_DIR$/src/Controller/Film/FilmAdd.java" />
         <option value="$PROJECT_DIR$/src/Controller/Film/FilmEdit.java" />
@@ -248,7 +261,6 @@
         <option value="$PROJECT_DIR$/web/view/database/fnb/fnb_edit.jsp" />
         <option value="$PROJECT_DIR$/src/Model/MemberCard.java" />
         <option value="$PROJECT_DIR$/src/Model/MemberGender.java" />
-        <option value="$PROJECT_DIR$/src/DAO/MemberCardDAO.java" />
         <option value="$PROJECT_DIR$/src/DAO/MemberGenderDAO.java" />
         <option value="$PROJECT_DIR$/src/Controller/MemberCard/MemberCardAdd.java" />
         <option value="$PROJECT_DIR$/src/Controller/MemberCard/MemberCardEdit.java" />
@@ -268,6 +280,12 @@
         <option value="$PROJECT_DIR$/web/view/database/studio/studio_add.jsp" />
         <option value="$PROJECT_DIR$/web/view/database/studio/studio_edit.jsp" />
         <option value="$PROJECT_DIR$/web/view/database/studio/studio_menu.jsp" />
+        <option value="$PROJECT_DIR$/src/DAO/MemberCardDAO.java" />
+        <option value="$PROJECT_DIR$/src/Controller/ScreeningTime/ScreeningTimeAdd.java" />
+        <option value="$PROJECT_DIR$/src/Controller/ScreeningTime/ScreeningTimeUpdate.java" />
+        <option value="$PROJECT_DIR$/web/view/database/screening/screeningTime_menu.jsp" />
+        <option value="$PROJECT_DIR$/src/Controller/ScreeningTime/ScreeningTimeDelete.java" />
+        <option value="$PROJECT_DIR$/src/DAO/ScreeningTimeDAO.java" />
       </list>
     </option>
   </component>
@@ -329,14 +347,13 @@
               <item name="BlibliMovies2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Controller" type="462c0819:PsiDirectoryNode" />
-              <item name="Studio" type="462c0819:PsiDirectoryNode" />
+              <item name="ScreeningTime" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BlibliMovies2" type="b2602c69:ProjectViewProjectNode" />
               <item name="BlibliMovies2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-              <item name="StudioType" type="462c0819:PsiDirectoryNode" />
+              <item name="DAO" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BlibliMovies2" type="b2602c69:ProjectViewProjectNode" />
@@ -362,15 +379,7 @@
               <item name="web" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
               <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="member" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BlibliMovies2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BlibliMovies2" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="studio" type="462c0819:PsiDirectoryNode" />
+              <item name="screening" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -774,12 +783,12 @@
       <workItem from="1514089992524" duration="8491000" />
       <workItem from="1514123589121" duration="4388000" />
       <workItem from="1514410134837" duration="2333000" />
-      <workItem from="1514422735469" duration="18424000" />
+      <workItem from="1514422735469" duration="19264000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="296752000" />
+    <option name="totallyTimeSpent" value="297592000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -840,62 +849,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Controller/FnBSize/FnBSizeEdit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="57" column="87" lean-forward="false" selection-start-line="57" selection-start-column="87" selection-end-line="57" selection-end-column="87" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/FnBSize/FnBSizeMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/FnBType/FnBTypeAdd.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/FnBType/FnBTypeDelete.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/FnBType/FnBTypeEdit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="57" column="87" lean-forward="false" selection-start-line="57" selection-start-column="87" selection-end-line="57" selection-end-column="87" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/FnBType/FnBTypeMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="43" column="0" lean-forward="true" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/FnB/FnBDelete.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="30" column="37" lean-forward="false" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/FnB/FnBAdd.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
@@ -970,34 +923,6 @@
         <state relative-caret-position="42">
           <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DAO/MemberCardDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="95" column="18" lean-forward="false" selection-start-line="95" selection-start-column="18" selection-end-line="95" selection-end-column="18" />
-          <folding>
-            <marker date="1514445132926" expanded="true" signature="1006:1077" ph="SELECT * FRO... membercard" />
-            <marker date="1514445132926" expanded="true" signature="1734:1794" ph="SELECT * FRO... membercard" />
-            <marker date="1514445132926" expanded="true" signature="2430:2532" ph="INSERT INTO membercard... " />
-            <marker date="1514445132926" expanded="true" signature="3021:3092" ph="UPDATE membercard... " />
-            <marker date="1514445132926" expanded="true" signature="3322:3440" ph="UPDATE membercard... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DAO/MemberGenderDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="77" column="25" lean-forward="true" selection-start-line="77" selection-start-column="25" selection-end-line="77" selection-end-column="25" />
-          <folding>
-            <marker date="1514445132549" expanded="true" signature="1043:1116" ph="SELECT * FRO... memberGender" />
-            <marker date="1514445132549" expanded="true" signature="1580:1642" ph="SELECT * FRO... memberGender" />
-            <marker date="1514445132549" expanded="true" signature="2095:2150" ph="INSERT INTO memberGender... " />
-            <marker date="1514445132549" expanded="true" signature="2433:2500" ph="UPDATE memberGender... " />
-            <marker date="1514445132549" expanded="true" signature="2746:2827" ph="UPDATE memberGender... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1250,19 +1175,109 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/view/database/member/member_menu.jsp">
+    <entry file="file://$PROJECT_DIR$/web/view/database/studio/studio_menu.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="36" column="35" lean-forward="true" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="91" />
+        <state relative-caret-position="378">
+          <caret line="36" column="25" lean-forward="false" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/view/database/studio/studio_menu.jsp">
+    <entry file="file://$PROJECT_DIR$/web/view/database/member/member_menu.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="43" column="86" lean-forward="true" selection-start-line="43" selection-start-column="86" selection-end-line="43" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DAO/MemberGenderDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="77" column="25" lean-forward="true" selection-start-line="77" selection-start-column="25" selection-end-line="77" selection-end-column="25" />
+          <folding>
+            <marker date="1514445132549" expanded="true" signature="1043:1116" ph="SELECT * FRO... memberGender" />
+            <marker date="1514445132549" expanded="true" signature="1580:1642" ph="SELECT * FRO... memberGender" />
+            <marker date="1514445132549" expanded="true" signature="2095:2150" ph="INSERT INTO memberGender... " />
+            <marker date="1514445132549" expanded="true" signature="2433:2500" ph="UPDATE memberGender... " />
+            <marker date="1514445132549" expanded="true" signature="2746:2827" ph="UPDATE memberGender... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DAO/MemberCardDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="83" column="5" lean-forward="true" selection-start-line="83" selection-start-column="5" selection-end-line="83" selection-end-column="5" />
+          <folding>
+            <marker date="1514446082112" expanded="true" signature="1006:1077" ph="SELECT * FRO... membercard" />
+            <marker date="1514446082112" expanded="true" signature="1734:1794" ph="SELECT * FRO... membercard" />
+            <marker date="1514446082112" expanded="true" signature="2430:2532" ph="INSERT INTO membercard... " />
+            <marker date="1514446082112" expanded="true" signature="3021:3086" ph="UPDATE membercard... " />
+            <marker date="1514446082112" expanded="true" signature="3316:3434" ph="UPDATE membercard... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ScreeningTime/ScreeningTimeAdd.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="68" column="101" lean-forward="true" selection-start-line="68" selection-start-column="41" selection-end-line="68" selection-end-column="101" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ScreeningTime/ScreeningTimeMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-147">
+          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ScreeningTime/ScreeningTimeUpdate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="387">
+          <caret line="44" column="73" lean-forward="false" selection-start-line="44" selection-start-column="43" selection-end-line="44" selection-end-column="73" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/screening/screeningTime_menu.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="38" column="65" lean-forward="false" selection-start-line="38" selection-start-column="65" selection-end-line="38" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/screening/screeningTime_edit.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
-          <caret line="35" column="75" lean-forward="false" selection-start-line="35" selection-start-column="75" selection-end-line="35" selection-end-column="75" />
+          <caret line="32" column="62" lean-forward="true" selection-start-line="32" selection-start-column="62" selection-end-line="32" selection-end-column="62" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/ScreeningTime/ScreeningTimeDelete.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="40" column="0" lean-forward="true" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DAO/ScreeningTimeDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="104" column="93" lean-forward="false" selection-start-line="104" selection-start-column="93" selection-end-line="104" selection-end-column="93" />
+          <folding>
+            <marker date="1514446647343" expanded="true" signature="1065:1167" ph="INSERT INTO screeningTime... " />
+            <marker date="1514446647343" expanded="true" signature="1614:1703" ph="select * fro... screeningtime" />
+            <marker date="1514446647343" expanded="true" signature="2380:2458" ph="select * fro... screeningtime" />
+            <marker date="1514446647343" expanded="true" signature="3117:3236" ph="UPDATE screeningtime... " />
+            <marker date="1514446647343" expanded="true" signature="3745:3828" ph="UPDATE screeningtime... " />
+          </folding>
         </state>
       </provider>
     </entry>

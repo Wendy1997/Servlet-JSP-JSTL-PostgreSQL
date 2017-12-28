@@ -102,7 +102,7 @@ public class ScreeningTimeDAO {
     }
 
     public void deleteScreeningTime(String id, String filmid, int storeid) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("UPDATE screeningtime set status = true where id = ? and filmid = ? and storeid = ?");
+        PreparedStatement ps = conn.prepareStatement("UPDATE screeningtime set status = false where id = ? and filmid = ? and storeid = ?");
         ps.setString(1, id + "");
         ps.setString(2, filmid + "");
         ps.setInt(3, storeid);

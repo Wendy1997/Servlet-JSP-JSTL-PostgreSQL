@@ -84,7 +84,7 @@ public class MemberCardDAO {
     }
 
     public void deleteMemberCard(String id, int storeid) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("UPDATE membercard set status = false where username = ? and storeid = ?");
+        PreparedStatement ps = conn.prepareStatement("UPDATE membercard set status = false where id = ? and storeid = ?");
         ps.setString(1, id);
         ps.setInt(2, storeid);
         ps.executeUpdate();

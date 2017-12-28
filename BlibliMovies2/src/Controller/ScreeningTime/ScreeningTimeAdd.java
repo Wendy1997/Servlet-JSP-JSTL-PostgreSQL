@@ -66,7 +66,7 @@ public class ScreeningTimeAdd extends HttpServlet{
             String address = "/view/database/success.jsp";
             request.setAttribute("title", "Screening Time");
             request.setAttribute("complete", "Added");
-            request.setAttribute("link", "/admin/film/detail?id=" + request.getParameter("filmid"));
+            request.setAttribute("link", "/admin/screentime?filmid=" + request.getParameter("filmid"));
 
             request.getRequestDispatcher(address).forward(request,response);
         } catch (SQLException e){

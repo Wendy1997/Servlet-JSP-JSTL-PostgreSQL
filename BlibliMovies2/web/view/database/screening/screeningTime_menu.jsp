@@ -35,8 +35,8 @@
                         <td><c:out value="${screenTime.studioId}"></c:out></td>
                         <td><c:out value="${screenTime.time}"></c:out></td>
                         <td><c:out value="${screenTime.duration}"></c:out></td>
-                        <td><a href="/admin/screentime/update?id=${screeningTime.id}&filmid=${film.id}&duration=${film.duration}"}>Edit</a></td>
-                        <td><a href="/admin/screentime/delete?id=${screeningTime.id}&filmid=${film.id}"}>Delete</a></td>
+                        <td><a href="/admin/screentime/update?id=${screenTime.id}&filmid=${film.id}&duration=${film.duration}"}>Edit</a></td>
+                        <td><a href="/admin/screentime/delete?id=${screenTime.id}&filmid=${film.id}"}>Delete</a></td>
                     </tr>
                 </c:forEach>
 
