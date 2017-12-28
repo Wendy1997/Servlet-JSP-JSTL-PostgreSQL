@@ -26,14 +26,36 @@ SET default_with_oids = false;
 
 CREATE TABLE account (
     username character varying(20) NOT NULL,
-    storeusername character varying(20),
+    storeid integer,
     password character varying(20),
-    type character varying(10),
-    status boolean DEFAULT true
+    roleid integer,
+    status boolean DEFAULT true,
+    id integer NOT NULL
 );
 
 
 ALTER TABLE account OWNER TO postgres;
+
+--
+-- Name: account_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE account_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE account_id_seq OWNER TO postgres;
+
+--
+-- Name: account_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE account_id_seq OWNED BY account.id;
+
 
 --
 -- Name: accountrole; Type: TABLE; Schema: public; Owner: postgres
@@ -42,7 +64,7 @@ ALTER TABLE account OWNER TO postgres;
 CREATE TABLE accountrole (
     id integer NOT NULL,
     role character varying(20),
-    storeusername character varying(20),
+    storeid integer,
     status boolean DEFAULT true
 );
 
@@ -76,10 +98,10 @@ ALTER SEQUENCE accountrole_id_seq OWNED BY accountrole.id;
 
 CREATE TABLE film (
     id character varying(20) NOT NULL,
-    storeusername character varying(20),
+    storeid integer,
     cover character varying(150),
     title character varying(50),
-    genre character varying(15),
+    genre integer,
     duration integer,
     director character varying(50),
     rating double precision,
@@ -124,7 +146,7 @@ ALTER SEQUENCE film_id_seq OWNED BY film.id;
 CREATE TABLE filmgenre (
     id integer NOT NULL,
     genre character varying(20),
-    storeusername character varying(20),
+    storeid integer,
     status boolean DEFAULT true
 );
 
@@ -163,7 +185,7 @@ CREATE TABLE filmticket (
     seatnumber character varying(5),
     screeningid character varying(20),
     price integer,
-    storeusername character varying(20)
+    storeid integer
 );
 
 
@@ -197,7 +219,7 @@ ALTER SEQUENCE filmticket_id_seq OWNED BY filmticket.id;
 CREATE TABLE fnbsize (
     id integer NOT NULL,
     size character varying(20),
-    storeusername character varying(20),
+    storeid integer,
     status boolean DEFAULT true
 );
 
@@ -232,7 +254,7 @@ ALTER SEQUENCE fnbsize_id_seq OWNED BY fnbsize.id;
 CREATE TABLE fnbtype (
     id integer NOT NULL,
     type character varying(20),
-    storeusername character varying(20),
+    storeid integer,
     status boolean DEFAULT true
 );
 
@@ -266,11 +288,11 @@ ALTER SEQUENCE fnbtype_id_seq OWNED BY fnbtype.id;
 
 CREATE TABLE foodandbeverages (
     id character varying(20) NOT NULL,
-    storeusername character varying(20),
+    storeid integer,
     cover character varying(150),
     name character varying(50),
-    type character varying(20),
-    size character varying(10),
+    type integer,
+    size integer,
     price integer,
     status boolean DEFAULT true
 );
@@ -306,8 +328,8 @@ ALTER SEQUENCE foodandbeverages_id_seq OWNED BY foodandbeverages.id;
 CREATE TABLE invoice (
     id character varying(20) NOT NULL,
     memberid character varying(20),
-    accountusername character varying(20),
-    storeusername character varying(20),
+    cashierid integer,
+    storeid integer,
     promoid character varying(10),
     orderdate timestamp without time zone,
     totalprice double precision
@@ -338,33 +360,14 @@ ALTER SEQUENCE invoice_id_seq OWNED BY invoice.id;
 
 
 --
--- Name: ledger; Type: TABLE; Schema: public; Owner: postgres
---
-
-CREATE TABLE ledger (
-    id character varying(20) NOT NULL,
-    invoiceid character varying(20),
-    orderdetailid character varying(20),
-    memberid character varying(20),
-    storeusername character varying(20),
-    date timestamp without time zone,
-    itemname character varying(30),
-    quantity integer,
-    price integer
-);
-
-
-ALTER TABLE ledger OWNER TO postgres;
-
---
 -- Name: membercard; Type: TABLE; Schema: public; Owner: postgres
 --
 
 CREATE TABLE membercard (
     id character varying(20) NOT NULL,
-    storeusername character varying(20),
+    storeid integer,
     fullname character varying(50),
-    gender character varying(8),
+    gender integer,
     birthdate timestamp without time zone,
     phonenumber character varying(15),
     email character varying(30),
@@ -402,7 +405,7 @@ ALTER SEQUENCE membercard_id_seq OWNED BY membercard.id;
 CREATE TABLE membergender (
     id integer NOT NULL,
     gender character varying(20),
-    storeusername character varying(20),
+    storeid integer,
     status boolean DEFAULT true
 );
 
@@ -437,7 +440,7 @@ ALTER SEQUENCE membergender_id_seq OWNED BY membergender.id;
 CREATE TABLE orderdetail (
     id character varying(20) NOT NULL,
     invoiceid character varying(20),
-    storeusername character varying(20),
+    storeid integer,
     itemname character varying(30),
     quantity integer,
     price integer,
@@ -474,7 +477,7 @@ ALTER SEQUENCE orderdetail_id_seq OWNED BY orderdetail.id;
 
 CREATE TABLE promo (
     id character varying(20) NOT NULL,
-    storeusername character varying(20),
+    storeid integer,
     name character varying(50),
     description text,
     status boolean DEFAULT true,
@@ -492,7 +495,7 @@ CREATE TABLE screeningtime (
     id character varying(20) NOT NULL,
     filmid character varying(20),
     studioid character varying(20),
-    storeusername character varying(20),
+    storeid integer,
     "time" time without time zone,
     duration integer,
     status boolean DEFAULT true
@@ -563,11 +566,33 @@ ALTER SEQUENCE seat_number_seq OWNED BY seat.number;
 CREATE TABLE storeaccount (
     username character varying(20) NOT NULL,
     password character varying(20),
-    storename character varying(50)
+    storename character varying(50),
+    id integer NOT NULL
 );
 
 
 ALTER TABLE storeaccount OWNER TO postgres;
+
+--
+-- Name: storeaccount_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE storeaccount_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE storeaccount_id_seq OWNER TO postgres;
+
+--
+-- Name: storeaccount_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE storeaccount_id_seq OWNED BY storeaccount.id;
+
 
 --
 -- Name: studio; Type: TABLE; Schema: public; Owner: postgres
@@ -575,9 +600,9 @@ ALTER TABLE storeaccount OWNER TO postgres;
 
 CREATE TABLE studio (
     id character varying(20) NOT NULL,
-    storeusername character varying(20),
+    storeid integer,
     name character varying(50),
-    type character varying(20),
+    type integer,
     price integer,
     status boolean DEFAULT true
 );
@@ -613,7 +638,7 @@ ALTER SEQUENCE studio_id_seq OWNED BY studio.id;
 CREATE TABLE studiotype (
     id integer NOT NULL,
     type character varying(20),
-    storeusername character varying(20),
+    storeid integer,
     status boolean DEFAULT true
 );
 
@@ -639,6 +664,13 @@ ALTER TABLE studiotype_id_seq OWNER TO postgres;
 --
 
 ALTER SEQUENCE studiotype_id_seq OWNED BY studiotype.id;
+
+
+--
+-- Name: account id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY account ALTER COLUMN id SET DEFAULT nextval('account_id_seq'::regclass);
 
 
 --
@@ -733,6 +765,13 @@ ALTER TABLE ONLY seat ALTER COLUMN number SET DEFAULT nextval('seat_number_seq':
 
 
 --
+-- Name: storeaccount id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY storeaccount ALTER COLUMN id SET DEFAULT nextval('storeaccount_id_seq'::regclass);
+
+
+--
 -- Name: studio id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -750,17 +789,25 @@ ALTER TABLE ONLY studiotype ALTER COLUMN id SET DEFAULT nextval('studiotype_id_s
 -- Data for Name: account; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO account (username, storeusername, password, type, status) VALUES ('ndi', 'blibli', 'bear', 'admin', true);
-INSERT INTO account (username, storeusername, password, type, status) VALUES ('admin', 'blibli', 'asdasd', 'admin', true);
-INSERT INTO account (username, storeusername, password, type, status) VALUES ('lala', 'blibli', 'po', 'cashier', true);
+INSERT INTO account (username, storeid, password, roleid, status, id) VALUES ('admin', 1, 'asdasd', 1, true, 2);
+INSERT INTO account (username, storeid, password, roleid, status, id) VALUES ('tampan', 1, 'mempesona', 2, true, 4);
+INSERT INTO account (username, storeid, password, roleid, status, id) VALUES ('ndi', 1, 'bearlala', 1, true, 1);
+INSERT INTO account (username, storeid, password, roleid, status, id) VALUES ('lala', 1, 'po', 1, true, 3);
+
+
+--
+-- Name: account_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('account_id_seq', 4, true);
 
 
 --
 -- Data for Name: accountrole; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO accountrole (id, role, storeusername, status) VALUES (2, 'cashier', 'blibli', true);
-INSERT INTO accountrole (id, role, storeusername, status) VALUES (1, 'admin', 'blibli', true);
+INSERT INTO accountrole (id, role, storeid, status) VALUES (2, 'cashier', 1, true);
+INSERT INTO accountrole (id, role, storeid, status) VALUES (1, 'admin', 1, true);
 
 
 --
@@ -774,63 +821,65 @@ SELECT pg_catalog.setval('accountrole_id_seq', 2, true);
 -- Data for Name: film; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO film (id, storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('7', 'blibli', 'asd', 'asdasd', 'Action', 123, '123', 123, 123, '2017-12-31 00:00:00', '2017-12-31 00:00:00', '123', '2123', '123', '123', false);
-INSERT INTO film (id, storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('32', 'blibli', '/blibli/film/11111 (2017) [20171203225503].jpg', '11111', 'Romance', 1, '1', 1, 1, '2017-12-04 00:00:00', '2017-12-05 00:00:00', '1', '1', '1', '1', true);
-INSERT INTO film (id, storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('10', 'blibli', 'asda', 'asdasd', 'Action', 13123, 'asdasd', 13123, 313, '2017-12-31 00:00:00', '2017-12-31 00:00:00', 'asdasd', 'asdasd', 'asdasd', 'asd', false);
-INSERT INTO film (id, storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('31', 'blibli', '/blibli/film/[20171203223531] 1 (2017).jpg', '1', 'Horror', 1, '1', 1, 1, '2017-12-04 00:00:00', '2017-12-05 00:00:00', '1', '1', '1', '1', false);
-INSERT INTO film (id, storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('27', 'blibli', '/blibli/film/ssss (2017).jpg?20171203221750', 'ssss', 'Action', 123, 'asd', 12, 12, '2017-12-02 00:00:00', '2017-12-03 00:00:00', 'we', 'we', 'we', 'we', false);
-INSERT INTO film (id, storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('23', 'blibli', '\blibli\film\WendyDamar (2017).jpg', 'WendyDamar', 'Horror', 123, 'asd', 12, 123, '2017-12-03 00:00:00', '2017-01-03 00:00:00', 'indon', 'indon', 'wendy', 'asd', false);
-INSERT INTO film (id, storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('20', 'blibli', 'asd', 'asd', 'Action', 1, 'asdas', 12312, 1231, '2017-12-31 00:00:00', '2016-12-31 00:00:00', '123', '123', '1123', '123
+INSERT INTO film (id, storeid, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('20', 1, 'asd', 'asd', 1, 1, 'asdas', 12312, 1231, '2017-12-31 00:00:00', '2016-12-31 00:00:00', '123', '123', '1123', '123
 ', false);
-INSERT INTO film (id, storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('21', 'blibli', 'asd', 'asd', 'Action', 1, 'asdas', 12312, 1231, '2017-12-31 00:00:00', '2016-12-31 00:00:00', '123', '123', '1123', '123
-', false);
-INSERT INTO film (id, storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('28', 'blibli', '/blibli/film/qsd (2017).jpg', 'qsd', 'Action', 1, '1', 1, 1, '2017-12-03 00:00:00', '2017-12-03 00:00:00', '1', '1', '1', '1', false);
-INSERT INTO film (id, storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('29', 'blibli', '/blibli/film/ss (2017).jpg', 'ss', 'Action', 1, '1', 1, 1, '2017-12-03 00:00:00', '2017-12-03 00:00:00', '1', '1', '1', '1', false);
-INSERT INTO film (id, storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('25', 'blibli', '/blibli/film/WEndy Damar (2015).jpg', 'WEndy Damar', 'Action', 123, '123', 12, 12, '2015-12-03 00:00:00', '2021-12-03 00:00:00', 'Wendy', 'WEnd', 'WEndy', 'Wendy', false);
-INSERT INTO film (id, storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('22', 'blibli', 'asdasd', 'asdasd', 'Action', 2, 'asda', 313, -1123123, '0123-03-12 00:00:00', '0123-03-12 00:00:00', '123123', '23123', '123123', '23
+INSERT INTO film (id, storeid, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('28', 1, '/blibli/film/qsd (2017).jpg', 'qsd', 1, 1, '1', 1, 1, '2017-12-03 00:00:00', '2017-12-03 00:00:00', '1', '1', '1', '1', false);
+INSERT INTO film (id, storeid, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('29', 1, '/blibli/film/ss (2017).jpg', 'ss', 1, 1, '1', 1, 1, '2017-12-03 00:00:00', '2017-12-03 00:00:00', '1', '1', '1', '1', false);
+INSERT INTO film (id, storeid, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('26', 1, '/blibli/film/Wendy''s (2021).jpg', 'Wendy''s', 1, 123, '123', 123, 213, '2021-12-07 00:00:00', '2024-12-07 00:00:00', 'qwe', 'qwe', 'wqe', 'qwe', false);
+INSERT INTO film (id, storeid, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('27', 1, '/blibli/film/ssss (2017).jpg?20171203221750', 'ssss', 1, 123, 'asd', 12, 12, '2017-12-02 00:00:00', '2017-12-03 00:00:00', 'we', 'we', 'we', 'we', false);
+INSERT INTO film (id, storeid, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('24', 1, '\blibli\film\Wendy''s (2017).jpg', 'Wendy''s', 1, 12, '12', 12, 12, '2017-12-05 00:00:00', '2017-12-07 00:00:00', 'Jawa', 'Jawa', 'Wendy', 'Wendy Damar', false);
+INSERT INTO film (id, storeid, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('25', 1, '/blibli/film/WEndy Damar (2015).jpg', 'WEndy Damar', 1, 123, '123', 12, 12, '2015-12-03 00:00:00', '2021-12-03 00:00:00', 'Wendy', 'WEnd', 'WEndy', 'Wendy', false);
+INSERT INTO film (id, storeid, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('22', 1, 'asdasd', 'asdasd', 1, 2, 'asda', 313, -1123123, '0123-03-12 00:00:00', '0123-03-12 00:00:00', '123123', '23123', '123123', '23
 13', false);
-INSERT INTO film (id, storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('13', 'blibli', 'asda', 'asdasd', 'Action', 13123, 'asdasd', 13123, 313, '2017-12-31 00:00:00', '2017-12-31 00:00:00', 'asdasd', 'asdasd', 'asdasd', 'asd', true);
-INSERT INTO film (id, storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('26', 'blibli', '/blibli/film/Wendy''s (2021).jpg', 'Wendy''s', 'Action', 123, '123', 123, 213, '2021-12-07 00:00:00', '2024-12-07 00:00:00', 'qwe', 'qwe', 'wqe', 'qwe', false);
-INSERT INTO film (id, storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('8', 'blibli', 'tampan', 'asdasd', 'Action', 123, '123', 123, 123, '2017-12-31 00:00:00', '2017-12-31 00:00:00', '123', '2123', '123', '123', false);
-INSERT INTO film (id, storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('30', 'blibli', '/blibli/film/[20171203224541] asdasd (2017).jpg', 'asdasd', 'Action', 1, '1', 1, 1, '2017-12-03 00:00:00', '2017-12-03 00:00:00', '1', '1', '1', '1', false);
-INSERT INTO film (id, storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('19', 'blibli', 'asd', 'asd', 'Action', 1, 'asdas', 12312, 1231, '2017-12-31 00:00:00', '2016-12-31 00:00:00', '123', '123', '1123', '123
+INSERT INTO film (id, storeid, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('33', 1, '/blibli/film/asd (2017) [20171224142058].jpg', 'asd', 2, 123, 'asd', 12, 12, '2017-12-31 00:00:00', '2017-12-31 00:00:00', 'asd', 'asd', 'asd', 'To check for any empty file input in the form while uploding any file to the server best way follow my instructions 1. use @MultipartConfig() at the top of your servlet class 2. add the following method to your class private InputStream getImageStream(HttpServletRequest request, String image){ try { Part part ', true);
+INSERT INTO film (id, storeid, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('21', 1, 'asd', 'asd', 1, 1, 'asdas', 12312, 1231, '2017-12-31 00:00:00', '2016-12-31 00:00:00', '123', '123', '1123', '123
 ', false);
-INSERT INTO film (id, storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('17', 'blibli', 'asd', 'asd', 'Action', 1, 'asdas', 12312, 1231, '2017-12-31 00:00:00', '2016-12-31 00:00:00', '123', '123', '1123', '123
+INSERT INTO film (id, storeid, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('19', 1, 'asd', 'asd', 1, 1, 'asdas', 12312, 1231, '2017-12-31 00:00:00', '2016-12-31 00:00:00', '123', '123', '1123', '123
 ', false);
-INSERT INTO film (id, storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('24', 'blibli', '\blibli\film\Wendy''s (2017).jpg', 'Wendy''s', 'Action', 12, '12', 12, 12, '2017-12-05 00:00:00', '2017-12-07 00:00:00', 'Jawa', 'Jawa', 'Wendy', 'Wendy Damar', false);
-INSERT INTO film (id, storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('6', 'blibli', 'asd', 'ad', 'Action', 123, 'asda', 13, 123, '2017-12-31 00:00:00', '2017-01-01 00:00:00', 'asdasd', 'asd', 'asd', 'asd', false);
-INSERT INTO film (id, storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('9', 'blibli', 'asda', 'asdasd', 'Action', 13123, 'asdasd', 13123, 313, '2017-12-31 00:00:00', '2017-12-31 00:00:00', 'asdasd', 'asdasd', 'asdasd', 'asd', false);
-INSERT INTO film (id, storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('34', 'blibli', '/blibli/film/asda (2017) [20171224142203].jpg', 'asda', 'Action', 123, '123', 123, 123, '2017-12-30 00:00:00', '2017-12-31 00:00:00', '12', '123', '123', 'akuganteng', true);
-INSERT INTO film (id, storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('18', 'blibli', 'asd', 'asd', 'Action', 1, 'asdas', 12312, 1231, '2017-12-31 00:00:00', '2016-12-31 00:00:00', '123', '123', '1123', '123
+INSERT INTO film (id, storeid, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('17', 1, 'asd', 'asd', 1, 1, 'asdas', 12312, 1231, '2017-12-31 00:00:00', '2016-12-31 00:00:00', '123', '123', '1123', '123
 ', false);
-INSERT INTO film (id, storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('15', 'blibli', 'asd', 'asdasd', 'Action', 1231, 'asdasd', 123, 1123, '2017-12-31 00:00:00', '0012-12-12 00:00:00', 'aadds', 'asasd', 'asdasd', 'asdasd', false);
-INSERT INTO film (id, storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('16', 'blibli', 'asd', 'asdasd', 'Action', 1231, 'asdasd', 123, 1123, '2017-12-31 00:00:00', '0012-12-12 00:00:00', 'aadds', 'asasd', 'asdasd', 'asdasd', false);
-INSERT INTO film (id, storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('14', NULL, 'asda', 'asdasd', 'Action', 13123, 'asdasd', 13123, 313, '2017-12-31 00:00:00', '2017-12-31 00:00:00', 'asdasd', 'asdasd', 'asdasd', 'asd', false);
-INSERT INTO film (id, storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('11', 'blibli', 'asda', 'asdasd', 'Action', 13123, 'asdasd', 13123, 313, '2017-12-31 00:00:00', '2017-12-31 00:00:00', 'asdasd', 'asdasd', 'asdasd', 'asd', false);
-INSERT INTO film (id, storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('12', 'blibli', 'asda', 'asdasd', 'Action', 13123, 'asdasd', 13123, 313, '2017-12-31 00:00:00', '2017-12-31 00:00:00', 'asdasd', 'asdasd', 'asdasd', 'asd', false);
-INSERT INTO film (id, storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('33', 'blibli', '/blibli/film/asd (2017) [20171224142058].jpg', 'asd', 'Horror', 123, 'asd', 12, 12, '2017-12-31 00:00:00', '2017-12-31 00:00:00', 'asd', 'asd', 'asd', 'To check for any empty file input in the form while uploding any file to the server best way follow my instructions 1. use @MultipartConfig() at the top of your servlet class 2. add the following method to your class private InputStream getImageStream(HttpServletRequest request, String image){ try { Part part ', true);
+INSERT INTO film (id, storeid, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('18', 1, 'asd', 'asd', 1, 1, 'asdas', 12312, 1231, '2017-12-31 00:00:00', '2016-12-31 00:00:00', '123', '123', '1123', '123
+', false);
+INSERT INTO film (id, storeid, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('15', 1, 'asd', 'asdasd', 1, 1231, 'asdasd', 123, 1123, '2017-12-31 00:00:00', '0012-12-12 00:00:00', 'aadds', 'asasd', 'asdasd', 'asdasd', false);
+INSERT INTO film (id, storeid, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('16', 1, 'asd', 'asdasd', 1, 1231, 'asdasd', 123, 1123, '2017-12-31 00:00:00', '0012-12-12 00:00:00', 'aadds', 'asasd', 'asdasd', 'asdasd', false);
+INSERT INTO film (id, storeid, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('13', 1, 'asda', 'asdasd', 1, 13123, 'asdasd', 13123, 313, '2017-12-31 00:00:00', '2017-12-31 00:00:00', 'asdasd', 'asdasd', 'asdasd', 'asd', false);
+INSERT INTO film (id, storeid, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('14', 1, 'asda', 'asdasd', 1, 13123, 'asdasd', 13123, 313, '2017-12-31 00:00:00', '2017-12-31 00:00:00', 'asdasd', 'asdasd', 'asdasd', 'asd', false);
+INSERT INTO film (id, storeid, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('11', 1, 'asda', 'asdasd', 1, 13123, 'asdasd', 13123, 313, '2017-12-31 00:00:00', '2017-12-31 00:00:00', 'asdasd', 'asdasd', 'asdasd', 'asd', false);
+INSERT INTO film (id, storeid, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('12', 1, 'asda', 'asdasd', 1, 13123, 'asdasd', 13123, 313, '2017-12-31 00:00:00', '2017-12-31 00:00:00', 'asdasd', 'asdasd', 'asdasd', 'asd', false);
+INSERT INTO film (id, storeid, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('23', 1, '\blibli\film\WendyDamar (2017).jpg', 'WendyDamar', 2, 123, 'asd', 12, 123, '2017-12-03 00:00:00', '2017-01-03 00:00:00', 'indon', 'indon', 'wendy', 'asd', false);
+INSERT INTO film (id, storeid, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('35', 1, '/blibli/film/tes (2017) [20171228044030].jpg', 'tes', 1, 5, 'tampan', 1, 1, '2017-12-31 00:00:00', '2017-12-31 00:00:00', 'a', 'a', 'a', 'a
+', true);
+INSERT INTO film (id, storeid, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('34', 1, '/blibli/film/asda (2017) [20171224142203].jpg', 'asda', 1, 123, '123', 123, 123, '2017-12-30 00:00:00', '2017-12-31 00:00:00', '12', '123', '123', 'akuganteng', true);
+INSERT INTO film (id, storeid, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('8', 1, 'tampan', 'asdasd', 1, 123, '123', 123, 123, '2017-12-31 00:00:00', '2017-12-31 00:00:00', '123', '2123', '123', '123', false);
+INSERT INTO film (id, storeid, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('10', 1, 'asda', 'asdasd', 1, 13123, 'asdasd', 13123, 313, '2017-12-31 00:00:00', '2017-12-31 00:00:00', 'asdasd', 'asdasd', 'asdasd', 'asd', false);
+INSERT INTO film (id, storeid, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('6', 1, 'asd', 'ad', 1, 123, 'asda', 13, 123, '2017-12-31 00:00:00', '2017-01-01 00:00:00', 'asdasd', 'asd', 'asd', 'asd', false);
+INSERT INTO film (id, storeid, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('7', 1, 'asd', 'asdasd', 1, 123, '123', 123, 123, '2017-12-31 00:00:00', '2017-12-31 00:00:00', '123', '2123', '123', '123', false);
+INSERT INTO film (id, storeid, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('31', 1, '/blibli/film/[20171203223531] 1 (2017).jpg', '1', 2, 1, '1', 1, 1, '2017-12-04 00:00:00', '2017-12-05 00:00:00', '1', '1', '1', '1', false);
+INSERT INTO film (id, storeid, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('9', 1, 'asda', 'asdasd', 1, 13123, 'asdasd', 13123, 313, '2017-12-31 00:00:00', '2017-12-31 00:00:00', 'asdasd', 'asdasd', 'asdasd', 'asd', false);
+INSERT INTO film (id, storeid, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('30', 1, '/blibli/film/[20171203224541] asdasd (2017).jpg', 'asdasd', 1, 1, '1', 1, 1, '2017-12-03 00:00:00', '2017-12-03 00:00:00', '1', '1', '1', '1', false);
+INSERT INTO film (id, storeid, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES ('32', 1, '/1/film/11111 (2017) [20171203225503].jpg', '11111', 1, 1, '1', 1, 1, '2017-12-04 00:00:00', '2017-12-05 00:00:00', '1', '1', '1', '1', true);
 
 
 --
 -- Name: film_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('film_id_seq', 34, true);
+SELECT pg_catalog.setval('film_id_seq', 35, true);
 
 
 --
 -- Data for Name: filmgenre; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO filmgenre (id, genre, storeusername, status) VALUES (2, 'Horror', 'blibli', true);
-INSERT INTO filmgenre (id, genre, storeusername, status) VALUES (1, 'Action', 'blibli', true);
-INSERT INTO filmgenre (id, genre, storeusername, status) VALUES (7, 'Fantasy', 'blibli', true);
-INSERT INTO filmgenre (id, genre, storeusername, status) VALUES (6, 'Comedy', 'blibli', true);
-INSERT INTO filmgenre (id, genre, storeusername, status) VALUES (5, 'Adventure', 'blibli', true);
-INSERT INTO filmgenre (id, genre, storeusername, status) VALUES (4, 'Melodrama', 'blibli', true);
-INSERT INTO filmgenre (id, genre, storeusername, status) VALUES (3, 'Romance', 'blibli', true);
-INSERT INTO filmgenre (id, genre, storeusername, status) VALUES (8, 'mantapgg', 'blibli', false);
-INSERT INTO filmgenre (id, genre, storeusername, status) VALUES (9, 'aleleleandro', 'blibli', false);
+INSERT INTO filmgenre (id, genre, storeid, status) VALUES (8, 'mantapgg', 1, false);
+INSERT INTO filmgenre (id, genre, storeid, status) VALUES (3, 'Romance', 1, true);
+INSERT INTO filmgenre (id, genre, storeid, status) VALUES (1, 'Action', 1, true);
+INSERT INTO filmgenre (id, genre, storeid, status) VALUES (7, 'Fantasy', 1, true);
+INSERT INTO filmgenre (id, genre, storeid, status) VALUES (6, 'Comedy', 1, true);
+INSERT INTO filmgenre (id, genre, storeid, status) VALUES (5, 'Adventure', 1, true);
+INSERT INTO filmgenre (id, genre, storeid, status) VALUES (4, 'Melodrama', 1, true);
+INSERT INTO filmgenre (id, genre, storeid, status) VALUES (9, 'aleleleandro', 1, false);
+INSERT INTO filmgenre (id, genre, storeid, status) VALUES (2, 'HorrorBgt', 1, true);
 
 
 --
@@ -844,49 +893,51 @@ SELECT pg_catalog.setval('filmgenre_id_seq', 9, true);
 -- Data for Name: filmticket; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeusername) VALUES ('1', '6', '1', 'A5', '2', 123, 'blibli');
-INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeusername) VALUES ('2', '6', '1', 'E3', '2', 0, 'blibli');
-INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeusername) VALUES ('3', '6', '1', 'E7', '2', 0, 'blibli');
-INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeusername) VALUES ('6', '6', '1', 'D5', '2', 0, 'blibli');
-INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeusername) VALUES ('7', '6', '1', 'F8', '2', 0, 'blibli');
-INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeusername) VALUES ('8', '6', '1', 'A10', '2', 0, 'blibli');
-INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeusername) VALUES ('9', '6', '1', 'G4', '2', 0, 'blibli');
-INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeusername) VALUES ('10', '6', '1', 'I7', '2', 0, 'blibli');
-INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeusername) VALUES ('11', '6', '1', 'D8', '2', 0, 'blibli');
-INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeusername) VALUES ('12', '6', '1', 'J6', '2', 0, 'blibli');
-INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeusername) VALUES ('17', '6', '1', 'D1', '2', 0, 'blibli');
-INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeusername) VALUES ('18', '6', '1', 'A2', '2', 0, 'blibli');
-INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeusername) VALUES ('19', '6', '1', 'A3', '2', 0, 'blibli');
-INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeusername) VALUES ('20', '6', '1', 'J1', '2', 10000, 'blibli');
-INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeusername) VALUES ('21', '6', '1', 'G1', '2', 10000, 'blibli');
-INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeusername) VALUES ('22', '32', '4', 'F5', '13', 30000, 'blibli');
-INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeusername) VALUES ('23', '32', '4', 'H5', '13', 30000, 'blibli');
-INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeusername) VALUES ('24', '32', '4', 'H6', '13', 30000, 'blibli');
-INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeusername) VALUES ('25', '32', '4', 'A10', '13', 30000, 'blibli');
-INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeusername) VALUES ('26', '32', '4', 'A9', '13', 30000, 'blibli');
-INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeusername) VALUES ('27', '32', '4', 'A8', '13', 30000, 'blibli');
-INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeusername) VALUES ('28', '32', '4', 'A7', '13', 30000, 'blibli');
-INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeusername) VALUES ('29', '32', '4', 'A3', '13', 30000, 'blibli');
-INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeusername) VALUES ('30', '32', '4', 'C7', '13', 30000, 'blibli');
-INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeusername) VALUES ('31', '32', '4', 'D4', '13', 30000, 'blibli');
-INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeusername) VALUES ('32', '32', '4', 'D5', '13', 30000, 'blibli');
+INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeid) VALUES ('2', '6', '1', 'E3', '2', 0, 1);
+INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeid) VALUES ('3', '6', '1', 'E7', '2', 0, 1);
+INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeid) VALUES ('1', '6', '1', 'A5', '2', 123, 1);
+INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeid) VALUES ('6', '6', '1', 'D5', '2', 0, 1);
+INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeid) VALUES ('7', '6', '1', 'F8', '2', 0, 1);
+INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeid) VALUES ('20', '6', '1', 'J1', '2', 10000, 1);
+INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeid) VALUES ('21', '6', '1', 'G1', '2', 10000, 1);
+INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeid) VALUES ('8', '6', '1', 'A10', '2', 0, 1);
+INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeid) VALUES ('9', '6', '1', 'G4', '2', 0, 1);
+INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeid) VALUES ('11', '6', '1', 'D8', '2', 0, 1);
+INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeid) VALUES ('12', '6', '1', 'J6', '2', 0, 1);
+INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeid) VALUES ('17', '6', '1', 'D1', '2', 0, 1);
+INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeid) VALUES ('18', '6', '1', 'A2', '2', 0, 1);
+INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeid) VALUES ('19', '6', '1', 'A3', '2', 0, 1);
+INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeid) VALUES ('31', '32', '4', 'D4', '13', 30000, 1);
+INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeid) VALUES ('32', '32', '4', 'D5', '13', 30000, 1);
+INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeid) VALUES ('30', '32', '4', 'C7', '13', 30000, 1);
+INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeid) VALUES ('24', '32', '4', 'H6', '13', 30000, 1);
+INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeid) VALUES ('25', '32', '4', 'A10', '13', 30000, 1);
+INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeid) VALUES ('22', '32', '4', 'F5', '13', 30000, 1);
+INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeid) VALUES ('23', '32', '4', 'H5', '13', 30000, 1);
+INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeid) VALUES ('10', '6', '1', 'I7', '2', 0, 1);
+INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeid) VALUES ('29', '32', '4', 'A3', '13', 30000, 1);
+INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeid) VALUES ('26', '32', '4', 'A9', '13', 30000, 1);
+INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeid) VALUES ('27', '32', '4', 'A8', '13', 30000, 1);
+INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeid) VALUES ('28', '32', '4', 'A7', '13', 30000, 1);
+INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeid) VALUES ('33', '32', '10', 'F2', '15', 123123, 1);
+INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeid) VALUES ('34', '32', '10', 'B6', '15', 123123, 1);
 
 
 --
 -- Name: filmticket_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('filmticket_id_seq', 32, true);
+SELECT pg_catalog.setval('filmticket_id_seq', 34, true);
 
 
 --
 -- Data for Name: fnbsize; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO fnbsize (id, size, storeusername, status) VALUES (3, 'Jumbo', 'blibli', true);
-INSERT INTO fnbsize (id, size, storeusername, status) VALUES (2, 'Large', 'blibli', true);
-INSERT INTO fnbsize (id, size, storeusername, status) VALUES (1, 'Regular', 'blibli', true);
-INSERT INTO fnbsize (id, size, storeusername, status) VALUES (4, 'Besarrr Banget', 'blibli', false);
+INSERT INTO fnbsize (id, size, storeid, status) VALUES (1, 'Regular', 1, true);
+INSERT INTO fnbsize (id, size, storeid, status) VALUES (4, 'Besarrr Banget', 1, false);
+INSERT INTO fnbsize (id, size, storeid, status) VALUES (3, 'Jumbo', 1, true);
+INSERT INTO fnbsize (id, size, storeid, status) VALUES (2, 'LargeBgt', 1, true);
 
 
 --
@@ -900,10 +951,10 @@ SELECT pg_catalog.setval('fnbsize_id_seq', 4, true);
 -- Data for Name: fnbtype; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO fnbtype (id, type, storeusername, status) VALUES (3, 'Combo', 'blibli', true);
-INSERT INTO fnbtype (id, type, storeusername, status) VALUES (1, 'Food', 'blibli', true);
-INSERT INTO fnbtype (id, type, storeusername, status) VALUES (2, 'Beverages', 'blibli', true);
-INSERT INTO fnbtype (id, type, storeusername, status) VALUES (4, 'barubgt', 'blibli', false);
+INSERT INTO fnbtype (id, type, storeid, status) VALUES (4, 'barubgt', 1, false);
+INSERT INTO fnbtype (id, type, storeid, status) VALUES (2, 'Beverages', 1, true);
+INSERT INTO fnbtype (id, type, storeid, status) VALUES (1, 'Food', 1, true);
+INSERT INTO fnbtype (id, type, storeid, status) VALUES (3, 'ComboGila', 1, true);
 
 
 --
@@ -917,8 +968,8 @@ SELECT pg_catalog.setval('fnbtype_id_seq', 4, true);
 -- Data for Name: foodandbeverages; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO foodandbeverages (id, storeusername, cover, name, type, size, price, status) VALUES ('7', 'blibli', '/blibli/fnb/wendyyyy (Regular) [20171203233054].jpg', 'wendyyyy', 'Food', 'Regular', 23232323, true);
-INSERT INTO foodandbeverages (id, storeusername, cover, name, type, size, price, status) VALUES ('8', 'blibli', '/blibli/fnb/Walala (Jumbo) [20171221135750].jpg', 'Walala', 'Combo', 'Jumbo', 10000, true);
+INSERT INTO foodandbeverages (id, storeid, cover, name, type, size, price, status) VALUES ('7', 1, '/1/film/wendyyyy (1) [20171203233054].jpg', 'wendyyyy', 3, 1, 23232323, true);
+INSERT INTO foodandbeverages (id, storeid, cover, name, type, size, price, status) VALUES ('8', 1, '/1/film/Walala (1) [20171221135750].jpg', 'Walala', 3, 1, 10000, true);
 
 
 --
@@ -932,120 +983,117 @@ SELECT pg_catalog.setval('foodandbeverages_id_seq', 8, true);
 -- Data for Name: invoice; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('1', NULL, 'ndi', 'blibli', NULL, '2017-10-22 12:16:54.509', 10000);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('2', '1', 'ndi', 'blibli', NULL, '2017-10-22 12:16:54.509', 10000);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('5', NULL, 'ndi', 'blibli', NULL, '2017-11-19 16:16:52', 1320);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('9', NULL, 'ndi', 'blibli', NULL, '2017-11-19 09:19:33.575', 100);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('10', NULL, 'ndi', 'blibli', NULL, '2017-11-19 16:20:11', 13200);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('11', NULL, 'ndi', 'blibli', NULL, '2017-11-19 16:27:39', 13200);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('12', NULL, 'ndi', 'blibli', NULL, '2017-11-19 16:28:18', 13200);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('13', NULL, 'ndi', 'blibli', NULL, '2017-11-19 16:29:54', 12313100);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('14', NULL, 'ndi', 'blibli', NULL, '2017-11-19 16:32:14', 13200);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('15', NULL, 'ndi', 'blibli', NULL, '2017-11-19 16:34:25', 13200);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('16', NULL, 'ndi', 'blibli', NULL, '2017-11-19 16:37:23', 13200);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('17', NULL, 'ndi', 'blibli', NULL, '2017-11-27 10:46:13', 2482420);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('18', NULL, 'ndi', 'blibli', NULL, '2017-11-27 10:46:54', 12381740);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('19', NULL, 'ndi', 'blibli', NULL, '2017-11-27 10:50:49', 2464204);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('20', NULL, 'ndi', 'blibli', NULL, '2017-11-27 10:57:34', 1355893);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('21', NULL, 'ndi', 'blibli', NULL, '2017-11-27 10:57:58', 1355893);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('22', NULL, 'ndi', 'blibli', NULL, '2017-11-27 10:58:07', 1355893);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('23', NULL, 'ndi', 'blibli', NULL, '2017-11-27 10:58:14', 1355893);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('24', NULL, 'ndi', 'blibli', NULL, '2017-11-27 10:58:21', 1355893);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('25', NULL, 'ndi', 'blibli', NULL, '2017-11-27 10:58:46', 1355893);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('26', NULL, 'ndi', 'blibli', NULL, '2017-11-27 11:01:04', 1120059);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('27', NULL, 'ndi', 'blibli', NULL, '2017-11-27 11:02:51', 12201849);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('28', NULL, 'ndi', 'blibli', NULL, '2017-11-27 11:04:27', 1120059);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('29', NULL, 'ndi', 'blibli', NULL, '2017-11-27 11:05:43', 1120059);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('30', NULL, 'ndi', 'blibli', NULL, '2017-11-27 11:07:18', 10970539);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('31', NULL, 'ndi', 'blibli', NULL, '2017-11-27 11:11:35', 1244510);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('32', NULL, 'ndi', 'blibli', NULL, '2017-11-27 12:37:53', 1237910);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('33', NULL, 'ndi', 'blibli', NULL, '2017-11-27 12:54:25', 618295);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('34', NULL, 'ndi', 'blibli', NULL, '2017-11-27 12:57:05', 1233950);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('35', '1', 'ndi', 'blibli', '1', '2017-11-27 12:58:31', 5552775);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('36', '1', 'ndi', 'blibli', '1', '2017-11-27 12:58:36', 5552775);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('37', NULL, 'ndi', 'blibli', NULL, '2017-11-27 12:58:51', 6169750);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('38', NULL, 'ndi', 'blibli', NULL, '2017-11-27 12:58:52', 6169750);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('39', NULL, 'ndi', 'blibli', NULL, '2017-11-27 12:58:52', 6169750);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('40', NULL, 'ndi', 'blibli', NULL, '2017-11-27 12:58:52', 6169750);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('41', NULL, 'ndi', 'blibli', NULL, '2017-11-27 12:58:52', 6169750);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('42', NULL, 'ndi', 'blibli', NULL, '2017-11-27 12:58:53', 6169750);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('43', NULL, 'ndi', 'blibli', NULL, '2017-11-27 12:58:53', 6169750);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('44', NULL, 'ndi', 'blibli', NULL, '2017-11-27 12:58:53', 6169750);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('45', NULL, 'ndi', 'blibli', NULL, '2017-11-27 12:58:53', 6169750);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('46', NULL, 'ndi', 'blibli', NULL, '2017-11-27 12:58:53', 6169750);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('47', NULL, 'ndi', 'blibli', NULL, '2017-11-27 12:58:54', 6169750);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('48', NULL, 'ndi', 'blibli', NULL, '2017-11-27 13:02:17', 13200);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('49', NULL, 'ndi', 'blibli', NULL, '2017-11-27 13:02:17', 13200);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('50', NULL, 'ndi', 'blibli', NULL, '2017-11-27 13:02:28', 1320);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('51', NULL, 'ndi', 'blibli', NULL, '2017-11-27 13:02:36', 1233950);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('52', NULL, 'ndi', 'blibli', NULL, '2017-11-27 13:02:49', 2640);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('53', '1', 'ndi', 'blibli', '1', '2017-11-27 13:02:58', 11880);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('54', '1', 'ndi', 'blibli', '1', '2017-11-27 13:03:39', 2228238);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('55', '1', 'ndi', 'blibli', '1', '2017-11-28 12:45:33', 14940);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('56', NULL, 'ndi', 'blibli', NULL, '2017-11-28 13:04:24', 23200);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('57', NULL, 'ndi', 'blibli', NULL, '2017-11-28 13:04:26', 23200);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('58', NULL, 'ndi', 'blibli', NULL, '2017-11-28 13:06:36', 23200);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('59', NULL, 'ndi', 'blibli', NULL, '2017-11-28 13:07:27', 11320);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('60', NULL, 'ndi', 'blibli', NULL, '2017-11-28 13:08:06', 2473940);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('61', NULL, 'ndi', 'blibli', NULL, '2017-11-28 13:09:21', 1243950);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('62', NULL, 'ndi', 'blibli', NULL, '2017-11-28 13:19:17', 2473940);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('63', NULL, 'ndi', 'blibli', NULL, '2017-11-28 13:23:11', 2473940);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('64', NULL, 'ndi', 'blibli', NULL, '2017-11-28 13:23:38', 2475820);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('65', '1', 'ndi', 'blibli', '1', '2017-11-28 13:25:28', 10188);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('66', '1', 'ndi', 'blibli', '1', '2017-11-28 13:25:41', 1188);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('67', NULL, 'ndi', 'blibli', NULL, '2017-11-30 10:58:22', 1320);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('68', '1', 'ndi', 'blibli', '1', '2017-12-04 00:12:21', 81000);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('69', '1', 'ndi', 'blibli', '1', '2017-12-04 00:22:44', 81000);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('70', NULL, 'ndi', 'blibli', NULL, '2017-12-04 13:34:37', 60132);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('71', NULL, 'ndi', 'blibli', NULL, '2017-12-04 13:34:48', 23292323);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('72', '1', 'ndi', 'blibli', '1', '2017-12-04 13:36:33', 54000);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('73', '1', 'ndi', 'blibli', '1', '2017-12-04 13:40:05', 27118.799999999999);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('4', NULL, 'ndi', 'blibli', NULL, '2016-11-19 16:14:15', 13200);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('74', NULL, 'ndi', 'blibli', NULL, '2017-12-21 13:51:18', 1161616150);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('75', NULL, 'ndi', 'blibli', NULL, '2017-12-21 13:54:46', 23232323);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('76', '1', 'ndi', 'blibli', '1', '2017-12-21 13:56:40', 209090907);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('77', NULL, 'ndi', 'blibli', NULL, '2017-12-21 13:58:24', 10000);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('78', '1', 'ndi', 'blibli', '1', '2017-12-21 13:58:44', 45000);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('79', '1', 'ndi', 'blibli', '1', '2017-12-21 20:33:25', 90000);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('80', '1', 'ndi', 'blibli', '1', '2017-12-24 13:43:49', 72000);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('81', '1', 'ndi', 'blibli', '1', '2017-12-24 13:49:49', 72000);
-INSERT INTO invoice (id, memberid, accountusername, storeusername, promoid, orderdate, totalprice) VALUES ('82', NULL, 'ndi', 'blibli', NULL, '2017-12-24 14:00:06', 60000);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('45', NULL, 1, 1, NULL, '2017-11-27 12:58:53', 6169750);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('12', NULL, 1, 1, NULL, '2017-11-19 16:28:18', 13200);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('17', NULL, 1, 1, NULL, '2017-11-27 10:46:13', 2482420);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('18', NULL, 1, 1, NULL, '2017-11-27 10:46:54', 12381740);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('50', NULL, 1, 1, NULL, '2017-11-27 13:02:28', 1320);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('30', NULL, 1, 1, NULL, '2017-11-27 11:07:18', 10970539);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('32', NULL, 1, 1, NULL, '2017-11-27 12:37:53', 1237910);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('31', NULL, 1, 1, NULL, '2017-11-27 11:11:35', 1244510);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('10', NULL, 1, 1, NULL, '2017-11-19 16:20:11', 13200);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('27', NULL, 1, 1, NULL, '2017-11-27 11:02:51', 12201849);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('26', NULL, 1, 1, NULL, '2017-11-27 11:01:04', 1120059);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('29', NULL, 1, 1, NULL, '2017-11-27 11:05:43', 1120059);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('28', NULL, 1, 1, NULL, '2017-11-27 11:04:27', 1120059);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('23', NULL, 1, 1, NULL, '2017-11-27 10:58:14', 1355893);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('22', NULL, 1, 1, NULL, '2017-11-27 10:58:07', 1355893);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('25', NULL, 1, 1, NULL, '2017-11-27 10:58:46', 1355893);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('24', NULL, 1, 1, NULL, '2017-11-27 10:58:21', 1355893);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('2', '1', 1, 1, NULL, '2017-10-22 12:16:54.509', 10000);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('61', NULL, 1, 1, NULL, '2017-11-28 13:09:21', 1243950);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('63', NULL, 1, 1, NULL, '2017-11-28 13:23:11', 2473940);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('62', NULL, 1, 1, NULL, '2017-11-28 13:19:17', 2473940);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('75', NULL, 1, 1, NULL, '2017-12-21 13:54:46', 23232323);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('64', NULL, 1, 1, NULL, '2017-11-28 13:23:38', 2475820);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('42', NULL, 1, 1, NULL, '2017-11-27 12:58:53', 6169750);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('65', '1', 1, 1, '1', '2017-11-28 13:25:28', 10188);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('60', NULL, 1, 1, NULL, '2017-11-28 13:08:06', 2473940);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('59', NULL, 1, 1, NULL, '2017-11-28 13:07:27', 11320);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('56', NULL, 1, 1, NULL, '2017-11-28 13:04:24', 23200);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('55', '1', 1, 1, '1', '2017-11-28 12:45:33', 14940);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('58', NULL, 1, 1, NULL, '2017-11-28 13:06:36', 23200);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('57', NULL, 1, 1, NULL, '2017-11-28 13:04:26', 23200);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('74', NULL, 1, 1, NULL, '2017-12-21 13:51:18', 1161616150);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('9', NULL, 1, 1, NULL, '2017-11-19 09:19:33.575', 100);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('52', NULL, 1, 1, NULL, '2017-11-27 13:02:49', 2640);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('51', NULL, 1, 1, NULL, '2017-11-27 13:02:36', 1233950);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('54', '1', 1, 1, '1', '2017-11-27 13:03:39', 2228238);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('53', '1', 1, 1, '1', '2017-11-27 13:02:58', 11880);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('21', NULL, 1, 1, NULL, '2017-11-27 10:57:58', 1355893);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('20', NULL, 1, 1, NULL, '2017-11-27 10:57:34', 1355893);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('49', NULL, 1, 1, NULL, '2017-11-27 13:02:17', 13200);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('48', NULL, 1, 1, NULL, '2017-11-27 13:02:17', 13200);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('16', NULL, 1, 1, NULL, '2017-11-19 16:37:23', 13200);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('15', NULL, 1, 1, NULL, '2017-11-19 16:34:25', 13200);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('44', NULL, 1, 1, NULL, '2017-11-27 12:58:53', 6169750);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('47', NULL, 1, 1, NULL, '2017-11-27 12:58:54', 6169750);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('46', NULL, 1, 1, NULL, '2017-11-27 12:58:53', 6169750);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('11', NULL, 1, 1, NULL, '2017-11-19 16:27:39', 13200);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('14', NULL, 1, 1, NULL, '2017-11-19 16:32:14', 13200);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('13', NULL, 1, 1, NULL, '2017-11-19 16:29:54', 12313100);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('68', '1', 1, 1, '1', '2017-12-04 00:12:21', 81000);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('69', '1', 1, 1, '1', '2017-12-04 00:22:44', 81000);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('67', NULL, 1, 1, NULL, '2017-11-30 10:58:22', 1320);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('70', NULL, 1, 1, NULL, '2017-12-04 13:34:37', 60132);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('81', '1', 1, 1, '1', '2017-12-24 13:49:49', 72000);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('80', '1', 1, 1, '1', '2017-12-24 13:43:49', 72000);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('83', '1', 1, 1, '1', '2017-12-28 10:30:42', 200810.70000000001);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('82', NULL, 1, 1, NULL, '2017-12-24 14:00:06', 60000);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('78', '1', 1, 1, '1', '2017-12-21 13:58:44', 45000);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('77', NULL, 1, 1, NULL, '2017-12-21 13:58:24', 10000);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('79', '1', 1, 1, '1', '2017-12-21 20:33:25', 90000);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('1', NULL, 1, 1, NULL, '2017-10-22 12:16:54.509', 10000);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('4', NULL, 1, 1, NULL, '2016-11-19 16:14:15', 13200);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('5', NULL, 1, 1, NULL, '2017-11-19 16:16:52', 1320);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('73', '1', 1, 1, '1', '2017-12-04 13:40:05', 27118.799999999999);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('76', '1', 1, 1, '1', '2017-12-21 13:56:40', 209090907);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('41', NULL, 1, 1, NULL, '2017-11-27 12:58:52', 6169750);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('40', NULL, 1, 1, NULL, '2017-11-27 12:58:52', 6169750);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('43', NULL, 1, 1, NULL, '2017-11-27 12:58:53', 6169750);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('72', '1', 1, 1, '1', '2017-12-04 13:36:33', 54000);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('71', NULL, 1, 1, NULL, '2017-12-04 13:34:48', 23292323);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('38', NULL, 1, 1, NULL, '2017-11-27 12:58:52', 6169750);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('37', NULL, 1, 1, NULL, '2017-11-27 12:58:51', 6169750);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('66', '1', 1, 1, '1', '2017-11-28 13:25:41', 1188);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('39', NULL, 1, 1, NULL, '2017-11-27 12:58:52', 6169750);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('34', NULL, 1, 1, NULL, '2017-11-27 12:57:05', 1233950);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('33', NULL, 1, 1, NULL, '2017-11-27 12:54:25', 618295);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('36', '1', 1, 1, '1', '2017-11-27 12:58:36', 5552775);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('35', '1', 1, 1, '1', '2017-11-27 12:58:31', 5552775);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('19', NULL, 1, 1, NULL, '2017-11-27 10:50:49', 2464204);
+INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES ('84', '1', 4, 1, '1', '2017-12-28 11:08:42', 9000);
 
 
 --
 -- Name: invoice_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('invoice_id_seq', 82, true);
-
-
---
--- Data for Name: ledger; Type: TABLE DATA; Schema: public; Owner: postgres
---
-
+SELECT pg_catalog.setval('invoice_id_seq', 84, true);
 
 
 --
 -- Data for Name: membercard; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO membercard (id, storeusername, fullname, gender, birthdate, phonenumber, email, status) VALUES ('2', 'blibli', 'asd', 'Pria', '2017-12-31 00:00:00', '12312', 'wendydamar.wb@gmail.com', true);
-INSERT INTO membercard (id, storeusername, fullname, gender, birthdate, phonenumber, email, status) VALUES ('1', 'blibli', 'Tampan', 'Wanita', '2017-12-31 00:00:00', '123', 'wendydamar.wb@gmail.com', true);
+INSERT INTO membercard (id, storeid, fullname, gender, birthdate, phonenumber, email, status) VALUES ('1', 1, 'Tampan', 2, '2017-12-31 00:00:00', '123', 'wendydamar.wb@gmail.com', true);
+INSERT INTO membercard (id, storeid, fullname, gender, birthdate, phonenumber, email, status) VALUES ('2', 1, 'asd', 2, '2017-12-31 00:00:00', '12312', 'wendydamar.wb@gmail.com', true);
+INSERT INTO membercard (id, storeid, fullname, gender, birthdate, phonenumber, email, status) VALUES ('3', 1, 'as', 2, '2017-12-31 00:00:00', '123', 'we@a', false);
 
 
 --
 -- Name: membercard_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('membercard_id_seq', 2, true);
+SELECT pg_catalog.setval('membercard_id_seq', 3, true);
 
 
 --
 -- Data for Name: membergender; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO membergender (id, gender, storeusername, status) VALUES (2, 'Wanita', 'blibli', true);
-INSERT INTO membergender (id, gender, storeusername, status) VALUES (1, 'Pria', 'blibli', true);
+INSERT INTO membergender (id, gender, storeid, status) VALUES (2, 'Wanita', 1, true);
+INSERT INTO membergender (id, gender, storeid, status) VALUES (1, 'Pria', 1, true);
 
 
 --
@@ -1059,145 +1107,147 @@ SELECT pg_catalog.setval('membergender_id_seq', 2, true);
 -- Data for Name: orderdetail; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('1', '1', 'blibli', 'sabun', 5, 3000, NULL);
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('2', '1', 'blibli', 'sampo', 3, 3000, NULL);
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('3', '1', 'blibli', 'indomi', 2, 4000, NULL);
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('4', '2', 'blibli', 'selada', 1, 11000, NULL);
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('5', '24', 'blibli', 'Mempeseona', 11, 132, 'false');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('6', '25', 'blibli', 'Mempeseona', 11, 132, 'false');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('7', '26', 'blibli', 'Mempeseona', 90, 132, 'false');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('8', '27', 'blibli', 'Mempeseona', 90, 132, 'false');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('9', '30', 'blibli', 'Mempeseona', 90, 132, 'false');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('10', '30', 'blibli', 'asdasd', 89, 123131, 'false');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('11', '31', 'blibli', 'Mempeseona', 100, 132, 'false');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('12', '31', 'blibli', 'asdasd', 10, 123131, 'false');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('13', '32', 'blibli', 'Mempeseona', 50, 132, 'false');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('14', '32', 'blibli', 'asdasd', 10, 123131, 'false');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('15', '33', 'blibli', 'Mempeseona', 20, 132, 'false');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('16', '33', 'blibli', 'asdasd', 5, 123131, 'false');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('17', '34', 'blibli', 'Mempeseona', 20, 132, 'false');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('18', '34', 'blibli', 'asdasd', 10, 123131, 'false');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('19', '35', 'blibli', 'Mempeseona', 100, 132, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('20', '35', 'blibli', 'asdasd', 50, 123131, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('21', '36', 'blibli', 'Mempeseona', 100, 132, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('22', '36', 'blibli', 'asdasd', 50, 123131, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('23', '37', 'blibli', 'Mempeseona', 100, 132, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('24', '37', 'blibli', 'asdasd', 50, 123131, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('25', '38', 'blibli', 'Mempeseona', 100, 132, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('26', '38', 'blibli', 'asdasd', 50, 123131, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('27', '38', 'blibli', 'Mempeseona', 100, 132, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('28', '38', 'blibli', 'asdasd', 50, 123131, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('29', '38', 'blibli', 'Mempeseona', 100, 132, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('30', '38', 'blibli', 'asdasd', 50, 123131, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('31', '38', 'blibli', 'Mempeseona', 100, 132, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('32', '38', 'blibli', 'asdasd', 50, 123131, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('33', '42', 'blibli', 'Mempeseona', 100, 132, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('34', '42', 'blibli', 'asdasd', 50, 123131, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('35', '42', 'blibli', 'Mempeseona', 100, 132, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('36', '42', 'blibli', 'asdasd', 50, 123131, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('37', '42', 'blibli', 'Mempeseona', 100, 132, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('38', '42', 'blibli', 'asdasd', 50, 123131, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('39', '42', 'blibli', 'Mempeseona', 100, 132, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('40', '42', 'blibli', 'asdasd', 50, 123131, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('41', '42', 'blibli', 'Mempeseona', 100, 132, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('42', '42', 'blibli', 'asdasd', 50, 123131, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('43', '47', 'blibli', 'Mempeseona', 100, 132, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('44', '47', 'blibli', 'asdasd', 50, 123131, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('45', '48', 'blibli', 'Mempeseona', 100, 132, 'false');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('46', '48', 'blibli', 'Mempeseona', 100, 132, 'false');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('47', '50', 'blibli', 'Mempeseona', 10, 132, 'false');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('48', '51', 'blibli', 'Mempeseona', 20, 132, 'false');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('49', '51', 'blibli', 'asdasd', 10, 123131, 'false');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('50', '52', 'blibli', 'Mempeseona', 20, 132, 'false');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('51', '53', 'blibli', 'Mempeseona', 100, 132, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('52', '54', 'blibli', 'Mempeseona', 100, 132, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('53', '54', 'blibli', 'asdasd', 20, 123131, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('54', '55', 'blibli', 'Mempeseona', 50, 132, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('55', '60', 'blibli', 'ad', 1, 10000, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('56', '60', 'blibli', 'asdasd', 20, 123131, 'false');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('57', '61', 'blibli', 'ad', 1, 10000, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('58', '61', 'blibli', 'asdasd', 10, 123131, 'false');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('59', '62', 'blibli', 'ad', 1, 10000, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('60', '62', 'blibli', 'asdasd', 20, 123131, 'false');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('61', '63', 'blibli', 'ad', 1, 10000, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('62', '63', 'blibli', 'asdasd', 20, 123131, 'false');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('63', '63', 'blibli', 'Mempeseona', 10, 132, 'false');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('64', '64', 'blibli', 'asdasd', 20, 123131, 'false');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('65', '64', 'blibli', 'Mempeseona', 100, 132, 'false');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('66', '65', 'blibli', 'ad', 1, 10000, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('67', '65', 'blibli', 'Mempeseona', 10, 132, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('68', '66', 'blibli', 'Mempeseona', 10, 132, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('69', '67', 'blibli', 'Mempeseona', 10, 132, 'false');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('70', '68', 'blibli', '11111', 3, 30000, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('71', '69', 'blibli', '11111', 3, 30000, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('72', '70', 'blibli', '11111', 2, 30000, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('73', '70', 'blibli', 'Mempeseona', 1, 132, 'false');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('74', '71', 'blibli', '11111', 2, 30000, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('75', '71', 'blibli', 'wendyyyy', 1, 23232323, 'false');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('76', '72', 'blibli', '11111', 2, 30000, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('77', '73', 'blibli', '11111', 1, 30000, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('78', '73', 'blibli', 'Mempeseona', 1, 132, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('79', '74', 'blibli', 'wendyyyy', 50, 23232323, 'false');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('80', '75', 'blibli', 'wendyyyy', 1, 23232323, 'false');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('81', '76', 'blibli', 'wendyyyy', 10, 23232323, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('82', '77', 'blibli', 'Walala', 1, 10000, 'false');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('83', '78', 'blibli', 'Walala', 5, 10000, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('84', '79', 'blibli', 'Walala', 10, 10000, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('85', '80', 'blibli', '11111', 2, 30000, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('86', '80', 'blibli', 'Walala', 2, 10000, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('87', '80', 'blibli', 'wendyyyy', 0, 23232323, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('88', '81', 'blibli', '11111', 2, 30000, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('89', '81', 'blibli', 'Walala', 2, 10000, 'true');
-INSERT INTO orderdetail (id, invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES ('90', '82', 'blibli', '11111', 2, 30000, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('48', '51', 1, 'Mempeseona', 20, 132, 'false');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('39', '42', 1, 'Mempeseona', 100, 132, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('38', '42', 1, 'asdasd', 50, 123131, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('37', '42', 1, 'Mempeseona', 100, 132, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('50', '52', 1, 'Mempeseona', 20, 132, 'false');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('36', '42', 1, 'asdasd', 50, 123131, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('84', '79', 1, 'Walala', 10, 10000, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('54', '55', 1, 'Mempeseona', 50, 132, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('30', '38', 1, 'asdasd', 50, 123131, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('52', '54', 1, 'Mempeseona', 100, 132, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('43', '47', 1, 'Mempeseona', 100, 132, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('42', '42', 1, 'asdasd', 50, 123131, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('41', '42', 1, 'Mempeseona', 100, 132, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('40', '42', 1, 'asdasd', 50, 123131, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('55', '60', 1, 'ad', 1, 10000, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('56', '60', 1, 'asdasd', 20, 123131, 'false');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('57', '61', 1, 'ad', 1, 10000, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('59', '62', 1, 'ad', 1, 10000, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('53', '54', 1, 'asdasd', 20, 123131, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('61', '63', 1, 'ad', 1, 10000, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('60', '62', 1, 'asdasd', 20, 123131, 'false');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('65', '64', 1, 'Mempeseona', 100, 132, 'false');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('62', '63', 1, 'asdasd', 20, 123131, 'false');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('63', '63', 1, 'Mempeseona', 10, 132, 'false');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('10', '30', 1, 'asdasd', 89, 123131, 'false');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('49', '51', 1, 'asdasd', 10, 123131, 'false');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('64', '64', 1, 'asdasd', 20, 123131, 'false');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('14', '32', 1, 'asdasd', 10, 123131, 'false');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('13', '32', 1, 'Mempeseona', 50, 132, 'false');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('12', '31', 1, 'asdasd', 10, 123131, 'false');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('11', '31', 1, 'Mempeseona', 100, 132, 'false');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('18', '34', 1, 'asdasd', 10, 123131, 'false');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('17', '34', 1, 'Mempeseona', 20, 132, 'false');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('16', '33', 1, 'asdasd', 5, 123131, 'false');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('15', '33', 1, 'Mempeseona', 20, 132, 'false');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('19', '35', 1, 'Mempeseona', 100, 132, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('77', '73', 1, '11111', 1, 30000, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('21', '36', 1, 'Mempeseona', 100, 132, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('20', '35', 1, 'asdasd', 50, 123131, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('69', '67', 1, 'Mempeseona', 10, 132, 'false');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('68', '66', 1, 'Mempeseona', 10, 132, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('67', '65', 1, 'Mempeseona', 10, 132, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('66', '65', 1, 'ad', 1, 10000, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('71', '69', 1, '11111', 3, 30000, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('8', '27', 1, 'Mempeseona', 90, 132, 'false');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('3', '1', 1, 'indomi', 2, 4000, NULL);
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('2', '1', 1, 'sampo', 3, 3000, NULL);
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('1', '1', 1, 'sabun', 5, 3000, NULL);
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('7', '26', 1, 'Mempeseona', 90, 132, 'false');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('6', '25', 1, 'Mempeseona', 11, 132, 'false');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('5', '24', 1, 'Mempeseona', 11, 132, 'false');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('4', '2', 1, 'selada', 1, 11000, NULL);
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('89', '81', 1, 'Walala', 2, 10000, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('9', '30', 1, 'Mempeseona', 90, 132, 'false');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('51', '53', 1, 'Mempeseona', 100, 132, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('31', '38', 1, 'Mempeseona', 100, 132, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('72', '70', 1, '11111', 2, 30000, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('58', '61', 1, 'asdasd', 10, 123131, 'false');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('70', '68', 1, '11111', 3, 30000, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('76', '72', 1, '11111', 2, 30000, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('75', '71', 1, 'wendyyyy', 1, 23232323, 'false');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('74', '71', 1, '11111', 2, 30000, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('73', '70', 1, 'Mempeseona', 1, 132, 'false');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('88', '81', 1, '11111', 2, 30000, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('79', '74', 1, 'wendyyyy', 50, 23232323, 'false');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('78', '73', 1, 'Mempeseona', 1, 132, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('25', '38', 1, 'Mempeseona', 100, 132, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('24', '37', 1, 'asdasd', 50, 123131, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('23', '37', 1, 'Mempeseona', 100, 132, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('22', '36', 1, 'asdasd', 50, 123131, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('29', '38', 1, 'Mempeseona', 100, 132, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('28', '38', 1, 'asdasd', 50, 123131, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('27', '38', 1, 'Mempeseona', 100, 132, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('26', '38', 1, 'asdasd', 50, 123131, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('90', '82', 1, '11111', 2, 30000, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('83', '78', 1, 'Walala', 5, 10000, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('82', '77', 1, 'Walala', 1, 10000, 'false');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('81', '76', 1, 'wendyyyy', 10, 23232323, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('80', '75', 1, 'wendyyyy', 1, 23232323, 'false');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('87', '80', 1, 'wendyyyy', 0, 23232323, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('86', '80', 1, 'Walala', 2, 10000, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('85', '80', 1, '11111', 2, 30000, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('32', '38', 1, 'asdasd', 50, 123131, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('47', '50', 1, 'Mempeseona', 10, 132, 'false');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('46', '48', 1, 'Mempeseona', 100, 132, 'false');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('45', '48', 1, 'Mempeseona', 100, 132, 'false');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('44', '47', 1, 'asdasd', 50, 123131, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('35', '42', 1, 'Mempeseona', 100, 132, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('34', '42', 1, 'asdasd', 50, 123131, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('33', '42', 1, 'Mempeseona', 100, 132, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('91', '83', 1, '11111', 1, 123123, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('92', '83', 1, 'Walala', 10, 10000, 'true');
+INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES ('93', '84', 1, 'Walala', 1, 10000, 'true');
 
 
 --
 -- Name: orderdetail_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('orderdetail_id_seq', 90, true);
+SELECT pg_catalog.setval('orderdetail_id_seq', 93, true);
 
 
 --
 -- Data for Name: promo; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO promo (id, storeusername, name, description, status, discountamount) VALUES ('1', 'blibli', 'ululu', 'diskon 10%', true, 10);
+INSERT INTO promo (id, storeid, name, description, status, discountamount) VALUES ('1', 1, 'ululu', 'diskon 10%', true, 10);
 
 
 --
 -- Data for Name: screeningtime; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO screeningtime (id, filmid, studioid, storeusername, "time", duration, status) VALUES ('2', '6', '1', 'blibli', '23:56:00', 123, true);
-INSERT INTO screeningtime (id, filmid, studioid, storeusername, "time", duration, status) VALUES ('4', '6', '1', 'blibli', '23:56:00', 123, true);
-INSERT INTO screeningtime (id, filmid, studioid, storeusername, "time", duration, status) VALUES ('7', '6', '1', 'blibli', '23:56:00', 123, true);
-INSERT INTO screeningtime (id, filmid, studioid, storeusername, "time", duration, status) VALUES ('10', '6', '1', 'blibli', '23:56:00', 123, true);
-INSERT INTO screeningtime (id, filmid, studioid, storeusername, "time", duration, status) VALUES ('11', '6', '1', 'blibli', '23:56:00', 123, true);
-INSERT INTO screeningtime (id, filmid, studioid, storeusername, "time", duration, status) VALUES ('12', '6', '1', 'blibli', '23:56:00', 123, true);
-INSERT INTO screeningtime (id, filmid, studioid, storeusername, "time", duration, status) VALUES ('6', '6', '2', 'blibli', '23:56:00', 123, true);
-INSERT INTO screeningtime (id, filmid, studioid, storeusername, "time", duration, status) VALUES ('5', '6', '2', 'blibli', '23:56:00', 123, true);
-INSERT INTO screeningtime (id, filmid, studioid, storeusername, "time", duration, status) VALUES ('8', '6', '3', 'blibli', '23:56:00', 123, true);
-INSERT INTO screeningtime (id, filmid, studioid, storeusername, "time", duration, status) VALUES ('3', '6', '2', 'blibli', '23:56:00', 123, true);
-INSERT INTO screeningtime (id, filmid, studioid, storeusername, "time", duration, status) VALUES ('9', '6', '3', 'blibli', '23:56:00', 123, true);
-INSERT INTO screeningtime (id, filmid, studioid, storeusername, "time", duration, status) VALUES ('13', '32', '4', 'blibli', '17:03:00', 1, true);
-INSERT INTO screeningtime (id, filmid, studioid, storeusername, "time", duration, status) VALUES ('14', '32', '10', 'blibli', '12:12:00', 1, true);
-INSERT INTO screeningtime (id, filmid, studioid, storeusername, "time", duration, status) VALUES ('15', '32', '10', 'blibli', '23:58:00', 1, true);
+INSERT INTO screeningtime (id, filmid, studioid, storeid, "time", duration, status) VALUES ('9', '6', '3', 1, '23:56:00', 123, true);
+INSERT INTO screeningtime (id, filmid, studioid, storeid, "time", duration, status) VALUES ('8', '6', '3', 1, '23:56:00', 123, true);
+INSERT INTO screeningtime (id, filmid, studioid, storeid, "time", duration, status) VALUES ('7', '6', '1', 1, '23:56:00', 123, true);
+INSERT INTO screeningtime (id, filmid, studioid, storeid, "time", duration, status) VALUES ('6', '6', '2', 1, '23:56:00', 123, true);
+INSERT INTO screeningtime (id, filmid, studioid, storeid, "time", duration, status) VALUES ('5', '6', '2', 1, '23:56:00', 123, true);
+INSERT INTO screeningtime (id, filmid, studioid, storeid, "time", duration, status) VALUES ('4', '6', '1', 1, '23:56:00', 123, true);
+INSERT INTO screeningtime (id, filmid, studioid, storeid, "time", duration, status) VALUES ('3', '6', '2', 1, '23:56:00', 123, true);
+INSERT INTO screeningtime (id, filmid, studioid, storeid, "time", duration, status) VALUES ('2', '6', '1', 1, '23:56:00', 123, true);
+INSERT INTO screeningtime (id, filmid, studioid, storeid, "time", duration, status) VALUES ('15', '32', '10', 1, '23:58:00', 1, true);
+INSERT INTO screeningtime (id, filmid, studioid, storeid, "time", duration, status) VALUES ('10', '6', '1', 1, '23:56:00', 123, true);
+INSERT INTO screeningtime (id, filmid, studioid, storeid, "time", duration, status) VALUES ('11', '6', '1', 1, '23:56:00', 123, true);
+INSERT INTO screeningtime (id, filmid, studioid, storeid, "time", duration, status) VALUES ('12', '6', '1', 1, '23:56:00', 123, true);
+INSERT INTO screeningtime (id, filmid, studioid, storeid, "time", duration, status) VALUES ('13', '32', '4', 1, '17:03:00', 1, true);
+INSERT INTO screeningtime (id, filmid, studioid, storeid, "time", duration, status) VALUES ('14', '32', '10', 1, '12:12:00', 1, true);
+INSERT INTO screeningtime (id, filmid, studioid, storeid, "time", duration, status) VALUES ('16', '33', '7', 1, '10:10:00', 123, false);
 
 
 --
 -- Name: screeningtime_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('screeningtime_id_seq', 15, true);
+SELECT pg_catalog.setval('screeningtime_id_seq', 16, true);
 
 
 --
 -- Data for Name: seat; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO seat (number, studioid, name) VALUES ('1', '1', 'a1');
-INSERT INTO seat (number, studioid, name) VALUES ('2', '1', 'a2');
 INSERT INTO seat (number, studioid, name) VALUES ('3', '1', 'A3');
 INSERT INTO seat (number, studioid, name) VALUES ('4', '1', 'A4');
 INSERT INTO seat (number, studioid, name) VALUES ('5', '1', 'A5');
@@ -1996,6 +2046,8 @@ INSERT INTO seat (number, studioid, name) VALUES ('797', '8', 'J7');
 INSERT INTO seat (number, studioid, name) VALUES ('798', '8', 'J8');
 INSERT INTO seat (number, studioid, name) VALUES ('799', '8', 'J9');
 INSERT INTO seat (number, studioid, name) VALUES ('800', '8', 'J10');
+INSERT INTO seat (number, studioid, name) VALUES ('2', '1', 'A2');
+INSERT INTO seat (number, studioid, name) VALUES ('1', '1', 'A1');
 
 
 --
@@ -2009,40 +2061,48 @@ SELECT pg_catalog.setval('seat_number_seq', 801, true);
 -- Data for Name: storeaccount; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO storeaccount (username, password, storename) VALUES ('blibli', 'mantab', 'global digital niaga');
+INSERT INTO storeaccount (username, password, storename, id) VALUES ('blibli', 'mantab', 'global digital niaga', 1);
+
+
+--
+-- Name: storeaccount_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('storeaccount_id_seq', 1, true);
 
 
 --
 -- Data for Name: studio; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO studio (id, storeusername, name, type, price, status) VALUES ('6', 'blibli', 'D', 'Regular', 40000, true);
-INSERT INTO studio (id, storeusername, name, type, price, status) VALUES ('8', 'blibli', 'H', 'Suite', 800000, true);
-INSERT INTO studio (id, storeusername, name, type, price, status) VALUES ('4', 'blibli', 'C', 'Regular', 30000, true);
-INSERT INTO studio (id, storeusername, name, type, price, status) VALUES ('1', 'blibli', 'A', 'Regular', 10000, true);
-INSERT INTO studio (id, storeusername, name, type, price, status) VALUES ('2', 'blibli', 'B', 'Regular', 20000, true);
-INSERT INTO studio (id, storeusername, name, type, price, status) VALUES ('7', 'blibli', 'E', 'Regular', 500000, true);
-INSERT INTO studio (id, storeusername, name, type, price, status) VALUES ('5', 'blibli', 'G', 'VIP', 700000, true);
-INSERT INTO studio (id, storeusername, name, type, price, status) VALUES ('3', 'blibli', 'F', 'Regular', 60000, true);
-INSERT INTO studio (id, storeusername, name, type, price, status) VALUES ('9', 'blibli', 'Mantap', 'Regular', 123, false);
-INSERT INTO studio (id, storeusername, name, type, price, status) VALUES ('10', 'blibli', 'Alalal', 'Regular', 123123, true);
+INSERT INTO studio (id, storeid, name, type, price, status) VALUES ('9', 1, 'Mantap', 1, 123, false);
+INSERT INTO studio (id, storeid, name, type, price, status) VALUES ('8', 1, 'H', 3, 800000, true);
+INSERT INTO studio (id, storeid, name, type, price, status) VALUES ('7', 1, 'E', 1, 500000, true);
+INSERT INTO studio (id, storeid, name, type, price, status) VALUES ('1', 1, 'A', 1, 10000, true);
+INSERT INTO studio (id, storeid, name, type, price, status) VALUES ('2', 1, 'B', 1, 20000, true);
+INSERT INTO studio (id, storeid, name, type, price, status) VALUES ('3', 1, 'F', 1, 60000, true);
+INSERT INTO studio (id, storeid, name, type, price, status) VALUES ('10', 1, 'Alalal', 1, 123123, true);
+INSERT INTO studio (id, storeid, name, type, price, status) VALUES ('5', 1, 'G', 2, 700000, true);
+INSERT INTO studio (id, storeid, name, type, price, status) VALUES ('6', 1, 'D', 1, 40000, true);
+INSERT INTO studio (id, storeid, name, type, price, status) VALUES ('4', 1, 'C', 2, 30000, true);
+INSERT INTO studio (id, storeid, name, type, price, status) VALUES ('11', 1, 'asd', 1, 123, true);
 
 
 --
 -- Name: studio_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('studio_id_seq', 10, true);
+SELECT pg_catalog.setval('studio_id_seq', 11, true);
 
 
 --
 -- Data for Name: studiotype; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO studiotype (id, type, storeusername, status) VALUES (1, 'Regular', 'blibli', true);
-INSERT INTO studiotype (id, type, storeusername, status) VALUES (2, 'Suite', 'blibli', true);
-INSERT INTO studiotype (id, type, storeusername, status) VALUES (3, 'VIP', 'blibli', true);
-INSERT INTO studiotype (id, type, storeusername, status) VALUES (4, 'WawwBgt', 'blibli', false);
+INSERT INTO studiotype (id, type, storeid, status) VALUES (1, 'Regular', 1, true);
+INSERT INTO studiotype (id, type, storeid, status) VALUES (4, 'WawwBgt', 1, false);
+INSERT INTO studiotype (id, type, storeid, status) VALUES (3, 'VIP', 1, true);
+INSERT INTO studiotype (id, type, storeid, status) VALUES (2, 'SuiteMantap', 1, true);
 
 
 --
@@ -2053,11 +2113,11 @@ SELECT pg_catalog.setval('studiotype_id_seq', 4, true);
 
 
 --
--- Name: account account_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: account account_id_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY account
-    ADD CONSTRAINT account_pkey PRIMARY KEY (username);
+    ADD CONSTRAINT account_id_pk PRIMARY KEY (id);
 
 
 --
@@ -2125,14 +2185,6 @@ ALTER TABLE ONLY invoice
 
 
 --
--- Name: ledger ledger_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY ledger
-    ADD CONSTRAINT ledger_pkey PRIMARY KEY (id);
-
-
---
 -- Name: membercard membercard_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -2181,11 +2233,11 @@ ALTER TABLE ONLY seat
 
 
 --
--- Name: storeaccount storeaccount_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: storeaccount storeaccount_id_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY storeaccount
-    ADD CONSTRAINT storeaccount_pkey PRIMARY KEY (username);
+    ADD CONSTRAINT storeaccount_id_pk PRIMARY KEY (id);
 
 
 --
@@ -2202,6 +2254,13 @@ ALTER TABLE ONLY studio
 
 ALTER TABLE ONLY studiotype
     ADD CONSTRAINT studiotype_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: account_id_uindex; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE UNIQUE INDEX account_id_uindex ON account USING btree (id);
 
 
 --
@@ -2275,6 +2334,13 @@ CREATE UNIQUE INDEX membergender_id_uindex ON membergender USING btree (id);
 
 
 --
+-- Name: storeaccount_id_uindex; Type: INDEX; Schema: public; Owner: postgres
+--
+
+CREATE UNIQUE INDEX storeaccount_id_uindex ON storeaccount USING btree (id);
+
+
+--
 -- Name: studiotype_id_uindex; Type: INDEX; Schema: public; Owner: postgres
 --
 
@@ -2289,51 +2355,51 @@ CREATE UNIQUE INDEX studiotype_type_uindex ON studiotype USING btree (type);
 
 
 --
--- Name: account account_accountrole_role_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: account account_accountrole_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY account
-    ADD CONSTRAINT account_accountrole_role_fk FOREIGN KEY (type) REFERENCES accountrole(role);
+    ADD CONSTRAINT account_accountrole_id_fk FOREIGN KEY (roleid) REFERENCES accountrole(id);
 
 
 --
--- Name: account account_storeaccount_username_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: account account_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY account
-    ADD CONSTRAINT account_storeaccount_username_fk FOREIGN KEY (storeusername) REFERENCES storeaccount(username);
+    ADD CONSTRAINT account_storeaccount_id_fk FOREIGN KEY (storeid) REFERENCES storeaccount(id);
 
 
 --
--- Name: accountrole accountrole_storeaccount_username_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: accountrole accountrole_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY accountrole
-    ADD CONSTRAINT accountrole_storeaccount_username_fk FOREIGN KEY (storeusername) REFERENCES storeaccount(username);
+    ADD CONSTRAINT accountrole_storeaccount_id_fk FOREIGN KEY (storeid) REFERENCES storeaccount(id);
 
 
 --
--- Name: film film_filmgenre_genre_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY film
-    ADD CONSTRAINT film_filmgenre_genre_fk FOREIGN KEY (genre) REFERENCES filmgenre(genre);
-
-
---
--- Name: film film_storeusername_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: film film_filmgenre_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY film
-    ADD CONSTRAINT film_storeusername_fkey FOREIGN KEY (storeusername) REFERENCES storeaccount(username);
+    ADD CONSTRAINT film_filmgenre_id_fk FOREIGN KEY (genre) REFERENCES filmgenre(id);
 
 
 --
--- Name: filmgenre filmgenre_storeaccount_username_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: film film_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY film
+    ADD CONSTRAINT film_storeaccount_id_fk FOREIGN KEY (storeid) REFERENCES storeaccount(id);
+
+
+--
+-- Name: filmgenre filmgenre_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY filmgenre
-    ADD CONSTRAINT filmgenre_storeaccount_username_fk FOREIGN KEY (storeusername) REFERENCES storeaccount(username);
+    ADD CONSTRAINT filmgenre_storeaccount_id_fk FOREIGN KEY (storeid) REFERENCES storeaccount(id);
 
 
 --
@@ -2353,11 +2419,11 @@ ALTER TABLE ONLY filmticket
 
 
 --
--- Name: filmticket filmticket_storeaccount_username_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: filmticket filmticket_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY filmticket
-    ADD CONSTRAINT filmticket_storeaccount_username_fk FOREIGN KEY (storeusername) REFERENCES storeaccount(username);
+    ADD CONSTRAINT filmticket_storeaccount_id_fk FOREIGN KEY (storeid) REFERENCES storeaccount(id);
 
 
 --
@@ -2369,51 +2435,51 @@ ALTER TABLE ONLY filmticket
 
 
 --
--- Name: fnbsize fnbsize_storeaccount_username_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: fnbsize fnbsize_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY fnbsize
-    ADD CONSTRAINT fnbsize_storeaccount_username_fk FOREIGN KEY (storeusername) REFERENCES storeaccount(username);
+    ADD CONSTRAINT fnbsize_storeaccount_id_fk FOREIGN KEY (storeid) REFERENCES storeaccount(id);
 
 
 --
--- Name: fnbtype fnbtype_storeaccount_username_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: fnbtype fnbtype_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY fnbtype
-    ADD CONSTRAINT fnbtype_storeaccount_username_fk FOREIGN KEY (storeusername) REFERENCES storeaccount(username);
+    ADD CONSTRAINT fnbtype_storeaccount_id_fk FOREIGN KEY (storeid) REFERENCES storeaccount(id);
 
 
 --
--- Name: foodandbeverages foodandbeverages_fnbsize_size_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY foodandbeverages
-    ADD CONSTRAINT foodandbeverages_fnbsize_size_fk FOREIGN KEY (size) REFERENCES fnbsize(size);
-
-
---
--- Name: foodandbeverages foodandbeverages_fnbtype_type_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: foodandbeverages foodandbeverages_fnbsize_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY foodandbeverages
-    ADD CONSTRAINT foodandbeverages_fnbtype_type_fk FOREIGN KEY (type) REFERENCES fnbtype(type);
+    ADD CONSTRAINT foodandbeverages_fnbsize_id_fk FOREIGN KEY (size) REFERENCES fnbsize(id);
 
 
 --
--- Name: foodandbeverages foodandbeverages_storeusername_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: foodandbeverages foodandbeverages_fnbtype_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY foodandbeverages
-    ADD CONSTRAINT foodandbeverages_storeusername_fkey FOREIGN KEY (storeusername) REFERENCES storeaccount(username);
+    ADD CONSTRAINT foodandbeverages_fnbtype_id_fk FOREIGN KEY (type) REFERENCES fnbtype(id);
 
 
 --
--- Name: invoice invoice_accountusername_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: foodandbeverages foodandbeverages_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY foodandbeverages
+    ADD CONSTRAINT foodandbeverages_storeaccount_id_fk FOREIGN KEY (storeid) REFERENCES storeaccount(id);
+
+
+--
+-- Name: invoice invoice_account_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY invoice
-    ADD CONSTRAINT invoice_accountusername_fkey FOREIGN KEY (accountusername) REFERENCES account(username);
+    ADD CONSTRAINT invoice_account_id_fk FOREIGN KEY (cashierid) REFERENCES account(id);
 
 
 --
@@ -2433,67 +2499,35 @@ ALTER TABLE ONLY invoice
 
 
 --
--- Name: invoice invoice_storeusername_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: invoice invoice_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY invoice
-    ADD CONSTRAINT invoice_storeusername_fkey FOREIGN KEY (storeusername) REFERENCES storeaccount(username);
+    ADD CONSTRAINT invoice_storeaccount_id_fk FOREIGN KEY (storeid) REFERENCES storeaccount(id);
 
 
 --
--- Name: ledger ledger_invoiceid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY ledger
-    ADD CONSTRAINT ledger_invoiceid_fkey FOREIGN KEY (invoiceid) REFERENCES invoice(id);
-
-
---
--- Name: ledger ledger_memberid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY ledger
-    ADD CONSTRAINT ledger_memberid_fkey FOREIGN KEY (memberid) REFERENCES membercard(id);
-
-
---
--- Name: ledger ledger_orderdetailid_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY ledger
-    ADD CONSTRAINT ledger_orderdetailid_fkey FOREIGN KEY (orderdetailid) REFERENCES orderdetail(id);
-
-
---
--- Name: ledger ledger_storeusername_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY ledger
-    ADD CONSTRAINT ledger_storeusername_fkey FOREIGN KEY (storeusername) REFERENCES storeaccount(username);
-
-
---
--- Name: membercard membercard_membergender_gender_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: membercard membercard_membergender_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY membercard
-    ADD CONSTRAINT membercard_membergender_gender_fk FOREIGN KEY (gender) REFERENCES membergender(gender);
+    ADD CONSTRAINT membercard_membergender_id_fk FOREIGN KEY (gender) REFERENCES membergender(id);
 
 
 --
--- Name: membercard membercard_storeusername_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: membercard membercard_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY membercard
-    ADD CONSTRAINT membercard_storeusername_fkey FOREIGN KEY (storeusername) REFERENCES storeaccount(username);
+    ADD CONSTRAINT membercard_storeaccount_id_fk FOREIGN KEY (storeid) REFERENCES storeaccount(id);
 
 
 --
--- Name: membergender membergender_storeaccount_username_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: membergender membergender_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY membergender
-    ADD CONSTRAINT membergender_storeaccount_username_fk FOREIGN KEY (storeusername) REFERENCES storeaccount(username);
+    ADD CONSTRAINT membergender_storeaccount_id_fk FOREIGN KEY (storeid) REFERENCES storeaccount(id);
 
 
 --
@@ -2505,19 +2539,19 @@ ALTER TABLE ONLY orderdetail
 
 
 --
--- Name: orderdetail orderdetail_storeusername_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: orderdetail orderdetail_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY orderdetail
-    ADD CONSTRAINT orderdetail_storeusername_fkey FOREIGN KEY (storeusername) REFERENCES storeaccount(username);
+    ADD CONSTRAINT orderdetail_storeaccount_id_fk FOREIGN KEY (storeid) REFERENCES storeaccount(id);
 
 
 --
--- Name: promo promo_storeusername_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: promo promo_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY promo
-    ADD CONSTRAINT promo_storeusername_fkey FOREIGN KEY (storeusername) REFERENCES storeaccount(username);
+    ADD CONSTRAINT promo_storeaccount_id_fk FOREIGN KEY (storeid) REFERENCES storeaccount(id);
 
 
 --
@@ -2529,11 +2563,11 @@ ALTER TABLE ONLY screeningtime
 
 
 --
--- Name: screeningtime screeningtime_storeusername_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: screeningtime screeningtime_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY screeningtime
-    ADD CONSTRAINT screeningtime_storeusername_fkey FOREIGN KEY (storeusername) REFERENCES storeaccount(username);
+    ADD CONSTRAINT screeningtime_storeaccount_id_fk FOREIGN KEY (storeid) REFERENCES storeaccount(id);
 
 
 --
@@ -2553,27 +2587,27 @@ ALTER TABLE ONLY seat
 
 
 --
--- Name: studio studio_storeusername_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: studio studio_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY studio
-    ADD CONSTRAINT studio_storeusername_fkey FOREIGN KEY (storeusername) REFERENCES storeaccount(username);
+    ADD CONSTRAINT studio_storeaccount_id_fk FOREIGN KEY (storeid) REFERENCES storeaccount(id);
 
 
 --
--- Name: studio studio_studiotype_type_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: studio studio_studiotype_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY studio
-    ADD CONSTRAINT studio_studiotype_type_fk FOREIGN KEY (type) REFERENCES studiotype(type);
+    ADD CONSTRAINT studio_studiotype_id_fk FOREIGN KEY (type) REFERENCES studiotype(id);
 
 
 --
--- Name: studiotype studiotype_storeaccount_username_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: studiotype studiotype_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY studiotype
-    ADD CONSTRAINT studiotype_storeaccount_username_fk FOREIGN KEY (storeusername) REFERENCES storeaccount(username);
+    ADD CONSTRAINT studiotype_storeaccount_id_fk FOREIGN KEY (storeid) REFERENCES storeaccount(id);
 
 
 --
