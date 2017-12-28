@@ -32,17 +32,17 @@ public class MemberCardDAO {
         }
     }
 
-    public MemberCard getMemberCard(String id, String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM membercard where id = ? and storeusername = ? and status = true");
+    public MemberCard getMemberCard(String id, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM membercard where id = ? and storeid = ? and status = true");
         ps.setString(1, id);
-        ps.setString(2, storename);
+        ps.setInt(2, storeid);
 
         ResultSet rs = ps.executeQuery();
 
         MemberCard output;
         if(rs.next()){
             output = new MemberCard(rs.getInt(1),
-                    rs.getString(2),
+                    rs.getInt(2),
                     rs.getString(3),
                     rs.getString(4),
                     rs.getString(5).substring(0,10),
@@ -54,15 +54,15 @@ public class MemberCardDAO {
         return output;
     }
 
-    public List<MemberCard> getAllMemberCard(String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM membercard where storeusername = ? and status = true");
-        ps.setString(1, storename);
+    public List<MemberCard> getAllMemberCard(int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM membercard where storeid = ? and status = true");
+        ps.setInt(1, storeid);
         ResultSet rs = ps.executeQuery();
 
         List<MemberCard> memberCards = new ArrayList<MemberCard>();
         while(rs.next()){
             memberCards.add(new MemberCard(rs.getInt(1),
-                    rs.getString(2),
+                    rs.getInt(2),
                     rs.getString(3),
                     rs.getString(4),
                     rs.getString(5).substring(0,10),
@@ -73,8 +73,8 @@ public class MemberCardDAO {
     }
 
     public void addMemberCard(MemberCard memberCard) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("INSERT INTO membercard (storeusername, fullname, gender, birthdate, phonenumber, email) VALUES (?,?,?,?,?,?)");
-        ps.setString(1,memberCard.getStorename());
+        PreparedStatement ps = conn.prepareStatement("INSERT INTO membercard (storeid, fullname, gender, birthdate, phonenumber, email) VALUES (?,?,?,?,?,?)");
+        ps.setInt(1,memberCard.getStoreID());
         ps.setString(2, memberCard.getFullname());
         ps.setString(3, memberCard.getGender());
         ps.setDate(4, java.sql.Date.valueOf(memberCard.getBirthDate()));
@@ -83,22 +83,22 @@ public class MemberCardDAO {
         ps.executeUpdate();
     }
 
-    public void deleteMemberCard(String id, String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("UPDATE membercard set status = false where username = ? and storeusername = ?");
+    public void deleteMemberCard(String id, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("UPDATE membercard set status = false where username = ? and storeid = ?");
         ps.setString(1, id);
-        ps.setString(2, storename);
+        ps.setInt(2, storeid);
         ps.executeUpdate();
     }
 
     public void updateMemberCard(MemberCard memberCard) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("UPDATE membercard set fullname = ?, gender = ?, birthdate = ?, phonenumber = ?, email = ? where id = ? AND storeusername = ?");
+        PreparedStatement ps = conn.prepareStatement("UPDATE membercard set fullname = ?, gender = ?, birthdate = ?, phonenumber = ?, email = ? where id = ? AND storeid = ?");
         ps.setString(1, memberCard.getFullname());
         ps.setString(2, memberCard.getGender());
         ps.setDate(3, java.sql.Date.valueOf(memberCard.getBirthDate()));
         ps.setString(4, memberCard.getPhoneNumber());
         ps.setString(5, memberCard.getEmail());
         ps.setString(6, memberCard.getId() + "");
-        ps.setString(7,memberCard.getStorename());
+        ps.setInt(7,memberCard.getStoreID());
 
         ps.executeUpdate();
     }

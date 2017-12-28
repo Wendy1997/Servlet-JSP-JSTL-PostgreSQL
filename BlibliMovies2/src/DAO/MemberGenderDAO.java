@@ -32,53 +32,53 @@ public class MemberGenderDAO {
         }
     }
 
-    public MemberGender getMemberGender(String id, String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM memberGender where id = ? and storeusername = ? and status = true");
+    public MemberGender getMemberGender(String id, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM memberGender where id = ? and storeid = ? and status = true");
         ps.setString(1, id);
-        ps.setString(2, storename);
+        ps.setInt(2, storeid);
 
         ResultSet rs = ps.executeQuery();
 
         MemberGender output;
         if(rs.next()){
-            output = new MemberGender(rs.getString(1), rs.getString(2), rs.getString(3));
+            output = new MemberGender(rs.getString(1), rs.getString(2), rs.getInt(3));
         } else{
             output = null;
         }
         return output;
     }
 
-    public List<MemberGender> getAllMemberGender(String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM memberGender where storeusername = ? and status = true");
-        ps.setString(1, storename);
+    public List<MemberGender> getAllMemberGender(int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM memberGender where storeid = ? and status = true");
+        ps.setInt(1, storeid);
         ResultSet rs = ps.executeQuery();
 
         List<MemberGender> memberGenders = new ArrayList<MemberGender>();
         while(rs.next()){
-            memberGenders.add(new MemberGender(rs.getString(1), rs.getString(2), rs.getString(3)));
+            memberGenders.add(new MemberGender(rs.getString(1), rs.getString(2), rs.getInt(3)));
         }
         return memberGenders;
     }
 
     public void addMemberGender(MemberGender memberGender) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("INSERT INTO memberGender (storeusername, gender) VALUES (?,?)");
-        ps.setString(1, memberGender.getStorename());
+        PreparedStatement ps = conn.prepareStatement("INSERT INTO memberGender (storeid, gender) VALUES (?,?)");
+        ps.setInt(1, memberGender.getStoreID());
         ps.setString(2, memberGender.getGender());
         ps.executeUpdate();
     }
 
-    public void deleteMemberGender(String memberGender, String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("UPDATE memberGender set status = false where id = ? and storeusername = ?");
+    public void deleteMemberGender(String memberGender, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("UPDATE memberGender set status = false where id = ? and storeid = ?");
         ps.setString(1, memberGender);
-        ps.setString(2, storename);
+        ps.setInt(2, storeid);
         ps.executeUpdate();
     }
 
     public void updateMemberGender(MemberGender memberGender) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("UPDATE memberGender set gender = ? where id = ? and storeusername = ? and status = true");
+        PreparedStatement ps = conn.prepareStatement("UPDATE memberGender set gender = ? where id = ? and storeid = ? and status = true");
         ps.setString(1, memberGender.getGender());
         ps.setString(2, memberGender.getId());
-        ps.setString(3, memberGender.getStorename());
+        ps.setInt(3, memberGender.getStoreID());
         ps.executeUpdate();
     }
 }

@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Film {
     private int id;
-    private String storename;
+    private int storeid;
     private String cover;
     private String title;
     private String genre;
@@ -20,8 +20,8 @@ public class Film {
     private String sinopsis;
     private List<ScreeningTime> screeningTimes;
 
-    public Film(String storename, String cover, String title, String genre, int duration, String director, double rating, int reviewTotal, String startTime, String endTime, String language, String subtitle, String actor, String sinopsis) {
-        this.storename = storename;
+    public Film(int storeid, String cover, String title, String genre, int duration, String director, double rating, int reviewTotal, String startTime, String endTime, String language, String subtitle, String actor, String sinopsis) {
+        this.storeid = storeid;
         this.cover = cover;
         this.title = title;
         this.genre = genre;
@@ -37,9 +37,9 @@ public class Film {
         this.sinopsis = sinopsis;
     }
 
-    public Film(int id, String storename, String cover, String title, String genre, int duration, String director, double rating, int reviewTotal, String startTime, String endTime, String language, String subtitle, String actor, String sinopsis) {
+    public Film(int id, int storeid, String cover, String title, String genre, int duration, String director, double rating, int reviewTotal, String startTime, String endTime, String language, String subtitle, String actor, String sinopsis) {
         this.id = id;
-        this.storename = storename;
+        this.storeid = storeid;
         this.cover = cover;
         this.title = title;
         this.genre = genre;
@@ -63,12 +63,12 @@ public class Film {
         this.id = id;
     }
 
-    public String getStorename() {
-        return storename;
+    public int getStoreID() {
+        return storeid;
     }
 
-    public void setStorename(String storename) {
-        this.storename = storename;
+    public void setStoreID(int storeid) {
+        this.storeid = storeid;
     }
 
     public String getCover() {

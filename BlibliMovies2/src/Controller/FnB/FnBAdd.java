@@ -35,7 +35,7 @@ public class FnBAdd extends HttpServlet{
         String address = "/view/database/fnb/fnb_add.jsp";
 
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storename") == null){
+        if(request.getSession().getAttribute("storeid") == null){
             address = "/view/login/store_login.jsp";
         }
 
@@ -50,8 +50,8 @@ public class FnBAdd extends HttpServlet{
         }
 
         try{
-            List<FnBSize> fnBSizeList = fnbDAO.getAllFnBSize((String)request.getSession().getAttribute("storename"));
-            List<FnBType> fnBTypeList = fnbDAO.getAllFnBType((String)request.getSession().getAttribute("storename"));
+            List<FnBSize> fnBSizeList = fnbDAO.getAllFnBSize((int)request.getSession().getAttribute("storeid"));
+            List<FnBType> fnBTypeList = fnbDAO.getAllFnBType((int)request.getSession().getAttribute("storeid"));
             System.out.println(fnBSizeList.toString());
             System.out.println(fnBTypeList.toString());
 
@@ -74,7 +74,7 @@ public class FnBAdd extends HttpServlet{
         for(int i = 0; i < pathList.length - 3; i++){
             uploadFilePath += pathList[i] + "\\";
         }
-        uploadFilePath += UPLOAD_DIR + "\\" + (String)request.getSession().getAttribute("storename") + "\\fnb";
+        uploadFilePath += UPLOAD_DIR + "\\" + (int)request.getSession().getAttribute("storeid") + "\\fnb";
 
         // creates the save directory if it does not exists
         File fileSaveDir = new File(uploadFilePath);
@@ -89,8 +89,8 @@ public class FnBAdd extends HttpServlet{
         part.write(uploadFilePath + "\\" + request.getParameter("name") + " (" + request.getParameter("size") + ") [" + dateNow + "].jpg");
 
         try{
-            FnB fnb = new FnB((String)request.getSession().getAttribute("storename"),
-                    "/" + (String)request.getSession().getAttribute("storename") + "/fnb/" + request.getParameter("name") + " (" + request.getParameter("size") + ") [" + dateNow + "].jpg",
+            FnB fnb = new FnB((int)request.getSession().getAttribute("storeid"),
+                    "/" + (int)request.getSession().getAttribute("storeid") + "/fnb/" + request.getParameter("name") + " (" + request.getParameter("size") + ") [" + dateNow + "].jpg",
                     request.getParameter("name"),
                     request.getParameter("type"),
                     request.getParameter("size"),

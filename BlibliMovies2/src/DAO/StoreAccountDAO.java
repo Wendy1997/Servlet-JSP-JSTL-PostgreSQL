@@ -38,7 +38,7 @@ public class StoreAccountDAO {
 
         StoreAccount output;
         if(rs.next()){
-            output = new StoreAccount(rs.getString(1), rs.getString(2), rs.getString(3));
+            output = new StoreAccount(rs.getString(1), rs.getString(2), rs.getString(3), rs.getInt(4));
         } else{
             output = null;
         }

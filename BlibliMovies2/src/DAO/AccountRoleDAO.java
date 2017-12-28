@@ -32,53 +32,53 @@ public class AccountRoleDAO {
         }
     }
 
-    public AccountRole getAccountRole(String id, String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM accountRole where id = ? and storeusername = ? and status = true");
+    public AccountRole getAccountRole(String id, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM accountRole where id = ? and storeid = ? and status = true");
         ps.setString(1, id);
-        ps.setString(2, storename);
+        ps.setInt(2, storeid);
 
         ResultSet rs = ps.executeQuery();
 
         AccountRole output;
         if(rs.next()){
-            output = new AccountRole(rs.getString(1), rs.getString(2), rs.getString(3));
+            output = new AccountRole(rs.getString(1), rs.getString(2), rs.getInt(3));
         } else{
             output = null;
         }
         return output;
     }
 
-    public List<AccountRole> getAllAccountRole(String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM accountRole where storeusername = ? and status = true");
-        ps.setString(1, storename);
+    public List<AccountRole> getAllAccountRole(int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM accountRole where storeid = ? and status = true");
+        ps.setInt(1, storeid);
         ResultSet rs = ps.executeQuery();
 
         List<AccountRole> accountRoles = new ArrayList<AccountRole>();
         while(rs.next()){
-            accountRoles.add(new AccountRole(rs.getString(1), rs.getString(2), rs.getString(3)));
+            accountRoles.add(new AccountRole(rs.getString(1), rs.getString(2), rs.getInt(3)));
         }
         return accountRoles;
     }
 
     public void addAccountRole(AccountRole accountRole) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("INSERT INTO accountRole (storeusername, role) VALUES (?,?)");
-        ps.setString(1, accountRole.getStorename());
+        PreparedStatement ps = conn.prepareStatement("INSERT INTO accountRole (storeid, role) VALUES (?,?)");
+        ps.setInt(1, accountRole.getStoreID());
         ps.setString(2, accountRole.getRole());
         ps.executeUpdate();
     }
 
-    public void deleteAccountRole(String accountRole, String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("UPDATE accountRole set status = false where id = ? and storeusername = ?");
+    public void deleteAccountRole(String accountRole, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("UPDATE accountRole set status = false where id = ? and storeid = ?");
         ps.setString(1, accountRole);
-        ps.setString(2, storename);
+        ps.setInt(2, storeid);
         ps.executeUpdate();
     }
 
     public void updateAccountRole(AccountRole accountRole) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("UPDATE accountRole set role = ? where id = ? and storeusername = ? and status = true");
+        PreparedStatement ps = conn.prepareStatement("UPDATE accountRole set role = ? where id = ? and storeid = ? and status = true");
         ps.setString(1, accountRole.getRole());
         ps.setString(2, accountRole.getId());
-        ps.setString(3, accountRole.getStorename());
+        ps.setInt(3, accountRole.getStoreID());
         ps.executeUpdate();
     }
 }

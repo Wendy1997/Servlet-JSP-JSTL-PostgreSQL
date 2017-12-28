@@ -3,14 +3,14 @@ package Model;
 public class Account {
     private String username;
     private String password;
-    private String storename;
+    private int storeid;
     private String role;
 
-    public Account(String username, String storename, String password, String role){
+    public Account(String username, int storeid, String password, String role){
         setUsername(username);
         setPassword(password);
         setRole(role);
-        setStorename(storename);
+        setStoreID(storeid);
     }
 
     public String getUsername(){
@@ -25,8 +25,8 @@ public class Account {
         return this.role;
     }
 
-    public String getStorename(){
-        return this.storename;
+    public int getStoreID(){
+        return this.storeid;
     }
 
     public void setUsername(String username){
@@ -41,7 +41,7 @@ public class Account {
         this.role = role;
     }
 
-    public void setStorename(String storename){
-        this.storename = storename;
+    public void setStoreID(int storeid){
+        this.storeid = storeid;
     }
 }

@@ -2,16 +2,16 @@ package Model;
 
 public class FnB {
     private int id;
-    private String storename;
+    private int storeid;
     private String cover;
     private String name;
     private String type;
     private String size;
     private int price;
 
-    public FnB(int id, String storename, String cover, String name, String type, String size, int price) {
+    public FnB(int id, int storeid, String cover, String name, String type, String size, int price) {
         this.id = id;
-        this.storename = storename;
+        this.storeid = storeid;
         this.cover = cover;
         this.name = name;
         this.type = type;
@@ -19,8 +19,8 @@ public class FnB {
         this.price = price;
     }
 
-    public FnB(String storename, String cover, String name, String type, String size, int price) {
-        this.storename = storename;
+    public FnB(int storeid, String cover, String name, String type, String size, int price) {
+        this.storeid = storeid;
         this.cover = cover;
         this.name = name;
         this.type = type;
@@ -36,12 +36,12 @@ public class FnB {
         this.id = id;
     }
 
-    public String getStorename() {
-        return storename;
+    public int getStoreID() {
+        return storeid;
     }
 
-    public void setStorename(String storename) {
-        this.storename = storename;
+    public void setStoreID(int storeid) {
+        this.storeid = storeid;
     }
 
     public String getCover() {

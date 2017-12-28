@@ -23,7 +23,7 @@ public class FnBTypeAdd extends HttpServlet {
         String address = "/view/database/fnbtype/fnbtype_add.jsp";
 
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storename") == null){
+        if(request.getSession().getAttribute("storeid") == null){
             address = "/view/login/store_login.jsp";
         }
 
@@ -38,7 +38,7 @@ public class FnBTypeAdd extends HttpServlet {
         }
 
         try{
-            List<FnBType> fnBTypeList = fnbService.getAllFnBType((String)request.getSession().getAttribute("storename"));
+            List<FnBType> fnBTypeList = fnbService.getAllFnBType((int)request.getSession().getAttribute("storeid"));
             request.setAttribute("type", fnBTypeList);
         }catch (SQLException e){
             e.printStackTrace();
@@ -51,7 +51,7 @@ public class FnBTypeAdd extends HttpServlet {
 
         try{
             FnBType fnBType = new FnBType( request.getParameter("type"),
-                    (String)request.getSession().getAttribute("storename"));
+                    (int)request.getSession().getAttribute("storeid"));
 
             fnbService.addFnBType(fnBType);
 

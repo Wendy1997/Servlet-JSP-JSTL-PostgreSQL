@@ -34,17 +34,17 @@ public class FnBDAO {
         }
     }
 
-    public FnB getFnB(String fnb, String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM foodandbeverages where id = ? and storeusername = ? and status = true");
+    public FnB getFnB(String fnb, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM foodandbeverages where id = ? and storeid = ? and status = true");
         ps.setString(1, fnb);
-        ps.setString(2, storename);
+        ps.setInt(2, storeid);
 
         ResultSet rs = ps.executeQuery();
 
         FnB output;
         if(rs.next()){
             output = new FnB(rs.getInt(1),
-                    rs.getString(2),
+                    rs.getInt(2),
                     rs.getString(3),
                     rs.getString(4),
                     rs.getString(5),
@@ -57,16 +57,16 @@ public class FnBDAO {
         return output;
     }
 
-    public List<FnB> getAllFnB(String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM foodandbeverages where storeusername = ? and status = true");
-        ps.setString(1, storename);
+    public List<FnB> getAllFnB(int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM foodandbeverages where storeid = ? and status = true");
+        ps.setInt(1, storeid);
 
         ResultSet rs = ps.executeQuery();
 
         List<FnB> fnbs = new ArrayList<FnB>();
         while(rs.next()){
             fnbs.add(new FnB(rs.getInt(1),
-                    rs.getString(2),
+                    rs.getInt(2),
                     rs.getString(3),
                     rs.getString(4),
                     rs.getString(5),
@@ -79,9 +79,9 @@ public class FnBDAO {
 
     public void addFnB(FnB fnb) throws SQLException{
 
-        PreparedStatement ps = conn.prepareStatement("INSERT INTO foodandbeverages (storeusername, cover, name, type, size, price) VALUES (?,?,?,?,?,?)");
+        PreparedStatement ps = conn.prepareStatement("INSERT INTO foodandbeverages (storeid, cover, name, type, size, price) VALUES (?,?,?,?,?,?)");
 
-        ps.setString(1, fnb.getStorename());
+        ps.setInt(1, fnb.getStoreID());
         ps.setString(2, fnb.getCover());
         ps.setString(3, fnb.getName());
         ps.setString(4, fnb.getType());
@@ -91,15 +91,15 @@ public class FnBDAO {
         ps.executeUpdate();
     }
 
-    public void deleteFnB(String id, String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("UPDATE foodandbeverages set status = false where id = ? AND storeusername = ?");
+    public void deleteFnB(String id, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("UPDATE foodandbeverages set status = false where id = ? AND storeid = ?");
         ps.setString(1, id);
-        ps.setString(2, storename);
+        ps.setInt(2, storeid);
         ps.executeUpdate();
     }
 
     public void updateFnB(FnB fnb) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("UPDATE foodandbeverages set cover = ?, name = ?, type = ?, size = ?, price = ? where id = ? and storeusername = ? and status = true");
+        PreparedStatement ps = conn.prepareStatement("UPDATE foodandbeverages set cover = ?, name = ?, type = ?, size = ?, price = ? where id = ? and storeid = ? and status = true");
 
         ps.setString(1, fnb.getCover());
         ps.setString(2, fnb.getName());
@@ -107,7 +107,7 @@ public class FnBDAO {
         ps.setString(4, fnb.getSize());
         ps.setInt(5, fnb.getPrice());
         ps.setString(6, fnb.getId() + "");
-        ps.setString(7, fnb.getStorename() + "");
+        ps.setInt(7, fnb.getStoreID());
 
         ps.executeUpdate();
     }

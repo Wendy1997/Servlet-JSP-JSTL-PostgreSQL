@@ -4,23 +4,23 @@ public class ScreeningTime {
     private int id;
     private int filmId;
     private int studioId;
-    private String storename;
+    private int storeid;
     private String time;
     private int duration;
 
-    public ScreeningTime(int id, int filmId, int studioId, String storename, String time, int duration) {
+    public ScreeningTime(int id, int filmId, int studioId, int storeid, String time, int duration) {
         this.id = id;
         this.filmId = filmId;
         this.studioId = studioId;
-        this.storename = storename;
+        this.storeid = storeid;
         this.time = time;
         this.duration = duration;
     }
 
-    public ScreeningTime(int filmId, int studioId, String storename, String time, int duration) {
+    public ScreeningTime(int filmId, int studioId, int storeid, String time, int duration) {
         this.filmId = filmId;
         this.studioId = studioId;
-        this.storename = storename;
+        this.storeid = storeid;
         this.time = time;
         this.duration = duration;
     }
@@ -49,12 +49,12 @@ public class ScreeningTime {
         this.studioId = studioId;
     }
 
-    public String getStorename() {
-        return storename;
+    public int getStoreID() {
+        return storeid;
     }
 
-    public void setStorename(String storename) {
-        this.storename = storename;
+    public void setStoreID(int storeid) {
+        this.storeid = storeid;
     }
 
     public String getTime() {

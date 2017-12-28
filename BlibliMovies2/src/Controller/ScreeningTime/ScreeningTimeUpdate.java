@@ -20,7 +20,7 @@ public class ScreeningTimeUpdate extends HttpServlet {
         String address = "/view/database/screening/screeningTime_edit.jsp";
 
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storename") == null){
+        if(request.getSession().getAttribute("storeid") == null){
             address = "/view/login/store_login.jsp";
             request.getRequestDispatcher(address).forward(request, response);
         }
@@ -40,12 +40,12 @@ public class ScreeningTimeUpdate extends HttpServlet {
         try{
             ScreeningTime screeningTime = filmService.getScreeningTime(request.getParameter("id"),
                     request.getParameter("filmid"),
-                    (String)request.getSession().getAttribute("storename"));
+                    (int)request.getSession().getAttribute("storeid"));
 
             request.setAttribute("filmid", request.getParameter("filmid"));
             request.setAttribute("duration", request.getParameter("duration"));
             request.setAttribute("screeningTime", screeningTime);
-            request.setAttribute("studio", filmService.getAllStudio((String)request.getSession().getAttribute("storename")));
+            request.setAttribute("studio", filmService.getAllStudio((int)request.getSession().getAttribute("storeid")));
 
             request.getRequestDispatcher(address).forward(request, response);
         }catch (SQLException e){
@@ -58,7 +58,7 @@ public class ScreeningTimeUpdate extends HttpServlet {
             ScreeningTime screeningTime = new ScreeningTime(Integer.parseInt(request.getParameter("id")),
                     Integer.parseInt(request.getParameter("filmid")),
                     Integer.parseInt(request.getParameter("studio")),
-                    (String) request.getSession().getAttribute("storename"),
+                    (int)request.getSession().getAttribute("storeid"),
                     request.getParameter("screen_time"),
                     Integer.parseInt(request.getParameter("duration")));
 

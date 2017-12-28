@@ -34,7 +34,10 @@ public class Store extends HttpServlet {
          */
         if(request.getParameter("page") != null){
             if(request.getParameter("page").equals("logout")){
+                request.getSession().removeAttribute("storeid");
                 request.getSession().removeAttribute("storename");
+                request.getSession().removeAttribute("role");
+                request.getSession().removeAttribute("username");
             }
         }
 
@@ -59,7 +62,8 @@ public class Store extends HttpServlet {
             StoreAccount store = storeAccountService.getStoreAccount(request.getParameter("username"));
             if(store != null){
                 if(store.getPassword().equals(request.getParameter("password"))) {
-                    request.getSession().setAttribute("storename", store.getUsername());
+                    request.getSession().setAttribute("storeid", store.getID());
+                    request.getSession().setAttribute("storename", store.getNama());
 
                     address = "/view/database/success.jsp";
                     request.setAttribute("title", "Login");

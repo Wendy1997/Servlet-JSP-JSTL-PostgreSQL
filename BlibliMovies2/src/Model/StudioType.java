@@ -3,17 +3,17 @@ package Model;
 public class StudioType {
     private String id;
     private String type;
-    private String storename;
+    private int storeid;
 
-    public StudioType(String id, String type, String storename) {
+    public StudioType(String id, String type, int storeid) {
         this.id = id;
         this.type = type;
-        this.storename = storename;
+        this.storeid = storeid;
     }
 
-    public StudioType(String type, String storename) {
+    public StudioType(String type, int storeid) {
         this.type = type;
-        this.storename = storename;
+        this.storeid = storeid;
     }
 
     public String getId() {
@@ -32,11 +32,11 @@ public class StudioType {
         this.type = type;
     }
 
-    public String getStorename() {
-        return storename;
+    public int getStoreID() {
+        return storeid;
     }
 
-    public void setStorename(String storename) {
-        this.storename = storename;
+    public void setStoreID(int storeid) {
+        this.storeid = storeid;
     }
 }

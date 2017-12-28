@@ -21,7 +21,7 @@ public class StudioTypeMenu extends HttpServlet{
         String address = "/view/database/studiotype/studiotype_menu.jsp";
 
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storename") == null){
+        if(request.getSession().getAttribute("storeid") == null){
             address = "/view/login/store_login.jsp";
             request.getRequestDispatcher(address).forward(request, response);
         }
@@ -39,7 +39,7 @@ public class StudioTypeMenu extends HttpServlet{
         }
 
         try{
-            List<StudioType> studioTypeList = studioService.getAllStudioType((String)request.getSession().getAttribute("storename"));
+            List<StudioType> studioTypeList = studioService.getAllStudioType((int)request.getSession().getAttribute("storeid"));
             request.setAttribute("type", studioTypeList);
             request.getRequestDispatcher(address).forward(request, response);
         } catch (SQLException e){

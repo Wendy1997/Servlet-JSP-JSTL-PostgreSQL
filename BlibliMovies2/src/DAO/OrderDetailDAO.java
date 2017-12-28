@@ -32,17 +32,17 @@ public class OrderDetailDAO {
         }
     }
 
-    public List<OrderDetail> getAllOrderDetail(String id, String storename) throws SQLException {
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM orderdetail where invoiceid = ? AND storeusername = ?");
+    public List<OrderDetail> getAllOrderDetail(String id, int storeid) throws SQLException {
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM orderdetail where invoiceid = ? AND storeid = ?");
         ps.setString(1, id);
-        ps.setString(2, storename);
+        ps.setInt(2, storeid);
         ResultSet rs = ps.executeQuery();
 
         List<OrderDetail> orderDetails = new ArrayList<OrderDetail>();
         while(rs.next()){
             orderDetails.add(new OrderDetail(rs.getInt(1),
                     rs.getInt(2),
-                    rs.getString(3),
+                    rs.getInt(3),
                     rs.getString(4),
                     rs.getInt(5),
                     rs.getInt(6),
@@ -52,9 +52,9 @@ public class OrderDetailDAO {
     }
 
     public void addOrderDetail(OrderDetail orderDetail) throws SQLException {
-        PreparedStatement ps = conn.prepareStatement("INSERT INTO orderdetail (invoiceid, storeusername, itemname, quantity, price, discountstatus) VALUES (?,?,?,?,?,?)");
+        PreparedStatement ps = conn.prepareStatement("INSERT INTO orderdetail (invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES (?,?,?,?,?,?)");
         ps.setInt(1, orderDetail.getInvoiceId());
-        ps.setString(2, orderDetail.getStorename());
+        ps.setInt(2, orderDetail.getStoreID());
         ps.setString(3, orderDetail.getItemName());
         ps.setInt(4, orderDetail.getQuantity());
         ps.setInt(5, orderDetail.getPrice());

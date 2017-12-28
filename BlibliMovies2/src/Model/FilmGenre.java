@@ -3,17 +3,17 @@ package Model;
 public class FilmGenre {
     private String id;
     private String genre;
-    private String storename;
+    private int storeid;
 
-    public FilmGenre(String id, String genre, String storename) {
+    public FilmGenre(String id, String genre, int storeid) {
         this.id = id;
         this.genre = genre;
-        this.storename = storename;
+        this.storeid = storeid;
     }
 
-    public FilmGenre(String genre, String storename) {
+    public FilmGenre(String genre, int storeid) {
         this.genre = genre;
-        this.storename = storename;
+        this.storeid = storeid;
     }
 
     public String getId() {
@@ -32,11 +32,11 @@ public class FilmGenre {
         this.genre = genre;
     }
 
-    public String getStorename() {
-        return storename;
+    public int getStoreID() {
+        return storeid;
     }
 
-    public void setStorename(String storename) {
-        this.storename = storename;
+    public void setStoreID(int storeid) {
+        this.storeid = storeid;
     }
 }

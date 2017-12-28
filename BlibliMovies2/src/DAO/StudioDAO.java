@@ -34,16 +34,16 @@ public class StudioDAO {
         }
     }
 
-    public List<Studio> getAllStudio(String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM studio where storeusername = ? and status = true");
-        ps.setString(1, storename);
+    public List<Studio> getAllStudio(int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM studio where storeid = ? and status = true");
+        ps.setInt(1, storeid);
 
         ResultSet rs = ps.executeQuery();
 
         List<Studio> studios = new ArrayList<Studio>();
         while(rs.next()){
             studios.add(new Studio(Integer.parseInt(rs.getString(1)),
-                    rs.getString(2),
+                    rs.getInt(2),
                     rs.getString(3),
                     rs.getString(4),
                     rs.getInt(5)
@@ -52,17 +52,17 @@ public class StudioDAO {
         return studios;
     }
 
-    public Studio getStudio(String studio, String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM studio where id = ? and storeusername = ? and status = true");
+    public Studio getStudio(String studio, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM studio where id = ? and storeid = ? and status = true");
         ps.setString(1, studio);
-        ps.setString(2, storename);
+        ps.setInt(2, storeid);
 
         ResultSet rs = ps.executeQuery();
 
         Studio output;
         if(rs.next()){
             output = new Studio(Integer.parseInt(rs.getString(1)),
-                    rs.getString(2),
+                    rs.getInt(2),
                     rs.getString(3),
                     rs.getString(4),
                     rs.getInt(5)
@@ -75,9 +75,9 @@ public class StudioDAO {
 
     public void addStudio(Studio studio) throws SQLException{
 
-        PreparedStatement ps = conn.prepareStatement("INSERT INTO studio (storeusername, name, type, price) VALUES (?,?,?,?)");
+        PreparedStatement ps = conn.prepareStatement("INSERT INTO studio (storeid, name, type, price) VALUES (?,?,?,?)");
 
-        ps.setString(1, studio.getStorename());
+        ps.setInt(1, studio.getStoreID());
         ps.setString(2, studio.getName());
         ps.setString(3, studio.getType());
         ps.setInt(4, studio.getPrice());
@@ -85,21 +85,21 @@ public class StudioDAO {
         ps.executeUpdate();
     }
 
-    public void deleteStudio(String id, String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("update studio set status = false where id = ? AND storeusername = ?");
+    public void deleteStudio(String id, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("update studio set status = false where id = ? AND storeid = ?");
         ps.setString(1, id);
-        ps.setString(2, storename);
+        ps.setInt(2, storeid);
         ps.executeUpdate();
     }
 
     public void updateStudio(Studio studio) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("UPDATE studio set name = ?, type = ?, price = ? where id = ? and storeusername = ?");
+        PreparedStatement ps = conn.prepareStatement("UPDATE studio set name = ?, type = ?, price = ? where id = ? and storeid = ?");
 
         ps.setString(1, studio.getName());
         ps.setString(2, studio.getType());
         ps.setInt(3, studio.getPrice());
         ps.setString(4, studio.getId() + "");
-        ps.setString(5, studio.getStorename() + "");
+        ps.setInt(5, studio.getStoreID());
 
         ps.executeUpdate();
     }

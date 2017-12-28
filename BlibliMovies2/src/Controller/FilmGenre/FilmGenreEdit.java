@@ -1,4 +1,4 @@
-package Controller.Account;
+package Controller.FilmGenre;
 
 import DAO.AccountDAO;
 import Model.Account;
@@ -25,7 +25,7 @@ public class FilmGenreEdit extends HttpServlet{
         String address = "/view/database/filmgenre/filmgenre_edit.jsp";
 
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storename") == null){
+        if(request.getSession().getAttribute("storeid") == null){
             address = "/view/login/store_login.jsp";
             request.getRequestDispatcher(address).forward(request, response);
         }
@@ -43,7 +43,7 @@ public class FilmGenreEdit extends HttpServlet{
         }
 
         try {
-            FilmGenre filmGenre = filmService.getFilmGenre(request.getParameter("id"), (String)request.getSession().getAttribute("storename"));
+            FilmGenre filmGenre = filmService.getFilmGenre(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
             request.setAttribute("genre", filmGenre);
         } catch (Exception e){
             e.printStackTrace();
@@ -57,7 +57,7 @@ public class FilmGenreEdit extends HttpServlet{
         try{
             FilmGenre filmGenre = new FilmGenre( request.getParameter("id"),
                     request.getParameter("genre"),
-                    (String)request.getSession().getAttribute("storename"));
+                    (int)request.getSession().getAttribute("storeid"));
             filmService.updateFilmGenre(filmGenre);
 
             String address = "/view/database/success.jsp";

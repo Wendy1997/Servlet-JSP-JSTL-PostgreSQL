@@ -31,7 +31,7 @@ public class FnBEdit extends HttpServlet{
         String address = "/view/database/fnb/fnb_edit.jsp";
 
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storename") == null){
+        if(request.getSession().getAttribute("storeid") == null){
             address = "/view/login/store_login.jsp";
             request.getRequestDispatcher(address).forward(request, response);
         }
@@ -49,11 +49,11 @@ public class FnBEdit extends HttpServlet{
         }
 
         try {
-            FnB fnb = fnbService.getFnB(request.getParameter("id"), (String)request.getSession().getAttribute("storename"));
+            FnB fnb = fnbService.getFnB(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
             request.setAttribute("fnb", fnb);
 
-            List<FnBSize> fnBSizeList = fnbService.getAllFnBSize((String)request.getSession().getAttribute("storename"));
-            List<FnBType> fnBTypeList = fnbService.getAllFnBType((String)request.getSession().getAttribute("storename"));
+            List<FnBSize> fnBSizeList = fnbService.getAllFnBSize((int)request.getSession().getAttribute("storeid"));
+            List<FnBType> fnBTypeList = fnbService.getAllFnBType((int)request.getSession().getAttribute("storeid"));
 
             request.setAttribute("size", fnBSizeList);
             request.setAttribute("type", fnBTypeList);
@@ -70,7 +70,7 @@ public class FnBEdit extends HttpServlet{
             LocalDateTime now = LocalDateTime.now();
             String random = dtf.format(now);
 
-            String cover = fnbService.getFnB(request.getParameter("id"), (String)request.getSession().getAttribute("storename")).getCover();
+            String cover = fnbService.getFnB(request.getParameter("id"), (int)request.getSession().getAttribute("storeid")).getCover();
             String[] randomList = cover.split("/");
             String randomNumber = randomList[3].substring(randomList[3].length()-19, randomList[3].length()-5);
 
@@ -80,7 +80,7 @@ public class FnBEdit extends HttpServlet{
                 for(int i = 0; i < pathList.length - 3; i++){
                     uploadFilePath += pathList[i] + "\\";
                 }
-                uploadFilePath += UPLOAD_DIR + "\\" + (String)request.getSession().getAttribute("storename") + "\\film";
+                uploadFilePath += UPLOAD_DIR + "\\" + (int)request.getSession().getAttribute("storeid") + "\\film";
 
                 File fileLama = new File(uploadFilePath + "\\" + randomList[3]);
                 fileLama.delete();
@@ -101,8 +101,8 @@ public class FnBEdit extends HttpServlet{
 
             FnB fnb = new FnB(
                 Integer.parseInt(request.getParameter("id")),
-                (String)request.getSession().getAttribute("storename"),
-                "/" + (String)request.getSession().getAttribute("storename") + "/film/" + request.getParameter("name") + " (" + request.getParameter("size") + ") [" + randomNumber + "].jpg",
+                (int)request.getSession().getAttribute("storeid"),
+                "/" + (int)request.getSession().getAttribute("storeid") + "/film/" + request.getParameter("name") + " (" + request.getParameter("size") + ") [" + randomNumber + "].jpg",
                 request.getParameter("name"),
                 request.getParameter("type"),
                 request.getParameter("size"),

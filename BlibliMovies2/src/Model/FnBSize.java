@@ -3,17 +3,17 @@ package Model;
 public class FnBSize {
     private String id;
     private String size;
-    private String storename;
+    private int storeid;
 
-    public FnBSize(String id, String size, String storename) {
+    public FnBSize(String id, String size, int storeid) {
         this.id = id;
         this.size = size;
-        this.storename = storename;
+        this.storeid = storeid;
     }
 
-    public FnBSize(String size, String storename) {
+    public FnBSize(String size, int storeid) {
         this.size = size;
-        this.storename = storename;
+        this.storeid = storeid;
     }
 
     public String getId() {
@@ -32,11 +32,11 @@ public class FnBSize {
         this.size = size;
     }
 
-    public String getStorename() {
-        return storename;
+    public int getStoreID() {
+        return storeid;
     }
 
-    public void setStorename(String storename) {
-        this.storename = storename;
+    public void setStoreID(int storeid) {
+        this.storeid = storeid;
     }
 }

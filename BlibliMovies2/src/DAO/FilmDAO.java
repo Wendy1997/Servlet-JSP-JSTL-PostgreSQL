@@ -34,17 +34,17 @@ public class FilmDAO {
         }
     }
 
-    public Film getFilm(String film, String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM film where id = ? and storeusername = ? and status = true");
+    public Film getFilm(String film, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM film where id = ? and storeid = ? and status = true");
         ps.setString(1, film);
-        ps.setString(2, storename);
+        ps.setInt(2, storeid);
 
         ResultSet rs = ps.executeQuery();
 
         Film output;
         if(rs.next()){
             output = new Film(rs.getInt(1),
-                    rs.getString(2),
+                    rs.getInt(2),
                     rs.getString(3),
                     rs.getString(4),
                     rs.getString(5),
@@ -65,16 +65,16 @@ public class FilmDAO {
         return output;
     }
 
-    public List<Film> getAllFilm(String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM film where storeusername = ? and status = true");
-        ps.setString(1, storename);
+    public List<Film> getAllFilm(int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM film where storeid = ? and status = true");
+        ps.setInt(1, storeid);
 
         ResultSet rs = ps.executeQuery();
 
         List<Film> films = new ArrayList<Film>();
         while(rs.next()){
             films.add(new Film(rs.getInt(1),
-                    rs.getString(2),
+                    rs.getInt(2),
                     rs.getString(3),
                     rs.getString(4),
                     rs.getString(5),
@@ -95,9 +95,9 @@ public class FilmDAO {
 
     public void addFilm(Film film) throws SQLException{
 
-        PreparedStatement ps = conn.prepareStatement("INSERT INTO film (storeusername, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+        PreparedStatement ps = conn.prepareStatement("INSERT INTO film (storeid, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 
-        ps.setString(1, film.getStorename());
+        ps.setInt(1, film.getStoreID());
         ps.setString(2, film.getCover());
         ps.setString(3, film.getTitle());
         ps.setString(4, film.getGenre());
@@ -115,15 +115,15 @@ public class FilmDAO {
         ps.executeUpdate();
     }
 
-    public void deleteFilm(String id, String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("update film set status = false where id = ? and storeusername = ?");
+    public void deleteFilm(String id, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("update film set status = false where id = ? and storeid = ?");
         ps.setString(1, id);
-        ps.setString(2, storename);
+        ps.setInt(2, storeid);
         ps.executeUpdate();
     }
 
     public void updateFilm(Film film) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("UPDATE film set cover = ?, title = ?, genre = ?, duration = ?, director = ?, rating = ?, reviewtotal = ?, starttime = ?, endtime = ?, language = ?, subtitle = ?, actor = ?, synopsis = ? where id = ? and storeusername = ?");
+        PreparedStatement ps = conn.prepareStatement("UPDATE film set cover = ?, title = ?, genre = ?, duration = ?, director = ?, rating = ?, reviewtotal = ?, starttime = ?, endtime = ?, language = ?, subtitle = ?, actor = ?, synopsis = ? where id = ? and storeid = ?");
         ps.setString(1, film.getCover());
         ps.setString(2, film.getTitle());
         ps.setString(3, film.getGenre());
@@ -138,7 +138,7 @@ public class FilmDAO {
         ps.setString(12, film.getActor());
         ps.setString(13, film.getSinopsis());
         ps.setString(14, film.getId() + "");
-        ps.setString(15, film.getStorename() + "");
+        ps.setInt(15, film.getStoreID());
         ps.executeUpdate();
     }
 

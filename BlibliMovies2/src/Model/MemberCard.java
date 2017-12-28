@@ -2,16 +2,16 @@ package Model;
 
 public class MemberCard {
     private int id;
-    private String storename;
+    private int storeid;
     private String fullname;
     private String gender;
     private String birthDate;
     private String phoneNumber;
     private String email;
 
-    public MemberCard(int id, String storename, String fullname, String gender, String birthDate, String phoneNumber, String email) {
+    public MemberCard(int id, int storeid, String fullname, String gender, String birthDate, String phoneNumber, String email) {
         this.id = id;
-        this.storename = storename;
+        this.storeid = storeid;
         this.fullname = fullname;
         this.gender = gender;
         this.birthDate = birthDate;
@@ -19,8 +19,8 @@ public class MemberCard {
         this.email = email;
     }
 
-    public MemberCard(String storename, String fullname, String gender, String birthDate, String phoneNumber, String email) {
-        this.storename = storename;
+    public MemberCard(int storeid, String fullname, String gender, String birthDate, String phoneNumber, String email) {
+        this.storeid = storeid;
         this.fullname = fullname;
         this.gender = gender;
         this.birthDate = birthDate;
@@ -36,12 +36,12 @@ public class MemberCard {
         this.id = id;
     }
 
-    public String getStorename() {
-        return storename;
+    public int getStoreID() {
+        return storeid;
     }
 
-    public void setStorename(String storename) {
-        this.storename = storename;
+    public void setStoreID(int storeid) {
+        this.storeid = storeid;
     }
 
     public String getFullname() {

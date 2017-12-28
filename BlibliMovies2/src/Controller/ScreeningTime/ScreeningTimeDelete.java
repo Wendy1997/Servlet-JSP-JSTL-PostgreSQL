@@ -19,7 +19,7 @@ public class ScreeningTimeDelete extends HttpServlet{
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storename") == null){
+        if(request.getSession().getAttribute("storeid") == null){
             String address = "/view/login/store_login.jsp";
             request.getRequestDispatcher(address).forward(request, response);
         }
@@ -37,9 +37,9 @@ public class ScreeningTimeDelete extends HttpServlet{
         }
 
         try{
-            ScreeningTime screeningTime = filmService.getScreeningTime(request.getParameter("id"), request.getParameter("filmid"), (String)request.getSession().getAttribute("storename"));
+            ScreeningTime screeningTime = filmService.getScreeningTime(request.getParameter("id"), request.getParameter("filmid"), (int)request.getSession().getAttribute("storeid"));
 
-            filmService.deleteScreeningTime(request.getParameter("id"), request.getParameter("filmid"), (String)request.getSession().getAttribute("storename"));
+            filmService.deleteScreeningTime(request.getParameter("id"), request.getParameter("filmid"), (int)request.getSession().getAttribute("storeid"));
 
             String address = "/view/database/success.jsp";
             request.setAttribute("title", "Screening Time");

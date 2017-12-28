@@ -36,20 +36,20 @@ public class ScreeningTimeDAO {
 
     public void addScreeningTime(ScreeningTime screeningTime) throws SQLException{
 
-        PreparedStatement ps = conn.prepareStatement("INSERT INTO screeningTime (filmid, studioid, storeusername, time, duration) VALUES (?,?,?,CAST(? AS TIME),?)");
+        PreparedStatement ps = conn.prepareStatement("INSERT INTO screeningTime (filmid, studioid, storeid, time, duration) VALUES (?,?,?,CAST(? AS TIME),?)");
         ps.setInt(1,screeningTime.getFilmId());
         ps.setInt(2, screeningTime.getStudioId());
-        ps.setString(3, screeningTime.getStorename());
+        ps.setInt(3, screeningTime.getStoreID());
         ps.setString(4, screeningTime.getTime());
         ps.setInt(5, screeningTime.getDuration());
 
         ps.executeUpdate();
     }
 
-    public ScreeningTime getScreeningTime(String id, String film_id, String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("select * from screeningtime where id = ? and storeusername = ? and filmid = ? and status = true");
+    public ScreeningTime getScreeningTime(String id, String film_id, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("select * from screeningtime where id = ? and storeid = ? and filmid = ? and status = true");
         ps.setString(1, id);
-        ps.setString(2, storename);
+        ps.setInt(2, storeid);
         ps.setString(3, film_id);
 
         ResultSet rs = ps.executeQuery();
@@ -59,7 +59,7 @@ public class ScreeningTimeDAO {
             output =  new ScreeningTime(rs.getInt(1),
                     rs.getInt(2),
                     rs.getInt(3),
-                    rs.getString(4),
+                    rs.getInt(4),
                     rs.getString(5).substring(0,5),
                     rs.getInt(6));
         } else {
@@ -69,9 +69,9 @@ public class ScreeningTimeDAO {
         return output;
     }
 
-    public List<ScreeningTime> getAllScreeningTime(String storename, String filmid) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("select * from screeningtime where storeusername = ? and filmid = ? and status = true");
-        ps.setString(1, storename);
+    public List<ScreeningTime> getAllScreeningTime(int storeid, String filmid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("select * from screeningtime where storeid = ? and filmid = ? and status = true");
+        ps.setInt(1, storeid);
         ps.setString(2, filmid);
 
         ResultSet rs = ps.executeQuery();
@@ -81,7 +81,7 @@ public class ScreeningTimeDAO {
             outputList.add(new ScreeningTime(rs.getInt(1),
                     rs.getInt(2),
                     rs.getInt(3),
-                    rs.getString(4),
+                    rs.getInt(4),
                     rs.getString(5).substring(0,5),
                     rs.getInt(6))
             );
@@ -91,21 +91,21 @@ public class ScreeningTimeDAO {
     }
 
     public void updateScreeningTime(ScreeningTime screeningTime) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("UPDATE screeningtime set studioid = ?, time = CAST(? AS TIME), duration = ? where id = ? and storeusername = ? and filmid = ?");
+        PreparedStatement ps = conn.prepareStatement("UPDATE screeningtime set studioid = ?, time = CAST(? AS TIME), duration = ? where id = ? and storeid = ? and filmid = ?");
         ps.setString(1, screeningTime.getStudioId() + "");
         ps.setString(2, screeningTime.getTime());
         ps.setInt(3, screeningTime.getDuration());
         ps.setString(4, screeningTime.getId() + "");
-        ps.setString(5, screeningTime.getStorename());
+        ps.setInt(5, screeningTime.getStoreID());
         ps.setString(6, screeningTime.getFilmId() + "");
         ps.executeUpdate();
     }
 
-    public void deleteScreeningTime(String id, String filmid, String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("UPDATE screeningtime set status = true where id = ? and filmid = ? and storeusername = ?");
+    public void deleteScreeningTime(String id, String filmid, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("UPDATE screeningtime set status = true where id = ? and filmid = ? and storeid = ?");
         ps.setString(1, id + "");
         ps.setString(2, filmid + "");
-        ps.setString(3, storename);
+        ps.setInt(3, storeid);
         ps.executeUpdate();
     }
 }

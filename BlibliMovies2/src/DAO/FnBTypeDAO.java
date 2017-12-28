@@ -32,53 +32,53 @@ public class FnBTypeDAO {
         }
     }
 
-    public FnBType getFnBType(String id, String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM fnBType where id = ? and storeusername = ? and status = true");
+    public FnBType getFnBType(String id, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM fnBType where id = ? and storeid = ? and status = true");
         ps.setInt(1, Integer.parseInt(id));
-        ps.setString(2, storename);
+        ps.setInt(2, storeid);
 
         ResultSet rs = ps.executeQuery();
 
         FnBType output;
         if(rs.next()){
-            output = new FnBType(rs.getString(1), rs.getString(2), rs.getString(3));
+            output = new FnBType(rs.getString(1), rs.getString(2), rs.getInt(3));
         } else{
             output = null;
         }
         return output;
     }
 
-    public List<FnBType> getAllFnBType(String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM fnBType where storeusername = ? and status = true");
-        ps.setString(1, storename);
+    public List<FnBType> getAllFnBType(int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM fnBType where storeid = ? and status = true");
+        ps.setInt(1, storeid);
         ResultSet rs = ps.executeQuery();
 
         List<FnBType> fnBTypes = new ArrayList<FnBType>();
         while(rs.next()){
-            fnBTypes.add(new FnBType(rs.getString(1), rs.getString(2), rs.getString(3)));
+            fnBTypes.add(new FnBType(rs.getString(1), rs.getString(2), rs.getInt(3)));
         }
         return fnBTypes;
     }
 
     public void addFnBType(FnBType fnBType) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("INSERT INTO fnBType (storeusername, type) VALUES (?,?)");
-        ps.setString(1, fnBType.getStorename());
+        PreparedStatement ps = conn.prepareStatement("INSERT INTO fnBType (storeid, type) VALUES (?,?)");
+        ps.setInt(1, fnBType.getStoreID());
         ps.setString(2, fnBType.getType());
         ps.executeUpdate();
     }
 
-    public void deleteFnBType(String fnBType, String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("UPDATE fnBType set status = false where id = ? and storeusername = ?");
+    public void deleteFnBType(String fnBType, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("UPDATE fnBType set status = false where id = ? and storeid = ?");
         ps.setInt(1, Integer.parseInt(fnBType));
-        ps.setString(2, storename);
+        ps.setInt(2, storeid);
         ps.executeUpdate();
     }
 
     public void updateFnBType(FnBType fnBType) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("UPDATE fnBType set type = ? where id = ? and storeusername = ? and status = true");
+        PreparedStatement ps = conn.prepareStatement("UPDATE fnBType set type = ? where id = ? and storeid = ? and status = true");
         ps.setString(1, fnBType.getType());
         ps.setInt(2, Integer.parseInt(fnBType.getId()));
-        ps.setString(3, fnBType.getStorename());
+        ps.setInt(3, fnBType.getStoreID());
         ps.executeUpdate();
     }
 }

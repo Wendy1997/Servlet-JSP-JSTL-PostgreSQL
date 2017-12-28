@@ -21,7 +21,7 @@ public class InvoiceMenu extends HttpServlet {
         String address = "/view/database/invoice/invoice_menu.jsp";
 
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storename") == null){
+        if(request.getSession().getAttribute("storeid") == null){
             address = "/view/login/store_login.jsp";
             request.getRequestDispatcher(address).forward(request, response);
         }
@@ -39,7 +39,7 @@ public class InvoiceMenu extends HttpServlet {
         }
 
         try {
-            List<Invoice> invoices = invoiceService.getAllInvoice((String)request.getSession().getAttribute("storename"));
+            List<Invoice> invoices = invoiceService.getAllInvoice((int)request.getSession().getAttribute("storeid"));
 
             request.setAttribute("invoices", invoices);
             request.getRequestDispatcher(address).forward(request, response);

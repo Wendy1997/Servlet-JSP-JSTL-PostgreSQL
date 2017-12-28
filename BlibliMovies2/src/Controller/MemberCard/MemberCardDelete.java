@@ -20,7 +20,7 @@ public class MemberCardDelete extends HttpServlet {
         String address = "/view/database/member/member_menu.jsp";
 
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storename") == null){
+        if(request.getSession().getAttribute("storeid") == null){
             address = "/view/login/store_login.jsp";
             request.getRequestDispatcher(address).forward(request, response);
         }
@@ -38,9 +38,9 @@ public class MemberCardDelete extends HttpServlet {
         }
 
         try{
-            MemberCard memberCard = memberCardService.getMemberCard(request.getParameter("id"), (String)request.getSession().getAttribute("storename"));
+            MemberCard memberCard = memberCardService.getMemberCard(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
 
-            memberCardService.deleteMemberCard(memberCard.getId() + "", (String)request.getSession().getAttribute("storename"));
+            memberCardService.deleteMemberCard(memberCard.getId() + "", (int)request.getSession().getAttribute("storeid"));
 
             address = "/view/database/success.jsp";
             request.setAttribute("title", "MemberCard");

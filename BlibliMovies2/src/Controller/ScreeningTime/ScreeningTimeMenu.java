@@ -23,7 +23,7 @@ public class ScreeningTimeMenu extends HttpServlet{
         String address = "/view/database/screening/screeningTime_menu.jsp";
 
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storename") == null){
+        if(request.getSession().getAttribute("storeid") == null){
             address = "/view/login/store_login.jsp";
             request.getRequestDispatcher(address).forward(request, response);
         }
@@ -41,9 +41,9 @@ public class ScreeningTimeMenu extends HttpServlet{
         }
 
         try{
-            List<ScreeningTime> screeningTimeList = filmService.getAllScreeningTime((String)request.getSession().getAttribute("storename"), request.getParameter("filmid"));
+            List<ScreeningTime> screeningTimeList = filmService.getAllScreeningTime((int)request.getSession().getAttribute("storeid"), request.getParameter("filmid"));
             request.setAttribute("screenTime", screeningTimeList);
-            request.setAttribute("film", filmService.getFilm(request.getParameter("filmid"), (String)request.getSession().getAttribute("storename")));
+            request.setAttribute("film", filmService.getFilm(request.getParameter("filmid"), (int)request.getSession().getAttribute("storeid")));
             request.getRequestDispatcher(address).forward(request, response);
         } catch (SQLException e){
             System.out.println(e.getMessage());

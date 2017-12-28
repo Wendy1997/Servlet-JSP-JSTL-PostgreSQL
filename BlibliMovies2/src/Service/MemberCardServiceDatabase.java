@@ -13,13 +13,13 @@ public class MemberCardServiceDatabase implements MemberCardService{
     MemberGenderDAO memberGenderDAO = new MemberGenderDAO();
 
     @Override
-    public MemberCard getMemberCard(String id, String storename) throws SQLException {
-        return memberCardDAO.getMemberCard(id, storename);
+    public MemberCard getMemberCard(String id, int storeid) throws SQLException {
+        return memberCardDAO.getMemberCard(id, storeid);
     }
 
     @Override
-    public List<MemberCard> getAllMemberCard(String storename) throws SQLException {
-        return memberCardDAO.getAllMemberCard(storename);
+    public List<MemberCard> getAllMemberCard(int storeid) throws SQLException {
+        return memberCardDAO.getAllMemberCard(storeid);
     }
 
     @Override
@@ -28,8 +28,8 @@ public class MemberCardServiceDatabase implements MemberCardService{
     }
 
     @Override
-    public void deleteMemberCard(String id, String storename) throws SQLException {
-        memberCardDAO.deleteMemberCard(id, storename);
+    public void deleteMemberCard(String id, int storeid) throws SQLException {
+        memberCardDAO.deleteMemberCard(id, storeid);
     }
 
     @Override
@@ -38,13 +38,13 @@ public class MemberCardServiceDatabase implements MemberCardService{
     }
 
     @Override
-    public MemberGender getMemberGender(String id, String storename) throws SQLException {
-        return memberGenderDAO.getMemberGender(id, storename);
+    public MemberGender getMemberGender(String id, int storeid) throws SQLException {
+        return memberGenderDAO.getMemberGender(id, storeid);
     }
 
     @Override
-    public List<MemberGender> getAllMemberGender(String storename) throws SQLException {
-        return memberGenderDAO.getAllMemberGender(storename);
+    public List<MemberGender> getAllMemberGender(int storeid) throws SQLException {
+        return memberGenderDAO.getAllMemberGender(storeid);
     }
 
     @Override
@@ -53,8 +53,8 @@ public class MemberCardServiceDatabase implements MemberCardService{
     }
 
     @Override
-    public void deleteMemberGender(String memberGender, String storename) throws SQLException {
-        memberGenderDAO.deleteMemberGender(memberGender, storename);
+    public void deleteMemberGender(String memberGender, int storeid) throws SQLException {
+        memberGenderDAO.deleteMemberGender(memberGender, storeid);
     }
 
     @Override

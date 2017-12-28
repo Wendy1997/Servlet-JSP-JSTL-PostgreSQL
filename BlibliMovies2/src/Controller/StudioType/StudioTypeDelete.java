@@ -18,7 +18,7 @@ public class StudioTypeDelete extends HttpServlet {
         String address = "/view/database/studiotype/studiotype_menu.jsp";
 
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storename") == null){
+        if(request.getSession().getAttribute("storeid") == null){
             address = "/view/login/store_login.jsp";
             request.getRequestDispatcher(address).forward(request, response);
         }
@@ -36,9 +36,9 @@ public class StudioTypeDelete extends HttpServlet {
         }
 
         try{
-            StudioType studioType = filmService.getStudioType(request.getParameter("id"), (String)request.getSession().getAttribute("storename"));
+            StudioType studioType = filmService.getStudioType(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
 
-            filmService.deleteStudioType(studioType.getId() + "", (String)request.getSession().getAttribute("storename"));
+            filmService.deleteStudioType(studioType.getId() + "", (int)request.getSession().getAttribute("storeid"));
 
             address = "/view/database/success.jsp";
             request.setAttribute("title", "Studio Type");

@@ -3,25 +3,25 @@ package Model;
 public class OrderDetail {
     private int id;
     private int invoiceId;
-    private String storename;
+    private int storeid;
     private String itemName;
     private int quantity;
     private int price;
     private boolean discountStatus;
 
-    public OrderDetail(int id, int invoiceId, String storename, String itemName, int quantity, int price, boolean discountStatus) {
+    public OrderDetail(int id, int invoiceId, int storeid, String itemName, int quantity, int price, boolean discountStatus) {
         this.id = id;
         this.invoiceId = invoiceId;
-        this.storename = storename;
+        this.storeid = storeid;
         this.itemName = itemName;
         this.quantity = quantity;
         this.price = price;
         this.discountStatus = discountStatus;
     }
 
-    public OrderDetail(int invoiceId, String storename, String itemName, int quantity, int price, boolean discountStatus) {
+    public OrderDetail(int invoiceId, int storeid, String itemName, int quantity, int price, boolean discountStatus) {
         this.invoiceId = invoiceId;
-        this.storename = storename;
+        this.storeid = storeid;
         this.itemName = itemName;
         this.quantity = quantity;
         this.price = price;
@@ -44,12 +44,12 @@ public class OrderDetail {
         this.invoiceId = invoiceId;
     }
 
-    public String getStorename() {
-        return storename;
+    public int getStoreID() {
+        return storeid;
     }
 
-    public void setStorename(String storename) {
-        this.storename = storename;
+    public void setStoreID(int storeid) {
+        this.storeid = storeid;
     }
 
     public String getItemName() {

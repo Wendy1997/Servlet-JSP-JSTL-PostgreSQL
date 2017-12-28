@@ -32,10 +32,10 @@ public class FilmTicketDAO {
 
     public void addFilmTicket(FilmTicket filmTicket) throws SQLException {
 
-        PreparedStatement ps = conn.prepareStatement("INSERT INTO filmTicket (filmid, studioid, storeusername, seatnumber, screeningid, price) VALUES (?,?,?,?,?,?)");
+        PreparedStatement ps = conn.prepareStatement("INSERT INTO filmTicket (filmid, studioid, storeid, seatnumber, screeningid, price) VALUES (?,?,?,?,?,?)");
         ps.setInt(1,filmTicket.getFilmId());
         ps.setInt(2, filmTicket.getStudioId());
-        ps.setString(3, filmTicket.getStoreusername());
+        ps.setInt(3, filmTicket.getStoreID());
         ps.setString(4, filmTicket.getSeatNumber());
         ps.setInt(5, filmTicket.getScreeningId());
         ps.setInt(6, filmTicket.getPrice());
@@ -43,10 +43,10 @@ public class FilmTicketDAO {
         ps.executeUpdate();
     }
 
-    public FilmTicket getFilmTicket(String id, String film_id, String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("select * from filmTicket where id = ? and storeusername = ? and filmid = ? and status = true");
+    public FilmTicket getFilmTicket(String id, String film_id, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("select * from filmTicket where id = ? and storeid = ? and filmid = ? and status = true");
         ps.setString(1, id);
-        ps.setString(2, storename);
+        ps.setInt(2, storeid);
         ps.setString(3, film_id);
 
         ResultSet rs = ps.executeQuery();
@@ -59,7 +59,7 @@ public class FilmTicketDAO {
                     rs.getString(4),
                     rs.getInt(5),
                     rs.getInt(6),
-                    rs.getString(7));
+                    rs.getInt(7));
         } else {
             output = null;
         }
@@ -67,9 +67,9 @@ public class FilmTicketDAO {
         return output;
     }
 
-    public List<FilmTicket> getAllFilmTicket(String filmid, String studio, String screening, String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("select * from filmTicket where storeusername = ? and filmid = ? and screeningid=? and studioid=?");
-        ps.setString(1, storename);
+    public List<FilmTicket> getAllFilmTicket(String filmid, String studio, String screening, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("select * from filmTicket where storeid = ? and filmid = ? and screeningid=? and studioid=?");
+        ps.setInt(1, storeid);
         ps.setString(2, filmid);
         ps.setString(3, screening);
         ps.setString(4, studio);
@@ -84,7 +84,7 @@ public class FilmTicketDAO {
                     rs.getString(4),
                     rs.getInt(5),
                     rs.getInt(6),
-                    rs.getString(7)));
+                    rs.getInt(7)));
         }
 
         return outputList;

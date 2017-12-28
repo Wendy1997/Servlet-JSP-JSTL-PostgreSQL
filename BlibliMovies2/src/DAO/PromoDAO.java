@@ -30,17 +30,17 @@ public class PromoDAO {
         }
     }
 
-    public Promo getPromo(String id, String storename) throws SQLException {
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM promo where id = ? and storeusername = ? and status = true");
+    public Promo getPromo(String id, int storeid) throws SQLException {
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM promo where id = ? and storeid = ? and status = true");
         ps.setString(1, id);
-        ps.setString(2, storename);
+        ps.setInt(2, storeid);
 
         ResultSet rs = ps.executeQuery();
 
         Promo output;
         if(rs.next()){
             output = new Promo(rs.getInt(1),
-                    rs.getString(2),
+                    rs.getInt(2),
                     rs.getString(3),
                     rs.getString(4),
                     rs.getBoolean(5),
@@ -51,16 +51,16 @@ public class PromoDAO {
         return output;
     }
 
-    public Promo getPromo(String storename) throws SQLException {
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM promo where storeusername = ? and status = true");
-        ps.setString(1, storename);
+    public Promo getPromo(int storeid) throws SQLException {
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM promo where storeid = ? and status = true");
+        ps.setInt(1, storeid);
 
         ResultSet rs = ps.executeQuery();
 
         Promo output;
         if(rs.next()){
             output = new Promo(rs.getInt(1),
-                    rs.getString(2),
+                    rs.getInt(2),
                     rs.getString(3),
                     rs.getString(4),
                     rs.getBoolean(5),

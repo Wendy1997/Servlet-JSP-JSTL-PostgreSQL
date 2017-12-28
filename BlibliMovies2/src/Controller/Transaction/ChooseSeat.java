@@ -28,7 +28,7 @@ public class ChooseSeat extends HttpServlet {
         String address = "/view/transaction/choose_seat.jsp";
 
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storename") == null){
+        if(request.getSession().getAttribute("storeid") == null){
             address = "/view/login/store_login.jsp";
             request.getRequestDispatcher(address).forward(request, response);
         }
@@ -41,8 +41,8 @@ public class ChooseSeat extends HttpServlet {
 
         try{
 
-            List<FilmTicket> filmTicketList = filmTicketService.getAllTickets(request.getParameter("id"),request.getParameter("studioid"),request.getParameter("screeningid"),(String)request.getSession().getAttribute("storename"));
-            Film film = filmService.getFilm(request.getParameter("id"), (String)request.getSession().getAttribute("storename"));
+            List<FilmTicket> filmTicketList = filmTicketService.getAllTickets(request.getParameter("id"),request.getParameter("studioid"),request.getParameter("screeningid"),(int)request.getSession().getAttribute("storeid"));
+            Film film = filmService.getFilm(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
             request.setAttribute("filmid", request.getParameter("id"));
             request.setAttribute("studioid", request.getParameter("studioid"));
             request.setAttribute("screeningid", request.getParameter("screeningid"));
@@ -62,11 +62,11 @@ public class ChooseSeat extends HttpServlet {
 
         try {
 
-            Studio studio = filmService.getStudio(request.getParameter("studioid"), (String)request.getSession().getAttribute("storename"));
+            Studio studio = filmService.getStudio(request.getParameter("studioid"), (int)request.getSession().getAttribute("storeid"));
 
             for(int i = 0; i < seatList.length; i++){
                 if(!seatList[i].isEmpty())
-                    filmTicketService.addTicket(new FilmTicket(Integer.parseInt(request.getParameter("filmid")), Integer.parseInt(request.getParameter("studioid")), seatList[i], Integer.parseInt(request.getParameter("screeningid")), studio.getPrice(), (String)request.getSession().getAttribute("storename")));
+                    filmTicketService.addTicket(new FilmTicket(Integer.parseInt(request.getParameter("filmid")), Integer.parseInt(request.getParameter("studioid")), seatList[i], Integer.parseInt(request.getParameter("screeningid")), studio.getPrice(), (int)request.getSession().getAttribute("storeid")));
             }
         } catch (SQLException e){
             e.printStackTrace();

@@ -36,7 +36,7 @@ public class ChooseFnB extends HttpServlet{
         String address = "/view/transaction/choose_fnb.jsp";
 
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storename") == null){
+        if(request.getSession().getAttribute("storeid") == null){
             address = "/view/login/store_login.jsp";
             request.getRequestDispatcher(address).forward(request, response);
         }
@@ -50,12 +50,12 @@ public class ChooseFnB extends HttpServlet{
         try{
             if(!(request.getParameter("ticketQuantity") == null)){
                 request.setAttribute("ticketQuantity", request.getParameter("ticketQuantity"));
-                request.setAttribute("film", filmService.getFilm(request.getParameter("film"), (String)request.getSession().getAttribute("storename")));
-                request.setAttribute("studio", filmService.getStudio(request.getParameter("studioid"), (String)request.getSession().getAttribute("storename")));
-                request.setAttribute("screening", filmService.getScreeningTime(request.getParameter("screeningid"), request.getParameter("film"), (String)request.getSession().getAttribute("storename")));
+                request.setAttribute("film", filmService.getFilm(request.getParameter("film"), (int)request.getSession().getAttribute("storeid")));
+                request.setAttribute("studio", filmService.getStudio(request.getParameter("studioid"), (int)request.getSession().getAttribute("storeid")));
+                request.setAttribute("screening", filmService.getScreeningTime(request.getParameter("screeningid"), request.getParameter("film"), (int)request.getSession().getAttribute("storeid")));
             }
 
-            List<FnB> fnBList = fnBService.getAllFnB((String)request.getSession().getAttribute("storename"));
+            List<FnB> fnBList = fnBService.getAllFnB((int)request.getSession().getAttribute("storeid"));
 
             for(int i = 0; i < fnBList.size(); i++){
                 fnBList.get(i).setCover("/uploads" + fnBList.get(i).getCover());
@@ -81,9 +81,9 @@ public class ChooseFnB extends HttpServlet{
             if(!(request.getParameter("member") == "")){
 
                 member = Integer.parseInt(request.getParameter("member"));
-                promo = invoiceService.getPromo((String)request.getSession().getAttribute("storename")).getId();
+                promo = invoiceService.getPromo((int)request.getSession().getAttribute("storeid")).getId();
 
-                Invoice invoice = new Invoice(member, (String)request.getSession().getAttribute("username") ,(String)request.getSession().getAttribute("storename"), promo, dtf.format(now), Double.parseDouble(request.getParameter("totalHarga")));
+                Invoice invoice = new Invoice(member, (String)request.getSession().getAttribute("username") ,(int)request.getSession().getAttribute("storeid"), promo, dtf.format(now), Double.parseDouble(request.getParameter("totalHarga")));
 
                 invoiceService.addInvoice(invoice);
 
@@ -96,7 +96,7 @@ public class ChooseFnB extends HttpServlet{
                 if(request.getParameter("hasFilm").equals("true")){
                     String[] entry = request.getParameter("idFilm").split(",");
 
-                    OrderDetail orderDetail = new OrderDetail(id, (String)request.getSession().getAttribute("storename"), entry[0], Integer.parseInt(entry[1]), Integer.parseInt(entry[2]), true);
+                    OrderDetail orderDetail = new OrderDetail(id, (int)request.getSession().getAttribute("storeid"), entry[0], Integer.parseInt(entry[1]), Integer.parseInt(entry[2]), true);
                     invoiceService.addOrderDetail(orderDetail);
 
                     i--;
@@ -105,9 +105,9 @@ public class ChooseFnB extends HttpServlet{
                 while(i >= 0){
                     String[] entry = listFnb[i].split(",");
 
-                    FnB fnb = fnBService.getFnB(entry[0] + "", (String)request.getSession().getAttribute("storename"));
+                    FnB fnb = fnBService.getFnB(entry[0] + "", (int)request.getSession().getAttribute("storeid"));
 
-                    OrderDetail orderDetail = new OrderDetail(id, (String)request.getSession().getAttribute("storename"), fnb.getName(), Integer.parseInt(entry[1]), fnb.getPrice(), true);
+                    OrderDetail orderDetail = new OrderDetail(id, (int)request.getSession().getAttribute("storeid"), fnb.getName(), Integer.parseInt(entry[1]), fnb.getPrice(), true);
                     invoiceService.addOrderDetail(orderDetail);
 
                     i--;
@@ -118,7 +118,7 @@ public class ChooseFnB extends HttpServlet{
 
             } else {
 
-                Invoice invoice = new Invoice((String)request.getSession().getAttribute("username") ,(String)request.getSession().getAttribute("storename"), dtf.format(now), Integer.parseInt(request.getParameter("totalHarga")));
+                Invoice invoice = new Invoice((String)request.getSession().getAttribute("username") ,(int)request.getSession().getAttribute("storeid"), dtf.format(now), Integer.parseInt(request.getParameter("totalHarga")));
                 invoiceService.addInvoice(invoice);
 
                 int id = invoiceService.getInvoice(invoice).getId();
@@ -130,7 +130,7 @@ public class ChooseFnB extends HttpServlet{
                 if(request.getParameter("hasFilm").equals("true")){
                     String[] entry = request.getParameter("idFilm").split(",");
                     System.out.println(entry[0] + "," + entry[1] + "," + entry[2]);
-                    OrderDetail orderDetail = new OrderDetail(id, (String)request.getSession().getAttribute("storename"), entry[0], Integer.parseInt(entry[1]), Integer.parseInt(entry[2]), true);
+                    OrderDetail orderDetail = new OrderDetail(id, (int)request.getSession().getAttribute("storeid"), entry[0], Integer.parseInt(entry[1]), Integer.parseInt(entry[2]), true);
                     invoiceService.addOrderDetail(orderDetail);
 
                     i--;
@@ -139,9 +139,9 @@ public class ChooseFnB extends HttpServlet{
                 while(i >= 0){
                     String[] entry = listFnb[i].split(",");
 
-                    FnB fnb = fnBService.getFnB(entry[0] + "", (String)request.getSession().getAttribute("storename"));
+                    FnB fnb = fnBService.getFnB(entry[0] + "", (int)request.getSession().getAttribute("storeid"));
                     System.out.println(entry[0]);
-                    OrderDetail orderDetail = new OrderDetail(id, (String)request.getSession().getAttribute("storename"), fnb.getName(), Integer.parseInt(entry[1]), fnb.getPrice(), false);
+                    OrderDetail orderDetail = new OrderDetail(id, (int)request.getSession().getAttribute("storeid"), fnb.getName(), Integer.parseInt(entry[1]), fnb.getPrice(), false);
                     invoiceService.addOrderDetail(orderDetail);
 
                     i--;

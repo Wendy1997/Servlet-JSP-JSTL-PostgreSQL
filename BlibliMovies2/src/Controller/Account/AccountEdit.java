@@ -22,7 +22,7 @@ public class AccountEdit extends HttpServlet{
         String address = "/view/database/account/account_edit.jsp";
 
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storename") == null){
+        if(request.getSession().getAttribute("storeid") == null){
             address = "/view/login/store_login.jsp";
             request.getRequestDispatcher(address).forward(request, response);
         }
@@ -40,9 +40,9 @@ public class AccountEdit extends HttpServlet{
         }
 
         try {
-            Account account = accountService.getAccount(request.getParameter("id"), (String)request.getSession().getAttribute("storename"));
+            Account account = accountService.getAccount(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
             request.setAttribute("account", account);
-            List<AccountRole> accountRoleList = accountService.getAllAccountRole((String)request.getSession().getAttribute("storename"));
+            List<AccountRole> accountRoleList = accountService.getAllAccountRole((int)request.getSession().getAttribute("storeid"));
             System.out.println(accountRoleList.toString());
             request.setAttribute("role", accountRoleList);
         } catch (Exception e){
@@ -56,7 +56,7 @@ public class AccountEdit extends HttpServlet{
 
         try{
             Account account = new Account( request.getParameter("username"),
-                    (String)request.getSession().getAttribute("storename"),
+                    (int)request.getSession().getAttribute("storeid"),
                     request.getParameter("password"),
                     request.getParameter("role"));
             accountService.updateAccout(account);

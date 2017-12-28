@@ -22,7 +22,7 @@ public class MemberCardEdit extends HttpServlet{
         String address = "/view/database/member/member_edit.jsp";
 
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storename") == null){
+        if(request.getSession().getAttribute("storeid") == null){
             address = "/view/login/store_login.jsp";
             request.getRequestDispatcher(address).forward(request, response);
         }
@@ -40,10 +40,10 @@ public class MemberCardEdit extends HttpServlet{
         }
 
         try {
-            MemberCard memberCard = memberCardService.getMemberCard(request.getParameter("id"), (String)request.getSession().getAttribute("storename"));
+            MemberCard memberCard = memberCardService.getMemberCard(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
             request.setAttribute("memberCard", memberCard);
 
-            List<MemberGender> memberGenderList = memberCardService.getAllMemberGender((String)request.getSession().getAttribute("storename"));
+            List<MemberGender> memberGenderList = memberCardService.getAllMemberGender((int)request.getSession().getAttribute("storeid"));
             request.setAttribute("gender", memberGenderList);
         } catch (Exception e){
             System.out.println(e.getMessage());
@@ -56,7 +56,7 @@ public class MemberCardEdit extends HttpServlet{
 
         try{
             MemberCard memberCard = new MemberCard( Integer.parseInt(request.getParameter("id")),
-                    (String)request.getSession().getAttribute("storename"),
+                    (int)request.getSession().getAttribute("storeid"),
                     request.getParameter("fullname"),
                     request.getParameter("gender"),
                     request.getParameter("birthdate"),

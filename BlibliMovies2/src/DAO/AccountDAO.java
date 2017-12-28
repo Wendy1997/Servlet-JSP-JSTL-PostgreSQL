@@ -32,57 +32,57 @@ public class AccountDAO {
         }
     }
 
-    public Account getAccount(String username, String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM account where username = ? and storeusername = ? and status = true");
+    public Account getAccount(String username, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM account where username = ? and storeid = ? and status = true");
         ps.setString(1, username);
-        ps.setString(2, storename);
+        ps.setInt(2, storeid);
 
         ResultSet rs = ps.executeQuery();
 
         Account output;
         if(rs.next()){
-            output = new Account(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));
+            output = new Account(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4));
         } else{
             output = null;
         }
         return output;
     }
 
-    public List<Account> getAllAccount(String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM account where storeusername = ? and status = true");
-        ps.setString(1, storename);
-        System.out.println(storename);
+    public List<Account> getAllAccount(int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM account where storeid = ? and status = true");
+        ps.setInt(1, storeid);
+        System.out.println(storeid);
         ResultSet rs = ps.executeQuery();
 
         List<Account> accounts = new ArrayList<Account>();
         while(rs.next()){
-            accounts.add(new Account(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4)));
+            accounts.add(new Account(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4)));
         }
         return accounts;
     }
 
     public void addAccount(Account account) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("INSERT INTO account (username, storeusername, password, type) VALUES (?,?,?,?)");
+        PreparedStatement ps = conn.prepareStatement("INSERT INTO account (username, storeid, password, type) VALUES (?,?,?,?)");
         ps.setString(1,account.getUsername());
-        ps.setString(2, account.getStorename());
+        ps.setInt(2, account.getStoreID());
         ps.setString(3, account.getPassword());
         ps.setString(4, account.getRole());
         ps.executeUpdate();
     }
 
-    public void deleteAccount(String account, String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("UPDATE account set status = false where username = ? and storeusername = ?");
+    public void deleteAccount(String account, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("UPDATE account set status = false where username = ? and storeid = ?");
         ps.setString(1, account);
-        ps.setString(2, storename);
+        ps.setInt(2, storeid);
         ps.executeUpdate();
     }
 
     public void updateAccount(Account account) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("UPDATE account set password = ?, type = ? where username = ? and storeusername = ?");
+        PreparedStatement ps = conn.prepareStatement("UPDATE account set password = ?, type = ? where username = ? and storeid = ?");
         ps.setString(1, account.getPassword());
         ps.setString(2, account.getRole());
         ps.setString(3, account.getUsername());
-        ps.setString(4, account.getStorename());
+        ps.setInt(4, account.getStoreID());
         ps.executeUpdate();
     }
 }

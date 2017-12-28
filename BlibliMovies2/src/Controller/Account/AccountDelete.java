@@ -22,7 +22,7 @@ public class AccountDelete extends HttpServlet {
         String address = "/view/database/account/account_menu.jsp";
 
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storename") == null){
+        if(request.getSession().getAttribute("storeid") == null){
             address = "/view/login/store_login.jsp";
             request.getRequestDispatcher(address).forward(request, response);
         }
@@ -40,9 +40,9 @@ public class AccountDelete extends HttpServlet {
         }
 
         try{
-            Account account = accountService.getAccount(request.getParameter("id"), (String)request.getSession().getAttribute("storename"));
+            Account account = accountService.getAccount(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
 
-            accountService.deleteAccount(account.getUsername() + "", (String)request.getSession().getAttribute("storename"));
+            accountService.deleteAccount(account.getUsername() + "", (int)request.getSession().getAttribute("storeid"));
 
             address = "/view/database/success.jsp";
             request.setAttribute("title", "Account");

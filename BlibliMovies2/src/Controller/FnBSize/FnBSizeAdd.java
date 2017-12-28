@@ -23,7 +23,7 @@ public class FnBSizeAdd extends HttpServlet {
         String address = "/view/database/fnbsize/fnbsize_add.jsp";
 
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storename") == null){
+        if(request.getSession().getAttribute("storeid") == null){
             address = "/view/login/store_login.jsp";
         }
 
@@ -38,7 +38,7 @@ public class FnBSizeAdd extends HttpServlet {
         }
 
         try{
-            List<FnBSize> fnBSizeList = fnbService.getAllFnBSize((String)request.getSession().getAttribute("storename"));
+            List<FnBSize> fnBSizeList = fnbService.getAllFnBSize((int)request.getSession().getAttribute("storeid"));
             request.setAttribute("size", fnBSizeList);
         }catch (SQLException e){
             e.printStackTrace();
@@ -51,7 +51,7 @@ public class FnBSizeAdd extends HttpServlet {
 
         try{
             FnBSize fnBSize = new FnBSize( request.getParameter("size"),
-                    (String)request.getSession().getAttribute("storename"));
+                    (int)request.getSession().getAttribute("storeid"));
 
             fnbService.addFnBSize(fnBSize);
 

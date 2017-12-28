@@ -33,7 +33,7 @@ public class FilmAdd extends HttpServlet {
         String address = "/view/database/film/film_add.jsp";
 
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storename") == null){
+        if(request.getSession().getAttribute("storeid") == null){
             address = "/view/login/store_login.jsp";
             request.getRequestDispatcher(address).forward(request, response);
         }
@@ -51,7 +51,7 @@ public class FilmAdd extends HttpServlet {
         }
 
         try{
-            List<FilmGenre> filmGenreList = filmService.getAllFilmGenre((String)request.getSession().getAttribute("storename"));
+            List<FilmGenre> filmGenreList = filmService.getAllFilmGenre((int)request.getSession().getAttribute("storeid"));
             request.setAttribute("genre", filmGenreList);
         }catch (SQLException e){
             e.printStackTrace();
@@ -70,7 +70,7 @@ public class FilmAdd extends HttpServlet {
         for(int i = 0; i < pathList.length - 3; i++){
             uploadFilePath += pathList[i] + "\\";
         }
-        uploadFilePath += UPLOAD_DIR + "\\" + (String)request.getSession().getAttribute("storename") + "\\film";
+        uploadFilePath += UPLOAD_DIR + "\\" + (int)request.getSession().getAttribute("storeid") + "\\film";
 
         // creates the save directory if it does not exists
         File fileSaveDir = new File(uploadFilePath);
@@ -86,8 +86,8 @@ public class FilmAdd extends HttpServlet {
 
         try{
             Film film = new Film(
-                (String)request.getSession().getAttribute("storename"),
-                    "/" + (String)request.getSession().getAttribute("storename") + "/film/" + request.getParameter("nama") + " (" + request.getParameter("waktu_mulai").substring(0,4) + ") [" + dateNow + "].jpg",
+                    (int)request.getSession().getAttribute("storeid"),
+                    "/" + (int)request.getSession().getAttribute("storeid") + "/film/" + request.getParameter("nama") + " (" + request.getParameter("waktu_mulai").substring(0,4) + ") [" + dateNow + "].jpg",
                 request.getParameter("nama"),
                 request.getParameter("genre"),
                 Integer.parseInt(request.getParameter("durasi")),

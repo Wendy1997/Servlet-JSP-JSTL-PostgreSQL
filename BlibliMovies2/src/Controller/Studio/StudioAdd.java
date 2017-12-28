@@ -22,7 +22,7 @@ public class StudioAdd extends HttpServlet {
         String address = "/view/database/studio/studio_add.jsp";
 
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storename") == null){
+        if(request.getSession().getAttribute("storeid") == null){
             address = "/view/login/store_login.jsp";
         }
 
@@ -37,7 +37,7 @@ public class StudioAdd extends HttpServlet {
         }
 
         try{
-            List<StudioType> studioTypeList = studioService.getAllStudioType((String)request.getSession().getAttribute("storename"));
+            List<StudioType> studioTypeList = studioService.getAllStudioType((int)request.getSession().getAttribute("storeid"));
             request.setAttribute("type", studioTypeList);
         }catch (SQLException e){
             e.printStackTrace();
@@ -49,7 +49,7 @@ public class StudioAdd extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         try{
-            Studio studio = new Studio( (String)request.getSession().getAttribute("storename"),
+            Studio studio = new Studio((int)request.getSession().getAttribute("storeid"),
                     request.getParameter("name"),
                     request.getParameter("type"),
                     Integer.parseInt(request.getParameter("price")));

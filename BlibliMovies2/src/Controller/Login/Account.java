@@ -20,7 +20,7 @@ public class Account extends HttpServlet {
         String address = "/view/login/account_login.jsp";
 
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storename") == null){
+        if(request.getSession().getAttribute("storeid") == null){
             address = "/view/login/store_login.jsp";
         }
 
@@ -47,7 +47,7 @@ public class Account extends HttpServlet {
         String address = "/view/login/account_login.jsp";
 
         try{
-            Model.Account account = accountService.getAccount(request.getParameter("username"), (String)request.getSession().getAttribute("storename"));
+            Model.Account account = accountService.getAccount(request.getParameter("username"), (int)request.getSession().getAttribute("storeid"));
 
             if(account != null){
                 if(account.getPassword().equals(request.getParameter("password"))){
@@ -58,7 +58,6 @@ public class Account extends HttpServlet {
                     request.setAttribute("title", "Login");
                     request.setAttribute("complete", "Sukses");
                     request.setAttribute("link", "/" + account.getRole());
-
                 }else{
                     address = "/view/database/success.jsp";
                     request.setAttribute("title", "Login");

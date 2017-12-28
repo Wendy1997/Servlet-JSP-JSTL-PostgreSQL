@@ -22,7 +22,7 @@ public class FilmDelete extends HttpServlet {
         String address = "/view/database/film/film_menu.jsp";
 
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storename") == null){
+        if(request.getSession().getAttribute("storeid") == null){
             address = "/view/login/store_login.jsp";
             request.getRequestDispatcher(address).forward(request, response);
         }
@@ -40,9 +40,9 @@ public class FilmDelete extends HttpServlet {
         }
 
         try{
-            Film film = filmService.getFilm(request.getParameter("id"), (String)request.getSession().getAttribute("storename"));
+            Film film = filmService.getFilm(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
 
-            filmService.deleteFilm(film.getId() + "", (String)request.getSession().getAttribute("storename"));
+            filmService.deleteFilm(film.getId() + "", (int)request.getSession().getAttribute("storeid"));
 
             address = "/view/database/success.jsp";
             request.setAttribute("title", "Film");

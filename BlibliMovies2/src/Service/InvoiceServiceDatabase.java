@@ -16,13 +16,13 @@ public class InvoiceServiceDatabase implements InvoiceService {
     PromoDAO promoDAO = new PromoDAO();
 
     @Override
-    public Invoice getInvoice(String id, String storename) throws SQLException {
-        return invoiceDAO.getInvoice(id, storename);
+    public Invoice getInvoice(String id, int storeid) throws SQLException {
+        return invoiceDAO.getInvoice(id, storeid);
     }
 
     @Override
-    public List<Invoice> getAllInvoice(String storename) throws SQLException {
-        return invoiceDAO.getAllInvoice(storename);
+    public List<Invoice> getAllInvoice(int storeid) throws SQLException {
+        return invoiceDAO.getAllInvoice(storeid);
     }
 
     @Override
@@ -36,31 +36,31 @@ public class InvoiceServiceDatabase implements InvoiceService {
     }
 
     @Override
-    public List<Invoice> getDailyInvoice(String date, String storename) throws SQLException {
+    public List<Invoice> getDailyInvoice(String date, int storeid) throws SQLException {
         String[] dateList = date.split("-");
-        return invoiceDAO.getDailyInvoice(dateList[2], dateList[1], dateList[0], storename);
+        return invoiceDAO.getDailyInvoice(dateList[2], dateList[1], dateList[0], storeid);
     }
 
     @Override
-    public List<Invoice> getWeeklyInvoice(String date, String storename) throws SQLException {
+    public List<Invoice> getWeeklyInvoice(String date, int storeid) throws SQLException {
         String[] dateList = date.split("-");
-        return invoiceDAO.getWeeklyInvoice(dateList[1].substring(1), dateList[0], storename);
+        return invoiceDAO.getWeeklyInvoice(dateList[1].substring(1), dateList[0], storeid);
     }
 
     @Override
-    public List<Invoice> getMonthlyInvoice(String date, String storename) throws SQLException {
+    public List<Invoice> getMonthlyInvoice(String date, int storeid) throws SQLException {
         String[] dateList = date.split("-");
-        return invoiceDAO.getMonthlyInvoice(dateList[1], dateList[0], storename);
+        return invoiceDAO.getMonthlyInvoice(dateList[1], dateList[0], storeid);
     }
 
     @Override
-    public List<Invoice> getYearlyInvoice(String year, String storename) throws SQLException {
-        return invoiceDAO.getYearlyInvoice(year, storename);
+    public List<Invoice> getYearlyInvoice(String year, int storeid) throws SQLException {
+        return invoiceDAO.getYearlyInvoice(year, storeid);
     }
 
     @Override
-    public List<OrderDetail> getAllOrderDetail(String id, String storename) throws SQLException {
-        return orderDetailDAO.getAllOrderDetail(id, storename);
+    public List<OrderDetail> getAllOrderDetail(String id, int storeid) throws SQLException {
+        return orderDetailDAO.getAllOrderDetail(id, storeid);
     }
 
     @Override
@@ -69,12 +69,12 @@ public class InvoiceServiceDatabase implements InvoiceService {
     }
 
     @Override
-    public Promo getPromo(String id, String storename) throws SQLException{
-        return promoDAO.getPromo(id, storename);
+    public Promo getPromo(String id, int storeid) throws SQLException{
+        return promoDAO.getPromo(id, storeid);
     }
 
     @Override
-    public Promo getPromo(String storename) throws SQLException {
-        return promoDAO.getPromo(storename);
+    public Promo getPromo(int storeid) throws SQLException {
+        return promoDAO.getPromo(storeid);
     }
 }

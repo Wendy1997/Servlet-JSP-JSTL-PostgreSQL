@@ -31,7 +31,7 @@ public class FilmEdit extends HttpServlet{
         String address = "/view/database/film/film_edit.jsp";
 
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storename") == null){
+        if(request.getSession().getAttribute("storeid") == null){
             address = "/view/login/store_login.jsp";
             request.getRequestDispatcher(address).forward(request, response);
         }
@@ -49,10 +49,10 @@ public class FilmEdit extends HttpServlet{
         }
 
         try {
-            Film film = filmService.getFilm(request.getParameter("id"), (String)request.getSession().getAttribute("storename"));
+            Film film = filmService.getFilm(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
             request.setAttribute("film", film);
 
-            List<FilmGenre> filmGenreList = filmService.getAllFilmGenre((String)request.getSession().getAttribute("storename"));
+            List<FilmGenre> filmGenreList = filmService.getAllFilmGenre((int)request.getSession().getAttribute("storeid"));
             request.setAttribute("genre", filmGenreList);
         } catch (Exception e){
             System.out.println(e.getMessage());
@@ -67,7 +67,7 @@ public class FilmEdit extends HttpServlet{
             LocalDateTime now = LocalDateTime.now();
             String random = dtf.format(now);
 
-            String cover = filmService.getFilm(request.getParameter("id"), (String)request.getSession().getAttribute("storename")).getCover();
+            String cover = filmService.getFilm(request.getParameter("id"), (int)request.getSession().getAttribute("storeid")).getCover();
             String[] randomList = cover.split("/");
             String randomNumber = randomList[3].substring(randomList[3].length()-19, randomList[3].length()-5);
 
@@ -77,7 +77,7 @@ public class FilmEdit extends HttpServlet{
                 for(int i = 0; i < pathList.length - 3; i++){
                     uploadFilePath += pathList[i] + "\\";
                 }
-                uploadFilePath += UPLOAD_DIR + "\\" + (String)request.getSession().getAttribute("storename") + "\\film";
+                uploadFilePath += UPLOAD_DIR + "\\" + (int)request.getSession().getAttribute("storeid") + "\\film";
 
                 File fileLama = new File(uploadFilePath + "\\" + randomList[3]);
                 fileLama.delete();
@@ -98,8 +98,8 @@ public class FilmEdit extends HttpServlet{
 
             Film film = new Film(
                     Integer.parseInt(request.getParameter("id")),
-                    (String)request.getSession().getAttribute("storename"),
-                    "/" + (String)request.getSession().getAttribute("storename") + "/film/" + request.getParameter("nama") + " (" + request.getParameter("waktu_mulai").substring(0,4) + ") [" + randomNumber + "].jpg",
+                    (int)request.getSession().getAttribute("storeid"),
+                    "/" + (int)request.getSession().getAttribute("storeid") + "/film/" + request.getParameter("nama") + " (" + request.getParameter("waktu_mulai").substring(0,4) + ") [" + randomNumber + "].jpg",
                     request.getParameter("nama"),
                     request.getParameter("genre"),
                     Integer.parseInt(request.getParameter("durasi")),

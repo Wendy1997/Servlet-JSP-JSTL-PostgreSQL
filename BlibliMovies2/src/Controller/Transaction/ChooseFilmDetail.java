@@ -24,7 +24,7 @@ public class ChooseFilmDetail extends HttpServlet {
         String address = "/view/transaction/confirmation_film.jsp";
 
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storename") == null){
+        if(request.getSession().getAttribute("storeid") == null){
             address = "/view/login/store_login.jsp";
             request.getRequestDispatcher(address).forward(request, response);
         }
@@ -36,11 +36,11 @@ public class ChooseFilmDetail extends HttpServlet {
         }
 
         try{
-            Film film = filmService.getFilm(request.getParameter("id"), (String)request.getSession().getAttribute("storename"));
+            Film film = filmService.getFilm(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
             film.setCover("/uploads" + film.getCover());
 
-            ScreeningTime screeningTime = filmService.getScreeningTime(request.getParameter("screeningtime"), request.getParameter("id"), (String)request.getSession().getAttribute("storename"));
-            Studio studio = filmService.getStudio(screeningTime.getStudioId() + "", (String)request.getSession().getAttribute("storename"));
+            ScreeningTime screeningTime = filmService.getScreeningTime(request.getParameter("screeningtime"), request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
+            Studio studio = filmService.getStudio(screeningTime.getStudioId() + "", (int)request.getSession().getAttribute("storeid"));
 
             request.setAttribute("film", film);
             request.setAttribute("screeningTime", screeningTime);

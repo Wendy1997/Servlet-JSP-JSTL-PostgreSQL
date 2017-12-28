@@ -13,13 +13,13 @@ public class AccountServiceDatabase implements AccountService {
     AccountRoleDAO accountRoleDAO =  new AccountRoleDAO();
 
     @Override
-    public Account getAccount(String username, String storename) throws SQLException{
-        return accountDAO.getAccount(username, storename);
+    public Account getAccount(String username, int storeid) throws SQLException{
+        return accountDAO.getAccount(username, storeid);
     }
 
     @Override
-    public List<Account> getAllAccount(String storename) throws SQLException{
-        return accountDAO.getAllAccount(storename);
+    public List<Account> getAllAccount(int storeid) throws SQLException{
+        return accountDAO.getAllAccount(storeid);
     }
 
     @Override
@@ -28,8 +28,8 @@ public class AccountServiceDatabase implements AccountService {
     }
 
     @Override
-    public void deleteAccount(String username, String storename) throws SQLException{
-        accountDAO.deleteAccount(username, storename);
+    public void deleteAccount(String username, int storeid) throws SQLException{
+        accountDAO.deleteAccount(username, storeid);
     }
 
     @Override
@@ -38,13 +38,13 @@ public class AccountServiceDatabase implements AccountService {
     }
 
     @Override
-    public AccountRole getAccountRole(String id, String storename) throws SQLException {
-        return accountRoleDAO.getAccountRole(id, storename);
+    public AccountRole getAccountRole(String id, int storeid) throws SQLException {
+        return accountRoleDAO.getAccountRole(id, storeid);
     }
 
     @Override
-    public List<AccountRole> getAllAccountRole(String storename) throws SQLException {
-        return accountRoleDAO.getAllAccountRole(storename);
+    public List<AccountRole> getAllAccountRole(int storeid) throws SQLException {
+        return accountRoleDAO.getAllAccountRole(storeid);
     }
 
     @Override
@@ -53,8 +53,8 @@ public class AccountServiceDatabase implements AccountService {
     }
 
     @Override
-    public void deleteAccountRole(String accountRole, String storename) throws SQLException {
-        accountRoleDAO.deleteAccountRole(accountRole, storename);
+    public void deleteAccountRole(String accountRole, int storeid) throws SQLException {
+        accountRoleDAO.deleteAccountRole(accountRole, storeid);
     }
 
     @Override

@@ -3,12 +3,12 @@ package Model;
 public class AccountRole {
     private String id;
     private String role;
-    private String storename;
+    private int storeid;
 
-    public AccountRole(String id, String role, String storename) {
+    public AccountRole(String id, String role, int storeid) {
         this.id = id;
         this.role = role;
-        this.storename = storename;
+        this.storeid = storeid;
     }
 
     public String getId() {
@@ -27,11 +27,11 @@ public class AccountRole {
         this.role = role;
     }
 
-    public String getStorename() {
-        return storename;
+    public int getStoreID() {
+        return storeid;
     }
 
-    public void setStorename(String storename) {
-        this.storename = storename;
+    public void setStoreID(int storeid) {
+        this.storeid = storeid;
     }
 }

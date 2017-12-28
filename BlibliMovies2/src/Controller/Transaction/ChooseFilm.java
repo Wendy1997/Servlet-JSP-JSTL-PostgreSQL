@@ -22,7 +22,7 @@ public class ChooseFilm extends HttpServlet {
         String address = "/view/transaction/choose_film.jsp";
 
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storename") == null){
+        if(request.getSession().getAttribute("storeid") == null){
             address = "/view/login/store_login.jsp";
             request.getRequestDispatcher(address).forward(request, response);
         }
@@ -34,9 +34,9 @@ public class ChooseFilm extends HttpServlet {
         }
 
         try{
-            List<Film> films = filmService.getAllFilm((String)request.getSession().getAttribute("storename"));
+            List<Film> films = filmService.getAllFilm((int)request.getSession().getAttribute("storeid"));
             for(int i = 0; i < films.size(); i++){
-                films.get(i).setScreeningTimes(filmService.getAllScreeningTime((String)request.getSession().getAttribute("storename"), films.get(i).getId()+ ""));
+                films.get(i).setScreeningTimes(filmService.getAllScreeningTime((int)request.getSession().getAttribute("storeid"), films.get(i).getId()+ ""));
                 films.get(i).setCover("/uploads" + films.get(i).getCover());
             }
             request.setAttribute("films", films);

@@ -99,7 +99,7 @@
     }
 
     $(document).ready(function () {
-       $('.col-md-2').click(function () {
+       $('.col-4').click(function () {
           var jumlah = prompt("Masukkan jumlah");
            $.ajax({
                type: 'POST',

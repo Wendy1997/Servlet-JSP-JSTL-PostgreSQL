@@ -16,13 +16,13 @@ public class FnBServiceDatabase implements FnBService {
     FnBTypeDAO fnBTypeDAO = new FnBTypeDAO();
 
     @Override
-    public FnB getFnB(String id, String storename) throws SQLException{
-        return fnbDAO.getFnB(id, storename);
+    public FnB getFnB(String id, int storeid) throws SQLException{
+        return fnbDAO.getFnB(id, storeid);
     }
 
     @Override
-    public List<FnB> getAllFnB(String storename) throws SQLException{
-        return fnbDAO.getAllFnB(storename);
+    public List<FnB> getAllFnB(int storeid) throws SQLException{
+        return fnbDAO.getAllFnB(storeid);
     }
 
     @Override
@@ -31,8 +31,8 @@ public class FnBServiceDatabase implements FnBService {
     }
 
     @Override
-    public void deleteFnB(String id, String storename) throws SQLException{
-        fnbDAO.deleteFnB(id, storename);
+    public void deleteFnB(String id, int storeid) throws SQLException{
+        fnbDAO.deleteFnB(id, storeid);
     }
 
     @Override
@@ -41,13 +41,13 @@ public class FnBServiceDatabase implements FnBService {
     }
 
     @Override
-    public FnBSize getFnBSize(String id, String storename) throws SQLException {
-        return fnBSizeDAO.getFnBSize(id, storename);
+    public FnBSize getFnBSize(String id, int storeid) throws SQLException {
+        return fnBSizeDAO.getFnBSize(id, storeid);
     }
 
     @Override
-    public List<FnBSize> getAllFnBSize(String storename) throws SQLException {
-        return fnBSizeDAO.getAllFnBSize(storename);
+    public List<FnBSize> getAllFnBSize(int storeid) throws SQLException {
+        return fnBSizeDAO.getAllFnBSize(storeid);
     }
 
     @Override
@@ -56,8 +56,8 @@ public class FnBServiceDatabase implements FnBService {
     }
 
     @Override
-    public void deleteFnBSize(String fnBSize, String storename) throws SQLException {
-        fnBSizeDAO.deleteFnBSize(fnBSize, storename);
+    public void deleteFnBSize(String fnBSize, int storeid) throws SQLException {
+        fnBSizeDAO.deleteFnBSize(fnBSize, storeid);
     }
 
     @Override
@@ -66,13 +66,13 @@ public class FnBServiceDatabase implements FnBService {
     }
 
     @Override
-    public FnBType getFnBType(String id, String storename) throws SQLException {
-        return fnBTypeDAO.getFnBType(id, storename);
+    public FnBType getFnBType(String id, int storeid) throws SQLException {
+        return fnBTypeDAO.getFnBType(id, storeid);
     }
 
     @Override
-    public List<FnBType> getAllFnBType(String storename) throws SQLException {
-        return fnBTypeDAO.getAllFnBType(storename);
+    public List<FnBType> getAllFnBType(int storeid) throws SQLException {
+        return fnBTypeDAO.getAllFnBType(storeid);
     }
 
     @Override
@@ -81,8 +81,8 @@ public class FnBServiceDatabase implements FnBService {
     }
 
     @Override
-    public void deleteFnBType(String fnBType, String storename) throws SQLException {
-        fnBTypeDAO.deleteFnBType(fnBType, storename);
+    public void deleteFnBType(String fnBType, int storeid) throws SQLException {
+        fnBTypeDAO.deleteFnBType(fnBType, storeid);
     }
 
     @Override

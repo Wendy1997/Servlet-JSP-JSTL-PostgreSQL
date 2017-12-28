@@ -2,15 +2,15 @@ package Model;
 
 public class Promo {
     private int id;
-    private String storename;
+    private int storeid;
     private String name;
     private String description;
     private boolean status;
     private int discountAmount;
 
-    public Promo(int id, String storename, String name, String description, boolean status, int discountAmount) {
+    public Promo(int id, int storeid, String name, String description, boolean status, int discountAmount) {
         this.id = id;
-        this.storename = storename;
+        this.storeid = storeid;
         this.name = name;
         this.description = description;
         this.status = status;
@@ -25,12 +25,12 @@ public class Promo {
         this.id = id;
     }
 
-    public String getStorename() {
-        return storename;
+    public int getStoreID() {
+        return storeid;
     }
 
-    public void setStorename(String storename) {
-        this.storename = storename;
+    public void setStoreID(int storeid) {
+        this.storeid = storeid;
     }
 
     public String getName() {

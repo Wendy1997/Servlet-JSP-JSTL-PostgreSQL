@@ -9,19 +9,19 @@ import java.util.List;
 
 public interface InvoiceService {
 
-    Invoice getInvoice(String id, String storename) throws SQLException;
-    List<Invoice> getAllInvoice(String storename) throws SQLException;
+    Invoice getInvoice(String id, int storeid) throws SQLException;
+    List<Invoice> getAllInvoice(int storeid) throws SQLException;
     void addInvoice(Invoice invoice) throws SQLException;
     Invoice getInvoice(Invoice invoice) throws  SQLException;
 
-    List<Invoice> getDailyInvoice(String date, String storename) throws SQLException;
-    List<Invoice> getWeeklyInvoice(String date, String storename) throws SQLException;
-    List<Invoice> getMonthlyInvoice(String date, String storename) throws SQLException;
-    List<Invoice> getYearlyInvoice(String date, String storename) throws SQLException;
+    List<Invoice> getDailyInvoice(String date, int storeid) throws SQLException;
+    List<Invoice> getWeeklyInvoice(String date, int storeid) throws SQLException;
+    List<Invoice> getMonthlyInvoice(String date, int storeid) throws SQLException;
+    List<Invoice> getYearlyInvoice(String date, int storeid) throws SQLException;
 
-    List<OrderDetail> getAllOrderDetail(String id, String storename) throws SQLException;
+    List<OrderDetail> getAllOrderDetail(String id, int storeid) throws SQLException;
     void addOrderDetail(OrderDetail orderDetail) throws SQLException;
 
-    Promo getPromo(String id, String storename) throws SQLException;
-    Promo getPromo(String storename) throws SQLException;
+    Promo getPromo(String id, int storeid) throws SQLException;
+    Promo getPromo(int storeid) throws SQLException;
 }

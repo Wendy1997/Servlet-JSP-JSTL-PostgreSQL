@@ -1,4 +1,4 @@
-package Controller.StudioTypeType;
+package Controller.StudioType;
 
 import Model.StudioType;
 import Service.FilmService;
@@ -21,7 +21,7 @@ public class StudioTypeAdd extends HttpServlet {
         String address = "/view/database/studiotype/studiotype_add.jsp";
 
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storename") == null){
+        if(request.getSession().getAttribute("storeid") == null){
             address = "/view/login/store_login.jsp";
         }
 
@@ -36,7 +36,7 @@ public class StudioTypeAdd extends HttpServlet {
         }
 
         try{
-            List<StudioType> studioList = filmService.getAllStudioType((String)request.getSession().getAttribute("storename"));
+            List<StudioType> studioList = filmService.getAllStudioType((int)request.getSession().getAttribute("storeid"));
             request.setAttribute("studio", studioList);
         }catch (SQLException e){
             e.printStackTrace();
@@ -49,7 +49,7 @@ public class StudioTypeAdd extends HttpServlet {
 
         try{
             StudioType studio = new StudioType( request.getParameter("type"),
-                    (String)request.getSession().getAttribute("storename"));
+                    (int)request.getSession().getAttribute("storeid"));
 
             filmService.addStudioType(studio);
 

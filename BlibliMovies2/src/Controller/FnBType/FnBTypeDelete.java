@@ -25,7 +25,7 @@ public class FnBTypeDelete extends HttpServlet {
         String address = "/view/database/fnbtype/fnbtype_menu.jsp";
 
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storename") == null){
+        if(request.getSession().getAttribute("storeid") == null){
             address = "/view/login/store_login.jsp";
             request.getRequestDispatcher(address).forward(request, response);
         }
@@ -43,9 +43,9 @@ public class FnBTypeDelete extends HttpServlet {
         }
 
         try{
-            FnBType fnbType = fnbService.getFnBType(request.getParameter("id"), (String)request.getSession().getAttribute("storename"));
+            FnBType fnbType = fnbService.getFnBType(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
 
-            fnbService.deleteFnBType(fnbType.getId() + "", (String)request.getSession().getAttribute("storename"));
+            fnbService.deleteFnBType(fnbType.getId() + "", (int)request.getSession().getAttribute("storeid"));
 
             address = "/view/database/success.jsp";
             request.setAttribute("title", "FnB Type");

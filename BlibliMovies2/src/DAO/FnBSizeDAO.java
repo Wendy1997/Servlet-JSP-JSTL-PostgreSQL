@@ -32,53 +32,53 @@ public class FnBSizeDAO {
         }
     }
 
-    public FnBSize getFnBSize(String id, String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM fnBSize where id = ? and storeusername = ? and status = true");
+    public FnBSize getFnBSize(String id, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM fnBSize where id = ? and storeid = ? and status = true");
         ps.setInt(1, Integer.parseInt(id));
-        ps.setString(2, storename);
+        ps.setInt(2, storeid);
 
         ResultSet rs = ps.executeQuery();
 
         FnBSize output;
         if(rs.next()){
-            output = new FnBSize(rs.getString(1), rs.getString(2), rs.getString(3));
+            output = new FnBSize(rs.getString(1), rs.getString(2), rs.getInt(3));
         } else{
             output = null;
         }
         return output;
     }
 
-    public List<FnBSize> getAllFnBSize(String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM fnBSize where storeusername = ? and status = true");
-        ps.setString(1, storename);
+    public List<FnBSize> getAllFnBSize(int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM fnBSize where storeid = ? and status = true");
+        ps.setInt(1, storeid);
         ResultSet rs = ps.executeQuery();
 
         List<FnBSize> fnBSizes = new ArrayList<FnBSize>();
         while(rs.next()){
-            fnBSizes.add(new FnBSize(rs.getString(1), rs.getString(2), rs.getString(3)));
+            fnBSizes.add(new FnBSize(rs.getString(1), rs.getString(2), rs.getInt(3)));
         }
         return fnBSizes;
     }
 
     public void addFnBSize(FnBSize fnBSize) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("INSERT INTO fnBSize (storeusername, size) VALUES (?,?)");
-        ps.setString(1, fnBSize.getStorename());
+        PreparedStatement ps = conn.prepareStatement("INSERT INTO fnBSize (storeid, size) VALUES (?,?)");
+        ps.setInt(1, fnBSize.getStoreID());
         ps.setString(2, fnBSize.getSize());
         ps.executeUpdate();
     }
 
-    public void deleteFnBSize(String fnBSize, String storename) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("UPDATE fnBSize set status = false where id = ? and storeusername = ?");
+    public void deleteFnBSize(String fnBSize, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("UPDATE fnBSize set status = false where id = ? and storeid = ?");
         ps.setInt(1, Integer.parseInt(fnBSize));
-        ps.setString(2, storename);
+        ps.setInt(2, storeid);
         ps.executeUpdate();
     }
 
     public void updateFnBSize(FnBSize fnBSize) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("UPDATE fnBSize set size = ? where id = ? and storeusername = ? and status = true");
+        PreparedStatement ps = conn.prepareStatement("UPDATE fnBSize set size = ? where id = ? and storeid = ? and status = true");
         ps.setString(1, fnBSize.getSize());
         ps.setInt(2, Integer.parseInt(fnBSize.getId()));
-        ps.setString(3, fnBSize.getStorename());
+        ps.setInt(3, fnBSize.getStoreID());
         ps.executeUpdate();
     }
 }

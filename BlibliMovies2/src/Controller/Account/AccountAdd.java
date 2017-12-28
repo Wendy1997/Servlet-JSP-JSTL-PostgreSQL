@@ -23,7 +23,7 @@ public class AccountAdd extends HttpServlet {
         String address = "/view/database/account/account_add.jsp";
 
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storename") == null){
+        if(request.getSession().getAttribute("storeid") == null){
             address = "/view/login/store_login.jsp";
         }
 
@@ -38,7 +38,7 @@ public class AccountAdd extends HttpServlet {
         }
 
         try{
-            List<AccountRole> accountRoleList = accountService.getAllAccountRole((String)request.getSession().getAttribute("storename"));
+            List<AccountRole> accountRoleList = accountService.getAllAccountRole((int)request.getSession().getAttribute("storeid"));
             request.setAttribute("role", accountRoleList);
         }catch (SQLException e){
             e.printStackTrace();
@@ -51,7 +51,7 @@ public class AccountAdd extends HttpServlet {
 
         try{
             Account account = new Account( request.getParameter("username"),
-                    (String)request.getSession().getAttribute("storename"),
+                    (int)request.getSession().getAttribute("storeid"),
                     request.getParameter("password"),
                     request.getParameter("role"));
 

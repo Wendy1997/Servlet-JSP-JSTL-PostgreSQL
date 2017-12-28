@@ -10,8 +10,8 @@ public class FilmTicketServiceDatabase implements FilmTicketService {
     FilmTicketDAO filmTicketDAO = new FilmTicketDAO();
 
     @Override
-    public List<FilmTicket> getAllTickets(String film, String studio, String screening, String storename) throws SQLException {
-        return filmTicketDAO.getAllFilmTicket(film, studio, screening, storename);
+    public List<FilmTicket> getAllTickets(String film, String studio, String screening, int storeid) throws SQLException {
+        return filmTicketDAO.getAllFilmTicket(film, studio, screening, storeid);
     }
 
     @Override

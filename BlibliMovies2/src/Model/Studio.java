@@ -2,21 +2,21 @@ package Model;
 
 public class Studio {
     private int id;
-    private String storename;
+    private int storeid;
     private String name;
     private String type;
     private int price;
 
-    public Studio(int id, String storename, String name, String type, int price) {
+    public Studio(int id, int storeid, String name, String type, int price) {
         this.id = id;
-        this.storename = storename;
+        this.storeid = storeid;
         this.name = name;
         this.type = type;
         this.price = price;
     }
 
-    public Studio(String storename, String name, String type, int price) {
-        this.storename = storename;
+    public Studio(int storeid, String name, String type, int price) {
+        this.storeid = storeid;
         this.name = name;
         this.type = type;
         this.price = price;
@@ -30,12 +30,12 @@ public class Studio {
         this.id = id;
     }
 
-    public String getStorename() {
-        return storename;
+    public int getStoreID() {
+        return storeid;
     }
 
-    public void setStorename(String storename) {
-        this.storename = storename;
+    public void setStoreID(int storeid) {
+        this.storeid = storeid;
     }
 
     public String getName() {

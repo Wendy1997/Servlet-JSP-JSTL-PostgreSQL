@@ -3,12 +3,12 @@ package Model;
 public class MemberGender {
     private String id;
     private String gender;
-    private String storename;
+    private int storeid;
 
-    public MemberGender(String id, String gender, String storename) {
+    public MemberGender(String id, String gender, int storeid) {
         this.id = id;
         this.gender = gender;
-        this.storename = storename;
+        this.storeid = storeid;
     }
 
     public String getId() {
@@ -27,11 +27,11 @@ public class MemberGender {
         this.gender = gender;
     }
 
-    public String getStorename() {
-        return storename;
+    public int getStoreID() {
+        return storeid;
     }
 
-    public void setStorename(String storename) {
-        this.storename = storename;
+    public void setStoreID(int storeid) {
+        this.storeid = storeid;
     }
 }

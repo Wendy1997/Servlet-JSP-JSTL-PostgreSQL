@@ -23,7 +23,7 @@ public class ViewFnB extends HttpServlet {
         String id = request.getParameter("id");
 
         try {
-            FnB fnb = fnBService.getFnB(id, (String)request.getSession().getAttribute("storename"));
+            FnB fnb = fnBService.getFnB(id, (int)request.getSession().getAttribute("storeid"));
             Gson gson = new Gson();
 
             String json = gson.toJson(fnb);

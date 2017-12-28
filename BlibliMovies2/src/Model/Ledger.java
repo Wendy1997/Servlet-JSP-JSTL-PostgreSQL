@@ -4,17 +4,17 @@ public class Ledger {
     private int id;
     private int invoiceId;
     private int memberId;
-    private String storename;
+    private int storeid;
     private String date;
     private String itemName;
     private int quantity;
     private int price;
 
-    public Ledger(int id, int invoiceId, int memberId, String storename, String date, String itemName, int quantity, int price) {
+    public Ledger(int id, int invoiceId, int memberId, int storeid, String date, String itemName, int quantity, int price) {
         this.id = id;
         this.invoiceId = invoiceId;
         this.memberId = memberId;
-        this.storename = storename;
+        this.storeid = storeid;
         this.date = date;
         this.itemName = itemName;
         this.quantity = quantity;
@@ -45,12 +45,12 @@ public class Ledger {
         this.memberId = memberId;
     }
 
-    public String getStorename() {
-        return storename;
+    public int etStoreID() {
+        return storeid;
     }
 
-    public void setStorename(String storename) {
-        this.storename = storename;
+    public void setStoreID(int storeid) {
+        this.storeid = storeid;
     }
 
     public String getDate() {

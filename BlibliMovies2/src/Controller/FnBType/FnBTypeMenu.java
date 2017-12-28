@@ -25,7 +25,7 @@ public class FnBTypeMenu extends HttpServlet{
         String address = "/view/database/fnbtype/fnbtype_menu.jsp";
 
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storename") == null){
+        if(request.getSession().getAttribute("storeid") == null){
             address = "/view/login/store_login.jsp";
             request.getRequestDispatcher(address).forward(request, response);
         }
@@ -43,7 +43,7 @@ public class FnBTypeMenu extends HttpServlet{
         }
 
         try{
-            List<FnBType> fnbTypeList = fnbService.getAllFnBType((String)request.getSession().getAttribute("storename"));
+            List<FnBType> fnbTypeList = fnbService.getAllFnBType((int)request.getSession().getAttribute("storeid"));
             request.setAttribute("type", fnbTypeList);
             request.getRequestDispatcher(address).forward(request, response);
         } catch (SQLException e){

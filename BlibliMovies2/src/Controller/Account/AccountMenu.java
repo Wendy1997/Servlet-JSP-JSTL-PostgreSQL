@@ -22,7 +22,7 @@ public class AccountMenu extends HttpServlet{
         String address = "/view/database/account/account_menu.jsp";
 
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storename") == null){
+        if(request.getSession().getAttribute("storeid") == null){
             address = "/view/login/store_login.jsp";
             request.getRequestDispatcher(address).forward(request, response);
         }
@@ -40,7 +40,7 @@ public class AccountMenu extends HttpServlet{
         }
 
         try{
-            List<Account> accounts = accountService.getAllAccount((String)request.getSession().getAttribute("storename"));
+            List<Account> accounts = accountService.getAllAccount((int)request.getSession().getAttribute("storeid"));
             request.setAttribute("accounts", accounts);
             request.getRequestDispatcher(address).forward(request, response);
         } catch (SQLException e){

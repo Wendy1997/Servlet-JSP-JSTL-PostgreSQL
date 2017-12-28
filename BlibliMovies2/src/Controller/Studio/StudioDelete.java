@@ -20,7 +20,7 @@ public class StudioDelete extends HttpServlet {
         String address = "/view/database/studio/studio_menu.jsp";
 
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storename") == null){
+        if(request.getSession().getAttribute("storeid") == null){
             address = "/view/login/store_login.jsp";
             request.getRequestDispatcher(address).forward(request, response);
         }
@@ -38,9 +38,9 @@ public class StudioDelete extends HttpServlet {
         }
 
         try{
-            Studio studio = studioService.getStudio(request.getParameter("id"), (String)request.getSession().getAttribute("storename"));
+            Studio studio = studioService.getStudio(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
 
-            studioService.deleteSrudio(studio.getId() + "", (String)request.getSession().getAttribute("storename"));
+            studioService.deleteSrudio(studio.getId() + "", (int)request.getSession().getAttribute("storeid"));
 
             address = "/view/database/success.jsp";
             request.setAttribute("title", "Studio");

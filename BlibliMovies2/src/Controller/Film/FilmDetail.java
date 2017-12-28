@@ -23,7 +23,7 @@ public class FilmDetail extends HttpServlet{
         String address = "/view/database/film/film_detail.jsp";
 
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storename") == null){
+        if(request.getSession().getAttribute("storeid") == null){
             address = "/view/login/store_login.jsp";
             request.getRequestDispatcher(address).forward(request, response);
         }
@@ -41,8 +41,8 @@ public class FilmDetail extends HttpServlet{
         }
 
         try{
-            Film film = filmService.getFilm(request.getParameter("id"), (String)request.getSession().getAttribute("storename"));
-            List<ScreeningTime> screeningTimeList = filmService.getAllScreeningTime((String)request.getSession().getAttribute("storename"), request.getParameter("id"));
+            Film film = filmService.getFilm(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
+            List<ScreeningTime> screeningTimeList = filmService.getAllScreeningTime((int)request.getSession().getAttribute("storeid"), request.getParameter("id"));
 
             Map<Integer, List<ScreeningTime>> screeningList = new TreeMap<>();
 
