@@ -28,8 +28,8 @@
     </role>
     <schema id="6" parent="3" name="public">
       <ObjectId>2200</ObjectId>
-      <IntrospectionTimestamp>2017-12-28.13:45:13.847</IntrospectionTimestamp>
-      <IntrospectionStateNumber>4749</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2017-12-28.14:17:46.185</IntrospectionTimestamp>
+      <IntrospectionStateNumber>4765</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -205,11 +205,11 @@
     </table>
     <table id="38" parent="6" name="membercard">
       <ObjectId>41663</ObjectId>
-      <StateNumber>4668</StateNumber>
+      <StateNumber>4759</StateNumber>
     </table>
     <table id="39" parent="6" name="membergender">
       <ObjectId>41669</ObjectId>
-      <StateNumber>4674</StateNumber>
+      <StateNumber>4759</StateNumber>
     </table>
     <table id="40" parent="6" name="orderdetail">
       <ObjectId>41675</ObjectId>
@@ -233,11 +233,11 @@
     </table>
     <table id="45" parent="6" name="studio">
       <ObjectId>41701</ObjectId>
-      <StateNumber>4698</StateNumber>
+      <StateNumber>4765</StateNumber>
     </table>
     <table id="46" parent="6" name="studiotype">
       <ObjectId>41707</ObjectId>
-      <StateNumber>4703</StateNumber>
+      <StateNumber>4765</StateNumber>
     </table>
     <column id="47" parent="29" name="username">
       <Position>1</Position>
@@ -907,8 +907,8 @@
     </column>
     <column id="156" parent="38" name="gender">
       <Position>4</Position>
-      <DataType>varchar(8)|0</DataType>
-      <StateNumber>3399</StateNumber>
+      <DataType>integer|0</DataType>
+      <StateNumber>4758</StateNumber>
     </column>
     <column id="157" parent="38" name="birthdate">
       <Position>5</Position>
@@ -948,15 +948,17 @@
       <RefTableId>41698</RefTableId>
       <RefColPositions>4</RefColPositions>
       <RefTableName>storeaccount</RefTableName>
+      <RefKeyName>storeaccount_id_pk</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="164" parent="38" name="membercard_membergender_gender_fk">
-      <ObjectId>41893</ObjectId>
+    <foreign-key id="164" parent="38" name="membercard_membergender_id_fk">
+      <ObjectId>42205</ObjectId>
       <ColNames>gender</ColNames>
       <RefTableId>41669</RefTableId>
-      <RefColPositions>2</RefColPositions>
+      <RefColPositions>1</RefColPositions>
       <RefTableName>membergender</RefTableName>
-      <RefColNames>gender</RefColNames>
+      <RefKeyName>membergender_id_pk</RefKeyName>
+      <RefColNames>id</RefColNames>
     </foreign-key>
     <column id="165" parent="39" name="id">
       <Position>1</Position>
@@ -1009,6 +1011,7 @@
       <RefTableId>41698</RefTableId>
       <RefColPositions>4</RefColPositions>
       <RefTableName>storeaccount</RefTableName>
+      <RefKeyName>storeaccount_id_pk</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
     <column id="174" parent="40" name="id">
@@ -1302,8 +1305,8 @@
     </column>
     <column id="222" parent="45" name="type">
       <Position>4</Position>
-      <DataType>varchar(20)|0</DataType>
-      <StateNumber>3416</StateNumber>
+      <DataType>integer|0</DataType>
+      <StateNumber>4764</StateNumber>
     </column>
     <column id="223" parent="45" name="price">
       <Position>5</Position>
@@ -1333,15 +1336,17 @@
       <RefTableId>41698</RefTableId>
       <RefColPositions>4</RefColPositions>
       <RefTableName>storeaccount</RefTableName>
+      <RefKeyName>storeaccount_id_pk</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="228" parent="45" name="studio_studiotype_type_fk">
-      <ObjectId>41948</ObjectId>
+    <foreign-key id="228" parent="45" name="studio_studiotype_id_fk">
+      <ObjectId>42214</ObjectId>
       <ColNames>type</ColNames>
       <RefTableId>41707</RefTableId>
-      <RefColPositions>2</RefColPositions>
+      <RefColPositions>1</RefColPositions>
       <RefTableName>studiotype</RefTableName>
-      <RefColNames>type</RefColNames>
+      <RefKeyName>studiotype_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
     </foreign-key>
     <column id="229" parent="46" name="id">
       <Position>1</Position>
@@ -1394,6 +1399,7 @@
       <RefTableId>41698</RefTableId>
       <RefColPositions>4</RefColPositions>
       <RefTableName>storeaccount</RefTableName>
+      <RefKeyName>storeaccount_id_pk</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
   </database-model>

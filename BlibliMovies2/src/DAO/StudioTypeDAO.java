@@ -38,7 +38,7 @@ public class StudioTypeDAO {
 
         StudioType output;
         if(rs.next()){
-            output = new StudioType(rs.getString(1), rs.getString(2), rs.getInt(3));
+            output = new StudioType(rs.getInt(1), rs.getString(2), rs.getInt(3));
         } else{
             output = null;
         }
@@ -52,7 +52,7 @@ public class StudioTypeDAO {
 
         List<StudioType> studioTypes = new ArrayList<StudioType>();
         while(rs.next()){
-            studioTypes.add(new StudioType(rs.getString(1), rs.getString(2), rs.getInt(3)));
+            studioTypes.add(new StudioType(rs.getInt(1), rs.getString(2), rs.getInt(3)));
         }
         return studioTypes;
     }
@@ -74,7 +74,7 @@ public class StudioTypeDAO {
     public void updateStudioType(StudioType studioType) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE studioType set type = ? where id = ? and storeid = ? and status = true");
         ps.setString(1, studioType.getType());
-        ps.setInt(2, Integer.parseInt(studioType.getId()));
+        ps.setInt(2, studioType.getId());
         ps.setInt(3, studioType.getStoreID());
         ps.executeUpdate();
     }

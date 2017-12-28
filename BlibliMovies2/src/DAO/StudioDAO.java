@@ -45,7 +45,7 @@ public class StudioDAO {
             studios.add(new Studio(Integer.parseInt(rs.getString(1)),
                     rs.getInt(2),
                     rs.getString(3),
-                    rs.getString(4),
+                    rs.getInt(4),
                     rs.getInt(5)
             ));
         }
@@ -64,7 +64,7 @@ public class StudioDAO {
             output = new Studio(Integer.parseInt(rs.getString(1)),
                     rs.getInt(2),
                     rs.getString(3),
-                    rs.getString(4),
+                    rs.getInt(4),
                     rs.getInt(5)
             );
         } else{
@@ -79,7 +79,7 @@ public class StudioDAO {
 
         ps.setInt(1, studio.getStoreID());
         ps.setString(2, studio.getName());
-        ps.setString(3, studio.getType());
+        ps.setInt(3, studio.getType());
         ps.setInt(4, studio.getPrice());
 
         ps.executeUpdate();
@@ -96,7 +96,7 @@ public class StudioDAO {
         PreparedStatement ps = conn.prepareStatement("UPDATE studio set name = ?, type = ?, price = ? where id = ? and storeid = ?");
 
         ps.setString(1, studio.getName());
-        ps.setString(2, studio.getType());
+        ps.setInt(2, studio.getType());
         ps.setInt(3, studio.getPrice());
         ps.setString(4, studio.getId() + "");
         ps.setInt(5, studio.getStoreID());

@@ -49,7 +49,7 @@ public class StudioTypeEdit extends HttpServlet{
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
         try{
-            StudioType studioType = new StudioType( request.getParameter("id"),
+            StudioType studioType = new StudioType( Integer.parseInt(request.getParameter("id")),
                     request.getParameter("type"),
                     (int)request.getSession().getAttribute("storeid"));
             studioService.updateStudioType(studioType);

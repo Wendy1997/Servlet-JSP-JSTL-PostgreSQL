@@ -52,7 +52,7 @@ public class MemberCardAdd extends HttpServlet {
         try{
             MemberCard memberCard = new MemberCard((int)request.getSession().getAttribute("storeid"),
                     request.getParameter("fullname"),
-                    request.getParameter("gender"),
+                    Integer.parseInt(request.getParameter("gender")),
                     request.getParameter("birthdate"),
                     request.getParameter("phonenumber"),
                     request.getParameter("email"));

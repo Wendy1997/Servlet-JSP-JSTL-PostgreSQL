@@ -44,7 +44,7 @@ public class MemberCardDAO {
             output = new MemberCard(rs.getInt(1),
                     rs.getInt(2),
                     rs.getString(3),
-                    rs.getString(4),
+                    rs.getInt(4),
                     rs.getString(5).substring(0,10),
                     rs.getString(6),
                     rs.getString(7));
@@ -64,7 +64,7 @@ public class MemberCardDAO {
             memberCards.add(new MemberCard(rs.getInt(1),
                     rs.getInt(2),
                     rs.getString(3),
-                    rs.getString(4),
+                    rs.getInt(4),
                     rs.getString(5).substring(0,10),
                     rs.getString(6),
                     rs.getString(7)));
@@ -76,7 +76,7 @@ public class MemberCardDAO {
         PreparedStatement ps = conn.prepareStatement("INSERT INTO membercard (storeid, fullname, gender, birthdate, phonenumber, email) VALUES (?,?,?,?,?,?)");
         ps.setInt(1,memberCard.getStoreID());
         ps.setString(2, memberCard.getFullname());
-        ps.setString(3, memberCard.getGender());
+        ps.setInt(3, memberCard.getGender());
         ps.setDate(4, java.sql.Date.valueOf(memberCard.getBirthDate()));
         ps.setString(5, memberCard.getPhoneNumber());
         ps.setString(6, memberCard.getEmail());
@@ -93,7 +93,7 @@ public class MemberCardDAO {
     public void updateMemberCard(MemberCard memberCard) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE membercard set fullname = ?, gender = ?, birthdate = ?, phonenumber = ?, email = ? where id = ? AND storeid = ?");
         ps.setString(1, memberCard.getFullname());
-        ps.setString(2, memberCard.getGender());
+        ps.setInt(2, memberCard.getGender());
         ps.setDate(3, java.sql.Date.valueOf(memberCard.getBirthDate()));
         ps.setString(4, memberCard.getPhoneNumber());
         ps.setString(5, memberCard.getEmail());

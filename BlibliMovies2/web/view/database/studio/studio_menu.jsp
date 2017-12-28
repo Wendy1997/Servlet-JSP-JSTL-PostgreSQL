@@ -31,7 +31,11 @@
                         <tr>
                             <td scope="row"><c:out value="${studios.id}"></c:out></td>
                             <td><c:out value="${studios.name}"></c:out></td>
-                            <td><c:out value="${studios.type}"></c:out></td>
+                            <td>
+                                <c:forEach items="${type}" var="type">
+                                    ${type.id == studios.type ? type.type : ""}
+                                </c:forEach>
+                            </td>
                             <td><c:out value="${studios.price}"></c:out></td>
                             <td><a <c:out value='href=/admin/studio/edit?id=${studios.id}'></c:out>>Edit</a></td>
                             <td><a <c:out value='href=/admin/studio/delete?id=${studios.id}'></c:out>>Delete</a></td>

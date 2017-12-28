@@ -51,7 +51,7 @@ public class StudioAdd extends HttpServlet {
         try{
             Studio studio = new Studio((int)request.getSession().getAttribute("storeid"),
                     request.getParameter("name"),
-                    request.getParameter("type"),
+                    Integer.parseInt(request.getParameter("type")),
                     Integer.parseInt(request.getParameter("price")));
 
             studioService.addStudio(studio);

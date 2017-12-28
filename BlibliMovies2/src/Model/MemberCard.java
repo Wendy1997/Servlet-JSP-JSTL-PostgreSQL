@@ -4,12 +4,12 @@ public class MemberCard {
     private int id;
     private int storeid;
     private String fullname;
-    private String gender;
+    private int gender;
     private String birthDate;
     private String phoneNumber;
     private String email;
 
-    public MemberCard(int id, int storeid, String fullname, String gender, String birthDate, String phoneNumber, String email) {
+    public MemberCard(int id, int storeid, String fullname, int gender, String birthDate, String phoneNumber, String email) {
         this.id = id;
         this.storeid = storeid;
         this.fullname = fullname;
@@ -19,7 +19,7 @@ public class MemberCard {
         this.email = email;
     }
 
-    public MemberCard(int storeid, String fullname, String gender, String birthDate, String phoneNumber, String email) {
+    public MemberCard(int storeid, String fullname, int gender, String birthDate, String phoneNumber, String email) {
         this.storeid = storeid;
         this.fullname = fullname;
         this.gender = gender;
@@ -52,11 +52,11 @@ public class MemberCard {
         this.fullname = fullname;
     }
 
-    public String getGender() {
+    public int getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(int gender) {
         this.gender = gender;
     }
 

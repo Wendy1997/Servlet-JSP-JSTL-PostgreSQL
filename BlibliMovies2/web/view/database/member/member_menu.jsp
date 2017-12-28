@@ -32,7 +32,11 @@
                         <tr>
                             <td scope="row"><c:out value="${memberCards.id}"></c:out></td>
                             <td><c:out value="${memberCards.fullname}"></c:out></td>
-                            <td><c:out value="${memberCards.gender}"></c:out></td>
+                            <td>
+                                <c:forEach items="${gender}" var="gender">
+                                    ${gender.id == memberCards.gender ? gender.gender : ""}
+                                </c:forEach>
+                            </td>
                             <td><c:out value="${memberCards.birthDate}"></c:out></td>
                             <td><c:out value="${memberCards.phoneNumber}"></c:out></td>
                             <td><c:out value="${memberCards.email}"></c:out></td>

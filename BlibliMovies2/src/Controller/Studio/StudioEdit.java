@@ -57,7 +57,7 @@ public class StudioEdit extends HttpServlet{
             Studio studio = new Studio( Integer.parseInt(request.getParameter("id")),
                     (int)request.getSession().getAttribute("storeid"),
                     request.getParameter("name"),
-                    request.getParameter("type"),
+                    Integer.parseInt(request.getParameter("type")),
                     Integer.parseInt(request.getParameter("price")));
 
             studioService.updateStudio(studio);

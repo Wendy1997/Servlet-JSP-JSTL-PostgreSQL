@@ -30,7 +30,7 @@
                         <select class="form-control" id="gender" name="gender" required>
                             <option disabled selected value> -- pilih Jenis -- </option>
                             <c:forEach items="${gender}" var="gender">
-                                <option value="${gender.gender}">${gender.gender}</option>
+                                <option value="${gender.id}">${gender.gender}</option>
                             </c:forEach>
                         </select>
                     </div>

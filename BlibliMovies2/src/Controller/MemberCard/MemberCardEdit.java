@@ -58,7 +58,7 @@ public class MemberCardEdit extends HttpServlet{
             MemberCard memberCard = new MemberCard( Integer.parseInt(request.getParameter("id")),
                     (int)request.getSession().getAttribute("storeid"),
                     request.getParameter("fullname"),
-                    request.getParameter("gender"),
+                    Integer.parseInt(request.getParameter("gender")),
                     request.getParameter("birthdate"),
                     request.getParameter("phonenumber"),
                     request.getParameter("email"));

@@ -41,7 +41,7 @@ public class MemberGenderDAO {
 
         MemberGender output;
         if(rs.next()){
-            output = new MemberGender(rs.getString(1), rs.getString(2), rs.getInt(3));
+            output = new MemberGender(rs.getInt(1), rs.getString(2), rs.getInt(3));
         } else{
             output = null;
         }
@@ -55,7 +55,7 @@ public class MemberGenderDAO {
 
         List<MemberGender> memberGenders = new ArrayList<MemberGender>();
         while(rs.next()){
-            memberGenders.add(new MemberGender(rs.getString(1), rs.getString(2), rs.getInt(3)));
+            memberGenders.add(new MemberGender(rs.getInt(1), rs.getString(2), rs.getInt(3)));
         }
         return memberGenders;
     }
@@ -77,7 +77,7 @@ public class MemberGenderDAO {
     public void updateMemberGender(MemberGender memberGender) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE memberGender set gender = ? where id = ? and storeid = ? and status = true");
         ps.setString(1, memberGender.getGender());
-        ps.setString(2, memberGender.getId());
+        ps.setInt(2, memberGender.getId());
         ps.setInt(3, memberGender.getStoreID());
         ps.executeUpdate();
     }

@@ -1,6 +1,7 @@
 package Controller.Studio;
 
 import Model.Studio;
+import Model.StudioType;
 import Service.FilmService;
 import Service.FilmServiceDatabase;
 
@@ -40,6 +41,9 @@ public class StudioMenu extends HttpServlet{
 
         try{
             List<Studio> studios = studioService.getAllStudio((int)request.getSession().getAttribute("storeid"));
+            List<StudioType> studioTypeList = studioService.getAllStudioType((int)request.getSession().getAttribute("storeid"));
+
+            request.setAttribute("type", studioTypeList);
             request.setAttribute("studios", studios);
 
             request.getRequestDispatcher(address).forward(request, response);

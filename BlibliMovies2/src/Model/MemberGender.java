@@ -1,21 +1,21 @@
 package Model;
 
 public class MemberGender {
-    private String id;
+    private int id;
     private String gender;
     private int storeid;
 
-    public MemberGender(String id, String gender, int storeid) {
+    public MemberGender(int id, String gender, int storeid) {
         this.id = id;
         this.gender = gender;
         this.storeid = storeid;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

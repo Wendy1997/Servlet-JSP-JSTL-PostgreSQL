@@ -30,7 +30,7 @@
                         <select class="form-control" id="type" name="type" required>
                             <option disabled selected value> -- pilih Tipe Studio -- </option>
                             <c:forEach items="${type}" var="type">
-                                <option value="${type.type}">${type.type}</option>
+                                <option value="${type.id}">${type.type}</option>
                             </c:forEach>
                         </select>
                     </div>

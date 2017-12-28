@@ -4,10 +4,10 @@ public class Studio {
     private int id;
     private int storeid;
     private String name;
-    private String type;
+    private int type;
     private int price;
 
-    public Studio(int id, int storeid, String name, String type, int price) {
+    public Studio(int id, int storeid, String name, int type, int price) {
         this.id = id;
         this.storeid = storeid;
         this.name = name;
@@ -15,7 +15,7 @@ public class Studio {
         this.price = price;
     }
 
-    public Studio(int storeid, String name, String type, int price) {
+    public Studio(int storeid, String name, int type, int price) {
         this.storeid = storeid;
         this.name = name;
         this.type = type;
@@ -46,11 +46,11 @@ public class Studio {
         this.name = name;
     }
 
-    public String getType() {
+    public int getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(int type) {
         this.type = type;
     }
 

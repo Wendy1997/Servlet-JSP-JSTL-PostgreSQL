@@ -30,7 +30,7 @@
                         <select class="form-control" id="gender" name="gender"${memberCard.gender} required>
                             <option disabled selected value> -- pilih Jenis -- </option>
                             <c:forEach items="${gender}" var="gender">
-                                <option value="${gender.gender}" ${memberCard.gender == gender.gender ? 'selected' : ''}>${gender.gender}</option>
+                                <option value="${gender.id}" ${memberCard.gender == gender.id ? 'selected' : ''}>${gender.gender}</option>
                             </c:forEach>
                         </select>
                     </div>
