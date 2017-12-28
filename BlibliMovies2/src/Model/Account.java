@@ -5,6 +5,15 @@ public class Account {
     private String password;
     private int storeid;
     private String role;
+    private int id;
+
+    public Account(String username, int storeid, String password, String role, int id){
+        setUsername(username);
+        setPassword(password);
+        setRole(role);
+        setStoreID(storeid);
+        setID(id);
+    }
 
     public Account(String username, int storeid, String password, String role){
         setUsername(username);
@@ -25,6 +34,10 @@ public class Account {
         return this.role;
     }
 
+    public int getID(){
+        return this.id;
+    }
+
     public int getStoreID(){
         return this.storeid;
     }
@@ -39,6 +52,10 @@ public class Account {
 
     public void setRole(String role){
         this.role = role;
+    }
+
+    public void setID(int id){
+        this.id = id;
     }
 
     public void setStoreID(int storeid){

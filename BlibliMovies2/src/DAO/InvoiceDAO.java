@@ -43,7 +43,7 @@ public class InvoiceDAO {
         if(rs.next()){
             output = new Invoice(rs.getInt(1),
                     rs.getInt(2),
-                    rs.getString(3),
+                    rs.getInt(3),
                     rs.getInt(4),
                     rs.getInt(5),
                     rs.getString(6),
@@ -55,8 +55,8 @@ public class InvoiceDAO {
     }
 
     public Invoice getInvoice(Invoice invoice) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM invoice where accountusername = ? and storeid = ? and orderdate = ? and totalprice = ?");
-        ps.setString(1,invoice.getAccountUsername());
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM invoice where cashierid = ? and storeid = ? and orderdate = ? and totalprice = ?");
+        ps.setInt(1,invoice.getAccountID());
         ps.setInt(2,invoice.getStoreID());
         ps.setTimestamp(3,java.sql.Timestamp.valueOf(invoice.getOrderDate()));
         ps.setDouble(4,invoice.getTotalPrice());
@@ -66,7 +66,7 @@ public class InvoiceDAO {
         if(rs.next()){
             output = new Invoice(rs.getInt(1),
                     rs.getInt(2),
-                    rs.getString(3),
+                    rs.getInt(3),
                     rs.getInt(4),
                     rs.getInt(5),
                     rs.getString(6),
@@ -86,7 +86,7 @@ public class InvoiceDAO {
         while(rs.next()){
             invoices.add(new Invoice(rs.getInt(1),
                     rs.getInt(2),
-                    rs.getString(3),
+                    rs.getInt(3),
                     rs.getInt(4),
                     rs.getInt(5),
                     rs.getString(6).substring(0,10),
@@ -97,17 +97,17 @@ public class InvoiceDAO {
 
     public void addInvoice(Invoice invoice) throws SQLException {
         if(invoice.getMemberId() == 0){
-            PreparedStatement ps = conn.prepareStatement("INSERT INTO invoice (accountusername, storeid, orderdate, totalprice) VALUES (?,?,?,?)");
-            ps.setString(1,invoice.getAccountUsername());
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO invoice (cashierid, storeid, orderdate, totalprice) VALUES (?,?,?,?)");
+            ps.setInt(1,invoice.getAccountID());
             ps.setInt(2,invoice.getStoreID());
             ps.setTimestamp(3,java.sql.Timestamp.valueOf(invoice.getOrderDate()));
             ps.setDouble(4,invoice.getTotalPrice());
             ps.executeUpdate();
         }
         else {
-            PreparedStatement ps = conn.prepareStatement("INSERT INTO invoice (memberid, accountusername, storeid, promoid, orderdate, totalprice) VALUES (?,?,?,?,?,?)");
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO invoice (memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES (?,?,?,?,?,?)");
             ps.setInt(1,invoice.getMemberId());
-            ps.setString(2,invoice.getAccountUsername());
+            ps.setInt(2,invoice.getAccountID());
             ps.setInt(3,invoice.getStoreID());
             ps.setInt(4,invoice.getPromoId());
             ps.setTimestamp(5,java.sql.Timestamp.valueOf(invoice.getOrderDate()));
@@ -132,7 +132,7 @@ public class InvoiceDAO {
         while(rs.next()){
             invoices.add(new Invoice(rs.getInt(1),
                     rs.getInt(2),
-                    rs.getString(3),
+                    rs.getInt(3),
                     rs.getInt(4),
                     rs.getInt(5),
                     rs.getString(6).substring(0,10),
@@ -155,7 +155,7 @@ public class InvoiceDAO {
         while(rs.next()){
             invoices.add(new Invoice(rs.getInt(1),
                     rs.getInt(2),
-                    rs.getString(3),
+                    rs.getInt(3),
                     rs.getInt(4),
                     rs.getInt(5),
                     rs.getString(6).substring(0,10),
@@ -178,7 +178,7 @@ public class InvoiceDAO {
         while(rs.next()){
             invoices.add(new Invoice(rs.getInt(1),
                     rs.getInt(2),
-                    rs.getString(3),
+                    rs.getInt(3),
                     rs.getInt(4),
                     rs.getInt(5),
                     rs.getString(6).substring(0,10),
@@ -199,7 +199,7 @@ public class InvoiceDAO {
         while(rs.next()){
             invoices.add(new Invoice(rs.getInt(1),
                     rs.getInt(2),
-                    rs.getString(3),
+                    rs.getInt(3),
                     rs.getInt(4),
                     rs.getInt(5),
                     rs.getString(6).substring(0,10),

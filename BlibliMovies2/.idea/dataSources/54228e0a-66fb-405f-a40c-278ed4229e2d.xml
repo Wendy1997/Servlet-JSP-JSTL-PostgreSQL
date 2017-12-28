@@ -28,8 +28,8 @@
     </role>
     <schema id="6" parent="3" name="public">
       <ObjectId>2200</ObjectId>
-      <IntrospectionTimestamp>2017-12-28.08:25:14.232</IntrospectionTimestamp>
-      <IntrospectionStateNumber>4705</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2017-12-28.10:52:36.854</IntrospectionTimestamp>
+      <IntrospectionStateNumber>4724</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -48,237 +48,258 @@
     <schema id="11" parent="3" name="information_schema">
       <ObjectId>12113</ObjectId>
     </schema>
-    <sequence id="12" parent="6" name="accountrole_id_seq">
+    <sequence id="12" parent="6" name="account_id_seq">
+      <ObjectId>42141</ObjectId>
+      <StateNumber>4714</StateNumber>
+      <SequenceIdentity>1</SequenceIdentity>
+      <BelongsToColumn>1</BelongsToColumn>
+      <CacheSize>1</CacheSize>
+    </sequence>
+    <sequence id="13" parent="6" name="accountrole_id_seq">
       <ObjectId>41615</ObjectId>
       <StateNumber>3375</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <BelongsToColumn>1</BelongsToColumn>
       <CacheSize>1</CacheSize>
     </sequence>
-    <sequence id="13" parent="6" name="film_id_seq">
+    <sequence id="14" parent="6" name="film_id_seq">
       <ObjectId>41624</ObjectId>
       <StateNumber>3378</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <BelongsToColumn>1</BelongsToColumn>
       <CacheSize>1</CacheSize>
     </sequence>
-    <sequence id="14" parent="6" name="filmgenre_id_seq">
+    <sequence id="15" parent="6" name="filmgenre_id_seq">
       <ObjectId>41630</ObjectId>
       <StateNumber>3381</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <BelongsToColumn>1</BelongsToColumn>
       <CacheSize>1</CacheSize>
     </sequence>
-    <sequence id="15" parent="6" name="filmticket_id_seq">
+    <sequence id="16" parent="6" name="filmticket_id_seq">
       <ObjectId>41635</ObjectId>
       <StateNumber>3384</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <BelongsToColumn>1</BelongsToColumn>
       <CacheSize>1</CacheSize>
     </sequence>
-    <sequence id="16" parent="6" name="fnbsize_id_seq">
+    <sequence id="17" parent="6" name="fnbsize_id_seq">
       <ObjectId>41641</ObjectId>
       <StateNumber>3387</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <BelongsToColumn>1</BelongsToColumn>
       <CacheSize>1</CacheSize>
     </sequence>
-    <sequence id="17" parent="6" name="fnbtype_id_seq">
+    <sequence id="18" parent="6" name="fnbtype_id_seq">
       <ObjectId>41647</ObjectId>
       <StateNumber>3390</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <BelongsToColumn>1</BelongsToColumn>
       <CacheSize>1</CacheSize>
     </sequence>
-    <sequence id="18" parent="6" name="foodandbeverages_id_seq">
+    <sequence id="19" parent="6" name="foodandbeverages_id_seq">
       <ObjectId>41653</ObjectId>
       <StateNumber>3393</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <BelongsToColumn>1</BelongsToColumn>
       <CacheSize>1</CacheSize>
     </sequence>
-    <sequence id="19" parent="6" name="invoice_id_seq">
+    <sequence id="20" parent="6" name="invoice_id_seq">
       <ObjectId>41658</ObjectId>
       <StateNumber>3396</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <BelongsToColumn>1</BelongsToColumn>
       <CacheSize>1</CacheSize>
     </sequence>
-    <sequence id="20" parent="6" name="membercard_id_seq">
+    <sequence id="21" parent="6" name="membercard_id_seq">
       <ObjectId>41667</ObjectId>
       <StateNumber>3400</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <BelongsToColumn>1</BelongsToColumn>
       <CacheSize>1</CacheSize>
     </sequence>
-    <sequence id="21" parent="6" name="membergender_id_seq">
+    <sequence id="22" parent="6" name="membergender_id_seq">
       <ObjectId>41673</ObjectId>
       <StateNumber>3403</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <BelongsToColumn>1</BelongsToColumn>
       <CacheSize>1</CacheSize>
     </sequence>
-    <sequence id="22" parent="6" name="orderdetail_id_seq">
+    <sequence id="23" parent="6" name="orderdetail_id_seq">
       <ObjectId>41678</ObjectId>
       <StateNumber>3406</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <BelongsToColumn>1</BelongsToColumn>
       <CacheSize>1</CacheSize>
     </sequence>
-    <sequence id="23" parent="6" name="screeningtime_id_seq">
+    <sequence id="24" parent="6" name="screeningtime_id_seq">
       <ObjectId>41691</ObjectId>
       <StateNumber>3410</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <BelongsToColumn>1</BelongsToColumn>
       <CacheSize>1</CacheSize>
     </sequence>
-    <sequence id="24" parent="6" name="seat_number_seq">
+    <sequence id="25" parent="6" name="seat_number_seq">
       <ObjectId>41696</ObjectId>
       <StateNumber>3413</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <BelongsToColumn>1</BelongsToColumn>
       <CacheSize>1</CacheSize>
     </sequence>
-    <sequence id="25" parent="6" name="storeaccount_id_seq">
+    <sequence id="26" parent="6" name="storeaccount_id_seq">
       <ObjectId>41959</ObjectId>
       <StateNumber>4609</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <BelongsToColumn>1</BelongsToColumn>
       <CacheSize>1</CacheSize>
     </sequence>
-    <sequence id="26" parent="6" name="studio_id_seq">
+    <sequence id="27" parent="6" name="studio_id_seq">
       <ObjectId>41705</ObjectId>
       <StateNumber>3417</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <BelongsToColumn>1</BelongsToColumn>
       <CacheSize>1</CacheSize>
     </sequence>
-    <sequence id="27" parent="6" name="studiotype_id_seq">
+    <sequence id="28" parent="6" name="studiotype_id_seq">
       <ObjectId>41711</ObjectId>
       <StateNumber>3420</StateNumber>
       <SequenceIdentity>1</SequenceIdentity>
       <BelongsToColumn>1</BelongsToColumn>
       <CacheSize>1</CacheSize>
     </sequence>
-    <table id="28" parent="6" name="account">
+    <table id="29" parent="6" name="account">
       <ObjectId>41607</ObjectId>
-      <StateNumber>4615</StateNumber>
+      <StateNumber>4721</StateNumber>
     </table>
-    <table id="29" parent="6" name="accountrole">
+    <table id="30" parent="6" name="accountrole">
       <ObjectId>41611</ObjectId>
       <StateNumber>4621</StateNumber>
     </table>
-    <table id="30" parent="6" name="film">
+    <table id="31" parent="6" name="film">
       <ObjectId>41617</ObjectId>
       <StateNumber>4627</StateNumber>
     </table>
-    <table id="31" parent="6" name="filmgenre">
+    <table id="32" parent="6" name="filmgenre">
       <ObjectId>41626</ObjectId>
       <StateNumber>4634</StateNumber>
     </table>
-    <table id="32" parent="6" name="filmticket">
+    <table id="33" parent="6" name="filmticket">
       <ObjectId>41632</ObjectId>
       <StateNumber>4639</StateNumber>
     </table>
-    <table id="33" parent="6" name="fnbsize">
+    <table id="34" parent="6" name="fnbsize">
       <ObjectId>41637</ObjectId>
       <StateNumber>4644</StateNumber>
     </table>
-    <table id="34" parent="6" name="fnbtype">
+    <table id="35" parent="6" name="fnbtype">
       <ObjectId>41643</ObjectId>
       <StateNumber>4649</StateNumber>
     </table>
-    <table id="35" parent="6" name="foodandbeverages">
+    <table id="36" parent="6" name="foodandbeverages">
       <ObjectId>41649</ObjectId>
       <StateNumber>4655</StateNumber>
     </table>
-    <table id="36" parent="6" name="invoice">
+    <table id="37" parent="6" name="invoice">
       <ObjectId>41655</ObjectId>
-      <StateNumber>4661</StateNumber>
+      <StateNumber>4721</StateNumber>
     </table>
-    <table id="37" parent="6" name="membercard">
+    <table id="38" parent="6" name="membercard">
       <ObjectId>41663</ObjectId>
       <StateNumber>4668</StateNumber>
     </table>
-    <table id="38" parent="6" name="membergender">
+    <table id="39" parent="6" name="membergender">
       <ObjectId>41669</ObjectId>
       <StateNumber>4674</StateNumber>
     </table>
-    <table id="39" parent="6" name="orderdetail">
+    <table id="40" parent="6" name="orderdetail">
       <ObjectId>41675</ObjectId>
       <StateNumber>4679</StateNumber>
     </table>
-    <table id="40" parent="6" name="promo">
+    <table id="41" parent="6" name="promo">
       <ObjectId>41680</ObjectId>
       <StateNumber>4685</StateNumber>
     </table>
-    <table id="41" parent="6" name="screeningtime">
+    <table id="42" parent="6" name="screeningtime">
       <ObjectId>41687</ObjectId>
       <StateNumber>4692</StateNumber>
     </table>
-    <table id="42" parent="6" name="seat">
+    <table id="43" parent="6" name="seat">
       <ObjectId>41693</ObjectId>
       <StateNumber>4596</StateNumber>
     </table>
-    <table id="43" parent="6" name="storeaccount">
+    <table id="44" parent="6" name="storeaccount">
       <ObjectId>41698</ObjectId>
       <StateNumber>4703</StateNumber>
     </table>
-    <table id="44" parent="6" name="studio">
+    <table id="45" parent="6" name="studio">
       <ObjectId>41701</ObjectId>
       <StateNumber>4698</StateNumber>
     </table>
-    <table id="45" parent="6" name="studiotype">
+    <table id="46" parent="6" name="studiotype">
       <ObjectId>41707</ObjectId>
       <StateNumber>4703</StateNumber>
     </table>
-    <column id="46" parent="28" name="username">
+    <column id="47" parent="29" name="username">
       <Position>1</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>3373</StateNumber>
     </column>
-    <column id="47" parent="28" name="storeid">
+    <column id="48" parent="29" name="storeid">
       <Position>2</Position>
       <DataType>integer|0</DataType>
       <StateNumber>4622</StateNumber>
     </column>
-    <column id="48" parent="28" name="password">
+    <column id="49" parent="29" name="password">
       <Position>3</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>3373</StateNumber>
     </column>
-    <column id="49" parent="28" name="type">
+    <column id="50" parent="29" name="type">
       <Position>4</Position>
       <DataType>varchar(10)|0</DataType>
       <StateNumber>3373</StateNumber>
     </column>
-    <column id="50" parent="28" name="status">
+    <column id="51" parent="29" name="status">
       <Position>5</Position>
       <DataType>boolean|0</DataType>
       <StateNumber>3373</StateNumber>
       <DefaultExpression>true</DefaultExpression>
     </column>
-    <index id="51" parent="28" name="account_pkey">
-      <ObjectId>41728</ObjectId>
-      <ColNames>username</ColNames>
+    <column id="52" parent="29" name="id">
+      <Position>6</Position>
+      <DataType>integer|0</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>4714</StateNumber>
+      <DefaultExpression>nextval(&apos;account_id_seq&apos;::regclass)</DefaultExpression>
+      <SequenceName>account_id_seq</SequenceName>
+    </column>
+    <index id="53" parent="29" name="account_id_pk">
+      <ObjectId>42158</ObjectId>
+      <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="52" parent="28" name="account_pkey">
-      <ObjectId>41729</ObjectId>
-      <ColNames>username</ColNames>
-      <UnderlyingIndexName>account_pkey</UnderlyingIndexName>
+    <index id="54" parent="29" name="account_id_uindex">
+      <ObjectId>42148</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="55" parent="29" name="account_id_pk">
+      <ObjectId>42159</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>account_id_pk</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="53" parent="28" name="account_storeaccount_id_fk">
+    <foreign-key id="56" parent="29" name="account_storeaccount_id_fk">
       <ObjectId>41974</ObjectId>
       <ColNames>storeid</ColNames>
       <RefTableId>41698</RefTableId>
       <RefColPositions>4</RefColPositions>
       <RefTableName>storeaccount</RefTableName>
+      <RefKeyName>storeaccount_id_pk</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="54" parent="28" name="account_accountrole_role_fk">
+    <foreign-key id="57" parent="29" name="account_accountrole_role_fk">
       <ObjectId>41778</ObjectId>
       <ColNames>type</ColNames>
       <RefTableId>41611</RefTableId>
@@ -286,7 +307,7 @@
       <RefTableName>accountrole</RefTableName>
       <RefColNames>role</RefColNames>
     </foreign-key>
-    <column id="55" parent="29" name="id">
+    <column id="58" parent="30" name="id">
       <Position>1</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
@@ -294,44 +315,44 @@
       <DefaultExpression>nextval(&apos;accountrole_id_seq&apos;::regclass)</DefaultExpression>
       <SequenceName>accountrole_id_seq</SequenceName>
     </column>
-    <column id="56" parent="29" name="role">
+    <column id="59" parent="30" name="role">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>3374</StateNumber>
     </column>
-    <column id="57" parent="29" name="storeid">
+    <column id="60" parent="30" name="storeid">
       <Position>3</Position>
       <DataType>integer|0</DataType>
       <StateNumber>4620</StateNumber>
     </column>
-    <column id="58" parent="29" name="status">
+    <column id="61" parent="30" name="status">
       <Position>4</Position>
       <DataType>boolean|0</DataType>
       <StateNumber>3374</StateNumber>
       <DefaultExpression>true</DefaultExpression>
     </column>
-    <index id="59" parent="29" name="accountrole_id_uindex">
+    <index id="62" parent="30" name="accountrole_id_uindex">
       <ObjectId>41766</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="60" parent="29" name="accountrole_pkey">
+    <index id="63" parent="30" name="accountrole_pkey">
       <ObjectId>41730</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="61" parent="29" name="accountrole_role_uindex">
+    <index id="64" parent="30" name="accountrole_role_uindex">
       <ObjectId>41767</ObjectId>
       <ColNames>role</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="62" parent="29" name="accountrole_pkey">
+    <key id="65" parent="30" name="accountrole_pkey">
       <ObjectId>41731</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>accountrole_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="63" parent="29" name="accountrole_storeaccount_id_fk">
+    <foreign-key id="66" parent="30" name="accountrole_storeaccount_id_fk">
       <ObjectId>41985</ObjectId>
       <ColNames>storeid</ColNames>
       <RefTableId>41698</RefTableId>
@@ -339,7 +360,7 @@
       <RefTableName>storeaccount</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="64" parent="30" name="id">
+    <column id="67" parent="31" name="id">
       <Position>1</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
@@ -347,94 +368,94 @@
       <DefaultExpression>nextval(&apos;film_id_seq&apos;::regclass)</DefaultExpression>
       <SequenceName>film_id_seq</SequenceName>
     </column>
-    <column id="65" parent="30" name="storeid">
+    <column id="68" parent="31" name="storeid">
       <Position>2</Position>
       <DataType>integer|0</DataType>
       <StateNumber>4626</StateNumber>
     </column>
-    <column id="66" parent="30" name="cover">
+    <column id="69" parent="31" name="cover">
       <Position>3</Position>
       <DataType>varchar(150)|0</DataType>
       <StateNumber>3377</StateNumber>
     </column>
-    <column id="67" parent="30" name="title">
+    <column id="70" parent="31" name="title">
       <Position>4</Position>
       <DataType>varchar(50)|0</DataType>
       <StateNumber>3377</StateNumber>
     </column>
-    <column id="68" parent="30" name="genre">
+    <column id="71" parent="31" name="genre">
       <Position>5</Position>
       <DataType>varchar(15)|0</DataType>
       <StateNumber>3377</StateNumber>
     </column>
-    <column id="69" parent="30" name="duration">
+    <column id="72" parent="31" name="duration">
       <Position>6</Position>
       <DataType>integer|0</DataType>
       <StateNumber>3377</StateNumber>
     </column>
-    <column id="70" parent="30" name="director">
+    <column id="73" parent="31" name="director">
       <Position>7</Position>
       <DataType>varchar(50)|0</DataType>
       <StateNumber>3377</StateNumber>
     </column>
-    <column id="71" parent="30" name="rating">
+    <column id="74" parent="31" name="rating">
       <Position>8</Position>
       <DataType>double precision|0</DataType>
       <StateNumber>3377</StateNumber>
     </column>
-    <column id="72" parent="30" name="reviewtotal">
+    <column id="75" parent="31" name="reviewtotal">
       <Position>9</Position>
       <DataType>integer|0</DataType>
       <StateNumber>3377</StateNumber>
     </column>
-    <column id="73" parent="30" name="starttime">
+    <column id="76" parent="31" name="starttime">
       <Position>10</Position>
       <DataType>timestamp|0</DataType>
       <StateNumber>3377</StateNumber>
     </column>
-    <column id="74" parent="30" name="endtime">
+    <column id="77" parent="31" name="endtime">
       <Position>11</Position>
       <DataType>timestamp|0</DataType>
       <StateNumber>3377</StateNumber>
     </column>
-    <column id="75" parent="30" name="language">
+    <column id="78" parent="31" name="language">
       <Position>12</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>3377</StateNumber>
     </column>
-    <column id="76" parent="30" name="subtitle">
+    <column id="79" parent="31" name="subtitle">
       <Position>13</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>3377</StateNumber>
     </column>
-    <column id="77" parent="30" name="actor">
+    <column id="80" parent="31" name="actor">
       <Position>14</Position>
       <DataType>varchar(50)|0</DataType>
       <StateNumber>3377</StateNumber>
     </column>
-    <column id="78" parent="30" name="synopsis">
+    <column id="81" parent="31" name="synopsis">
       <Position>15</Position>
       <DataType>text|0</DataType>
       <StateNumber>3377</StateNumber>
     </column>
-    <column id="79" parent="30" name="status">
+    <column id="82" parent="31" name="status">
       <Position>16</Position>
       <DataType>boolean|0</DataType>
       <StateNumber>3377</StateNumber>
       <DefaultExpression>true</DefaultExpression>
     </column>
-    <index id="80" parent="30" name="film_pkey">
+    <index id="83" parent="31" name="film_pkey">
       <ObjectId>41732</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="81" parent="30" name="film_pkey">
+    <key id="84" parent="31" name="film_pkey">
       <ObjectId>41733</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>film_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="82" parent="30" name="film_storeaccount_id_fk">
+    <foreign-key id="85" parent="31" name="film_storeaccount_id_fk">
       <ObjectId>41997</ObjectId>
       <ColNames>storeid</ColNames>
       <RefTableId>41698</RefTableId>
@@ -442,7 +463,7 @@
       <RefTableName>storeaccount</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="83" parent="30" name="film_filmgenre_genre_fk">
+    <foreign-key id="86" parent="31" name="film_filmgenre_genre_fk">
       <ObjectId>41793</ObjectId>
       <ColNames>genre</ColNames>
       <RefTableId>41626</RefTableId>
@@ -450,7 +471,7 @@
       <RefTableName>filmgenre</RefTableName>
       <RefColNames>genre</RefColNames>
     </foreign-key>
-    <column id="84" parent="31" name="id">
+    <column id="87" parent="32" name="id">
       <Position>1</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
@@ -458,44 +479,44 @@
       <DefaultExpression>nextval(&apos;filmgenre_id_seq&apos;::regclass)</DefaultExpression>
       <SequenceName>filmgenre_id_seq</SequenceName>
     </column>
-    <column id="85" parent="31" name="genre">
+    <column id="88" parent="32" name="genre">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>3380</StateNumber>
     </column>
-    <column id="86" parent="31" name="storeid">
+    <column id="89" parent="32" name="storeid">
       <Position>3</Position>
       <DataType>integer|0</DataType>
       <StateNumber>4633</StateNumber>
     </column>
-    <column id="87" parent="31" name="status">
+    <column id="90" parent="32" name="status">
       <Position>4</Position>
       <DataType>boolean|0</DataType>
       <StateNumber>3380</StateNumber>
       <DefaultExpression>true</DefaultExpression>
     </column>
-    <index id="88" parent="31" name="filmgenre_id_pk">
+    <index id="91" parent="32" name="filmgenre_id_pk">
       <ObjectId>41734</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="89" parent="31" name="filmgenre_id_uindex">
+    <index id="92" parent="32" name="filmgenre_id_uindex">
       <ObjectId>41769</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="90" parent="31" name="filmgenre_genre_uindex">
+    <index id="93" parent="32" name="filmgenre_genre_uindex">
       <ObjectId>41768</ObjectId>
       <ColNames>genre</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="91" parent="31" name="filmgenre_id_pk">
+    <key id="94" parent="32" name="filmgenre_id_pk">
       <ObjectId>41735</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>filmgenre_id_pk</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="92" parent="31" name="filmgenre_storeaccount_id_fk">
+    <foreign-key id="95" parent="32" name="filmgenre_storeaccount_id_fk">
       <ObjectId>42011</ObjectId>
       <ColNames>storeid</ColNames>
       <RefTableId>41698</RefTableId>
@@ -503,7 +524,7 @@
       <RefTableName>storeaccount</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="93" parent="32" name="id">
+    <column id="96" parent="33" name="id">
       <Position>1</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
@@ -511,48 +532,48 @@
       <DefaultExpression>nextval(&apos;filmticket_id_seq&apos;::regclass)</DefaultExpression>
       <SequenceName>filmticket_id_seq</SequenceName>
     </column>
-    <column id="94" parent="32" name="filmid">
+    <column id="97" parent="33" name="filmid">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>3383</StateNumber>
     </column>
-    <column id="95" parent="32" name="studioid">
+    <column id="98" parent="33" name="studioid">
       <Position>3</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>3383</StateNumber>
     </column>
-    <column id="96" parent="32" name="seatnumber">
+    <column id="99" parent="33" name="seatnumber">
       <Position>4</Position>
       <DataType>varchar(5)|0</DataType>
       <StateNumber>3383</StateNumber>
     </column>
-    <column id="97" parent="32" name="screeningid">
+    <column id="100" parent="33" name="screeningid">
       <Position>5</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>3383</StateNumber>
     </column>
-    <column id="98" parent="32" name="price">
+    <column id="101" parent="33" name="price">
       <Position>6</Position>
       <DataType>integer|0</DataType>
       <StateNumber>3383</StateNumber>
     </column>
-    <column id="99" parent="32" name="storeid">
+    <column id="102" parent="33" name="storeid">
       <Position>7</Position>
       <DataType>integer|0</DataType>
       <StateNumber>4638</StateNumber>
     </column>
-    <index id="100" parent="32" name="filmticket_pkey">
+    <index id="103" parent="33" name="filmticket_pkey">
       <ObjectId>41736</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="101" parent="32" name="filmticket_pkey">
+    <key id="104" parent="33" name="filmticket_pkey">
       <ObjectId>41737</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>filmticket_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="102" parent="32" name="filmticket_filmid_fkey">
+    <foreign-key id="105" parent="33" name="filmticket_filmid_fkey">
       <ObjectId>41808</ObjectId>
       <ColNames>filmid</ColNames>
       <RefTableId>41617</RefTableId>
@@ -561,7 +582,7 @@
       <RefKeyName>film_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="103" parent="32" name="filmticket_studioid_fkey">
+    <foreign-key id="106" parent="33" name="filmticket_studioid_fkey">
       <ObjectId>41823</ObjectId>
       <ColNames>studioid</ColNames>
       <RefTableId>41701</RefTableId>
@@ -570,7 +591,7 @@
       <RefKeyName>studio_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="104" parent="32" name="filmticket_screeningid_fkey">
+    <foreign-key id="107" parent="33" name="filmticket_screeningid_fkey">
       <ObjectId>41813</ObjectId>
       <ColNames>screeningid</ColNames>
       <RefTableId>41687</RefTableId>
@@ -579,7 +600,7 @@
       <RefKeyName>screeningtime_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="105" parent="32" name="filmticket_storeaccount_id_fk">
+    <foreign-key id="108" parent="33" name="filmticket_storeaccount_id_fk">
       <ObjectId>42020</ObjectId>
       <ColNames>storeid</ColNames>
       <RefTableId>41698</RefTableId>
@@ -587,7 +608,7 @@
       <RefTableName>storeaccount</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="106" parent="33" name="id">
+    <column id="109" parent="34" name="id">
       <Position>1</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
@@ -595,44 +616,44 @@
       <DefaultExpression>nextval(&apos;fnbsize_id_seq&apos;::regclass)</DefaultExpression>
       <SequenceName>fnbsize_id_seq</SequenceName>
     </column>
-    <column id="107" parent="33" name="size">
+    <column id="110" parent="34" name="size">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>3386</StateNumber>
     </column>
-    <column id="108" parent="33" name="storeid">
+    <column id="111" parent="34" name="storeid">
       <Position>3</Position>
       <DataType>integer|0</DataType>
       <StateNumber>4643</StateNumber>
     </column>
-    <column id="109" parent="33" name="status">
+    <column id="112" parent="34" name="status">
       <Position>4</Position>
       <DataType>boolean|0</DataType>
       <StateNumber>3386</StateNumber>
       <DefaultExpression>true</DefaultExpression>
     </column>
-    <index id="110" parent="33" name="fnbsize_id_uindex">
+    <index id="113" parent="34" name="fnbsize_id_uindex">
       <ObjectId>41770</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="111" parent="33" name="fnbsize_pkey">
+    <index id="114" parent="34" name="fnbsize_pkey">
       <ObjectId>41738</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="112" parent="33" name="fnbsize_size_uindex">
+    <index id="115" parent="34" name="fnbsize_size_uindex">
       <ObjectId>41771</ObjectId>
       <ColNames>size</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="113" parent="33" name="fnbsize_pkey">
+    <key id="116" parent="34" name="fnbsize_pkey">
       <ObjectId>41739</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>fnbsize_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="114" parent="33" name="fnbsize_storeaccount_id_fk">
+    <foreign-key id="117" parent="34" name="fnbsize_storeaccount_id_fk">
       <ObjectId>42031</ObjectId>
       <ColNames>storeid</ColNames>
       <RefTableId>41698</RefTableId>
@@ -640,7 +661,7 @@
       <RefTableName>storeaccount</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="115" parent="34" name="id">
+    <column id="118" parent="35" name="id">
       <Position>1</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
@@ -648,44 +669,44 @@
       <DefaultExpression>nextval(&apos;fnbtype_id_seq&apos;::regclass)</DefaultExpression>
       <SequenceName>fnbtype_id_seq</SequenceName>
     </column>
-    <column id="116" parent="34" name="type">
+    <column id="119" parent="35" name="type">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>3389</StateNumber>
     </column>
-    <column id="117" parent="34" name="storeid">
+    <column id="120" parent="35" name="storeid">
       <Position>3</Position>
       <DataType>integer|0</DataType>
       <StateNumber>4648</StateNumber>
     </column>
-    <column id="118" parent="34" name="status">
+    <column id="121" parent="35" name="status">
       <Position>4</Position>
       <DataType>boolean|0</DataType>
       <StateNumber>3389</StateNumber>
       <DefaultExpression>true</DefaultExpression>
     </column>
-    <index id="119" parent="34" name="fnbtype_id_uindex">
+    <index id="122" parent="35" name="fnbtype_id_uindex">
       <ObjectId>41772</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="120" parent="34" name="fnbtype_pkey">
+    <index id="123" parent="35" name="fnbtype_pkey">
       <ObjectId>41740</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="121" parent="34" name="fnbtype_type_uindex">
+    <index id="124" parent="35" name="fnbtype_type_uindex">
       <ObjectId>41773</ObjectId>
       <ColNames>type</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="122" parent="34" name="fnbtype_pkey">
+    <key id="125" parent="35" name="fnbtype_pkey">
       <ObjectId>41741</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>fnbtype_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="123" parent="34" name="fnbtype_storeaccount_id_fk">
+    <foreign-key id="126" parent="35" name="fnbtype_storeaccount_id_fk">
       <ObjectId>42042</ObjectId>
       <ColNames>storeid</ColNames>
       <RefTableId>41698</RefTableId>
@@ -693,7 +714,7 @@
       <RefTableName>storeaccount</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="124" parent="35" name="id">
+    <column id="127" parent="36" name="id">
       <Position>1</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
@@ -701,54 +722,54 @@
       <DefaultExpression>nextval(&apos;foodandbeverages_id_seq&apos;::regclass)</DefaultExpression>
       <SequenceName>foodandbeverages_id_seq</SequenceName>
     </column>
-    <column id="125" parent="35" name="storeid">
+    <column id="128" parent="36" name="storeid">
       <Position>2</Position>
       <DataType>integer|0</DataType>
       <StateNumber>4654</StateNumber>
     </column>
-    <column id="126" parent="35" name="cover">
+    <column id="129" parent="36" name="cover">
       <Position>3</Position>
       <DataType>varchar(150)|0</DataType>
       <StateNumber>3392</StateNumber>
     </column>
-    <column id="127" parent="35" name="name">
+    <column id="130" parent="36" name="name">
       <Position>4</Position>
       <DataType>varchar(50)|0</DataType>
       <StateNumber>3392</StateNumber>
     </column>
-    <column id="128" parent="35" name="type">
+    <column id="131" parent="36" name="type">
       <Position>5</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>3392</StateNumber>
     </column>
-    <column id="129" parent="35" name="size">
+    <column id="132" parent="36" name="size">
       <Position>6</Position>
       <DataType>varchar(10)|0</DataType>
       <StateNumber>3392</StateNumber>
     </column>
-    <column id="130" parent="35" name="price">
+    <column id="133" parent="36" name="price">
       <Position>7</Position>
       <DataType>integer|0</DataType>
       <StateNumber>3392</StateNumber>
     </column>
-    <column id="131" parent="35" name="status">
+    <column id="134" parent="36" name="status">
       <Position>8</Position>
       <DataType>boolean|0</DataType>
       <StateNumber>3392</StateNumber>
       <DefaultExpression>true</DefaultExpression>
     </column>
-    <index id="132" parent="35" name="foodandbeverages_pkey">
+    <index id="135" parent="36" name="foodandbeverages_pkey">
       <ObjectId>41742</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="133" parent="35" name="foodandbeverages_pkey">
+    <key id="136" parent="36" name="foodandbeverages_pkey">
       <ObjectId>41743</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>foodandbeverages_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="134" parent="35" name="foodandbeverages_storeaccount_id_fk">
+    <foreign-key id="137" parent="36" name="foodandbeverages_storeaccount_id_fk">
       <ObjectId>42051</ObjectId>
       <ColNames>storeid</ColNames>
       <RefTableId>41698</RefTableId>
@@ -756,7 +777,7 @@
       <RefTableName>storeaccount</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="135" parent="35" name="foodandbeverages_fnbtype_type_fk">
+    <foreign-key id="138" parent="36" name="foodandbeverages_fnbtype_type_fk">
       <ObjectId>41843</ObjectId>
       <ColNames>type</ColNames>
       <RefTableId>41643</RefTableId>
@@ -764,7 +785,7 @@
       <RefTableName>fnbtype</RefTableName>
       <RefColNames>type</RefColNames>
     </foreign-key>
-    <foreign-key id="136" parent="35" name="foodandbeverages_fnbsize_size_fk">
+    <foreign-key id="139" parent="36" name="foodandbeverages_fnbsize_size_fk">
       <ObjectId>41838</ObjectId>
       <ColNames>size</ColNames>
       <RefTableId>41637</RefTableId>
@@ -772,7 +793,7 @@
       <RefTableName>fnbsize</RefTableName>
       <RefColNames>size</RefColNames>
     </foreign-key>
-    <column id="137" parent="36" name="id">
+    <column id="140" parent="37" name="id">
       <Position>1</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
@@ -780,48 +801,48 @@
       <DefaultExpression>nextval(&apos;invoice_id_seq&apos;::regclass)</DefaultExpression>
       <SequenceName>invoice_id_seq</SequenceName>
     </column>
-    <column id="138" parent="36" name="memberid">
+    <column id="141" parent="37" name="memberid">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>3395</StateNumber>
     </column>
-    <column id="139" parent="36" name="accountusername">
+    <column id="142" parent="37" name="cashierid">
       <Position>3</Position>
-      <DataType>varchar(20)|0</DataType>
-      <StateNumber>3395</StateNumber>
+      <DataType>integer|0</DataType>
+      <StateNumber>4720</StateNumber>
     </column>
-    <column id="140" parent="36" name="storeid">
+    <column id="143" parent="37" name="storeid">
       <Position>4</Position>
       <DataType>integer|0</DataType>
       <StateNumber>4660</StateNumber>
     </column>
-    <column id="141" parent="36" name="promoid">
+    <column id="144" parent="37" name="promoid">
       <Position>5</Position>
       <DataType>varchar(10)|0</DataType>
       <StateNumber>3395</StateNumber>
     </column>
-    <column id="142" parent="36" name="orderdate">
+    <column id="145" parent="37" name="orderdate">
       <Position>6</Position>
       <DataType>timestamp|0</DataType>
       <StateNumber>3395</StateNumber>
     </column>
-    <column id="143" parent="36" name="totalprice">
+    <column id="146" parent="37" name="totalprice">
       <Position>7</Position>
       <DataType>double precision|0</DataType>
       <StateNumber>3395</StateNumber>
     </column>
-    <index id="144" parent="36" name="invoice_pkey">
+    <index id="147" parent="37" name="invoice_pkey">
       <ObjectId>41744</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="145" parent="36" name="invoice_pkey">
+    <key id="148" parent="37" name="invoice_pkey">
       <ObjectId>41745</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>invoice_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="146" parent="36" name="invoice_memberid_fkey">
+    <foreign-key id="149" parent="37" name="invoice_memberid_fkey">
       <ObjectId>41858</ObjectId>
       <ColNames>memberid</ColNames>
       <RefTableId>41663</RefTableId>
@@ -830,24 +851,24 @@
       <RefKeyName>membercard_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="147" parent="36" name="invoice_accountusername_fkey">
-      <ObjectId>41853</ObjectId>
-      <ColNames>accountusername</ColNames>
+    <foreign-key id="150" parent="37" name="invoice_account_id_fk">
+      <ObjectId>42153</ObjectId>
+      <ColNames>cashierid</ColNames>
       <RefTableId>41607</RefTableId>
-      <RefColPositions>1</RefColPositions>
+      <RefColPositions>6</RefColPositions>
       <RefTableName>account</RefTableName>
-      <RefKeyName>account_pkey</RefKeyName>
-      <RefColNames>username</RefColNames>
+      <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="148" parent="36" name="invoice_storeaccount_id_fk">
+    <foreign-key id="151" parent="37" name="invoice_storeaccount_id_fk">
       <ObjectId>42060</ObjectId>
       <ColNames>storeid</ColNames>
       <RefTableId>41698</RefTableId>
       <RefColPositions>4</RefColPositions>
       <RefTableName>storeaccount</RefTableName>
+      <RefKeyName>storeaccount_id_pk</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="149" parent="36" name="invoice_promoid_fkey">
+    <foreign-key id="152" parent="37" name="invoice_promoid_fkey">
       <ObjectId>41863</ObjectId>
       <ColNames>promoid</ColNames>
       <RefTableId>41680</RefTableId>
@@ -856,7 +877,7 @@
       <RefKeyName>promo_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="150" parent="37" name="id">
+    <column id="153" parent="38" name="id">
       <Position>1</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
@@ -864,54 +885,54 @@
       <DefaultExpression>nextval(&apos;membercard_id_seq&apos;::regclass)</DefaultExpression>
       <SequenceName>membercard_id_seq</SequenceName>
     </column>
-    <column id="151" parent="37" name="storeid">
+    <column id="154" parent="38" name="storeid">
       <Position>2</Position>
       <DataType>integer|0</DataType>
       <StateNumber>4667</StateNumber>
     </column>
-    <column id="152" parent="37" name="fullname">
+    <column id="155" parent="38" name="fullname">
       <Position>3</Position>
       <DataType>varchar(50)|0</DataType>
       <StateNumber>3399</StateNumber>
     </column>
-    <column id="153" parent="37" name="gender">
+    <column id="156" parent="38" name="gender">
       <Position>4</Position>
       <DataType>varchar(8)|0</DataType>
       <StateNumber>3399</StateNumber>
     </column>
-    <column id="154" parent="37" name="birthdate">
+    <column id="157" parent="38" name="birthdate">
       <Position>5</Position>
       <DataType>timestamp|0</DataType>
       <StateNumber>3399</StateNumber>
     </column>
-    <column id="155" parent="37" name="phonenumber">
+    <column id="158" parent="38" name="phonenumber">
       <Position>6</Position>
       <DataType>varchar(15)|0</DataType>
       <StateNumber>3399</StateNumber>
     </column>
-    <column id="156" parent="37" name="email">
+    <column id="159" parent="38" name="email">
       <Position>7</Position>
       <DataType>varchar(30)|0</DataType>
       <StateNumber>3399</StateNumber>
     </column>
-    <column id="157" parent="37" name="status">
+    <column id="160" parent="38" name="status">
       <Position>8</Position>
       <DataType>boolean|0</DataType>
       <StateNumber>3399</StateNumber>
       <DefaultExpression>true</DefaultExpression>
     </column>
-    <index id="158" parent="37" name="membercard_pkey">
+    <index id="161" parent="38" name="membercard_pkey">
       <ObjectId>41748</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="159" parent="37" name="membercard_pkey">
+    <key id="162" parent="38" name="membercard_pkey">
       <ObjectId>41749</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>membercard_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="160" parent="37" name="membercard_storeaccount_id_fk">
+    <foreign-key id="163" parent="38" name="membercard_storeaccount_id_fk">
       <ObjectId>42069</ObjectId>
       <ColNames>storeid</ColNames>
       <RefTableId>41698</RefTableId>
@@ -919,7 +940,7 @@
       <RefTableName>storeaccount</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="161" parent="37" name="membercard_membergender_gender_fk">
+    <foreign-key id="164" parent="38" name="membercard_membergender_gender_fk">
       <ObjectId>41893</ObjectId>
       <ColNames>gender</ColNames>
       <RefTableId>41669</RefTableId>
@@ -927,7 +948,7 @@
       <RefTableName>membergender</RefTableName>
       <RefColNames>gender</RefColNames>
     </foreign-key>
-    <column id="162" parent="38" name="id">
+    <column id="165" parent="39" name="id">
       <Position>1</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
@@ -935,44 +956,44 @@
       <DefaultExpression>nextval(&apos;membergender_id_seq&apos;::regclass)</DefaultExpression>
       <SequenceName>membergender_id_seq</SequenceName>
     </column>
-    <column id="163" parent="38" name="gender">
+    <column id="166" parent="39" name="gender">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>3402</StateNumber>
     </column>
-    <column id="164" parent="38" name="storeid">
+    <column id="167" parent="39" name="storeid">
       <Position>3</Position>
       <DataType>integer|0</DataType>
       <StateNumber>4673</StateNumber>
     </column>
-    <column id="165" parent="38" name="status">
+    <column id="168" parent="39" name="status">
       <Position>4</Position>
       <DataType>boolean|0</DataType>
       <StateNumber>3402</StateNumber>
       <DefaultExpression>true</DefaultExpression>
     </column>
-    <index id="166" parent="38" name="membergender_id_pk">
+    <index id="169" parent="39" name="membergender_id_pk">
       <ObjectId>41750</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="167" parent="38" name="membergender_id_uindex">
+    <index id="170" parent="39" name="membergender_id_uindex">
       <ObjectId>41775</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="168" parent="38" name="membergender_gender_uindex">
+    <index id="171" parent="39" name="membergender_gender_uindex">
       <ObjectId>41774</ObjectId>
       <ColNames>gender</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="169" parent="38" name="membergender_id_pk">
+    <key id="172" parent="39" name="membergender_id_pk">
       <ObjectId>41751</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>membergender_id_pk</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="170" parent="38" name="membergender_storeaccount_id_fk">
+    <foreign-key id="173" parent="39" name="membergender_storeaccount_id_fk">
       <ObjectId>42081</ObjectId>
       <ColNames>storeid</ColNames>
       <RefTableId>41698</RefTableId>
@@ -980,7 +1001,7 @@
       <RefTableName>storeaccount</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="171" parent="39" name="id">
+    <column id="174" parent="40" name="id">
       <Position>1</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
@@ -988,48 +1009,48 @@
       <DefaultExpression>nextval(&apos;orderdetail_id_seq&apos;::regclass)</DefaultExpression>
       <SequenceName>orderdetail_id_seq</SequenceName>
     </column>
-    <column id="172" parent="39" name="invoiceid">
+    <column id="175" parent="40" name="invoiceid">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>3405</StateNumber>
     </column>
-    <column id="173" parent="39" name="storeid">
+    <column id="176" parent="40" name="storeid">
       <Position>3</Position>
       <DataType>integer|0</DataType>
       <StateNumber>4678</StateNumber>
     </column>
-    <column id="174" parent="39" name="itemname">
+    <column id="177" parent="40" name="itemname">
       <Position>4</Position>
       <DataType>varchar(30)|0</DataType>
       <StateNumber>3405</StateNumber>
     </column>
-    <column id="175" parent="39" name="quantity">
+    <column id="178" parent="40" name="quantity">
       <Position>5</Position>
       <DataType>integer|0</DataType>
       <StateNumber>3405</StateNumber>
     </column>
-    <column id="176" parent="39" name="price">
+    <column id="179" parent="40" name="price">
       <Position>6</Position>
       <DataType>integer|0</DataType>
       <StateNumber>3405</StateNumber>
     </column>
-    <column id="177" parent="39" name="discountstatus">
+    <column id="180" parent="40" name="discountstatus">
       <Position>7</Position>
       <DataType>varchar(10)|0</DataType>
       <StateNumber>3405</StateNumber>
     </column>
-    <index id="178" parent="39" name="orderdetail_pkey">
+    <index id="181" parent="40" name="orderdetail_pkey">
       <ObjectId>41752</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="179" parent="39" name="orderdetail_pkey">
+    <key id="182" parent="40" name="orderdetail_pkey">
       <ObjectId>41753</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>orderdetail_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="180" parent="39" name="orderdetail_invoiceid_fkey">
+    <foreign-key id="183" parent="40" name="orderdetail_invoiceid_fkey">
       <ObjectId>41908</ObjectId>
       <ColNames>invoiceid</ColNames>
       <RefTableId>41655</RefTableId>
@@ -1038,7 +1059,7 @@
       <RefKeyName>invoice_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="181" parent="39" name="orderdetail_storeaccount_id_fk">
+    <foreign-key id="184" parent="40" name="orderdetail_storeaccount_id_fk">
       <ObjectId>42090</ObjectId>
       <ColNames>storeid</ColNames>
       <RefTableId>41698</RefTableId>
@@ -1046,50 +1067,50 @@
       <RefTableName>storeaccount</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="182" parent="40" name="id">
+    <column id="185" parent="41" name="id">
       <Position>1</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>3408</StateNumber>
     </column>
-    <column id="183" parent="40" name="storeid">
+    <column id="186" parent="41" name="storeid">
       <Position>2</Position>
       <DataType>integer|0</DataType>
       <StateNumber>4684</StateNumber>
     </column>
-    <column id="184" parent="40" name="name">
+    <column id="187" parent="41" name="name">
       <Position>3</Position>
       <DataType>varchar(50)|0</DataType>
       <StateNumber>3408</StateNumber>
     </column>
-    <column id="185" parent="40" name="description">
+    <column id="188" parent="41" name="description">
       <Position>4</Position>
       <DataType>text|0</DataType>
       <StateNumber>3408</StateNumber>
     </column>
-    <column id="186" parent="40" name="status">
+    <column id="189" parent="41" name="status">
       <Position>5</Position>
       <DataType>boolean|0</DataType>
       <StateNumber>3408</StateNumber>
       <DefaultExpression>true</DefaultExpression>
     </column>
-    <column id="187" parent="40" name="discountamount">
+    <column id="190" parent="41" name="discountamount">
       <Position>6</Position>
       <DataType>integer|0</DataType>
       <StateNumber>3408</StateNumber>
     </column>
-    <index id="188" parent="40" name="promo_pkey">
+    <index id="191" parent="41" name="promo_pkey">
       <ObjectId>41754</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="189" parent="40" name="promo_pkey">
+    <key id="192" parent="41" name="promo_pkey">
       <ObjectId>41755</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>promo_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="190" parent="40" name="promo_storeaccount_id_fk">
+    <foreign-key id="193" parent="41" name="promo_storeaccount_id_fk">
       <ObjectId>42102</ObjectId>
       <ColNames>storeid</ColNames>
       <RefTableId>41698</RefTableId>
@@ -1097,7 +1118,7 @@
       <RefTableName>storeaccount</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="191" parent="41" name="id">
+    <column id="194" parent="42" name="id">
       <Position>1</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
@@ -1105,49 +1126,49 @@
       <DefaultExpression>nextval(&apos;screeningtime_id_seq&apos;::regclass)</DefaultExpression>
       <SequenceName>screeningtime_id_seq</SequenceName>
     </column>
-    <column id="192" parent="41" name="filmid">
+    <column id="195" parent="42" name="filmid">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>3409</StateNumber>
     </column>
-    <column id="193" parent="41" name="studioid">
+    <column id="196" parent="42" name="studioid">
       <Position>3</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>3409</StateNumber>
     </column>
-    <column id="194" parent="41" name="storeid">
+    <column id="197" parent="42" name="storeid">
       <Position>4</Position>
       <DataType>integer|0</DataType>
       <StateNumber>4691</StateNumber>
     </column>
-    <column id="195" parent="41" name="time">
+    <column id="198" parent="42" name="time">
       <Position>5</Position>
       <DataType>time|0</DataType>
       <StateNumber>3409</StateNumber>
     </column>
-    <column id="196" parent="41" name="duration">
+    <column id="199" parent="42" name="duration">
       <Position>6</Position>
       <DataType>integer|0</DataType>
       <StateNumber>3409</StateNumber>
     </column>
-    <column id="197" parent="41" name="status">
+    <column id="200" parent="42" name="status">
       <Position>7</Position>
       <DataType>boolean|0</DataType>
       <StateNumber>3409</StateNumber>
       <DefaultExpression>true</DefaultExpression>
     </column>
-    <index id="198" parent="41" name="screeningtime_pkey">
+    <index id="201" parent="42" name="screeningtime_pkey">
       <ObjectId>41756</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="199" parent="41" name="screeningtime_pkey">
+    <key id="202" parent="42" name="screeningtime_pkey">
       <ObjectId>41757</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>screeningtime_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="200" parent="41" name="screeningtime_filmid_fkey">
+    <foreign-key id="203" parent="42" name="screeningtime_filmid_fkey">
       <ObjectId>41923</ObjectId>
       <ColNames>filmid</ColNames>
       <RefTableId>41617</RefTableId>
@@ -1156,7 +1177,7 @@
       <RefKeyName>film_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="201" parent="41" name="screeningtime_studioid_fkey">
+    <foreign-key id="204" parent="42" name="screeningtime_studioid_fkey">
       <ObjectId>41933</ObjectId>
       <ColNames>studioid</ColNames>
       <RefTableId>41701</RefTableId>
@@ -1165,7 +1186,7 @@
       <RefKeyName>studio_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="202" parent="41" name="screeningtime_storeaccount_id_fk">
+    <foreign-key id="205" parent="42" name="screeningtime_storeaccount_id_fk">
       <ObjectId>42114</ObjectId>
       <ColNames>storeid</ColNames>
       <RefTableId>41698</RefTableId>
@@ -1173,7 +1194,7 @@
       <RefTableName>storeaccount</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="203" parent="42" name="number">
+    <column id="206" parent="43" name="number">
       <Position>1</Position>
       <DataType>varchar(5)|0</DataType>
       <NotNull>1</NotNull>
@@ -1181,28 +1202,28 @@
       <DefaultExpression>nextval(&apos;seat_number_seq&apos;::regclass)</DefaultExpression>
       <SequenceName>seat_number_seq</SequenceName>
     </column>
-    <column id="204" parent="42" name="studioid">
+    <column id="207" parent="43" name="studioid">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>3412</StateNumber>
     </column>
-    <column id="205" parent="42" name="name">
+    <column id="208" parent="43" name="name">
       <Position>3</Position>
       <DataType>varchar(5)|0</DataType>
       <StateNumber>3412</StateNumber>
     </column>
-    <index id="206" parent="42" name="seat_pkey">
+    <index id="209" parent="43" name="seat_pkey">
       <ObjectId>41758</ObjectId>
       <ColNames>number</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="207" parent="42" name="seat_pkey">
+    <key id="210" parent="43" name="seat_pkey">
       <ObjectId>41759</ObjectId>
       <ColNames>number</ColNames>
       <UnderlyingIndexName>seat_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="208" parent="42" name="seat_studioid_fkey">
+    <foreign-key id="211" parent="43" name="seat_studioid_fkey">
       <ObjectId>41938</ObjectId>
       <ColNames>studioid</ColNames>
       <RefTableId>41701</RefTableId>
@@ -1211,23 +1232,23 @@
       <RefKeyName>studio_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="209" parent="43" name="username">
+    <column id="212" parent="44" name="username">
       <Position>1</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
       <StateNumber>3415</StateNumber>
     </column>
-    <column id="210" parent="43" name="password">
+    <column id="213" parent="44" name="password">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>3415</StateNumber>
     </column>
-    <column id="211" parent="43" name="storename">
+    <column id="214" parent="44" name="storename">
       <Position>3</Position>
       <DataType>varchar(50)|0</DataType>
       <StateNumber>3415</StateNumber>
     </column>
-    <column id="212" parent="43" name="id">
+    <column id="215" parent="44" name="id">
       <Position>4</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
@@ -1235,23 +1256,23 @@
       <DefaultExpression>nextval(&apos;storeaccount_id_seq&apos;::regclass)</DefaultExpression>
       <SequenceName>storeaccount_id_seq</SequenceName>
     </column>
-    <index id="213" parent="43" name="storeaccount_id_pk">
+    <index id="216" parent="44" name="storeaccount_id_pk">
       <ObjectId>42139</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="214" parent="43" name="storeaccount_id_uindex">
+    <index id="217" parent="44" name="storeaccount_id_uindex">
       <ObjectId>41966</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="215" parent="43" name="storeaccount_id_pk">
+    <key id="218" parent="44" name="storeaccount_id_pk">
       <ObjectId>42140</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>storeaccount_id_pk</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <column id="216" parent="44" name="id">
+    <column id="219" parent="45" name="id">
       <Position>1</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
@@ -1259,44 +1280,44 @@
       <DefaultExpression>nextval(&apos;studio_id_seq&apos;::regclass)</DefaultExpression>
       <SequenceName>studio_id_seq</SequenceName>
     </column>
-    <column id="217" parent="44" name="storeid">
+    <column id="220" parent="45" name="storeid">
       <Position>2</Position>
       <DataType>integer|0</DataType>
       <StateNumber>4697</StateNumber>
     </column>
-    <column id="218" parent="44" name="name">
+    <column id="221" parent="45" name="name">
       <Position>3</Position>
       <DataType>varchar(50)|0</DataType>
       <StateNumber>3416</StateNumber>
     </column>
-    <column id="219" parent="44" name="type">
+    <column id="222" parent="45" name="type">
       <Position>4</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>3416</StateNumber>
     </column>
-    <column id="220" parent="44" name="price">
+    <column id="223" parent="45" name="price">
       <Position>5</Position>
       <DataType>integer|0</DataType>
       <StateNumber>3416</StateNumber>
     </column>
-    <column id="221" parent="44" name="status">
+    <column id="224" parent="45" name="status">
       <Position>6</Position>
       <DataType>boolean|0</DataType>
       <StateNumber>3416</StateNumber>
       <DefaultExpression>true</DefaultExpression>
     </column>
-    <index id="222" parent="44" name="studio_pkey">
+    <index id="225" parent="45" name="studio_pkey">
       <ObjectId>41762</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="223" parent="44" name="studio_pkey">
+    <key id="226" parent="45" name="studio_pkey">
       <ObjectId>41763</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>studio_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="224" parent="44" name="studio_storeaccount_id_fk">
+    <foreign-key id="227" parent="45" name="studio_storeaccount_id_fk">
       <ObjectId>42123</ObjectId>
       <ColNames>storeid</ColNames>
       <RefTableId>41698</RefTableId>
@@ -1304,7 +1325,7 @@
       <RefTableName>storeaccount</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="225" parent="44" name="studio_studiotype_type_fk">
+    <foreign-key id="228" parent="45" name="studio_studiotype_type_fk">
       <ObjectId>41948</ObjectId>
       <ColNames>type</ColNames>
       <RefTableId>41707</RefTableId>
@@ -1312,7 +1333,7 @@
       <RefTableName>studiotype</RefTableName>
       <RefColNames>type</RefColNames>
     </foreign-key>
-    <column id="226" parent="45" name="id">
+    <column id="229" parent="46" name="id">
       <Position>1</Position>
       <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
@@ -1320,44 +1341,44 @@
       <DefaultExpression>nextval(&apos;studiotype_id_seq&apos;::regclass)</DefaultExpression>
       <SequenceName>studiotype_id_seq</SequenceName>
     </column>
-    <column id="227" parent="45" name="type">
+    <column id="230" parent="46" name="type">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
       <StateNumber>3419</StateNumber>
     </column>
-    <column id="228" parent="45" name="storeid">
+    <column id="231" parent="46" name="storeid">
       <Position>3</Position>
       <DataType>integer|0</DataType>
       <StateNumber>4702</StateNumber>
     </column>
-    <column id="229" parent="45" name="status">
+    <column id="232" parent="46" name="status">
       <Position>4</Position>
       <DataType>boolean|0</DataType>
       <StateNumber>3419</StateNumber>
       <DefaultExpression>true</DefaultExpression>
     </column>
-    <index id="230" parent="45" name="studiotype_id_uindex">
+    <index id="233" parent="46" name="studiotype_id_uindex">
       <ObjectId>41776</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="231" parent="45" name="studiotype_pkey">
+    <index id="234" parent="46" name="studiotype_pkey">
       <ObjectId>41764</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
-    <index id="232" parent="45" name="studiotype_type_uindex">
+    <index id="235" parent="46" name="studiotype_type_uindex">
       <ObjectId>41777</ObjectId>
       <ColNames>type</ColNames>
       <Unique>1</Unique>
     </index>
-    <key id="233" parent="45" name="studiotype_pkey">
+    <key id="236" parent="46" name="studiotype_pkey">
       <ObjectId>41765</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>studiotype_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="234" parent="45" name="studiotype_storeaccount_id_fk">
+    <foreign-key id="237" parent="46" name="studiotype_storeaccount_id_fk">
       <ObjectId>42134</ObjectId>
       <ColNames>storeid</ColNames>
       <RefTableId>41698</RefTableId>

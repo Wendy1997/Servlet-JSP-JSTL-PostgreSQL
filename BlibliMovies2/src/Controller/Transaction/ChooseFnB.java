@@ -83,7 +83,7 @@ public class ChooseFnB extends HttpServlet{
                 member = Integer.parseInt(request.getParameter("member"));
                 promo = invoiceService.getPromo((int)request.getSession().getAttribute("storeid")).getId();
 
-                Invoice invoice = new Invoice(member, (String)request.getSession().getAttribute("username") ,(int)request.getSession().getAttribute("storeid"), promo, dtf.format(now), Double.parseDouble(request.getParameter("totalHarga")));
+                Invoice invoice = new Invoice(member, (int)request.getSession().getAttribute("userid") ,(int)request.getSession().getAttribute("storeid"), promo, dtf.format(now), Double.parseDouble(request.getParameter("totalHarga")));
 
                 invoiceService.addInvoice(invoice);
 
@@ -118,7 +118,7 @@ public class ChooseFnB extends HttpServlet{
 
             } else {
 
-                Invoice invoice = new Invoice((String)request.getSession().getAttribute("username") ,(int)request.getSession().getAttribute("storeid"), dtf.format(now), Integer.parseInt(request.getParameter("totalHarga")));
+                Invoice invoice = new Invoice((int)request.getSession().getAttribute("username") ,(int)request.getSession().getAttribute("storeid"), dtf.format(now), Integer.parseInt(request.getParameter("totalHarga")));
                 invoiceService.addInvoice(invoice);
 
                 int id = invoiceService.getInvoice(invoice).getId();

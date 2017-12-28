@@ -3,33 +3,33 @@ package Model;
 public class Invoice {
     private int id;
     private int memberId;
-    private String accountUsername;
+    private int accountID;
     private int storeid;
     private int promoId;
     private String orderDate;
     private double totalPrice;
 
-    public Invoice(int id, int memberId, String accountUsername, int storeid, int promoId, String orderDate, double totalPrice) {
+    public Invoice(int id, int memberId, int accountID, int storeid, int promoId, String orderDate, double totalPrice) {
         this.id = id;
         this.memberId = memberId;
-        this.accountUsername = accountUsername;
+        this.accountID = accountID;
         this.storeid = storeid;
         this.promoId = promoId;
         this.orderDate = orderDate;
         this.totalPrice = totalPrice;
     }
 
-    public Invoice(int memberId, String accountUsername, int storeid, int promoId, String orderDate, double totalPrice) {
+    public Invoice(int memberId, int accountID, int storeid, int promoId, String orderDate, double totalPrice) {
         this.memberId = memberId;
-        this.accountUsername = accountUsername;
+        this.accountID = accountID;
         this.storeid = storeid;
         this.promoId = promoId;
         this.orderDate = orderDate;
         this.totalPrice = totalPrice;
     }
 
-    public Invoice(String accountUsername, int storeid, String orderDate, double totalPrice) {
-        this.accountUsername = accountUsername;
+    public Invoice(int accountID, int storeid, String orderDate, double totalPrice) {
+        this.accountID = accountID;
         this.storeid = storeid;
         this.orderDate = orderDate;
         this.totalPrice = totalPrice;
@@ -51,12 +51,12 @@ public class Invoice {
         this.memberId = memberId;
     }
 
-    public String getAccountUsername() {
-        return accountUsername;
+    public int getAccountID() {
+        return accountID;
     }
 
-    public void setAccountUsername(String accountUsername) {
-        this.accountUsername = accountUsername;
+    public void setAccountID(int accountID) {
+        this.accountID = accountID;
     }
 
     public int getStoreID() {

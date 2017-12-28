@@ -29,6 +29,7 @@ public class Account extends HttpServlet {
             if(request.getParameter("page").equals("logout")){
                 request.getSession().removeAttribute("role");
                 request.getSession().removeAttribute("username");
+                request.getSession().removeAttribute("userid");
             }
         }
 
@@ -53,6 +54,7 @@ public class Account extends HttpServlet {
                 if(account.getPassword().equals(request.getParameter("password"))){
                     request.getSession().setAttribute("role", account.getRole());
                     request.getSession().setAttribute("username", account.getUsername());
+                    request.getSession().setAttribute("userid", account.getID());
 
                     address = "/view/database/success.jsp";
                     request.setAttribute("title", "Login");
@@ -72,7 +74,7 @@ public class Account extends HttpServlet {
             }
             request.getRequestDispatcher(address).forward(request, response);
         } catch (SQLException e){
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 }

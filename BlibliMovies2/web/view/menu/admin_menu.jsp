@@ -6,7 +6,7 @@
 
     <!-- Title -->
     <div class="jumbotron">
-        <h1 class="title">Hai <c:out value="${sessionScope.role}"></c:out> from <c:out value="${sessionScope.storename}"></c:out></h1>
+        <h1 class="title">Hai <c:out value="${sessionScope.username}"></c:out> from <c:out value="${sessionScope.storename}"></c:out></h1>
     </div>
 
     <!-- Menu -->

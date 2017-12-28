@@ -41,7 +41,7 @@ public class AccountDAO {
 
         Account output;
         if(rs.next()){
-            output = new Account(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4));
+            output = new Account(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getInt(6));
         } else{
             output = null;
         }
@@ -56,7 +56,7 @@ public class AccountDAO {
 
         List<Account> accounts = new ArrayList<Account>();
         while(rs.next()){
-            accounts.add(new Account(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4)));
+            accounts.add(new Account(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getInt(6)));
         }
         return accounts;
     }
