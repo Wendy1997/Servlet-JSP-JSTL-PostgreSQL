@@ -4,22 +4,22 @@ public class Account {
     private String username;
     private String password;
     private int storeid;
-    private String role;
+    private int roleid;
     private int id;
 
-    public Account(String username, int storeid, String password, String role, int id){
+    public Account(String username, int storeid, String password, int roleid, int id){
         setUsername(username);
         setPassword(password);
-        setRole(role);
-        setStoreID(storeid);
-        setID(id);
+        setRoleid(roleid);
+        setStoreid(storeid);
+        setid(id);
     }
 
-    public Account(String username, int storeid, String password, String role){
+    public Account(String username, int storeid, String password, int roleid){
         setUsername(username);
         setPassword(password);
-        setRole(role);
-        setStoreID(storeid);
+        setRoleid(roleid);
+        setStoreid(storeid);
     }
 
     public String getUsername(){
@@ -30,16 +30,8 @@ public class Account {
         return this.password;
     }
 
-    public String getRole(){
-        return this.role;
-    }
-
-    public int getID(){
+    public int getid(){
         return this.id;
-    }
-
-    public int getStoreID(){
-        return this.storeid;
     }
 
     public void setUsername(String username){
@@ -50,15 +42,23 @@ public class Account {
         this.password = password;
     }
 
-    public void setRole(String role){
-        this.role = role;
-    }
-
-    public void setID(int id){
+    public void setid(int id){
         this.id = id;
     }
 
-    public void setStoreID(int storeid){
+    public int getStoreid() {
+        return storeid;
+    }
+
+    public void setStoreid(int storeid) {
         this.storeid = storeid;
+    }
+
+    public int getRoleid() {
+        return roleid;
+    }
+
+    public void setRoleid(int roleid) {
+        this.roleid = roleid;
     }
 }

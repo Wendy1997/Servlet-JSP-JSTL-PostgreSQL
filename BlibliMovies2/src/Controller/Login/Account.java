@@ -1,6 +1,7 @@
 package Controller.Login;
 
 import DAO.AccountDAO;
+import Model.AccountRole;
 import Service.AccountService;
 import Service.AccountServiceDatabase;
 
@@ -52,14 +53,15 @@ public class Account extends HttpServlet {
 
             if(account != null){
                 if(account.getPassword().equals(request.getParameter("password"))){
-                    request.getSession().setAttribute("role", account.getRole());
+                    AccountRole accountRole = accountService.getAccountRole(account.getRoleid(),(int)request.getSession().getAttribute("storeid"));
+                    request.getSession().setAttribute("role", accountRole.getRole());
                     request.getSession().setAttribute("username", account.getUsername());
-                    request.getSession().setAttribute("userid", account.getID());
+                    request.getSession().setAttribute("userid", account.getid());
 
                     address = "/view/database/success.jsp";
                     request.setAttribute("title", "Login");
                     request.setAttribute("complete", "Sukses");
-                    request.setAttribute("link", "/" + account.getRole());
+                    request.setAttribute("link", "/" + (String)request.getSession().getAttribute("role"));
                 }else{
                     address = "/view/database/success.jsp";
                     request.setAttribute("title", "Login");

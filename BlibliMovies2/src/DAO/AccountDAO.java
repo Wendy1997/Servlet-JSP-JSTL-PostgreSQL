@@ -41,7 +41,7 @@ public class AccountDAO {
 
         Account output;
         if(rs.next()){
-            output = new Account(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getInt(6));
+            output = new Account(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getInt(6));
         } else{
             output = null;
         }
@@ -56,17 +56,17 @@ public class AccountDAO {
 
         List<Account> accounts = new ArrayList<Account>();
         while(rs.next()){
-            accounts.add(new Account(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getInt(6)));
+            accounts.add(new Account(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getInt(6)));
         }
         return accounts;
     }
 
     public void addAccount(Account account) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("INSERT INTO account (username, storeid, password, type) VALUES (?,?,?,?)");
+        PreparedStatement ps = conn.prepareStatement("INSERT INTO account (username, storeid, password, roleid) VALUES (?,?,?,?)");
         ps.setString(1,account.getUsername());
-        ps.setInt(2, account.getStoreID());
+        ps.setInt(2, account.getStoreid());
         ps.setString(3, account.getPassword());
-        ps.setString(4, account.getRole());
+        ps.setInt(4, account.getRoleid());
         ps.executeUpdate();
     }
 
@@ -78,11 +78,11 @@ public class AccountDAO {
     }
 
     public void updateAccount(Account account) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("UPDATE account set password = ?, type = ? where username = ? and storeid = ?");
+        PreparedStatement ps = conn.prepareStatement("UPDATE account set password = ?, roleid = ? where username = ? and storeid = ?");
         ps.setString(1, account.getPassword());
-        ps.setString(2, account.getRole());
+        ps.setInt(2, account.getRoleid());
         ps.setString(3, account.getUsername());
-        ps.setInt(4, account.getStoreID());
+        ps.setInt(4, account.getStoreid());
         ps.executeUpdate();
     }
 }

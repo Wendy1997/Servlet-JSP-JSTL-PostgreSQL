@@ -35,7 +35,7 @@
                         <select class="form-control" id="role" name="role" required>
                             <option disabled selected value> -- pilih Role -- </option>
                             <c:forEach var="role" items="${role}">
-                                <option value="${role.role}">${role.role}</option>
+                                <option value="${role.id}">${role.role}</option>
                             </c:forEach>
                         </select>
                     </div>

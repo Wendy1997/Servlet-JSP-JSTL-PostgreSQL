@@ -58,7 +58,7 @@ public class AccountEdit extends HttpServlet{
             Account account = new Account( request.getParameter("username"),
                     (int)request.getSession().getAttribute("storeid"),
                     request.getParameter("password"),
-                    request.getParameter("role"));
+                    Integer.parseInt(request.getParameter("role")));
             accountService.updateAccout(account);
 
             String address = "/view/database/success.jsp";

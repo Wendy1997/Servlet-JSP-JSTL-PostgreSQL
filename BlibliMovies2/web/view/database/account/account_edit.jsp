@@ -27,10 +27,10 @@
 
                     <div class="form-group">
                         <label for="role">Role:</label>
-                        <select class="form-control" id="role" name="role" value="${account.role}" required>
+                        <select class="form-control" id="role" name="role" value="${account.roleid}" required>
                             <option disabled selected value> -- pilih Role -- </option>
                             <c:forEach var="role" items="${role}">
-                                <option value="${role.role}" ${role.role == account.role ? 'selected' : ''}>${role.role}</option>
+                                <option value="${role.id}" ${role.id == account.roleid ? 'selected' : ''}>${role.role}</option>
                             </c:forEach>
                         </select>
                     </div>

@@ -14,7 +14,7 @@ public interface AccountService {
     void deleteAccount(String username, int storeid) throws SQLException;
     void updateAccout(Account account) throws SQLException;
 
-    AccountRole getAccountRole(String id, int storeid) throws SQLException;
+    AccountRole getAccountRole(int id, int storeid) throws SQLException;
     List<AccountRole> getAllAccountRole(int storeid) throws SQLException;
     void addAccountRole(AccountRole accountRole) throws SQLException;
     void deleteAccountRole(String accountRole, int storeid) throws SQLException;

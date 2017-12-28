@@ -38,7 +38,7 @@ public class AccountServiceDatabase implements AccountService {
     }
 
     @Override
-    public AccountRole getAccountRole(String id, int storeid) throws SQLException {
+    public AccountRole getAccountRole(int id, int storeid) throws SQLException {
         return accountRoleDAO.getAccountRole(id, storeid);
     }
 

@@ -29,7 +29,11 @@
                         <tr>
                             <td scope="row"><c:out value="${accounts.username}"></c:out></td>
                             <td><c:out value="${accounts.password}"></c:out></td>
-                            <td><c:out value="${accounts.role}"></c:out></td>
+                            <td>
+                                 <c:forEach items="${roles}" var="role">
+                                    ${role.id == accounts.roleid ? role.role : ""}
+                                 </c:forEach>
+                             </td>
                             <td><a <c:out value='href=/admin/account/edit?id=${accounts.username}'></c:out>>Edit</a></td>
                             <td><a <c:out value='href=/admin/account/delete?id=${accounts.username}'></c:out>>Delete</a></td>
                         </tr>

@@ -53,7 +53,7 @@ public class AccountAdd extends HttpServlet {
             Account account = new Account( request.getParameter("username"),
                     (int)request.getSession().getAttribute("storeid"),
                     request.getParameter("password"),
-                    request.getParameter("role"));
+                    Integer.parseInt(request.getParameter("role")));
 
             accountService.addAccount(account);
 

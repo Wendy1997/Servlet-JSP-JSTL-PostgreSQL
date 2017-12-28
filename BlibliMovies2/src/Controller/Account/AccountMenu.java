@@ -2,6 +2,7 @@ package Controller.Account;
 
 import DAO.AccountDAO;
 import Model.Account;
+import Model.AccountRole;
 import Service.AccountService;
 import Service.AccountServiceDatabase;
 
@@ -41,6 +42,9 @@ public class AccountMenu extends HttpServlet{
 
         try{
             List<Account> accounts = accountService.getAllAccount((int)request.getSession().getAttribute("storeid"));
+            List<AccountRole> accountRoles = accountService.getAllAccountRole((int)request.getSession().getAttribute("storeid"));
+
+            request.setAttribute("roles", accountRoles);
             request.setAttribute("accounts", accounts);
             request.getRequestDispatcher(address).forward(request, response);
         } catch (SQLException e){

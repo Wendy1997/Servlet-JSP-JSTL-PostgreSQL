@@ -28,8 +28,8 @@
     </role>
     <schema id="6" parent="3" name="public">
       <ObjectId>2200</ObjectId>
-      <IntrospectionTimestamp>2017-12-28.10:52:36.854</IntrospectionTimestamp>
-      <IntrospectionStateNumber>4724</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2017-12-28.11:19:05.141</IntrospectionTimestamp>
+      <IntrospectionStateNumber>4733</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -169,11 +169,11 @@
     </sequence>
     <table id="29" parent="6" name="account">
       <ObjectId>41607</ObjectId>
-      <StateNumber>4721</StateNumber>
+      <StateNumber>4732</StateNumber>
     </table>
     <table id="30" parent="6" name="accountrole">
       <ObjectId>41611</ObjectId>
-      <StateNumber>4621</StateNumber>
+      <StateNumber>4732</StateNumber>
     </table>
     <table id="31" parent="6" name="film">
       <ObjectId>41617</ObjectId>
@@ -255,10 +255,10 @@
       <DataType>varchar(20)|0</DataType>
       <StateNumber>3373</StateNumber>
     </column>
-    <column id="50" parent="29" name="type">
+    <column id="50" parent="29" name="roleid">
       <Position>4</Position>
-      <DataType>varchar(10)|0</DataType>
-      <StateNumber>3373</StateNumber>
+      <DataType>integer|0</DataType>
+      <StateNumber>4733</StateNumber>
     </column>
     <column id="51" parent="29" name="status">
       <Position>5</Position>
@@ -299,13 +299,14 @@
       <RefKeyName>storeaccount_id_pk</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="57" parent="29" name="account_accountrole_role_fk">
-      <ObjectId>41778</ObjectId>
-      <ColNames>type</ColNames>
+    <foreign-key id="57" parent="29" name="account_accountrole_id_fk">
+      <ObjectId>42165</ObjectId>
+      <ColNames>roleid</ColNames>
       <RefTableId>41611</RefTableId>
-      <RefColPositions>2</RefColPositions>
+      <RefColPositions>1</RefColPositions>
       <RefTableName>accountrole</RefTableName>
-      <RefColNames>role</RefColNames>
+      <RefKeyName>accountrole_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
     </foreign-key>
     <column id="58" parent="30" name="id">
       <Position>1</Position>
@@ -358,6 +359,7 @@
       <RefTableId>41698</RefTableId>
       <RefColPositions>4</RefColPositions>
       <RefTableName>storeaccount</RefTableName>
+      <RefKeyName>storeaccount_id_pk</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
     <column id="67" parent="31" name="id">
