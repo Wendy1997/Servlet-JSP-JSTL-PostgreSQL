@@ -33,6 +33,31 @@ public class MemberCardDAO {
     }
 
     public MemberCard getMemberCard(String id, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM membercard where id = ? and storeid = ?");
+        ps.setString(1, id);
+        ps.setInt(2, storeid);
+
+        ResultSet rs = ps.executeQuery();
+
+        MemberCard output;
+        if(rs.next()){
+            output = new MemberCard(rs.getInt(1),
+                    rs.getInt(2),
+                    rs.getString(3),
+                    rs.getInt(4),
+                    rs.getString(5).substring(0,10),
+                    rs.getString(6),
+                    rs.getString(7),
+                    rs.getBoolean(8));
+        } else{
+            output = null;
+        }
+
+        ps.close();
+        return output;
+    }
+
+    public MemberCard getMemberCardTrue(String id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM membercard where id = ? and storeid = ? and status = true");
         ps.setString(1, id);
         ps.setInt(2, storeid);
@@ -47,15 +72,19 @@ public class MemberCardDAO {
                     rs.getInt(4),
                     rs.getString(5).substring(0,10),
                     rs.getString(6),
-                    rs.getString(7));
+                    rs.getString(7),
+                    rs.getBoolean(8));
         } else{
             output = null;
         }
+
+        ps.close();
         return output;
     }
 
+
     public List<MemberCard> getAllMemberCard(int storeid) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM membercard where storeid = ? and status = true");
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM membercard where storeid = ? ORDER BY id");
         ps.setInt(1, storeid);
         ResultSet rs = ps.executeQuery();
 
@@ -67,8 +96,32 @@ public class MemberCardDAO {
                     rs.getInt(4),
                     rs.getString(5).substring(0,10),
                     rs.getString(6),
-                    rs.getString(7)));
+                    rs.getString(7),
+                    rs.getBoolean(8)));
         }
+
+        ps.close();
+        return memberCards;
+    }
+
+    public List<MemberCard> getAllMemberCardTrue(int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM membercard where storeid = ? and status = true ORDER BY id");
+        ps.setInt(1, storeid);
+        ResultSet rs = ps.executeQuery();
+
+        List<MemberCard> memberCards = new ArrayList<MemberCard>();
+        while(rs.next()){
+            memberCards.add(new MemberCard(rs.getInt(1),
+                    rs.getInt(2),
+                    rs.getString(3),
+                    rs.getInt(4),
+                    rs.getString(5).substring(0,10),
+                    rs.getString(6),
+                    rs.getString(7),
+                    rs.getBoolean(8)));
+        }
+
+        ps.close();
         return memberCards;
     }
 
@@ -81,6 +134,7 @@ public class MemberCardDAO {
         ps.setString(5, memberCard.getPhoneNumber());
         ps.setString(6, memberCard.getEmail());
         ps.executeUpdate();
+        ps.close();
     }
 
     public void deleteMemberCard(String id, int storeid) throws SQLException{
@@ -88,6 +142,15 @@ public class MemberCardDAO {
         ps.setString(1, id);
         ps.setInt(2, storeid);
         ps.executeUpdate();
+        ps.close();
+    }
+
+    public void retrieveMemberCard(String id, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("UPDATE membercard set status = true where id = ? and storeid = ?");
+        ps.setString(1, id);
+        ps.setInt(2, storeid);
+        ps.executeUpdate();
+        ps.close();
     }
 
     public void updateMemberCard(MemberCard memberCard) throws SQLException{
@@ -101,5 +164,6 @@ public class MemberCardDAO {
         ps.setInt(7,memberCard.getStoreID());
 
         ps.executeUpdate();
+        ps.close();
     }
 }

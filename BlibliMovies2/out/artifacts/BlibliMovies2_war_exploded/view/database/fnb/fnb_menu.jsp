@@ -8,6 +8,7 @@
     <div class="jumbotron">
         <h1 class="title">Food and Beverages</h1>
         <a href="/admin/fnbsize" style="display: inline-block"><h6>Size Database</h6></a>
+        |
         <a href="/admin/fnbtype" style="display: inline-block"><h6>Type Database</h6></a><br><br>
         <a href="/admin/fnb/add"><h5>Create New Food and Beverages</h5></a>
     </div>
@@ -47,7 +48,7 @@
                             </td>
                             <td><c:out value="${fnbs.price}"></c:out></td>
                             <td><a <c:out value='href=/admin/fnb/edit?id=${fnbs.id}'></c:out>>Edit</a></td>
-                            <td><a <c:out value='href=/admin/fnb/delete?id=${fnbs.id}'></c:out>>Delete</a></td>
+                            <td><a <c:out value='href=/admin/fnb/delete?id=${fnbs.id}'></c:out>>${fnbs.status ? "Delete" : "Retrieve"}</a></td>
                         </tr>
                     </c:forEach>
                 </tbody>

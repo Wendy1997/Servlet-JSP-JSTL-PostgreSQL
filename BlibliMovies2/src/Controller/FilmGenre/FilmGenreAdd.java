@@ -40,13 +40,6 @@ public class FilmGenreAdd extends HttpServlet {
             address = "/view/login/account_login.jsp";
         }
 
-        try{
-            List<FilmGenre> filmGenreList = filmService.getAllFilmGenre((int)request.getSession().getAttribute("storeid"));
-            request.setAttribute("genre", filmGenreList);
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-
         request.getRequestDispatcher(address).forward(request, response);
     }
 

@@ -29,7 +29,7 @@
                             <td scope="row"><c:out value="${type.id}"></c:out></td>
                             <td><c:out value="${type.type}"></c:out></td>
                             <td><a <c:out value='href=/admin/fnbtype/edit?id=${type.id}'></c:out>>Edit</a></td>
-                            <td><a <c:out value='href=/admin/fnbtype/delete?id=${type.id}'></c:out>>Delete</a></td>
+                            <td><a <c:out value='href=/admin/fnbtype/delete?id=${type.id}'></c:out>>${type.status ? "Delete" : "Retrieve"}</a></td>
                         </tr>
                     </c:forEach>
                 </tbody>

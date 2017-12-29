@@ -52,7 +52,7 @@ public class FilmEdit extends HttpServlet{
             Film film = filmService.getFilm(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
             request.setAttribute("film", film);
 
-            List<FilmGenre> filmGenreList = filmService.getAllFilmGenre((int)request.getSession().getAttribute("storeid"));
+            List<FilmGenre> filmGenreList = filmService.getAllFilmGenreTrue((int)request.getSession().getAttribute("storeid"));
             request.setAttribute("genre", filmGenreList);
         } catch (Exception e){
             System.out.println(e.getMessage());
@@ -70,6 +70,8 @@ public class FilmEdit extends HttpServlet{
             String cover = filmService.getFilm(request.getParameter("id"), (int)request.getSession().getAttribute("storeid")).getCover();
             String[] randomList = cover.split("/");
             String randomNumber = randomList[3].substring(randomList[3].length()-19, randomList[3].length()-5);
+
+            Film film = new Film();
 
             if(request.getPart("file").getSubmittedFileName().length() > 0){
                 String[] pathList = getServletContext().getRealPath("").split("\\\\");
@@ -94,24 +96,42 @@ public class FilmEdit extends HttpServlet{
                 fileName = getFileName(part);
                 part.write(uploadFilePath + "\\" + request.getParameter("nama") + " (" + request.getParameter("waktu_mulai").substring(0,4) + ") [" + random + "].jpg");
                 randomNumber = random;
-            }
 
-            Film film = new Film(
-                    Integer.parseInt(request.getParameter("id")),
-                    (int)request.getSession().getAttribute("storeid"),
-                    "/" + (int)request.getSession().getAttribute("storeid") + "/film/" + request.getParameter("nama") + " (" + request.getParameter("waktu_mulai").substring(0,4) + ") [" + randomNumber + "].jpg",
-                    request.getParameter("nama"),
-                    Integer.parseInt(request.getParameter("genre")),
-                    Integer.parseInt(request.getParameter("durasi")),
-                    request.getParameter("director"),
-                    Double.parseDouble(request.getParameter("rating")),
-                    Integer.parseInt(request.getParameter("jumlah")),
-                    request.getParameter("waktu_mulai"),
-                    request.getParameter("waktu_akhir"),
-                    request.getParameter("language"),
-                    request.getParameter("subtitle"),
-                    request.getParameter("actor"),
-                    request.getParameter("sinopsis"));
+                film = new Film(
+                        Integer.parseInt(request.getParameter("id")),
+                        (int)request.getSession().getAttribute("storeid"),
+                        "/" + (int)request.getSession().getAttribute("storeid") + "/film/" + request.getParameter("nama") + " (" + request.getParameter("waktu_mulai").substring(0,4) + ") [" + randomNumber + "].jpg",
+                        request.getParameter("nama"),
+                        Integer.parseInt(request.getParameter("genre")),
+                        Integer.parseInt(request.getParameter("durasi")),
+                        request.getParameter("director"),
+                        Double.parseDouble(request.getParameter("rating")),
+                        Integer.parseInt(request.getParameter("jumlah")),
+                        request.getParameter("waktu_mulai"),
+                        request.getParameter("waktu_akhir"),
+                        request.getParameter("language"),
+                        request.getParameter("subtitle"),
+                        request.getParameter("actor"),
+                        request.getParameter("sinopsis"));
+            } else {
+
+                film = new Film(
+                        Integer.parseInt(request.getParameter("id")),
+                        (int)request.getSession().getAttribute("storeid"),
+                        filmService.getFilm(request.getParameter("id"), (int)request.getSession().getAttribute("storeid")).getCover(),
+                        request.getParameter("nama"),
+                        Integer.parseInt(request.getParameter("genre")),
+                        Integer.parseInt(request.getParameter("durasi")),
+                        request.getParameter("director"),
+                        Double.parseDouble(request.getParameter("rating")),
+                        Integer.parseInt(request.getParameter("jumlah")),
+                        request.getParameter("waktu_mulai"),
+                        request.getParameter("waktu_akhir"),
+                        request.getParameter("language"),
+                        request.getParameter("subtitle"),
+                        request.getParameter("actor"),
+                        request.getParameter("sinopsis"));
+            }
 
             filmService.updateFilm(film);
 

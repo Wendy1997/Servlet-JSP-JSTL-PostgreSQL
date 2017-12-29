@@ -74,7 +74,17 @@ public class InvoiceServiceDatabase implements InvoiceService {
     }
 
     @Override
+    public Promo getPromoTrue(String id, int storeid) throws SQLException {
+        return promoDAO.getPromoTrue(id, storeid);
+    }
+
+    @Override
     public Promo getPromo(int storeid) throws SQLException {
         return promoDAO.getPromo(storeid);
+    }
+
+    @Override
+    public Promo getPromoTrue(int storeid) throws SQLException {
+        return promoDAO.getPromoTrue(storeid);
     }
 }

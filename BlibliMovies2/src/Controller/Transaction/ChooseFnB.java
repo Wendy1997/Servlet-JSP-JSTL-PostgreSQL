@@ -50,12 +50,12 @@ public class ChooseFnB extends HttpServlet{
         try{
             if(!(request.getParameter("ticketQuantity") == null)){
                 request.setAttribute("ticketQuantity", request.getParameter("ticketQuantity"));
-                request.setAttribute("film", filmService.getFilm(request.getParameter("film"), (int)request.getSession().getAttribute("storeid")));
-                request.setAttribute("studio", filmService.getStudio(request.getParameter("studioid"), (int)request.getSession().getAttribute("storeid")));
-                request.setAttribute("screening", filmService.getScreeningTime(request.getParameter("screeningid"), request.getParameter("film"), (int)request.getSession().getAttribute("storeid")));
+                request.setAttribute("film", filmService.getFilmTrue(request.getParameter("film"), (int)request.getSession().getAttribute("storeid")));
+                request.setAttribute("studio", filmService.getStudioTrue(request.getParameter("studioid"), (int)request.getSession().getAttribute("storeid")));
+                request.setAttribute("screening", filmService.getScreeningTimeTrue(request.getParameter("screeningid"), request.getParameter("film"), (int)request.getSession().getAttribute("storeid")));
             }
 
-            List<FnB> fnBList = fnBService.getAllFnB((int)request.getSession().getAttribute("storeid"));
+            List<FnB> fnBList = fnBService.getAllFnBTrue((int)request.getSession().getAttribute("storeid"));
 
             for(int i = 0; i < fnBList.size(); i++){
                 fnBList.get(i).setCover("/uploads" + fnBList.get(i).getCover());
@@ -75,8 +75,6 @@ public class ChooseFnB extends HttpServlet{
             int promo;
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
             LocalDateTime now = LocalDateTime.now();
-
-            System.out.println(request.getParameter("member"));
 
             if(!(request.getParameter("member") == "")){
 
@@ -118,7 +116,7 @@ public class ChooseFnB extends HttpServlet{
 
             } else {
 
-                Invoice invoice = new Invoice((int)request.getSession().getAttribute("username") ,(int)request.getSession().getAttribute("storeid"), dtf.format(now), Integer.parseInt(request.getParameter("totalHarga")));
+                Invoice invoice = new Invoice((int)request.getSession().getAttribute("userid") ,(int)request.getSession().getAttribute("storeid"), dtf.format(now), Integer.parseInt(request.getParameter("totalHarga")));
                 invoiceService.addInvoice(invoice);
 
                 int id = invoiceService.getInvoice(invoice).getId();

@@ -44,9 +44,35 @@ public class ScreeningTimeDAO {
         ps.setInt(5, screeningTime.getDuration());
 
         ps.executeUpdate();
+        ps.close();
     }
 
     public ScreeningTime getScreeningTime(String id, String film_id, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("select * from screeningtime where id = ? and storeid = ? and filmid = ?");
+        ps.setString(1, id);
+        ps.setInt(2, storeid);
+        ps.setString(3, film_id);
+
+        ResultSet rs = ps.executeQuery();
+
+        ScreeningTime output;
+        if(rs.next()){
+            output =  new ScreeningTime(rs.getInt(1),
+                    rs.getInt(2),
+                    rs.getInt(3),
+                    rs.getInt(4),
+                    rs.getString(5).substring(0,5),
+                    rs.getInt(6),
+                    rs.getBoolean(7));
+        } else {
+            output = null;
+        }
+
+        ps.close();
+        return output;
+    }
+
+    public ScreeningTime getScreeningTimeTrue(String id, String film_id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("select * from screeningtime where id = ? and storeid = ? and filmid = ? and status = true");
         ps.setString(1, id);
         ps.setInt(2, storeid);
@@ -61,16 +87,19 @@ public class ScreeningTimeDAO {
                     rs.getInt(3),
                     rs.getInt(4),
                     rs.getString(5).substring(0,5),
-                    rs.getInt(6));
+                    rs.getInt(6),
+                    rs.getBoolean(7));
         } else {
             output = null;
         }
 
+        ps.close();
         return output;
     }
 
+
     public List<ScreeningTime> getAllScreeningTime(int storeid, String filmid) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("select * from screeningtime where storeid = ? and filmid = ? and status = true");
+        PreparedStatement ps = conn.prepareStatement("select * from screeningtime where storeid = ? and filmid = ? ORDER BY id");
         ps.setInt(1, storeid);
         ps.setString(2, filmid);
 
@@ -83,10 +112,35 @@ public class ScreeningTimeDAO {
                     rs.getInt(3),
                     rs.getInt(4),
                     rs.getString(5).substring(0,5),
-                    rs.getInt(6))
+                    rs.getInt(6),
+                    rs.getBoolean(7))
             );
         }
 
+        ps.close();
+        return outputList;
+    }
+
+    public List<ScreeningTime> getAllScreeningTimeTrue(int storeid, String filmid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("select * from screeningtime where storeid = ? and filmid = ? and status = true ORDER BY id");
+        ps.setInt(1, storeid);
+        ps.setString(2, filmid);
+
+        ResultSet rs = ps.executeQuery();
+
+        List<ScreeningTime> outputList = new ArrayList<ScreeningTime>();
+        while (rs.next()){
+            outputList.add(new ScreeningTime(rs.getInt(1),
+                    rs.getInt(2),
+                    rs.getInt(3),
+                    rs.getInt(4),
+                    rs.getString(5).substring(0,5),
+                    rs.getInt(6),
+                    rs.getBoolean(7))
+            );
+        }
+
+        ps.close();
         return outputList;
     }
 
@@ -99,6 +153,7 @@ public class ScreeningTimeDAO {
         ps.setInt(5, screeningTime.getStoreID());
         ps.setString(6, screeningTime.getFilmId() + "");
         ps.executeUpdate();
+        ps.close();
     }
 
     public void deleteScreeningTime(String id, String filmid, int storeid) throws SQLException{
@@ -107,5 +162,15 @@ public class ScreeningTimeDAO {
         ps.setString(2, filmid + "");
         ps.setInt(3, storeid);
         ps.executeUpdate();
+        ps.close();
+    }
+
+    public void retrieveScreeningTime(String id, String filmid, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("UPDATE screeningtime set status = true where id = ? and filmid = ? and storeid = ?");
+        ps.setString(1, id + "");
+        ps.setString(2, filmid + "");
+        ps.setInt(3, storeid);
+        ps.executeUpdate();
+        ps.close();
     }
 }

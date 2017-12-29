@@ -15,15 +15,10 @@
         <br><br>
 
         <!-- Forms -->
-        <form action="/admin/film/edit" method="post" enctype="multipart/form-data">
+        <form action="/admin/film/edit" method="post" enctype="multipart/form-data" onsubmit="return confirm('Are You Sure?');">
             <div class="row">
                 <div class="col-lg-6" id="form1">
                     <h2>Data Film</h2><br>
-
-                    <div class="form-group">
-                        <label for="file">Cover:</label>
-                        <input type="file" class="form-control" id="file" name="file" value="${film.cover}">
-                    </div>
 
                     <div class="form-group">
                         <label for="nama">Nama:</label>
@@ -88,6 +83,11 @@
                     <div class="form-group">
                         <label for="sinopsis">Sinopsis:</label>
                         <textarea class="form-control" rows="10" id="sinopsis" name="sinopsis" required>${film.sinopsis}</textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="file">Cover:</label>
+                        <input type="file" class="form-control" id="file" name="file" accept=".jpg, .png" value="${film.cover}">
                     </div>
                 </div>
 

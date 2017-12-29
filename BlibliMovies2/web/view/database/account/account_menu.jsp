@@ -35,7 +35,7 @@
                                  </c:forEach>
                              </td>
                             <td><a <c:out value='href=/admin/account/edit?id=${accounts.username}'></c:out>>Edit</a></td>
-                            <td><a <c:out value='href=/admin/account/delete?id=${accounts.username}'></c:out>>Delete</a></td>
+                            <td><a href=/admin/account/delete?id=${accounts.username}>${accounts.status ? "Delete" : "Retrieve"}</a></td>
                         </tr>
                     </c:forEach>
                 </tbody>

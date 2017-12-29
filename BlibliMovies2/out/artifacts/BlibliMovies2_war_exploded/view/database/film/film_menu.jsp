@@ -42,7 +42,7 @@
                         </td>
                         <td><c:out value="${films.director}"></c:out></td>
                         <td><a <c:out value='href=/admin/film/edit?id=${films.id}'></c:out>>Edit</a></td>
-                        <td><a <c:out value='href=/admin/film/delete?id=${films.id}'></c:out>>Delete</a></td>
+                        <td><a <c:out value='href=/admin/film/delete?id=${films.id}'></c:out>>${films.status ? "Delete" : "Retrieve"}</a></td>
                         <td><a <c:out value='href=/admin/film/detail?id=${films.id}'></c:out>>Detail</a></td>
                     </tr>
                     </c:forEach>

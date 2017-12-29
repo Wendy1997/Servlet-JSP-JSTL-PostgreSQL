@@ -31,6 +31,29 @@ public class PromoDAO {
     }
 
     public Promo getPromo(String id, int storeid) throws SQLException {
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM promo where id = ? and storeid = ?");
+        ps.setString(1, id);
+        ps.setInt(2, storeid);
+
+        ResultSet rs = ps.executeQuery();
+
+        Promo output;
+        if(rs.next()){
+            output = new Promo(rs.getInt(1),
+                    rs.getInt(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                    rs.getBoolean(5),
+                    rs.getInt(6));
+        } else{
+            output = null;
+        }
+
+        ps.close();
+        return output;
+    }
+
+    public Promo getPromoTrue(String id, int storeid) throws SQLException {
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM promo where id = ? and storeid = ? and status = true");
         ps.setString(1, id);
         ps.setInt(2, storeid);
@@ -48,10 +71,34 @@ public class PromoDAO {
         } else{
             output = null;
         }
+
+        ps.close();
         return output;
     }
 
     public Promo getPromo(int storeid) throws SQLException {
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM promo where storeid = ?");
+        ps.setInt(1, storeid);
+
+        ResultSet rs = ps.executeQuery();
+
+        Promo output;
+        if(rs.next()){
+            output = new Promo(rs.getInt(1),
+                    rs.getInt(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                    rs.getBoolean(5),
+                    rs.getInt(6));
+        } else{
+            output = null;
+        }
+
+        ps.close();
+        return output;
+    }
+
+    public Promo getPromoTrue(int storeid) throws SQLException {
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM promo where storeid = ? and status = true");
         ps.setInt(1, storeid);
 
@@ -68,6 +115,8 @@ public class PromoDAO {
         } else{
             output = null;
         }
+
+        ps.close();
         return output;
     }
 }

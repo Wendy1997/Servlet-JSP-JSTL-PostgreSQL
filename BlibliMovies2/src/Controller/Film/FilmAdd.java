@@ -51,7 +51,7 @@ public class FilmAdd extends HttpServlet {
         }
 
         try{
-            List<FilmGenre> filmGenreList = filmService.getAllFilmGenre((int)request.getSession().getAttribute("storeid"));
+            List<FilmGenre> filmGenreList = filmService.getAllFilmGenreTrue((int)request.getSession().getAttribute("storeid"));
             request.setAttribute("genre", filmGenreList);
         }catch (SQLException e){
             e.printStackTrace();
@@ -111,7 +111,7 @@ public class FilmAdd extends HttpServlet {
 
             request.getRequestDispatcher(address).forward(request,response);
         } catch (Exception e){
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 

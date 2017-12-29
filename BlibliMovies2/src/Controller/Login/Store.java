@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet("/")
+@WebServlet("/index")
 public class Store extends HttpServlet {
     StoreAccountService storeAccountService = new StoreAccountServiceDatabase();
 
@@ -61,7 +61,7 @@ public class Store extends HttpServlet {
         try {
             StoreAccount store = storeAccountService.getStoreAccount(request.getParameter("username"));
             if(store != null){
-                if(store.getPassword().equals(request.getParameter("password"))) {
+                if(store.getPassword().equals(request.getParameter("password").hashCode() + "")) {
                     request.getSession().setAttribute("storeid", store.getID());
                     request.getSession().setAttribute("storename", store.getNama());
 

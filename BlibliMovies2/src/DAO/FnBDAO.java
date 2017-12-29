@@ -35,6 +35,32 @@ public class FnBDAO {
     }
 
     public FnB getFnB(String fnb, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM foodandbeverages where id = ? and storeid = ?");
+        ps.setString(1, fnb);
+        ps.setInt(2, storeid);
+
+        ResultSet rs = ps.executeQuery();
+
+        FnB output;
+        if(rs.next()){
+            output = new FnB(rs.getInt(1),
+                    rs.getInt(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                    rs.getInt(5),
+                    rs.getInt(6),
+                    rs.getInt(7),
+                    rs.getBoolean(8)
+            );
+        } else{
+            output = null;
+        }
+
+        ps.close();
+        return output;
+    }
+
+    public FnB getFnBTrue(String fnb, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM foodandbeverages where id = ? and storeid = ? and status = true");
         ps.setString(1, fnb);
         ps.setInt(2, storeid);
@@ -49,16 +75,19 @@ public class FnBDAO {
                     rs.getString(4),
                     rs.getInt(5),
                     rs.getInt(6),
-                    rs.getInt(7)
+                    rs.getInt(7),
+                    rs.getBoolean(8)
             );
         } else{
             output = null;
         }
+
+        ps.close();
         return output;
     }
 
     public List<FnB> getAllFnB(int storeid) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM foodandbeverages where storeid = ? and status = true");
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM foodandbeverages where storeid = ? ORDER BY id");
         ps.setInt(1, storeid);
 
         ResultSet rs = ps.executeQuery();
@@ -71,9 +100,35 @@ public class FnBDAO {
                     rs.getString(4),
                     rs.getInt(5),
                     rs.getInt(6),
-                    rs.getInt(7)
+                    rs.getInt(7),
+                    rs.getBoolean(8)
             ));
         }
+
+        ps.close();
+        return fnbs;
+    }
+
+    public List<FnB> getAllFnBTrue(int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM foodandbeverages where storeid = ? and status = true ORDER BY id");
+        ps.setInt(1, storeid);
+
+        ResultSet rs = ps.executeQuery();
+
+        List<FnB> fnbs = new ArrayList<FnB>();
+        while(rs.next()){
+            fnbs.add(new FnB(rs.getInt(1),
+                    rs.getInt(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                    rs.getInt(5),
+                    rs.getInt(6),
+                    rs.getInt(7),
+                    rs.getBoolean(8)
+            ));
+        }
+
+        ps.close();
         return fnbs;
     }
 
@@ -89,6 +144,7 @@ public class FnBDAO {
         ps.setInt(6, fnb.getPrice());
 
         ps.executeUpdate();
+        ps.close();
     }
 
     public void deleteFnB(String id, int storeid) throws SQLException{
@@ -96,6 +152,15 @@ public class FnBDAO {
         ps.setString(1, id);
         ps.setInt(2, storeid);
         ps.executeUpdate();
+        ps.close();
+    }
+
+    public void retrieveFnB(String id, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("UPDATE foodandbeverages set status = true where id = ? AND storeid = ?");
+        ps.setString(1, id);
+        ps.setInt(2, storeid);
+        ps.executeUpdate();
+        ps.close();
     }
 
     public void updateFnB(FnB fnb) throws SQLException{
@@ -110,6 +175,7 @@ public class FnBDAO {
         ps.setInt(7, fnb.getStoreID());
 
         ps.executeUpdate();
+        ps.close();
     }
 
 }

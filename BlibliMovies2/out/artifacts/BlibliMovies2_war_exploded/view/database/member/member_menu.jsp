@@ -41,7 +41,7 @@
                             <td><c:out value="${memberCards.phoneNumber}"></c:out></td>
                             <td><c:out value="${memberCards.email}"></c:out></td>
                             <td><a <c:out value='href=/admin/membercard/edit?id=${memberCards.id}'></c:out>>Edit</a></td>
-                            <td><a <c:out value='href=/admin/membercard/delete?id=${memberCards.id}'></c:out>>Delete</a></td>
+                            <td><a <c:out value='href=/admin/membercard/delete?id=${memberCards.id}'></c:out>>${memberCards.status ? "Delete" : "Retrieve"}</a></td>
                         </tr>
                     </c:forEach>
                 </tbody>

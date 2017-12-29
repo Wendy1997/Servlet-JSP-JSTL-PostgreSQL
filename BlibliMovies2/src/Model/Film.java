@@ -18,7 +18,27 @@ public class Film {
     private String subtitle;
     private String actor;
     private String sinopsis;
+    private boolean status;
     private List<ScreeningTime> screeningTimes;
+
+    public Film(int id, int storeid, String cover, String title, int genreid, int duration, String director, double rating, int reviewTotal, String startTime, String endTime, String language, String subtitle, String actor, String sinopsis, boolean status) {
+        this.id = id;
+        this.storeid = storeid;
+        this.cover = cover;
+        this.title = title;
+        this.genreid = genreid;
+        this.duration = duration;
+        this.director = director;
+        this.rating = rating;
+        this.reviewTotal = reviewTotal;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.language = language;
+        this.subtitle = subtitle;
+        this.actor = actor;
+        this.sinopsis = sinopsis;
+        this.status = status;
+    }
 
     public Film(int storeid, String cover, String title, int genreid, int duration, String director, double rating, int reviewTotal, String startTime, String endTime, String language, String subtitle, String actor, String sinopsis) {
         this.storeid = storeid;
@@ -53,6 +73,10 @@ public class Film {
         this.subtitle = subtitle;
         this.actor = actor;
         this.sinopsis = sinopsis;
+    }
+
+    public Film(){
+
     }
 
     public int getId() {
@@ -181,5 +205,13 @@ public class Film {
 
     public void setScreeningTimes(List<ScreeningTime> screeningTimes){
         this.screeningTimes = screeningTimes;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }

@@ -29,7 +29,7 @@
                             <td scope="row"><c:out value="${genre.id}"></c:out></td>
                             <td><c:out value="${genre.genre}"></c:out></td>
                             <td><a <c:out value='href=/admin/filmgenre/edit?id=${genre.id}'></c:out>>Edit</a></td>
-                            <td><a <c:out value='href=/admin/filmgenre/delete?id=${genre.id}'></c:out>>Delete</a></td>
+                            <td><a <c:out value='href=/admin/filmgenre/delete?id=${genre.id}'></c:out>>${genre.status ? "Delete" : "Retrieve"}</a></td>
                         </tr>
                     </c:forEach>
                 </tbody>

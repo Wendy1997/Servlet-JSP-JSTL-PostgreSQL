@@ -33,6 +33,24 @@ public class AccountRoleDAO {
     }
 
     public AccountRole getAccountRole(int id, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM accountRole where id = ? and storeid = ?");
+        ps.setInt(1, id);
+        ps.setInt(2, storeid);
+
+        ResultSet rs = ps.executeQuery();
+
+        AccountRole output;
+        if(rs.next()){
+            output = new AccountRole(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4));
+        } else{
+            output = null;
+        }
+
+        ps.close();
+        return output;
+    }
+
+    public AccountRole getAccountRoleTrue(int id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM accountRole where id = ? and storeid = ? and status = true");
         ps.setInt(1, id);
         ps.setInt(2, storeid);
@@ -41,22 +59,40 @@ public class AccountRoleDAO {
 
         AccountRole output;
         if(rs.next()){
-            output = new AccountRole(rs.getInt(1), rs.getString(2), rs.getInt(3));
+            output = new AccountRole(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4));
         } else{
             output = null;
         }
+
+        ps.close();
         return output;
     }
 
     public List<AccountRole> getAllAccountRole(int storeid) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM accountRole where storeid = ? and status = true");
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM accountRole where storeid = ? ORDER BY id");
         ps.setInt(1, storeid);
         ResultSet rs = ps.executeQuery();
 
         List<AccountRole> accountRoles = new ArrayList<AccountRole>();
         while(rs.next()){
-            accountRoles.add(new AccountRole(rs.getInt(1), rs.getString(2), rs.getInt(3)));
+            accountRoles.add(new AccountRole(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4)));
         }
+
+        ps.close();
+        return accountRoles;
+    }
+
+    public List<AccountRole> getAllAccountRoleTrue(int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM accountRole where storeid = ? and status = true ORDER BY id");
+        ps.setInt(1, storeid);
+        ResultSet rs = ps.executeQuery();
+
+        List<AccountRole> accountRoles = new ArrayList<AccountRole>();
+        while(rs.next()){
+            accountRoles.add(new AccountRole(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4)));
+        }
+
+        ps.close();
         return accountRoles;
     }
 
@@ -65,6 +101,7 @@ public class AccountRoleDAO {
         ps.setInt(1, accountRole.getStoreID());
         ps.setString(2, accountRole.getRole());
         ps.executeUpdate();
+        ps.close();
     }
 
     public void deleteAccountRole(String accountRole, int storeid) throws SQLException{
@@ -72,6 +109,15 @@ public class AccountRoleDAO {
         ps.setString(1, accountRole);
         ps.setInt(2, storeid);
         ps.executeUpdate();
+        ps.close();
+    }
+
+    public void retrieveAccountRole(String accountRole, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("UPDATE accountRole set status = true where id = ? and storeid = ?");
+        ps.setString(1, accountRole);
+        ps.setInt(2, storeid);
+        ps.executeUpdate();
+        ps.close();
     }
 
     public void updateAccountRole(AccountRole accountRole) throws SQLException{
@@ -80,5 +126,6 @@ public class AccountRoleDAO {
         ps.setInt(2, accountRole.getId());
         ps.setInt(3, accountRole.getStoreID());
         ps.executeUpdate();
+        ps.close();
     }
 }

@@ -33,6 +33,24 @@ public class MemberGenderDAO {
     }
 
     public MemberGender getMemberGender(String id, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM memberGender where id = ? and storeid = ?");
+        ps.setString(1, id);
+        ps.setInt(2, storeid);
+
+        ResultSet rs = ps.executeQuery();
+
+        MemberGender output;
+        if(rs.next()){
+            output = new MemberGender(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4));
+        } else{
+            output = null;
+        }
+
+        ps.close();
+        return output;
+    }
+
+    public MemberGender getMemberGenderTrue(String id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM memberGender where id = ? and storeid = ? and status = true");
         ps.setString(1, id);
         ps.setInt(2, storeid);
@@ -41,22 +59,41 @@ public class MemberGenderDAO {
 
         MemberGender output;
         if(rs.next()){
-            output = new MemberGender(rs.getInt(1), rs.getString(2), rs.getInt(3));
+            output = new MemberGender(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4));
         } else{
             output = null;
         }
+
+        ps.close();
         return output;
     }
 
+
     public List<MemberGender> getAllMemberGender(int storeid) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM memberGender where storeid = ? and status = true");
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM memberGender where storeid = ? ORDER BY id");
         ps.setInt(1, storeid);
         ResultSet rs = ps.executeQuery();
 
         List<MemberGender> memberGenders = new ArrayList<MemberGender>();
         while(rs.next()){
-            memberGenders.add(new MemberGender(rs.getInt(1), rs.getString(2), rs.getInt(3)));
+            memberGenders.add(new MemberGender(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4)));
         }
+
+        ps.close();
+        return memberGenders;
+    }
+
+    public List<MemberGender> getAllMemberGenderTrue(int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM memberGender where storeid = ? and status = true ORDER BY id");
+        ps.setInt(1, storeid);
+        ResultSet rs = ps.executeQuery();
+
+        List<MemberGender> memberGenders = new ArrayList<MemberGender>();
+        while(rs.next()){
+            memberGenders.add(new MemberGender(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4)));
+        }
+
+        ps.close();
         return memberGenders;
     }
 
@@ -65,6 +102,7 @@ public class MemberGenderDAO {
         ps.setInt(1, memberGender.getStoreID());
         ps.setString(2, memberGender.getGender());
         ps.executeUpdate();
+        ps.close();
     }
 
     public void deleteMemberGender(String memberGender, int storeid) throws SQLException{
@@ -72,6 +110,15 @@ public class MemberGenderDAO {
         ps.setString(1, memberGender);
         ps.setInt(2, storeid);
         ps.executeUpdate();
+        ps.close();
+    }
+
+    public void retrieveMemberGender(String memberGender, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("UPDATE memberGender set status = true where id = ? and storeid = ?");
+        ps.setString(1, memberGender);
+        ps.setInt(2, storeid);
+        ps.executeUpdate();
+        ps.close();
     }
 
     public void updateMemberGender(MemberGender memberGender) throws SQLException{
@@ -80,5 +127,6 @@ public class MemberGenderDAO {
         ps.setInt(2, memberGender.getId());
         ps.setInt(3, memberGender.getStoreID());
         ps.executeUpdate();
+        ps.close();
     }
 }

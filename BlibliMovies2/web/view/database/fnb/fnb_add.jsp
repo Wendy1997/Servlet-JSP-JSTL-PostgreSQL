@@ -15,15 +15,10 @@
         <br><br>
 
         <!-- Forms -->
-        <form action="/admin/fnb/add" method="post" enctype="multipart/form-data">
+        <form action="/admin/fnb/add" method="post" enctype="multipart/form-data" onsubmit="return confirm('Are You Sure?');">
             <div class="row">
                 <div class="col-lg-6" id="form1">
                     <h2>Data Food and Beverages</h2><br>
-
-                    <div class="form-group">
-                        <label for="file">Cover:</label>
-                        <input type="file" class="form-control" id="file" name="file" required>
-                    </div>
 
                     <div class="form-group">
                         <label for="name">Nama:</label>
@@ -45,7 +40,7 @@
                         <select class="form-control" id="size" name="size" required>
                             <option disabled selected value> -- pilih Jenis -- </option>
                             <c:forEach items="${size}" var="size">
-                                <option value="${size.size}">${size.size}</option>
+                                <option value="${size.id}">${size.size}</option>
                             </c:forEach>
                         </select>
                     </div>
@@ -53,6 +48,11 @@
                     <div class="form-group">
                         <label for="price">Harga:</label>
                         <input type="number" class="form-control" id="price" name="price" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="file">Cover:</label>
+                        <input type="file" class="form-control" id="file" name="file" accept=".jpg, .png" required>
                     </div>
 
                     <button type="submit" class="btn btn-default">Submit ></button>

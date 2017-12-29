@@ -50,8 +50,8 @@ public class FnBAdd extends HttpServlet{
         }
 
         try{
-            List<FnBSize> fnBSizeList = fnbDAO.getAllFnBSize((int)request.getSession().getAttribute("storeid"));
-            List<FnBType> fnBTypeList = fnbDAO.getAllFnBType((int)request.getSession().getAttribute("storeid"));
+            List<FnBSize> fnBSizeList = fnbDAO.getAllFnBSizeTrue((int)request.getSession().getAttribute("storeid"));
+            List<FnBType> fnBTypeList = fnbDAO.getAllFnBTypeTrue((int)request.getSession().getAttribute("storeid"));
 
             request.setAttribute("size", fnBSizeList);
             request.setAttribute("type", fnBTypeList);

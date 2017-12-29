@@ -40,7 +40,11 @@ public class StudioDelete extends HttpServlet {
         try{
             Studio studio = studioService.getStudio(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
 
-            studioService.deleteSrudio(studio.getId() + "", (int)request.getSession().getAttribute("storeid"));
+            if(studio.isStatus()){
+                studioService.deleteSrudio(studio.getId() + "", (int)request.getSession().getAttribute("storeid"));
+            } else {
+                studioService.retrieveSrudio(studio.getId() + "", (int)request.getSession().getAttribute("storeid"));
+            }
 
             address = "/view/database/success.jsp";
             request.setAttribute("title", "Studio");

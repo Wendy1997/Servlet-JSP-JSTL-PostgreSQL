@@ -42,7 +42,7 @@ public class ChooseSeat extends HttpServlet {
         try{
 
             List<FilmTicket> filmTicketList = filmTicketService.getAllTickets(request.getParameter("id"),request.getParameter("studioid"),request.getParameter("screeningid"),(int)request.getSession().getAttribute("storeid"));
-            Film film = filmService.getFilm(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
+            Film film = filmService.getFilmTrue(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
             request.setAttribute("filmid", request.getParameter("id"));
             request.setAttribute("studioid", request.getParameter("studioid"));
             request.setAttribute("screeningid", request.getParameter("screeningid"));

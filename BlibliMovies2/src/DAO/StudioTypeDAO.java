@@ -30,6 +30,24 @@ public class StudioTypeDAO {
     }
 
     public StudioType getStudioType(String id, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM studioType where id = ? and storeid = ?");
+        ps.setInt(1, Integer.parseInt(id));
+        ps.setInt(2, storeid);
+
+        ResultSet rs = ps.executeQuery();
+
+        StudioType output;
+        if(rs.next()){
+            output = new StudioType(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4));
+        } else{
+            output = null;
+        }
+
+        ps.close();
+        return output;
+    }
+
+    public StudioType getStudioTypeTrue(String id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM studioType where id = ? and storeid = ? and status = true");
         ps.setInt(1, Integer.parseInt(id));
         ps.setInt(2, storeid);
@@ -38,22 +56,40 @@ public class StudioTypeDAO {
 
         StudioType output;
         if(rs.next()){
-            output = new StudioType(rs.getInt(1), rs.getString(2), rs.getInt(3));
+            output = new StudioType(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4));
         } else{
             output = null;
         }
+
+        ps.close();
         return output;
     }
 
     public List<StudioType> getAllStudioType(int storeid) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM studioType where storeid = ? and status = true");
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM studioType where storeid = ? ORDER BY id");
         ps.setInt(1, storeid);
         ResultSet rs = ps.executeQuery();
 
         List<StudioType> studioTypes = new ArrayList<StudioType>();
         while(rs.next()){
-            studioTypes.add(new StudioType(rs.getInt(1), rs.getString(2), rs.getInt(3)));
+            studioTypes.add(new StudioType(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4)));
         }
+
+        ps.close();
+        return studioTypes;
+    }
+
+    public List<StudioType> getAllStudioTypeTrue(int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM studioType where storeid = ? and status = true ORDER BY id");
+        ps.setInt(1, storeid);
+        ResultSet rs = ps.executeQuery();
+
+        List<StudioType> studioTypes = new ArrayList<StudioType>();
+        while(rs.next()){
+            studioTypes.add(new StudioType(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4)));
+        }
+
+        ps.close();
         return studioTypes;
     }
 
@@ -62,6 +98,7 @@ public class StudioTypeDAO {
         ps.setInt(1, studioType.getStoreID());
         ps.setString(2, studioType.getType());
         ps.executeUpdate();
+        ps.close();
     }
 
     public void deleteStudioType(String studioType, int storeid) throws SQLException{
@@ -69,6 +106,15 @@ public class StudioTypeDAO {
         ps.setInt(1, Integer.parseInt(studioType));
         ps.setInt(2, storeid);
         ps.executeUpdate();
+        ps.close();
+    }
+
+    public void retrieveStudioType(String studioType, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("UPDATE studioType set status = true where id = ? and storeid = ?");
+        ps.setInt(1, Integer.parseInt(studioType));
+        ps.setInt(2, storeid);
+        ps.executeUpdate();
+        ps.close();
     }
 
     public void updateStudioType(StudioType studioType) throws SQLException{
@@ -77,5 +123,6 @@ public class StudioTypeDAO {
         ps.setInt(2, studioType.getId());
         ps.setInt(3, studioType.getStoreID());
         ps.executeUpdate();
+        ps.close();
     }
 }

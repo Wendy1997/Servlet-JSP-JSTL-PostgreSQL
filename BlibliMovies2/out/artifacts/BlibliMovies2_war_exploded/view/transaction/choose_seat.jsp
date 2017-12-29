@@ -141,18 +141,21 @@
                 }
             }
         });
+
         $('#accept').click(function () {
-            $.ajax({
-              type: 'POST',
-              url: "/cashier/seat",
-                dataType: "JSON",
-              data: {tickets: listTicket.toString(),
-                  filmid: ${filmid},
-                  screeningid: ${screeningid},
-                  studioid: ${studioid}
-              },
-                success: window.location.href = "/cashier/fnb?film=" + ${filmid} + "&screeningid=" + ${screeningid} + "&studioid=" + ${studioid} + "&ticketQuantity=" + listTicket.length
-           });
+            if(confirm("Are you sure?")){
+                $.ajax({
+                    type: 'POST',
+                    url: "/cashier/seat",
+                    dataType: "JSON",
+                    data: {tickets: listTicket.toString(),
+                        filmid: ${filmid},
+                        screeningid: ${screeningid},
+                        studioid: ${studioid}
+                    },
+                    success: window.location.href = "/cashier/fnb?film=" + ${filmid} + "&screeningid=" + ${screeningid} + "&studioid=" + ${studioid} + "&ticketQuantity=" + listTicket.length
+                });
+            }
         });
     });
 </script>
