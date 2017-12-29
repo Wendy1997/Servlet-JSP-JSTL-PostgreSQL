@@ -47,13 +47,14 @@ public class FnBTypeDelete extends HttpServlet {
 
             if(fnbType.isStatus()){
                 fnbService.deleteFnBType(fnbType.getId() + "", (int)request.getSession().getAttribute("storeid"));
+                request.setAttribute("complete", "Deleted");
             } else {
                 fnbService.retrieveFnBType(fnbType.getId() + "", (int)request.getSession().getAttribute("storeid"));
+                request.setAttribute("complete", "Retrieved");
             }
 
             address = "/view/database/success.jsp";
             request.setAttribute("title", "FnB Type");
-            request.setAttribute("complete", "Deleted");
             request.setAttribute("link", "/admin/fnbtype");
 
             request.getRequestDispatcher(address).forward(request, response);

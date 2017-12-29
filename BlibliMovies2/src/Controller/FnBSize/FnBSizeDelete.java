@@ -47,13 +47,14 @@ public class FnBSizeDelete extends HttpServlet {
 
             if(fnbSize.isStatus()){
                 fnbService.deleteFnBSize(fnbSize.getId() + "", (int)request.getSession().getAttribute("storeid"));
+                request.setAttribute("complete", "Deleted");
             } else {
                 fnbService.retrieveFnBSize(fnbSize.getId() + "", (int)request.getSession().getAttribute("storeid"));
+                request.setAttribute("complete", "Retrieved");
             }
 
             address = "/view/database/success.jsp";
             request.setAttribute("title", "FnB Size");
-            request.setAttribute("complete", "Deleted");
             request.setAttribute("link", "/admin/fnbsize");
 
             request.getRequestDispatcher(address).forward(request, response);
