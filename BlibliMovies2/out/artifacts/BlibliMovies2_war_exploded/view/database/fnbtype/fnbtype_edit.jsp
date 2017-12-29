@@ -15,7 +15,7 @@
         <br><br>
 
         <!-- Forms -->
-        <form action="/admin/fnbtype/edit" method="post">
+        <form action="/admin/fnbtype/edit" method="post" onsubmit="return confirm('Are You Sure?');">
             <div class="row">
                 <div class="col-lg-6" id="form1">
                     <h2>Data Type</h2><br>

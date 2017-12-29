@@ -15,7 +15,7 @@
         <br><br>
 
         <!-- Forms -->
-        <form action="/admin/fnb/add" method="post" enctype="multipart/form-data">
+        <form action="/admin/fnb/add" method="post" enctype="multipart/form-data" onsubmit="return confirm('Are You Sure?');">
             <div class="row">
                 <div class="col-lg-6" id="form1">
                     <h2>Data Food and Beverages</h2><br>
@@ -40,7 +40,7 @@
                         <select class="form-control" id="size" name="size" required>
                             <option disabled selected value> -- pilih Jenis -- </option>
                             <c:forEach items="${size}" var="size">
-                                <option value="${size.size}">${size.size}</option>
+                                <option value="${size.id}">${size.size}</option>
                             </c:forEach>
                         </select>
                     </div>

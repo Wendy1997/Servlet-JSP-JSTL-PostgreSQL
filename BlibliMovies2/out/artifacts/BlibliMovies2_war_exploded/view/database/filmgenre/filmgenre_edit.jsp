@@ -15,7 +15,7 @@
         <br><br>
 
         <!-- Forms -->
-        <form action="/admin/filmgenre/edit" method="post">
+        <form action="/admin/filmgenre/edit" method="post" onsubmit="return confirm('Are You Sure?');">
             <div class="row">
                 <div class="col-lg-6" id="form1">
                     <h2>Data Genre</h2><br>

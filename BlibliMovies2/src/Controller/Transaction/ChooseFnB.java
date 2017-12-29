@@ -76,8 +76,6 @@ public class ChooseFnB extends HttpServlet{
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
             LocalDateTime now = LocalDateTime.now();
 
-            System.out.println(request.getParameter("member"));
-
             if(!(request.getParameter("member") == "")){
 
                 member = Integer.parseInt(request.getParameter("member"));
@@ -118,7 +116,7 @@ public class ChooseFnB extends HttpServlet{
 
             } else {
 
-                Invoice invoice = new Invoice((int)request.getSession().getAttribute("username") ,(int)request.getSession().getAttribute("storeid"), dtf.format(now), Integer.parseInt(request.getParameter("totalHarga")));
+                Invoice invoice = new Invoice((int)request.getSession().getAttribute("userid") ,(int)request.getSession().getAttribute("storeid"), dtf.format(now), Integer.parseInt(request.getParameter("totalHarga")));
                 invoiceService.addInvoice(invoice);
 
                 int id = invoiceService.getInvoice(invoice).getId();

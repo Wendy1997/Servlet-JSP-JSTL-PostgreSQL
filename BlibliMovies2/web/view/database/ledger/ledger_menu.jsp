@@ -34,6 +34,7 @@
                             <th>Member</th>
                             <th>Cashier</th>
                             <th>Total Price</th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody id="day-content"></tbody>
@@ -60,6 +61,7 @@
                             <th>Member</th>
                             <th>Cashier</th>
                             <th>Total Price</th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody id="week-content"></tbody>
@@ -86,6 +88,7 @@
                             <th>Member</th>
                             <th>Cashier</th>
                             <th>Total Price</th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody id="month-content"></tbody>
@@ -112,6 +115,7 @@
                             <th>Member</th>
                             <th>Cashier</th>
                             <th>Total Price</th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody id="year-content"></tbody>
@@ -194,6 +198,7 @@
                             "<td>" + response[key].memberId + "</td>\n" +
                             "<td>" + response[key].accountUsername + "</td>\n" +
                             "<td>" + response[key].totalPrice + "</td>\n" +
+                            "<td><a href='/admin/invoice/detail?id=" + response[key].id + "'>Detail</td>\n" +
                             "</tr>\n";
                         income += parseFloat(response[key].totalPrice);
                     }
@@ -236,6 +241,7 @@
                             "<td>" + response[key].memberId + "</td>\n" +
                             "<td>" + response[key].accountUsername + "</td>\n" +
                             "<td>" + response[key].totalPrice + "</td>\n" +
+                            "<td><a href='/admin/invoice/detail?id=" + response[key].id + "'>Detail</td>\n" +
                             "</tr>\n";
                         income += parseFloat(response[key].totalPrice);
                     }
@@ -278,6 +284,7 @@
                             "<td>" + response[key].memberId + "</td>\n" +
                             "<td>" + response[key].accountUsername + "</td>\n" +
                             "<td>" + response[key].totalPrice + "</td>\n" +
+                            "<td><a href='/admin/invoice/detail?id=" + response[key].id + "'>Detail</td>\n" +
                             "</tr>\n";
                         income += parseFloat(response[key].totalPrice);
                     }
@@ -320,6 +327,7 @@
                             "<td>" + response[key].memberId + "</td>\n" +
                             "<td>" + response[key].accountUsername + "</td>\n" +
                             "<td>" + response[key].totalPrice + "</td>\n" +
+                            "<td><a href='/admin/invoice/detail?id=" + response[key].id + "'>Detail</td>\n" +
                             "</tr>\n";
                         income += parseFloat(response[key].totalPrice);
                     }

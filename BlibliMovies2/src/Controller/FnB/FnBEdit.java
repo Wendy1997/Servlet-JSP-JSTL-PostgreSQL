@@ -82,7 +82,7 @@ public class FnBEdit extends HttpServlet{
                 for(int i = 0; i < pathList.length - 3; i++){
                     uploadFilePath += pathList[i] + "\\";
                 }
-                uploadFilePath += UPLOAD_DIR + "\\" + (int)request.getSession().getAttribute("storeid") + "\\film";
+                uploadFilePath += UPLOAD_DIR + "\\" + (int)request.getSession().getAttribute("storeid") + "\\fnb";
 
                 File fileLama = new File(uploadFilePath + "\\" + randomList[3]);
                 fileLama.delete();
@@ -97,12 +97,12 @@ public class FnBEdit extends HttpServlet{
 
                 Part part = request.getPart("file");
                 fileName = getFileName(part);
-                part.write(uploadFilePath + "\\" + request.getParameter("nama") + " (" + request.getParameter("waktu_mulai").substring(0,4) + ") [" + random + "].jpg");
+                part.write(uploadFilePath + "\\" + request.getParameter("name") + " (" + request.getParameter("size") + ") [" + random + "].jpg");
                 randomNumber = random;
                 fnb = new FnB(
                         Integer.parseInt(request.getParameter("id")),
                         (int)request.getSession().getAttribute("storeid"),
-                        "/" + (int)request.getSession().getAttribute("storeid") + "/film/" + request.getParameter("name") + " (" + request.getParameter("size") + ") [" + randomNumber + "].jpg",
+                        "/" + (int)request.getSession().getAttribute("storeid") + "/fnb/" + request.getParameter("name") + " (" + request.getParameter("size") + ") [" + randomNumber + "].jpg",
                         request.getParameter("name"),
                         Integer.parseInt(request.getParameter("type")),
                         Integer.parseInt(request.getParameter("size")),
@@ -128,7 +128,7 @@ public class FnBEdit extends HttpServlet{
             request.getRequestDispatcher(address).forward(request, response);
 
         } catch (Exception e){
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 
