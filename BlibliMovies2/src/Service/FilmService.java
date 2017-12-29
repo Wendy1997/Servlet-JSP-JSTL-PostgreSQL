@@ -14,6 +14,7 @@ public interface FilmService {
     List<Film> getAllFilmTrue(int storeid) throws SQLException;
     void addFilm(Film film) throws SQLException;
     void deleteFilm(String id, int storeid) throws SQLException;
+    void retrieveFilm(String id, int storeid) throws SQLException;
     void updateFilm(Film film) throws SQLException;
 
     List<Studio> getAllStudio(int storeid) throws SQLException;
@@ -23,6 +24,7 @@ public interface FilmService {
     void addStudio(Studio studio) throws SQLException;
     void updateStudio(Studio studio) throws SQLException;
     void deleteSrudio(String id, int storeid) throws SQLException;
+    void retrieveSrudio(String id, int storeid) throws SQLException;
 
     void addScreeningTime (ScreeningTime screeningTime) throws SQLException;
     List<ScreeningTime> getAllScreeningTime (int storeid, String filmid) throws SQLException;
@@ -31,6 +33,7 @@ public interface FilmService {
     ScreeningTime getScreeningTimeTrue(String id, String filmId, int storeid) throws SQLException;
     void updateScreeningTime(ScreeningTime screeningTime) throws SQLException;
     void deleteScreeningTime(String id, String filmid, int storeid) throws SQLException;
+    void retrieveScreeningTime(String id, String filmid, int storeid) throws SQLException;
 
     FilmGenre getFilmGenre(String id, int storeid) throws SQLException;
     FilmGenre getFilmGenreTrue(String id, int storeid) throws SQLException;
@@ -38,6 +41,7 @@ public interface FilmService {
     List<FilmGenre> getAllFilmGenreTrue(int storeid) throws SQLException;
     void addFilmGenre(FilmGenre filmGenre) throws SQLException;
     void deleteFilmGenre(String filmGenre, int storeid) throws SQLException;
+    void retrieveFilmGenre(String filmGenre, int storeid) throws SQLException;
     void updateFilmGenre(FilmGenre filmGenre) throws SQLException;
 
     StudioType getStudioType(String id, int storeid) throws SQLException;
@@ -46,6 +50,7 @@ public interface FilmService {
     List<StudioType> getAllStudioTypeTrue(int storeid) throws SQLException;
     void addStudioType(StudioType studioType) throws SQLException;
     void deleteStudioType(String studioType, int storeid) throws SQLException;
+    void retrieveStudioType(String studioType, int storeid) throws SQLException;
     void updateStudioType(StudioType studioType) throws SQLException;
 
 }

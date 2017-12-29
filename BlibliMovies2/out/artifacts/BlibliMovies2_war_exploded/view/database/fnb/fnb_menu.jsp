@@ -48,7 +48,7 @@
                             </td>
                             <td><c:out value="${fnbs.price}"></c:out></td>
                             <td><a <c:out value='href=/admin/fnb/edit?id=${fnbs.id}'></c:out>>Edit</a></td>
-                            <td><a <c:out value='href=/admin/fnb/delete?id=${fnbs.id}'></c:out>>Delete</a></td>
+                            <td><a <c:out value='href=/admin/fnb/delete?id=${fnbs.id}'></c:out>>${fnbs.status ? "Delete" : "Retrieve"}</a></td>
                         </tr>
                     </c:forEach>
                 </tbody>

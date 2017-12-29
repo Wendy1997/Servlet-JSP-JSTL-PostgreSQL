@@ -46,6 +46,11 @@ public class FnBServiceDatabase implements FnBService {
     }
 
     @Override
+    public void retrieveFnB(String id, int storeid) throws SQLException {
+        fnbDAO.retrieveFnB(id, storeid);
+    }
+
+    @Override
     public void updateFnB(FnB fnb) throws SQLException{
         fnbDAO.updateFnB(fnb);
     }
@@ -81,6 +86,11 @@ public class FnBServiceDatabase implements FnBService {
     }
 
     @Override
+    public void retrieveFnBSize(String fnBSize, int storeid) throws SQLException {
+        fnBSizeDAO.retrieveFnBSize(fnBSize, storeid);
+    }
+
+    @Override
     public void updateFnBSize(FnBSize fnBSize) throws SQLException {
         fnBSizeDAO.updateFnBSize(fnBSize);
     }
@@ -113,6 +123,11 @@ public class FnBServiceDatabase implements FnBService {
     @Override
     public void deleteFnBType(String fnBType, int storeid) throws SQLException {
         fnBTypeDAO.deleteFnBType(fnBType, storeid);
+    }
+
+    @Override
+    public void retrieveFnBType(String fnBType, int storeid) throws SQLException {
+        fnBTypeDAO.retrieveFnBType(fnBType, storeid);
     }
 
     @Override

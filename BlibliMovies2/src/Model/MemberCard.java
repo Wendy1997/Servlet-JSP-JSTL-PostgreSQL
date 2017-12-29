@@ -8,6 +8,18 @@ public class MemberCard {
     private String birthDate;
     private String phoneNumber;
     private String email;
+    private boolean status;
+
+    public MemberCard(int id, int storeid, String fullname, int gender, String birthDate, String phoneNumber, String email, boolean status) {
+        this.id = id;
+        this.storeid = storeid;
+        this.fullname = fullname;
+        this.gender = gender;
+        this.birthDate = birthDate;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.status = status;
+    }
 
     public MemberCard(int id, int storeid, String fullname, int gender, String birthDate, String phoneNumber, String email) {
         this.id = id;
@@ -82,5 +94,13 @@ public class MemberCard {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }

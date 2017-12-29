@@ -14,6 +14,7 @@ public interface MemberCardService {
     List<MemberCard> getAllMemberCardTrue(int storeid) throws SQLException;
     void addMemberCard(MemberCard memberCard) throws SQLException;
     void deleteMemberCard(String id, int storeid) throws SQLException;
+    void retrieveMemberCard(String id, int storeid) throws SQLException;
     void updateAccout(MemberCard memberCard) throws SQLException;
 
     MemberGender getMemberGender(String id, int storeid) throws SQLException;
@@ -22,6 +23,7 @@ public interface MemberCardService {
     List<MemberGender> getAllMemberGenderTrue(int storeid) throws SQLException;
     void addMemberGender(MemberGender memberGender) throws SQLException;
     void deleteMemberGender(String memberGender, int storeid) throws SQLException;
+    void retrieveMemberGender(String memberGender, int storeid) throws SQLException;
     void updateMemberGender(MemberGender memberGender) throws SQLException;
 
 }

@@ -43,6 +43,11 @@ public class MemberCardServiceDatabase implements MemberCardService{
     }
 
     @Override
+    public void retrieveMemberCard(String id, int storeid) throws SQLException {
+        memberCardDAO.retrieveMemberCard(id, storeid);
+    }
+
+    @Override
     public void updateAccout(MemberCard memberCard) throws SQLException {
         memberCardDAO.updateMemberCard(memberCard);
     }
@@ -75,6 +80,11 @@ public class MemberCardServiceDatabase implements MemberCardService{
     @Override
     public void deleteMemberGender(String memberGender, int storeid) throws SQLException {
         memberGenderDAO.deleteMemberGender(memberGender, storeid);
+    }
+
+    @Override
+    public void retrieveMemberGender(String memberGender, int storeid) throws SQLException {
+        memberGenderDAO.retrieveMemberGender(memberGender, storeid);
     }
 
     @Override

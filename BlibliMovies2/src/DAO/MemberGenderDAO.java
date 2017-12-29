@@ -41,7 +41,7 @@ public class MemberGenderDAO {
 
         MemberGender output;
         if(rs.next()){
-            output = new MemberGender(rs.getInt(1), rs.getString(2), rs.getInt(3));
+            output = new MemberGender(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4));
         } else{
             output = null;
         }
@@ -59,7 +59,7 @@ public class MemberGenderDAO {
 
         MemberGender output;
         if(rs.next()){
-            output = new MemberGender(rs.getInt(1), rs.getString(2), rs.getInt(3));
+            output = new MemberGender(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4));
         } else{
             output = null;
         }
@@ -76,7 +76,7 @@ public class MemberGenderDAO {
 
         List<MemberGender> memberGenders = new ArrayList<MemberGender>();
         while(rs.next()){
-            memberGenders.add(new MemberGender(rs.getInt(1), rs.getString(2), rs.getInt(3)));
+            memberGenders.add(new MemberGender(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4)));
         }
 
         ps.close();
@@ -90,7 +90,7 @@ public class MemberGenderDAO {
 
         List<MemberGender> memberGenders = new ArrayList<MemberGender>();
         while(rs.next()){
-            memberGenders.add(new MemberGender(rs.getInt(1), rs.getString(2), rs.getInt(3)));
+            memberGenders.add(new MemberGender(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4)));
         }
 
         ps.close();
@@ -107,6 +107,14 @@ public class MemberGenderDAO {
 
     public void deleteMemberGender(String memberGender, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE memberGender set status = false where id = ? and storeid = ?");
+        ps.setString(1, memberGender);
+        ps.setInt(2, storeid);
+        ps.executeUpdate();
+        ps.close();
+    }
+
+    public void retrieveMemberGender(String memberGender, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("UPDATE memberGender set status = true where id = ? and storeid = ?");
         ps.setString(1, memberGender);
         ps.setInt(2, storeid);
         ps.executeUpdate();

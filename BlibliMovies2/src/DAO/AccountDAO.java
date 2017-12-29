@@ -41,7 +41,7 @@ public class AccountDAO {
 
         Account output;
         if(rs.next()){
-            output = new Account(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getInt(6));
+            output = new Account(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getInt(6), rs.getBoolean(5));
         } else{
             output = null;
         }
@@ -59,7 +59,7 @@ public class AccountDAO {
 
         Account output;
         if(rs.next()){
-            output = new Account(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getInt(6));
+            output = new Account(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getInt(6), rs.getBoolean(5));
         } else{
             output = null;
         }
@@ -76,7 +76,7 @@ public class AccountDAO {
 
         List<Account> accounts = new ArrayList<Account>();
         while(rs.next()){
-            accounts.add(new Account(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getInt(6)));
+            accounts.add(new Account(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getInt(6), rs.getBoolean(5)));
         }
 
         ps.close();
@@ -91,7 +91,7 @@ public class AccountDAO {
 
         List<Account> accounts = new ArrayList<Account>();
         while(rs.next()){
-            accounts.add(new Account(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getInt(6)));
+            accounts.add(new Account(rs.getString(1), rs.getInt(2), rs.getString(3), rs.getInt(4), rs.getInt(6), rs.getBoolean(5)));
         }
 
         ps.close();
@@ -110,6 +110,14 @@ public class AccountDAO {
 
     public void deleteAccount(String account, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE account set status = false where username = ? and storeid = ?");
+        ps.setString(1, account);
+        ps.setInt(2, storeid);
+        ps.executeUpdate();
+        ps.close();
+    }
+
+    public void retrieveAccount(String account, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("UPDATE account set status = true where username = ? and storeid = ?");
         ps.setString(1, account);
         ps.setInt(2, storeid);
         ps.executeUpdate();

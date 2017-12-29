@@ -45,6 +45,11 @@ public class FilmServiceDatabase implements FilmService {
     }
 
     @Override
+    public void retrieveFilm(String id, int storeid) throws SQLException {
+        filmDAO.retrieveFilm(id, storeid);
+    }
+
+    @Override
     public void updateFilm(Film film) throws SQLException{
         filmDAO.updateFilm(film);
     }
@@ -85,8 +90,12 @@ public class FilmServiceDatabase implements FilmService {
     }
 
     @Override
-    public void addScreeningTime(ScreeningTime screeningTime) throws SQLException {
+    public void retrieveSrudio(String id, int storeid) throws SQLException {
+        studioDAO.retrieveStudio(id, storeid);
+    }
 
+    @Override
+    public void addScreeningTime(ScreeningTime screeningTime) throws SQLException {
         screeningTimeDAO.addScreeningTime(screeningTime);
     }
 
@@ -121,6 +130,11 @@ public class FilmServiceDatabase implements FilmService {
     }
 
     @Override
+    public void retrieveScreeningTime(String id, String filmid, int storeid) throws SQLException {
+        screeningTimeDAO.retrieveScreeningTime(id, filmid, storeid);
+    }
+
+    @Override
     public FilmGenre getFilmGenre(String id, int storeid) throws SQLException {
         return filmGenreDAO.getFilmGenre(id, storeid);
     }
@@ -148,6 +162,11 @@ public class FilmServiceDatabase implements FilmService {
     @Override
     public void deleteFilmGenre(String filmGenre, int storeid) throws SQLException {
         filmGenreDAO.deleteFilmGenre(filmGenre, storeid);
+    }
+
+    @Override
+    public void retrieveFilmGenre(String filmGenre, int storeid) throws SQLException {
+        filmGenreDAO.retrieveFilmGenre(filmGenre, storeid);
     }
 
     @Override
@@ -183,6 +202,11 @@ public class FilmServiceDatabase implements FilmService {
     @Override
     public void deleteStudioType(String studioType, int storeid) throws SQLException {
         studioTypeDAO.deleteStudioType(studioType, storeid);
+    }
+
+    @Override
+    public void retrieveStudioType(String studioType, int storeid) throws SQLException {
+        studioTypeDAO.retrieveStudioType(studioType, storeid);
     }
 
     @Override

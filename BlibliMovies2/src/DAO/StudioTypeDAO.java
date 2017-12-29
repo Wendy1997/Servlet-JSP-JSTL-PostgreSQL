@@ -38,7 +38,7 @@ public class StudioTypeDAO {
 
         StudioType output;
         if(rs.next()){
-            output = new StudioType(rs.getInt(1), rs.getString(2), rs.getInt(3));
+            output = new StudioType(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4));
         } else{
             output = null;
         }
@@ -56,7 +56,7 @@ public class StudioTypeDAO {
 
         StudioType output;
         if(rs.next()){
-            output = new StudioType(rs.getInt(1), rs.getString(2), rs.getInt(3));
+            output = new StudioType(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4));
         } else{
             output = null;
         }
@@ -72,7 +72,7 @@ public class StudioTypeDAO {
 
         List<StudioType> studioTypes = new ArrayList<StudioType>();
         while(rs.next()){
-            studioTypes.add(new StudioType(rs.getInt(1), rs.getString(2), rs.getInt(3)));
+            studioTypes.add(new StudioType(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4)));
         }
 
         ps.close();
@@ -86,7 +86,7 @@ public class StudioTypeDAO {
 
         List<StudioType> studioTypes = new ArrayList<StudioType>();
         while(rs.next()){
-            studioTypes.add(new StudioType(rs.getInt(1), rs.getString(2), rs.getInt(3)));
+            studioTypes.add(new StudioType(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4)));
         }
 
         ps.close();
@@ -103,6 +103,14 @@ public class StudioTypeDAO {
 
     public void deleteStudioType(String studioType, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE studioType set status = false where id = ? and storeid = ?");
+        ps.setInt(1, Integer.parseInt(studioType));
+        ps.setInt(2, storeid);
+        ps.executeUpdate();
+        ps.close();
+    }
+
+    public void retrieveStudioType(String studioType, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("UPDATE studioType set status = true where id = ? and storeid = ?");
         ps.setInt(1, Integer.parseInt(studioType));
         ps.setInt(2, storeid);
         ps.executeUpdate();

@@ -49,7 +49,8 @@ public class FnBDAO {
                     rs.getString(4),
                     rs.getInt(5),
                     rs.getInt(6),
-                    rs.getInt(7)
+                    rs.getInt(7),
+                    rs.getBoolean(8)
             );
         } else{
             output = null;
@@ -74,7 +75,8 @@ public class FnBDAO {
                     rs.getString(4),
                     rs.getInt(5),
                     rs.getInt(6),
-                    rs.getInt(7)
+                    rs.getInt(7),
+                    rs.getBoolean(8)
             );
         } else{
             output = null;
@@ -98,7 +100,8 @@ public class FnBDAO {
                     rs.getString(4),
                     rs.getInt(5),
                     rs.getInt(6),
-                    rs.getInt(7)
+                    rs.getInt(7),
+                    rs.getBoolean(8)
             ));
         }
 
@@ -120,7 +123,8 @@ public class FnBDAO {
                     rs.getString(4),
                     rs.getInt(5),
                     rs.getInt(6),
-                    rs.getInt(7)
+                    rs.getInt(7),
+                    rs.getBoolean(8)
             ));
         }
 
@@ -145,6 +149,14 @@ public class FnBDAO {
 
     public void deleteFnB(String id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE foodandbeverages set status = false where id = ? AND storeid = ?");
+        ps.setString(1, id);
+        ps.setInt(2, storeid);
+        ps.executeUpdate();
+        ps.close();
+    }
+
+    public void retrieveFnB(String id, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("UPDATE foodandbeverages set status = true where id = ? AND storeid = ?");
         ps.setString(1, id);
         ps.setInt(2, storeid);
         ps.executeUpdate();

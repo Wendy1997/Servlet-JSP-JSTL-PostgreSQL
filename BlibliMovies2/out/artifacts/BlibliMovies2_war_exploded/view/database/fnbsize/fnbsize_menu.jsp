@@ -29,7 +29,7 @@
                             <td scope="row"><c:out value="${size.id}"></c:out></td>
                             <td><c:out value="${size.size}"></c:out></td>
                             <td><a <c:out value='href=/admin/fnbsize/edit?id=${size.id}'></c:out>>Edit</a></td>
-                            <td><a <c:out value='href=/admin/fnbsize/delete?id=${size.id}'></c:out>>Delete</a></td>
+                            <td><a <c:out value='href=/admin/fnbsize/delete?id=${size.id}'></c:out>>${size.status ? "Delete" : "Retrieve"}</a></td>
                         </tr>
                     </c:forEach>
                 </tbody>

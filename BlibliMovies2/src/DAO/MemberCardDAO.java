@@ -47,7 +47,8 @@ public class MemberCardDAO {
                     rs.getInt(4),
                     rs.getString(5).substring(0,10),
                     rs.getString(6),
-                    rs.getString(7));
+                    rs.getString(7),
+                    rs.getBoolean(8));
         } else{
             output = null;
         }
@@ -71,7 +72,8 @@ public class MemberCardDAO {
                     rs.getInt(4),
                     rs.getString(5).substring(0,10),
                     rs.getString(6),
-                    rs.getString(7));
+                    rs.getString(7),
+                    rs.getBoolean(8));
         } else{
             output = null;
         }
@@ -94,7 +96,8 @@ public class MemberCardDAO {
                     rs.getInt(4),
                     rs.getString(5).substring(0,10),
                     rs.getString(6),
-                    rs.getString(7)));
+                    rs.getString(7),
+                    rs.getBoolean(8)));
         }
 
         ps.close();
@@ -114,7 +117,8 @@ public class MemberCardDAO {
                     rs.getInt(4),
                     rs.getString(5).substring(0,10),
                     rs.getString(6),
-                    rs.getString(7)));
+                    rs.getString(7),
+                    rs.getBoolean(8)));
         }
 
         ps.close();
@@ -135,6 +139,14 @@ public class MemberCardDAO {
 
     public void deleteMemberCard(String id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE membercard set status = false where id = ? and storeid = ?");
+        ps.setString(1, id);
+        ps.setInt(2, storeid);
+        ps.executeUpdate();
+        ps.close();
+    }
+
+    public void retrieveMemberCard(String id, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("UPDATE membercard set status = true where id = ? and storeid = ?");
         ps.setString(1, id);
         ps.setInt(2, storeid);
         ps.executeUpdate();

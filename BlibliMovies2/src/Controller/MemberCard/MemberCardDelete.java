@@ -40,7 +40,11 @@ public class MemberCardDelete extends HttpServlet {
         try{
             MemberCard memberCard = memberCardService.getMemberCard(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
 
-            memberCardService.deleteMemberCard(memberCard.getId() + "", (int)request.getSession().getAttribute("storeid"));
+            if(memberCard.isStatus()){
+                memberCardService.deleteMemberCard(memberCard.getId() + "", (int)request.getSession().getAttribute("storeid"));
+            } else {
+                memberCardService.retrieveMemberCard(memberCard.getId() + "", (int)request.getSession().getAttribute("storeid"));
+            }
 
             address = "/view/database/success.jsp";
             request.setAttribute("title", "MemberCard");

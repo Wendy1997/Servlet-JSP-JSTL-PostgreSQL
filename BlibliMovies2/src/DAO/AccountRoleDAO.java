@@ -41,7 +41,7 @@ public class AccountRoleDAO {
 
         AccountRole output;
         if(rs.next()){
-            output = new AccountRole(rs.getInt(1), rs.getString(2), rs.getInt(3));
+            output = new AccountRole(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4));
         } else{
             output = null;
         }
@@ -59,7 +59,7 @@ public class AccountRoleDAO {
 
         AccountRole output;
         if(rs.next()){
-            output = new AccountRole(rs.getInt(1), rs.getString(2), rs.getInt(3));
+            output = new AccountRole(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4));
         } else{
             output = null;
         }
@@ -75,7 +75,7 @@ public class AccountRoleDAO {
 
         List<AccountRole> accountRoles = new ArrayList<AccountRole>();
         while(rs.next()){
-            accountRoles.add(new AccountRole(rs.getInt(1), rs.getString(2), rs.getInt(3)));
+            accountRoles.add(new AccountRole(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4)));
         }
 
         ps.close();
@@ -89,7 +89,7 @@ public class AccountRoleDAO {
 
         List<AccountRole> accountRoles = new ArrayList<AccountRole>();
         while(rs.next()){
-            accountRoles.add(new AccountRole(rs.getInt(1), rs.getString(2), rs.getInt(3)));
+            accountRoles.add(new AccountRole(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4)));
         }
 
         ps.close();
@@ -106,6 +106,14 @@ public class AccountRoleDAO {
 
     public void deleteAccountRole(String accountRole, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE accountRole set status = false where id = ? and storeid = ?");
+        ps.setString(1, accountRole);
+        ps.setInt(2, storeid);
+        ps.executeUpdate();
+        ps.close();
+    }
+
+    public void retrieveAccountRole(String accountRole, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("UPDATE accountRole set status = true where id = ? and storeid = ?");
         ps.setString(1, accountRole);
         ps.setInt(2, storeid);
         ps.executeUpdate();

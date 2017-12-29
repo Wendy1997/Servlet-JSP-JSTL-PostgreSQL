@@ -17,6 +17,7 @@ public interface FnBService {
     List<FnB> getAllFnBTrue(int storeid) throws SQLException;
     void addFnB(FnB fnb) throws SQLException;
     void deleteFnB(String id, int storeid) throws SQLException;
+    void retrieveFnB(String id, int storeid) throws SQLException;
     void updateFnB(FnB fnb) throws SQLException;
 
     FnBSize getFnBSize(String id, int storeid) throws SQLException;
@@ -25,6 +26,7 @@ public interface FnBService {
     List<FnBSize> getAllFnBSizeTrue(int storeid) throws SQLException;
     void addFnBSize(FnBSize fnBSize) throws SQLException;
     void deleteFnBSize(String fnBSize, int storeid) throws SQLException;
+    void retrieveFnBSize(String fnBSize, int storeid) throws SQLException;
     void updateFnBSize(FnBSize fnBSize) throws SQLException;
 
     FnBType getFnBType(String id, int storeid) throws SQLException;
@@ -33,6 +35,7 @@ public interface FnBService {
     List<FnBType> getAllFnBTypeTrue(int storeid) throws SQLException;
     void addFnBType(FnBType fnBType) throws SQLException;
     void deleteFnBType(String fnBType, int storeid) throws SQLException;
+    void retrieveFnBType(String fnBType, int storeid) throws SQLException;
     void updateFnBType(FnBType fnBType) throws SQLException;
 
 }

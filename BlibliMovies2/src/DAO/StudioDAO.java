@@ -46,7 +46,8 @@ public class StudioDAO {
                     rs.getInt(2),
                     rs.getString(3),
                     rs.getInt(4),
-                    rs.getInt(5)
+                    rs.getInt(5),
+                    rs.getBoolean(6)
             ));
         }
 
@@ -66,7 +67,8 @@ public class StudioDAO {
                     rs.getInt(2),
                     rs.getString(3),
                     rs.getInt(4),
-                    rs.getInt(5)
+                    rs.getInt(5),
+                    rs.getBoolean(6)
             ));
         }
 
@@ -88,7 +90,8 @@ public class StudioDAO {
                     rs.getInt(2),
                     rs.getString(3),
                     rs.getInt(4),
-                    rs.getInt(5)
+                    rs.getInt(5),
+                    rs.getBoolean(6)
             );
         } else{
             output = null;
@@ -111,7 +114,8 @@ public class StudioDAO {
                     rs.getInt(2),
                     rs.getString(3),
                     rs.getInt(4),
-                    rs.getInt(5)
+                    rs.getInt(5),
+                    rs.getBoolean(6)
             );
         } else{
             output = null;
@@ -136,6 +140,14 @@ public class StudioDAO {
 
     public void deleteStudio(String id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("update studio set status = false where id = ? AND storeid = ?");
+        ps.setString(1, id);
+        ps.setInt(2, storeid);
+        ps.executeUpdate();
+        ps.close();
+    }
+
+    public void retrieveStudio(String id, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("update studio set status = true where id = ? AND storeid = ?");
         ps.setString(1, id);
         ps.setInt(2, storeid);
         ps.executeUpdate();

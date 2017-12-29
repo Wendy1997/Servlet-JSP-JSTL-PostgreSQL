@@ -41,7 +41,7 @@ public class FnBTypeDAO {
 
         FnBType output;
         if(rs.next()){
-            output = new FnBType(rs.getInt(1), rs.getString(2), rs.getInt(3));
+            output = new FnBType(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4));
         } else{
             output = null;
         }
@@ -59,7 +59,7 @@ public class FnBTypeDAO {
 
         FnBType output;
         if(rs.next()){
-            output = new FnBType(rs.getInt(1), rs.getString(2), rs.getInt(3));
+            output = new FnBType(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4));
         } else{
             output = null;
         }
@@ -76,7 +76,7 @@ public class FnBTypeDAO {
 
         List<FnBType> fnBTypes = new ArrayList<FnBType>();
         while(rs.next()){
-            fnBTypes.add(new FnBType(rs.getInt(1), rs.getString(2), rs.getInt(3)));
+            fnBTypes.add(new FnBType(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4)));
         }
 
         ps.close();
@@ -90,7 +90,7 @@ public class FnBTypeDAO {
 
         List<FnBType> fnBTypes = new ArrayList<FnBType>();
         while(rs.next()){
-            fnBTypes.add(new FnBType(rs.getInt(1), rs.getString(2), rs.getInt(3)));
+            fnBTypes.add(new FnBType(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4)));
         }
 
         ps.close();
@@ -107,6 +107,14 @@ public class FnBTypeDAO {
 
     public void deleteFnBType(String fnBType, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE fnBType set status = false where id = ? and storeid = ?");
+        ps.setInt(1, Integer.parseInt(fnBType));
+        ps.setInt(2, storeid);
+        ps.executeUpdate();
+        ps.close();
+    }
+
+    public void retrieveFnBType(String fnBType, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("UPDATE fnBType set status = true where id = ? and storeid = ?");
         ps.setInt(1, Integer.parseInt(fnBType));
         ps.setInt(2, storeid);
         ps.executeUpdate();

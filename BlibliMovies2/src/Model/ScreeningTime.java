@@ -7,6 +7,17 @@ public class ScreeningTime {
     private int storeid;
     private String time;
     private int duration;
+    private boolean status;
+
+    public ScreeningTime(int id, int filmId, int studioId, int storeid, String time, int duration, boolean status) {
+        this.id = id;
+        this.filmId = filmId;
+        this.studioId = studioId;
+        this.storeid = storeid;
+        this.time = time;
+        this.duration = duration;
+        this.status = status;
+    }
 
     public ScreeningTime(int id, int filmId, int studioId, int storeid, String time, int duration) {
         this.id = id;
@@ -71,5 +82,13 @@ public class ScreeningTime {
 
     public void setDuration(int duration) {
         this.duration = duration;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }

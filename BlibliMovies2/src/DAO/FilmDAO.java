@@ -57,7 +57,8 @@ public class FilmDAO {
                     rs.getString(12),
                     rs.getString(13),
                     rs.getString(14),
-                    rs.getString(15)
+                    rs.getString(15),
+                    rs.getBoolean(16)
             );
         } else{
             output = null;
@@ -90,7 +91,8 @@ public class FilmDAO {
                     rs.getString(12),
                     rs.getString(13),
                     rs.getString(14),
-                    rs.getString(15)
+                    rs.getString(15),
+                    rs.getBoolean(16)
             );
         } else{
             output = null;
@@ -122,7 +124,8 @@ public class FilmDAO {
                     rs.getString(12),
                     rs.getString(13),
                     rs.getString(14),
-                    rs.getString(15)
+                    rs.getString(15),
+                    rs.getBoolean(16)
                     ));
         }
 
@@ -152,7 +155,8 @@ public class FilmDAO {
                     rs.getString(12),
                     rs.getString(13),
                     rs.getString(14),
-                    rs.getString(15)
+                    rs.getString(15),
+                    rs.getBoolean(16)
             ));
         }
 
@@ -185,6 +189,14 @@ public class FilmDAO {
 
     public void deleteFilm(String id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("update film set status = false where id = ? and storeid = ?");
+        ps.setString(1, id);
+        ps.setInt(2, storeid);
+        ps.executeUpdate();
+        ps.close();
+    }
+
+    public void retrieveFilm(String id, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("update film set status = true where id = ? and storeid = ?");
         ps.setString(1, id);
         ps.setInt(2, storeid);
         ps.executeUpdate();

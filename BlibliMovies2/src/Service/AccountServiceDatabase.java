@@ -43,6 +43,11 @@ public class AccountServiceDatabase implements AccountService {
     }
 
     @Override
+    public void retrieveAccount(String username, int storeid) throws SQLException {
+        accountDAO.retrieveAccount(username, storeid);
+    }
+
+    @Override
     public void updateAccout(Account account) throws SQLException{
         accountDAO.updateAccount(account);
     }
@@ -75,6 +80,11 @@ public class AccountServiceDatabase implements AccountService {
     @Override
     public void deleteAccountRole(String accountRole, int storeid) throws SQLException {
         accountRoleDAO.deleteAccountRole(accountRole, storeid);
+    }
+
+    @Override
+    public void retrieveAccountRole(String accountRole, int storeid) throws SQLException {
+        accountRoleDAO.retrieveAccountRole(accountRole, storeid);
     }
 
     @Override

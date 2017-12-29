@@ -41,7 +41,7 @@ public class FilmGenreDAO {
 
         FilmGenre output;
         if(rs.next()){
-            output = new FilmGenre(rs.getInt(1), rs.getString(2), rs.getInt(3));
+            output = new FilmGenre(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4));
         } else{
             output = null;
         }
@@ -59,7 +59,7 @@ public class FilmGenreDAO {
 
         FilmGenre output;
         if(rs.next()){
-            output = new FilmGenre(rs.getInt(1), rs.getString(2), rs.getInt(3));
+            output = new FilmGenre(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4));
         } else{
             output = null;
         }
@@ -75,7 +75,7 @@ public class FilmGenreDAO {
 
         List<FilmGenre> filmGenres = new ArrayList<FilmGenre>();
         while(rs.next()){
-            filmGenres.add(new FilmGenre(rs.getInt(1), rs.getString(2), rs.getInt(3)));
+            filmGenres.add(new FilmGenre(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4)));
         }
 
         ps.close();
@@ -89,7 +89,7 @@ public class FilmGenreDAO {
 
         List<FilmGenre> filmGenres = new ArrayList<FilmGenre>();
         while(rs.next()){
-            filmGenres.add(new FilmGenre(rs.getInt(1), rs.getString(2), rs.getInt(3)));
+            filmGenres.add(new FilmGenre(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4)));
         }
 
         ps.close();
@@ -106,6 +106,14 @@ public class FilmGenreDAO {
 
     public void deleteFilmGenre(String filmGenre, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE filmGenre set status = false where id = ? and storeid = ?");
+        ps.setInt(1, Integer.parseInt(filmGenre));
+        ps.setInt(2, storeid);
+        ps.executeUpdate();
+        ps.close();
+    }
+
+    public void retrieveFilmGenre(String filmGenre, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("UPDATE filmGenre set status = true where id = ? and storeid = ?");
         ps.setInt(1, Integer.parseInt(filmGenre));
         ps.setInt(2, storeid);
         ps.executeUpdate();

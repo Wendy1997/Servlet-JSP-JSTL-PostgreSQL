@@ -38,7 +38,7 @@
                             </td>
                             <td><c:out value="${studios.price}"></c:out></td>
                             <td><a <c:out value='href=/admin/studio/edit?id=${studios.id}'></c:out>>Edit</a></td>
-                            <td><a <c:out value='href=/admin/studio/delete?id=${studios.id}'></c:out>>Delete</a></td>
+                            <td><a <c:out value='href=/admin/studio/delete?id=${studios.id}'></c:out>>${studios.status ? "Delete" : "Retrieve"}</a></td>
                         </tr>
                     </c:forEach>
                 </tbody>

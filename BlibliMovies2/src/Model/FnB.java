@@ -8,6 +8,18 @@ public class FnB {
     private int type;
     private int size;
     private int price;
+    private boolean status;
+
+    public FnB(int id, int storeid, String cover, String name, int type, int size, int price, boolean status) {
+        this.id = id;
+        this.storeid = storeid;
+        this.cover = cover;
+        this.name = name;
+        this.type = type;
+        this.size = size;
+        this.price = price;
+        this.status = status;
+    }
 
     public FnB(int id, int storeid, String cover, String name, int type, int size, int price) {
         this.id = id;
@@ -86,5 +98,13 @@ public class FnB {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }

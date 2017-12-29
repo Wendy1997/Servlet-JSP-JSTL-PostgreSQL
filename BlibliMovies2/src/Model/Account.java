@@ -6,6 +6,16 @@ public class Account {
     private int storeid;
     private int roleid;
     private int id;
+    private boolean status;
+
+    public Account(String username, int storeid, String password, int roleid, int id, boolean status){
+        setUsername(username);
+        setPassword(password);
+        setRoleid(roleid);
+        setStoreid(storeid);
+        setid(id);
+        setStatus(status);
+    }
 
     public Account(String username, int storeid, String password, int roleid, int id){
         setUsername(username);
@@ -60,5 +70,13 @@ public class Account {
 
     public void setRoleid(int roleid) {
         this.roleid = roleid;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }

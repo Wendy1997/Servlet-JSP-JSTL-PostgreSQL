@@ -62,7 +62,8 @@ public class ScreeningTimeDAO {
                     rs.getInt(3),
                     rs.getInt(4),
                     rs.getString(5).substring(0,5),
-                    rs.getInt(6));
+                    rs.getInt(6),
+                    rs.getBoolean(7));
         } else {
             output = null;
         }
@@ -86,7 +87,8 @@ public class ScreeningTimeDAO {
                     rs.getInt(3),
                     rs.getInt(4),
                     rs.getString(5).substring(0,5),
-                    rs.getInt(6));
+                    rs.getInt(6),
+                    rs.getBoolean(7));
         } else {
             output = null;
         }
@@ -110,7 +112,8 @@ public class ScreeningTimeDAO {
                     rs.getInt(3),
                     rs.getInt(4),
                     rs.getString(5).substring(0,5),
-                    rs.getInt(6))
+                    rs.getInt(6),
+                    rs.getBoolean(7))
             );
         }
 
@@ -132,7 +135,8 @@ public class ScreeningTimeDAO {
                     rs.getInt(3),
                     rs.getInt(4),
                     rs.getString(5).substring(0,5),
-                    rs.getInt(6))
+                    rs.getInt(6),
+                    rs.getBoolean(7))
             );
         }
 
@@ -154,6 +158,15 @@ public class ScreeningTimeDAO {
 
     public void deleteScreeningTime(String id, String filmid, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE screeningtime set status = false where id = ? and filmid = ? and storeid = ?");
+        ps.setString(1, id + "");
+        ps.setString(2, filmid + "");
+        ps.setInt(3, storeid);
+        ps.executeUpdate();
+        ps.close();
+    }
+
+    public void retrieveScreeningTime(String id, String filmid, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("UPDATE screeningtime set status = true where id = ? and filmid = ? and storeid = ?");
         ps.setString(1, id + "");
         ps.setString(2, filmid + "");
         ps.setInt(3, storeid);
