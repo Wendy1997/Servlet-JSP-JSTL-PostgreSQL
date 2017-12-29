@@ -43,10 +43,10 @@ public class MemberCardEdit extends HttpServlet{
             MemberCard memberCard = memberCardService.getMemberCard(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
             request.setAttribute("memberCard", memberCard);
 
-            List<MemberGender> memberGenderList = memberCardService.getAllMemberGender((int)request.getSession().getAttribute("storeid"));
+            List<MemberGender> memberGenderList = memberCardService.getAllMemberGenderTrue((int)request.getSession().getAttribute("storeid"));
             request.setAttribute("gender", memberGenderList);
         } catch (Exception e){
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
 
         request.getRequestDispatcher(address).forward(request, response);

@@ -33,6 +33,24 @@ public class FnBSizeDAO {
     }
 
     public FnBSize getFnBSize(String id, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM fnBSize where id = ? and storeid = ?");
+        ps.setInt(1, Integer.parseInt(id));
+        ps.setInt(2, storeid);
+
+        ResultSet rs = ps.executeQuery();
+
+        FnBSize output;
+        if(rs.next()){
+            output = new FnBSize(rs.getInt(1), rs.getString(2), rs.getInt(3));
+        } else{
+            output = null;
+        }
+
+        ps.close();
+        return output;
+    }
+
+    public FnBSize getFnBSizeTrue(String id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM fnBSize where id = ? and storeid = ? and status = true");
         ps.setInt(1, Integer.parseInt(id));
         ps.setInt(2, storeid);
@@ -50,7 +68,22 @@ public class FnBSizeDAO {
         return output;
     }
 
+
     public List<FnBSize> getAllFnBSize(int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM fnBSize where storeid = ? ORDER BY id");
+        ps.setInt(1, storeid);
+        ResultSet rs = ps.executeQuery();
+
+        List<FnBSize> fnBSizes = new ArrayList<FnBSize>();
+        while(rs.next()){
+            fnBSizes.add(new FnBSize(rs.getInt(1), rs.getString(2), rs.getInt(3)));
+        }
+
+        ps.close();
+        return fnBSizes;
+    }
+
+    public List<FnBSize> getAllFnBSizeTrue(int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM fnBSize where storeid = ? and status = true ORDER BY id");
         ps.setInt(1, storeid);
         ResultSet rs = ps.executeQuery();

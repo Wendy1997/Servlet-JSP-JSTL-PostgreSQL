@@ -45,7 +45,7 @@ public class ScreeningTimeUpdate extends HttpServlet {
             request.setAttribute("filmid", request.getParameter("filmid"));
             request.setAttribute("duration", request.getParameter("duration"));
             request.setAttribute("screeningTime", screeningTime);
-            request.setAttribute("studio", filmService.getAllStudio((int)request.getSession().getAttribute("storeid")));
+            request.setAttribute("studio", filmService.getAllStudioTrue((int)request.getSession().getAttribute("storeid")));
 
             request.getRequestDispatcher(address).forward(request, response);
         }catch (SQLException e){

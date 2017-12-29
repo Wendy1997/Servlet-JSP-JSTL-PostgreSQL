@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet("/")
+@WebServlet("/index")
 public class Store extends HttpServlet {
     StoreAccountService storeAccountService = new StoreAccountServiceDatabase();
 

@@ -43,7 +43,7 @@ public class FilmDetail extends HttpServlet{
 
         try{
             Film film = filmService.getFilm(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
-            List<ScreeningTime> screeningTimeList = filmService.getAllScreeningTime((int)request.getSession().getAttribute("storeid"), request.getParameter("id"));
+            List<ScreeningTime> screeningTimeList = filmService.getAllScreeningTimeTrue((int)request.getSession().getAttribute("storeid"), request.getParameter("id"));
             FilmGenre filmGenre = filmService.getFilmGenre(film.getGenre() + "", (int)request.getSession().getAttribute("storeid"));
             Map<Integer, List<ScreeningTime>> screeningList = new TreeMap<>();
 

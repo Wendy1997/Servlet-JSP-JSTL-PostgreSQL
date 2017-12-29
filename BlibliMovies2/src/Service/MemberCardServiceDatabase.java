@@ -18,8 +18,18 @@ public class MemberCardServiceDatabase implements MemberCardService{
     }
 
     @Override
+    public MemberCard getMemberCardTrue(String id, int storeid) throws SQLException {
+        return memberCardDAO.getMemberCardTrue(id, storeid);
+    }
+
+    @Override
     public List<MemberCard> getAllMemberCard(int storeid) throws SQLException {
         return memberCardDAO.getAllMemberCard(storeid);
+    }
+
+    @Override
+    public List<MemberCard> getAllMemberCardTrue(int storeid) throws SQLException {
+        return memberCardDAO.getAllMemberCardTrue(storeid);
     }
 
     @Override
@@ -43,8 +53,18 @@ public class MemberCardServiceDatabase implements MemberCardService{
     }
 
     @Override
+    public MemberGender getMemberGenderTrue(String id, int storeid) throws SQLException {
+        return memberGenderDAO.getMemberGenderTrue(id, storeid);
+    }
+
+    @Override
     public List<MemberGender> getAllMemberGender(int storeid) throws SQLException {
         return memberGenderDAO.getAllMemberGender(storeid);
+    }
+
+    @Override
+    public List<MemberGender> getAllMemberGenderTrue(int storeid) throws SQLException {
+        return memberGenderDAO.getAllMemberGenderTrue(storeid);
     }
 
     @Override

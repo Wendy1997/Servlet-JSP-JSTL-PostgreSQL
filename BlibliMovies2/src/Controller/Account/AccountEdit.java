@@ -42,8 +42,8 @@ public class AccountEdit extends HttpServlet{
         try {
             Account account = accountService.getAccount(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
             request.setAttribute("account", account);
-            List<AccountRole> accountRoleList = accountService.getAllAccountRole((int)request.getSession().getAttribute("storeid"));
-            System.out.println(accountRoleList.toString());
+
+            List<AccountRole> accountRoleList = accountService.getAllAccountRoleTrue((int)request.getSession().getAttribute("storeid"));
             request.setAttribute("role", accountRoleList);
         } catch (Exception e){
             System.out.println(e.getMessage());

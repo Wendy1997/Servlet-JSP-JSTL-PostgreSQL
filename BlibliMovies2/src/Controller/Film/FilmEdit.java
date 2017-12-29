@@ -52,7 +52,7 @@ public class FilmEdit extends HttpServlet{
             Film film = filmService.getFilm(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
             request.setAttribute("film", film);
 
-            List<FilmGenre> filmGenreList = filmService.getAllFilmGenre((int)request.getSession().getAttribute("storeid"));
+            List<FilmGenre> filmGenreList = filmService.getAllFilmGenreTrue((int)request.getSession().getAttribute("storeid"));
             request.setAttribute("genre", filmGenreList);
         } catch (Exception e){
             System.out.println(e.getMessage());

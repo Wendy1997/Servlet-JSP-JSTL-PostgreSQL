@@ -49,7 +49,7 @@ public class Account extends HttpServlet {
         String address = "/view/login/account_login.jsp";
 
         try{
-            Model.Account account = accountService.getAccount(request.getParameter("username"), (int)request.getSession().getAttribute("storeid"));
+            Model.Account account = accountService.getAccountTrue(request.getParameter("username"), (int)request.getSession().getAttribute("storeid"));
 
             System.out.println(request.getParameter("password").hashCode());
             if(account != null){

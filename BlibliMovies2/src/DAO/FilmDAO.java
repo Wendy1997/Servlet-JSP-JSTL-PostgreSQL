@@ -35,6 +35,39 @@ public class FilmDAO {
     }
 
     public Film getFilm(String film, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM film where id = ? and storeid = ?");
+        ps.setString(1, film);
+        ps.setInt(2, storeid);
+
+        ResultSet rs = ps.executeQuery();
+
+        Film output;
+        if(rs.next()){
+            output = new Film(rs.getInt(1),
+                    rs.getInt(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                    rs.getInt(5),
+                    rs.getInt(6),
+                    rs.getString(7),
+                    rs.getInt(8),
+                    rs.getInt(9),
+                    rs.getString(10).substring(0,10),
+                    rs.getString(11).substring(0,10),
+                    rs.getString(12),
+                    rs.getString(13),
+                    rs.getString(14),
+                    rs.getString(15)
+            );
+        } else{
+            output = null;
+        }
+
+        ps.close();
+        return output;
+    }
+
+    public Film getFilmTrue(String film, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM film where id = ? and storeid = ? and status = true");
         ps.setString(1, film);
         ps.setInt(2, storeid);
@@ -68,7 +101,7 @@ public class FilmDAO {
     }
 
     public List<Film> getAllFilm(int storeid) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM film where storeid = ? and status = true ORDER BY id");
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM film where storeid = ? ORDER BY id");
         ps.setInt(1, storeid);
 
         ResultSet rs = ps.executeQuery();
@@ -91,6 +124,36 @@ public class FilmDAO {
                     rs.getString(14),
                     rs.getString(15)
                     ));
+        }
+
+        ps.close();
+        return films;
+    }
+
+    public List<Film> getAllFilmTrue(int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM film where storeid = ? and status = true ORDER BY id");
+        ps.setInt(1, storeid);
+
+        ResultSet rs = ps.executeQuery();
+
+        List<Film> films = new ArrayList<Film>();
+        while(rs.next()){
+            films.add(new Film(rs.getInt(1),
+                    rs.getInt(2),
+                    rs.getString(3),
+                    rs.getString(4),
+                    rs.getInt(5),
+                    rs.getInt(6),
+                    rs.getString(7),
+                    rs.getInt(8),
+                    rs.getInt(9),
+                    rs.getString(10),
+                    rs.getString(11),
+                    rs.getString(12),
+                    rs.getString(13),
+                    rs.getString(14),
+                    rs.getString(15)
+            ));
         }
 
         ps.close();

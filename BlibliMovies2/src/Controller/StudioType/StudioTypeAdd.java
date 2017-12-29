@@ -35,13 +35,6 @@ public class StudioTypeAdd extends HttpServlet {
             address = "/view/login/account_login.jsp";
         }
 
-        try{
-            List<StudioType> studioList = filmService.getAllStudioType((int)request.getSession().getAttribute("storeid"));
-            request.setAttribute("studio", studioList);
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-
         request.getRequestDispatcher(address).forward(request, response);
     }
 

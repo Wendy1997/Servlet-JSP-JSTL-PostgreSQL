@@ -52,8 +52,8 @@ public class FnBEdit extends HttpServlet{
             FnB fnb = fnbService.getFnB(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
             request.setAttribute("fnb", fnb);
 
-            List<FnBSize> fnBSizeList = fnbService.getAllFnBSize((int)request.getSession().getAttribute("storeid"));
-            List<FnBType> fnBTypeList = fnbService.getAllFnBType((int)request.getSession().getAttribute("storeid"));
+            List<FnBSize> fnBSizeList = fnbService.getAllFnBSizeTrue((int)request.getSession().getAttribute("storeid"));
+            List<FnBType> fnBTypeList = fnbService.getAllFnBTypeTrue((int)request.getSession().getAttribute("storeid"));
 
             request.setAttribute("size", fnBSizeList);
             request.setAttribute("type", fnBTypeList);

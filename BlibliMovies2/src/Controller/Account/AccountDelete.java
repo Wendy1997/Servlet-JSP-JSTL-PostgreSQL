@@ -52,7 +52,7 @@ public class AccountDelete extends HttpServlet {
             request.getRequestDispatcher(address).forward(request, response);
 
         } catch (Exception e){
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 }

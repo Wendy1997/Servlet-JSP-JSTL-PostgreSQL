@@ -48,6 +48,30 @@ public class ScreeningTimeDAO {
     }
 
     public ScreeningTime getScreeningTime(String id, String film_id, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("select * from screeningtime where id = ? and storeid = ? and filmid = ?");
+        ps.setString(1, id);
+        ps.setInt(2, storeid);
+        ps.setString(3, film_id);
+
+        ResultSet rs = ps.executeQuery();
+
+        ScreeningTime output;
+        if(rs.next()){
+            output =  new ScreeningTime(rs.getInt(1),
+                    rs.getInt(2),
+                    rs.getInt(3),
+                    rs.getInt(4),
+                    rs.getString(5).substring(0,5),
+                    rs.getInt(6));
+        } else {
+            output = null;
+        }
+
+        ps.close();
+        return output;
+    }
+
+    public ScreeningTime getScreeningTimeTrue(String id, String film_id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("select * from screeningtime where id = ? and storeid = ? and filmid = ? and status = true");
         ps.setString(1, id);
         ps.setInt(2, storeid);
@@ -71,7 +95,30 @@ public class ScreeningTimeDAO {
         return output;
     }
 
+
     public List<ScreeningTime> getAllScreeningTime(int storeid, String filmid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("select * from screeningtime where storeid = ? and filmid = ? ORDER BY id");
+        ps.setInt(1, storeid);
+        ps.setString(2, filmid);
+
+        ResultSet rs = ps.executeQuery();
+
+        List<ScreeningTime> outputList = new ArrayList<ScreeningTime>();
+        while (rs.next()){
+            outputList.add(new ScreeningTime(rs.getInt(1),
+                    rs.getInt(2),
+                    rs.getInt(3),
+                    rs.getInt(4),
+                    rs.getString(5).substring(0,5),
+                    rs.getInt(6))
+            );
+        }
+
+        ps.close();
+        return outputList;
+    }
+
+    public List<ScreeningTime> getAllScreeningTimeTrue(int storeid, String filmid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("select * from screeningtime where storeid = ? and filmid = ? and status = true ORDER BY id");
         ps.setInt(1, storeid);
         ps.setString(2, filmid);

@@ -34,9 +34,9 @@ public class ChooseFilm extends HttpServlet {
         }
 
         try{
-            List<Film> films = filmService.getAllFilm((int)request.getSession().getAttribute("storeid"));
+            List<Film> films = filmService.getAllFilmTrue((int)request.getSession().getAttribute("storeid"));
             for(int i = 0; i < films.size(); i++){
-                films.get(i).setScreeningTimes(filmService.getAllScreeningTime((int)request.getSession().getAttribute("storeid"), films.get(i).getId()+ ""));
+                films.get(i).setScreeningTimes(filmService.getAllScreeningTimeTrue((int)request.getSession().getAttribute("storeid"), films.get(i).getId()+ ""));
                 films.get(i).setCover("/uploads" + films.get(i).getCover());
             }
             request.setAttribute("films", films);

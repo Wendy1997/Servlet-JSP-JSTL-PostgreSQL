@@ -21,8 +21,18 @@ public class FnBServiceDatabase implements FnBService {
     }
 
     @Override
+    public FnB getFnBTrue(String id, int storeid) throws SQLException {
+        return fnbDAO.getFnBTrue(id, storeid);
+    }
+
+    @Override
     public List<FnB> getAllFnB(int storeid) throws SQLException{
         return fnbDAO.getAllFnB(storeid);
+    }
+
+    @Override
+    public List<FnB> getAllFnBTrue(int storeid) throws SQLException {
+        return fnbDAO.getAllFnBTrue(storeid);
     }
 
     @Override
@@ -46,8 +56,18 @@ public class FnBServiceDatabase implements FnBService {
     }
 
     @Override
+    public FnBSize getFnBSizeTrue(String id, int storeid) throws SQLException {
+        return fnBSizeDAO.getFnBSizeTrue(id, storeid);
+    }
+
+    @Override
     public List<FnBSize> getAllFnBSize(int storeid) throws SQLException {
         return fnBSizeDAO.getAllFnBSize(storeid);
+    }
+
+    @Override
+    public List<FnBSize> getAllFnBSizeTrue(int storeid) throws SQLException {
+        return fnBSizeDAO.getAllFnBSizeTrue(storeid);
     }
 
     @Override
@@ -71,8 +91,18 @@ public class FnBServiceDatabase implements FnBService {
     }
 
     @Override
+    public FnBType getFnBTypeTrue(String id, int storeid) throws SQLException {
+        return fnBTypeDAO.getFnBTypeTrue(id, storeid);
+    }
+
+    @Override
     public List<FnBType> getAllFnBType(int storeid) throws SQLException {
         return fnBTypeDAO.getAllFnBType(storeid);
+    }
+
+    @Override
+    public List<FnBType> getAllFnBTypeTrue(int storeid) throws SQLException {
+        return fnBTypeDAO.getAllFnBTypeTrue(storeid);
     }
 
     @Override

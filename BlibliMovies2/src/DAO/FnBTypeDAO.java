@@ -33,6 +33,24 @@ public class FnBTypeDAO {
     }
 
     public FnBType getFnBType(String id, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM fnBType where id = ? and storeid = ?");
+        ps.setInt(1, Integer.parseInt(id));
+        ps.setInt(2, storeid);
+
+        ResultSet rs = ps.executeQuery();
+
+        FnBType output;
+        if(rs.next()){
+            output = new FnBType(rs.getInt(1), rs.getString(2), rs.getInt(3));
+        } else{
+            output = null;
+        }
+
+        ps.close();
+        return output;
+    }
+
+    public FnBType getFnBTypeTrue(String id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM fnBType where id = ? and storeid = ? and status = true");
         ps.setInt(1, Integer.parseInt(id));
         ps.setInt(2, storeid);
@@ -50,7 +68,22 @@ public class FnBTypeDAO {
         return output;
     }
 
+
     public List<FnBType> getAllFnBType(int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM fnBType where storeid = ? ORDER BY id");
+        ps.setInt(1, storeid);
+        ResultSet rs = ps.executeQuery();
+
+        List<FnBType> fnBTypes = new ArrayList<FnBType>();
+        while(rs.next()){
+            fnBTypes.add(new FnBType(rs.getInt(1), rs.getString(2), rs.getInt(3)));
+        }
+
+        ps.close();
+        return fnBTypes;
+    }
+
+    public List<FnBType> getAllFnBTypeTrue(int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM fnBType where storeid = ? and status = true ORDER BY id");
         ps.setInt(1, storeid);
         ResultSet rs = ps.executeQuery();

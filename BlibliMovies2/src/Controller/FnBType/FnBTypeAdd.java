@@ -37,13 +37,6 @@ public class FnBTypeAdd extends HttpServlet {
             address = "/view/login/account_login.jsp";
         }
 
-        try{
-            List<FnBType> fnBTypeList = fnbService.getAllFnBType((int)request.getSession().getAttribute("storeid"));
-            request.setAttribute("type", fnBTypeList);
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-
         request.getRequestDispatcher(address).forward(request, response);
     }
 
