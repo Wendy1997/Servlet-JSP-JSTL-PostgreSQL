@@ -40,6 +40,28 @@ body{
 	font-size: 20px;
 }
 
+/*
+=====
+Pagination
+=====
+*/
+
+.page-link{
+	color: gray;
+	background-color: black;
+	border: 1px solid gray;
+}
+
+.page-link:hover{
+	color: white;
+	background-color: black;
+}
+
+.page-link:focus{
+	color: black;
+	background-color: white;
+}
+
 /* 
 =====
 Font
@@ -155,6 +177,12 @@ Form
 	color: white;
 	border-color: white;
 	border-width: 1px;
+}
+
+.tablinks{
+	border-width: 2px;
+	border-color: black;
+	color: white;
 }
 
 /*

@@ -79,6 +79,7 @@
                     console.log(response);
                 }
             });
+            return false;
         })
     });
 </script>

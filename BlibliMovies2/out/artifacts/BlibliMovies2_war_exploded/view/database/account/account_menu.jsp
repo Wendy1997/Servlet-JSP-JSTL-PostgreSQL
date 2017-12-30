@@ -72,8 +72,8 @@
                             '<td>\n';
 
                         <c:forEach items="${roles}" var="role">
-                        if(result[key].roleid == ${role.id}){
-                            output += '${role.role}';
+                        if(result[key].role == ${role.id}){
+                            output += ${role.role};
                         }
                         </c:forEach>
 
@@ -93,6 +93,7 @@
                     console.log(response);
                 }
             });
+            return false;
         })
     });
 </script>

@@ -23,11 +23,18 @@ public class LedgerViewWeekly extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
+            List<Double> pageCounter = invoiceService.getCountWeeklyInvoice(request.getParameter("date"), (int)request.getSession().getAttribute("storeid"));
             List<Invoice> invoiceList = invoiceService.getWeeklyInvoice(request.getParameter("date"), (int)request.getSession().getAttribute("storeid"), 0);
+
+            System.out.println(pageCounter);
+
             Gson gson = new Gson();
             String output = gson.toJson(invoiceList);
+
             PrintWriter out = response.getWriter();
-            out.print(output);
+            out.print("{\"count\": " + pageCounter.get(0).intValue() + ",");
+            out.print("\"sum\": " + pageCounter.get(1) + ",");
+            out.print(" \"result\" : " + output + "}");
         } catch (SQLException e){
             e.printStackTrace();
         }

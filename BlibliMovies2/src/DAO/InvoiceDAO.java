@@ -113,7 +113,7 @@ public class InvoiceDAO {
             if(count == 0){
                 count = 1;
             }
-            else if(30%10 == 0){
+            else if(count%10 == 0){
                 count = count/10;
             } else {
                 count = count/10 + 1;
@@ -176,8 +176,8 @@ public class InvoiceDAO {
         return invoices;
     }
 
-    public int getCountDailyInvoice(String day, String month, String year, int storeid) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("select count(*) from (SELECT * FROM invoice where " +
+    public List<Double> getCountDailyInvoice(String day, String month, String year, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("select count(*), sum(totalprice) from (SELECT * FROM invoice where " +
                 "EXTRACT (day from orderdate) = ? AND " +
                 "EXTRACT (month from orderdate) = ? and " +
                 "EXTRACT (year from orderdate) = ? and " +
@@ -188,19 +188,20 @@ public class InvoiceDAO {
         ps.setInt(4, storeid);
         ResultSet rs = ps.executeQuery();
 
-                int count = 1;
+        List<Double> count = new ArrayList<>();
         if(rs.next()){
-            count = rs.getInt(1);
-            if(count == 0){
-                count = 1;
+            int temp = rs.getInt(1);
+            if(temp == 0){
+                count.add((double)temp);
             }
-            else if(30%10 == 0){
-                count = count/10;
+            else if(temp%10 == 0){
+                count.add((double)(temp/10));
             } else {
-                count = count/10 + 1;
+                count.add((double)(temp/10+1));
             }
-        }
 
+            count.add(rs.getDouble(2));
+        }
 
         ps.close();
         return count;
@@ -232,8 +233,8 @@ public class InvoiceDAO {
         return invoices;
     }
 
-    public int getCountWeeklyInvoice(String week, String year, int storeid) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT count(*) from (SELECT * FROM invoice where " +
+    public List<Double> getCountWeeklyInvoice(String week, String year, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT count(*), sum(totalprice) from (SELECT * FROM invoice where " +
                 "EXTRACT (week from orderdate) = ? and " +
                 "EXTRACT (year from orderdate) = ? and " +
                 "storeid = ?) as count");
@@ -242,19 +243,20 @@ public class InvoiceDAO {
         ps.setInt(3, storeid);
         ResultSet rs = ps.executeQuery();
 
-                int count = 1;
+        List<Double> count = new ArrayList<>();
         if(rs.next()){
-            count = rs.getInt(1);
-            if(count == 0){
-                count = 1;
+            int temp = rs.getInt(1);
+            if(temp == 0){
+                count.add((double)temp);
             }
-            else if(30%10 == 0){
-                count = count/10;
+            else if(temp%10 == 0){
+                count.add((double)(temp/10));
             } else {
-                count = count/10 + 1;
+                count.add((double)(temp/10+1));
             }
-        }
 
+            count.add(rs.getDouble(2));
+        }
 
         ps.close();
         return count;
@@ -286,8 +288,8 @@ public class InvoiceDAO {
         return invoices;
     }
 
-    public int getCountMonthlyInvoice(String month, String year, int storeid) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT count(*) from (SELECT * FROM invoice where " +
+    public List<Double> getCountMonthlyInvoice(String month, String year, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT count(*), sum(totalprice) from (SELECT * FROM invoice where " +
                 "EXTRACT (month from orderdate) = ? and " +
                 "EXTRACT (year from orderdate) = ? and " +
                 "storeid = ?) as count");
@@ -296,19 +298,20 @@ public class InvoiceDAO {
         ps.setInt(3, storeid);
         ResultSet rs = ps.executeQuery();
 
-        int count = 1;
+        List<Double> count = new ArrayList<>();
         if(rs.next()){
-            count = rs.getInt(1);
-            if(count < 10){
-                count = 1;
+            int temp = rs.getInt(1);
+            if(temp == 0){
+                count.add((double)temp);
             }
-            else if(count%10 == 0){
-                count = count/10;
+            else if(temp%10 == 0){
+                count.add((double)(temp/10));
             } else {
-                count = count/10 + 1;
+                count.add((double)(temp/10+1));
             }
-        }
 
+            count.add(rs.getDouble(2));
+        }
 
         ps.close();
         return count;
@@ -338,27 +341,28 @@ public class InvoiceDAO {
         return invoices;
     }
 
-    public int getCountYearlyInvoice(String year, int storeid) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("Select count(*) from (SELECT * FROM invoice where " +
+    public List<Double> getCountYearlyInvoice(String year, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("Select count(*), sum(totalprice) from (SELECT * FROM invoice where " +
                 "EXTRACT (year from orderdate) = ? and " +
                 "storeid = ?) as count");
         ps.setDouble(1, Double.parseDouble(year));
         ps.setInt(2, storeid);
         ResultSet rs = ps.executeQuery();
 
-        int count = 1;
+        List<Double> count = new ArrayList<>();
         if(rs.next()){
-            count = rs.getInt(1);
-            if(count == 0){
-                count = 1;
+            int temp = rs.getInt(1);
+            if(temp == 0){
+                count.add((double)temp);
             }
-            else if(30%10 == 0){
-                count = count/10;
+            else if(temp%10 == 0){
+                count.add((double)(temp/10));
             } else {
-                count = count/10 + 1;
+                count.add((double)(temp/10+1));
             }
-        }
 
+            count.add(rs.getDouble(2));
+        }
 
         ps.close();
         return count;
