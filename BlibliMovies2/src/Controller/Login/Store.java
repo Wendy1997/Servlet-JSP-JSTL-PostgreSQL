@@ -1,5 +1,6 @@
 package Controller.Login;
 
+import DAO.ConnectionDAO;
 import DAO.StoreAccountDAO;
 import Model.StoreAccount;
 import Service.StoreAccountService;
@@ -16,7 +17,6 @@ import java.sql.SQLException;
 @WebServlet("/index")
 public class Store extends HttpServlet {
     StoreAccountService storeAccountService = new StoreAccountServiceDatabase();
-
     /**
      * Suatu Controller yang akan me redirect menuju halaman Store Login dan melakukan logout
      *
@@ -27,7 +27,6 @@ public class Store extends HttpServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         String address = "/view/login/store_login.jsp";
-
 
         /*
             Validasi Log out

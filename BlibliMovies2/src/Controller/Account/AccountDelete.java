@@ -44,13 +44,14 @@ public class AccountDelete extends HttpServlet {
 
             if(account.isStatus()){
                 accountService.deleteAccount(account.getUsername() + "", (int)request.getSession().getAttribute("storeid"));
+                request.setAttribute("complete", "Deleted");
             } else{
+                request.setAttribute("complete", "Retrieved");
                 accountService.retrieveAccount(account.getUsername() + "", (int)request.getSession().getAttribute("storeid"));
             }
 
             address = "/view/database/success.jsp";
             request.setAttribute("title", "Account");
-            request.setAttribute("complete", "Deleted");
             request.setAttribute("link", "/admin/account");
 
             request.getRequestDispatcher(address).forward(request, response);

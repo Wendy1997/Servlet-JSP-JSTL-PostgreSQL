@@ -69,7 +69,7 @@ public class AccountDAO {
     }
 
     public List<Account> getAllAccount(int storeid) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM account where storeid = ? ORDER BY id");
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM account where storeid = ? ORDER BY id LIMIT ? OFFSET ?");
         ps.setInt(1, storeid);
         System.out.println(storeid);
         ResultSet rs = ps.executeQuery();

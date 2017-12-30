@@ -41,13 +41,14 @@ public class ScreeningTimeDelete extends HttpServlet{
 
             if(screeningTime.isStatus()){
                 filmService.deleteScreeningTime(request.getParameter("id"), request.getParameter("filmid"), (int)request.getSession().getAttribute("storeid"));
+                request.setAttribute("complete", "Deleted");
             } else {
                 filmService.retrieveScreeningTime(request.getParameter("id"), request.getParameter("filmid"), (int)request.getSession().getAttribute("storeid"));
+                request.setAttribute("complete", "Retrieved");
             }
 
             String address = "/view/database/success.jsp";
             request.setAttribute("title", "Screening Time");
-            request.setAttribute("complete", "Deleted");
             request.setAttribute("link", "/admin/screentime?filmid=" + request.getParameter("filmid"));
 
             request.getRequestDispatcher(address).forward(request, response);

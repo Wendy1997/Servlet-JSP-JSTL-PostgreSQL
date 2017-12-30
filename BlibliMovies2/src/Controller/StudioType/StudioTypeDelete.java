@@ -40,13 +40,14 @@ public class StudioTypeDelete extends HttpServlet {
 
             if(studioType.isStatus()){
                 filmService.deleteStudioType(studioType.getId() + "", (int)request.getSession().getAttribute("storeid"));
+                request.setAttribute("complete", "Deleted");
             } else {
                 filmService.retrieveStudioType(studioType.getId() + "", (int)request.getSession().getAttribute("storeid"));
+                request.setAttribute("complete", "Retrieved");
             }
 
             address = "/view/database/success.jsp";
             request.setAttribute("title", "Studio Type");
-            request.setAttribute("complete", "Deleted");
             request.setAttribute("link", "/admin/studiotype");
 
             request.getRequestDispatcher(address).forward(request, response);
