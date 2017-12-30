@@ -17,6 +17,7 @@
         <!-- Forms -->
         <form action="/admin/film/edit" method="post" enctype="multipart/form-data" onsubmit="return confirm('Are You Sure?');">
             <div class="row">
+
                 <div class="col-lg-6" id="form1">
                     <h2>Data Film</h2><br>
 

@@ -79,14 +79,14 @@
             <state relative-caret-position="1512">
               <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
               <folding>
-                <marker date="1514610523629" expanded="true" signature="1024:1080" ph="SELECT * FRO... account" />
-                <marker date="1514610523629" expanded="true" signature="1612:1686" ph="SELECT * FRO... account" />
-                <marker date="1514610523629" expanded="true" signature="2206:2274" ph="SELECT * FRO... account" />
-                <marker date="1514610523629" expanded="true" signature="2801:2870" ph="SELECT * FRO... account" />
-                <marker date="1514610523629" expanded="true" signature="3385:3459" ph="INSERT INTO account... " />
-                <marker date="1514610523629" expanded="true" signature="3834:3902" ph="UPDATE account... " />
-                <marker date="1514610523629" expanded="true" signature="4162:4229" ph="UPDATE account... " />
-                <marker date="1514610523629" expanded="true" signature="4475:4553" ph="UPDATE account... " />
+                <marker date="1514611635878" expanded="true" signature="1024:1080" ph="SELECT * FRO... account" />
+                <marker date="1514611635878" expanded="true" signature="1612:1686" ph="SELECT * FRO... account" />
+                <marker date="1514611635878" expanded="true" signature="2206:2274" ph="SELECT * FRO... account" />
+                <marker date="1514611635878" expanded="true" signature="2801:2870" ph="SELECT * FRO... account" />
+                <marker date="1514611635878" expanded="true" signature="3385:3459" ph="INSERT INTO account... " />
+                <marker date="1514611635878" expanded="true" signature="3834:3902" ph="UPDATE account... " />
+                <marker date="1514611635878" expanded="true" signature="4162:4229" ph="UPDATE account... " />
+                <marker date="1514611635878" expanded="true" signature="4475:4553" ph="UPDATE account... " />
               </folding>
             </state>
           </provider>
@@ -106,7 +106,7 @@
         <entry file="file://$PROJECT_DIR$/src/Controller/Account/AccountMenu.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="177">
-              <caret line="44" column="36" lean-forward="true" selection-start-line="44" selection-start-column="36" selection-end-line="44" selection-end-column="36" />
+              <caret line="44" column="36" lean-forward="false" selection-start-line="44" selection-start-column="36" selection-end-line="44" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -118,14 +118,14 @@
             <state relative-caret-position="168">
               <caret line="107" column="27" lean-forward="false" selection-start-line="107" selection-start-column="27" selection-end-line="107" selection-end-column="27" />
               <folding>
-                <marker date="1514611254450" expanded="true" signature="1046:1093" ph="SELECT * FRO... film" />
-                <marker date="1514611254450" expanded="true" signature="2118:2183" ph="SELECT * FRO... film" />
-                <marker date="1514611254450" expanded="true" signature="3212:3278" ph="SELECT * FRO... film" />
-                <marker date="1514611254450" expanded="true" signature="4264:4330" ph="SELECT * FRO... film" />
-                <marker date="1514611254450" expanded="true" signature="5264:5446" ph="INSERT INTO film... " />
-                <marker date="1514611254450" expanded="true" signature="6286:6345" ph="update film... " />
-                <marker date="1514611254450" expanded="true" signature="6592:6650" ph="update film... " />
-                <marker date="1514611254450" expanded="true" signature="6882:7096" ph="UPDATE film... " />
+                <marker date="1514611635929" expanded="true" signature="1046:1093" ph="SELECT * FRO... film" />
+                <marker date="1514611635929" expanded="true" signature="2118:2183" ph="SELECT * FRO... film" />
+                <marker date="1514611635929" expanded="true" signature="3212:3278" ph="SELECT * FRO... film" />
+                <marker date="1514611635929" expanded="true" signature="4264:4330" ph="SELECT * FRO... film" />
+                <marker date="1514611635929" expanded="true" signature="5264:5446" ph="INSERT INTO film... " />
+                <marker date="1514611635929" expanded="true" signature="6286:6345" ph="update film... " />
+                <marker date="1514611635929" expanded="true" signature="6592:6650" ph="update film... " />
+                <marker date="1514611635929" expanded="true" signature="6882:7096" ph="UPDATE film... " />
               </folding>
             </state>
           </provider>
@@ -154,7 +154,7 @@
         <entry file="file://$PROJECT_DIR$/src/Service/FilmService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="273">
-              <caret line="17" column="21" lean-forward="true" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+              <caret line="17" column="21" lean-forward="false" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -800,12 +800,12 @@
       <workItem from="1514422735469" duration="24033000" />
       <workItem from="1514511784966" duration="15740000" />
       <workItem from="1514546783934" duration="1834000" />
-      <workItem from="1514610671141" duration="675000" />
+      <workItem from="1514610671141" duration="1181000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="320621000" />
+    <option name="totallyTimeSpent" value="321127000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1161,7 +1161,7 @@
         <state relative-caret-position="189">
           <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="29" selection-end-column="9" />
           <folding>
-            <marker date="1514547682713" expanded="true" signature="962:1007" ph="SELECT * FRO... storeaccount" />
+            <marker date="1514611636074" expanded="true" signature="962:1007" ph="SELECT * FRO... storeaccount" />
           </folding>
         </state>
       </provider>
@@ -1225,14 +1225,14 @@
         <state relative-caret-position="1512">
           <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
           <folding>
-            <marker date="1514610523629" expanded="true" signature="1024:1080" ph="SELECT * FRO... account" />
-            <marker date="1514610523629" expanded="true" signature="1612:1686" ph="SELECT * FRO... account" />
-            <marker date="1514610523629" expanded="true" signature="2206:2274" ph="SELECT * FRO... account" />
-            <marker date="1514610523629" expanded="true" signature="2801:2870" ph="SELECT * FRO... account" />
-            <marker date="1514610523629" expanded="true" signature="3385:3459" ph="INSERT INTO account... " />
-            <marker date="1514610523629" expanded="true" signature="3834:3902" ph="UPDATE account... " />
-            <marker date="1514610523629" expanded="true" signature="4162:4229" ph="UPDATE account... " />
-            <marker date="1514610523629" expanded="true" signature="4475:4553" ph="UPDATE account... " />
+            <marker date="1514611635878" expanded="true" signature="1024:1080" ph="SELECT * FRO... account" />
+            <marker date="1514611635878" expanded="true" signature="1612:1686" ph="SELECT * FRO... account" />
+            <marker date="1514611635878" expanded="true" signature="2206:2274" ph="SELECT * FRO... account" />
+            <marker date="1514611635878" expanded="true" signature="2801:2870" ph="SELECT * FRO... account" />
+            <marker date="1514611635878" expanded="true" signature="3385:3459" ph="INSERT INTO account... " />
+            <marker date="1514611635878" expanded="true" signature="3834:3902" ph="UPDATE account... " />
+            <marker date="1514611635878" expanded="true" signature="4162:4229" ph="UPDATE account... " />
+            <marker date="1514611635878" expanded="true" signature="4475:4553" ph="UPDATE account... " />
           </folding>
         </state>
       </provider>
@@ -1248,7 +1248,7 @@
     <entry file="file://$PROJECT_DIR$/src/Controller/Account/AccountMenu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
-          <caret line="44" column="36" lean-forward="true" selection-start-line="44" selection-start-column="36" selection-end-line="44" selection-end-column="36" />
+          <caret line="44" column="36" lean-forward="false" selection-start-line="44" selection-start-column="36" selection-end-line="44" selection-end-column="36" />
           <folding />
         </state>
       </provider>
@@ -1258,14 +1258,14 @@
         <state relative-caret-position="168">
           <caret line="107" column="27" lean-forward="false" selection-start-line="107" selection-start-column="27" selection-end-line="107" selection-end-column="27" />
           <folding>
-            <marker date="1514611254450" expanded="true" signature="1046:1093" ph="SELECT * FRO... film" />
-            <marker date="1514611254450" expanded="true" signature="2118:2183" ph="SELECT * FRO... film" />
-            <marker date="1514611254450" expanded="true" signature="3212:3278" ph="SELECT * FRO... film" />
-            <marker date="1514611254450" expanded="true" signature="4264:4330" ph="SELECT * FRO... film" />
-            <marker date="1514611254450" expanded="true" signature="5264:5446" ph="INSERT INTO film... " />
-            <marker date="1514611254450" expanded="true" signature="6286:6345" ph="update film... " />
-            <marker date="1514611254450" expanded="true" signature="6592:6650" ph="update film... " />
-            <marker date="1514611254450" expanded="true" signature="6882:7096" ph="UPDATE film... " />
+            <marker date="1514611635929" expanded="true" signature="1046:1093" ph="SELECT * FRO... film" />
+            <marker date="1514611635929" expanded="true" signature="2118:2183" ph="SELECT * FRO... film" />
+            <marker date="1514611635929" expanded="true" signature="3212:3278" ph="SELECT * FRO... film" />
+            <marker date="1514611635929" expanded="true" signature="4264:4330" ph="SELECT * FRO... film" />
+            <marker date="1514611635929" expanded="true" signature="5264:5446" ph="INSERT INTO film... " />
+            <marker date="1514611635929" expanded="true" signature="6286:6345" ph="update film... " />
+            <marker date="1514611635929" expanded="true" signature="6592:6650" ph="update film... " />
+            <marker date="1514611635929" expanded="true" signature="6882:7096" ph="UPDATE film... " />
           </folding>
         </state>
       </provider>
@@ -1281,7 +1281,7 @@
     <entry file="file://$PROJECT_DIR$/src/Service/FilmService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
-          <caret line="17" column="21" lean-forward="true" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+          <caret line="17" column="21" lean-forward="false" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
           <folding />
         </state>
       </provider>
