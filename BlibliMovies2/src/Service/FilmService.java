@@ -10,7 +10,7 @@ public interface FilmService {
 
     Film getFilm(String id, int storeid) throws SQLException;
     Film getFilmTrue(String id, int storeid) throws SQLException;
-    List<Film> getAllFilm(int storeid) throws SQLException;
+    List<Film> getAllFilm(int storeid, int offset) throws SQLException;
     List<Film> getAllFilmTrue(int storeid) throws SQLException;
     void addFilm(Film film) throws SQLException;
     void deleteFilm(String id, int storeid) throws SQLException;

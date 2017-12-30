@@ -102,9 +102,10 @@ public class FilmDAO {
         return output;
     }
 
-    public List<Film> getAllFilm(int storeid) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM film where storeid = ? ORDER BY id");
+    public List<Film> getAllFilm(int storeid, int offset) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM film where storeid = ? ORDER BY id LIMIT 10 OFFSET ?");
         ps.setInt(1, storeid);
+        ps.setInt(2, offset);
 
         ResultSet rs = ps.executeQuery();
 

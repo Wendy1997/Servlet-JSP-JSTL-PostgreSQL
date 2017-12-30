@@ -41,7 +41,7 @@ public class FilmMenu extends HttpServlet{
         }
 
         try{
-            List<Film> films = filmService.getAllFilm((int)request.getSession().getAttribute("storeid"));
+            List<Film> films = filmService.getAllFilm((int)request.getSession().getAttribute("storeid"), 0);
             List<FilmGenre> filmGenreList = filmService.getAllFilmGenre((int)request.getSession().getAttribute("storeid"));
 
             request.setAttribute("genre", filmGenreList);

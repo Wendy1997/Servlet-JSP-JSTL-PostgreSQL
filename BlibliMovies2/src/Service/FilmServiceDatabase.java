@@ -24,8 +24,8 @@ public class FilmServiceDatabase implements FilmService {
     }
 
     @Override
-    public List<Film> getAllFilm(int storeid) throws SQLException{
-        return filmDAO.getAllFilm(storeid);
+    public List<Film> getAllFilm(int storeid, int offset) throws SQLException{
+        return filmDAO.getAllFilm(storeid, offset);
     }
 
     @Override
