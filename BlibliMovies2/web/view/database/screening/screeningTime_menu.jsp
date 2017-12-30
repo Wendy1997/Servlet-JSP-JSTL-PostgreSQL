@@ -53,4 +53,48 @@
     </div>
 </div>
 
+
+<script>
+    $(document).ready(function () {
+        $('.page-link').click(function () {
+            $.ajax({
+                type: 'GET',
+                url: "/admin/screentime/page",
+                dataType: "JSON",
+                data: {
+                    page: $(this).text(),
+                    filmid: ${film.id}
+                },
+                success: function (response) {
+                    var output = "";
+
+                    var result = response["result"];
+                    for(var key in result){
+                        output += '<tr>\n' +
+                            '<td scope="row">' + result[key].id + '</td>\n' +
+                            '<td>' + result[key].filmId + '</td>\n' +
+                            '<td>' + result[key].studioId + '</td>\n' +
+                            '<td>' + result[key].time + '</td>\n' +
+                            '<td>' + result[key].duration + '</td>\n';
+
+                        output += '</td>\n' +
+                            '<td><a href=/admin/screentime/update?id=' + result[key].id + '&filmid=' + ${film.id} + '&duration=' + ${film.duration} +'>Edit</a></td>\n';
+
+                        if(result[key].status){
+                            output += '<td><a href=/admin/screentime/delete?id=' + result[key].id + '&filmid=' + ${film.id} + '>Delete</a></td>\n';
+                        } else {
+                            output += '<td><a href=/admin/screentime/delete?id=' + result[key].id + '&filmid=' + ${film.id} + '>Retrieve</a></td>\n';
+                        }
+                    }
+
+                    $('tbody')[0].innerHTML = output;
+                },
+                error : function (response) {
+                    console.log(response);
+                }
+            });
+        })
+    });
+</script>
+
 <%@ include file = "/include/foot.jsp" %>

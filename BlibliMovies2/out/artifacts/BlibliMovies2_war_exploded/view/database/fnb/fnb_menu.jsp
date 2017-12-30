@@ -64,4 +64,60 @@
     </div>
 </div>
 
+<script>
+    $(document).ready(function () {
+        $('.page-link').click(function () {
+            $.ajax({
+                type: 'GET',
+                url: "/admin/fnb/page",
+                dataType: "JSON",
+                data: {
+                    page: $(this).text()
+                },
+                success: function (response) {
+                    var output = "";
+
+                    var result = response["result"];
+                    for(var key in result){
+                        output += '<tr>\n' +
+                            '<td scope="row">' + result[key].id + '</td>\n' +
+                            '<td>' + result[key].cover + '</td>\n' +
+                            '<td>' + result[key].name + '</td>\n' +
+                            '<td>\n';
+
+                        <c:forEach items="${type}" var="type">
+                        if(result[key].type == ${type.id}){
+                            output += '${type.type}';
+                        }
+                        </c:forEach>
+
+                        output += '</td>\n' +
+                            '<td>\n';
+
+                        <c:forEach items="${size}" var="size">
+                        if(result[key].size == ${size.id}){
+                            output += '${size.size}';
+                        }
+                        </c:forEach>
+
+                        output += '</td>\n' +
+                            '<td><a href=/admin/fnb/edit?id=' + result[key].id + '>Edit</a></td>\n';
+
+                        if(result[key].status){
+                            output += '<td><a href=/admin/fnb/delete?id=' + result[key].id + '>Delete</a></td>\n';
+                        } else {
+                            output += '<td><a href=/admin/fnb/delete?id=' + result[key].id + '>Retrieve</a></td>\n';
+                        }
+                    }
+
+                    $('tbody')[0].innerHTML = output;
+                },
+                error : function (response) {
+                    console.log(response);
+                }
+            });
+        })
+    });
+</script>
+
 <%@ include file = "/include/foot.jsp" %>

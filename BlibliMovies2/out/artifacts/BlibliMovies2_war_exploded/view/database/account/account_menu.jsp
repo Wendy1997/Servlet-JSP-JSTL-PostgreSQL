@@ -51,4 +51,51 @@
     </div>
 </div>
 
+<script>
+    $(document).ready(function () {
+        $('.page-link').click(function () {
+            $.ajax({
+                type: 'GET',
+                url: "/admin/account/page",
+                dataType: "JSON",
+                data: {
+                    page: $(this).text()
+                },
+                success: function (response) {
+                    var output = "";
+
+                    var result = response["result"];
+                    for(var key in result){
+                        output += '<tr>\n' +
+                            '<td scope="row">' + result[key].username + '</td>\n' +
+                            '<td>' + result[key].password + '</td>\n' +
+                            '<td>\n';
+
+                        <c:forEach items="${roles}" var="role">
+                        if(result[key].roleid == ${role.id}){
+                            output += '${role.role}';
+                        }
+                        </c:forEach>
+
+                        output += '</td>\n' +
+                            '<td><a href=/admin/account/edit?id=' + result[key].username + '>Edit</a></td>\n';
+
+                        if(result[key].status){
+                            output += '<td><a href=/admin/account/delete?id=' + result[key].username + '>Delete</a></td>\n';
+                        } else {
+                            output += '<td><a href=/admin/account/delete?id=' + result[key].username + '>Retrieve</a></td>\n';
+                        }
+                    }
+
+                    $('tbody')[0].innerHTML = output;
+                },
+                error : function (response) {
+                    console.log(response);
+                }
+            });
+        })
+    });
+</script>
+
+
 <%@ include file = "/include/foot.jsp" %>

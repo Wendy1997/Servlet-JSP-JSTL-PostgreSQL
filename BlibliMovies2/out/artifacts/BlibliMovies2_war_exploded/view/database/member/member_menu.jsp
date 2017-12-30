@@ -57,4 +57,54 @@
     </div>
 </div>
 
+<script>
+    $(document).ready(function () {
+        $('.page-link').click(function () {
+            $.ajax({
+                type: 'GET',
+                url: "/admin/membercard/page",
+                dataType: "JSON",
+                data: {
+                    page: $(this).text()
+                },
+                success: function (response) {
+                    var output = "";
+
+                    var result = response["result"];
+                    for(var key in result){
+                        output += '<tr>\n' +
+                            '<td scope="row">' + result[key].id + '</td>\n' +
+                            '<td>' + result[key].fullname + '</td>\n' +
+                            '<td>\n';
+
+                        <c:forEach items="${gender}" var="gender">
+                        if(result[key].gender == ${gender.id}){
+                            output += '${gender.gender}';
+                        }
+                        </c:forEach>
+
+                        output += '<td>' + result[key].birthDate + '</td>\n' +
+                            '<td>' + result[key].phoneNumber + '</td>\n' +
+                            '<td>' + result[key].email + '</td>\n';
+
+                        output += '</td>\n' +
+                            '<td><a href=/admin/membercard/edit?id=' + result[key].id + '>Edit</a></td>\n';
+
+                        if(result[key].status){
+                            output += '<td><a href=/admin/membercard/delete?id=' + result[key].id + '>Delete</a></td>\n';
+                        } else {
+                            output += '<td><a href=/admin/membercard/delete?id=' + result[key].id + '>Retrieve</a></td>\n';
+                        }
+                    }
+
+                    $('tbody')[0].innerHTML = output;
+                },
+                error : function (response) {
+                    console.log(response);
+                }
+            });
+        })
+    });
+</script>
+
 <%@ include file = "/include/foot.jsp" %>

@@ -46,6 +46,7 @@ public class ScreeningTimeMenu extends HttpServlet{
 
             request.setAttribute("screenTime", screeningTimeList);
             request.setAttribute("film", filmService.getFilm(request.getParameter("filmid"), (int)request.getSession().getAttribute("storeid")));
+            request.setAttribute("page", pageCounter);
             request.getRequestDispatcher(address).forward(request, response);
         } catch (SQLException e){
             System.out.println(e.getMessage());

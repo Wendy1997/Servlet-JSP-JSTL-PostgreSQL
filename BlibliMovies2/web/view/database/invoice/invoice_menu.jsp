@@ -32,7 +32,7 @@
                             <td><c:out value="${invoices.orderDate}"></c:out></td>
                             <td><c:out value="${invoices.totalPrice}"></c:out></td>
                             <td><c:out value="${invoices.memberId == 0 ? 'False' : 'True'}"></c:out></td>
-                            <td><c:out value="${invoices.memberId == 0 ? 'Null' : invoices.memberId}"></c:out></td>
+                            <td><c:out value="${invoices.memberId == 0 ? '' : invoices.memberId}"></c:out></td>
                             <td><c:out value="${invoices.totalPrice}"></c:out></td>
                             <td><a <c:out value='href=/admin/invoice/detail?id=${invoices.id}'></c:out>>Detail</a></td>
                         </tr>
@@ -49,5 +49,51 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+        $('.page-link').click(function () {
+            $.ajax({
+                type: 'GET',
+                url: "/admin/invoice/page",
+                dataType: "JSON",
+                data: {
+                    page: $(this).text()
+                },
+                success: function (response) {
+                    var output = "";
+
+                    var result = response["result"];
+                    for(var key in result){
+                        output += '<tr>\n' +
+                            '<td scope="row">' + result[key].id + '</td>\n' +
+                            '<td>' + result[key].orderDate + '</td>\n' +
+                            '<td>' + result[key].totalPrice + '</td>\n';
+
+                        if(result[key].memberId == 0){
+                            output += '<td>False</td>\n' +
+                                    '<td></td>';
+                        } else {
+                            output += '<td>True</td>\n' +
+                                '<td>' + result[key].memberId + '</td>';
+                        }
+
+                        output+=    '<td>' + result[key].totalPrice + '</td>\n' +
+                            '<td><a href=/admin/invoice/detail?id=' + result[key].id + '>Detail</a></td>\n' +
+                            '</tr>';
+                        ;
+                    }
+
+                    $('tbody')[0].innerHTML = output;
+                },
+                error : function (response) {
+                    console.log(response);
+                }
+            });
+
+            return false;
+        })
+    });
+</script>
 
 <%@ include file = "/include/foot.jsp" %>
