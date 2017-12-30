@@ -134,6 +134,29 @@ public class FilmDAO {
         return films;
     }
 
+    public int getCountAllFilm(int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("Select count(*) from (SELECT * FROM film where storeid = ? ORDER BY id) as count");
+        ps.setInt(1, storeid);
+
+        ResultSet rs = ps.executeQuery();
+
+        int count = 1;
+        if(rs.next()){
+            count = rs.getInt(1);
+            if(count < 10){
+                count = 1;
+            }
+            else if(count%10 == 0){
+                count = count/10;
+            } else {
+                count = count/10 + 1;
+            }
+        }
+
+        ps.close();
+        return count;
+    }
+
     public List<Film> getAllFilmTrue(int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM film where storeid = ? and status = true ORDER BY id");
         ps.setInt(1, storeid);

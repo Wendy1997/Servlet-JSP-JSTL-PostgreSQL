@@ -69,7 +69,22 @@ public class FnBTypeDAO {
     }
 
 
-    public List<FnBType> getAllFnBType(int storeid) throws SQLException{
+    public List<FnBType> getAllFnBType(int storeid, int offset) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM fnBType where storeid = ? ORDER BY id LIMIT 10 OFFSET ?");
+        ps.setInt(1, storeid);
+        ps.setInt(2, offset);
+        ResultSet rs = ps.executeQuery();
+
+        List<FnBType> fnBTypes = new ArrayList<FnBType>();
+        while(rs.next()){
+            fnBTypes.add(new FnBType(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4)));
+        }
+
+        ps.close();
+        return fnBTypes;
+    }
+
+    public List<FnBType> getShowAllFnBType(int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM fnBType where storeid = ? ORDER BY id");
         ps.setInt(1, storeid);
         ResultSet rs = ps.executeQuery();
@@ -82,6 +97,30 @@ public class FnBTypeDAO {
         ps.close();
         return fnBTypes;
     }
+
+    public int getCountAllFnBType(int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT count(*) from (SELECT * FROM fnBType where storeid = ? ORDER BY id) as count");
+        ps.setInt(1, storeid);
+        ResultSet rs = ps.executeQuery();
+
+        int count = 1;
+        if(rs.next()){
+            count = rs.getInt(1);
+            if(count < 10){
+                count = 1;
+            }
+            else if(count%10 == 0){
+                count = count/10;
+            } else {
+                count = count/10 + 1;
+            }
+        }
+
+
+        ps.close();
+        return count;
+    }
+
 
     public List<FnBType> getAllFnBTypeTrue(int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM fnBType where storeid = ? and status = true ORDER BY id");

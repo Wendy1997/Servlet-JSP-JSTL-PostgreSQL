@@ -39,8 +39,11 @@ public class StudioTypeMenu extends HttpServlet{
         }
 
         try{
-            List<StudioType> studioTypeList = studioService.getAllStudioType((int)request.getSession().getAttribute("storeid"));
+            List<StudioType> studioTypeList = studioService.getAllStudioType((int)request.getSession().getAttribute("storeid"), 0);
+            int pageCounter = studioService.getCountAllStudioType((int)request.getSession().getAttribute("storeid"));
+
             request.setAttribute("type", studioTypeList);
+            request.setAttribute("page", pageCounter);
             request.getRequestDispatcher(address).forward(request, response);
         } catch (SQLException e){
             System.out.println(e.getMessage());

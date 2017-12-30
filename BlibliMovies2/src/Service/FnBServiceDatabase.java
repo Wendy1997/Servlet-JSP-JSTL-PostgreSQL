@@ -26,8 +26,13 @@ public class FnBServiceDatabase implements FnBService {
     }
 
     @Override
-    public List<FnB> getAllFnB(int storeid) throws SQLException{
-        return fnbDAO.getAllFnB(storeid);
+    public List<FnB> getAllFnB(int storeid, int offset) throws SQLException{
+        return fnbDAO.getAllFnB(storeid, offset);
+    }
+
+    @Override
+    public int getCountAllFnB(int storeid) throws SQLException {
+        return fnbDAO.getCountAllFnB(storeid);
     }
 
     @Override
@@ -66,8 +71,18 @@ public class FnBServiceDatabase implements FnBService {
     }
 
     @Override
-    public List<FnBSize> getAllFnBSize(int storeid) throws SQLException {
-        return fnBSizeDAO.getAllFnBSize(storeid);
+    public List<FnBSize> getAllFnBSize(int storeid, int offset) throws SQLException {
+        return fnBSizeDAO.getAllFnBSize(storeid, offset);
+    }
+
+    @Override
+    public List<FnBSize> getShowAllFnBSize(int storeid) throws SQLException {
+        return fnBSizeDAO.getShowAllFnBSize(storeid);
+    }
+
+    @Override
+    public int getCountAllFnBSize(int storeid) throws SQLException {
+        return fnBSizeDAO.getCountAllFnBSize(storeid);
     }
 
     @Override
@@ -106,8 +121,18 @@ public class FnBServiceDatabase implements FnBService {
     }
 
     @Override
-    public List<FnBType> getAllFnBType(int storeid) throws SQLException {
-        return fnBTypeDAO.getAllFnBType(storeid);
+    public List<FnBType> getAllFnBType(int storeid, int offset) throws SQLException {
+        return fnBTypeDAO.getAllFnBType(storeid, offset);
+    }
+
+    @Override
+    public List<FnBType> getShowAllFnBType(int storeid) throws SQLException {
+        return fnBTypeDAO.getShowAllFnBType(storeid);
+    }
+
+    @Override
+    public int getCountAllFnBType(int storeid) throws SQLException {
+        return fnBTypeDAO.getCountAllFnBType(storeid);
     }
 
     @Override

@@ -76,10 +76,6 @@
 
 <script>
 
-    $(document).ready(function () {
-       console.log("aaaa");
-    });
-
     var wrapper = document.getElementById('seat-number');
 
     var huruf = 'A';

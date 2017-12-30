@@ -23,7 +23,7 @@ public class LedgerViewDaily extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
-            List<Invoice> invoiceList = invoiceService.getDailyInvoice(request.getParameter("date"), (int)request.getSession().getAttribute("storeid"));
+            List<Invoice> invoiceList = invoiceService.getDailyInvoice(request.getParameter("date"), (int)request.getSession().getAttribute("storeid"), 0);
             System.out.println(invoiceList.toString());
             Gson gson = new Gson();
             String output = gson.toJson(invoiceList);

@@ -83,9 +83,10 @@ public class MemberCardDAO {
     }
 
 
-    public List<MemberCard> getAllMemberCard(int storeid) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM membercard where storeid = ? ORDER BY id");
+    public List<MemberCard> getAllMemberCard(int storeid, int offset) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM membercard where storeid = ? ORDER BY id LIMIT 10 OFFSET ?");
         ps.setInt(1, storeid);
+        ps.setInt(2, offset);
         ResultSet rs = ps.executeQuery();
 
         List<MemberCard> memberCards = new ArrayList<MemberCard>();
@@ -102,6 +103,29 @@ public class MemberCardDAO {
 
         ps.close();
         return memberCards;
+    }
+
+    public int getCountAllMemberCard(int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT count(*) from (SELECT * FROM membercard where storeid = ? ORDER BY id) as count");
+        ps.setInt(1, storeid);
+        ResultSet rs = ps.executeQuery();
+
+        int count = 1;
+        if(rs.next()){
+            count = rs.getInt(1);
+            if(count < 10){
+                count = 1;
+            }
+            else if(count%10 == 0){
+                count = count/10;
+            } else {
+                count = count/10 + 1;
+            }
+        }
+
+
+        ps.close();
+        return count;
     }
 
     public List<MemberCard> getAllMemberCardTrue(int storeid) throws SQLException{

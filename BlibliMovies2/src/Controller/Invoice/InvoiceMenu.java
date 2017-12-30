@@ -39,9 +39,11 @@ public class InvoiceMenu extends HttpServlet {
         }
 
         try {
-            List<Invoice> invoices = invoiceService.getAllInvoice((int)request.getSession().getAttribute("storeid"));
+            List<Invoice> invoices = invoiceService.getAllInvoice((int)request.getSession().getAttribute("storeid"), 0);
+            int pageCounter = invoiceService.getCountAllInvoice((int)request.getSession().getAttribute("storeid"));
 
             request.setAttribute("invoices", invoices);
+            request.setAttribute("page", pageCounter);
             request.getRequestDispatcher(address).forward(request, response);
         } catch (SQLException e){
             System.out.println(e.getMessage());

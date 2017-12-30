@@ -69,7 +69,22 @@ public class FnBSizeDAO {
     }
 
 
-    public List<FnBSize> getAllFnBSize(int storeid) throws SQLException{
+    public List<FnBSize> getAllFnBSize(int storeid, int offset) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM fnBSize where storeid = ? ORDER BY id LIMIT 10 OFFSET ?");
+        ps.setInt(1, storeid);
+        ps.setInt(2, offset);
+        ResultSet rs = ps.executeQuery();
+
+        List<FnBSize> fnBSizes = new ArrayList<FnBSize>();
+        while(rs.next()){
+            fnBSizes.add(new FnBSize(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4)));
+        }
+
+        ps.close();
+        return fnBSizes;
+    }
+
+    public List<FnBSize> getShowAllFnBSize(int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM fnBSize where storeid = ? ORDER BY id");
         ps.setInt(1, storeid);
         ResultSet rs = ps.executeQuery();
@@ -81,6 +96,29 @@ public class FnBSizeDAO {
 
         ps.close();
         return fnBSizes;
+    }
+
+    public int getCountAllFnBSize(int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT count(*) from (SELECT * FROM fnBSize where storeid = ? ORDER BY id) as count");
+        ps.setInt(1, storeid);
+        ResultSet rs = ps.executeQuery();
+
+        int count = 1;
+        if(rs.next()){
+            count = rs.getInt(1);
+            if(count < 10){
+                count = 1;
+            }
+            else if(count%10 == 0){
+                count = count/10;
+            } else {
+                count = count/10 + 1;
+            }
+        }
+
+
+        ps.close();
+        return count;
     }
 
     public List<FnBSize> getAllFnBSizeTrue(int storeid) throws SQLException{

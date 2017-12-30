@@ -2,6 +2,7 @@ package DAO;
 
 import Model.AccountRole;
 
+import javax.swing.plaf.ColorUIResource;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -80,6 +81,17 @@ public class AccountRoleDAO {
 
         ps.close();
         return accountRoles;
+    }
+
+    public int getCountAllAccountRole(int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("select count(*) from (SELECT * FROM accountRole where storeid = ? ORDER BY id) as count");
+        ps.setInt(1, storeid);
+        ResultSet rs = ps.executeQuery();
+
+        int count = rs.getInt(1);
+
+        ps.close();
+        return count;
     }
 
     public List<AccountRole> getAllAccountRoleTrue(int storeid) throws SQLException{

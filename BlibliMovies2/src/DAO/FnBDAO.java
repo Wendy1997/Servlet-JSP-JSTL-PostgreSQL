@@ -86,9 +86,10 @@ public class FnBDAO {
         return output;
     }
 
-    public List<FnB> getAllFnB(int storeid) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM foodandbeverages where storeid = ? ORDER BY id");
+    public List<FnB> getAllFnB(int storeid, int offset) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM foodandbeverages where storeid = ? ORDER BY id LIMIT 10 OFFSET ?");
         ps.setInt(1, storeid);
+        ps.setInt(2, offset);
 
         ResultSet rs = ps.executeQuery();
 
@@ -107,6 +108,30 @@ public class FnBDAO {
 
         ps.close();
         return fnbs;
+    }
+
+    public int getCountAllFnB(int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("Select count(*) from (SELECT * FROM foodandbeverages where storeid = ? ORDER BY id) as count");
+        ps.setInt(1, storeid);
+
+        ResultSet rs = ps.executeQuery();
+
+        int count = 1;
+        if(rs.next()){
+            count = rs.getInt(1);
+            if(count < 10){
+                count = 1;
+            }
+            else if(count%10 == 0){
+                count = count/10;
+            } else {
+                count = count/10 + 1;
+            }
+        }
+
+
+        ps.close();
+        return count;
     }
 
     public List<FnB> getAllFnBTrue(int storeid) throws SQLException{

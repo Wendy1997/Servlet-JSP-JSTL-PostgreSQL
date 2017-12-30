@@ -23,8 +23,13 @@ public class AccountServiceDatabase implements AccountService {
     }
 
     @Override
-    public List<Account> getAllAccount(int storeid) throws SQLException{
-        return accountDAO.getAllAccount(storeid);
+    public List<Account> getAllAccount(int storeid, int offset) throws SQLException{
+        return accountDAO.getAllAccount(storeid, offset);
+    }
+
+    @Override
+    public int getCountAllAccount(int storeid) throws SQLException {
+        return accountDAO.getCountAllAccount(storeid);
     }
 
     @Override
@@ -65,6 +70,11 @@ public class AccountServiceDatabase implements AccountService {
     @Override
     public List<AccountRole> getAllAccountRole(int storeid) throws SQLException {
         return accountRoleDAO.getAllAccountRole(storeid);
+    }
+
+    @Override
+    public int getCountAllAccountRole(int storeid) throws SQLException {
+        return accountRoleDAO.getCountAllAccountRole(storeid);
     }
 
     @Override

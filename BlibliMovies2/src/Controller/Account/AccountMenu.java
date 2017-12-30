@@ -41,11 +41,13 @@ public class AccountMenu extends HttpServlet{
         }
 
         try{
-            List<Account> accounts = accountService.getAllAccount((int)request.getSession().getAttribute("storeid"));
+            List<Account> accounts = accountService.getAllAccount((int)request.getSession().getAttribute("storeid"), 0);
+            int pageCounter = accountService.getCountAllAccount((int)request.getSession().getAttribute("storeid"));
             List<AccountRole> accountRoles = accountService.getAllAccountRole((int)request.getSession().getAttribute("storeid"));
 
             request.setAttribute("roles", accountRoles);
             request.setAttribute("accounts", accounts);
+            request.setAttribute("page", pageCounter);
             request.getRequestDispatcher(address).forward(request, response);
         } catch (SQLException e){
             System.out.println(e.getMessage());

@@ -68,9 +68,10 @@ public class AccountDAO {
         return output;
     }
 
-    public List<Account> getAllAccount(int storeid) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM account where storeid = ? ORDER BY id LIMIT ? OFFSET ?");
+    public List<Account> getAllAccount(int storeid, int offset) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM account where storeid = ? ORDER BY id LIMIT 10 OFFSET ?");
         ps.setInt(1, storeid);
+        ps.setInt(2, offset);
         System.out.println(storeid);
         ResultSet rs = ps.executeQuery();
 
@@ -81,6 +82,29 @@ public class AccountDAO {
 
         ps.close();
         return accounts;
+    }
+
+    public int getCountAllAccount(int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT count(*) from (SELECT * FROM account where storeid = ? ORDER BY id) as count");
+        ps.setInt(1, storeid);
+        ResultSet rs = ps.executeQuery();
+
+        int count = 1;
+        if(rs.next()){
+            count = rs.getInt(1);
+            if(count < 10){
+                count = 1;
+            }
+            else if(count%10 == 0){
+                count = count/10;
+            } else {
+                count = count/10 + 1;
+            }
+        }
+
+
+        ps.close();
+        return count;
     }
 
     public List<Account> getAllAccountTrue(int storeid) throws SQLException{

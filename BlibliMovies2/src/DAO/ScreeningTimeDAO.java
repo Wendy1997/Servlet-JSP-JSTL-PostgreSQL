@@ -98,10 +98,11 @@ public class ScreeningTimeDAO {
     }
 
 
-    public List<ScreeningTime> getAllScreeningTime(int storeid, String filmid) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("select * from screeningtime where storeid = ? and filmid = ? ORDER BY id");
+    public List<ScreeningTime> getAllScreeningTime(int storeid, String filmid, int offset) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("select * from screeningtime where storeid = ? and filmid = ? ORDER BY id LIMIT 10 OFFSET ?");
         ps.setInt(1, storeid);
         ps.setString(2, filmid);
+        ps.setInt(3, offset);
 
         ResultSet rs = ps.executeQuery();
 
@@ -119,6 +120,31 @@ public class ScreeningTimeDAO {
 
         ps.close();
         return outputList;
+    }
+
+    public int getCountAllScreeningTime(int storeid, String filmid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("select count(*) from (select * from screeningtime where storeid = ? and filmid = ? ORDER BY id) as count");
+        ps.setInt(1, storeid);
+        ps.setString(2, filmid);
+
+        ResultSet rs = ps.executeQuery();
+
+        int count = 1;
+        if(rs.next()){
+            count = rs.getInt(1);
+            if(count < 10){
+                count = 1;
+            }
+            else if(count%10 == 0){
+                count = count/10;
+            } else {
+                count = count/10 + 1;
+            }
+        }
+
+
+        ps.close();
+        return count;
     }
 
     public List<ScreeningTime> getAllScreeningTimeTrue(int storeid, String filmid) throws SQLException{

@@ -219,7 +219,6 @@ Table
 =====
 */
 .table-responsive{
-	height: 600px;
 	overflow: auto;
 	margin-bottom: 50px;
 }

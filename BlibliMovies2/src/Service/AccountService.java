@@ -10,7 +10,8 @@ public interface AccountService {
 
     Account getAccount(String username, int storeid) throws SQLException;
     Account getAccountTrue(String username, int storeid) throws SQLException;
-    List<Account> getAllAccount(int storeid) throws SQLException;
+    List<Account> getAllAccount(int storeid, int offset) throws SQLException;
+    int getCountAllAccount(int storeid) throws SQLException;
     List<Account> getAllAccountTrue(int storeid) throws SQLException;
     void addAccount(Account account) throws SQLException;
     void deleteAccount(String username, int storeid) throws SQLException;
@@ -20,6 +21,7 @@ public interface AccountService {
     AccountRole getAccountRole(int id, int storeid) throws SQLException;
     AccountRole getAccountRoleTrue(int id, int storeid) throws SQLException;
     List<AccountRole> getAllAccountRole(int storeid) throws SQLException;
+    int getCountAllAccountRole(int storeid) throws SQLException;
     List<AccountRole> getAllAccountRoleTrue(int storeid) throws SQLException;
     void addAccountRole(AccountRole accountRole) throws SQLException;
     void deleteAccountRole(String accountRole, int storeid) throws SQLException;

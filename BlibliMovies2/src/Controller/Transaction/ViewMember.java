@@ -22,8 +22,6 @@ public class ViewMember extends HttpServlet {
     MemberCardService memberService = new MemberCardServiceDatabase();
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        String address = "/view/transaction/view_member.jsp";
-
         try{
             MemberCard member = memberService.getMemberCardTrue(request.getParameter("memberid"), (int)request.getSession().getAttribute("storeid"));
             Gson gson = new Gson();

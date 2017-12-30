@@ -41,7 +41,9 @@ public class ScreeningTimeMenu extends HttpServlet{
         }
 
         try{
-            List<ScreeningTime> screeningTimeList = filmService.getAllScreeningTime((int)request.getSession().getAttribute("storeid"), request.getParameter("filmid"));
+            List<ScreeningTime> screeningTimeList = filmService.getAllScreeningTime((int)request.getSession().getAttribute("storeid"), request.getParameter("filmid"), 0);
+            int pageCounter = filmService.getCountAllScreeningTime((int)request.getSession().getAttribute("storeid"), request.getParameter("filmid"));
+
             request.setAttribute("screenTime", screeningTimeList);
             request.setAttribute("film", filmService.getFilm(request.getParameter("filmid"), (int)request.getSession().getAttribute("storeid")));
             request.getRequestDispatcher(address).forward(request, response);

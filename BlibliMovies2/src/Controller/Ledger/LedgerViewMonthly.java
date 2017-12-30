@@ -23,7 +23,7 @@ public class LedgerViewMonthly extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
-            List<Invoice> invoiceList = invoiceService.getMonthlyInvoice(request.getParameter("date"), (int)request.getSession().getAttribute("storeid"));
+            List<Invoice> invoiceList = invoiceService.getMonthlyInvoice(request.getParameter("date"), (int)request.getSession().getAttribute("storeid"), 0);
             Gson gson = new Gson();
             String output = gson.toJson(invoiceList);
             PrintWriter out = response.getWriter();

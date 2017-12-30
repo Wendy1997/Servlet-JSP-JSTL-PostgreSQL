@@ -42,8 +42,10 @@ public class FilmGenreMenu extends HttpServlet{
         }
 
         try{
-            List<FilmGenre> filmGenreList = filmService.getAllFilmGenre((int)request.getSession().getAttribute("storeid"));
+            List<FilmGenre> filmGenreList = filmService.getAllFilmGenre((int)request.getSession().getAttribute("storeid"), 0);
+            int pageCounter = filmService.getCountAllFilmGenre((int)request.getSession().getAttribute("storeid"));
             request.setAttribute("genre", filmGenreList);
+            request.setAttribute("page", pageCounter);
             request.getRequestDispatcher(address).forward(request, response);
         } catch (SQLException e){
             System.out.println(e.getMessage());

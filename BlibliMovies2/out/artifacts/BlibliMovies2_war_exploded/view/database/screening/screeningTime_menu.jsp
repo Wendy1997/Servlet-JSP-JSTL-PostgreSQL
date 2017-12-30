@@ -42,6 +42,13 @@
 
                 </tbody>
             </table>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination pagination-sm justify-content-center">
+                    <c:forEach begin="1" end="${page}" varStatus="loop">
+                        <li class="page-item"><a class="page-link" href="#">${loop.index}</a></li>
+                    </c:forEach>
+                </ul>
+            </nav>
         </div>
     </div>
 </div>

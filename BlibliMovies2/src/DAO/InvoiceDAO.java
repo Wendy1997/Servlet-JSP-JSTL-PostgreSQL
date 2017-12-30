@@ -81,9 +81,10 @@ public class InvoiceDAO {
         return output;
     }
 
-    public List<Invoice> getAllInvoice(int storeid) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM invoice where storeid = ? ORDER BY id");
+    public List<Invoice> getAllInvoice(int storeid, int offset) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM invoice where storeid = ? ORDER BY id LIMIT 10 OFFSET ?");
         ps.setInt(1, storeid);
+        ps.setInt(2, offset);
         ResultSet rs = ps.executeQuery();
 
         List<Invoice> invoices = new ArrayList<Invoice>();
@@ -99,6 +100,29 @@ public class InvoiceDAO {
 
         ps.close();
         return invoices;
+    }
+
+    public int getCountAllInvoice(int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT count(*) from (SELECT * FROM invoice where storeid = ? ORDER BY id) as count");
+        ps.setInt(1, storeid);
+        ResultSet rs = ps.executeQuery();
+
+                int count = 1;
+        if(rs.next()){
+            count = rs.getInt(1);
+            if(count == 0){
+                count = 1;
+            }
+            else if(30%10 == 0){
+                count = count/10;
+            } else {
+                count = count/10 + 1;
+            }
+        }
+
+
+        ps.close();
+        return count;
     }
 
     public void addInvoice(Invoice invoice) throws SQLException {
@@ -124,18 +148,75 @@ public class InvoiceDAO {
         }
     }
 
-    public List<Invoice> getDailyInvoice(String day, String month, String year, int storeid) throws SQLException{
+    public List<Invoice> getDailyInvoice(String day, String month, String year, int storeid, int offset) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM invoice where " +
                 "EXTRACT (day from orderdate) = ? AND " +
                 "EXTRACT (month from orderdate) = ? and " +
                 "EXTRACT (year from orderdate) = ? and " +
-                "storeid = ?");
+                "storeid = ? LIMIT 10 OFFSET ?");
+        ps.setDouble(1, Double.parseDouble(day));
+        ps.setDouble(2, Double.parseDouble(month));
+        ps.setDouble(3, Double.parseDouble(year));
+        ps.setInt(4, storeid);
+        ps.setInt(5, offset);
+        ResultSet rs = ps.executeQuery();
+
+        List<Invoice> invoices = new ArrayList<Invoice>();
+        while(rs.next()){
+            invoices.add(new Invoice(rs.getInt(1),
+                    rs.getInt(2),
+                    rs.getInt(3),
+                    rs.getInt(4),
+                    rs.getInt(5),
+                    rs.getString(6).substring(0,10),
+                    rs.getDouble(7)));
+        }
+
+        ps.close();
+        return invoices;
+    }
+
+    public int getCountDailyInvoice(String day, String month, String year, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("select count(*) from (SELECT * FROM invoice where " +
+                "EXTRACT (day from orderdate) = ? AND " +
+                "EXTRACT (month from orderdate) = ? and " +
+                "EXTRACT (year from orderdate) = ? and " +
+                "storeid = ?) as count");
         ps.setDouble(1, Double.parseDouble(day));
         ps.setDouble(2, Double.parseDouble(month));
         ps.setDouble(3, Double.parseDouble(year));
         ps.setInt(4, storeid);
         ResultSet rs = ps.executeQuery();
 
+                int count = 1;
+        if(rs.next()){
+            count = rs.getInt(1);
+            if(count == 0){
+                count = 1;
+            }
+            else if(30%10 == 0){
+                count = count/10;
+            } else {
+                count = count/10 + 1;
+            }
+        }
+
+
+        ps.close();
+        return count;
+    }
+
+    public List<Invoice> getWeeklyInvoice(String week, String year, int storeid, int offset) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM invoice where " +
+                "EXTRACT (week from orderdate) = ? and " +
+                "EXTRACT (year from orderdate) = ? and " +
+                "storeid = ? LIMIT 10 OFFSET ?");
+        ps.setDouble(1, Double.parseDouble(week));
+        ps.setDouble(2, Double.parseDouble(year));
+        ps.setInt(3, storeid);
+        ps.setInt(4, offset);
+        ResultSet rs = ps.executeQuery();
+
         List<Invoice> invoices = new ArrayList<Invoice>();
         while(rs.next()){
             invoices.add(new Invoice(rs.getInt(1),
@@ -151,16 +232,45 @@ public class InvoiceDAO {
         return invoices;
     }
 
-    public List<Invoice> getWeeklyInvoice(String week, String year, int storeid) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM invoice where " +
+    public int getCountWeeklyInvoice(String week, String year, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT count(*) from (SELECT * FROM invoice where " +
                 "EXTRACT (week from orderdate) = ? and " +
                 "EXTRACT (year from orderdate) = ? and " +
-                "storeid = ?");
+                "storeid = ?) as count");
         ps.setDouble(1, Double.parseDouble(week));
         ps.setDouble(2, Double.parseDouble(year));
         ps.setInt(3, storeid);
         ResultSet rs = ps.executeQuery();
 
+                int count = 1;
+        if(rs.next()){
+            count = rs.getInt(1);
+            if(count == 0){
+                count = 1;
+            }
+            else if(30%10 == 0){
+                count = count/10;
+            } else {
+                count = count/10 + 1;
+            }
+        }
+
+
+        ps.close();
+        return count;
+    }
+
+    public List<Invoice> getMonthlyInvoice(String month, String year, int storeid, int offset) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM invoice where " +
+                "EXTRACT (month from orderdate) = ? and " +
+                "EXTRACT (year from orderdate) = ? and " +
+                "storeid = ? LIMIT 10 OFFSET ?");
+        ps.setDouble(1, Double.parseDouble(month));
+        ps.setDouble(2, Double.parseDouble(year));
+        ps.setInt(3, storeid);
+        ps.setInt(4, offset);
+        ResultSet rs = ps.executeQuery();
+
         List<Invoice> invoices = new ArrayList<Invoice>();
         while(rs.next()){
             invoices.add(new Invoice(rs.getInt(1),
@@ -176,37 +286,41 @@ public class InvoiceDAO {
         return invoices;
     }
 
-    public List<Invoice> getMonthlyInvoice(String month, String year, int storeid) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM invoice where " +
+    public int getCountMonthlyInvoice(String month, String year, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT count(*) from (SELECT * FROM invoice where " +
                 "EXTRACT (month from orderdate) = ? and " +
                 "EXTRACT (year from orderdate) = ? and " +
-                "storeid = ?");
+                "storeid = ?) as count");
         ps.setDouble(1, Double.parseDouble(month));
         ps.setDouble(2, Double.parseDouble(year));
         ps.setInt(3, storeid);
         ResultSet rs = ps.executeQuery();
 
-        List<Invoice> invoices = new ArrayList<Invoice>();
-        while(rs.next()){
-            invoices.add(new Invoice(rs.getInt(1),
-                    rs.getInt(2),
-                    rs.getInt(3),
-                    rs.getInt(4),
-                    rs.getInt(5),
-                    rs.getString(6).substring(0,10),
-                    rs.getDouble(7)));
+        int count = 1;
+        if(rs.next()){
+            count = rs.getInt(1);
+            if(count < 10){
+                count = 1;
+            }
+            else if(count%10 == 0){
+                count = count/10;
+            } else {
+                count = count/10 + 1;
+            }
         }
 
+
         ps.close();
-        return invoices;
+        return count;
     }
 
-    public List<Invoice> getYearlyInvoice(String year, int storeid) throws SQLException{
+    public List<Invoice> getYearlyInvoice(String year, int storeid, int offset) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM invoice where " +
                 "EXTRACT (year from orderdate) = ? and " +
-                "storeid = ?");
+                "storeid = ? LIMIT 10 OFFSET ?");
         ps.setDouble(1, Double.parseDouble(year));
         ps.setInt(2, storeid);
+        ps.setInt(3, offset);
         ResultSet rs = ps.executeQuery();
 
         List<Invoice> invoices = new ArrayList<Invoice>();
@@ -222,5 +336,31 @@ public class InvoiceDAO {
 
         ps.close();
         return invoices;
+    }
+
+    public int getCountYearlyInvoice(String year, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("Select count(*) from (SELECT * FROM invoice where " +
+                "EXTRACT (year from orderdate) = ? and " +
+                "storeid = ?) as count");
+        ps.setDouble(1, Double.parseDouble(year));
+        ps.setInt(2, storeid);
+        ResultSet rs = ps.executeQuery();
+
+        int count = 1;
+        if(rs.next()){
+            count = rs.getInt(1);
+            if(count == 0){
+                count = 1;
+            }
+            else if(30%10 == 0){
+                count = count/10;
+            } else {
+                count = count/10 + 1;
+            }
+        }
+
+
+        ps.close();
+        return count;
     }
 }

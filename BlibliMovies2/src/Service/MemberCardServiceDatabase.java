@@ -23,8 +23,13 @@ public class MemberCardServiceDatabase implements MemberCardService{
     }
 
     @Override
-    public List<MemberCard> getAllMemberCard(int storeid) throws SQLException {
-        return memberCardDAO.getAllMemberCard(storeid);
+    public List<MemberCard> getAllMemberCard(int storeid, int offset) throws SQLException {
+        return memberCardDAO.getAllMemberCard(storeid, offset);
+    }
+
+    @Override
+    public int getCountAllMemberCard(int storeid) throws SQLException {
+        return memberCardDAO.getCountAllMemberCard(storeid);
     }
 
     @Override

@@ -21,8 +21,13 @@ public class InvoiceServiceDatabase implements InvoiceService {
     }
 
     @Override
-    public List<Invoice> getAllInvoice(int storeid) throws SQLException {
-        return invoiceDAO.getAllInvoice(storeid);
+    public List<Invoice> getAllInvoice(int storeid, int offset) throws SQLException {
+        return invoiceDAO.getAllInvoice(storeid, offset);
+    }
+
+    @Override
+    public int getCountAllInvoice(int storeid) throws SQLException {
+        return invoiceDAO.getCountAllInvoice(storeid);
     }
 
     @Override
@@ -36,26 +41,49 @@ public class InvoiceServiceDatabase implements InvoiceService {
     }
 
     @Override
-    public List<Invoice> getDailyInvoice(String date, int storeid) throws SQLException {
+    public List<Invoice> getDailyInvoice(String date, int storeid, int offset) throws SQLException {
         String[] dateList = date.split("-");
-        return invoiceDAO.getDailyInvoice(dateList[2], dateList[1], dateList[0], storeid);
+        return invoiceDAO.getDailyInvoice(dateList[2], dateList[1], dateList[0], storeid, offset);
     }
 
     @Override
-    public List<Invoice> getWeeklyInvoice(String date, int storeid) throws SQLException {
+    public List<Invoice> getWeeklyInvoice(String date, int storeid, int offset) throws SQLException {
         String[] dateList = date.split("-");
-        return invoiceDAO.getWeeklyInvoice(dateList[1].substring(1), dateList[0], storeid);
+        return invoiceDAO.getWeeklyInvoice(dateList[1].substring(1), dateList[0], storeid, offset);
     }
 
     @Override
-    public List<Invoice> getMonthlyInvoice(String date, int storeid) throws SQLException {
+    public List<Invoice> getMonthlyInvoice(String date, int storeid, int offset) throws SQLException {
         String[] dateList = date.split("-");
-        return invoiceDAO.getMonthlyInvoice(dateList[1], dateList[0], storeid);
+        return invoiceDAO.getMonthlyInvoice(dateList[1], dateList[0], storeid, offset);
     }
 
     @Override
-    public List<Invoice> getYearlyInvoice(String year, int storeid) throws SQLException {
-        return invoiceDAO.getYearlyInvoice(year, storeid);
+    public List<Invoice> getYearlyInvoice(String year, int storeid, int offset) throws SQLException {
+        return invoiceDAO.getYearlyInvoice(year, storeid, offset);
+    }
+
+    @Override
+    public int getCountDailyInvoice(String date, int storeid) throws SQLException {
+        String[] dateList = date.split("-");
+        return invoiceDAO.getCountDailyInvoice(dateList[2], dateList[1], dateList[0], storeid);
+    }
+
+    @Override
+    public int getCountWeeklyInvoice(String date, int storeid) throws SQLException {
+        String[] dateList = date.split("-");
+        return invoiceDAO.getCountWeeklyInvoice(dateList[1].substring(1), dateList[0], storeid);
+    }
+
+    @Override
+    public int getCountMonthlyInvoice(String date, int storeid) throws SQLException {
+        String[] dateList = date.split("-");
+        return invoiceDAO.getCountMonthlyInvoice(dateList[1], dateList[0], storeid);
+    }
+
+    @Override
+    public int getCountYearlyInvoice(String date, int storeid) throws SQLException {
+        return invoiceDAO.getCountYearlyInvoice(date, storeid);
     }
 
     @Override
