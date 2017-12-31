@@ -37,7 +37,7 @@
 
                     <div class="form-group">
                         <label for="durasi">Durasi:</label>
-                        <input type="number" class="form-control" id="durasi" name="durasi" required>
+                        <input type="number" class="form-control" id="durasi" name="durasi" min="1" required>
                     </div>
 
                     <div class="form-group">
@@ -47,12 +47,12 @@
 
                     <div class="form-group">
                         <label for="rating">Rating:</label>
-                        <input type="number" class="form-control" id="rating" name="rating" required>
+                        <input type="number" class="form-control" id="rating" name="rating" min="0" max="5" step=".01" required>
                     </div>
 
                     <div class="form-group">
                         <label for="jumlah">Jumlah Review:</label>
-                        <input type="number" class="form-control" id="jumlah" name="jumlah" required>
+                        <input type="number" class="form-control" id="jumlah" name="jumlah" min="0" required>
                     </div>
 
                     <div class="form-group">
@@ -97,5 +97,14 @@
         </form>
     </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+        $("input[name='waktu_mulai']").change(function () {
+            $("input[name='waktu_akhir']").val($(this).val());
+            $("input[name='waktu_akhir']").attr('min', $(this).val());
+        });
+    });
+</script>
 
 <%@ include file = "/include/foot.jsp" %>

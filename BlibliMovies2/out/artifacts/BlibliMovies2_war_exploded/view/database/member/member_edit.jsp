@@ -42,7 +42,7 @@
 
                     <div class="form-group">
                         <label for="phone">Phone Number:</label>
-                        <input type="number" class="form-control" id="phone" name="phonenumber" value="${memberCard.phoneNumber}" required>
+                        <input type="number" class="form-control" id="phone" name="phonenumber" min="100000000" max="999999999999" value="${memberCard.phoneNumber}" required>
                     </div>
 
                     <div class="form-group">

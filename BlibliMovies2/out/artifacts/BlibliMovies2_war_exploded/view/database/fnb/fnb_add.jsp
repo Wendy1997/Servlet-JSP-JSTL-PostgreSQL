@@ -47,7 +47,7 @@
 
                     <div class="form-group">
                         <label for="price">Harga:</label>
-                        <input type="number" class="form-control" id="price" name="price" required>
+                        <input type="number" class="form-control" id="price" min="0" name="price" required>
                     </div>
 
                     <div class="form-group">

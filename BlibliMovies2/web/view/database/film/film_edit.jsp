@@ -38,7 +38,7 @@
 
                     <div class="form-group">
                         <label for="durasi">Durasi:</label>
-                        <input type="number" class="form-control" id="durasi" name="durasi" value="${film.duration}" required>
+                        <input type="number" class="form-control" id="durasi" name="durasi" min="1" value="${film.duration}" required>
                     </div>
 
                     <div class="form-group">
@@ -48,12 +48,12 @@
 
                     <div class="form-group">
                         <label for="rating">Rating:</label>
-                        <input type="number" class="form-control" id="rating" name="rating" value="${film.rating}" required>
+                        <input type="number" class="form-control" id="rating" name="rating" min="0" max="5" step=".01" value="${film.rating}" required>
                     </div>
 
                     <div class="form-group">
                         <label for="jumlah">Jumlah Review:</label>
-                        <input type="number" class="form-control" id="jumlah" name="jumlah" value="${film.reviewTotal}" required>
+                        <input type="number" class="form-control" id="jumlah" name="jumlah" min="0" value="${film.reviewTotal}" required>
                     </div>
 
                     <div class="form-group">
@@ -98,5 +98,16 @@
         </form>
     </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+        $("input[name='waktu_akhir']").attr('min', $("input[name='waktu_mulai']").val());
+
+        $("input[name='waktu_mulai']").change(function() {
+            $("input[name='waktu_akhir']").val($(this).val());
+            $("input[name='waktu_akhir']").attr('min', $(this).val());
+        });
+    });
+</script>
 
 <%@ include file = "/include/foot.jsp" %>

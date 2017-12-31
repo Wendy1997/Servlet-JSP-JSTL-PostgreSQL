@@ -88,7 +88,7 @@
                         </c:forEach>
 
                         output += '</td>\n' +
-                            '<td>' + result[key].director + '/td>\n' +
+                            '<td>' + result[key].director + '</td>\n' +
                             '<td><a href=/admin/film/edit?id=' + result[key].id + '>Edit</a></td>\n';
 
                         if(result[key].status){

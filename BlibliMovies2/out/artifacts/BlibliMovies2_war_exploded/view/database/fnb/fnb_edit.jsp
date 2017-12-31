@@ -47,7 +47,7 @@
 
                     <div class="form-group">
                         <label for="price">Harga:</label>
-                        <input type="number" class="form-control" id="price" name="price" value="${fnb.price}" required>
+                        <input type="number" class="form-control" id="price" name="price" min="1" value="${fnb.price}" required>
                     </div>
 
                     <div class="form-group">

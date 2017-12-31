@@ -38,7 +38,7 @@
 
                     <div class="form-group">
                         <label for="price">Price:</label>
-                        <input type="number" class="form-control" name="price" id="price" required>
+                        <input type="number" class="form-control" name="price" id="price" min="1" required>
                     </div>
 
                     <button type="submit" class="btn btn-default">Submit ></button>
