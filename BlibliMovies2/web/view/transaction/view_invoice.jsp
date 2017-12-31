@@ -68,7 +68,6 @@
             $('*').css('background-color', 'white');
             $('*').css('color', 'black');
             $('.stripe').css('background-color', 'black');
-            doc.text(10, 10, 'This is a test');
             doc.addHTML(
                 $('.jumbotron').get(0), function () {
                     doc.autoPrint();
