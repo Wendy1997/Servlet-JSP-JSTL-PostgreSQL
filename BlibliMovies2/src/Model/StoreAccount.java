@@ -5,13 +5,28 @@ public class StoreAccount {
     private String password;
     private String nama;
     private int id;
+    private boolean status;
+
+    public StoreAccount(String username, String password, String nama, int id, boolean status) {
+        this.username = username;
+        this.password = password;
+        this.nama = nama;
+        this.id = id;
+        this.status = status;
+    }
 
     public StoreAccount(String username, String password, String nama, int id){
         setUsername(username);
         setPassword(password);
         setNama(nama);
-        setID(id);
+        setId(id);
     }
+
+    public StoreAccount(String username, String password, String nama){
+        setUsername(username);
+        setPassword(password);
+        setNama(nama);
+     }
 
     public String getUsername(){
         return this.username;
@@ -25,8 +40,20 @@ public class StoreAccount {
         return this.nama;
     }
 
-    public int getID(){
-        return this.id;
+    public boolean getStatus() {
+        return status;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 
     public void setUsername(String username){
@@ -41,7 +68,5 @@ public class StoreAccount {
         this.nama = nama;
     }
 
-    public void setID(int id){
-        this.id = id;
-    }
+
 }

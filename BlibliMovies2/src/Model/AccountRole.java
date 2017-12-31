@@ -19,6 +19,11 @@ public class AccountRole {
         this.storeid = storeid;
     }
 
+    public AccountRole(String role, int storeid) {
+        this.role = role;
+        this.storeid = storeid;
+    }
+
     public int getId() {
         return id;
     }

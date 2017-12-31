@@ -60,7 +60,7 @@ public class Store extends HttpServlet {
             StoreAccount store = storeAccountService.getStoreAccount(request.getParameter("username"));
             if(store != null){
                 if(store.getPassword().equals(request.getParameter("password").hashCode() + "")) {
-                    request.getSession().setAttribute("storeid", store.getID());
+                    request.getSession().setAttribute("storeid", store.getId());
                     request.getSession().setAttribute("storename", store.getNama());
 
                     address = "/view/database/success.jsp";

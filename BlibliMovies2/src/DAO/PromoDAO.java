@@ -119,4 +119,14 @@ public class PromoDAO {
         ps.close();
         return output;
     }
+
+    public void addPromo(Promo promo) throws SQLException {
+        PreparedStatement ps = conn.prepareStatement("insert into promo (storeid, name, description, discountamount) VALUES (?,?,?,?)");
+        ps.setInt(1, promo.getStoreID());
+        ps.setString(2, promo.getName());
+        ps.setString(3, promo.getDescription());
+        ps.setInt(4, promo.getDiscountAmount());
+        ps.executeUpdate();
+        ps.close();
+    }
 }

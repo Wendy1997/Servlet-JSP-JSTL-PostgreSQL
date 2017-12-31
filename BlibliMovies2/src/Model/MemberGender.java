@@ -19,6 +19,11 @@ public class MemberGender {
         this.storeid = storeid;
     }
 
+    public MemberGender(String gender, int storeid) {
+        this.gender = gender;
+        this.storeid = storeid;
+    }
+
     public int getId() {
         return id;
     }

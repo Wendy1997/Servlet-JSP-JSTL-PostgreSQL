@@ -51,10 +51,10 @@ public class Account extends HttpServlet {
         try{
             Model.Account account = accountService.getAccountTrue(request.getParameter("username"), (int)request.getSession().getAttribute("storeid"));
 
-            System.out.println(request.getParameter("password").hashCode());
             if(account != null){
                 if(account.getPassword().equals(request.getParameter("password").hashCode() + "")){
                     AccountRole accountRole = accountService.getAccountRole(account.getRoleid(),(int)request.getSession().getAttribute("storeid"));
+                    System.out.println("Haihaihai " + accountRole);
                     request.getSession().setAttribute("role", accountRole.getRole());
                     request.getSession().setAttribute("username", account.getUsername());
                     request.getSession().setAttribute("userid", account.getid());
