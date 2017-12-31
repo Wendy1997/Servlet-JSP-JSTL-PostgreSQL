@@ -37,13 +37,6 @@ public class FnBSizeAdd extends HttpServlet {
             address = "/view/login/account_login.jsp";
         }
 
-        try{
-            List<FnBSize> fnBSizeList = fnbService.getAllFnBSize((int)request.getSession().getAttribute("storeid"));
-            request.setAttribute("size", fnBSizeList);
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-
         request.getRequestDispatcher(address).forward(request, response);
     }
 

@@ -42,15 +42,74 @@
                         </td>
                         <td><c:out value="${films.director}"></c:out></td>
                         <td><a <c:out value='href=/admin/film/edit?id=${films.id}'></c:out>>Edit</a></td>
-                        <td><a <c:out value='href=/admin/film/delete?id=${films.id}'></c:out>>Delete</a></td>
+                        <td><a <c:out value='href=/admin/film/delete?id=${films.id}'></c:out>>${films.status ? "Delete" : "Retrieve"}</a></td>
                         <td><a <c:out value='href=/admin/film/detail?id=${films.id}'></c:out>>Detail</a></td>
                     </tr>
                     </c:forEach>
 
                 </tbody>
             </table>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination pagination-sm justify-content-center">
+                    <c:forEach begin="1" end="${page}" varStatus="loop">
+                        <li class="page-item"><a class="page-link" href="#">${loop.index}</a></li>
+                    </c:forEach>
+                </ul>
+            </nav>
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+        $('.page-link').click(function () {
+            $.ajax({
+                type: 'GET',
+                url: "/admin/film/page",
+                dataType: "JSON",
+                data: {
+                    page: $(this).text()
+                },
+                success: function (response) {
+                    var output = "";
+
+                    var result = response["result"];
+                    for(var key in result){
+                        output += '<tr>\n' +
+                            '<td scope="row">' + result[key].id + '</td>\n' +
+                            '<td>' + result[key].cover + '</td>\n' +
+                            '<td>' + result[key].title + '</td>\n' +
+                            '<td>\n';
+
+                        <c:forEach items="${genre}" var="genre">
+                            if(result[key].genre == ${genre.id}){
+                                output += ${genre.genre}
+                            }
+                        </c:forEach>
+
+                        output += '</td>\n' +
+                            '<td>' + result[key].director + '</td>\n' +
+                            '<td><a href=/admin/film/edit?id=' + result[key].id + '>Edit</a></td>\n';
+
+                        if(result[key].status){
+                            output += '<td><a href=/admin/film/delete?id=' + result[key].id + '>Delete</a></td>\n';
+                        } else {
+                            output += '<td><a href=/admin/film/delete?id=' + result[key].id + '>Retrieve</a></td>\n';
+                        }
+
+                           output+= '<td><a href=/admin/film/detail?id=' + result[key].id + '>Detail</a></td>\n' +
+                            '</tr>';
+                    }
+
+                    $('tbody')[0].innerHTML = output;
+                },
+                error : function (response) {
+                    console.log(response);
+                }
+            });
+            return false;
+        })
+    });
+</script>
 
 <%@ include file = "/include/foot.jsp" %>

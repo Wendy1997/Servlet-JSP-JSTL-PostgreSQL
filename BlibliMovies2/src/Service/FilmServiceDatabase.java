@@ -19,8 +19,23 @@ public class FilmServiceDatabase implements FilmService {
     }
 
     @Override
-    public List<Film> getAllFilm(int storeid) throws SQLException{
-        return filmDAO.getAllFilm(storeid);
+    public Film getFilmTrue(String id, int storeid) throws SQLException {
+        return filmDAO.getFilmTrue(id, storeid);
+    }
+
+    @Override
+    public List<Film> getAllFilm(int storeid, int offset) throws SQLException{
+        return filmDAO.getAllFilm(storeid, offset);
+    }
+
+    @Override
+    public int getCountAllFilm(int storeid) throws SQLException {
+        return filmDAO.getCountAllFilm(storeid);
+    }
+
+    @Override
+    public List<Film> getAllFilmTrue(int storeid) throws SQLException {
+        return filmDAO.getAllFilmTrue(storeid);
     }
 
     @Override
@@ -35,18 +50,38 @@ public class FilmServiceDatabase implements FilmService {
     }
 
     @Override
+    public void retrieveFilm(String id, int storeid) throws SQLException {
+        filmDAO.retrieveFilm(id, storeid);
+    }
+
+    @Override
     public void updateFilm(Film film) throws SQLException{
         filmDAO.updateFilm(film);
     }
 
     @Override
-    public List<Studio> getAllStudio(int storeid) throws SQLException {
-        return studioDAO.getAllStudio(storeid);
+    public List<Studio> getAllStudio(int storeid, int offset) throws SQLException {
+        return studioDAO.getAllStudio(storeid, offset);
+    }
+
+    @Override
+    public int getCountAllStudio(int storeid) throws SQLException {
+        return studioDAO.getCountAllStudio(storeid);
+    }
+
+    @Override
+    public List<Studio> getAllStudioTrue(int storeid) throws SQLException {
+        return studioDAO.getAllStudioTrue(storeid);
     }
 
     @Override
     public Studio getStudio(String id, int storeid) throws SQLException {
         return studioDAO.getStudio(id, storeid);
+    }
+
+    @Override
+    public Studio getStudioTrue(String id, int storeid) throws SQLException {
+        return studioDAO.getStudioTrue(id, storeid);
     }
 
     @Override
@@ -65,19 +100,38 @@ public class FilmServiceDatabase implements FilmService {
     }
 
     @Override
-    public void addScreeningTime(ScreeningTime screeningTime) throws SQLException {
+    public void retrieveSrudio(String id, int storeid) throws SQLException {
+        studioDAO.retrieveStudio(id, storeid);
+    }
 
+    @Override
+    public void addScreeningTime(ScreeningTime screeningTime) throws SQLException {
         screeningTimeDAO.addScreeningTime(screeningTime);
     }
 
     @Override
-    public List<ScreeningTime> getAllScreeningTime (int storeid, String filmid) throws SQLException{
-        return screeningTimeDAO.getAllScreeningTime(storeid, filmid);
+    public List<ScreeningTime> getAllScreeningTime (int storeid, String filmid, int offset) throws SQLException{
+        return screeningTimeDAO.getAllScreeningTime(storeid, filmid, offset);
+    }
+
+    @Override
+    public int getCountAllScreeningTime(int storeid, String filmid) throws SQLException {
+        return screeningTimeDAO.getCountAllScreeningTime(storeid, filmid);
+    }
+
+    @Override
+    public List<ScreeningTime> getAllScreeningTimeTrue(int storeid, String filmid) throws SQLException {
+        return screeningTimeDAO.getAllScreeningTimeTrue(storeid, filmid);
     }
 
     @Override
     public ScreeningTime getScreeningTime(String id, String filmId, int storeid) throws SQLException{
         return screeningTimeDAO.getScreeningTime(id, filmId, storeid);
+    }
+
+    @Override
+    public ScreeningTime getScreeningTimeTrue(String id, String filmId, int storeid) throws SQLException {
+        return screeningTimeDAO.getScreeningTimeTrue(id, filmId, storeid);
     }
 
     @Override
@@ -91,13 +145,38 @@ public class FilmServiceDatabase implements FilmService {
     }
 
     @Override
+    public void retrieveScreeningTime(String id, String filmid, int storeid) throws SQLException {
+        screeningTimeDAO.retrieveScreeningTime(id, filmid, storeid);
+    }
+
+    @Override
     public FilmGenre getFilmGenre(String id, int storeid) throws SQLException {
         return filmGenreDAO.getFilmGenre(id, storeid);
     }
 
     @Override
-    public List<FilmGenre> getAllFilmGenre(int storeid) throws SQLException {
-        return filmGenreDAO.getAllFilmGenre(storeid);
+    public FilmGenre getFilmGenreTrue(String id, int storeid) throws SQLException {
+        return filmGenreDAO.getFilmGenreTrue(id, storeid);
+    }
+
+    @Override
+    public List<FilmGenre> getAllFilmGenre(int storeid, int offset) throws SQLException {
+        return filmGenreDAO.getAllFilmGenre(storeid, offset);
+    }
+
+    @Override
+    public List<FilmGenre> getShowAllFilmGenre(int storeid) throws SQLException {
+        return filmGenreDAO.getShowAllFilmGenre(storeid);
+    }
+
+    @Override
+    public int getCountAllFilmGenre(int storeid) throws SQLException {
+        return filmGenreDAO.getCountAllFilmGenre(storeid);
+    }
+
+    @Override
+    public List<FilmGenre> getAllFilmGenreTrue(int storeid) throws SQLException {
+        return filmGenreDAO.getAllFilmGenreTrue(storeid);
     }
 
     @Override
@@ -111,6 +190,11 @@ public class FilmServiceDatabase implements FilmService {
     }
 
     @Override
+    public void retrieveFilmGenre(String filmGenre, int storeid) throws SQLException {
+        filmGenreDAO.retrieveFilmGenre(filmGenre, storeid);
+    }
+
+    @Override
     public void updateFilmGenre(FilmGenre filmGenre) throws SQLException {
         filmGenreDAO.updateFilmGenre(filmGenre);
     }
@@ -121,8 +205,28 @@ public class FilmServiceDatabase implements FilmService {
     }
 
     @Override
-    public List<StudioType> getAllStudioType(int storeid) throws SQLException {
-        return studioTypeDAO.getAllStudioType(storeid);
+    public StudioType getStudioTypeTrue(String id, int storeid) throws SQLException {
+        return studioTypeDAO.getStudioTypeTrue(id, storeid);
+    }
+
+    @Override
+    public List<StudioType> getAllStudioType(int storeid, int offset) throws SQLException {
+        return studioTypeDAO.getAllStudioType(storeid, offset);
+    }
+
+    @Override
+    public List<StudioType> getShowAllStudioType(int storeid) throws SQLException {
+        return studioTypeDAO.getShowAllStudioType(storeid);
+    }
+
+    @Override
+    public int getCountAllStudioType(int storeid) throws SQLException {
+        return studioTypeDAO.getCountAllStudioType(storeid);
+    }
+
+    @Override
+    public List<StudioType> getAllStudioTypeTrue(int storeid) throws SQLException {
+        return studioTypeDAO.getAllStudioTypeTrue(storeid);
     }
 
     @Override
@@ -133,6 +237,11 @@ public class FilmServiceDatabase implements FilmService {
     @Override
     public void deleteStudioType(String studioType, int storeid) throws SQLException {
         studioTypeDAO.deleteStudioType(studioType, storeid);
+    }
+
+    @Override
+    public void retrieveStudioType(String studioType, int storeid) throws SQLException {
+        studioTypeDAO.retrieveStudioType(studioType, storeid);
     }
 
     @Override

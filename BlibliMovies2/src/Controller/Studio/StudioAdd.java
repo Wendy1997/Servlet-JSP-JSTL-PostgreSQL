@@ -37,7 +37,7 @@ public class StudioAdd extends HttpServlet {
         }
 
         try{
-            List<StudioType> studioTypeList = studioService.getAllStudioType((int)request.getSession().getAttribute("storeid"));
+            List<StudioType> studioTypeList = studioService.getAllStudioTypeTrue((int)request.getSession().getAttribute("storeid"));
             request.setAttribute("type", studioTypeList);
         }catch (SQLException e){
             e.printStackTrace();

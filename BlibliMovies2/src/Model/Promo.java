@@ -17,6 +17,13 @@ public class Promo {
         this.discountAmount = discountAmount;
     }
 
+    public Promo(int storeid, String name, String description, int discountAmount) {
+        this.storeid = storeid;
+        this.name = name;
+        this.description = description;
+        this.discountAmount = discountAmount;
+    }
+
     public int getId() {
         return id;
     }

@@ -15,7 +15,7 @@
         <br><br>
 
         <!-- Forms -->
-        <form action="/admin/studio/add" method="post">
+        <form action="/admin/studio/add" method="post" onsubmit="return confirm('Are You Sure?');">
             <div class="row">
                 <div class="col-lg-6" id="form1">
                     <h2>Data Studio</h2><br>
@@ -38,7 +38,7 @@
 
                     <div class="form-group">
                         <label for="price">Price:</label>
-                        <input type="number" class="form-control" name="price" id="price" required>
+                        <input type="number" class="form-control" name="price" id="price" min="1" required>
                     </div>
 
                     <button type="submit" class="btn btn-default">Submit ></button>

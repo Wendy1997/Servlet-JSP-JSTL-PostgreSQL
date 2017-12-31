@@ -45,11 +45,16 @@ public class FilmGenreDelete extends HttpServlet {
         try{
             FilmGenre filmGenre = filmService.getFilmGenre(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
 
-            filmService.deleteFilmGenre(filmGenre.getId() + "", (int)request.getSession().getAttribute("storeid"));
+            if(filmGenre.isStatus()){
+                filmService.deleteFilmGenre(filmGenre.getId() + "", (int)request.getSession().getAttribute("storeid"));
+                request.setAttribute("complete", "Deleted");
+            } else{
+                filmService.retrieveFilmGenre(filmGenre.getId() + "", (int)request.getSession().getAttribute("storeid"));
+                request.setAttribute("complete", "Retrieved");
+            }
 
             address = "/view/database/success.jsp";
             request.setAttribute("title", "Film Genre");
-            request.setAttribute("complete", "Deleted");
             request.setAttribute("link", "/admin/filmgenre");
 
             request.getRequestDispatcher(address).forward(request, response);

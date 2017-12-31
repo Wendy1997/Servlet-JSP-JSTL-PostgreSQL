@@ -18,8 +18,23 @@ public class MemberCardServiceDatabase implements MemberCardService{
     }
 
     @Override
-    public List<MemberCard> getAllMemberCard(int storeid) throws SQLException {
-        return memberCardDAO.getAllMemberCard(storeid);
+    public MemberCard getMemberCardTrue(String id, int storeid) throws SQLException {
+        return memberCardDAO.getMemberCardTrue(id, storeid);
+    }
+
+    @Override
+    public List<MemberCard> getAllMemberCard(int storeid, int offset) throws SQLException {
+        return memberCardDAO.getAllMemberCard(storeid, offset);
+    }
+
+    @Override
+    public int getCountAllMemberCard(int storeid) throws SQLException {
+        return memberCardDAO.getCountAllMemberCard(storeid);
+    }
+
+    @Override
+    public List<MemberCard> getAllMemberCardTrue(int storeid) throws SQLException {
+        return memberCardDAO.getAllMemberCardTrue(storeid);
     }
 
     @Override
@@ -33,6 +48,11 @@ public class MemberCardServiceDatabase implements MemberCardService{
     }
 
     @Override
+    public void retrieveMemberCard(String id, int storeid) throws SQLException {
+        memberCardDAO.retrieveMemberCard(id, storeid);
+    }
+
+    @Override
     public void updateAccout(MemberCard memberCard) throws SQLException {
         memberCardDAO.updateMemberCard(memberCard);
     }
@@ -43,8 +63,18 @@ public class MemberCardServiceDatabase implements MemberCardService{
     }
 
     @Override
+    public MemberGender getMemberGenderTrue(String id, int storeid) throws SQLException {
+        return memberGenderDAO.getMemberGenderTrue(id, storeid);
+    }
+
+    @Override
     public List<MemberGender> getAllMemberGender(int storeid) throws SQLException {
         return memberGenderDAO.getAllMemberGender(storeid);
+    }
+
+    @Override
+    public List<MemberGender> getAllMemberGenderTrue(int storeid) throws SQLException {
+        return memberGenderDAO.getAllMemberGenderTrue(storeid);
     }
 
     @Override
@@ -55,6 +85,11 @@ public class MemberCardServiceDatabase implements MemberCardService{
     @Override
     public void deleteMemberGender(String memberGender, int storeid) throws SQLException {
         memberGenderDAO.deleteMemberGender(memberGender, storeid);
+    }
+
+    @Override
+    public void retrieveMemberGender(String memberGender, int storeid) throws SQLException {
+        memberGenderDAO.retrieveMemberGender(memberGender, storeid);
     }
 
     @Override

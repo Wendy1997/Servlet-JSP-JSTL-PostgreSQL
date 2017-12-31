@@ -42,7 +42,7 @@ public class StudioEdit extends HttpServlet{
             Studio studio = studioService.getStudio(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
             request.setAttribute("studio", studio);
 
-            List<StudioType> studioTypeList = studioService.getAllStudioType((int)request.getSession().getAttribute("storeid"));
+            List<StudioType> studioTypeList = studioService.getAllStudioTypeTrue((int)request.getSession().getAttribute("storeid"));
             request.setAttribute("type", studioTypeList);
         } catch (Exception e){
             System.out.println(e.getMessage());

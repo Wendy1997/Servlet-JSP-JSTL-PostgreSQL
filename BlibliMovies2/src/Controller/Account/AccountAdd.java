@@ -5,6 +5,7 @@ import Model.Account;
 import Model.AccountRole;
 import Service.AccountService;
 import Service.AccountServiceDatabase;
+import org.omg.Messaging.SYNC_WITH_TRANSPORT;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -38,7 +39,7 @@ public class AccountAdd extends HttpServlet {
         }
 
         try{
-            List<AccountRole> accountRoleList = accountService.getAllAccountRole((int)request.getSession().getAttribute("storeid"));
+            List<AccountRole> accountRoleList = accountService.getAllAccountRoleTrue((int)request.getSession().getAttribute("storeid"));
             request.setAttribute("role", accountRoleList);
         }catch (SQLException e){
             e.printStackTrace();
@@ -52,7 +53,7 @@ public class AccountAdd extends HttpServlet {
         try{
             Account account = new Account( request.getParameter("username"),
                     (int)request.getSession().getAttribute("storeid"),
-                    request.getParameter("password"),
+                    request.getParameter("password").hashCode() + "",
                     Integer.parseInt(request.getParameter("role")));
 
             accountService.addAccount(account);
@@ -64,7 +65,7 @@ public class AccountAdd extends HttpServlet {
 
             request.getRequestDispatcher(address).forward(request,response);
         } catch (Exception e){
-            System.out.println(e.getMessage());
+           e.printStackTrace();
         }
     }
 }

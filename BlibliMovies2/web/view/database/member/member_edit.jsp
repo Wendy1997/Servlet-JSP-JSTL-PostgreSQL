@@ -15,7 +15,7 @@
         <br><br>
 
         <!-- Forms -->
-        <form action="/admin/membercard/edit" method="post">
+        <form action="/admin/membercard/edit" method="post" onsubmit="return confirm('Are You Sure?');">
             <div class="row">
                 <div class="col-lg-6" id="form1">
                     <h2>Data Member Card</h2><br>
@@ -42,7 +42,7 @@
 
                     <div class="form-group">
                         <label for="phone">Phone Number:</label>
-                        <input type="number" class="form-control" id="phone" name="phonenumber" value="${memberCard.phoneNumber}" required>
+                        <input type="number" class="form-control" id="phone" name="phonenumber" min="100000000" max="999999999999" value="${memberCard.phoneNumber}" required>
                     </div>
 
                     <div class="form-group">

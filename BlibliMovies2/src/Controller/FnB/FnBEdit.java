@@ -52,8 +52,8 @@ public class FnBEdit extends HttpServlet{
             FnB fnb = fnbService.getFnB(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
             request.setAttribute("fnb", fnb);
 
-            List<FnBSize> fnBSizeList = fnbService.getAllFnBSize((int)request.getSession().getAttribute("storeid"));
-            List<FnBType> fnBTypeList = fnbService.getAllFnBType((int)request.getSession().getAttribute("storeid"));
+            List<FnBSize> fnBSizeList = fnbService.getAllFnBSizeTrue((int)request.getSession().getAttribute("storeid"));
+            List<FnBType> fnBTypeList = fnbService.getAllFnBTypeTrue((int)request.getSession().getAttribute("storeid"));
 
             request.setAttribute("size", fnBSizeList);
             request.setAttribute("type", fnBTypeList);
@@ -74,13 +74,15 @@ public class FnBEdit extends HttpServlet{
             String[] randomList = cover.split("/");
             String randomNumber = randomList[3].substring(randomList[3].length()-19, randomList[3].length()-5);
 
+            FnB fnb = new FnB();
+
             if(request.getPart("file").getSubmittedFileName().length() > 0){
                 String[] pathList = getServletContext().getRealPath("").split("\\\\");
                 String uploadFilePath = "";
                 for(int i = 0; i < pathList.length - 3; i++){
                     uploadFilePath += pathList[i] + "\\";
                 }
-                uploadFilePath += UPLOAD_DIR + "\\" + (int)request.getSession().getAttribute("storeid") + "\\film";
+                uploadFilePath += UPLOAD_DIR + "\\" + (int)request.getSession().getAttribute("storeid") + "\\fnb";
 
                 File fileLama = new File(uploadFilePath + "\\" + randomList[3]);
                 fileLama.delete();
@@ -95,18 +97,26 @@ public class FnBEdit extends HttpServlet{
 
                 Part part = request.getPart("file");
                 fileName = getFileName(part);
-                part.write(uploadFilePath + "\\" + request.getParameter("nama") + " (" + request.getParameter("waktu_mulai").substring(0,4) + ") [" + random + "].jpg");
+                part.write(uploadFilePath + "\\" + request.getParameter("name") + " (" + request.getParameter("size") + ") [" + random + "].jpg");
                 randomNumber = random;
+                fnb = new FnB(
+                        Integer.parseInt(request.getParameter("id")),
+                        (int)request.getSession().getAttribute("storeid"),
+                        "/" + (int)request.getSession().getAttribute("storeid") + "/fnb/" + request.getParameter("name") + " (" + request.getParameter("size") + ") [" + randomNumber + "].jpg",
+                        request.getParameter("name"),
+                        Integer.parseInt(request.getParameter("type")),
+                        Integer.parseInt(request.getParameter("size")),
+                        Integer.parseInt(request.getParameter("price")));
+            } else {
+                fnb = new FnB(
+                        Integer.parseInt(request.getParameter("id")),
+                        (int)request.getSession().getAttribute("storeid"),
+                        fnbService.getFnB(request.getParameter("id"),(int)request.getSession().getAttribute("storeid")).getCover(),
+                        request.getParameter("name"),
+                        Integer.parseInt(request.getParameter("type")),
+                        Integer.parseInt(request.getParameter("size")),
+                        Integer.parseInt(request.getParameter("price")));
             }
-
-            FnB fnb = new FnB(
-                Integer.parseInt(request.getParameter("id")),
-                (int)request.getSession().getAttribute("storeid"),
-                "/" + (int)request.getSession().getAttribute("storeid") + "/film/" + request.getParameter("name") + " (" + request.getParameter("size") + ") [" + randomNumber + "].jpg",
-                request.getParameter("name"),
-                Integer.parseInt(request.getParameter("type")),
-                Integer.parseInt(request.getParameter("size")),
-                Integer.parseInt(request.getParameter("price")));
 
             fnbService.updateFnB(fnb);
 
@@ -118,7 +128,7 @@ public class FnBEdit extends HttpServlet{
             request.getRequestDispatcher(address).forward(request, response);
 
         } catch (Exception e){
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 

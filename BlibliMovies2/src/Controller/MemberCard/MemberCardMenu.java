@@ -41,11 +41,13 @@ public class MemberCardMenu extends HttpServlet{
         }
 
         try{
-            List<MemberCard> memberCards = memberCardService.getAllMemberCard((int)request.getSession().getAttribute("storeid"));
+            List<MemberCard> memberCards = memberCardService.getAllMemberCard((int)request.getSession().getAttribute("storeid"), 0);
             List<MemberGender> memberGenderList = memberCardService.getAllMemberGender((int)request.getSession().getAttribute("storeid"));
+            int pageCounter = memberCardService.getCountAllMemberCard((int)request.getSession().getAttribute("storeid"));
 
             request.setAttribute("gender", memberGenderList);
             request.setAttribute("memberCards", memberCards);
+            request.setAttribute("page", pageCounter);
 
             request.getRequestDispatcher(address).forward(request, response);
         } catch (SQLException e){

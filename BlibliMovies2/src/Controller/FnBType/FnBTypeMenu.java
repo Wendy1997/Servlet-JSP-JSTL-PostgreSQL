@@ -43,8 +43,10 @@ public class FnBTypeMenu extends HttpServlet{
         }
 
         try{
-            List<FnBType> fnbTypeList = fnbService.getAllFnBType((int)request.getSession().getAttribute("storeid"));
+            List<FnBType> fnbTypeList = fnbService.getAllFnBType((int)request.getSession().getAttribute("storeid"), 0);
+            int pageCounter = fnbService.getCountAllFnBType((int)request.getSession().getAttribute("storeid"));
             request.setAttribute("type", fnbTypeList);
+            request.setAttribute("page", pageCounter);
             request.getRequestDispatcher(address).forward(request, response);
         } catch (SQLException e){
             System.out.println(e.getMessage());

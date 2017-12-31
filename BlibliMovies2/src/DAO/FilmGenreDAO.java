@@ -33,6 +33,24 @@ public class FilmGenreDAO {
     }
 
     public FilmGenre getFilmGenre(String id, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM filmGenre where id = ? and storeid = ?");
+        ps.setInt(1, Integer.parseInt(id));
+        ps.setInt(2, storeid);
+
+        ResultSet rs = ps.executeQuery();
+
+        FilmGenre output;
+        if(rs.next()){
+            output = new FilmGenre(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4));
+        } else{
+            output = null;
+        }
+
+        ps.close();
+        return output;
+    }
+
+    public FilmGenre getFilmGenreTrue(String id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM filmGenre where id = ? and storeid = ? and status = true");
         ps.setInt(1, Integer.parseInt(id));
         ps.setInt(2, storeid);
@@ -41,22 +59,78 @@ public class FilmGenreDAO {
 
         FilmGenre output;
         if(rs.next()){
-            output = new FilmGenre(rs.getInt(1), rs.getString(2), rs.getInt(3));
+            output = new FilmGenre(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4));
         } else{
             output = null;
         }
+
+        ps.close();
         return output;
     }
 
-    public List<FilmGenre> getAllFilmGenre(int storeid) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM filmGenre where storeid = ? and status = true");
+    public List<FilmGenre> getAllFilmGenre(int storeid, int offset) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM filmGenre where storeid = ? ORDER BY id LIMIT 10 OFFSET ?");
+        ps.setInt(1, storeid);
+        ps.setInt(2, offset);
+        ResultSet rs = ps.executeQuery();
+
+        List<FilmGenre> filmGenres = new ArrayList<FilmGenre>();
+        while(rs.next()){
+            filmGenres.add(new FilmGenre(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4)));
+        }
+
+        ps.close();
+        return filmGenres;
+    }
+
+    public List<FilmGenre> getShowAllFilmGenre(int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM filmGenre where storeid = ? ORDER BY id");
         ps.setInt(1, storeid);
         ResultSet rs = ps.executeQuery();
 
         List<FilmGenre> filmGenres = new ArrayList<FilmGenre>();
         while(rs.next()){
-            filmGenres.add(new FilmGenre(rs.getInt(1), rs.getString(2), rs.getInt(3)));
+            filmGenres.add(new FilmGenre(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4)));
         }
+
+        ps.close();
+        return filmGenres;
+    }
+
+    public int getCountAllFilmGenre(int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("Select Count(*) from (SELECT * FROM filmGenre where storeid = ? ORDER BY id) as count");
+        ps.setInt(1, storeid);
+        ResultSet rs = ps.executeQuery();
+
+        int count = 1;
+        if(rs.next()){
+            count = rs.getInt(1);
+            if(count < 10){
+                count = 1;
+            }
+            else if(count%10 == 0){
+                count = count/10;
+            } else {
+                count = count/10 + 1;
+            }
+        }
+
+
+        ps.close();
+        return count;
+    }
+
+    public List<FilmGenre> getAllFilmGenreTrue(int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM filmGenre where storeid = ? and status = true ORDER BY id");
+        ps.setInt(1, storeid);
+        ResultSet rs = ps.executeQuery();
+
+        List<FilmGenre> filmGenres = new ArrayList<FilmGenre>();
+        while(rs.next()){
+            filmGenres.add(new FilmGenre(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getBoolean(4)));
+        }
+
+        ps.close();
         return filmGenres;
     }
 
@@ -65,6 +139,7 @@ public class FilmGenreDAO {
         ps.setInt(1, filmGenre.getStoreID());
         ps.setString(2, filmGenre.getGenre());
         ps.executeUpdate();
+        ps.close();
     }
 
     public void deleteFilmGenre(String filmGenre, int storeid) throws SQLException{
@@ -72,6 +147,15 @@ public class FilmGenreDAO {
         ps.setInt(1, Integer.parseInt(filmGenre));
         ps.setInt(2, storeid);
         ps.executeUpdate();
+        ps.close();
+    }
+
+    public void retrieveFilmGenre(String filmGenre, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("UPDATE filmGenre set status = true where id = ? and storeid = ?");
+        ps.setInt(1, Integer.parseInt(filmGenre));
+        ps.setInt(2, storeid);
+        ps.executeUpdate();
+        ps.close();
     }
 
     public void updateFilmGenre(FilmGenre filmGenre) throws SQLException{
@@ -80,5 +164,6 @@ public class FilmGenreDAO {
         ps.setInt(2, filmGenre.getId());
         ps.setInt(3, filmGenre.getStoreID());
         ps.executeUpdate();
+        ps.close();
     }
 }

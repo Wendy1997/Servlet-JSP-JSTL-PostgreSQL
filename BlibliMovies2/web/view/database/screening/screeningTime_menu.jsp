@@ -36,14 +36,66 @@
                         <td><c:out value="${screenTime.time}"></c:out></td>
                         <td><c:out value="${screenTime.duration}"></c:out></td>
                         <td><a href="/admin/screentime/update?id=${screenTime.id}&filmid=${film.id}&duration=${film.duration}"}>Edit</a></td>
-                        <td><a href="/admin/screentime/delete?id=${screenTime.id}&filmid=${film.id}"}>Delete</a></td>
+                        <td><a href="/admin/screentime/delete?id=${screenTime.id}&filmid=${film.id}"}>${screenTime.status ? "Delete" : "Retrieve"}</a></td>
                     </tr>
                 </c:forEach>
 
                 </tbody>
             </table>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination pagination-sm justify-content-center">
+                    <c:forEach begin="1" end="${page}" varStatus="loop">
+                        <li class="page-item"><a class="page-link" href="#">${loop.index}</a></li>
+                    </c:forEach>
+                </ul>
+            </nav>
         </div>
     </div>
 </div>
+
+
+<script>
+    $(document).ready(function () {
+        $('.page-link').click(function () {
+            $.ajax({
+                type: 'GET',
+                url: "/admin/screentime/page",
+                dataType: "JSON",
+                data: {
+                    page: $(this).text(),
+                    filmid: ${film.id}
+                },
+                success: function (response) {
+                    var output = "";
+
+                    var result = response["result"];
+                    for(var key in result){
+                        output += '<tr>\n' +
+                            '<td scope="row">' + result[key].id + '</td>\n' +
+                            '<td>' + result[key].filmId + '</td>\n' +
+                            '<td>' + result[key].studioId + '</td>\n' +
+                            '<td>' + result[key].time + '</td>\n' +
+                            '<td>' + result[key].duration + '</td>\n';
+
+                        output += '</td>\n' +
+                            '<td><a href=/admin/screentime/update?id=' + result[key].id + '&filmid=' + ${film.id} + '&duration=' + ${film.duration} +'>Edit</a></td>\n';
+
+                        if(result[key].status){
+                            output += '<td><a href=/admin/screentime/delete?id=' + result[key].id + '&filmid=' + ${film.id} + '>Delete</a></td>\n';
+                        } else {
+                            output += '<td><a href=/admin/screentime/delete?id=' + result[key].id + '&filmid=' + ${film.id} + '>Retrieve</a></td>\n';
+                        }
+                    }
+
+                    $('tbody')[0].innerHTML = output;
+                },
+                error : function (response) {
+                    console.log(response);
+                }
+            });
+            return false;
+        })
+    });
+</script>
 
 <%@ include file = "/include/foot.jsp" %>

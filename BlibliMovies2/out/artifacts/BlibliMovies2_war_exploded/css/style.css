@@ -36,6 +36,36 @@ body{
 	padding: 0;
 }
 
+#memberAccept{
+	font-size: 20px;
+}
+
+.invoice-pdf{
+	width: 600px;
+}
+
+/*
+=====
+Pagination
+=====
+*/
+
+.page-link{
+	color: gray;
+	background-color: black;
+	border: 1px solid gray;
+}
+
+.page-link:hover{
+	color: white;
+	background-color: black;
+}
+
+.page-link:focus{
+	color: black;
+	background-color: white;
+}
+
 /* 
 =====
 Font
@@ -153,6 +183,12 @@ Form
 	border-width: 1px;
 }
 
+.tablinks{
+	border-width: 2px;
+	border-color: black;
+	color: white;
+}
+
 /*
 =====
 Bootstrap
@@ -199,6 +235,10 @@ Circle
 	border-radius: 100px;
 	display: inline-block;
 
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+
 	-moz-transition: all .2s ease-in;
 	-o-transition: all .2s ease-in;
 	-webkit-transition: all .2s ease-in;
@@ -211,7 +251,6 @@ Table
 =====
 */
 .table-responsive{
-	height: 600px;
 	overflow: auto;
 	margin-bottom: 50px;
 }

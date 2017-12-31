@@ -18,8 +18,23 @@ public class AccountServiceDatabase implements AccountService {
     }
 
     @Override
-    public List<Account> getAllAccount(int storeid) throws SQLException{
-        return accountDAO.getAllAccount(storeid);
+    public Account getAccountTrue(String username, int storeid) throws SQLException {
+        return accountDAO.getAccountTrue(username, storeid);
+    }
+
+    @Override
+    public List<Account> getAllAccount(int storeid, int offset) throws SQLException{
+        return accountDAO.getAllAccount(storeid, offset);
+    }
+
+    @Override
+    public int getCountAllAccount(int storeid) throws SQLException {
+        return accountDAO.getCountAllAccount(storeid);
+    }
+
+    @Override
+    public List<Account> getAllAccountTrue(int storeid) throws SQLException {
+        return accountDAO.getAllAccountTrue(storeid);
     }
 
     @Override
@@ -33,6 +48,11 @@ public class AccountServiceDatabase implements AccountService {
     }
 
     @Override
+    public void retrieveAccount(String username, int storeid) throws SQLException {
+        accountDAO.retrieveAccount(username, storeid);
+    }
+
+    @Override
     public void updateAccout(Account account) throws SQLException{
         accountDAO.updateAccount(account);
     }
@@ -43,8 +63,23 @@ public class AccountServiceDatabase implements AccountService {
     }
 
     @Override
+    public AccountRole getAccountRoleTrue(int id, int storeid) throws SQLException {
+        return accountRoleDAO.getAccountRoleTrue(id, storeid);
+    }
+
+    @Override
     public List<AccountRole> getAllAccountRole(int storeid) throws SQLException {
         return accountRoleDAO.getAllAccountRole(storeid);
+    }
+
+    @Override
+    public int getCountAllAccountRole(int storeid) throws SQLException {
+        return accountRoleDAO.getCountAllAccountRole(storeid);
+    }
+
+    @Override
+    public List<AccountRole> getAllAccountRoleTrue(int storeid) throws SQLException {
+        return accountRoleDAO.getAllAccountRoleTrue(storeid);
     }
 
     @Override
@@ -55,6 +90,11 @@ public class AccountServiceDatabase implements AccountService {
     @Override
     public void deleteAccountRole(String accountRole, int storeid) throws SQLException {
         accountRoleDAO.deleteAccountRole(accountRole, storeid);
+    }
+
+    @Override
+    public void retrieveAccountRole(String accountRole, int storeid) throws SQLException {
+        accountRoleDAO.retrieveAccountRole(accountRole, storeid);
     }
 
     @Override

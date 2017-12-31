@@ -45,13 +45,15 @@ public class FnBMenu extends HttpServlet{
         }
 
         try{
-            List<FnB> fnbs = fnbService.getAllFnB((int)request.getSession().getAttribute("storeid"));
-            List<FnBSize> fnBSizeList = fnbService.getAllFnBSize((int)request.getSession().getAttribute("storeid"));
-            List<FnBType> fnBTypeList = fnbService.getAllFnBType((int)request.getSession().getAttribute("storeid"));
+            List<FnB> fnbs = fnbService.getAllFnB((int)request.getSession().getAttribute("storeid"), 0);
+            int pageCounter = fnbService.getCountAllFnB((int)request.getSession().getAttribute("storeid"));
+            List<FnBSize> fnBSizeList = fnbService.getShowAllFnBSize((int)request.getSession().getAttribute("storeid"));
+            List<FnBType> fnBTypeList = fnbService.getShowAllFnBType((int)request.getSession().getAttribute("storeid"));
 
             request.setAttribute("size", fnBSizeList);
             request.setAttribute("type", fnBTypeList);
             request.setAttribute("fnbs", fnbs);
+            request.setAttribute("page", pageCounter);
 
             request.getRequestDispatcher(address).forward(request, response);
         } catch (SQLException e){

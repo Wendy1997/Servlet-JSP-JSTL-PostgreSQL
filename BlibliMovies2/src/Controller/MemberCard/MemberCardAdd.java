@@ -38,7 +38,7 @@ public class MemberCardAdd extends HttpServlet {
         }
 
         try{
-            List<MemberGender> memberGenderList = memberCardService.getAllMemberGender((int)request.getSession().getAttribute("storeid"));
+            List<MemberGender> memberGenderList = memberCardService.getAllMemberGenderTrue((int)request.getSession().getAttribute("storeid"));
             request.setAttribute("gender", memberGenderList);
         }catch (SQLException e){
             e.printStackTrace();

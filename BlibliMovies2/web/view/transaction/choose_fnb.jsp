@@ -43,6 +43,8 @@
 
                 <div id="keranjang" class="box-window summarycontainer-responsive"></div>
 
+                <div class="stripe summary"></div><br>
+
                 <p>Masukkan ID Member(Jika ada)</p>
                 <input type="name" class="form-control" id="member" name="member" required>
                 <input type="hidden" id="filmid" name="filmid" value="${film.id}">
@@ -51,7 +53,9 @@
                 <input type="hidden" id="ticket" name="ticket" value="${ticketQuantity}">
                 <input type="hidden" id="studioPrice" name="studioid" value="${studio.price}">
                 <input type="hidden" id="filmTitle" name="ticket" value="${film.title}">
-                <button type="submit" class="btn btn-default" id="memberAccept">Accept ></button>
+                <button type="submit" class="btn btn-default" id="memberAccept">Member Accept ></button>
+
+                <div class="stripe summary"></div>
 
                 <div class="row amount">
                     <div class="col-7 col-sm-7 col-md-7 col-lg-7 col-xl-7">
@@ -64,9 +68,9 @@
                         <p><strong id="amount">Rp. 0 ,-</strong></p>
                     </div>
                 </div>
-            </div>
 
-            <button type="submit" class="btn btn-default" id="accept">Accept ></button>
+                <button type="submit" class="btn btn-default" id="accept">Accept ></button>
+            </div>
 
         </div>
     </div>
@@ -101,56 +105,78 @@
     $(document).ready(function () {
        $('.col-4').click(function () {
           var jumlah = prompt("Masukkan jumlah");
-           $.ajax({
-               type: 'POST',
-               dataType: "JSON",
-               url: "/view/fnb",
-               data: {
-                   id: $(this).attr("id")
-               },
-               success: function(response){
+          if(jumlah > 0){
+              $.ajax({
+                  type: 'POST',
+                  dataType: "JSON",
+                  url: "/view/fnb",
+                  data: {
+                      id: $(this).attr("id")
+                  },
+                  success: function(response){
+                      var price = response.price * jumlah;
 
-                   var price = response.price * jumlah;
+                      if(listBuy[response.id] == null){
+                          listBuy[response.id] = parseInt(jumlah);
+                          listHarga[response.id] = parseInt(price);
 
-                   if(listBuy[response.id] == null){
-                       listBuy[response.id] = parseInt(jumlah);
-                       listHarga[response.id] = parseInt(price);
-                   } else {
-                       listBuy[response.id] += parseInt(jumlah);
-                       listHarga[response.id] += parseInt(price);
-                   }
+                          $('#keranjang')[0].innerHTML += '<div id="'+response.id+jumlah+'" class="row">\n' +
+                              '                        <div class="col-lg-7">\n' +
+                              '                            <div class="row box">\n' +
+                              '                                <div class="col-lg-4">\n' +
+                              '                                    <div class="smallCircle" style="background-image:url(\'' + "/uploads" + response.cover + '\');width:50px;height:50px;"></div>\n' +
+                              '                                </div>\n' +
+                              '                                <div class="col-lg-8">\n' +
+                              '                                    <p class="invoice">'+ response.name + '</p>\n' +
+                              '                                    <p class="invoice">'+ response.type + '</p>\n' +
+                              '                                </div>\n' +
+                              '                            </div>\n' +
+                              '                        </div>\n' +
+                              '                        <div class="col-lg-2" align="center">\n' +
+                              '                            <p>x'+ jumlah +'</p>\n' +
+                              '                        </div>\n' +
+                              '                        <div class="col-lg-3" align="right">\n' +
+                              '                            Rp '+ price +' ,- ' +
+                              '                            <p onclick="deleteContent('+response.id+","+jumlah+","+price+')">x</p>\n' +
+                              '                        </div>\n' +
+                              '                    </div>';
 
-                   $('#keranjang')[0].innerHTML += '<div id="'+response.id+jumlah+'" class="row">\n' +
-                       '                        <div class="col-lg-7">\n' +
-                       '                            <div class="row box">\n' +
-                       '                                <div class="col-lg-4">\n' +
-                       '                                    <div class="smallCircle"></div>\n' +
-                       '                                </div>\n' +
-                       '                                <div class="col-lg-8">\n' +
-                       '                                    <p class="invoice">'+ response.name + '</p>\n' +
-                       '                                    <p class="invoice">'+ response.type + '</p>\n' +
-                       '                                </div>\n' +
-                       '                            </div>\n' +
-                       '                        </div>\n' +
-                       '                        <div class="col-lg-2" align="center">\n' +
-                       '                            <p>x'+ jumlah +'</p>\n' +
-                       '                        </div>\n' +
-                       '                        <div class="col-lg-3" align="right">\n' +
-                       '                            Rp '+ price +' ,- ' +
-                       '                            <p onclick="deleteContent('+response.id+","+jumlah+","+price+')">x</p>\n' +
-                       '                        </div>\n' +
-                       '                    </div>';
+                      } else {
+                          var jumlahLama = listBuy[response.id];
+                          listBuy[response.id] += parseInt(jumlah);
+                          listHarga[response.id] += parseInt(price);
 
-                   harga += price;
-                   hargaFinal = harga - (harga * diskon / 100);
+                          $('#' + response.id + jumlahLama)[0].innerHTML =
+                              '                        <div class="col-lg-7">\n' +
+                              '                            <div class="row box">\n' +
+                              '                                <div class="col-lg-4">\n' +
+                              '                                    <div class="smallCircle" style="background-image:url(\'' + "/uploads" + response.cover + '\');width:50px;height:50px;"></div>\n' +
+                              '                                </div>\n' +
+                              '                                <div class="col-lg-8">\n' +
+                              '                                    <p class="invoice">'+ response.name + '</p>\n' +
+                              '                                    <p class="invoice">'+ response.type + '</p>\n' +
+                              '                                </div>\n' +
+                              '                            </div>\n' +
+                              '                        </div>\n' +
+                              '                        <div class="col-lg-2" align="center">\n' +
+                              '                            <p>x'+ listBuy[response.id] +'</p>\n' +
+                              '                        </div>\n' +
+                              '                        <div class="col-lg-3" align="right">\n' +
+                              '                            Rp '+ listHarga[response.id] +' ,- ' +
+                              '                            <p onclick="deleteContent('+response.id+","+listBuy[response.id]+","+listHarga[response.id]+')">x</p>\n' +
+                              '                        </div>\n';
 
-                   $('#total')[0].innerHTML = "Total: Rp. "+ harga +" ,-";
-                   $('#amount')[0].innerHTML = "Rp. "+ hargaFinal +" ,-";
-               }
-           });
+                          $('#' + response.id + jumlahLama).attr("id", response.id + "" + listBuy[response.id]);
+                      }
 
+                      harga += price;
+                      hargaFinal = harga - (harga * diskon / 100);
 
-           console.log(listBuy);
+                      $('#total')[0].innerHTML = "Total: Rp. "+ harga +" ,-";
+                      $('#amount')[0].innerHTML = "Rp. "+ hargaFinal +" ,-";
+                  }
+              });
+          }
        });
 
        $('#memberAccept').click(function () {
@@ -162,39 +188,49 @@
                    id: $('#member').val()
                },
                success: function(response) {
-                    diskon = response;
-                    $('#discount')[0].innerHTML = 'Member Discount: ' + diskon + '%';
 
-                    hargaFinal = harga - (harga * diskon / 100);
-                    $('#amount')[0].innerHTML = "Rp. "+ hargaFinal +" ,-";
+                   if(response == 0){
+                       alert("Member ID not found");
+                   } else {
+                       diskon = response;
+                       $('#discount')[0].innerHTML = 'Member Discount: ' + diskon + '%';
+
+                       hargaFinal = harga - (harga * diskon / 100);
+                       $('#amount')[0].innerHTML = "Rp. "+ hargaFinal +" ,-";
+                   }
                }
            });
        });
 
        $('#accept').click(function () {
-           var jsonListBuy = "";
-           for(var key in listBuy) {
-               jsonListBuy += key + ',' + listBuy[key] + ';';
-           }
-           console.log(jsonListBuy);
-           $.ajax({
-               type: 'POST',
-               dataType: "JSON",
-               url: "/cashier/fnb",
-               data: {
-                   member: $('#member').val(),
-                   fnb: jsonListBuy,
-                   totalHarga: hargaFinal,
-                   hasFilm: hasFilm,
-                   idFilm: $('#filmTitle').val() + "," + $('#ticket').val() + "," + $('#studioPrice').val()
-               },
-               success: function(response) {
-                   window.location.href = "/cashier/invoice?id=" + response;
-               },
-               error: function (response) {
-                   console.log(response);
+           if(confirm("Are you sure?")){
+               var jsonListBuy = "";
+               for(var key in listBuy) {
+                   jsonListBuy += key + ',' + listBuy[key] + ';';
                }
-           });
+               if(jsonListBuy.length > 0){
+                   $.ajax({
+                       type: 'POST',
+                       dataType: "JSON",
+                       url: "/cashier/fnb",
+                       data: {
+                           member: $('#member').val(),
+                           fnb: jsonListBuy,
+                           totalHarga: hargaFinal,
+                           hasFilm: hasFilm,
+                           idFilm: $('#filmTitle').val() + "," + $('#ticket').val() + "," + $('#studioPrice').val()
+                       },
+                       success: function(response) {
+                           window.location.href = "/cashier/invoice?id=" + response;
+                       },
+                       error: function (response) {
+                           console.log(response);
+                       }
+                   });
+               } else {
+                   window.location.href = "/menu";
+               }
+           }
        });
 
        var ticket = $('#ticket').val().length;
@@ -205,36 +241,38 @@
            var studioPrice = $('#studioPrice').val();
            var price = parseInt(jumlah) * parseInt(studioPrice);
 
-           listBuy[namaFilm] = parseInt(jumlah);
-           listHarga[namaFilm] = parseInt(price);
+           if(parseInt(jumlah) > 0){
+               listBuy[namaFilm] = parseInt(jumlah);
+               listHarga[namaFilm] = parseInt(price);
 
-           $('#keranjang')[0].innerHTML += '<div id="'+namaFilm + jumlah+'" class="row">\n' +
-               '                        <div class="col-lg-7">\n' +
-               '                            <div class="row box">\n' +
-               '                                <div class="col-lg-4">\n' +
-               '                                    <div class="smallCircle"></div>\n' +
-               '                                </div>\n' +
-               '                                <div class="col-lg-8">\n' +
-               '                                    <p class="invoice">'+ namaFilm + '</p>\n' +
-               '                                    <p class="invoice">tickets</p>\n' +
-               '                                </div>\n' +
-               '                            </div>\n' +
-               '                        </div>\n' +
-               '                        <div class="col-lg-2" align="center">\n' +
-               '                            <p>x'+ jumlah +'</p>\n' +
-               '                        </div>\n' +
-               '                        <div class="col-lg-3" align="right">\n' +
-               '                            Rp '+ price +' ,- ' +
-               '                        </div>\n' +
-               '                    </div>';
+               $('#keranjang')[0].innerHTML += '<div id="'+namaFilm + jumlah+'" class="row">\n' +
+                   '                        <div class="col-lg-7">\n' +
+                   '                            <div class="row box">\n' +
+                   '                                <div class="col-lg-4">\n' +
+                   '                                    <div class="smallCircle" style="background-image:url(\'' + "/uploads" + '${film.cover}' + '\');width:50px;height:50px;"></div>\n' +
+                   '                                </div>\n' +
+                   '                                <div class="col-lg-8">\n' +
+                   '                                    <p class="invoice">'+ namaFilm + '</p>\n' +
+                   '                                    <p class="invoice">tickets</p>\n' +
+                   '                                </div>\n' +
+                   '                            </div>\n' +
+                   '                        </div>\n' +
+                   '                        <div class="col-lg-2" align="center">\n' +
+                   '                            <p>x'+ jumlah +'</p>\n' +
+                   '                        </div>\n' +
+                   '                        <div class="col-lg-3" align="right">\n' +
+                   '                            Rp '+ price +' ,- ' +
+                   '                        </div>\n' +
+                   '                    </div>';
 
-           harga += price;
-           hargaFinal = harga - (harga * diskon / 100);
+               harga += price;
+               hargaFinal = harga - (harga * diskon / 100);
 
-           $('#total')[0].innerHTML = "Total: Rp. "+ harga +" ,-";
-           $('#amount')[0].innerHTML = "Rp. "+ hargaFinal +" ,-";
+               $('#total')[0].innerHTML = "Total: Rp. "+ harga +" ,-";
+               $('#amount')[0].innerHTML = "Rp. "+ hargaFinal +" ,-";
 
-           hasFilm = true;
+               hasFilm = true;
+           }
        }
     });
 

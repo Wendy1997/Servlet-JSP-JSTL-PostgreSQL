@@ -43,11 +43,16 @@ public class FnBDelete extends HttpServlet {
         try{
             FnB fnb = fnbService.getFnB(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
 
-            fnbService.deleteFnB(fnb.getId() + "", (int)request.getSession().getAttribute("storeid"));
+            if(fnb.isStatus()){
+                fnbService.deleteFnB(fnb.getId() + "", (int)request.getSession().getAttribute("storeid"));
+                request.setAttribute("complete", "Deleted");
+            } else {
+                fnbService.retrieveFnB(fnb.getId() + "", (int)request.getSession().getAttribute("storeid"));
+                request.setAttribute("complete", "Retrieved");
+            }
 
             address = "/view/database/success.jsp";
             request.setAttribute("title", "FnB");
-            request.setAttribute("complete", "Deleted");
             request.setAttribute("link", "/admin/fnb");
 
             request.getRequestDispatcher(address).forward(request, response);

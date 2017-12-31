@@ -36,11 +36,11 @@ public class ChooseFilmDetail extends HttpServlet {
         }
 
         try{
-            Film film = filmService.getFilm(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
+            Film film = filmService.getFilmTrue(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
             film.setCover("/uploads" + film.getCover());
 
-            ScreeningTime screeningTime = filmService.getScreeningTime(request.getParameter("screeningtime"), request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
-            Studio studio = filmService.getStudio(screeningTime.getStudioId() + "", (int)request.getSession().getAttribute("storeid"));
+            ScreeningTime screeningTime = filmService.getScreeningTimeTrue(request.getParameter("screeningtime"), request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
+            Studio studio = filmService.getStudioTrue(screeningTime.getStudioId() + "", (int)request.getSession().getAttribute("storeid"));
 
             request.setAttribute("film", film);
             request.setAttribute("screeningTime", screeningTime);

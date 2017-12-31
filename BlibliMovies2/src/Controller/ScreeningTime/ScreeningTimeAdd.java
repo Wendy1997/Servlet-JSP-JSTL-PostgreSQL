@@ -44,7 +44,7 @@ public class ScreeningTimeAdd extends HttpServlet{
         request.setAttribute("duration", request.getParameter("duration"));
 
         try{
-            request.setAttribute("studio", filmService.getAllStudio((int)request.getSession().getAttribute("storeid")));
+            request.setAttribute("studio", filmService.getAllStudioTrue((int)request.getSession().getAttribute("storeid")));
         } catch (SQLException e){
             System.out.println(e.getMessage());
         }

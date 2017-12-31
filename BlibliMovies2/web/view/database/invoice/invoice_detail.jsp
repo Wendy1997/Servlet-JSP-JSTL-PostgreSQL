@@ -1,7 +1,7 @@
 <%@ include file = "/include/head.jsp" %>
 
 <!-- Content -->
-<div class="container-fluid">
+<div class="container-fluid invoice-pdf">
 
     <div class="jumbotron" id="detail">
 

@@ -15,15 +15,10 @@
         <br><br>
 
         <!-- Forms -->
-        <form action="/admin/fnb/edit" method="post" enctype="multipart/form-data">
+        <form action="/admin/fnb/edit" method="post" enctype="multipart/form-data" onsubmit="return confirm('Are You Sure?');">
             <div class="row">
                 <div class="col-lg-6" id="form1">
                     <h2>Data Food and Beverages</h2><br>
-
-                    <div class="form-group">
-                        <label for="file">Cover:</label>
-                        <input type="file" class="form-control" id="file" name="file" value="${film.cover}">
-                    </div>
 
                     <div class="form-group">
                         <label for="name">Nama:</label>
@@ -52,7 +47,12 @@
 
                     <div class="form-group">
                         <label for="price">Harga:</label>
-                        <input type="number" class="form-control" id="price" name="price" value="${fnb.price}" required>
+                        <input type="number" class="form-control" id="price" name="price" min="1" value="${fnb.price}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="file">Cover:</label>
+                        <input type="file" class="form-control" id="file" name="file" accept=".jpg, .png" value="${film.cover}">
                     </div>
 
                     <input type="hidden" name="id" value="${fnb.id}">

@@ -13,10 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
-@WebServlet("/")
+@WebServlet("/index")
 public class Store extends HttpServlet {
     StoreAccountService storeAccountService = new StoreAccountServiceDatabase();
-
     /**
      * Suatu Controller yang akan me redirect menuju halaman Store Login dan melakukan logout
      *
@@ -27,7 +26,6 @@ public class Store extends HttpServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         String address = "/view/login/store_login.jsp";
-
 
         /*
             Validasi Log out
@@ -61,8 +59,8 @@ public class Store extends HttpServlet {
         try {
             StoreAccount store = storeAccountService.getStoreAccount(request.getParameter("username"));
             if(store != null){
-                if(store.getPassword().equals(request.getParameter("password"))) {
-                    request.getSession().setAttribute("storeid", store.getID());
+                if(store.getPassword().equals(request.getParameter("password").hashCode() + "")) {
+                    request.getSession().setAttribute("storeid", store.getId());
                     request.getSession().setAttribute("storename", store.getNama());
 
                     address = "/view/database/success.jsp";

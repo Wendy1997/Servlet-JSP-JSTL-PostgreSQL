@@ -42,11 +42,16 @@ public class FilmDelete extends HttpServlet {
         try{
             Film film = filmService.getFilm(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
 
-            filmService.deleteFilm(film.getId() + "", (int)request.getSession().getAttribute("storeid"));
+            if(film.isStatus()){
+                filmService.deleteFilm(film.getId() + "", (int)request.getSession().getAttribute("storeid"));
+                request.setAttribute("complete", "Deleted");
+            } else{
+                filmService.retrieveFilm(film.getId() + "", (int)request.getSession().getAttribute("storeid"));
+                request.setAttribute("complete", "Retrieved");
+            }
 
             address = "/view/database/success.jsp";
             request.setAttribute("title", "Film");
-            request.setAttribute("complete", "Deleted");
             request.setAttribute("link", "/admin/film");
 
             request.getRequestDispatcher(address).forward(request, response);
