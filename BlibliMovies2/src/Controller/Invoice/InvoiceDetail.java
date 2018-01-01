@@ -63,7 +63,7 @@ public class InvoiceDetail extends HttpServlet {
             if(invoice.getMemberId() != 0){
 
                 // Jika member maka ia akan memberikan promo
-                Promo promo = invoiceService.getPromo("1", (int)request.getSession().getAttribute("storeid"));
+                Promo promo = invoiceService.getPromo((int)request.getSession().getAttribute("storeid"));
                 request.setAttribute("promo", promo);
             }
 

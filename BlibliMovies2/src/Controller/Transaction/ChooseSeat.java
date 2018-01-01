@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +28,6 @@ public class ChooseSeat extends HttpServlet {
 
     FilmService filmService = new FilmServiceDatabase();
     FilmTicketService filmTicketService = new FilmTicketServiceDatabase();
-    SeatService seatService = new SeatServiceDatabase();
 
     /**
      * Sebuah method GET yang akan menampilkan list tempat duduk yang akan dipilih
@@ -55,14 +56,20 @@ public class ChooseSeat extends HttpServlet {
 
         try{
 
+            // Pengambilan data waktu saat ini
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            LocalDateTime now = LocalDateTime.now();
+
             // Pengambilan data kursi yang telah diambil
-            List<FilmTicket> filmTicketList = filmTicketService.getAllTickets(request.getParameter("id"),request.getParameter("studioid"),request.getParameter("screeningid"),(int)request.getSession().getAttribute("storeid"));
+            List<FilmTicket> filmTicketList = filmTicketService.getAllTickets(request.getParameter("id"),request.getParameter("studioid"),request.getParameter("screeningid"),(int)request.getSession().getAttribute("storeid"), dtf.format(now));
 
             // Pengambilan data film yang dipilih
             Film film = filmService.getFilmTrue(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
 
             request.setAttribute("filmid", request.getParameter("id"));
             request.setAttribute("studioid", request.getParameter("studioid"));
+            request.setAttribute("namaStudio", filmService.getStudioTrue(request.getParameter("studioid"), (int)request.getSession().getAttribute("storeid")).getName());
+            request.setAttribute("screeningTime", filmService.getScreeningTimeTrue(request.getParameter("screeningid"), request.getParameter("id"), (int)request.getSession().getAttribute("storeid")).getTime());
             request.setAttribute("screeningid", request.getParameter("screeningid"));
             request.setAttribute("filmTickets",filmTicketList);
             request.setAttribute("film", film);
@@ -93,10 +100,14 @@ public class ChooseSeat extends HttpServlet {
             // Inisialisasi studio yang dipilih
             Studio studio = filmService.getStudio(request.getParameter("studioid"), (int)request.getSession().getAttribute("storeid"));
 
+            // Pengambilan data waktu saat ini
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            LocalDateTime now = LocalDateTime.now();
+
             // Looping untuk memasukkan list ticket pada db sesuai dengan film, studio dan screening time yang dipilih
             for(int i = 0; i < seatList.length; i++){
                 if(!seatList[i].isEmpty())
-                    filmTicketService.addTicket(new FilmTicket(Integer.parseInt(request.getParameter("filmid")), Integer.parseInt(request.getParameter("studioid")), seatList[i], Integer.parseInt(request.getParameter("screeningid")), studio.getPrice(), (int)request.getSession().getAttribute("storeid")));
+                    filmTicketService.addTicket(new FilmTicket(Integer.parseInt(request.getParameter("filmid")), Integer.parseInt(request.getParameter("studioid")), seatList[i], Integer.parseInt(request.getParameter("screeningid")), studio.getPrice(), (int)request.getSession().getAttribute("storeid"), dtf.format(now)));
             }
         } catch (SQLException e){
             e.printStackTrace();

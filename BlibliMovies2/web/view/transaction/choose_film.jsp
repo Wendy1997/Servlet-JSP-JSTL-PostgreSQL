@@ -28,9 +28,17 @@
                                     <div id="txtMovieSubtitle">${film.subtitle}</div>
 
                                     <div class="tab">
-                                        <c:forEach items="${film.screeningTimes}" var="screeningTime">
-                                            <button class="tablinks"><a href="/cashier/film/detail?id=${film.id}&screeningtime=${screeningTime.id}">${screeningTime.time}</a></button>
+                                        <c:forEach items="${film.screeningList}" var="screeningList">
+                                            <p style="margin-bottom: 0">${screeningList.key}:
+                                            <c:forEach items="${screeningList.value}" var="screeningTime">
+                                                <button class="tablinks" style="float: none;"><a class="screeningTimeTab" href="/cashier/film/detail?id=${film.id}&screeningtime=${screeningTime.id}">${screeningTime.time}</a></button>
+                                            </c:forEach>
+                                            </p>
                                         </c:forEach>
+
+                                        <%--<c:forEach items="${film.screeningTimes}" var="screeningTime">--%>
+                                            <%--<button class="tablinks"><a href="/cashier/film/detail?id=${film.id}&screeningtime=${screeningTime.id}">${screeningTime.time}</a></button>--%>
+                                        <%--</c:forEach>--%>
                                     </div>
                                 </div>
                             </div>
@@ -57,7 +65,7 @@
                             <div class="col-lg-12 col-xl-10">
                                 <div class="row box">
                                     <div class="col-lg-4 col-xl-4">
-                                        <div class="circle" id="smallThumbnail" src="${film.cover}"></div>
+                                        <div class="circle" id="smallThumbnail" style="background-image: url('${film.cover}')"></div>
                                     </div>
                                     <div class="col-lg-8 col-xl-8">
                                         <div id="txtMovieTitle">${film.title}</div>

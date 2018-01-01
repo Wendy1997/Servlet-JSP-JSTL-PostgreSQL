@@ -5,8 +5,8 @@
         <nav class="navbar navbar-default">
             <div class="d-flex flex-row">
                 <div class="p-2">Ticket</div>
-                <div class="p-2">Pick Your Seat</div>
-                <div class="p-2 active-tab">Snack and Beverages</div>
+                <div class="p-2 active-tab">Pick Your Seat</div>
+                <div class="p-2">Snack and Beverages</div>
             </div>
         </nav>
 
@@ -76,45 +76,90 @@
 
 <script>
 
-    var wrapper = document.getElementById('seat-number');
-
-    var huruf = 'A';
-    var angka = 1;
-    var cornerAlphabet = 'J';
-
-    for (var i = 1; i <= 10; i++) {
-        wrapper.innerHTML += '<div class="huruf">' + cornerAlphabet;
-        wrapper.innerHTML += '<div class="row seat"><div class="rounded"></div>';
-
-        for (var j = 1; j <= 10; j++) {
-
-            wrapper.innerHTML += '<div class="smallSquare" id="' + huruf + angka + '"></div>';
-            angka++;
-        }
-
-        wrapper.innerHTML += '<br>';
-
-        angka = 1;
-        huruf = String.fromCharCode(huruf.charCodeAt() + 1);
-        cornerAlphabet = String.fromCharCode(cornerAlphabet.charCodeAt() - 1);
-        wrapper.innerHTML += '</div></div>';
-    }
-
-    <c:forEach var="ticket" items="${filmTickets}">
-        $('#${ticket.seatNumber}').attr('class', 'smallSquare unavailableSeat');
-        $('#${ticket.seatNumber}').attr('style', 'cursor: not-allowed; outline: 0 !important');
-    </c:forEach>
-
-    for (var i = 1; i <= 10; i++) {
-        wrapper.innerHTML += '<div class="angka">' + angka + '</div>';
-        angka++;
-    }
-
     var pointer = 0;
     var addClass = 'selectedSeat';
     var listTicket = new Array();
 
+    function prepare(){
+        var wrapper = document.getElementById('seat-number');
+
+        var huruf = 'J';
+        var angka = 1;
+        var cornerAlphabet = 'J';
+
+        for (var i = 1; i <= 10; i++) {
+            wrapper.innerHTML += '<div class="huruf">' + cornerAlphabet;
+            wrapper.innerHTML += '<div class="row seat"><div class="rounded"></div>';
+
+            for (var j = 1; j <= 10; j++) {
+                wrapper.innerHTML += '<div class="smallSquare" id="' + huruf + angka + '"></div>';
+                angka++;
+            }
+
+            wrapper.innerHTML += '<br>';
+
+            angka = 1;
+            huruf = String.fromCharCode(huruf.charCodeAt() - 1);
+            cornerAlphabet = String.fromCharCode(cornerAlphabet.charCodeAt() - 1);
+            wrapper.innerHTML += '</div></div>';
+        }
+
+        <c:forEach var="ticket" items="${filmTickets}">
+            $('#${ticket.seatNumber}').attr('class', 'smallSquare unavailableSeat');
+            $('#${ticket.seatNumber}').attr('style', 'cursor: not-allowed; outline: 0 !important');
+        </c:forEach>
+
+        for (var i = 1; i <= 10; i++) {
+            wrapper.innerHTML += '<div class="angka">' + angka + '</div>';
+            angka++;
+        }
+    }
+
+    function print(listTicket) {
+        var widthTicket = 300;
+        var heightTicket = 200;
+
+        console.log(listTicket);
+        console.log(listTicket.length);
+
+        var doc = new jsPDF('p', 'pt', [widthTicket , heightTicket * listTicket.length]);
+
+        // Filled yellow square
+        doc.setDrawColor(0);
+        doc.setFillColor(252, 172, 64);
+        doc.rect(0, 0, 300, 200 * listTicket.length, 'F');
+
+        doc.line(0, 0, 300, 0); // horizontal line
+        doc.setLineWidth(1);
+
+        for(var i in listTicket){
+            var temp = heightTicket * i;
+
+            doc.setFontSize(24);
+            doc.text(20, 40 + temp, 'Ticket');
+
+            doc.line(20, 50 + temp, 280, 50 + temp); // horizontal line
+            doc.setLineWidth(0.5);
+
+            doc.setFontSize(40);
+            doc.text(20, 100 + temp, listTicket[i]);
+
+            doc.setFontSize(16);
+            doc.text(20, 130 + temp, 'Film: ' + '${film.title}');
+            doc.text(20, 150 + temp, 'Studio: ' + '${namaStudio}');
+            doc.text(20, 170 + temp, 'Pukul: ' + '${screeningTime}');
+
+            doc.line(0, 200 + temp, 300, 200 + temp); // horizontal line
+            doc.setLineWidth(1);
+        }
+
+        doc.autoPrint();
+        doc.save('Ticket');
+    }
+
     $(document).ready(function () {
+        prepare();
+
         $(".smallSquare").click(function(e) {
             if($(this).hasClass('nonSeat')){
                 console.log('asdasd');
@@ -127,12 +172,10 @@
                         pointer--;
                         var index = listTicket.indexOf($(this).attr('id'));
                         listTicket.splice(index, index + 1);
-                        window.alert($(this).attr('id') + " canceled.\n jumlah tiket " + pointer + "\n list tiket = " + listTicket.toString() + "\n");
                     } else {
                         $(this).addClass(addClass);
                         pointer++;
                         listTicket.push($(this).attr('id'));
-                        window.alert($(this).attr('id') + " booked.\n jumlah tiket " + pointer + "\n list tiket = " + listTicket.toString());
                     }
                 }
             }
@@ -140,6 +183,7 @@
 
         $('#accept').click(function () {
             if(confirm("Are you sure?")){
+                print(listTicket);
                 $.ajax({
                     type: 'POST',
                     url: "/cashier/seat",

@@ -8,6 +8,7 @@ public class FilmTicket {
     private int screeningId;
     private int price;
     private int storeid;
+    private String date;
 
     public FilmTicket(int id, int filmId, int studioId, String seatNumber, int screeningId, int price, int storeid) {
         this.id = id;
@@ -19,13 +20,14 @@ public class FilmTicket {
         this.storeid = storeid;
     }
 
-    public FilmTicket(int filmId, int studioId, String seatNumber, int screeningId, int price, int storeid) {
+    public FilmTicket(int filmId, int studioId, String seatNumber, int screeningId, int price, int storeid, String date) {
         this.filmId = filmId;
         this.studioId = studioId;
         this.seatNumber = seatNumber;
         this.screeningId = screeningId;
         this.price = price;
         this.storeid = storeid;
+        this.date = date;
     }
 
     public int getId() {
@@ -82,5 +84,13 @@ public class FilmTicket {
 
     public void setStoreID(int storeid){
         this.storeid = storeid;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }

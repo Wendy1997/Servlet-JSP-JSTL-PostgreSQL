@@ -22,7 +22,7 @@
 
                     <div class="form-group">
                         <label for="name">Nama:</label>
-                        <input type="name" class="form-control" name="name" id="name" value="${fnb.name}" required>
+                        <input type="name" class="form-control" name="name" id="name" maxlength="100" value="${fnb.name}" required>
                     </div>
 
                     <div class="form-group">

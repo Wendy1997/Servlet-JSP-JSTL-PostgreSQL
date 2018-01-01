@@ -44,13 +44,14 @@ public class FilmTicketDAO {
      */
     public void addFilmTicket(FilmTicket filmTicket) throws SQLException {
 
-        PreparedStatement ps = conn.prepareStatement("INSERT INTO filmTicket (filmid, studioid, storeid, seatnumber, screeningid, price) VALUES (?,?,?,?,?,?)");
+        PreparedStatement ps = conn.prepareStatement("INSERT INTO filmTicket (filmid, studioid, storeid, seatnumber, screeningid, price, date) VALUES (?,?,?,?,?,?,?)");
         ps.setInt(1,filmTicket.getFilmId());
         ps.setInt(2, filmTicket.getStudioId());
         ps.setInt(3, filmTicket.getStoreID());
         ps.setString(4, filmTicket.getSeatNumber());
         ps.setInt(5, filmTicket.getScreeningId());
         ps.setInt(6, filmTicket.getPrice());
+        ps.setDate(7, java.sql.Date.valueOf(filmTicket.getDate()));
 
         ps.executeUpdate();
         ps.close();
@@ -102,12 +103,13 @@ public class FilmTicketDAO {
      * @return
      * @throws SQLException
      */
-    public List<FilmTicket> getAllFilmTicket(String filmid, String studio, String screening, int storeid) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("select * from filmTicket where storeid = ? and filmid = ? and screeningid=? and studioid=?");
+    public List<FilmTicket> getAllFilmTicket(String filmid, String studio, String screening, int storeid, String date) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("select * from filmTicket where storeid = ? and filmid = ? and screeningid=? and studioid=? and date = ?");
         ps.setInt(1, storeid);
         ps.setString(2, filmid);
         ps.setString(3, screening);
         ps.setString(4, studio);
+        ps.setDate(5, java.sql.Date.valueOf(date));
 
         ResultSet rs = ps.executeQuery();
 

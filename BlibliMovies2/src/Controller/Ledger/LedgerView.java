@@ -80,6 +80,11 @@ public class LedgerView extends HttpServlet{
         request.setAttribute("year", year);
         request.setAttribute("week", week);
 
+        System.out.println("day = " + day );
+        System.out.println("week = " + week );
+        System.out.println("month = " + month );
+        System.out.println("year = " + year );
+
         request.getRequestDispatcher(address).forward(request, response);
     }
 

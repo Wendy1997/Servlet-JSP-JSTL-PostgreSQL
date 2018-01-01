@@ -4,6 +4,7 @@ import DAO.FilmDAO;
 import Model.*;
 
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 public interface FilmService {
@@ -12,7 +13,7 @@ public interface FilmService {
     Film getFilmTrue(String id, int storeid) throws SQLException;
     List<Film> getAllFilm(int storeid, int offset) throws SQLException;
     int getCountAllFilm(int storeid) throws SQLException;
-    List<Film> getAllFilmTrue(int storeid) throws SQLException;
+    List<Film> getAllFilmTrue(int storeid, String dateNow) throws SQLException;
     void addFilm(Film film) throws SQLException;
     void deleteFilm(String id, int storeid) throws SQLException;
     void retrieveFilm(String id, int storeid) throws SQLException;

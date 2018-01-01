@@ -1,6 +1,7 @@
 package Model;
 
 import java.util.List;
+import java.util.Map;
 
 public class Film {
     private int id;
@@ -19,7 +20,7 @@ public class Film {
     private String actor;
     private String sinopsis;
     private boolean status;
-    private List<ScreeningTime> screeningTimes;
+    private Map<String, List<ScreeningTime>> screeningList;
 
     public Film(int id, int storeid, String cover, String title, int genreid, int duration, String director, double rating, int reviewTotal, String startTime, String endTime, String language, String subtitle, String actor, String sinopsis, boolean status) {
         this.id = id;
@@ -199,12 +200,12 @@ public class Film {
         this.sinopsis = sinopsis;
     }
 
-    public List<ScreeningTime> getScreeningTimes(){
-        return this.screeningTimes;
+    public Map<String, List<ScreeningTime>> getScreeningList() {
+        return screeningList;
     }
 
-    public void setScreeningTimes(List<ScreeningTime> screeningTimes){
-        this.screeningTimes = screeningTimes;
+    public void setScreeningList(Map<String, List<ScreeningTime>> screeningList) {
+        this.screeningList = screeningList;
     }
 
     public boolean isStatus() {

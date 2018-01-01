@@ -54,7 +54,7 @@ public class ViewInvoice extends HttpServlet {
 
             // Pengecekan jika memiliki member
             if(invoice.getMemberId() != 0){
-                Promo promo = invoiceService.getPromo("1", (int)request.getSession().getAttribute("storeid"));
+                Promo promo = invoiceService.getPromo((int)request.getSession().getAttribute("storeid"));
                 request.setAttribute("promo", promo);
             }
 

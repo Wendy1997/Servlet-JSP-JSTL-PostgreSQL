@@ -96,50 +96,53 @@
                     success: function (response) {
                         var head = '<%@ include file = "/include/emailHead.jsp" %>';
                         var foot = '<%@ include file = "/include/emailFoot.jsp" %>';
-                        var content = '\t\t\t\t\t\t\t<table width="100%" cellpadding="0" cellspacing="0">\n' +
-                            '\t\t\t\t\t\t\t\t<tr>\n' +
-                            '\t\t\t\t\t\t\t\t\t<td class="content-block">\n' +
-                            '\t\t\t\t\t\t\t\t\t\t<h1 class="aligncenter">' + ${invoice.totalPrice} + ' Paid</h1>\n' +
-                            '\t\t\t\t\t\t\t\t\t</td>\n' +
-                            '\t\t\t\t\t\t\t\t</tr>\n' +
-                            '\t\t\t\t\t\t\t\t<tr>\n' +
-                            '\t\t\t\t\t\t\t\t\t<td class="content-block">\n' +
-                            '\t\t\t\t\t\t\t\t\t\t<h2 class="aligncenter">Thanks for using BlibliMovies</h2>\n' +
-                            '\t\t\t\t\t\t\t\t\t</td>\n' +
-                            '\t\t\t\t\t\t\t\t</tr>\n' +
-                            '\t\t\t\t\t\t\t\t<tr>\n' +
-                            '\t\t\t\t\t\t\t\t\t<td class="content-block aligncenter">\n' +
-                            '\t\t\t\t\t\t\t\t\t\t<table class="invoice">\n' +
-                            '\t\t\t\t\t\t\t\t\t\t\t<tr>\n' +
-                            '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<td>Order ID: ' + ${invoice.id} + '<br>Order Date: ' + '${invoice.orderDate}' + '</td>\n' +
-                            '\t\t\t\t\t\t\t\t\t\t\t</tr>\n' +
-                            '\t\t\t\t\t\t\t\t\t\t\t<tr>\n' +
-                            '\t\t\t\t\t\t\t\t\t\t\t\t<td>\n' +
-                            '\t\t\t\t\t\t\t\t\t\t\t\t\t<table class="invoice-items" cellpadding="0" cellspacing="0">\n';
+                        var content =
+                            '       <table width="100%" cellpadding="0" cellspacing="0">\n' +
+                            '        <tr>\n' +
+                            '         <td class="content-block">\n' +
+                            '          <h1 class="aligncenter">' + ${invoice.totalPrice} + ' Paid</h1>\n' +
+                            '         </td>\n' +
+                            '        </tr>\n' +
+                            '        <tr>\n' +
+                            '         <td class="content-block">\n' +
+                            '          <h2 class="aligncenter">Thanks for using BlibliMovies</h2>\n' +
+                            '         </td>\n' +
+                            '        </tr>\n' +
+                            '        <tr>\n' +
+                            '         <td class="content-block aligncenter">\n' +
+                            '          <table class="invoice">\n' +
+                            '           <tr>\n' +
+                            '               <td>Order ID: ' + ${invoice.id} + '<br>Order Date: ' + '${invoice.orderDate}' + '</td>\n' +
+                            '           </tr>\n' +
+                            '           <tr>\n' +
+                            '            <td>\n' +
+                            '             <table class="invoice-items" cellpadding="0" cellspacing="0">\n';
 
                         <c:forEach var="orderDetails" items="${orderDetails}">
-                        content +='\t\t\t\t\t\t\t\t\t\t\t\t\t\t<tr>\n' +
-                            '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<td>' + '${orderDetails.itemName}' + ' x' + ${orderDetails.quantity}  +'</td>\n' +
-                            '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<td class="alignright">Rp ' + ${orderDetails.price} + ',-</td>\n' +
-                            '\t\t\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n';
+                        content +=
+                            '              <tr>\n' +
+                            '               <td>' + '${orderDetails.itemName}' + ' x' + ${orderDetails.quantity}  +'</td>\n' +
+                            '               <td class="alignright">Rp ' + ${orderDetails.price} + ',-</td>\n' +
+                            '              </tr>\n';
                         </c:forEach>
 
-                        content += '\t\t\t\t\t\t\t\t\t\t\t\t\t\t<tr class="total">\n' +
-                            '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<td>Price: ' + ${invoice.totalPrice * 100 / (100 - promo.discountAmount)} + '<br>Member Discount: ' + ${promo.discountAmount} + '</td>\n' +
-                            '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t<td class="alignright">Amount Payable<br>Rp ' + ${invoice.totalPrice} + ',-</td>\n' +
-                            '\t\t\t\t\t\t\t\t\t\t\t\t\t\t</tr>\n' +
-                            '\t\t\t\t\t\t\t\t\t\t\t\t\t</table>\n' +
-                            '\t\t\t\t\t\t\t\t\t\t\t\t</td>\n' +
-                            '\t\t\t\t\t\t\t\t\t\t\t</tr>\n' +
-                            '\t\t\t\t\t\t\t\t\t\t</table>\n' +
-                            '\t\t\t\t\t\t\t\t\t</td>\n' +
-                            '\t\t\t\t\t\t\t\t</tr>\n' +
-                            '\t\t\t\t\t\t\t\t<tr>\n' +
-                            '\t\t\t\t\t\t\t\t\t<td class="content-block aligncenter">\n' +
-                            '\t\t\t\t\t\t\t\t\t\tBlibliMovies\n' +
-                            '\t\t\t\t\t\t\t\t\t</td>\n' +
-                            '\t\t\t\t\t\t\t\t</tr>\n' +
-                            '\t\t\t\t\t\t\t</table>\n';
+                        content +=
+                            '              <tr class="total">\n' +
+                            '               <td>Price: ' + ${invoice.totalPrice * 100 / (100 - promo.discountAmount)} + '<br>Member Discount: ' + ${promo.discountAmount} + '</td>\n' +
+                            '               <td class="alignright">Amount Payable<br>Rp ' + ${invoice.totalPrice} + ',-</td>\n' +
+                            '              </tr>\n' +
+                            '             </table>\n' +
+                            '            </td>\n' +
+                            '           </tr>\n' +
+                            '          </table>\n' +
+                            '         </td>\n' +
+                            '        </tr>\n' +
+                            '        <tr>\n' +
+                            '         <td class="content-block aligncenter">\n' +
+                            '          BlibliMovies\n' +
+                            '         </td>\n' +
+                            '        </tr>\n' +
+                            '       </table>\n';
 
                         $.ajax({
                             type: 'POST',
@@ -148,11 +151,10 @@
                             data: {
                                 apikey: "312ad91b-ecd9-48bf-b0db-14b304b67fe0",
                                 bodyHtml: head + content + foot,
-                                bodyText: "Thank You " + response.fullname + "! \nAnd here the invoice:",
                                 from: "wendydamar.wb@gmail.com",
-                                fromName: "Wendy Keren Sangat",
+                                fromName: "Bliblimovies",
                                 to: response.email,
-                                replyToName: "Sayang",
+                                replyToName: response.fullname,
                                 subject: "Thank You!"
                             },
                             success: function (response) {

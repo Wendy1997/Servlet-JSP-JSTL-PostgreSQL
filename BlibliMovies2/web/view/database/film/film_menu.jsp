@@ -1,6 +1,7 @@
 <%@ include file = "/include/head.jsp" %>
 <%@ include file = "/include/navbarAccount.jsp" %>
 
+
 <!-- Content -->
 <div class="container-fluid" align="center">
 

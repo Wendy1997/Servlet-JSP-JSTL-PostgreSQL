@@ -46,8 +46,8 @@
                     <nav aria-label="Page navigation example">
                         <ul class="pagination pagination-sm justify-content-center" id="day-pagination"></ul>
                     </nav>
-                    <div id="day-notif">Harap Tunggu</div>
-                    <div id="day-income" class="ledger total-income"><h4> Total Income = Rp 40.000,-</h4></div>
+                    <div id="day-notif">Masukkan Input Tanggal</div>
+                    <div id="day-income" class="ledger total-income"><h4></h4></div>
                 </div>
             </div>
         </div>
@@ -76,8 +76,8 @@
                     <nav aria-label="Page navigation example">
                         <ul class="pagination pagination-sm justify-content-center" id="week-pagination"></ul>
                     </nav>
-                    <div id="week-notif">Harap Tunggu</div>
-                    <div id="week-income" class="ledger total-income"><h4> Total Income = Rp 40.000,-</h4></div>
+                    <div id="week-notif">Masukkan Input Tanggal</div>
+                    <div id="week-income" class="ledger total-income"><h4></h4></div>
                 </div>
             </div>
         </div>
@@ -106,8 +106,8 @@
                     <nav aria-label="Page navigation example">
                         <ul class="pagination pagination-sm justify-content-center" id="month-pagination"></ul>
                     </nav>
-                    <div id="month-notif">Harap Tunggu</div>
-                    <div id="month-income" class="ledger total-income"><h4> Total Income = Rp 40.000,-</h4></div>
+                    <div id="month-notif">Masukkan Input Tanggal</div>
+                    <div id="month-income" class="ledger total-income"><h4></h4></div>
                 </div>
             </div>
         </div>
@@ -136,8 +136,8 @@
                     <nav aria-label="Page navigation example">
                         <ul class="pagination pagination-sm justify-content-center" id="year-pagination"></ul>
                     </nav>
-                    <div id="year-notif">Harap Tunggu</div>
-                    <div id="year-income" class="ledger total-income"><h4> Total Income = Rp 40.000,-</h4></div>
+                    <div id="year-notif">Masukkan Input Tanggal</div>
+                    <div id="year-income" class="ledger total-income"><h4></h4></div>
                 </div>
             </div>
         </div>
@@ -169,6 +169,13 @@
     }
 
     function prepare(){
+        var year = ${year};
+        var month = ${month};
+        var day = ${day};
+        var week = ${week};
+
+
+
         $('#day').attr("value", ${year} + "-" + ${month} + "-" + ${day});
         $('#week').attr("value", ${year} + "-W" + ${week});
         $('#month').attr("value", ${year} + "-" + ${month});

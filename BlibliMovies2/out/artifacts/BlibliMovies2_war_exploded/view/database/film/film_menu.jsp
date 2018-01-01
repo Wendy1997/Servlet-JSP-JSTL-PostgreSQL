@@ -1,8 +1,12 @@
 <%@ include file = "/include/head.jsp" %>
 <%@ include file = "/include/navbarAccount.jsp" %>
 
+
 <!-- Content -->
 <div class="container-fluid" align="center">
+
+    <!-- Close Button -->
+    <a type="button" class="close" href="javascript:history.back()">&times;</a>
 
     <!-- Title -->
     <div class="jumbotron">

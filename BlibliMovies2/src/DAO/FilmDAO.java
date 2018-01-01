@@ -205,9 +205,13 @@ public class FilmDAO {
      * @return
      * @throws SQLException
      */
-    public List<Film> getAllFilmTrue(int storeid) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM film where storeid = ? and status = true ORDER BY id");
+    public List<Film> getAllFilmTrue(int storeid, String dateNow) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM film where storeid = ? and starttime <= ? and endtime >= ? and status = true ORDER BY id");
         ps.setInt(1, storeid);
+        ps.setDate(2, java.sql.Date.valueOf(dateNow));
+        ps.setDate(3, java.sql.Date.valueOf(dateNow));
+
+        System.out.println(ps.toString());
 
         ResultSet rs = ps.executeQuery();
 
