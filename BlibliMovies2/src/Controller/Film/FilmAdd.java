@@ -21,15 +21,30 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+
+/**
+ * Sebuah kelas yang menghandle penambahan film
+ * url: /admin/film/add
+ */
 @WebServlet("/admin/film/add")
 @MultipartConfig(fileSizeThreshold=1024*1024*10, 	// 10 MB
-        maxFileSize=1024*1024*50,      	// 50 MB
-        maxRequestSize=1024*1024*100)   	// 100 MB
+        maxFileSize=1024*1024*50,      	            // 50 MB
+        maxRequestSize=1024*1024*100)   	        // 100 MB
 public class FilmAdd extends HttpServlet {
     FilmService filmService = new FilmServiceDatabase();
     private static final String UPLOAD_DIR = "web\\uploads";
 
+    /**
+     * Sebuah method GET yang memberikan form penambahan film
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        // Initial address
         String address = "/view/database/film/film_add.jsp";
 
         // Validasi apakah sudah login store
@@ -51,6 +66,7 @@ public class FilmAdd extends HttpServlet {
         }
 
         try{
+            // Pengambilan data seluruh genre film yang akan dimasukkan ke dalam form
             List<FilmGenre> filmGenreList = filmService.getAllFilmGenreTrue((int)request.getSession().getAttribute("storeid"));
             request.setAttribute("genre", filmGenreList);
         }catch (SQLException e){
@@ -60,31 +76,43 @@ public class FilmAdd extends HttpServlet {
         request.getRequestDispatcher(address).forward(request, response);
     }
 
+    /**
+     * Sebuah method POST yang akan mengolah hasil input form dari halaman tambah film
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        // Pengambilan data waktu saat ini
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
         LocalDateTime now = LocalDateTime.now();
         String dateNow = dtf.format(now);
 
+        // Pengambilan data lokasi source project
         String[] pathList = getServletContext().getRealPath("").split("\\\\");
         String uploadFilePath = "";
         for(int i = 0; i < pathList.length - 3; i++){
             uploadFilePath += pathList[i] + "\\";
         }
+
+        // Memberikan direktori upload file
         uploadFilePath += UPLOAD_DIR + "\\" + (int)request.getSession().getAttribute("storeid") + "\\film";
 
-        // creates the save directory if it does not exists
+        // Pengecekan apakah telah ada direktorinya. Jika belum maka akan dibuat
         File fileSaveDir = new File(uploadFilePath);
         if (!fileSaveDir.exists()) {
             fileSaveDir.mkdirs();
         }
 
-        String fileName = null;
-
+        // Save data ke direktori tersebut
         Part part = request.getPart("file");
-        fileName = getFileName(part);
         part.write(uploadFilePath + "\\" + request.getParameter("nama") + " (" + request.getParameter("waktu_mulai").substring(0,4) + ") [" + dateNow + "].jpg");
 
         try{
+            // Inisialisasi Film
             Film film = new Film(
                     (int)request.getSession().getAttribute("storeid"),
                     "/" + (int)request.getSession().getAttribute("storeid") + "/film/" + request.getParameter("nama") + " (" + request.getParameter("waktu_mulai").substring(0,4) + ") [" + dateNow + "].jpg",
@@ -102,28 +130,18 @@ public class FilmAdd extends HttpServlet {
                 request.getParameter("sinopsis")
             );
 
+            // Sebuah method yang akan memasukkan film pada database
             filmService.addFilm(film);
 
+            // Redirect menuju halaman success
             String address = "/view/database/success.jsp";
             request.setAttribute("title", "Film");
             request.setAttribute("complete", "Created");
             request.setAttribute("link", "/admin/film");
 
             request.getRequestDispatcher(address).forward(request,response);
-        } catch (Exception e){
+        } catch (SQLException e){
             e.printStackTrace();
         }
-    }
-
-    private String getFileName(Part part) {
-        String contentDisp = part.getHeader("content-disposition");
-        System.out.println("content-disposition header= "+contentDisp);
-        String[] tokens = contentDisp.split(";");
-        for (String token : tokens) {
-            if (token.trim().startsWith("filename")) {
-                return token.substring(token.indexOf("=") + 2, token.length()-1);
-            }
-        }
-        return "";
     }
 }

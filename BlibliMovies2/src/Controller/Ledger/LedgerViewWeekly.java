@@ -17,20 +17,35 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * Sebuah kelas yang menghandle list invoice pada setiap minggunya
+ * url: /admin/ledger/weekly
+ */
 @WebServlet("/admin/ledger/weekly")
 public class LedgerViewWeekly extends HttpServlet {
     InvoiceService invoiceService = new InvoiceServiceDatabase();
 
+    /**
+     * Sebuah method POST yang memberikan halaman list invoice pada setiap minggunya
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
+            // Pengambilan data offset dan jumlah pendapatan pada minggu tersebut
             List<Double> pageCounter = invoiceService.getCountWeeklyInvoice(request.getParameter("date"), (int)request.getSession().getAttribute("storeid"));
+
+            // Pengambilan list invoice minggu tersebut
             List<Invoice> invoiceList = invoiceService.getWeeklyInvoice(request.getParameter("date"), (int)request.getSession().getAttribute("storeid"), 0);
 
-            System.out.println(pageCounter);
-
+            // Inisialisasi dan mengubah objek menjadi JSON
             Gson gson = new Gson();
             String output = gson.toJson(invoiceList);
 
+            // Pengiriman data menuju AJAX
             PrintWriter out = response.getWriter();
             out.print("{\"count\": " + pageCounter.get(0).intValue() + ",");
             out.print("\"sum\": " + pageCounter.get(1) + ",");

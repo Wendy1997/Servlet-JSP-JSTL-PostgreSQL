@@ -18,18 +18,35 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * Sebuah kelas yang menghandle pagination list invoice pada bulan tersebut
+ * url: /admin/ledger/monthly/page
+ */
 @WebServlet("/admin/ledger/monthly/page")
 public class LedgerViewMonthlyPagination extends HttpServlet {
     InvoiceService invoiceService = new InvoiceServiceDatabase();
 
+    /**
+     * Sebuah method GET yang memberikan data list invoice bulan tersebut pada suatu halaman
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
+            // Pengambilan data offset
             int page = (Integer.parseInt(request.getParameter("page")) - 1) * 10;
+
+            // Pengambilan list invoice pada bulan tersebut pada offset halaman tersebut
             List<Invoice> invoiceList = invoiceService.getMonthlyInvoice(request.getParameter("date"), (int)request.getSession().getAttribute("storeid"), page);
 
+            // Inisialisasi dan mengubah objek menjadi JSON
             Gson gson = new Gson();
             String json = gson.toJson(invoiceList);
 
+            // Pengiriman data menuju AJAX
             PrintWriter out = response.getWriter();
             out.print("{\"count\": " + 123 + ",");
             out.print(" \"result\" : " + json + "}");

@@ -47,6 +47,7 @@ public class StoreAccountDAO {
         }
 
         ps.close();
+        conn.close();
         return output;
     }
 
@@ -64,6 +65,7 @@ public class StoreAccountDAO {
         }
 
         ps.close();
+        conn.close();
         return output;
     }
 
@@ -78,6 +80,7 @@ public class StoreAccountDAO {
         }
 
         ps.close();
+        conn.close();
         return storeAccounts;
     }
 
@@ -100,6 +103,7 @@ public class StoreAccountDAO {
 
 
         ps.close();
+        conn.close();
         return count;
     }
 
@@ -113,6 +117,7 @@ public class StoreAccountDAO {
         }
 
         ps.close();
+        conn.close();
         return storeAccounts;
     }
 
@@ -123,6 +128,7 @@ public class StoreAccountDAO {
         ps.setString(3, storeAccount.getNama());
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 
     public void deleteStoreAccount(int id) throws SQLException{
@@ -130,6 +136,7 @@ public class StoreAccountDAO {
         ps.setInt(1, id);
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 
     public void retrieveStoreAccount(int id) throws SQLException{
@@ -137,6 +144,7 @@ public class StoreAccountDAO {
         ps.setInt(1, id);
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 
     public void updateStoreAccount(StoreAccount storeAccount) throws SQLException{
@@ -146,5 +154,6 @@ public class StoreAccountDAO {
         ps.setInt(3, storeAccount.getId());
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 }

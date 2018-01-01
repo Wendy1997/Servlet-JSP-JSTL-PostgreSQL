@@ -12,11 +12,25 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
+/**
+ * Sebuah kelas yang menghandle pengeditan screening time
+ * url: /admin/screentime/edit
+ */
 @WebServlet("/admin/screentime/update")
 public class ScreeningTimeUpdate extends HttpServlet {
     FilmService filmService = new FilmServiceDatabase();
 
+    /**
+     * Sebuah method GET yang memberikan halaman form edit screentime
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+
+        // Initial Address
         String address = "/view/database/screening/screeningTime_edit.jsp";
 
         // Validasi apakah sudah login store
@@ -38,6 +52,7 @@ public class ScreeningTimeUpdate extends HttpServlet {
         }
 
         try{
+            // Pengambilan data screening time yang bersangkutan
             ScreeningTime screeningTime = filmService.getScreeningTime(request.getParameter("id"),
                     request.getParameter("filmid"),
                     (int)request.getSession().getAttribute("storeid"));
@@ -49,12 +64,21 @@ public class ScreeningTimeUpdate extends HttpServlet {
 
             request.getRequestDispatcher(address).forward(request, response);
         }catch (SQLException e){
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 
+    /**
+     * Sebuah method POST yang akan mengolah hasil input form dari halaman edit screening time
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         try{
+            // Inisialisasi Screening time
             ScreeningTime screeningTime = new ScreeningTime(Integer.parseInt(request.getParameter("id")),
                     Integer.parseInt(request.getParameter("filmid")),
                     Integer.parseInt(request.getParameter("studio")),
@@ -62,8 +86,10 @@ public class ScreeningTimeUpdate extends HttpServlet {
                     request.getParameter("screen_time"),
                     Integer.parseInt(request.getParameter("duration")));
 
+            // Sebuah method yang akan memasukkan screening time pada database
             filmService.updateScreeningTime(screeningTime);
 
+            // Redirect menuju halaman success
             String address = "/view/database/success.jsp";
             request.setAttribute("title", "Screening Time");
             request.setAttribute("complete", "Updated");
@@ -71,7 +97,7 @@ public class ScreeningTimeUpdate extends HttpServlet {
 
             request.getRequestDispatcher(address).forward(request,response);
         } catch (SQLException e){
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 }

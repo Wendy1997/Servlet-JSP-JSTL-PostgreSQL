@@ -16,18 +16,35 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.ServiceConfigurationError;
 
+/**
+ * Sebuah kelas yang menghandle pagination list mebmer card
+ * url: /admin/membercard/page
+ */
 @WebServlet("/admin/membercard/page")
 public class MemberCardMenuPagination extends HttpServlet {
     MemberCardService membercardService = new MemberCardServiceDatabase();
 
+    /**
+     * Sebuah method GET yang memberikan data list member card pada suatu halaman
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         try{
+            // Pengambilan data offset
             int page = (Integer.parseInt(request.getParameter("page")) - 1) * 10;
+
+            // Pengambilan list fnb pada offset halaman tersebut
             List<MemberCard> membercards = membercardService.getAllMemberCard((int)request.getSession().getAttribute("storeid"), page);
 
+            // Inisialisasi dan mengubah objek menjadi JSON
             Gson gson = new Gson();
             String json = gson.toJson(membercards);
 
+            // Pengiriman data menuju AJAX
             PrintWriter out = response.getWriter();
             out.print("{\"count\": " + 123 + ",");
             out.print(" \"result\" : " + json + "}");

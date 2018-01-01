@@ -47,6 +47,7 @@ public class FnBSizeDAO {
         }
 
         ps.close();
+        conn.close();
         return output;
     }
 
@@ -65,6 +66,7 @@ public class FnBSizeDAO {
         }
 
         ps.close();
+        conn.close();
         return output;
     }
 
@@ -81,6 +83,7 @@ public class FnBSizeDAO {
         }
 
         ps.close();
+        conn.close();
         return fnBSizes;
     }
 
@@ -95,6 +98,7 @@ public class FnBSizeDAO {
         }
 
         ps.close();
+        conn.close();
         return fnBSizes;
     }
 
@@ -118,6 +122,7 @@ public class FnBSizeDAO {
 
 
         ps.close();
+        conn.close();
         return count;
     }
 
@@ -132,6 +137,7 @@ public class FnBSizeDAO {
         }
 
         ps.close();
+        conn.close();
         return fnBSizes;
     }
 
@@ -141,6 +147,7 @@ public class FnBSizeDAO {
         ps.setString(2, fnBSize.getSize());
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 
     public void deleteFnBSize(String fnBSize, int storeid) throws SQLException{
@@ -149,6 +156,7 @@ public class FnBSizeDAO {
         ps.setInt(2, storeid);
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 
     public void retrieveFnBSize(String fnBSize, int storeid) throws SQLException{
@@ -157,6 +165,7 @@ public class FnBSizeDAO {
         ps.setInt(2, storeid);
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 
     public void updateFnBSize(FnBSize fnBSize) throws SQLException{
@@ -166,5 +175,6 @@ public class FnBSizeDAO {
         ps.setInt(3, fnBSize.getStoreID());
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 }

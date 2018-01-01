@@ -16,31 +16,56 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * Sebuah kelas yang menghandle penambahan akun
+ * url: /admin/account/add
+ */
 @WebServlet("/admin/account/add")
 public class AccountAdd extends HttpServlet {
-    AccountService accountService = new AccountServiceDatabase();
+    private AccountService accountService = new AccountServiceDatabase();
 
+    private final String storeLoginAddress = "/view/login/store_login.jsp";
+    private final String accountLoginAddress = "/view/login/account_login.jsp";
+    private final String addAccountAddress = "/view/database/account/account_add.jsp";
+    private final String successAddress = "/view/database/success.jsp";
+
+    private final String storeIdSession = "storeid";
+    private final String roleAccountSession = "role";
+    private final String roleAdmin = "admin";
+
+    /**
+     * Sebuah method GET yang memberikan halaman form tambah akun
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String address = "/view/database/account/account_add.jsp";
+
+        // Initial Address
+        String address = addAccountAddress;
 
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storeid") == null){
-            address = "/view/login/store_login.jsp";
+        if(request.getSession().getAttribute(storeIdSession) == null){
+            address = storeLoginAddress;
         }
 
         // Validasi apakah sudah login akun
-        else if (request.getSession().getAttribute("role") == null){
-            address = "/view/login/account_login.jsp";
+        else if (request.getSession().getAttribute(roleAccountSession) == null){
+            address = accountLoginAddress;
         }
 
         // Validasi apakah sudah login as admin
-        else if(!request.getSession().getAttribute("role").equals("admin")){
-            address = "/view/login/account_login.jsp";
+        else if(!request.getSession().getAttribute(roleAccountSession).equals(roleAdmin)){
+            address = accountLoginAddress;
         }
 
         try{
-            List<AccountRole> accountRoleList = accountService.getAllAccountRoleTrue((int)request.getSession().getAttribute("storeid"));
+            // Pengambilan data seluruh role akun untuk dimasukkan kedalam form
+            List<AccountRole> accountRoleList = accountService.getAllAccountRoleTrue((int)request.getSession().getAttribute(storeIdSession));
             request.setAttribute("role", accountRoleList);
+
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -48,23 +73,35 @@ public class AccountAdd extends HttpServlet {
         request.getRequestDispatcher(address).forward(request, response);
     }
 
+    /**
+     * Sebuah method POST yang akan mengolah hasil input form dari halaman tambah akun
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         try{
-            Account account = new Account( request.getParameter("username"),
-                    (int)request.getSession().getAttribute("storeid"),
-                    request.getParameter("password").hashCode() + "",
-                    Integer.parseInt(request.getParameter("role")));
 
+            // Inisialisasi Account dari hasil form
+            Account account = new Account( request.getParameter("username"),
+                    (int)request.getSession().getAttribute(storeIdSession),
+                    request.getParameter("password").hashCode() + "",
+                    Integer.parseInt(request.getParameter(roleAccountSession)));
+
+            // Sebuah method yang akan memasukkan akun ke dalam database
             accountService.addAccount(account);
 
-            String address = "/view/database/success.jsp";
+            // Redirect menuju halaman success
+            String address = successAddress;
             request.setAttribute("title", "Account");
             request.setAttribute("complete", "Created");
             request.setAttribute("link", "/admin/account");
 
             request.getRequestDispatcher(address).forward(request,response);
-        } catch (Exception e){
+        } catch (SQLException e){
            e.printStackTrace();
         }
     }

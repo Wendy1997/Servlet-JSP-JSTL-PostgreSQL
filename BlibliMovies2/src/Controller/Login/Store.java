@@ -13,9 +13,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
+/**
+ * Sebuah kelas yang menghandle store account login
+ * url: /index
+ */
 @WebServlet("/index")
 public class Store extends HttpServlet {
     StoreAccountService storeAccountService = new StoreAccountServiceDatabase();
+
     /**
      * Suatu Controller yang akan me redirect menuju halaman Store Login dan melakukan logout
      *
@@ -27,9 +32,7 @@ public class Store extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         String address = "/view/login/store_login.jsp";
 
-        /*
-            Validasi Log out
-         */
+        // validasi Logout
         if(request.getParameter("page") != null){
             if(request.getParameter("page").equals("logout")){
                 request.getSession().removeAttribute("storeid");
@@ -51,38 +54,48 @@ public class Store extends HttpServlet {
      * @throws IOException
      */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        // Initial address
         String address = "/view/login/store_login.jsp";
 
-        /*
-            Pengecekan form
-         */
         try {
+
+            // Inisialisasi akun
             StoreAccount store = storeAccountService.getStoreAccount(request.getParameter("username"));
+
+            // Apakah akun tersedia?
             if(store != null){
                 if(store.getPassword().equals(request.getParameter("password").hashCode() + "")) {
+
+                    // Set session storeid dan storename
                     request.getSession().setAttribute("storeid", store.getId());
                     request.getSession().setAttribute("storename", store.getNama());
 
+                    // Redirect halaman success
                     address = "/view/database/success.jsp";
                     request.setAttribute("title", "Login");
                     request.setAttribute("complete", "Sukses");
                     request.setAttribute("link", "/login");
 
                 } else{
+
+                    // Redirect halaman success
                     address = "/view/database/success.jsp";
                     request.setAttribute("title", "Login");
                     request.setAttribute("complete", "Gagal");
                     request.setAttribute("link", "/login");
                 }
             } else {
+                // Redirect halaman success
                 address = "/view/database/success.jsp";
                 request.setAttribute("title", "Login");
                 request.setAttribute("complete", "Gagal");
                 request.setAttribute("link", "/login");
             }
+
             request.getRequestDispatcher(address).forward(request, response);
         } catch (SQLException e){
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 }

@@ -12,13 +12,28 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * Sebuah kelas yang menghandle pengeditan member card
+ * url: /admin/membercard/edit
+ */
 @WebServlet("/admin/membercard/edit")
 public class MemberCardEdit extends HttpServlet{
     MemberCardService memberCardService = new MemberCardServiceDatabase();
 
+    /**
+     * Sebuah method GET yang memberikan halaman form edit member card
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+
+        // Initial Address
         String address = "/view/database/member/member_edit.jsp";
 
         // Validasi apakah sudah login store
@@ -40,9 +55,11 @@ public class MemberCardEdit extends HttpServlet{
         }
 
         try {
+            // Pengambilan data member card yang bersangkutan
             MemberCard memberCard = memberCardService.getMemberCard(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
             request.setAttribute("memberCard", memberCard);
 
+            // Pengambilan seluruh gender yang akan ditampilkan pada form
             List<MemberGender> memberGenderList = memberCardService.getAllMemberGenderTrue((int)request.getSession().getAttribute("storeid"));
             request.setAttribute("gender", memberGenderList);
         } catch (Exception e){
@@ -52,9 +69,18 @@ public class MemberCardEdit extends HttpServlet{
         request.getRequestDispatcher(address).forward(request, response);
     }
 
+    /**
+     * Sebuah method POST yang akan mengolah hasil input form dari halaman edit member card
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
         try{
+            // Inisialisasi Member Card
             MemberCard memberCard = new MemberCard( Integer.parseInt(request.getParameter("id")),
                     (int)request.getSession().getAttribute("storeid"),
                     request.getParameter("fullname"),
@@ -63,8 +89,10 @@ public class MemberCardEdit extends HttpServlet{
                     request.getParameter("phonenumber"),
                     request.getParameter("email"));
 
+            // Sebuah method yang akan memasukkan member card pada database
             memberCardService.updateAccout(memberCard);
 
+            // Redirect menuju halaman success
             String address = "/view/database/success.jsp";
             request.setAttribute("title", "MemberCard");
             request.setAttribute("complete", "Updated");
@@ -72,8 +100,8 @@ public class MemberCardEdit extends HttpServlet{
 
             request.getRequestDispatcher(address).forward(request, response);
 
-        } catch (Exception e){
-            System.out.println(e.getMessage());
+        } catch (SQLException e){
+            e.printStackTrace();
         }
     }
 }

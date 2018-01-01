@@ -54,6 +54,7 @@ public class MemberCardDAO {
         }
 
         ps.close();
+        conn.close();
         return output;
     }
 
@@ -79,6 +80,7 @@ public class MemberCardDAO {
         }
 
         ps.close();
+        conn.close();
         return output;
     }
 
@@ -102,6 +104,7 @@ public class MemberCardDAO {
         }
 
         ps.close();
+        conn.close();
         return memberCards;
     }
 
@@ -125,6 +128,7 @@ public class MemberCardDAO {
 
 
         ps.close();
+        conn.close();
         return count;
     }
 
@@ -146,6 +150,7 @@ public class MemberCardDAO {
         }
 
         ps.close();
+        conn.close();
         return memberCards;
     }
 
@@ -159,6 +164,7 @@ public class MemberCardDAO {
         ps.setString(6, memberCard.getEmail());
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 
     public void deleteMemberCard(String id, int storeid) throws SQLException{
@@ -167,6 +173,7 @@ public class MemberCardDAO {
         ps.setInt(2, storeid);
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 
     public void retrieveMemberCard(String id, int storeid) throws SQLException{
@@ -175,6 +182,7 @@ public class MemberCardDAO {
         ps.setInt(2, storeid);
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 
     public void updateMemberCard(MemberCard memberCard) throws SQLException{
@@ -189,5 +197,6 @@ public class MemberCardDAO {
 
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 }

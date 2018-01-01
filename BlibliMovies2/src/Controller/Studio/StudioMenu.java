@@ -14,10 +14,22 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * Sebuah kelas yang menghandle list studio
+ * url: /admin/studio
+ */
 @WebServlet("/admin/studio")
 public class StudioMenu extends HttpServlet{
     FilmService studioService = new FilmServiceDatabase();
 
+    /**
+     * Sebuah method GET yang memberikan halaman list studio
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String address = "/view/database/studio/studio_menu.jsp";
 
@@ -40,9 +52,12 @@ public class StudioMenu extends HttpServlet{
         }
 
         try{
+            // Pengambilan data list studio dan juga type studio untuk diretrieve pada menu
             List<Studio> studios = studioService.getAllStudio((int)request.getSession().getAttribute("storeid"), 0);
-            int pageCounter = studioService.getCountAllStudio((int)request.getSession().getAttribute("storeid"));
             List<StudioType> studioTypeList = studioService.getShowAllStudioType((int)request.getSession().getAttribute("storeid"));
+
+            // Pengambilan data jumlah halaman yang akan ditampilkan pada menu
+            int pageCounter = studioService.getCountAllStudio((int)request.getSession().getAttribute("storeid"));
 
             request.setAttribute("type", studioTypeList);
             request.setAttribute("studios", studios);
@@ -50,7 +65,7 @@ public class StudioMenu extends HttpServlet{
 
             request.getRequestDispatcher(address).forward(request, response);
         } catch (SQLException e){
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 }

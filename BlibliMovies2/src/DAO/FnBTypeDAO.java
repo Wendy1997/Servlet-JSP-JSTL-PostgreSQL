@@ -47,6 +47,7 @@ public class FnBTypeDAO {
         }
 
         ps.close();
+        conn.close();
         return output;
     }
 
@@ -65,6 +66,7 @@ public class FnBTypeDAO {
         }
 
         ps.close();
+        conn.close();
         return output;
     }
 
@@ -81,6 +83,7 @@ public class FnBTypeDAO {
         }
 
         ps.close();
+        conn.close();
         return fnBTypes;
     }
 
@@ -95,6 +98,7 @@ public class FnBTypeDAO {
         }
 
         ps.close();
+        conn.close();
         return fnBTypes;
     }
 
@@ -118,6 +122,7 @@ public class FnBTypeDAO {
 
 
         ps.close();
+        conn.close();
         return count;
     }
 
@@ -133,6 +138,7 @@ public class FnBTypeDAO {
         }
 
         ps.close();
+        conn.close();
         return fnBTypes;
     }
 
@@ -142,6 +148,7 @@ public class FnBTypeDAO {
         ps.setString(2, fnBType.getType());
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 
     public void deleteFnBType(String fnBType, int storeid) throws SQLException{
@@ -150,6 +157,7 @@ public class FnBTypeDAO {
         ps.setInt(2, storeid);
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 
     public void retrieveFnBType(String fnBType, int storeid) throws SQLException{
@@ -158,6 +166,7 @@ public class FnBTypeDAO {
         ps.setInt(2, storeid);
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 
     public void updateFnBType(FnBType fnBType) throws SQLException{
@@ -167,5 +176,6 @@ public class FnBTypeDAO {
         ps.setInt(3, fnBType.getStoreID());
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 }

@@ -7,6 +7,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Sebuah kelas yang menghandle menu cashier
+ * url: /cashier
+ */
 @WebServlet("/cashier")
 public class CashierMenu extends HttpServlet {
     /**
@@ -18,6 +22,8 @@ public class CashierMenu extends HttpServlet {
      * @throws IOException
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+
+        // Initial address
         String address = "/view/menu/cashier_menu.jsp";
 
         // Validasi apakah sudah login store

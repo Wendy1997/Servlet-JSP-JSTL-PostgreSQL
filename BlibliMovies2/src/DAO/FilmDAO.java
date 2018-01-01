@@ -65,6 +65,7 @@ public class FilmDAO {
         }
 
         ps.close();
+        conn.close();
         return output;
     }
 
@@ -99,6 +100,7 @@ public class FilmDAO {
         }
 
         ps.close();
+        conn.close();
         return output;
     }
 
@@ -131,6 +133,7 @@ public class FilmDAO {
         }
 
         ps.close();
+        conn.close();
         return films;
     }
 
@@ -154,6 +157,7 @@ public class FilmDAO {
         }
 
         ps.close();
+        conn.close();
         return count;
     }
 
@@ -185,6 +189,7 @@ public class FilmDAO {
         }
 
         ps.close();
+        conn.close();
         return films;
     }
 
@@ -209,6 +214,7 @@ public class FilmDAO {
 
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 
     public void deleteFilm(String id, int storeid) throws SQLException{
@@ -217,6 +223,7 @@ public class FilmDAO {
         ps.setInt(2, storeid);
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 
     public void retrieveFilm(String id, int storeid) throws SQLException{
@@ -225,6 +232,7 @@ public class FilmDAO {
         ps.setInt(2, storeid);
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 
     public void updateFilm(Film film) throws SQLException{
@@ -246,6 +254,7 @@ public class FilmDAO {
         ps.setInt(15, film.getStoreID());
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 
 }

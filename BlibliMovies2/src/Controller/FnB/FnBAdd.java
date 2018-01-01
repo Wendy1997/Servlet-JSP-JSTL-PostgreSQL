@@ -23,6 +23,10 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.zip.Adler32;
 
+/**
+ * Sebuah kelas yang menghandle penambahan fnb
+ * url: /admin/fnb/add
+ */
 @WebServlet("/admin/fnb/add")
 @MultipartConfig(fileSizeThreshold=1024*1024*10, 	// 10 MB
         maxFileSize=1024*1024*50,      	// 50 MB
@@ -31,7 +35,17 @@ public class FnBAdd extends HttpServlet{
     FnBService fnbDAO = new FnBServiceDatabase();
     private static final String UPLOAD_DIR = "web\\uploads";
 
+    /**
+     * Sebuah method GET yang memberikan form penambahan fnb
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+
+        // Initial Address
         String address = "/view/database/fnb/fnb_add.jsp";
 
         // Validasi apakah sudah login store
@@ -50,6 +64,8 @@ public class FnBAdd extends HttpServlet{
         }
 
         try{
+
+            // Pengambilan data seluruh type dan size fnb yang akan dimasukkan ke dalam form
             List<FnBSize> fnBSizeList = fnbDAO.getAllFnBSizeTrue((int)request.getSession().getAttribute("storeid"));
             List<FnBType> fnBTypeList = fnbDAO.getAllFnBTypeTrue((int)request.getSession().getAttribute("storeid"));
 
@@ -62,31 +78,43 @@ public class FnBAdd extends HttpServlet{
         request.getRequestDispatcher(address).forward(request, response);
     }
 
+    /**
+     * Sebuah method POST yang akan mengolah hasil input form dari halaman tambah fnb
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+
+        // Pengambilan data waktu saat ini
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
         LocalDateTime now = LocalDateTime.now();
         String dateNow = dtf.format(now);
 
+        // Pengambilan data lokasi source project
         String[] pathList = getServletContext().getRealPath("").split("\\\\");
         String uploadFilePath = "";
         for(int i = 0; i < pathList.length - 3; i++){
             uploadFilePath += pathList[i] + "\\";
         }
+
+        // Memberikan direktori upload file
         uploadFilePath += UPLOAD_DIR + "\\" + (int)request.getSession().getAttribute("storeid") + "\\fnb";
 
-        // creates the save directory if it does not exists
+        // Pengecekan apakah telah ada direktorinya. Jika belum maka akan dibuat
         File fileSaveDir = new File(uploadFilePath);
         if (!fileSaveDir.exists()) {
             fileSaveDir.mkdirs();
         }
 
-        String fileName = null;
-
+        // Save data ke direktori tersebut
         Part part = request.getPart("file");
-        fileName = getFileName(part);
         part.write(uploadFilePath + "\\" + request.getParameter("name") + " (" + request.getParameter("size") + ") [" + dateNow + "].jpg");
 
         try{
+            // Inisialisasi FnB
             FnB fnb = new FnB((int)request.getSession().getAttribute("storeid"),
                     "/" + (int)request.getSession().getAttribute("storeid") + "/fnb/" + request.getParameter("name") + " (" + request.getParameter("size") + ") [" + dateNow + "].jpg",
                     request.getParameter("name"),
@@ -94,27 +122,18 @@ public class FnBAdd extends HttpServlet{
                     Integer.parseInt(request.getParameter("size")),
                     Integer.parseInt(request.getParameter("price")));
 
+            // Sebuah method yang akan memasukkan fnb pada database
             fnbDAO.addFnB(fnb);
 
+            // Redirect menuju halaman success
             String address = "/view/database/success.jsp";
             request.setAttribute("title", "Food and Beverages");
             request.setAttribute("complete", "Created");
             request.setAttribute("link", "/admin/fnb");
+
             request.getRequestDispatcher(address).forward(request,response);
         } catch (SQLException e){
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
-    }
-
-    private String getFileName(Part part) {
-        String contentDisp = part.getHeader("content-disposition");
-        System.out.println("content-disposition header= "+contentDisp);
-        String[] tokens = contentDisp.split(";");
-        for (String token : tokens) {
-            if (token.trim().startsWith("filename")) {
-                return token.substring(token.indexOf("=") + 2, token.length()-1);
-            }
-        }
-        return "";
     }
 }

@@ -17,11 +17,25 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * Sebuah kelas yang menghandle list fnbtype
+ * url: /admin/fnbtype
+ */
 @WebServlet("/admin/fnbtype")
 public class FnBTypeMenu extends HttpServlet{
     FnBService fnbService = new FnBServiceDatabase();
 
+    /**
+     * Sebuah method GET yang memberikan halaman list fnb type
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        // Initial address
         String address = "/view/database/fnbtype/fnbtype_menu.jsp";
 
         // Validasi apakah sudah login store
@@ -43,13 +57,18 @@ public class FnBTypeMenu extends HttpServlet{
         }
 
         try{
+            // Pengambilan data list fnb type untuk diretrieve pada menu
             List<FnBType> fnbTypeList = fnbService.getAllFnBType((int)request.getSession().getAttribute("storeid"), 0);
+
+            // Pengambilan data jumlah halaman yang akan ditampilkan pada menu
             int pageCounter = fnbService.getCountAllFnBType((int)request.getSession().getAttribute("storeid"));
+
             request.setAttribute("type", fnbTypeList);
             request.setAttribute("page", pageCounter);
+
             request.getRequestDispatcher(address).forward(request, response);
         } catch (SQLException e){
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 }

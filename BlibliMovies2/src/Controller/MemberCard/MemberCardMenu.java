@@ -15,11 +15,25 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * Sebuah kelas yang menghandle list member card
+ * url: /admin/membercard
+ */
 @WebServlet("/admin/membercard")
 public class MemberCardMenu extends HttpServlet{
     MemberCardService memberCardService = new MemberCardServiceDatabase();
 
+    /**
+     * Sebuah method GET yang memberikan halaman list member card
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        // Initial address
         String address = "/view/database/member/member_menu.jsp";
 
         // Validasi apakah sudah login store
@@ -41,8 +55,11 @@ public class MemberCardMenu extends HttpServlet{
         }
 
         try{
+            // Pengambilan data list member card dan gender untuk diretrieve pada menu
             List<MemberCard> memberCards = memberCardService.getAllMemberCard((int)request.getSession().getAttribute("storeid"), 0);
             List<MemberGender> memberGenderList = memberCardService.getAllMemberGender((int)request.getSession().getAttribute("storeid"));
+
+            // Pengambilan data jumlah halaman yang akan ditampilkan pada menu
             int pageCounter = memberCardService.getCountAllMemberCard((int)request.getSession().getAttribute("storeid"));
 
             request.setAttribute("gender", memberGenderList);
@@ -51,7 +68,7 @@ public class MemberCardMenu extends HttpServlet{
 
             request.getRequestDispatcher(address).forward(request, response);
         } catch (SQLException e){
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 }

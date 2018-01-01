@@ -47,6 +47,7 @@ public class FilmGenreDAO {
         }
 
         ps.close();
+        conn.close();
         return output;
     }
 
@@ -65,6 +66,7 @@ public class FilmGenreDAO {
         }
 
         ps.close();
+        conn.close();
         return output;
     }
 
@@ -80,6 +82,7 @@ public class FilmGenreDAO {
         }
 
         ps.close();
+        conn.close();
         return filmGenres;
     }
 
@@ -94,6 +97,7 @@ public class FilmGenreDAO {
         }
 
         ps.close();
+        conn.close();
         return filmGenres;
     }
 
@@ -117,6 +121,7 @@ public class FilmGenreDAO {
 
 
         ps.close();
+        conn.close();
         return count;
     }
 
@@ -131,6 +136,7 @@ public class FilmGenreDAO {
         }
 
         ps.close();
+        conn.close();
         return filmGenres;
     }
 
@@ -140,6 +146,7 @@ public class FilmGenreDAO {
         ps.setString(2, filmGenre.getGenre());
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 
     public void deleteFilmGenre(String filmGenre, int storeid) throws SQLException{
@@ -148,6 +155,7 @@ public class FilmGenreDAO {
         ps.setInt(2, storeid);
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 
     public void retrieveFilmGenre(String filmGenre, int storeid) throws SQLException{
@@ -156,6 +164,7 @@ public class FilmGenreDAO {
         ps.setInt(2, storeid);
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 
     public void updateFilmGenre(FilmGenre filmGenre) throws SQLException{
@@ -165,5 +174,6 @@ public class FilmGenreDAO {
         ps.setInt(3, filmGenre.getStoreID());
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 }

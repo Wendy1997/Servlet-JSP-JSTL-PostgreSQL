@@ -68,7 +68,6 @@
             $('*').css('background-color', 'white');
             $('*').css('color', 'black');
             $('.stripe').css('background-color', 'black');
-            doc.text(10, 10, 'This is a test');
             doc.addHTML(
                 $('.jumbotron').get(0), function () {
                     doc.autoPrint();
@@ -78,13 +77,13 @@
             $('*').css('color', 'white');
             $('.stripe').css('background-color', 'white');
         }
+
         $(document).ready(function () {
             $('#accept').click(function () {
                 print();
             });
 
             if(${invoice.memberId == 0 ? false : true}){
-                console.log("masuk");
                 var email;
                 var name;
                 $.ajax({

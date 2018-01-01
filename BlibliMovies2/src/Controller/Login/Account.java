@@ -13,10 +13,22 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
+/**
+ * Sebuah kelas yang menghandle account login dari store tersebut
+ * url: /login
+ */
 @WebServlet("/login")
 public class Account extends HttpServlet {
     AccountService accountService = new AccountServiceDatabase();
 
+    /**
+     * Sebuah method GET yang memberikan form login
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         String address = "/view/login/account_login.jsp";
 
@@ -46,35 +58,46 @@ public class Account extends HttpServlet {
      * @throws IOException
      */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+
+        // Initial Address
         String address = "/view/login/account_login.jsp";
 
         try{
+            // Inisialisasi akun
             Model.Account account = accountService.getAccountTrue(request.getParameter("username"), (int)request.getSession().getAttribute("storeid"));
 
+            // Apakah akun tersedia?
             if(account != null){
                 if(account.getPassword().equals(request.getParameter("password").hashCode() + "")){
                     AccountRole accountRole = accountService.getAccountRole(account.getRoleid(),(int)request.getSession().getAttribute("storeid"));
-                    System.out.println("Haihaihai " + accountRole);
+
+                    // Set session role, username, dan user id
                     request.getSession().setAttribute("role", accountRole.getRole());
                     request.getSession().setAttribute("username", account.getUsername());
                     request.getSession().setAttribute("userid", account.getid());
 
+                    // Redirect halaman success
                     address = "/view/database/success.jsp";
                     request.setAttribute("title", "Login");
                     request.setAttribute("complete", "Sukses");
                     request.setAttribute("link", "/" + (String)request.getSession().getAttribute("role"));
                 }else{
+
+                    // Redirect halaman success
                     address = "/view/database/success.jsp";
                     request.setAttribute("title", "Login");
                     request.setAttribute("complete", "Gagal");
                     request.setAttribute("link", "/login");
                 }
             } else{
+
+                // Redirect halaman success
                 address = "/view/database/success.jsp";
                 request.setAttribute("title", "Login");
                 request.setAttribute("complete", "Gagal");
                 request.setAttribute("link", "/login");
             }
+
             request.getRequestDispatcher(address).forward(request, response);
         } catch (SQLException e){
             e.printStackTrace();

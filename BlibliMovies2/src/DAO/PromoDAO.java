@@ -50,6 +50,7 @@ public class PromoDAO {
         }
 
         ps.close();
+        conn.close();
         return output;
     }
 
@@ -73,6 +74,7 @@ public class PromoDAO {
         }
 
         ps.close();
+        conn.close();
         return output;
     }
 
@@ -95,6 +97,7 @@ public class PromoDAO {
         }
 
         ps.close();
+        conn.close();
         return output;
     }
 
@@ -117,6 +120,7 @@ public class PromoDAO {
         }
 
         ps.close();
+        conn.close();
         return output;
     }
 
@@ -128,5 +132,6 @@ public class PromoDAO {
         ps.setInt(4, promo.getDiscountAmount());
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 }

@@ -14,11 +14,25 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
+/**
+ * Sebuah kelas yang menghandle penghapusan ataupun pengembalian film
+ * url: /admin/film/delete
+ */
 @WebServlet("/admin/film/delete")
 public class FilmDelete extends HttpServlet {
     FilmService filmService = new FilmServiceDatabase();
 
+    /**
+     * Sebuah method GET yang akan melakukan penghapusan ataupun pengembalian film
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+
+        // Initial Address
         String address = "/view/database/film/film_menu.jsp";
 
         // Validasi apakah sudah login store
@@ -40,16 +54,23 @@ public class FilmDelete extends HttpServlet {
         }
 
         try{
+            // Pengambilan data film yang bersangkutan
             Film film = filmService.getFilm(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
 
+            // Pengecekan apakah status film tersebut aktif atau tidak
             if(film.isStatus()){
+
+                // Jika aktif maka akan didelete
                 filmService.deleteFilm(film.getId() + "", (int)request.getSession().getAttribute("storeid"));
                 request.setAttribute("complete", "Deleted");
             } else{
+
+                // Jika pasif maka akan di retrieve
                 filmService.retrieveFilm(film.getId() + "", (int)request.getSession().getAttribute("storeid"));
                 request.setAttribute("complete", "Retrieved");
             }
 
+            // Redirect menuju halaman success
             address = "/view/database/success.jsp";
             request.setAttribute("title", "Film");
             request.setAttribute("link", "/admin/film");

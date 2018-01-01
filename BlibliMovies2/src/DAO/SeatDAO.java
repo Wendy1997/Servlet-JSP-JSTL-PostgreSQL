@@ -51,6 +51,7 @@ public class SeatDAO {
         }
 
         ps.close();
+        conn.close();
         return output;
     }
 }

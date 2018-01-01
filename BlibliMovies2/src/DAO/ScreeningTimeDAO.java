@@ -45,6 +45,7 @@ public class ScreeningTimeDAO {
 
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 
     public ScreeningTime getScreeningTime(String id, String film_id, int storeid) throws SQLException{
@@ -69,6 +70,7 @@ public class ScreeningTimeDAO {
         }
 
         ps.close();
+        conn.close();
         return output;
     }
 
@@ -94,6 +96,7 @@ public class ScreeningTimeDAO {
         }
 
         ps.close();
+        conn.close();
         return output;
     }
 
@@ -119,6 +122,7 @@ public class ScreeningTimeDAO {
         }
 
         ps.close();
+        conn.close();
         return outputList;
     }
 
@@ -144,6 +148,7 @@ public class ScreeningTimeDAO {
 
 
         ps.close();
+        conn.close();
         return count;
     }
 
@@ -167,6 +172,7 @@ public class ScreeningTimeDAO {
         }
 
         ps.close();
+        conn.close();
         return outputList;
     }
 
@@ -180,6 +186,7 @@ public class ScreeningTimeDAO {
         ps.setString(6, screeningTime.getFilmId() + "");
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 
     public void deleteScreeningTime(String id, String filmid, int storeid) throws SQLException{
@@ -189,6 +196,7 @@ public class ScreeningTimeDAO {
         ps.setInt(3, storeid);
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 
     public void retrieveScreeningTime(String id, String filmid, int storeid) throws SQLException{
@@ -198,5 +206,6 @@ public class ScreeningTimeDAO {
         ps.setInt(3, storeid);
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 }

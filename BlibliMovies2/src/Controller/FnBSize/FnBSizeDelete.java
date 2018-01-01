@@ -17,11 +17,25 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
+/**
+ * Sebuah kelas yang menghandle penghapusan ataupun pengembalian fnb size
+ * url: /admin/fnbsize/delete
+ */
 @WebServlet("/admin/fnbsize/delete")
 public class FnBSizeDelete extends HttpServlet {
     FnBService fnbService = new FnBServiceDatabase();
 
+    /**
+     * Sebuah method GET yang akan melakukan penghapusan ataupun pengembalian fnb size
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+
+        // Initial Address
         String address = "/view/database/fnbsize/fnbsize_menu.jsp";
 
         // Validasi apakah sudah login store
@@ -43,16 +57,23 @@ public class FnBSizeDelete extends HttpServlet {
         }
 
         try{
+            // Pengambilan data fnb size yang bersangkutan
             FnBSize fnbSize = fnbService.getFnBSize(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
 
+            // Pengecekan apakah status fnb size tersebut aktif atau tidak
             if(fnbSize.isStatus()){
+
+                // Jika aktif maka akan didelete
                 fnbService.deleteFnBSize(fnbSize.getId() + "", (int)request.getSession().getAttribute("storeid"));
                 request.setAttribute("complete", "Deleted");
             } else {
+
+                // Jika pasif maka akan di retrieve
                 fnbService.retrieveFnBSize(fnbSize.getId() + "", (int)request.getSession().getAttribute("storeid"));
                 request.setAttribute("complete", "Retrieved");
             }
 
+            // Redirect menuju halaman success
             address = "/view/database/success.jsp";
             request.setAttribute("title", "FnB Size");
             request.setAttribute("link", "/admin/fnbsize");

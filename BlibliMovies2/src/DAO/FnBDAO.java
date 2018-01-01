@@ -57,6 +57,7 @@ public class FnBDAO {
         }
 
         ps.close();
+        conn.close();
         return output;
     }
 
@@ -83,6 +84,7 @@ public class FnBDAO {
         }
 
         ps.close();
+        conn.close();
         return output;
     }
 
@@ -107,6 +109,7 @@ public class FnBDAO {
         }
 
         ps.close();
+        conn.close();
         return fnbs;
     }
 
@@ -131,6 +134,7 @@ public class FnBDAO {
 
 
         ps.close();
+        conn.close();
         return count;
     }
 
@@ -154,6 +158,7 @@ public class FnBDAO {
         }
 
         ps.close();
+        conn.close();
         return fnbs;
     }
 
@@ -170,6 +175,7 @@ public class FnBDAO {
 
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 
     public void deleteFnB(String id, int storeid) throws SQLException{
@@ -178,6 +184,7 @@ public class FnBDAO {
         ps.setInt(2, storeid);
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 
     public void retrieveFnB(String id, int storeid) throws SQLException{
@@ -186,6 +193,7 @@ public class FnBDAO {
         ps.setInt(2, storeid);
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 
     public void updateFnB(FnB fnb) throws SQLException{
@@ -201,6 +209,7 @@ public class FnBDAO {
 
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 
 }

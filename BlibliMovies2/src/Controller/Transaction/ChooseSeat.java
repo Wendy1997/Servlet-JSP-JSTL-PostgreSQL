@@ -17,6 +17,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Sebuah kelas yang menghandle halaman pemilihan seat
+ * url: /cashier/seat
+ */
 @WebServlet("/cashier/seat")
 public class ChooseSeat extends HttpServlet {
 
@@ -24,7 +28,17 @@ public class ChooseSeat extends HttpServlet {
     FilmTicketService filmTicketService = new FilmTicketServiceDatabase();
     SeatService seatService = new SeatServiceDatabase();
 
+    /**
+     * Sebuah method GET yang akan menampilkan list tempat duduk yang akan dipilih
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+
+        // Initial Address
         String address = "/view/transaction/choose_seat.jsp";
 
         // Validasi apakah sudah login store
@@ -41,8 +55,12 @@ public class ChooseSeat extends HttpServlet {
 
         try{
 
+            // Pengambilan data kursi yang telah diambil
             List<FilmTicket> filmTicketList = filmTicketService.getAllTickets(request.getParameter("id"),request.getParameter("studioid"),request.getParameter("screeningid"),(int)request.getSession().getAttribute("storeid"));
+
+            // Pengambilan data film yang dipilih
             Film film = filmService.getFilmTrue(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
+
             request.setAttribute("filmid", request.getParameter("id"));
             request.setAttribute("studioid", request.getParameter("studioid"));
             request.setAttribute("screeningid", request.getParameter("screeningid"));
@@ -55,15 +73,27 @@ public class ChooseSeat extends HttpServlet {
         request.getRequestDispatcher(address).forward(request, response);
     }
 
+    /**
+     * Sebuah method POST yang menghandle hasil dari pemilihan tempat duduk
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+
+        // Initial Address
         String address = "/view/transaction/choose_fnb.jsp";
 
+        // Inialisasi list seat yang diambil
         String[] seatList = request.getParameter("tickets").split(",");
 
         try {
-
+            // Inisialisasi studio yang dipilih
             Studio studio = filmService.getStudio(request.getParameter("studioid"), (int)request.getSession().getAttribute("storeid"));
 
+            // Looping untuk memasukkan list ticket pada db sesuai dengan film, studio dan screening time yang dipilih
             for(int i = 0; i < seatList.length; i++){
                 if(!seatList[i].isEmpty())
                     filmTicketService.addTicket(new FilmTicket(Integer.parseInt(request.getParameter("filmid")), Integer.parseInt(request.getParameter("studioid")), seatList[i], Integer.parseInt(request.getParameter("screeningid")), studio.getPrice(), (int)request.getSession().getAttribute("storeid")));

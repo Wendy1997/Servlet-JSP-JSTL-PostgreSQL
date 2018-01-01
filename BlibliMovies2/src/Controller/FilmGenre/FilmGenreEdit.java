@@ -15,13 +15,28 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * Sebuah kelas yang menghandle pengeditan film genre
+ * url: /admin/filmgenre/edit
+ */
 @WebServlet("/admin/filmgenre/edit")
 public class FilmGenreEdit extends HttpServlet{
     FilmService filmService = new FilmServiceDatabase();
 
+    /**
+     * Sebuah method GET yang memberikan halaman form edit film genre
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+
+        // Initial address
         String address = "/view/database/filmgenre/filmgenre_edit.jsp";
 
         // Validasi apakah sudah login store
@@ -43,23 +58,37 @@ public class FilmGenreEdit extends HttpServlet{
         }
 
         try {
+
+            // Pengambilan data film genre yang bersangkutan
             FilmGenre filmGenre = filmService.getFilmGenre(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
             request.setAttribute("genre", filmGenre);
-        } catch (Exception e){
+        } catch (SQLException e){
             e.printStackTrace();
         }
 
         request.getRequestDispatcher(address).forward(request, response);
     }
 
+    /**
+     * Sebuah method POST yang akan mengolah hasil input form dari halaman edit film
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
         try{
+            // Inisialisasi Film Genre
             FilmGenre filmGenre = new FilmGenre( Integer.parseInt(request.getParameter("id")),
                     request.getParameter("genre"),
                     (int)request.getSession().getAttribute("storeid"));
+
+            // Sebuah method yang akan memasukkan film pada database
             filmService.updateFilmGenre(filmGenre);
 
+            // Redirect menuju halaman success
             String address = "/view/database/success.jsp";
             request.setAttribute("title", "Film Genre");
             request.setAttribute("complete", "Updated");

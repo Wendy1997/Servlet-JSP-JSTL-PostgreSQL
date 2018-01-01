@@ -13,11 +13,25 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * Sebuah kelas yang menghandle list invoice
+ * url: /admin/invoice
+ */
 @WebServlet("/admin/invoice")
 public class InvoiceMenu extends HttpServlet {
     InvoiceService invoiceService = new InvoiceServiceDatabase();
 
+    /**
+     * Sebuah method GET yang memberikan halaman list invoice
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+
+        // Initial address
         String address = "/view/database/invoice/invoice_menu.jsp";
 
         // Validasi apakah sudah login store
@@ -39,14 +53,18 @@ public class InvoiceMenu extends HttpServlet {
         }
 
         try {
+            // Pengambilan data list invoice untuk diretrieve pada menu
             List<Invoice> invoices = invoiceService.getAllInvoice((int)request.getSession().getAttribute("storeid"), 0);
+
+            // Pengambilan data jumlah halaman yang akan ditampilkan pada menu
             int pageCounter = invoiceService.getCountAllInvoice((int)request.getSession().getAttribute("storeid"));
 
             request.setAttribute("invoices", invoices);
             request.setAttribute("page", pageCounter);
+
             request.getRequestDispatcher(address).forward(request, response);
         } catch (SQLException e){
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 }

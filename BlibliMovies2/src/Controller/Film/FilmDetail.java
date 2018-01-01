@@ -16,11 +16,25 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.*;
 
+/**
+ * Sebuah kelas yang menghandle melihat detail dari film
+ * url: /admin/film/detail
+ */
 @WebServlet("/admin/film/detail")
 public class FilmDetail extends HttpServlet{
     FilmService filmService = new FilmServiceDatabase();
 
+    /**
+     * Sebuah method GET yang akan memberikan informasi detail mengenai film tersebut
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
+
+        // Initial Address
         String address = "/view/database/film/film_detail.jsp";
 
         // Validasi apakah sudah login store
@@ -42,11 +56,14 @@ public class FilmDetail extends HttpServlet{
         }
 
         try{
+
+            // Inisialisasi Film, Genre Film tersebut dan List Screening Time dari film tersebut
             Film film = filmService.getFilm(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
             List<ScreeningTime> screeningTimeList = filmService.getAllScreeningTimeTrue((int)request.getSession().getAttribute("storeid"), request.getParameter("id"));
             FilmGenre filmGenre = filmService.getFilmGenre(film.getGenre() + "", (int)request.getSession().getAttribute("storeid"));
-            Map<Integer, List<ScreeningTime>> screeningList = new TreeMap<>();
 
+            // Membuat sebuah objek yang akan mengklasifikasi screening time berdasarkan studio
+            Map<Integer, List<ScreeningTime>> screeningList = new TreeMap<>();
             for(int i = 0; i < screeningTimeList.size(); i++){
                 if(screeningList.containsKey(screeningTimeList.get(i).getStudioId())){
                     screeningList.get(screeningTimeList.get(i).getStudioId()).add(screeningTimeList.get(i));
@@ -57,6 +74,7 @@ public class FilmDetail extends HttpServlet{
                 }
             }
 
+            // Menambahkan direktori pada cover
             film.setCover("/uploads" + film.getCover());
 
             request.setAttribute("film", film);

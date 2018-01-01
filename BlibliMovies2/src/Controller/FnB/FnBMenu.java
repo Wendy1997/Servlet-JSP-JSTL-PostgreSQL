@@ -19,11 +19,25 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * Sebuah kelas yang menghandle list fnb
+ * url: /admin/fnb
+ */
 @WebServlet("/admin/fnb")
 public class FnBMenu extends HttpServlet{
     FnBService fnbService = new FnBServiceDatabase();
 
+    /**
+     * Sebuah method GET yang memberikan halaman list fnb
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        // Initial address
         String address = "/view/database/fnb/fnb_menu.jsp";
 
         // Validasi apakah sudah login store
@@ -45,10 +59,14 @@ public class FnBMenu extends HttpServlet{
         }
 
         try{
+
+            // Pengambilan data list fnb, size dan juga type fnb untuk diretrieve pada menu
             List<FnB> fnbs = fnbService.getAllFnB((int)request.getSession().getAttribute("storeid"), 0);
-            int pageCounter = fnbService.getCountAllFnB((int)request.getSession().getAttribute("storeid"));
             List<FnBSize> fnBSizeList = fnbService.getShowAllFnBSize((int)request.getSession().getAttribute("storeid"));
             List<FnBType> fnBTypeList = fnbService.getShowAllFnBType((int)request.getSession().getAttribute("storeid"));
+
+            // Pengambilan data jumlah halaman yang akan ditampilkan pada menu
+            int pageCounter = fnbService.getCountAllFnB((int)request.getSession().getAttribute("storeid"));
 
             request.setAttribute("size", fnBSizeList);
             request.setAttribute("type", fnBTypeList);
@@ -57,7 +75,7 @@ public class FnBMenu extends HttpServlet{
 
             request.getRequestDispatcher(address).forward(request, response);
         } catch (SQLException e){
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 }

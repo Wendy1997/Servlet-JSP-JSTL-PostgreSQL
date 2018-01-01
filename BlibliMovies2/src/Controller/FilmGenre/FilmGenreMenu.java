@@ -16,11 +16,25 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * Sebuah kelas yang menghandle list film genre
+ * url: /admin/filmgenre
+ */
 @WebServlet("/admin/filmgenre")
 public class FilmGenreMenu extends HttpServlet{
     FilmService filmService = new FilmServiceDatabase();
 
+    /**
+     * Sebuah method GET yang memberikan halaman list film genre
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        // Initial Address
         String address = "/view/database/filmgenre/filmgenre_menu.jsp";
 
         // Validasi apakah sudah login store
@@ -42,10 +56,16 @@ public class FilmGenreMenu extends HttpServlet{
         }
 
         try{
+
+            // Pengambilan data list film dan juga genre film untuk diretrieve pada menu
             List<FilmGenre> filmGenreList = filmService.getAllFilmGenre((int)request.getSession().getAttribute("storeid"), 0);
+
+            // Pengambilan data jumlah halaman yang akan ditampilkan pada menu
             int pageCounter = filmService.getCountAllFilmGenre((int)request.getSession().getAttribute("storeid"));
+
             request.setAttribute("genre", filmGenreList);
             request.setAttribute("page", pageCounter);
+
             request.getRequestDispatcher(address).forward(request, response);
         } catch (SQLException e){
             System.out.println(e.getMessage());

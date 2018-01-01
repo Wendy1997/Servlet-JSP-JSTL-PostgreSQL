@@ -13,10 +13,22 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * Sebuah kelas yang menghandle list studio
+ * url: /admin/studiotype
+ */
 @WebServlet("/admin/studiotype")
 public class StudioTypeMenu extends HttpServlet{
     FilmService studioService = new FilmServiceDatabase();
 
+    /**
+     * Sebuah method GET yang memberikan halaman list studio type
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String address = "/view/database/studiotype/studiotype_menu.jsp";
 
@@ -39,14 +51,18 @@ public class StudioTypeMenu extends HttpServlet{
         }
 
         try{
+            // Pengambilan data list type studio untuk diretrieve pada menu
             List<StudioType> studioTypeList = studioService.getAllStudioType((int)request.getSession().getAttribute("storeid"), 0);
+
+            // Pengambilan data jumlah halaman yang akan ditampilkan pada menu
             int pageCounter = studioService.getCountAllStudioType((int)request.getSession().getAttribute("storeid"));
 
             request.setAttribute("type", studioTypeList);
             request.setAttribute("page", pageCounter);
+
             request.getRequestDispatcher(address).forward(request, response);
         } catch (SQLException e){
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 }

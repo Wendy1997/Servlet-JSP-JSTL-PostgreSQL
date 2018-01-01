@@ -15,11 +15,25 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * Sebuah kelas yang menghandle list akun
+ * url: /admin/account
+ */
 @WebServlet("/admin/account")
 public class AccountMenu extends HttpServlet{
     AccountService accountService = new AccountServiceDatabase();
 
+    /**
+     * Sebuah method GET yang memberikan halaman list akun
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        // Initial Address
         String address = "/view/database/account/account_menu.jsp";
 
         // Validasi apakah sudah login store
@@ -41,16 +55,20 @@ public class AccountMenu extends HttpServlet{
         }
 
         try{
+            // Pengambilan data list akun dan juga role akun untuk diretrieve pada menu
             List<Account> accounts = accountService.getAllAccount((int)request.getSession().getAttribute("storeid"), 0);
-            int pageCounter = accountService.getCountAllAccount((int)request.getSession().getAttribute("storeid"));
             List<AccountRole> accountRoles = accountService.getAllAccountRole((int)request.getSession().getAttribute("storeid"));
+
+            // Pengambilan data jumlah halaman yang akan ditampilkan pada menu
+            int pageCounter = accountService.getCountAllAccount((int)request.getSession().getAttribute("storeid"));
 
             request.setAttribute("roles", accountRoles);
             request.setAttribute("accounts", accounts);
             request.setAttribute("page", pageCounter);
+
             request.getRequestDispatcher(address).forward(request, response);
         } catch (SQLException e){
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 }

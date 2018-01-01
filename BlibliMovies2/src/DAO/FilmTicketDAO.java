@@ -42,6 +42,7 @@ public class FilmTicketDAO {
 
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 
     public FilmTicket getFilmTicket(String id, String film_id, int storeid) throws SQLException{
@@ -66,6 +67,7 @@ public class FilmTicketDAO {
         }
 
         ps.close();
+        conn.close();
         return output;
     }
 
@@ -90,6 +92,7 @@ public class FilmTicketDAO {
         }
 
         ps.close();
+        conn.close();
         return outputList;
     }
 }

@@ -7,11 +7,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * Sebuah kelas yang menghandle menu admin
+ * url: /admin
+ */
 @WebServlet("/admin")
-public class Menu extends HttpServlet{
+public class AdminMenu extends HttpServlet{
 
     /**
-     * Suatu halaman yang akan meredirect menuju halaman database.
+     * Sebuah method GET yang memberikan halaman menu admin
      *
      * @param request
      * @param response
@@ -19,6 +23,8 @@ public class Menu extends HttpServlet{
      * @throws IOException
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+
+        // Initial address
         String address = "/view/menu/admin_menu.jsp";
 
         // Validasi apakah sudah login store

@@ -18,11 +18,25 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * Sebuah kelas yang menghandle penambahan film genre
+ * url: /admin/filmgenre/add
+ */
 @WebServlet("/admin/filmgenre/add")
 public class FilmGenreAdd extends HttpServlet {
     FilmService filmService = new FilmServiceDatabase();
 
+    /**
+     * Sebuah method GET yang memberikan form penambahan film genre
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        // Initial address
         String address = "/view/database/filmgenre/filmgenre_add.jsp";
 
         // Validasi apakah sudah login store
@@ -43,22 +57,33 @@ public class FilmGenreAdd extends HttpServlet {
         request.getRequestDispatcher(address).forward(request, response);
     }
 
+    /**
+     * Sebuah method POST yang akan mengolah hasil input form dari halaman tambah film genre
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         try{
+            // Inisialisasi Film Genre
             FilmGenre filmGenre = new FilmGenre( request.getParameter("genre"),
                     (int)request.getSession().getAttribute("storeid"));
 
+            // Sebuah method yang akan memasukkan film genre pada database
             filmService.addFilmGenre(filmGenre);
 
+            // Redirect menuju halaman success
             String address = "/view/database/success.jsp";
             request.setAttribute("title", "Film Genre");
             request.setAttribute("complete", "Created");
             request.setAttribute("link", "/admin/filmgenre");
 
             request.getRequestDispatcher(address).forward(request,response);
-        } catch (Exception e){
-            System.out.println(e.getMessage());
+        } catch (SQLException e){
+            e.printStackTrace();
         }
     }
 }

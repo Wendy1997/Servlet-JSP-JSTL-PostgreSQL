@@ -50,6 +50,7 @@ public class OrderDetailDAO {
         }
 
         ps.close();
+        conn.close();
         return orderDetails;
     }
 
@@ -64,5 +65,6 @@ public class OrderDetailDAO {
 
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 }

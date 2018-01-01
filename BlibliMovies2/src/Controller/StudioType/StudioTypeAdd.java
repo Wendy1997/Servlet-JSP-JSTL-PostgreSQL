@@ -13,11 +13,25 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * Sebuah kelas yang menghandle penambahan studio type
+ * url: /admin/studiotype/add
+ */
 @WebServlet("/admin/studiotype/add")
 public class StudioTypeAdd extends HttpServlet {
     FilmService filmService = new FilmServiceDatabase();
 
+    /**
+     * Sebuah method GET yang memberikan form penambahan studio type
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        // Initial Address
         String address = "/view/database/studiotype/studiotype_add.jsp";
 
         // Validasi apakah sudah login store
@@ -38,12 +52,22 @@ public class StudioTypeAdd extends HttpServlet {
         request.getRequestDispatcher(address).forward(request, response);
     }
 
+    /**
+     * Sebuah method POST yang akan mengolah hasil input form dari halaman tambah studio type
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         try{
+            // Inisialisasi studio type dari hasil form
             StudioType studio = new StudioType( request.getParameter("type"),
                     (int)request.getSession().getAttribute("storeid"));
 
+            // Sebuah method yang akan memasukkan studio type ke dalam database
             filmService.addStudioType(studio);
 
             String address = "/view/database/success.jsp";
@@ -52,8 +76,8 @@ public class StudioTypeAdd extends HttpServlet {
             request.setAttribute("link", "/admin/studiotype");
 
             request.getRequestDispatcher(address).forward(request,response);
-        } catch (Exception e){
-            System.out.println(e.getMessage());
+        } catch (SQLException e){
+            e.printStackTrace();
         }
     }
 }

@@ -15,11 +15,25 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * Sebuah kelas yang menghandle list screening time
+ * url: /admin/screentime
+ */
 @WebServlet("/admin/screentime")
 public class ScreeningTimeMenu extends HttpServlet{
     FilmService filmService = new FilmServiceDatabase();
 
+    /**
+     * Sebuah method GET yang memberikan halaman list screening time
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        // Initial address
         String address = "/view/database/screening/screeningTime_menu.jsp";
 
         // Validasi apakah sudah login store
@@ -41,15 +55,19 @@ public class ScreeningTimeMenu extends HttpServlet{
         }
 
         try{
+            // Pengambilan data list screening time untuk diretrieve pada menu
             List<ScreeningTime> screeningTimeList = filmService.getAllScreeningTime((int)request.getSession().getAttribute("storeid"), request.getParameter("filmid"), 0);
+
+            // Pengambilan data jumlah halaman yang akan ditampilkan pada menu
             int pageCounter = filmService.getCountAllScreeningTime((int)request.getSession().getAttribute("storeid"), request.getParameter("filmid"));
 
             request.setAttribute("screenTime", screeningTimeList);
             request.setAttribute("film", filmService.getFilm(request.getParameter("filmid"), (int)request.getSession().getAttribute("storeid")));
             request.setAttribute("page", pageCounter);
+
             request.getRequestDispatcher(address).forward(request, response);
         } catch (SQLException e){
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 }

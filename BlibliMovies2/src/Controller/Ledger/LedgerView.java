@@ -13,8 +13,21 @@ import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * Sebuah kelas yang menghandle list invoice pada setiap hari, minggu, bulan atau tahun
+ * url: /admin/ledger
+ */
 @WebServlet("/admin/ledger")
 public class LedgerView extends HttpServlet{
+
+    /**
+     * Sebuah method GET yang memberikan halaman list invoice pada setiap hari, minggu, bulan atau tahun
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String address = "/view/database/ledger/ledger_menu.jsp";
 
@@ -36,9 +49,12 @@ public class LedgerView extends HttpServlet{
             request.getRequestDispatcher(address).forward(request, response);
         }
 
+        // Pengambilan data waktu saat ini
         LocalDate now = LocalDate.now();
         String input = now.toString();
         String format = "yyyy-MM-dd";
+
+        // Pengambilan data minggu saat ini
         String week = "";
         try {
             SimpleDateFormat df = new SimpleDateFormat(format);
@@ -53,6 +69,7 @@ public class LedgerView extends HttpServlet{
             e.printStackTrace();
         }
 
+        // Pengambilan data hari, bulan dan tahun ini
         String[] todayList = input.split("-");
         String day = todayList[2];
         String month = todayList[1];
@@ -62,6 +79,7 @@ public class LedgerView extends HttpServlet{
         request.setAttribute("month", month);
         request.setAttribute("year", year);
         request.setAttribute("week", week);
+
         request.getRequestDispatcher(address).forward(request, response);
     }
 

@@ -44,6 +44,7 @@ public class StudioTypeDAO {
         }
 
         ps.close();
+        conn.close();
         return output;
     }
 
@@ -62,6 +63,7 @@ public class StudioTypeDAO {
         }
 
         ps.close();
+        conn.close();
         return output;
     }
 
@@ -77,6 +79,7 @@ public class StudioTypeDAO {
         }
 
         ps.close();
+        conn.close();
         return studioTypes;
     }
 
@@ -91,6 +94,7 @@ public class StudioTypeDAO {
         }
 
         ps.close();
+        conn.close();
         return studioTypes;
     }
 
@@ -113,6 +117,7 @@ public class StudioTypeDAO {
         }
 
         ps.close();
+        conn.close();
         return count;
     }
 
@@ -127,6 +132,7 @@ public class StudioTypeDAO {
         }
 
         ps.close();
+        conn.close();
         return studioTypes;
     }
 
@@ -136,6 +142,7 @@ public class StudioTypeDAO {
         ps.setString(2, studioType.getType());
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 
     public void deleteStudioType(String studioType, int storeid) throws SQLException{
@@ -144,6 +151,7 @@ public class StudioTypeDAO {
         ps.setInt(2, storeid);
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 
     public void retrieveStudioType(String studioType, int storeid) throws SQLException{
@@ -152,6 +160,7 @@ public class StudioTypeDAO {
         ps.setInt(2, storeid);
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 
     public void updateStudioType(StudioType studioType) throws SQLException{
@@ -161,5 +170,6 @@ public class StudioTypeDAO {
         ps.setInt(3, studioType.getStoreID());
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 }

@@ -53,6 +53,7 @@ public class InvoiceDAO {
         }
 
         ps.close();
+        conn.close();
         return output;
     }
 
@@ -78,6 +79,7 @@ public class InvoiceDAO {
         }
 
         ps.close();
+        conn.close();
         return output;
     }
 
@@ -99,6 +101,7 @@ public class InvoiceDAO {
         }
 
         ps.close();
+        conn.close();
         return invoices;
     }
 
@@ -122,6 +125,7 @@ public class InvoiceDAO {
 
 
         ps.close();
+        conn.close();
         return count;
     }
 
@@ -134,6 +138,7 @@ public class InvoiceDAO {
             ps.setDouble(4,invoice.getTotalPrice());
             ps.executeUpdate();
             ps.close();
+            conn.close();
         }
         else {
             PreparedStatement ps = conn.prepareStatement("INSERT INTO invoice (memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES (?,?,?,?,?,?)");
@@ -145,6 +150,7 @@ public class InvoiceDAO {
             ps.setDouble(6,invoice.getTotalPrice());
             ps.executeUpdate();
             ps.close();
+            conn.close();
         }
     }
 
@@ -173,6 +179,7 @@ public class InvoiceDAO {
         }
 
         ps.close();
+        conn.close();
         return invoices;
     }
 
@@ -204,6 +211,7 @@ public class InvoiceDAO {
         }
 
         ps.close();
+        conn.close();
         return count;
     }
 
@@ -230,6 +238,7 @@ public class InvoiceDAO {
         }
 
         ps.close();
+        conn.close();
         return invoices;
     }
 
@@ -259,6 +268,7 @@ public class InvoiceDAO {
         }
 
         ps.close();
+        conn.close();
         return count;
     }
 
@@ -285,6 +295,7 @@ public class InvoiceDAO {
         }
 
         ps.close();
+        conn.close();
         return invoices;
     }
 
@@ -314,6 +325,7 @@ public class InvoiceDAO {
         }
 
         ps.close();
+        conn.close();
         return count;
     }
 
@@ -338,6 +350,7 @@ public class InvoiceDAO {
         }
 
         ps.close();
+        conn.close();
         return invoices;
     }
 
@@ -365,6 +378,7 @@ public class InvoiceDAO {
         }
 
         ps.close();
+        conn.close();
         return count;
     }
 }

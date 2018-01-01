@@ -17,18 +17,35 @@ import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * Sebuah kelas yang menghandle list invoice pada setiap bulannya
+ * url: /admin/ledger/monthly
+ */
 @WebServlet("/admin/ledger/monthly")
 public class LedgerViewMonthly extends HttpServlet {
     InvoiceService invoiceService = new InvoiceServiceDatabase();
 
+    /**
+     * Sebuah method POST yang memberikan halaman list invoice pada setiap bulannya
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try{
+            // Pengambilan data offset dan jumlah pendapatan pada bulan tersebut
             List<Double> pageCounter = invoiceService.getCountMonthlyInvoice(request.getParameter("date"), (int)request.getSession().getAttribute("storeid"));
+
+            // Pengambilan list invoice bulan tersebut
             List<Invoice> invoiceList = invoiceService.getMonthlyInvoice(request.getParameter("date"), (int)request.getSession().getAttribute("storeid"), 0);
 
+            // Inisialisasi dan mengubah objek menjadi JSON
             Gson gson = new Gson();
             String output = gson.toJson(invoiceList);
 
+            // Pengiriman data menuju AJAX
             PrintWriter out = response.getWriter();
             out.print("{\"count\": " + pageCounter.get(0).intValue() + ",");
             out.print("\"sum\": " + pageCounter.get(1) + ",");

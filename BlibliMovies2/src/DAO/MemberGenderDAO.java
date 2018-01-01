@@ -47,6 +47,7 @@ public class MemberGenderDAO {
         }
 
         ps.close();
+        conn.close();
         return output;
     }
 
@@ -65,6 +66,7 @@ public class MemberGenderDAO {
         }
 
         ps.close();
+        conn.close();
         return output;
     }
 
@@ -80,6 +82,7 @@ public class MemberGenderDAO {
         }
 
         ps.close();
+        conn.close();
         return memberGenders;
     }
 
@@ -94,6 +97,7 @@ public class MemberGenderDAO {
         }
 
         ps.close();
+        conn.close();
         return memberGenders;
     }
 
@@ -103,6 +107,7 @@ public class MemberGenderDAO {
         ps.setString(2, memberGender.getGender());
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 
     public void deleteMemberGender(String memberGender, int storeid) throws SQLException{
@@ -111,6 +116,7 @@ public class MemberGenderDAO {
         ps.setInt(2, storeid);
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 
     public void retrieveMemberGender(String memberGender, int storeid) throws SQLException{
@@ -119,6 +125,7 @@ public class MemberGenderDAO {
         ps.setInt(2, storeid);
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 
     public void updateMemberGender(MemberGender memberGender) throws SQLException{
@@ -128,5 +135,6 @@ public class MemberGenderDAO {
         ps.setInt(3, memberGender.getStoreID());
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 }

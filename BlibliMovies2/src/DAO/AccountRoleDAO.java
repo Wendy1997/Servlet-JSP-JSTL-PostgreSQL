@@ -48,6 +48,7 @@ public class AccountRoleDAO {
         }
 
         ps.close();
+        conn.close();
         return output;
     }
 
@@ -66,6 +67,7 @@ public class AccountRoleDAO {
         }
 
         ps.close();
+        conn.close();
         return output;
     }
 
@@ -80,6 +82,7 @@ public class AccountRoleDAO {
         }
 
         ps.close();
+        conn.close();
         return accountRoles;
     }
 
@@ -91,6 +94,7 @@ public class AccountRoleDAO {
         int count = rs.getInt(1);
 
         ps.close();
+        conn.close();
         return count;
     }
 
@@ -105,6 +109,7 @@ public class AccountRoleDAO {
         }
 
         ps.close();
+        conn.close();
         return accountRoles;
     }
 
@@ -114,6 +119,7 @@ public class AccountRoleDAO {
         ps.setString(2, accountRole.getRole());
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 
     public void deleteAccountRole(String accountRole, int storeid) throws SQLException{
@@ -122,6 +128,7 @@ public class AccountRoleDAO {
         ps.setInt(2, storeid);
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 
     public void retrieveAccountRole(String accountRole, int storeid) throws SQLException{
@@ -130,6 +137,7 @@ public class AccountRoleDAO {
         ps.setInt(2, storeid);
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 
     public void updateAccountRole(AccountRole accountRole) throws SQLException{
@@ -139,5 +147,6 @@ public class AccountRoleDAO {
         ps.setInt(3, accountRole.getStoreID());
         ps.executeUpdate();
         ps.close();
+        conn.close();
     }
 }

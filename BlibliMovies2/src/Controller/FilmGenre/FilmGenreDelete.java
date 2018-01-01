@@ -17,11 +17,25 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
 
+/**
+ * Sebuah kelas yang menghandle penghapusan ataupun pengembalian film genre
+ * url: /admin/filmgenre/delete
+ */
 @WebServlet("/admin/filmgenre/delete")
 public class FilmGenreDelete extends HttpServlet {
     FilmService filmService = new FilmServiceDatabase();
 
+    /**
+     * Sebuah method GET yang akan melakukan penghapusan ataupun pengembalian film genre
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+
+        // Initial Address
         String address = "/view/database/filmgenre/filmgenre_menu.jsp";
 
         // Validasi apakah sudah login store
@@ -43,23 +57,30 @@ public class FilmGenreDelete extends HttpServlet {
         }
 
         try{
+            // Pengambilan data film genre yang bersangkutan
             FilmGenre filmGenre = filmService.getFilmGenre(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
 
+            // Pengecekan apakah status film genre tersebut aktif atau tidak
             if(filmGenre.isStatus()){
+
+                // Jika aktif maka akan didelete
                 filmService.deleteFilmGenre(filmGenre.getId() + "", (int)request.getSession().getAttribute("storeid"));
                 request.setAttribute("complete", "Deleted");
             } else{
+
+                // Jika pasif maka akan di retrieve
                 filmService.retrieveFilmGenre(filmGenre.getId() + "", (int)request.getSession().getAttribute("storeid"));
                 request.setAttribute("complete", "Retrieved");
             }
 
+            // Redirect menuju halaman success
             address = "/view/database/success.jsp";
             request.setAttribute("title", "Film Genre");
             request.setAttribute("link", "/admin/filmgenre");
 
             request.getRequestDispatcher(address).forward(request, response);
 
-        } catch (Exception e){
+        } catch (SQLException e){
             e.printStackTrace();
         }
     }
