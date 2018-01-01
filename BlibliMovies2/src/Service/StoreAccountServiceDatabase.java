@@ -16,11 +16,6 @@ public class StoreAccountServiceDatabase implements StoreAccountService {
     }
 
     @Override
-    public StoreAccount getStoreAccountTrue(String username) throws SQLException {
-        return storeAccountDAO.getStoreAccountTrue(username);
-    }
-
-    @Override
     public List<StoreAccount> getAllStoreAccount(int offset) throws SQLException {
         return storeAccountDAO.getAllStoreAccount(offset);
     }
@@ -28,11 +23,6 @@ public class StoreAccountServiceDatabase implements StoreAccountService {
     @Override
     public int getCountAllStoreAccount() throws SQLException {
         return storeAccountDAO.getCountAllStoreAccount();
-    }
-
-    @Override
-    public List<StoreAccount> getAllStoreAccountTrue() throws SQLException {
-        return storeAccountDAO.getAllStoreAccountTrue();
     }
 
     @Override

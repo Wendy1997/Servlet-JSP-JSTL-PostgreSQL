@@ -11,9 +11,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+/**
+ * Sebuah kelas yang menghandle CRUD untuk Account Role
+ */
 public class AccountRoleDAO {
     Connection conn;
 
+    /**
+     * Inisialisasi DB
+     */
     public AccountRoleDAO(){
 
         Properties prop = new Properties();
@@ -33,6 +39,14 @@ public class AccountRoleDAO {
         }
     }
 
+    /**
+     * Sebuah method untuk mengambil data akun role dari db
+     *
+     * @param id
+     * @param storeid
+     * @return
+     * @throws SQLException
+     */
     public AccountRole getAccountRole(int id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM accountRole where id = ? and storeid = ?");
         ps.setInt(1, id);
@@ -52,6 +66,14 @@ public class AccountRoleDAO {
         return output;
     }
 
+    /**
+     * Sebuah method yang akan mengambil data akun role yang statusnya aktif
+     *
+     * @param id
+     * @param storeid
+     * @return
+     * @throws SQLException
+     */
     public AccountRole getAccountRoleTrue(int id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM accountRole where id = ? and storeid = ? and status = true");
         ps.setInt(1, id);
@@ -71,6 +93,13 @@ public class AccountRoleDAO {
         return output;
     }
 
+    /**
+     * Sebuah method yang akan mengambil seluruh data akun role
+     *
+     * @param storeid
+     * @return
+     * @throws SQLException
+     */
     public List<AccountRole> getAllAccountRole(int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM accountRole where storeid = ? ORDER BY id");
         ps.setInt(1, storeid);
@@ -86,6 +115,13 @@ public class AccountRoleDAO {
         return accountRoles;
     }
 
+    /**
+     * Sebuah method yang akan menghitung jumlah halaman dari seluruh data akun role
+     *
+     * @param storeid
+     * @return
+     * @throws SQLException
+     */
     public int getCountAllAccountRole(int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("select count(*) from (SELECT * FROM accountRole where storeid = ? ORDER BY id) as count");
         ps.setInt(1, storeid);
@@ -98,6 +134,13 @@ public class AccountRoleDAO {
         return count;
     }
 
+    /**
+     * Sebuah method yang akan mengambil seluruh data akun role yang memiliki status aktif
+     *
+     * @param storeid
+     * @return
+     * @throws SQLException
+     */
     public List<AccountRole> getAllAccountRoleTrue(int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM accountRole where storeid = ? and status = true ORDER BY id");
         ps.setInt(1, storeid);
@@ -113,6 +156,12 @@ public class AccountRoleDAO {
         return accountRoles;
     }
 
+    /**
+     * Sebuah method yang akan menginput akun role pada db
+     *
+     * @param accountRole
+     * @throws SQLException
+     */
     public void addAccountRole(AccountRole accountRole) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("INSERT INTO accountRole (storeid, role) VALUES (?,?)");
         ps.setInt(1, accountRole.getStoreID());
@@ -122,6 +171,13 @@ public class AccountRoleDAO {
         conn.close();
     }
 
+    /**
+     * Sebuah method yang akan menghapus akun role pada db (soft)
+     *
+     * @param accountRole
+     * @param storeid
+     * @throws SQLException
+     */
     public void deleteAccountRole(String accountRole, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE accountRole set status = false where id = ? and storeid = ?");
         ps.setString(1, accountRole);
@@ -131,6 +187,13 @@ public class AccountRoleDAO {
         conn.close();
     }
 
+    /**
+     * Sebuah method yang akan mengembalikan akun role yang telah dihapus
+     *
+     * @param accountRole
+     * @param storeid
+     * @throws SQLException
+     */
     public void retrieveAccountRole(String accountRole, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE accountRole set status = true where id = ? and storeid = ?");
         ps.setString(1, accountRole);
@@ -140,6 +203,12 @@ public class AccountRoleDAO {
         conn.close();
     }
 
+    /**
+     * Sebuah method yang akan mengupdate data dari akun role
+     *
+     * @param accountRole
+     * @throws SQLException
+     */
     public void updateAccountRole(AccountRole accountRole) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE accountRole set role = ? where id = ? and storeid = ? and status = true");
         ps.setString(1, accountRole.getRole());

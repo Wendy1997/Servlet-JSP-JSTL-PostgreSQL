@@ -155,11 +155,6 @@ public class FilmServiceDatabase implements FilmService {
     }
 
     @Override
-    public FilmGenre getFilmGenreTrue(String id, int storeid) throws SQLException {
-        return filmGenreDAO.getFilmGenreTrue(id, storeid);
-    }
-
-    @Override
     public List<FilmGenre> getAllFilmGenre(int storeid, int offset) throws SQLException {
         return filmGenreDAO.getAllFilmGenre(storeid, offset);
     }
@@ -202,11 +197,6 @@ public class FilmServiceDatabase implements FilmService {
     @Override
     public StudioType getStudioType(String id, int storeid) throws SQLException {
         return studioTypeDAO.getStudioType(id, storeid);
-    }
-
-    @Override
-    public StudioType getStudioTypeTrue(String id, int storeid) throws SQLException {
-        return studioTypeDAO.getStudioTypeTrue(id, storeid);
     }
 
     @Override

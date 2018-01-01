@@ -10,9 +10,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+/**
+ * Sebuah kelas yang menghandle CRUD untuk Account
+ */
 public class AccountDAO {
     Connection conn;
 
+    /**
+     * Inisialisasi DB
+     */
     public AccountDAO(){
 
         Properties prop = new Properties();
@@ -32,6 +38,14 @@ public class AccountDAO {
         }
     }
 
+    /**
+     * Sebuah method untuk mengambil data akun dari db
+     *
+     * @param username
+     * @param storeid
+     * @return
+     * @throws SQLException
+     */
     public Account getAccount(String username, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM account where username = ? and storeid = ?");
         ps.setString(1, username);
@@ -51,6 +65,14 @@ public class AccountDAO {
         return output;
     }
 
+    /**
+     * Sebuah method yang akan mengambil data akun yang statusnya aktif
+     *
+     * @param username
+     * @param storeid
+     * @return
+     * @throws SQLException
+     */
     public Account getAccountTrue(String username, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM account where username = ? and storeid = ? and status = true");
         ps.setString(1, username);
@@ -70,6 +92,14 @@ public class AccountDAO {
         return output;
     }
 
+    /**
+     * Sebuah method yang akan mengambil seluruh data akun
+     *
+     * @param storeid
+     * @param offset
+     * @return
+     * @throws SQLException
+     */
     public List<Account> getAllAccount(int storeid, int offset) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM account where storeid = ? ORDER BY id LIMIT 10 OFFSET ?");
         ps.setInt(1, storeid);
@@ -87,6 +117,13 @@ public class AccountDAO {
         return accounts;
     }
 
+    /**
+     * Sebuah method yang akan menghitung jumlah halaman dari seluruh data akun
+     *
+     * @param storeid
+     * @return
+     * @throws SQLException
+     */
     public int getCountAllAccount(int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT count(*) from (SELECT * FROM account where storeid = ? ORDER BY id) as count");
         ps.setInt(1, storeid);
@@ -111,6 +148,13 @@ public class AccountDAO {
         return count;
     }
 
+    /**
+     * Sebuah method yang akan mengambil seluruh data akun yang memiliki status aktif
+     *
+     * @param storeid
+     * @return
+     * @throws SQLException
+     */
     public List<Account> getAllAccountTrue(int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM account where storeid = ? and status = true ORDER BY id");
         ps.setInt(1, storeid);
@@ -127,6 +171,12 @@ public class AccountDAO {
         return accounts;
     }
 
+    /**
+     * Sebuah method yang akan menginput akun pada db
+     *
+     * @param account
+     * @throws SQLException
+     */
     public void addAccount(Account account) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("INSERT INTO account (username, storeid, password, roleid) VALUES (?,?,?,?)");
         ps.setString(1,account.getUsername());
@@ -138,6 +188,13 @@ public class AccountDAO {
         conn.close();
     }
 
+    /**
+     * Sebuah method yang akan menghapus akun pada db (soft)
+     *
+     * @param account
+     * @param storeid
+     * @throws SQLException
+     */
     public void deleteAccount(String account, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE account set status = false where username = ? and storeid = ?");
         ps.setString(1, account);
@@ -147,6 +204,13 @@ public class AccountDAO {
         conn.close();
     }
 
+    /**
+     * Sebuah method yang akan mengembalikan akun yang telah dihapus
+     *
+     * @param account
+     * @param storeid
+     * @throws SQLException
+     */
     public void retrieveAccount(String account, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE account set status = true where username = ? and storeid = ?");
         ps.setString(1, account);
@@ -156,6 +220,12 @@ public class AccountDAO {
         conn.close();
     }
 
+    /**
+     * Sebuah method yang akan mengupdate data dari akun
+     *
+     * @param account
+     * @throws SQLException
+     */
     public void updateAccount(Account account) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE account set password = ?, roleid = ? where username = ? and storeid = ?");
         ps.setString(1, account.getPassword());

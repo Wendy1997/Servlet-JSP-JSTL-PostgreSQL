@@ -11,10 +11,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+/**
+ * Sebuah kelas yang menghandle CRUD untuk FnB
+ */
 public class FnBDAO {
 
     Connection conn;
 
+    /**
+     * Inisialisasi DB
+     */
     public FnBDAO(){
 
         Properties prop = new Properties();
@@ -34,6 +40,14 @@ public class FnBDAO {
         }
     }
 
+    /**
+     * Sebuah method untuk mengambil data FnB dari db
+     *
+     * @param fnb
+     * @param storeid
+     * @return
+     * @throws SQLException
+     */
     public FnB getFnB(String fnb, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM foodandbeverages where id = ? and storeid = ?");
         ps.setString(1, fnb);
@@ -61,6 +75,14 @@ public class FnBDAO {
         return output;
     }
 
+    /**
+     * Sebuah method yang akan mengambil data FnB yang statusnya aktif
+     *
+     * @param fnb
+     * @param storeid
+     * @return
+     * @throws SQLException
+     */
     public FnB getFnBTrue(String fnb, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM foodandbeverages where id = ? and storeid = ? and status = true");
         ps.setString(1, fnb);
@@ -88,6 +110,14 @@ public class FnBDAO {
         return output;
     }
 
+    /**
+     * Sebuah method yang akan mengambil seluruh data fnb
+     *
+     * @param storeid
+     * @param offset
+     * @return
+     * @throws SQLException
+     */
     public List<FnB> getAllFnB(int storeid, int offset) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM foodandbeverages where storeid = ? ORDER BY id LIMIT 10 OFFSET ?");
         ps.setInt(1, storeid);
@@ -113,6 +143,13 @@ public class FnBDAO {
         return fnbs;
     }
 
+    /**
+     * Sebuah method yang akan menghitung jumlah halaman dari seluruh data FnB
+     *
+     * @param storeid
+     * @return
+     * @throws SQLException
+     */
     public int getCountAllFnB(int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("Select count(*) from (SELECT * FROM foodandbeverages where storeid = ? ORDER BY id) as count");
         ps.setInt(1, storeid);
@@ -138,6 +175,13 @@ public class FnBDAO {
         return count;
     }
 
+    /**
+     * Sebuah method yang akan mengambil seluruh data FnB yang memiliki status aktif
+     *
+     * @param storeid
+     * @return
+     * @throws SQLException
+     */
     public List<FnB> getAllFnBTrue(int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM foodandbeverages where storeid = ? and status = true ORDER BY id");
         ps.setInt(1, storeid);
@@ -162,6 +206,12 @@ public class FnBDAO {
         return fnbs;
     }
 
+    /**
+     * Sebuah method yang akan menginput FnB pada db
+     *
+     * @param fnb
+     * @throws SQLException
+     */
     public void addFnB(FnB fnb) throws SQLException{
 
         PreparedStatement ps = conn.prepareStatement("INSERT INTO foodandbeverages (storeid, cover, name, type, size, price) VALUES (?,?,?,?,?,?)");
@@ -178,6 +228,13 @@ public class FnBDAO {
         conn.close();
     }
 
+    /**
+     * Sebuah method yang akan menghapus FnB pada db (soft)
+     *
+     * @param id
+     * @param storeid
+     * @throws SQLException
+     */
     public void deleteFnB(String id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE foodandbeverages set status = false where id = ? AND storeid = ?");
         ps.setString(1, id);
@@ -187,6 +244,13 @@ public class FnBDAO {
         conn.close();
     }
 
+    /**
+     * Sebuah method yang akan mengembalikan FnB yang telah dihapus
+     *
+     * @param id
+     * @param storeid
+     * @throws SQLException
+     */
     public void retrieveFnB(String id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE foodandbeverages set status = true where id = ? AND storeid = ?");
         ps.setString(1, id);
@@ -196,6 +260,12 @@ public class FnBDAO {
         conn.close();
     }
 
+    /**
+     * Sebuah method yang akan mengupdate data dari FnB
+     *
+     * @param fnb
+     * @throws SQLException
+     */
     public void updateFnB(FnB fnb) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE foodandbeverages set cover = ?, name = ?, type = ?, size = ?, price = ? where id = ? and storeid = ? and status = true");
 

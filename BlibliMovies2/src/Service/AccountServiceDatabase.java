@@ -33,11 +33,6 @@ public class AccountServiceDatabase implements AccountService {
     }
 
     @Override
-    public List<Account> getAllAccountTrue(int storeid) throws SQLException {
-        return accountDAO.getAllAccountTrue(storeid);
-    }
-
-    @Override
     public void addAccount(Account account) throws SQLException{
         accountDAO.addAccount(account);
     }
@@ -63,18 +58,8 @@ public class AccountServiceDatabase implements AccountService {
     }
 
     @Override
-    public AccountRole getAccountRoleTrue(int id, int storeid) throws SQLException {
-        return accountRoleDAO.getAccountRoleTrue(id, storeid);
-    }
-
-    @Override
     public List<AccountRole> getAllAccountRole(int storeid) throws SQLException {
         return accountRoleDAO.getAllAccountRole(storeid);
-    }
-
-    @Override
-    public int getCountAllAccountRole(int storeid) throws SQLException {
-        return accountRoleDAO.getCountAllAccountRole(storeid);
     }
 
     @Override
@@ -85,20 +70,5 @@ public class AccountServiceDatabase implements AccountService {
     @Override
     public void addAccountRole(AccountRole accountRole) throws SQLException {
         accountRoleDAO.addAccountRole(accountRole);
-    }
-
-    @Override
-    public void deleteAccountRole(String accountRole, int storeid) throws SQLException {
-        accountRoleDAO.deleteAccountRole(accountRole, storeid);
-    }
-
-    @Override
-    public void retrieveAccountRole(String accountRole, int storeid) throws SQLException {
-        accountRoleDAO.retrieveAccountRole(accountRole, storeid);
-    }
-
-    @Override
-    public void updateAccountRole(AccountRole accountRole) throws SQLException {
-        accountRoleDAO.updateAccountRole(accountRole);
     }
 }

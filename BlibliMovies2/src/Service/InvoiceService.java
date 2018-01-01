@@ -28,7 +28,5 @@ public interface InvoiceService {
     void addOrderDetail(OrderDetail orderDetail) throws SQLException;
 
     Promo getPromo(String id, int storeid) throws SQLException;
-    Promo getPromoTrue(String id, int storeid) throws SQLException;
     Promo getPromo(int storeid) throws SQLException;
-    Promo getPromoTrue(int storeid) throws SQLException;
 }

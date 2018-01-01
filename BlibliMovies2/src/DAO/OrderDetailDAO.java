@@ -9,10 +9,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+/**
+ * Sebuah kelas yang menghandle CRUD untuk order detail dari suatu invoice
+ */
 public class OrderDetailDAO {
 
     Connection conn;
 
+    /**
+     * Inisialisasi DB
+     */
     public OrderDetailDAO(){
 
         Properties prop = new Properties();
@@ -32,6 +38,14 @@ public class OrderDetailDAO {
         }
     }
 
+    /**
+     * Sebuah method yang akan mengambil seluruh data order detail dari suatu invoice
+     *
+     * @param id
+     * @param storeid
+     * @return
+     * @throws SQLException
+     */
     public List<OrderDetail> getAllOrderDetail(String id, int storeid) throws SQLException {
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM orderdetail where invoiceid = ? AND storeid = ? ORDER BY id");
         ps.setString(1, id);
@@ -54,6 +68,12 @@ public class OrderDetailDAO {
         return orderDetails;
     }
 
+    /**
+     * Sebuah method yang akan menginput order detail pada db
+     *
+     * @param orderDetail
+     * @throws SQLException
+     */
     public void addOrderDetail(OrderDetail orderDetail) throws SQLException {
         PreparedStatement ps = conn.prepareStatement("INSERT INTO orderdetail (invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES (?,?,?,?,?,?)");
         ps.setInt(1, orderDetail.getInvoiceId());

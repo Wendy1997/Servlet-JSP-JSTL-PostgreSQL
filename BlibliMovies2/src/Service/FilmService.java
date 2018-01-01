@@ -39,7 +39,6 @@ public interface FilmService {
     void retrieveScreeningTime(String id, String filmid, int storeid) throws SQLException;
 
     FilmGenre getFilmGenre(String id, int storeid) throws SQLException;
-    FilmGenre getFilmGenreTrue(String id, int storeid) throws SQLException;
     List<FilmGenre> getAllFilmGenre(int storeid, int offset) throws SQLException;
     List<FilmGenre> getShowAllFilmGenre(int storeid) throws SQLException;
     int getCountAllFilmGenre(int storeid) throws SQLException;
@@ -50,7 +49,6 @@ public interface FilmService {
     void updateFilmGenre(FilmGenre filmGenre) throws SQLException;
 
     StudioType getStudioType(String id, int storeid) throws SQLException;
-    StudioType getStudioTypeTrue(String id, int storeid) throws SQLException;
     List<StudioType> getAllStudioType(int storeid, int offset) throws SQLException;
     List<StudioType> getShowAllStudioType(int storeid) throws SQLException;
     int getCountAllStudioType(int storeid) throws SQLException;

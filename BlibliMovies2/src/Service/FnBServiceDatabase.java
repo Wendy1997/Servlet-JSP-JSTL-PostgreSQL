@@ -66,11 +66,6 @@ public class FnBServiceDatabase implements FnBService {
     }
 
     @Override
-    public FnBSize getFnBSizeTrue(String id, int storeid) throws SQLException {
-        return fnBSizeDAO.getFnBSizeTrue(id, storeid);
-    }
-
-    @Override
     public List<FnBSize> getAllFnBSize(int storeid, int offset) throws SQLException {
         return fnBSizeDAO.getAllFnBSize(storeid, offset);
     }
@@ -113,11 +108,6 @@ public class FnBServiceDatabase implements FnBService {
     @Override
     public FnBType getFnBType(String id, int storeid) throws SQLException {
         return fnBTypeDAO.getFnBType(id, storeid);
-    }
-
-    @Override
-    public FnBType getFnBTypeTrue(String id, int storeid) throws SQLException {
-        return fnBTypeDAO.getFnBTypeTrue(id, storeid);
     }
 
     @Override

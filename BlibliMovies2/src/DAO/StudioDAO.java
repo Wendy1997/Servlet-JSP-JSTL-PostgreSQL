@@ -11,10 +11,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+/**
+ * Sebuah kelas yang menghandle CRUD untuk Studio
+ */
 public class StudioDAO {
 
     Connection conn;
 
+    /**
+     * Inisialisasi DB
+     */
     public StudioDAO(){
 
         Properties prop = new Properties();
@@ -34,6 +40,14 @@ public class StudioDAO {
         }
     }
 
+    /**
+     * Sebuah method yang akan mengambil seluruh data studio
+     *
+     * @param storeid
+     * @param offset
+     * @return
+     * @throws SQLException
+     */
     public List<Studio> getAllStudio(int storeid, int offset) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM studio where storeid = ? ORDER BY id LIMIT 10 OFFSET ?");
         ps.setInt(1, storeid);
@@ -57,6 +71,13 @@ public class StudioDAO {
         return studios;
     }
 
+    /**
+     * Sebuah method yang akan menghitung jumlah halaman dari seluruh data studio
+     *
+     * @param storeid
+     * @return
+     * @throws SQLException
+     */
     public int getCountAllStudio(int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT count(*) from (SELECT * FROM studio where storeid = ? ORDER BY id) as count");
         ps.setInt(1, storeid);
@@ -82,6 +103,13 @@ public class StudioDAO {
         return count;
     }
 
+    /**
+     * Sebuah method yang akan mengambil seluruh data studio yang memiliki status aktif
+     *
+     * @param storeid
+     * @return
+     * @throws SQLException
+     */
     public List<Studio> getAllStudioTrue(int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM studio where storeid = ? and status = true ORDER BY id");
         ps.setInt(1, storeid);
@@ -104,7 +132,14 @@ public class StudioDAO {
         return studios;
     }
 
-
+    /**
+     * Sebuah method untuk mengambil data studio dari db
+     *
+     * @param studio
+     * @param storeid
+     * @return
+     * @throws SQLException
+     */
     public Studio getStudio(String studio, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM studio where id = ? and storeid = ?");
         ps.setString(1, studio);
@@ -130,6 +165,14 @@ public class StudioDAO {
         return output;
     }
 
+    /**
+     * Sebuah method yang akan mengambil data studio yang statusnya aktif
+     *
+     * @param studio
+     * @param storeid
+     * @return
+     * @throws SQLException
+     */
     public Studio getStudioTrue(String studio, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM studio where id = ? and storeid = ? and status = true");
         ps.setString(1, studio);
@@ -155,6 +198,12 @@ public class StudioDAO {
         return output;
     }
 
+    /**
+     * Sebuah method yang akan menginput studio pada db
+     *
+     * @param studio
+     * @throws SQLException
+     */
     public void addStudio(Studio studio) throws SQLException{
 
         PreparedStatement ps = conn.prepareStatement("INSERT INTO studio (storeid, name, type, price) VALUES (?,?,?,?)");
@@ -169,6 +218,13 @@ public class StudioDAO {
         conn.close();
     }
 
+    /**
+     * Sebuah method yang akan menghapus studio pada db (soft)
+     *
+     * @param id
+     * @param storeid
+     * @throws SQLException
+     */
     public void deleteStudio(String id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("update studio set status = false where id = ? AND storeid = ?");
         ps.setString(1, id);
@@ -178,6 +234,13 @@ public class StudioDAO {
         conn.close();
     }
 
+    /**
+     * Sebuah method yang akan mengembalikan studio yang telah dihapus
+     *
+     * @param id
+     * @param storeid
+     * @throws SQLException
+     */
     public void retrieveStudio(String id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("update studio set status = true where id = ? AND storeid = ?");
         ps.setString(1, id);
@@ -187,6 +250,12 @@ public class StudioDAO {
         conn.close();
     }
 
+    /**
+     * Sebuah method yang akan mengupdate data dari studio
+     *
+     * @param studio
+     * @throws SQLException
+     */
     public void updateStudio(Studio studio) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE studio set name = ?, type = ?, price = ? where id = ? and storeid = ?");
 
@@ -200,5 +269,4 @@ public class StudioDAO {
         ps.close();
         conn.close();
     }
-
 }

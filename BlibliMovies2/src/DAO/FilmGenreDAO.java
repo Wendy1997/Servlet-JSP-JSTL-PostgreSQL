@@ -10,9 +10,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+/**
+ * Sebuah kelas yang menghandle CRUD untuk film genre
+ */
 public class FilmGenreDAO {
     Connection conn;
 
+    /**
+     * Inisialisasi DB
+     */
     public FilmGenreDAO(){
 
         Properties prop = new Properties();
@@ -32,6 +38,14 @@ public class FilmGenreDAO {
         }
     }
 
+    /**
+     * Sebuah method untuk mengambil data film genre dari db
+     *
+     * @param id
+     * @param storeid
+     * @return
+     * @throws SQLException
+     */
     public FilmGenre getFilmGenre(String id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM filmGenre where id = ? and storeid = ?");
         ps.setInt(1, Integer.parseInt(id));
@@ -51,6 +65,14 @@ public class FilmGenreDAO {
         return output;
     }
 
+    /**
+     * Sebuah method yang akan mengambil data film genre yang statusnya aktif
+     *
+     * @param id
+     * @param storeid
+     * @return
+     * @throws SQLException
+     */
     public FilmGenre getFilmGenreTrue(String id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM filmGenre where id = ? and storeid = ? and status = true");
         ps.setInt(1, Integer.parseInt(id));
@@ -70,6 +92,14 @@ public class FilmGenreDAO {
         return output;
     }
 
+    /**
+     * Sebuah method yang akan mengambil seluruh data film genre
+     *
+     * @param storeid
+     * @param offset
+     * @return
+     * @throws SQLException
+     */
     public List<FilmGenre> getAllFilmGenre(int storeid, int offset) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM filmGenre where storeid = ? ORDER BY id LIMIT 10 OFFSET ?");
         ps.setInt(1, storeid);
@@ -86,6 +116,13 @@ public class FilmGenreDAO {
         return filmGenres;
     }
 
+    /**
+     * Sebuah method yang akan mengambil seluruh data film genre untuk form
+     *
+     * @param storeid
+     * @return
+     * @throws SQLException
+     */
     public List<FilmGenre> getShowAllFilmGenre(int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM filmGenre where storeid = ? ORDER BY id");
         ps.setInt(1, storeid);
@@ -101,6 +138,13 @@ public class FilmGenreDAO {
         return filmGenres;
     }
 
+    /**
+     * Sebuah method yang akan menghitung jumlah halaman dari seluruh data film genre
+     *
+     * @param storeid
+     * @return
+     * @throws SQLException
+     */
     public int getCountAllFilmGenre(int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("Select Count(*) from (SELECT * FROM filmGenre where storeid = ? ORDER BY id) as count");
         ps.setInt(1, storeid);
@@ -119,12 +163,18 @@ public class FilmGenreDAO {
             }
         }
 
-
         ps.close();
         conn.close();
         return count;
     }
 
+    /**
+     * Sebuah method yang akan mengambil seluruh data film genre yang memiliki status aktif
+     *
+     * @param storeid
+     * @return
+     * @throws SQLException
+     */
     public List<FilmGenre> getAllFilmGenreTrue(int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM filmGenre where storeid = ? and status = true ORDER BY id");
         ps.setInt(1, storeid);
@@ -140,6 +190,12 @@ public class FilmGenreDAO {
         return filmGenres;
     }
 
+    /**
+     * Sebuah method yang akan menginput film genre pada db
+     *
+     * @param filmGenre
+     * @throws SQLException
+     */
     public void addFilmGenre(FilmGenre filmGenre) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("INSERT INTO filmGenre (storeid, genre) VALUES (?,?)");
         ps.setInt(1, filmGenre.getStoreID());
@@ -149,6 +205,13 @@ public class FilmGenreDAO {
         conn.close();
     }
 
+    /**
+     * Sebuah method yang akan menghapus film genre pada db (soft)
+     *
+     * @param filmGenre
+     * @param storeid
+     * @throws SQLException
+     */
     public void deleteFilmGenre(String filmGenre, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE filmGenre set status = false where id = ? and storeid = ?");
         ps.setInt(1, Integer.parseInt(filmGenre));
@@ -158,6 +221,13 @@ public class FilmGenreDAO {
         conn.close();
     }
 
+    /**
+     * Sebuah method yang akan mengembalikan film genre yang telah dihapus
+     *
+     * @param filmGenre
+     * @param storeid
+     * @throws SQLException
+     */
     public void retrieveFilmGenre(String filmGenre, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE filmGenre set status = true where id = ? and storeid = ?");
         ps.setInt(1, Integer.parseInt(filmGenre));
@@ -167,6 +237,12 @@ public class FilmGenreDAO {
         conn.close();
     }
 
+    /**
+     * Sebuah method yang akan mengupdate data dari film genre
+     *
+     * @param filmGenre
+     * @throws SQLException
+     */
     public void updateFilmGenre(FilmGenre filmGenre) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE filmGenre set genre = ? where id = ? and storeid = ? and status = true");
         ps.setString(1, filmGenre.getGenre());

@@ -9,10 +9,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+/**
+ * Sebuah kelas yang menghandle CRUD untuk Member Card
+ */
 public class MemberCardDAO {
 
     Connection conn;
 
+    /**
+     * Inisialisasi DB
+     */
     public MemberCardDAO(){
 
         Properties prop = new Properties();
@@ -32,6 +38,14 @@ public class MemberCardDAO {
         }
     }
 
+    /**
+     * Sebuah method untuk mengambil data Member Card dari db
+     *
+     * @param id
+     * @param storeid
+     * @return
+     * @throws SQLException
+     */
     public MemberCard getMemberCard(String id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM membercard where id = ? and storeid = ?");
         ps.setString(1, id);
@@ -58,6 +72,14 @@ public class MemberCardDAO {
         return output;
     }
 
+    /**
+     * Sebuah method yang akan mengambil data member card yang statusnya aktif
+     *
+     * @param id
+     * @param storeid
+     * @return
+     * @throws SQLException
+     */
     public MemberCard getMemberCardTrue(String id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM membercard where id = ? and storeid = ? and status = true");
         ps.setString(1, id);
@@ -84,7 +106,14 @@ public class MemberCardDAO {
         return output;
     }
 
-
+    /**
+     * Sebuah method yang akan mengambil seluruh data member card
+     *
+     * @param storeid
+     * @param offset
+     * @return
+     * @throws SQLException
+     */
     public List<MemberCard> getAllMemberCard(int storeid, int offset) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM membercard where storeid = ? ORDER BY id LIMIT 10 OFFSET ?");
         ps.setInt(1, storeid);
@@ -108,6 +137,13 @@ public class MemberCardDAO {
         return memberCards;
     }
 
+    /**
+     * Sebuah method yang akan menghitung jumlah halaman dari seluruh data member card
+     *
+     * @param storeid
+     * @return
+     * @throws SQLException
+     */
     public int getCountAllMemberCard(int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT count(*) from (SELECT * FROM membercard where storeid = ? ORDER BY id) as count");
         ps.setInt(1, storeid);
@@ -126,12 +162,18 @@ public class MemberCardDAO {
             }
         }
 
-
         ps.close();
         conn.close();
         return count;
     }
 
+    /**
+     * Sebuah method yang akan mengambil seluruh data member card yang memiliki status aktif
+     *
+     * @param storeid
+     * @return
+     * @throws SQLException
+     */
     public List<MemberCard> getAllMemberCardTrue(int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM membercard where storeid = ? and status = true ORDER BY id");
         ps.setInt(1, storeid);
@@ -154,6 +196,12 @@ public class MemberCardDAO {
         return memberCards;
     }
 
+    /**
+     * Sebuah method yang akan menginput member card pada db
+     *
+     * @param memberCard
+     * @throws SQLException
+     */
     public void addMemberCard(MemberCard memberCard) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("INSERT INTO membercard (storeid, fullname, gender, birthdate, phonenumber, email) VALUES (?,?,?,?,?,?)");
         ps.setInt(1,memberCard.getStoreID());
@@ -167,6 +215,13 @@ public class MemberCardDAO {
         conn.close();
     }
 
+    /**
+     * Sebuah method yang akan menghapus mebmer card pada db (soft)
+     *
+     * @param id
+     * @param storeid
+     * @throws SQLException
+     */
     public void deleteMemberCard(String id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE membercard set status = false where id = ? and storeid = ?");
         ps.setString(1, id);
@@ -176,6 +231,13 @@ public class MemberCardDAO {
         conn.close();
     }
 
+    /**
+     * Sebuah method yang akan mengembalikan member card yang telah dihapus
+     *
+     * @param id
+     * @param storeid
+     * @throws SQLException
+     */
     public void retrieveMemberCard(String id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE membercard set status = true where id = ? and storeid = ?");
         ps.setString(1, id);
@@ -185,6 +247,12 @@ public class MemberCardDAO {
         conn.close();
     }
 
+    /**
+     * Sebuah method yang akan mengupdate data dari akun
+     *
+     * @param memberCard
+     * @throws SQLException
+     */
     public void updateMemberCard(MemberCard memberCard) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE membercard set fullname = ?, gender = ?, birthdate = ?, phonenumber = ?, email = ? where id = ? AND storeid = ?");
         ps.setString(1, memberCard.getFullname());

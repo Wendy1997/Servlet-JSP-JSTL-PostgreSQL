@@ -22,7 +22,6 @@ public interface FnBService {
     void updateFnB(FnB fnb) throws SQLException;
 
     FnBSize getFnBSize(String id, int storeid) throws SQLException;
-    FnBSize getFnBSizeTrue(String id, int storeid) throws SQLException;
     List<FnBSize> getAllFnBSize(int storeid, int offset) throws SQLException;
     List<FnBSize> getShowAllFnBSize(int storeid) throws SQLException;
     int getCountAllFnBSize(int storeid) throws SQLException;
@@ -33,7 +32,6 @@ public interface FnBService {
     void updateFnBSize(FnBSize fnBSize) throws SQLException;
 
     FnBType getFnBType(String id, int storeid) throws SQLException;
-    FnBType getFnBTypeTrue(String id, int storeid) throws SQLException;
     List<FnBType> getAllFnBType(int storeid, int offset) throws SQLException;
     List<FnBType> getShowAllFnBType(int storeid) throws SQLException;
     int getCountAllFnBType(int storeid) throws SQLException;

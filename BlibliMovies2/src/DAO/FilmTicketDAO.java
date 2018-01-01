@@ -8,9 +8,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+/**
+ * Sebuah kelas yang menghandle CRUD untuk Film Ticket
+ */
 public class FilmTicketDAO {
     Connection conn;
 
+    /**
+     * Inisialisasi DB
+     */
     public FilmTicketDAO(){
 
         Properties prop = new Properties();
@@ -30,6 +36,12 @@ public class FilmTicketDAO {
         }
     }
 
+    /**
+     * Sebuah method yang akan menginput ticket pada db
+     *
+     * @param filmTicket
+     * @throws SQLException
+     */
     public void addFilmTicket(FilmTicket filmTicket) throws SQLException {
 
         PreparedStatement ps = conn.prepareStatement("INSERT INTO filmTicket (filmid, studioid, storeid, seatnumber, screeningid, price) VALUES (?,?,?,?,?,?)");
@@ -45,6 +57,15 @@ public class FilmTicketDAO {
         conn.close();
     }
 
+    /**
+     * Sebuah method untuk mengambil data tiket dari db
+     *
+     * @param id
+     * @param film_id
+     * @param storeid
+     * @return
+     * @throws SQLException
+     */
     public FilmTicket getFilmTicket(String id, String film_id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("select * from filmTicket where id = ? and storeid = ? and filmid = ? and status = true");
         ps.setString(1, id);
@@ -71,6 +92,16 @@ public class FilmTicketDAO {
         return output;
     }
 
+    /**
+     * Sebuah method untuk mengambil seluruh data akun dari db
+     *
+     * @param filmid
+     * @param studio
+     * @param screening
+     * @param storeid
+     * @return
+     * @throws SQLException
+     */
     public List<FilmTicket> getAllFilmTicket(String filmid, String studio, String screening, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("select * from filmTicket where storeid = ? and filmid = ? and screeningid=? and studioid=?");
         ps.setInt(1, storeid);
