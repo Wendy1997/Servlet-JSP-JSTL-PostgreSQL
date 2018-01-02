@@ -90,6 +90,7 @@ public class ChooseFilm extends HttpServlet {
                 }
             }
 
+            request.setAttribute("date", dtf.format(now));
             request.setAttribute("films", films);
         } catch (SQLException e){
             e.printStackTrace();

@@ -35,7 +35,7 @@
                                         <c:forEach items="${film.screeningList}" var="screeningList">
                                             <p style="margin-bottom: 0">${screeningList.key}:
                                             <c:forEach items="${screeningList.value}" var="screeningTime">
-                                                <button class="tablinks" style="float: none;"><a class="screeningTimeTab" href="/cashier/film/detail?id=${film.id}&screeningtime=${screeningTime.id}">${screeningTime.time}</a></button>
+                                                <button class="tablinks" style="float: none;"><a class="screeningTimeTab" href="/cashier/film/detail?id=${film.id}&screeningtime=${screeningTime.id}&date=${date}">${screeningTime.time}</a></button>
                                             </c:forEach>
                                             </p>
                                         </c:forEach>
@@ -86,6 +86,7 @@
 <script>
     $(document).ready(function () {
        $('#now').change(function () {
+           var date = "lalala";
            $.ajax({
                type: 'GET',
                dataType: "JSON",
@@ -98,23 +99,28 @@
                    var output = "";
                    var outputSinopsis = "";
 
-                   for(var key in response){
+                   var result = response["result"];
+                   console.log(response);
+                   console.log(response["date"]);
+
+
+                   for(var key in result){
                        output += '<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-10">\n' +
                            '                            <div class="row box">\n' +
                            '                                <div class="col-3 col-sm-3 col-md-3 col-lg-4 col-xl-3">\n' +
-                           '                                    <div class="circle" id="thumbnail" style="background-image:url(\'' + response[key].cover + '\');"></div>\n' +
+                           '                                    <div class="circle" id="thumbnail" style="background-image:url(\'' + result[key].cover + '\');"></div>\n' +
                            '                                </div>\n' +
                            '                                <div class="col-9 col-sm-9 col-md-9 col-lg-8 col-xl-9">\n' +
-                           '                                    <div id="txtMovieTitle">' + response[key].title + '</div>\n' +
-                           '                                    <div id="txtMovieSubtitle">' + response[key].subtitle + '</div>\n' +
+                           '                                    <div id="txtMovieTitle">' + result[key].title + '</div>\n' +
+                           '                                    <div id="txtMovieSubtitle">' + result[key].subtitle + '</div>\n' +
                            '\n' +
                            '                                    <div class="tab">\n';
 
-                       var screenList = response[key].screeningList;
+                       var screenList = result[key].screeningList;
                        for(var screen in screenList){
                            output += '                                             <p style="margin-bottom: 0">' + screen + ':\n';
                            for(var screenTime in screenList[screen]){
-                                output += '                                                <button class="tablinks" style="float: none;"><a class="screeningTimeTab" href="/cashier/film/detail?id=' + response.id + '&screeningtime=' + screenList[screen][screenTime].id + '">' + screenList[screen][screenTime].time + '</a></button>\n';
+                                output += '                                                <button class="tablinks" style="float: none;"><a class="screeningTimeTab" href="/cashier/film/detail?id=' + result[key].id + '&screeningtime=' + screenList[screen][screenTime].id + '&date=' + response["date"] + '">' + screenList[screen][screenTime].time + '</a></button>\n';
                            }
                        }
                        output +=    '                                            </p>\n' +
@@ -129,17 +135,17 @@
                            '                            <div class="col-lg-12 col-xl-10">\n' +
                            '                                <div class="row box">\n' +
                            '                                    <div class="col-lg-4 col-xl-4">\n' +
-                           '                                        <div class="circle" id="smallThumbnail" style="background-image:url(\'' + response[key].cover + '\');"></div>\n' +
+                           '                                        <div class="circle" id="smallThumbnail" style="background-image:url(\'' + result[key].cover + '\');"></div>\n' +
                            '                                    </div>\n' +
                            '                                    <div class="col-lg-8 col-xl-8">\n' +
-                           '                                        <div id="txtMovieTitle">' + response[key].title + '</div>\n' +
-                           '                                        <div id="txtMovieSubtitle">' + response[key].subtitle + '</div>\n' +
-                           '                                        <p class="rating">' + response[key].rating + '/5 (' + response[key].reviewTotal + ')</p>\n' +
+                           '                                        <div id="txtMovieTitle">' + result[key].title + '</div>\n' +
+                           '                                        <div id="txtMovieSubtitle">' + result[key].subtitle + '</div>\n' +
+                           '                                        <p class="rating">' + result[key].rating + '/5 (' + result[key].reviewTotal + ')</p>\n' +
                            '                                    </div>\n' +
                            '                                </div>\n' +
                            '                            </div>\n' +
                            '                        </div>\n' +
-                           '                        <p>' + response[key].sinopsis + '</p>';
+                           '                        <p>' + result[key].sinopsis + '</p>';
                    }
 
                    $('.filmcontainer-responsive')[0].innerHTML = output;

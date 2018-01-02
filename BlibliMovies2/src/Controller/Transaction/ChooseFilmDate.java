@@ -63,7 +63,8 @@ public class ChooseFilmDate extends HttpServlet {
             String json = gson.toJson(films);
 
             PrintWriter out = response.getWriter();
-            out.print(json);
+            out.print("{\"date\": \"" + request.getParameter("now") + "\",");
+            out.print(" \"result\" : " + json + "}");
         } catch (SQLException e){
             e.printStackTrace();
         }
