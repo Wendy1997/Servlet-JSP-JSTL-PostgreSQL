@@ -1,9 +1,6 @@
 package Controller.Transaction;
 
-import Model.Film;
-import Model.FilmTicket;
-import Model.Seat;
-import Model.Studio;
+import Model.*;
 import Service.*;
 
 import javax.servlet.Servlet;
@@ -65,7 +62,9 @@ public class ChooseSeat extends HttpServlet {
 
             // Pengambilan data film yang dipilih
             Film film = filmService.getFilmTrue(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
+            FilmGenre filmGenre = filmService.getFilmGenre(film.getGenre() + "", (int)request.getSession().getAttribute("storeid"));
 
+            request.setAttribute("genre", filmGenre.getGenre());
             request.setAttribute("filmid", request.getParameter("id"));
             request.setAttribute("studioid", request.getParameter("studioid"));
             request.setAttribute("namaStudio", filmService.getStudioTrue(request.getParameter("studioid"), (int)request.getSession().getAttribute("storeid")).getName());

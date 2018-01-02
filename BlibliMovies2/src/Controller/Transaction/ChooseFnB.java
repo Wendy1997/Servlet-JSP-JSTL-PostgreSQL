@@ -1,10 +1,7 @@
 package Controller.Transaction;
 
 import DAO.OrderDetailDAO;
-import Model.FilmTicket;
-import Model.FnB;
-import Model.Invoice;
-import Model.OrderDetail;
+import Model.*;
 import Service.*;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -73,12 +70,16 @@ public class ChooseFnB extends HttpServlet{
 
             // Sebuah method yang mengambil seluruh fnb yang aktif
             List<FnB> fnBList = fnBService.getAllFnBTrue((int)request.getSession().getAttribute("storeid"));
+            List<FnBSize> fnBSizes = fnBService.getAllFnBSizeTrue((int)request.getSession().getAttribute("storeid"));
+            List<FnBType> fnBTypes = fnBService.getAllFnBTypeTrue((int)request.getSession().getAttribute("storeid"));
 
             // Looping untuk menambahkan uploads pada direktori penyimpanan
             for(int i = 0; i < fnBList.size(); i++){
                 fnBList.get(i).setCover("/uploads" + fnBList.get(i).getCover());
             }
 
+            request.setAttribute("fnbtype", fnBTypes);
+            request.setAttribute("fnbsize", fnBSizes);
             request.setAttribute("fnblist", fnBList);
         } catch (SQLException e){
             e.printStackTrace();

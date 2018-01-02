@@ -11,7 +11,7 @@
         <!-- Title -->
         <h1>${film.title}</h1>
         <div class="stripe"></div>
-        <h2>${film.genre}/${film.duration}</h2><br>
+        <h2>${genre}/${film.duration}</h2><br>
 
         <!-- Content -->
         <div class="row">
@@ -25,6 +25,7 @@
                 <p>Actors: ${film.actor}</p>
                 <p>Harga: ${studio.price}</p>
                 <p>Studio: ${studio.name}</p>
+                <p>Price: Rp. ${studio.price},- /pax</p>
                 <p>Ratings: ${film.rating}(${film.reviewTotal})</p>
                 <p>${film.sinopsis}</p>
             </div>

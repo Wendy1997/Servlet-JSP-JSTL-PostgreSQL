@@ -71,13 +71,13 @@ public class FilmServiceDatabase implements FilmService {
 
     @Override
     public List<Studio> getAllStudio(int storeid, int offset) throws SQLException {
-        filmDAO = new FilmDAO();
+        studioDAO = new StudioDAO();
         return studioDAO.getAllStudio(storeid, offset);
     }
 
     @Override
     public int getCountAllStudio(int storeid) throws SQLException {
-        filmDAO = new FilmDAO();
+        studioDAO = new StudioDAO();
         return studioDAO.getCountAllStudio(storeid);
     }
 

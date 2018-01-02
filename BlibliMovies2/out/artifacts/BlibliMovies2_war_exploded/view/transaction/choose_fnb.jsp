@@ -20,7 +20,11 @@
                     <c:forEach items="${fnblist}" var="fnb">
                         <div id="${fnb.id}" class="col-4 col-sm-4 col-md-3 col-lg-4 col-xl-3">
                             <img class="circle" id="thumbnail" src="${fnb.cover}">
-                            <p>${fnb.name} ${fnb.size}</p>
+                            <p>${fnb.name}
+                                <c:forEach items="${fnbsize}" var="size">
+                                    ${fnb.size == size.id ? size.size : ""}
+                                </c:forEach>
+                            </p>
                         </div>
                     </c:forEach>
                 </div>
@@ -79,7 +83,12 @@
 <%@ include file = "/include/foot.jsp" %>
 
 <script>
+    var type = [];
+    <c:forEach items="${fnbtype}" var="type">
+        type['${type.id}'] = '${type.type}';
+    </c:forEach>
 
+    console.log(type);
     var listBuy = [];
     var listHarga = [];
     var harga = 0;
@@ -128,7 +137,7 @@
                               '                                </div>\n' +
                               '                                <div class="col-lg-8">\n' +
                               '                                    <p class="invoice">'+ response.name + '</p>\n' +
-                              '                                    <p class="invoice">'+ response.type + '</p>\n' +
+                              '                                    <p class="invoice">' + type[response.type] + '</p>\n' +
                               '                                </div>\n' +
                               '                            </div>\n' +
                               '                        </div>\n' +
@@ -154,7 +163,7 @@
                               '                                </div>\n' +
                               '                                <div class="col-lg-8">\n' +
                               '                                    <p class="invoice">'+ response.name + '</p>\n' +
-                              '                                    <p class="invoice">'+ response.type + '</p>\n' +
+                              '                                    <p class="invoice">' + type[response.type] + '</p>\n' +
                               '                                </div>\n' +
                               '                            </div>\n' +
                               '                        </div>\n' +
@@ -253,7 +262,7 @@
                    '                                </div>\n' +
                    '                                <div class="col-lg-8">\n' +
                    '                                    <p class="invoice">'+ namaFilm + '</p>\n' +
-                   '                                    <p class="invoice">tickets</p>\n' +
+                   '                                    <p class="invoice">Tickets</p>\n' +
                    '                                </div>\n' +
                    '                            </div>\n' +
                    '                        </div>\n' +

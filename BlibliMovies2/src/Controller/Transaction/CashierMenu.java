@@ -13,6 +13,7 @@ import java.io.IOException;
  */
 @WebServlet("/cashier")
 public class CashierMenu extends HttpServlet {
+
     /**
      * Suatu halaman yang akan meredirect menuju halaman database.
      *

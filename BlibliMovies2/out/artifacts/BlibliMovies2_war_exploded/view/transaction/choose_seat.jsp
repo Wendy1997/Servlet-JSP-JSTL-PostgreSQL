@@ -59,7 +59,7 @@
                                                 <div id="txtChosenMovie">${film.title}</div>
                                             </div>
                                             <div class="row">
-                                                <div id="txtChosenMovieDetail">${film.genre}/${film.duration}</div>
+                                                <div id="txtChosenMovieDetail">${genre}/${film.duration}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -67,7 +67,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -122,7 +121,11 @@
         console.log(listTicket);
         console.log(listTicket.length);
 
-        var doc = new jsPDF('p', 'pt', [widthTicket , heightTicket * listTicket.length]);
+        if(listTicket.length > 1){
+            var doc = new jsPDF('l', 'pt', [widthTicket , heightTicket * listTicket.length]);
+        } else {
+            var doc = new jsPDF('p', 'pt', [widthTicket , heightTicket]);
+        }
 
         // Filled yellow square
         doc.setDrawColor(0);
@@ -183,7 +186,9 @@
 
         $('#accept').click(function () {
             if(confirm("Are you sure?")){
-                print(listTicket);
+                if(listTicket.length > 0){
+                    print(listTicket);
+                }
                 $.ajax({
                     type: 'POST',
                     url: "/cashier/seat",

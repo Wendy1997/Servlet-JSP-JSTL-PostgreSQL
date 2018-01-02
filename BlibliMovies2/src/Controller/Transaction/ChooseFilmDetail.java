@@ -1,6 +1,7 @@
 package Controller.Transaction;
 
 import Model.Film;
+import Model.FilmGenre;
 import Model.ScreeningTime;
 import Model.Studio;
 import Service.FilmService;
@@ -52,11 +53,13 @@ public class ChooseFilmDetail extends HttpServlet {
             // Pengambilan data film yang telah dipilih
             Film film = filmService.getFilmTrue(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
             film.setCover("/uploads" + film.getCover());
+            FilmGenre filmGenre = filmService.getFilmGenre(film.getGenre() + "", (int)request.getSession().getAttribute("storeid"));
 
             // Pengambilan data screening time dan studio yang telah dipilih
             ScreeningTime screeningTime = filmService.getScreeningTimeTrue(request.getParameter("screeningtime"), request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
             Studio studio = filmService.getStudioTrue(screeningTime.getStudioId() + "", (int)request.getSession().getAttribute("storeid"));
 
+            request.setAttribute("genre", filmGenre.getGenre());
             request.setAttribute("film", film);
             request.setAttribute("screeningTime", screeningTime);
             request.setAttribute("studio", studio);
