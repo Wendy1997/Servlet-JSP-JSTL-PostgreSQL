@@ -116,4 +116,10 @@ public class InvoiceServiceDatabase implements InvoiceService {
         promoDAO = new PromoDAO();
         return promoDAO.getPromo(storeid);
     }
+
+    @Override
+    public void addPromo(Promo promo) throws SQLException {
+        promoDAO = new PromoDAO();
+        promoDAO.addPromo(promo);
+    }
 }

@@ -51,4 +51,10 @@ public class StoreAccountServiceDatabase implements StoreAccountService {
         storeAccountDAO = new StoreAccountDAO();
         storeAccountDAO.updateStoreAccount(account);
     }
+
+    @Override
+    public void updateStoreAccountWithoutPass(StoreAccount account) throws SQLException {
+        storeAccountDAO = new StoreAccountDAO();
+        storeAccountDAO.updateStoreAccountWithoutPass(account);
+    }
 }

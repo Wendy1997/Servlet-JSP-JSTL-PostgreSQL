@@ -21,10 +21,15 @@ public class StoreAccountDelete extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         String address = "/view/database/storeaccount/storeaccount_menu.jsp";
 
+        // Validasi apakah sudah login as super
+        if(request.getSession().getAttribute("superadminid") == null){
+            address = "/view/login/superadmin_login.jsp";
+            request.getRequestDispatcher(address).forward(request, response);
+        }
+
         try{
             StoreAccount storeAccount = storeAccountService.getStoreAccount(request.getParameter("id"));
 
-            System.out.println(storeAccount.getStatus());
             if(storeAccount.getStatus()){
                 storeAccountService.deleteStoreAccount(storeAccount.getId());
                 request.setAttribute("complete", "Deleted");

@@ -28,4 +28,5 @@ public interface InvoiceService {
     void addOrderDetail(OrderDetail orderDetail) throws SQLException;
 
     Promo getPromo(int storeid) throws SQLException;
+    void addPromo(Promo promo) throws SQLException;
 }

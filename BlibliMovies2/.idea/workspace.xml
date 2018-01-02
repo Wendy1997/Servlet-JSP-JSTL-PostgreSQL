@@ -62,111 +62,104 @@
     <favorites_list name="BlibliMovies2" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="FilmDetail.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/Film/FilmDetail.java">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="StoreAccountEdit.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/StoreAccount/StoreAccountEdit.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
-              <caret line="67" column="83" lean-forward="true" selection-start-line="67" selection-start-column="70" selection-end-line="67" selection-end-column="83" />
+            <state relative-caret-position="92">
+              <caret line="41" column="58" lean-forward="false" selection-start-line="41" selection-start-column="58" selection-end-line="41" selection-end-column="58" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ViewInvoice.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/Transaction/ViewInvoice.java">
+      <file leaf-file-name="AccountEdit.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/Account/AccountEdit.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
+            <state relative-caret-position="110">
+              <caret line="84" column="58" lean-forward="false" selection-start-line="84" selection-start-column="58" selection-end-line="84" selection-end-column="58" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Menu.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/Menu/Menu.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="302">
+              <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="navbarSuperAdmin.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/include/navbarSuperAdmin.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="84">
+              <caret line="4" column="62" lean-forward="false" selection-start-line="4" selection-start-column="62" selection-end-line="4" selection-end-column="62" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SuperAdminAdd.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/SuperAdmin/SuperAdminAdd.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="467">
+              <caret line="54" column="13" lean-forward="false" selection-start-line="38" selection-start-column="12" selection-end-line="54" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AccountAdd.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/Account/AccountAdd.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="89">
+              <caret line="95" column="12" lean-forward="false" selection-start-line="95" selection-start-column="12" selection-end-line="112" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StoreAccountAdd.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Controller/StoreAccount/StoreAccountAdd.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="383">
+              <caret line="51" column="45" lean-forward="true" selection-start-line="51" selection-start-column="45" selection-end-line="51" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SuperAdminEdit.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/SuperAdmin/SuperAdminEdit.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="467">
+              <caret line="53" column="81" lean-forward="false" selection-start-line="53" selection-start-column="81" selection-end-line="53" selection-end-column="81" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AccountDelete.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/Account/AccountDelete.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="186">
               <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ChooseFnB.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/Transaction/ChooseFnB.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="34" column="13" lean-forward="false" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChooseFilm.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/Transaction/ChooseFilm.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="78" column="156" lean-forward="false" selection-start-line="78" selection-start-column="156" selection-end-line="78" selection-end-column="156" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="film_menu.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/view/database/film/film_menu.jsp">
+      <file leaf-file-name="SuperAdminMenu.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/SuperAdmin/SuperAdminMenu.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="189">
-              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="film_detail.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/view/database/film/film_detail.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="39" column="28" lean-forward="true" selection-start-line="36" selection-start-column="16" selection-end-line="39" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="choose_film.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/view/transaction/choose_film.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="31" column="70" lean-forward="false" selection-start-line="31" selection-start-column="70" selection-end-line="31" selection-end-column="70" />
-              <folding>
-                <element signature="e#1608#1632#0#HTML" expanded="true" />
-                <element signature="e#1835#1855#0#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/css/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="804" column="28" lean-forward="false" selection-start-line="804" selection-start-column="28" selection-end-line="804" selection-end-column="28" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="choose_seat.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/view/transaction/choose_seat.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="186" column="24" lean-forward="true" selection-start-line="186" selection-start-column="24" selection-end-line="186" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Film.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Film.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="202" column="21" lean-forward="false" selection-start-line="202" selection-start-column="21" selection-end-line="202" selection-end-column="21" />
+              <caret line="20" column="72" lean-forward="false" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="72" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#5044#5045#0" expanded="true" />
-                <element signature="e#5080#5081#0" expanded="true" />
-                <element signature="e#5164#5165#0" expanded="true" />
-                <element signature="e#5214#5215#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -186,16 +179,7 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Daily</find>
-      <find>daily</find>
-      <find>border</find>
-      <find>button</find>
-      <find>active</find>
-      <find>day-con</find>
-      <find>member</find>
       <find>page</find>
-      <find>Store</find>
-      <find>store</find>
       <find>Accc</find>
       <find>storeStore</find>
       <find>account</find>
@@ -215,7 +199,16 @@
       <find>.film</find>
       <find>tablink</find>
       <find>tab</find>
-      <find>tab</find>
+      <find>S</find>
+      <find>storename = ?</find>
+      <find>storename</find>
+      <find>storeaccount</find>
+      <find>Store Account</find>
+      <find>StoreAccount</find>
+      <find>Store</find>
+      <find>storeAccount</find>
+      <find>store</find>
+      <find>admin</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -226,50 +219,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/DAO/AccountRoleDAO.java" />
-        <option value="$PROJECT_DIR$/src/DAO/FnBDAO.java" />
-        <option value="$PROJECT_DIR$/src/DAO/FnBSizeDAO.java" />
-        <option value="$PROJECT_DIR$/src/DAO/FnBTypeDAO.java" />
-        <option value="$PROJECT_DIR$/src/DAO/InvoiceDAO.java" />
-        <option value="$PROJECT_DIR$/src/DAO/MemberCardDAO.java" />
-        <option value="$PROJECT_DIR$/src/Service/AccountService.java" />
-        <option value="$PROJECT_DIR$/src/Service/FnBService.java" />
-        <option value="$PROJECT_DIR$/src/Service/MemberCardService.java" />
-        <option value="$PROJECT_DIR$/src/Service/SeatService.java" />
-        <option value="$PROJECT_DIR$/src/Service/StoreAccountService.java" />
-        <option value="$PROJECT_DIR$/src/DAO/MemberGenderDAO.java" />
-        <option value="$PROJECT_DIR$/src/DAO/OrderDetailDAO.java" />
-        <option value="$PROJECT_DIR$/src/DAO/AccountDAO.java" />
-        <option value="$PROJECT_DIR$/src/DAO/PromoDAO.java" />
-        <option value="$PROJECT_DIR$/src/DAO/ScreeningTimeDAO.java" />
-        <option value="$PROJECT_DIR$/src/DAO/SeatDAO.java" />
-        <option value="$PROJECT_DIR$/src/DAO/StudioDAO.java" />
-        <option value="$PROJECT_DIR$/src/DAO/StudioTypeDAO.java" />
-        <option value="$PROJECT_DIR$/src/DAO/FilmGenreDAO.java" />
-        <option value="$PROJECT_DIR$/src/Service/InvoiceService.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Transaction/ViewInvoice.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Invoice/InvoiceDetail.java" />
-        <option value="$PROJECT_DIR$/web/view/database/film/film_add.jsp" />
-        <option value="$PROJECT_DIR$/web/view/database/film/film_edit.jsp" />
-        <option value="$PROJECT_DIR$/web/view/database/fnb/fnb_add.jsp" />
-        <option value="$PROJECT_DIR$/web/view/database/fnb/fnb_edit.jsp" />
-        <option value="$PROJECT_DIR$/web/view/transaction/view_invoice.jsp" />
-        <option value="$PROJECT_DIR$/src/Service/StoreAccountServiceDatabase.java" />
-        <option value="$PROJECT_DIR$/src/Service/MemberCardServiceDatabase.java" />
-        <option value="$PROJECT_DIR$/src/Service/InvoiceServiceDatabase.java" />
-        <option value="$PROJECT_DIR$/src/Service/FnBServiceDatabase.java" />
-        <option value="$PROJECT_DIR$/src/Service/AccountServiceDatabase.java" />
-        <option value="$PROJECT_DIR$/web/view/database/film/film_menu.jsp" />
-        <option value="$PROJECT_DIR$/src/Controller/Ledger/LedgerView.java" />
-        <option value="$PROJECT_DIR$/web/view/database/ledger/ledger_menu.jsp" />
-        <option value="$PROJECT_DIR$/src/Service/FilmService.java" />
-        <option value="$PROJECT_DIR$/src/Service/FilmServiceDatabase.java" />
-        <option value="$PROJECT_DIR$/src/DAO/FilmDAO.java" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/54228e0a-66fb-405f-a40c-278ed4229e2d/console.sql" />
-        <option value="$PROJECT_DIR$/src/Model/FilmTicket.java" />
-        <option value="$PROJECT_DIR$/src/DAO/FilmTicketDAO.java" />
-        <option value="$PROJECT_DIR$/src/Service/FilmTicketService.java" />
-        <option value="$PROJECT_DIR$/src/Service/FilmTicketServiceDatabase.java" />
         <option value="$PROJECT_DIR$/src/Controller/Transaction/ChooseSeat.java" />
         <option value="$PROJECT_DIR$/web/view/transaction/choose_seat.jsp" />
         <option value="$PROJECT_DIR$/web/css/style.css" />
@@ -277,6 +226,50 @@
         <option value="$PROJECT_DIR$/src/Model/Film.java" />
         <option value="$PROJECT_DIR$/src/Controller/Transaction/ChooseFilm.java" />
         <option value="$PROJECT_DIR$/web/view/transaction/choose_film.jsp" />
+        <option value="$PROJECT_DIR$/src/Controller/StoreAccount/StoreAccountMenuPagination.java" />
+        <option value="$PROJECT_DIR$/src/Service/PromoServiceDatabase.java" />
+        <option value="$PROJECT_DIR$/src/Service/PromoService.java" />
+        <option value="$PROJECT_DIR$/src/Service/InvoiceService.java" />
+        <option value="$PROJECT_DIR$/src/Service/InvoiceServiceDatabase.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/54228e0a-66fb-405f-a40c-278ed4229e2d/console.sql" />
+        <option value="$PROJECT_DIR$/src/Controller/SuperAdmin/StudioTypeMenu.java" />
+        <option value="$PROJECT_DIR$/src/Controller/SuperAdmin/StoreAccountMenu.java" />
+        <option value="$PROJECT_DIR$/src/Model/SuperAdmin.java" />
+        <option value="$PROJECT_DIR$/src/Service/SuperAdminService.java" />
+        <option value="$PROJECT_DIR$/src/Service/SuperAdminServiceDatabase.java" />
+        <option value="$PROJECT_DIR$/src/Controller/SuperAdmin/SuperAdminMenuPagination.java" />
+        <option value="$PROJECT_DIR$/web/view/database/superadmin.jsp" />
+        <option value="$PROJECT_DIR$/web/view/login/superadmin_login.jsp" />
+        <option value="$PROJECT_DIR$/web/view/database/superadmin/superadmin_add.jsp" />
+        <option value="$PROJECT_DIR$/web/view/database/superadmin/superadmin_menu.jsp" />
+        <option value="$PROJECT_DIR$/web/view/database/storeaccount/storeaccount_add.jsp" />
+        <option value="$PROJECT_DIR$/web/view/database/storeaccount/storeaccount_menu.jsp" />
+        <option value="$PROJECT_DIR$/src/Controller/Login/SuperAdmin.java" />
+        <option value="$PROJECT_DIR$/src/Controller/StoreAccount/StoreAccountDelete.java" />
+        <option value="$PROJECT_DIR$/src/Controller/StoreAccount/StoreAccountMenu.java" />
+        <option value="$PROJECT_DIR$/src/Controller/SuperAdmin/SuperAdminDelete.java" />
+        <option value="$PROJECT_DIR$/src/Controller/SuperAdmin/SuperAdminMenu.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Super/SuperMenu.java" />
+        <option value="$PROJECT_DIR$/web/view/menu/super_menu.jsp" />
+        <option value="$PROJECT_DIR$/web/view/database/account/account_edit.jsp" />
+        <option value="$PROJECT_DIR$/web/view/database/storeaccount/storeaccount_edit.jsp" />
+        <option value="$PROJECT_DIR$/web/view/database/superadmin/superadmin_edit.jsp" />
+        <option value="$PROJECT_DIR$/src/Model/StoreAccount.java" />
+        <option value="$PROJECT_DIR$/src/DAO/StoreAccountDAO.java" />
+        <option value="$PROJECT_DIR$/src/DAO/AccountDAO.java" />
+        <option value="$PROJECT_DIR$/src/DAO/SuperAdminDAO.java" />
+        <option value="$PROJECT_DIR$/src/Service/AccountService.java" />
+        <option value="$PROJECT_DIR$/src/Service/AccountServiceDatabase.java" />
+        <option value="$PROJECT_DIR$/src/Service/StoreAccountService.java" />
+        <option value="$PROJECT_DIR$/src/Service/StoreAccountServiceDatabase.java" />
+        <option value="$PROJECT_DIR$/src/Model/Account.java" />
+        <option value="$PROJECT_DIR$/src/Controller/SuperAdmin/SuperAdminEdit.java" />
+        <option value="$PROJECT_DIR$/src/Controller/StoreAccount/StoreAccountEdit.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Account/AccountEdit.java" />
+        <option value="$PROJECT_DIR$/web/include/navbarSuperAdmin.jsp" />
+        <option value="$PROJECT_DIR$/src/Controller/Account/AccountAdd.java" />
+        <option value="$PROJECT_DIR$/src/Controller/SuperAdmin/SuperAdminAdd.java" />
+        <option value="$PROJECT_DIR$/src/Controller/StoreAccount/StoreAccountAdd.java" />
       </list>
     </option>
   </component>
@@ -314,6 +307,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
@@ -344,127 +338,12 @@
               <item name="BlibliMovies2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Controller" type="462c0819:PsiDirectoryNode" />
-              <item name="Film" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BlibliMovies2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BlibliMovies2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-              <item name="MemberCard" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BlibliMovies2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BlibliMovies2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Controller" type="462c0819:PsiDirectoryNode" />
-              <item name="Transaction" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BlibliMovies2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BlibliMovies2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="DAO" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BlibliMovies2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BlibliMovies2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BlibliMovies2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BlibliMovies2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BlibliMovies2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BlibliMovies2" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BlibliMovies2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BlibliMovies2" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BlibliMovies2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BlibliMovies2" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="include" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BlibliMovies2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BlibliMovies2" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="uploads" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BlibliMovies2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BlibliMovies2" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="uploads" type="462c0819:PsiDirectoryNode" />
-              <item name="1" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BlibliMovies2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BlibliMovies2" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="uploads" type="462c0819:PsiDirectoryNode" />
-              <item name="1" type="462c0819:PsiDirectoryNode" />
-              <item name="film" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BlibliMovies2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BlibliMovies2" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BlibliMovies2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BlibliMovies2" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BlibliMovies2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BlibliMovies2" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="film" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BlibliMovies2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BlibliMovies2" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="fnb" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BlibliMovies2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BlibliMovies2" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="ledger" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BlibliMovies2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BlibliMovies2" type="462c0819:PsiDirectoryNode" />
-              <item name="web" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="transaction" type="462c0819:PsiDirectoryNode" />
+              <item name="Account" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -486,12 +365,17 @@
       <recent name="C:\Users\Ndi Bear\Desktop\Servlet-JSP-JSTL-PostgreSQL\BlibliMovies2\web\view\transaction" />
       <recent name="C:\Users\Ndi Bear\Desktop\BlibliMovies2\src" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="DAO" />
+      <recent name="Service" />
+      <recent name="Model" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Ndi Bear\Desktop\Servlet-JSP-JSTL-PostgreSQL\BlibliMovies2\web\view\database\storeaccount" />
-      <recent name="C:\Users\Ndi Bear\Desktop\Servlet-JSP-JSTL-PostgreSQL\BlibliMovies2\src\Controller\StoreAccount" />
-      <recent name="C:\Users\Ndi Bear\Desktop\Servlet-JSP-JSTL-PostgreSQL\BlibliMovies2\src\Controller\Studio" />
-      <recent name="C:\Users\Ndi Bear\Desktop\Servlet-JSP-JSTL-PostgreSQL\BlibliMovies2\src\Controller\StudioType" />
-      <recent name="C:\Users\Ndi Bear\Desktop\Servlet-JSP-JSTL-PostgreSQL\BlibliMovies2\web\view\database\filmgenre" />
+      <recent name="C:\Users\Ndi Bear\Desktop\Servlet-JSP-JSTL-PostgreSQL\BlibliMovies2\web\view\menu" />
+      <recent name="C:\Users\Ndi Bear\Desktop\Servlet-JSP-JSTL-PostgreSQL\BlibliMovies2\web\include" />
+      <recent name="C:\Users\Ndi Bear\Desktop\Servlet-JSP-JSTL-PostgreSQL\BlibliMovies2\web\view\login" />
+      <recent name="C:\Users\Ndi Bear\Desktop\Servlet-JSP-JSTL-PostgreSQL\BlibliMovies2\web\view\database\superadmin" />
+      <recent name="C:\Users\Ndi Bear\Desktop\Servlet-JSP-JSTL-PostgreSQL\BlibliMovies2\src\Controller\SuperAdmin" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -870,12 +754,14 @@
       <workItem from="1514617133496" duration="1595000" />
       <workItem from="1514627598458" duration="38427000" />
       <workItem from="1514701679639" duration="8577000" />
-      <workItem from="1514786486243" duration="33778000" />
+      <workItem from="1514786486243" duration="34001000" />
+      <workItem from="1514842539448" duration="4473000" />
+      <workItem from="1514853529147" duration="4671000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="403504000" />
+    <option name="totallyTimeSpent" value="412871000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -888,39 +774,38 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21804512" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32839224" sideWeight="0.3641246" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32839224" sideWeight="0.36251342" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32839224" sideWeight="0.6358754" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3295325" sideWeight="0.5042965" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" x="588" y="224" width="743" height="581" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32839224" sideWeight="0.43823844" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17883995" sideWeight="0.4960091" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18421052" sideWeight="0.4960091" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30021483" sideWeight="0.5039909" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21804512" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30021483" sideWeight="0.5039909" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.49785176" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32839224" sideWeight="0.43609023" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.49570355" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -969,141 +854,389 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/web/view/database/film/film_edit.jsp">
+    <entry file="file://$PROJECT_DIR$/src/Model/SuperAdmin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-78">
+          <caret line="19" column="5" lean-forward="true" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Service/SuperAdminService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
-          <caret line="25" column="101" lean-forward="false" selection-start-line="25" selection-start-column="101" selection-end-line="25" selection-end-column="101" />
+          <caret line="12" column="30" lean-forward="false" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+          <caret line="13" column="32" lean-forward="false" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Service/SuperAdminServiceDatabase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="55" column="0" lean-forward="true" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../files/Tomcat 9.0.1/lib/servlet-api.jar!/javax/servlet/ServletRequest.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="15" column="26" lean-forward="false" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/superadmin.jsp" />
+    <entry file="file://$PROJECT_DIR$/web/view/database/superadmin/storeaccount_add.jsp" />
+    <entry file="file://$PROJECT_DIR$/src/Controller/Login/Store.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="19" column="21" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/view/database/fnb/fnb_add.jsp">
+    <entry file="file://$PROJECT_DIR$/src/Controller/SuperAdmin/SuperAdminMenuPagination.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="27" column="24" lean-forward="false" selection-start-line="27" selection-start-column="24" selection-end-line="27" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/transaction/confirmation_film.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/confirmation.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/login/store_login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/superadmin/superadmin_add.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" column="49" lean-forward="false" selection-start-line="1" selection-start-column="49" selection-end-line="1" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/superadmin/superadmin_menu.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" column="49" lean-forward="false" selection-start-line="1" selection-start-column="49" selection-end-line="1" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/storeaccount/storeaccount_add.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" column="49" lean-forward="false" selection-start-line="1" selection-start-column="49" selection-end-line="1" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/storeaccount/storeaccount_menu.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" column="49" lean-forward="false" selection-start-line="1" selection-start-column="49" selection-end-line="1" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Admin/AdminMenu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
-          <caret line="24" column="101" lean-forward="false" selection-start-line="24" selection-start-column="101" selection-end-line="24" selection-end-column="101" />
+          <caret line="14" column="5" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Service/StoreAccountServiceDatabase.java">
+    <entry file="file://$PROJECT_DIR$/web/view/login/superadmin_login.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="50" column="48" lean-forward="false" selection-start-line="50" selection-start-column="48" selection-end-line="50" selection-end-column="48" />
+        <state relative-caret-position="252">
+          <caret line="12" column="28" lean-forward="false" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DAO/StudioTypeDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="142" column="6" lean-forward="true" selection-start-line="142" selection-start-column="6" selection-end-line="142" selection-end-column="6" />
+          <folding>
+            <marker date="1514805063123" expanded="true" signature="1241:1294" ph="SELECT * FRO... studioType" />
+            <marker date="1514805063123" expanded="true" signature="2013:2085" ph="SELECT * FRO... studioType" />
+            <marker date="1514805063123" expanded="true" signature="2785:2839" ph="SELECT * FRO... studioType" />
+            <marker date="1514805063123" expanded="true" signature="3506:3593" ph="select count... *" />
+            <marker date="1514805063123" expanded="true" signature="3529:3583" ph="SELECT * FRO... studioType" />
+            <marker date="1514805063123" expanded="true" signature="4363:4435" ph="SELECT * FRO... studioType" />
+            <marker date="1514805063123" expanded="true" signature="5068:5119" ph="INSERT INTO studioType... " />
+            <marker date="1514805063123" expanded="true" signature="5600:5665" ph="UPDATE studioType... " />
+            <marker date="1514805063123" expanded="true" signature="6145:6209" ph="UPDATE studioType... " />
+            <marker date="1514805063123" expanded="true" signature="6644:6721" ph="UPDATE studioType... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/3455e5c3/54228e0a-66fb-405f-a40c-278ed4229e2d/bliblimovies.public.storeaccount">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/3455e5c3/54228e0a-66fb-405f-a40c-278ed4229e2d/bliblimovies.public.superadmin">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Login/SuperAdmin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="64" column="0" lean-forward="true" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/StoreAccount/StoreAccountDelete.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="27" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/StoreAccount/StoreAccountMenuPagination.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="18" column="26" lean-forward="false" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/StoreAccount/StoreAccountMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="27" column="9" lean-forward="false" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/SuperAdmin/SuperAdminDelete.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="24" column="9" lean-forward="false" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/menu/cashier_menu.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/menu/super_menu.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="1" column="49" lean-forward="false" selection-start-line="1" selection-start-column="49" selection-end-line="1" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/account/account_edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="24" column="93" lean-forward="false" selection-start-line="24" selection-start-column="93" selection-end-line="24" selection-end-column="93" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/storeaccount/storeaccount_edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="24" column="93" lean-forward="false" selection-start-line="24" selection-start-column="93" selection-end-line="24" selection-end-column="93" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/superadmin/superadmin_edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="24" column="93" lean-forward="false" selection-start-line="24" selection-start-column="93" selection-end-line="24" selection-end-column="93" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/StoreAccount.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="488">
+          <caret line="30" column="63" lean-forward="false" selection-start-line="30" selection-start-column="63" selection-end-line="30" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DAO/StoreAccountDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="162" column="43" lean-forward="true" selection-start-line="162" selection-start-column="43" selection-end-line="162" selection-end-column="43" />
+          <folding>
+            <marker date="1514855611132" expanded="true" signature="1040:1085" ph="SELECT * FRO... storeAccount" />
+            <marker date="1514855611132" expanded="true" signature="1608:1671" ph="SELECT * FRO... storeAccount" />
+            <marker date="1514855611132" expanded="true" signature="2190:2246" ph="SELECT * FRO... storeAccount" />
+            <marker date="1514855611132" expanded="true" signature="2761:2831" ph="SELECT count... *" />
+            <marker date="1514855611132" expanded="true" signature="2783:2821" ph="SELECT * FRO... storeaccount" />
+            <marker date="1514855611132" expanded="true" signature="3383:3441" ph="SELECT * FRO... storeAccount" />
+            <marker date="1514855611132" expanded="true" signature="3944:4015" ph="INSERT INTO storeAccount... " />
+            <marker date="1514855611132" expanded="true" signature="4368:4419" ph="UPDATE storeAccount... " />
+            <marker date="1514855611132" expanded="true" signature="4646:4696" ph="UPDATE storeAccount... " />
+            <marker date="1514855611132" expanded="true" signature="4940:5004" ph="UPDATE storeAccount... " />
+            <marker date="1514855611132" expanded="true" signature="5379:5429" ph="UPDATE storeAccount... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DAO/AccountDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="246" column="73" lean-forward="false" selection-start-line="246" selection-start-column="73" selection-end-line="246" selection-end-column="73" />
+          <folding>
+            <marker date="1514855611710" expanded="true" signature="1288:1344" ph="SELECT * FRO... account" />
+            <marker date="1514855611710" expanded="true" signature="2081:2155" ph="SELECT * FRO... account" />
+            <marker date="1514855611710" expanded="true" signature="2877:2946" ph="SELECT * FRO... account" />
+            <marker date="1514855611710" expanded="true" signature="3684:3767" ph="SELECT count... *" />
+            <marker date="1514855611710" expanded="true" signature="3706:3757" ph="SELECT * FRO... account" />
+            <marker date="1514855611710" expanded="true" signature="4525:4594" ph="SELECT * FRO... account" />
+            <marker date="1514855611710" expanded="true" signature="5258:5332" ph="INSERT INTO account... " />
+            <marker date="1514855611710" expanded="true" signature="5885:5953" ph="UPDATE account... " />
+            <marker date="1514855611710" expanded="true" signature="6399:6466" ph="UPDATE account... " />
+            <marker date="1514855611710" expanded="true" signature="6864:6942" ph="UPDATE account... " />
+            <marker date="1514855611710" expanded="true" signature="7469:7533" ph="UPDATE account... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DAO/SuperAdminDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="153" column="5" lean-forward="false" selection-start-line="153" selection-start-column="5" selection-end-line="153" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1514845399788" expanded="true" signature="969:1012" ph="SELECT * FRO... superAdmin" />
+            <marker date="1514845399788" expanded="true" signature="1508:1569" ph="SELECT * FRO... superAdmin" />
+            <marker date="1514845399788" expanded="true" signature="2063:2117" ph="SELECT * FRO... superAdmin" />
+            <marker date="1514845399788" expanded="true" signature="2601:2669" ph="SELECT count... *" />
+            <marker date="1514845399788" expanded="true" signature="2623:2659" ph="SELECT * FRO... superadmin" />
+            <marker date="1514845399788" expanded="true" signature="3217:3273" ph="SELECT * FRO... superAdmin" />
+            <marker date="1514845399788" expanded="true" signature="3741:3797" ph="INSERT INTO superAdmin... " />
+            <marker date="1514845399788" expanded="true" signature="4095:4144" ph="UPDATE superAdmin... " />
+            <marker date="1514845399788" expanded="true" signature="4369:4417" ph="UPDATE superAdmin... " />
+            <marker date="1514845399788" expanded="true" signature="4655:4702" ph="UPDATE superAdmin... " />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Service/MemberCardServiceDatabase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="86" column="0" lean-forward="true" selection-start-line="86" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
+        <state relative-caret-position="84">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Service/InvoiceServiceDatabase.java">
+    <entry file="file://$PROJECT_DIR$/src/Service/AccountService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="115" column="16" lean-forward="true" selection-start-line="115" selection-start-column="16" selection-end-line="115" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Service/FnBServiceDatabase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="179" column="0" lean-forward="true" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Service/StoreAccountService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="12" column="4" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Service/MemberCardService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="22" column="72" lean-forward="false" selection-start-line="22" selection-start-column="72" selection-end-line="22" selection-end-column="72" />
+        <state relative-caret-position="294">
+          <caret line="18" column="32" lean-forward="false" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Service/AccountServiceDatabase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        <state relative-caret-position="488">
+          <caret line="65" column="51" lean-forward="false" selection-start-line="65" selection-start-column="51" selection-end-line="65" selection-end-column="51" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Ledger/LedgerView.java">
+    <entry file="file://$PROJECT_DIR$/src/Service/StoreAccountService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="75" column="35" lean-forward="true" selection-start-line="75" selection-start-column="35" selection-end-line="75" selection-end-column="35" />
+        <state relative-caret-position="252">
+          <caret line="16" column="38" lean-forward="false" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/view/database/ledger/ledger_menu.jsp">
+    <entry file="file://$PROJECT_DIR$/src/Service/StoreAccountServiceDatabase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="139" column="74" lean-forward="false" selection-start-line="139" selection-start-column="74" selection-end-line="139" selection-end-column="74" />
+        <state relative-caret-position="488">
+          <caret line="57" column="61" lean-forward="false" selection-start-line="57" selection-start-column="61" selection-end-line="57" selection-end-column="61" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/3455e5c3/54228e0a-66fb-405f-a40c-278ed4229e2d/bliblimovies.public.filmgenre">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/3455e5c3/54228e0a-66fb-405f-a40c-278ed4229e2d/bliblimovies.public.accountrole">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/3455e5c3/54228e0a-66fb-405f-a40c-278ed4229e2d/bliblimovies.public.fnbsize">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/3455e5c3/54228e0a-66fb-405f-a40c-278ed4229e2d/bliblimovies.public.fnbtype">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/3455e5c3/54228e0a-66fb-405f-a40c-278ed4229e2d/bliblimovies.public.foodandbeverages">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Service/FilmService.java">
+    <entry file="file://$PROJECT_DIR$/src/Model/Account.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="15" column="49" lean-forward="false" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
+        <state relative-caret-position="383">
+          <caret line="34" column="49" lean-forward="false" selection-start-line="34" selection-start-column="49" selection-end-line="34" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Service/FilmServiceDatabase.java">
+    <entry file="file://$PROJECT_DIR$/src/Controller/Super/SuperMenu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="93">
-          <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+        <state relative-caret-position="432">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/StoreAccount/StoreAccountEdit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="41" column="58" lean-forward="false" selection-start-line="41" selection-start-column="58" selection-end-line="41" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/SuperAdmin/SuperAdminMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="20" column="72" lean-forward="false" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="72" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/SuperAdmin/SuperAdminEdit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="467">
+          <caret line="53" column="81" lean-forward="false" selection-start-line="53" selection-start-column="81" selection-end-line="53" selection-end-column="81" />
           <folding />
         </state>
       </provider>
@@ -1118,321 +1251,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Account/AccountEdit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+        <state relative-caret-position="110">
+          <caret line="84" column="58" lean-forward="false" selection-start-line="84" selection-start-column="58" selection-end-line="84" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Film/FilmAdd.java">
+    <entry file="file://$PROJECT_DIR$/src/Controller/Menu/Menu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="92" column="0" lean-forward="true" selection-start-line="88" selection-start-column="8" selection-end-line="92" selection-end-column="0" />
+        <state relative-caret-position="302">
+          <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/3455e5c3/54228e0a-66fb-405f-a40c-278ed4229e2d/bliblimovies.public.screeningtime">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DAO/AccountRoleDAO.java">
+    <entry file="file://$PROJECT_DIR$/web/include/navbarSuperAdmin.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding>
-            <marker date="1514801425818" expanded="true" signature="1344:1398" ph="SELECT * FRO... accountRole" />
-            <marker date="1514801425818" expanded="true" signature="2101:2173" ph="SELECT * FRO... accountRole" />
-            <marker date="1514801425818" expanded="true" signature="2843:2898" ph="SELECT * FRO... accountRole" />
-            <marker date="1514801425818" expanded="true" signature="3571:3658" ph="select count... *" />
-            <marker date="1514801425818" expanded="true" signature="3593:3648" ph="SELECT * FRO... accountRole" />
-            <marker date="1514801425818" expanded="true" signature="4160:4233" ph="SELECT * FRO... accountRole" />
-            <marker date="1514801425818" expanded="true" signature="4874:4926" ph="INSERT INTO accountRole... " />
-            <marker date="1514801425818" expanded="true" signature="5410:5476" ph="UPDATE accountRole... " />
-            <marker date="1514801425818" expanded="true" signature="5943:6008" ph="UPDATE accountRole... " />
-            <marker date="1514801425818" expanded="true" signature="6431:6509" ph="UPDATE accountRole... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DAO/AccountDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="214" column="36" lean-forward="false" selection-start-line="214" selection-start-column="31" selection-end-line="214" selection-end-column="36" />
-          <folding>
-            <marker date="1514801318326" expanded="true" signature="1288:1344" ph="SELECT * FRO... account" />
-            <marker date="1514801318326" expanded="true" signature="2081:2155" ph="SELECT * FRO... account" />
-            <marker date="1514801318326" expanded="true" signature="2877:2946" ph="SELECT * FRO... account" />
-            <marker date="1514801318326" expanded="true" signature="3684:3767" ph="SELECT count... *" />
-            <marker date="1514801318326" expanded="true" signature="3706:3757" ph="SELECT * FRO... account" />
-            <marker date="1514801318326" expanded="true" signature="4525:4594" ph="SELECT * FRO... account" />
-            <marker date="1514801318326" expanded="true" signature="5258:5332" ph="INSERT INTO account... " />
-            <marker date="1514801318326" expanded="true" signature="5885:5953" ph="UPDATE account... " />
-            <marker date="1514801318326" expanded="true" signature="6399:6466" ph="UPDATE account... " />
-            <marker date="1514801318326" expanded="true" signature="6864:6942" ph="UPDATE account... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/54228e0a-66fb-405f-a40c-278ed4229e2d/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        <state relative-caret-position="84">
+          <caret line="4" column="62" lean-forward="false" selection-start-line="4" selection-start-column="62" selection-end-line="4" selection-end-column="62" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/3455e5c3/54228e0a-66fb-405f-a40c-278ed4229e2d/bliblimovies.public.film">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DAO/FilmGenreDAO.java">
+    <entry file="file://$PROJECT_DIR$/src/Controller/Account/AccountAdd.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="240" column="62" lean-forward="false" selection-start-line="240" selection-start-column="62" selection-end-line="240" selection-end-column="62" />
-          <folding>
-            <marker date="1514805063170" expanded="true" signature="1295:1347" ph="SELECT * FRO... filmGenre" />
-            <marker date="1514805063170" expanded="true" signature="2064:2134" ph="SELECT * FRO... filmGenre" />
-            <marker date="1514805063170" expanded="true" signature="2848:2919" ph="SELECT * FRO... filmGenre" />
-            <marker date="1514805063170" expanded="true" signature="3610:3663" ph="SELECT * FRO... filmGenre" />
-            <marker date="1514805063170" expanded="true" signature="4323:4408" ph="Select Count... *" />
-            <marker date="1514805063170" expanded="true" signature="4345:4398" ph="SELECT * FRO... filmGenre" />
-            <marker date="1514805063170" expanded="true" signature="5175:5246" ph="SELECT * FRO... filmGenre" />
-            <marker date="1514805063170" expanded="true" signature="5868:5919" ph="INSERT INTO filmGenre... " />
-            <marker date="1514805063170" expanded="true" signature="6395:6459" ph="UPDATE filmGenre... " />
-            <marker date="1514805063170" expanded="true" signature="6934:6997" ph="UPDATE filmGenre... " />
-            <marker date="1514805063170" expanded="true" signature="7426:7503" ph="UPDATE filmGenre... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DAO/FilmDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="208" column="156" lean-forward="false" selection-start-line="208" selection-start-column="156" selection-end-line="208" selection-end-column="156" />
-          <folding>
-            <marker date="1514811025020" expanded="true" signature="1303:1350" ph="SELECT * FRO... film" />
-            <marker date="1514811025020" expanded="true" signature="2576:2641" ph="SELECT * FRO... film" />
-            <marker date="1514811025020" expanded="true" signature="3860:3926" ph="SELECT * FRO... film" />
-            <marker date="1514811025020" expanded="true" signature="5096:5176" ph="Select count... *" />
-            <marker date="1514811025020" expanded="true" signature="5118:5166" ph="SELECT * FRO... film" />
-            <marker date="1514811025020" expanded="true" signature="5944:6004" ph="SELECT * FRO... film" />
-            <marker date="1514811025020" expanded="true" signature="5944:6046" ph="SELECT * FRO... film" />
-            <marker date="1514811025020" expanded="true" signature="7280:7462" ph="INSERT INTO film... " />
-            <marker date="1514811025020" expanded="true" signature="8475:8534" ph="update film... " />
-            <marker date="1514811025020" expanded="true" signature="8962:9020" ph="update film... " />
-            <marker date="1514811025020" expanded="true" signature="9401:9615" ph="UPDATE film... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DAO/FilmTicketDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="111" column="48" lean-forward="false" selection-start-line="111" selection-start-column="48" selection-end-line="111" selection-end-column="48" />
-          <folding>
-            <marker date="1514813423129" expanded="true" signature="1202:1313" ph="INSERT INTO filmTicket... " />
-            <marker date="1514813423129" expanded="true" signature="2086:2172" ph="select * fro... filmTicket" />
-            <marker date="1514813423129" expanded="true" signature="3161:3251" ph="select * fro... filmTicket" />
-            <marker date="1514813423129" expanded="true" signature="3161:3264" ph="select * fro... filmTicket" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Service/FilmTicketService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="8" column="105" lean-forward="false" selection-start-line="8" selection-start-column="105" selection-end-line="8" selection-end-column="105" />
+        <state relative-caret-position="89">
+          <caret line="95" column="12" lean-forward="false" selection-start-line="95" selection-start-column="12" selection-end-line="112" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Service/FilmTicketServiceDatabase.java">
+    <entry file="file://$PROJECT_DIR$/src/Controller/SuperAdmin/SuperAdminAdd.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="12" column="112" lean-forward="false" selection-start-line="12" selection-start-column="112" selection-end-line="12" selection-end-column="112" />
+        <state relative-caret-position="467">
+          <caret line="54" column="13" lean-forward="false" selection-start-line="38" selection-start-column="12" selection-end-line="54" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/3455e5c3/54228e0a-66fb-405f-a40c-278ed4229e2d/bliblimovies.public.filmticket">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/3455e5c3/54228e0a-66fb-405f-a40c-278ed4229e2d/bliblimovies.public.membercard">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/view/transaction/confirmation_film.jsp">
+    <entry file="file://$PROJECT_DIR$/src/Controller/StoreAccount/StoreAccountAdd.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-390">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="383">
+          <caret line="51" column="45" lean-forward="true" selection-start-line="51" selection-start-column="45" selection-end-line="51" selection-end-column="45" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/MemberCard/MemberCardAdd.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="85" column="13" lean-forward="true" selection-start-line="85" selection-start-column="13" selection-end-line="85" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/view/transaction/view_invoice.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-642">
-          <caret line="78" column="9" lean-forward="true" selection-start-line="78" selection-start-column="9" selection-end-line="78" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/view/transaction/choose_fnb.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="225" column="40" lean-forward="true" selection-start-line="225" selection-start-column="40" selection-end-line="225" selection-end-column="40" />
-          <folding>
-            <marker date="1514611636950" expanded="true" signature="5031:5116" ph="..." />
-            <marker date="1514611636950" expanded="true" signature="7100:7185" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/view/database/fnb/fnb_edit.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="24" column="101" lean-forward="false" selection-start-line="24" selection-start-column="101" selection-end-line="24" selection-end-column="101" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Film/FilmEdit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="30" column="13" lean-forward="false" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Transaction/ChooseSeat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="71" column="208" lean-forward="false" selection-start-line="71" selection-start-column="208" selection-end-line="71" selection-end-column="208" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/FilmTicket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="29" column="25" lean-forward="false" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
-          <folding>
-            <element signature="e#1984#1985#0" expanded="true" />
-            <element signature="e#2011#2012#0" expanded="true" />
-            <element signature="e#2051#2052#0" expanded="true" />
-            <element signature="e#2083#2084#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/view/database/film/film_detail.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="39" column="28" lean-forward="true" selection-start-line="36" selection-start-column="16" selection-end-line="39" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Transaction/ViewInvoice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/view/transaction/choose_seat.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="186" column="24" lean-forward="true" selection-start-line="186" selection-start-column="24" selection-end-line="186" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="804" column="28" lean-forward="false" selection-start-line="804" selection-start-column="28" selection-end-line="804" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Film/FilmDetail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="67" column="83" lean-forward="true" selection-start-line="67" selection-start-column="70" selection-end-line="67" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Transaction/ChooseFnB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="34" column="13" lean-forward="false" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Film.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="202" column="21" lean-forward="false" selection-start-line="202" selection-start-column="21" selection-end-line="202" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5044#5045#0" expanded="true" />
-            <element signature="e#5080#5081#0" expanded="true" />
-            <element signature="e#5164#5165#0" expanded="true" />
-            <element signature="e#5214#5215#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Transaction/ChooseFilm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="78" column="156" lean-forward="false" selection-start-line="78" selection-start-column="156" selection-end-line="78" selection-end-column="156" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/view/database/film/film_menu.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/view/transaction/choose_film.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="31" column="70" lean-forward="false" selection-start-line="31" selection-start-column="70" selection-end-line="31" selection-end-column="70" />
-          <folding>
-            <element signature="e#1608#1632#0#HTML" expanded="true" />
-            <element signature="e#1835#1855#0#HTML" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

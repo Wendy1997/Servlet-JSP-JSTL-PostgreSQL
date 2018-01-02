@@ -236,4 +236,20 @@ public class AccountDAO {
         ps.close();
         conn.close();
     }
+
+    /**
+     * Sebuah method yang akan mengupdate data dari akun
+     *
+     * @param account
+     * @throws SQLException
+     */
+    public void updateAccountWithoutPass(Account account) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("UPDATE account set roleid = ? where username = ? and storeid = ?");
+        ps.setInt(1, account.getRoleid());
+        ps.setString(2, account.getUsername());
+        ps.setInt(3, account.getStoreid());
+        ps.executeUpdate();
+        ps.close();
+        conn.close();
+    }
 }

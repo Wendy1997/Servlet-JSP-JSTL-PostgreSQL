@@ -16,7 +16,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.ServiceConfigurationError;
 
-@WebServlet("/admin/storeAccount/page")
+@WebServlet("/admin/storeaccount/page")
 public class StoreAccountMenuPagination extends HttpServlet {
     StoreAccountService storeAccountService = new StoreAccountServiceDatabase();
 

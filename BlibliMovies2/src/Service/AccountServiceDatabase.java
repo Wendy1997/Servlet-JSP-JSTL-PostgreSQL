@@ -61,6 +61,12 @@ public class AccountServiceDatabase implements AccountService {
     }
 
     @Override
+    public void updateAccoutWithoutPass(Account account) throws SQLException {
+        accountDAO = new AccountDAO();
+        accountDAO.updateAccountWithoutPass(account);
+    }
+
+    @Override
     public AccountRole getAccountRole(int id, int storeid) throws SQLException {
         accountRoleDAO =  new AccountRoleDAO();
         return accountRoleDAO.getAccountRole(id, storeid);

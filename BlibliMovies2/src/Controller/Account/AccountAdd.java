@@ -91,16 +91,26 @@ public class AccountAdd extends HttpServlet {
                     request.getParameter("password").hashCode() + "",
                     Integer.parseInt(request.getParameter(roleAccountSession)));
 
-            // Sebuah method yang akan memasukkan akun ke dalam database
-            accountService.addAccount(account);
-
-            // Redirect menuju halaman success
             String address = successAddress;
-            request.setAttribute("title", "Account");
-            request.setAttribute("complete", "Created");
-            request.setAttribute("link", "/admin/account");
 
-            request.getRequestDispatcher(address).forward(request,response);
+            try{
+                accountService.getAccount(request.getParameter("username"), (int)request.getSession().getAttribute(storeIdSession)).getUsername().length();
+                // Redirect menuju halaman success
+                request.setAttribute("title", "Account");
+                request.setAttribute("complete", "Has Taken");
+                request.setAttribute("link", "/admin/account");
+
+            } catch (NullPointerException e){
+                // Sebuah method yang akan memasukkan akun ke dalam database
+                accountService.addAccount(account);
+
+                // Redirect menuju halaman success
+                request.setAttribute("title", "Account");
+                request.setAttribute("complete", "Created");
+                request.setAttribute("link", "/admin/account");
+            } finally {
+                request.getRequestDispatcher(address).forward(request,response);
+            }
         } catch (SQLException e){
            e.printStackTrace();
         }

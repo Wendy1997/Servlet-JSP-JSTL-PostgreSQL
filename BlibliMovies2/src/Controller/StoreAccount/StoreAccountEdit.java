@@ -20,9 +20,14 @@ public class StoreAccountEdit extends HttpServlet{
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         String address = "/view/database/storeaccount/storeaccount_edit.jsp";
 
+        // Validasi apakah sudah login as super
+        if(request.getSession().getAttribute("superadminid") == null){
+            address = "/view/login/superadmin_login.jsp";
+            request.getRequestDispatcher(address).forward(request, response);
+        }
+
         try {
             StoreAccount storeAccount = storeAccountService.getStoreAccount(request.getParameter("id"));
-            System.out.println(storeAccount.getId());
             request.setAttribute("storeaccount", storeAccount);
         } catch (Exception e){
             System.out.println(e.getMessage());
@@ -34,11 +39,20 @@ public class StoreAccountEdit extends HttpServlet{
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
         try{
-            StoreAccount storeAccount = new StoreAccount( request.getParameter("username"),
-                    request.getParameter("password").hashCode() + "",
-                    request.getParameter("name"),
-                    Integer.parseInt(request.getParameter("id")));
-            storeAccountService.updateStoreAccount(storeAccount);
+            if(request.getParameter("password").length() > 0){
+                StoreAccount storeAccount = new StoreAccount( request.getParameter("username"),
+                        request.getParameter("password").hashCode() + "",
+                        request.getParameter("name"),
+                        Integer.parseInt(request.getParameter("id")));
+
+                storeAccountService.updateStoreAccount(storeAccount);
+            } else {
+                StoreAccount storeAccount = new StoreAccount( request.getParameter("username"),
+                        request.getParameter("name"),
+                        Integer.parseInt(request.getParameter("id")));
+
+                storeAccountService.updateStoreAccountWithoutPass(storeAccount);
+            }
 
             String address = "/view/database/success.jsp";
             request.setAttribute("title", "Store Account");

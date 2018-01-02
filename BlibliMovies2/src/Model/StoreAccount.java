@@ -28,6 +28,12 @@ public class StoreAccount {
         setNama(nama);
      }
 
+    public StoreAccount(String username, String nama, int id) {
+        this.username = username;
+        this.nama = nama;
+        this.id = id;
+    }
+
     public String getUsername(){
         return this.username;
     }
@@ -67,6 +73,4 @@ public class StoreAccount {
     public void setNama(String nama){
         this.nama = nama;
     }
-
-
 }

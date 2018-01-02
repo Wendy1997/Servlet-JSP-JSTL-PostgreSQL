@@ -1,5 +1,5 @@
 <%@ include file = "/include/head.jsp" %>
-<%@ include file = "/include/navbarAccount.jsp" %>
+<%@ include file = "/include/navbarSuperAdmin.jsp"%>
 
 <!-- Content -->
 <div class="container-fluid">
@@ -22,7 +22,7 @@
 
                     <div class="form-group">
                         <label for="password">Password:</label>
-                        <input type="name" class="form-control" name="password" id="password" value="${storeaccount.password}" required>
+                        <input type="name" class="form-control" name="password" id="password">
                     </div>
 
                     <div class="form-group">

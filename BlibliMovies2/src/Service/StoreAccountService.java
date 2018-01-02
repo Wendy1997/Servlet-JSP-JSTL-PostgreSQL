@@ -14,4 +14,5 @@ public interface StoreAccountService {
     void deleteStoreAccount(int storeid) throws SQLException;
     void retrieveStoreAccount(int storeid) throws SQLException;
     void updateStoreAccount(StoreAccount account) throws SQLException;
+    void updateStoreAccountWithoutPass(StoreAccount account) throws SQLException;
 }

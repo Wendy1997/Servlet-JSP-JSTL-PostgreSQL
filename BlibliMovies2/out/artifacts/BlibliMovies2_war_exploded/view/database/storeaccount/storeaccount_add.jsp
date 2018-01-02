@@ -1,5 +1,5 @@
 <%@ include file = "/include/head.jsp" %>
-<%@ include file = "/include/navbarAccount.jsp" %>
+<%@ include file = "/include/navbarSuperAdmin.jsp" %>
 
 <!-- Content -->
 <div class="container-fluid">

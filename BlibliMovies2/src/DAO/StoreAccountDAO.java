@@ -156,4 +156,13 @@ public class StoreAccountDAO {
         ps.close();
         conn.close();
     }
+
+    public void updateStoreAccountWithoutPass(StoreAccount storeAccount) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("UPDATE storeAccount set storename = ? where id = ?");
+        ps.setString(1, storeAccount.getNama());
+        ps.setInt(2, storeAccount.getId());
+        ps.executeUpdate();
+        ps.close();
+        conn.close();
+    }
 }

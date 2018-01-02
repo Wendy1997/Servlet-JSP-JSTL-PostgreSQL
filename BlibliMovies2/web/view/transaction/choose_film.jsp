@@ -35,10 +35,6 @@
                                             </c:forEach>
                                             </p>
                                         </c:forEach>
-
-                                        <%--<c:forEach items="${film.screeningTimes}" var="screeningTime">--%>
-                                            <%--<button class="tablinks"><a href="/cashier/film/detail?id=${film.id}&screeningtime=${screeningTime.id}">${screeningTime.time}</a></button>--%>
-                                        <%--</c:forEach>--%>
                                     </div>
                                 </div>
                             </div>

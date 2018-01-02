@@ -82,14 +82,24 @@ public class AccountEdit extends HttpServlet{
 
         try{
 
-            // Inisialisasi Account dari hasil form
-            Account account = new Account( request.getParameter("username"),
-                    (int)request.getSession().getAttribute("storeid"),
-                    request.getParameter("password").hashCode() + "",
-                    Integer.parseInt(request.getParameter("role")));
+            if(request.getParameter("password").length() > 0){
+                // Inisialisasi Account dari hasil form
+                Account account = new Account( request.getParameter("username"),
+                        (int)request.getSession().getAttribute("storeid"),
+                        request.getParameter("password").hashCode() + "",
+                        Integer.parseInt(request.getParameter("role")));
 
-            // Sebuah method yang akan mengupdate akun ke dalam database
-            accountService.updateAccout(account);
+                // Sebuah method yang akan mengupdate akun ke dalam database
+                accountService.updateAccout(account);
+            } else {
+                // Inisialisasi Account dari hasil form
+                Account account = new Account( request.getParameter("username"),
+                        (int)request.getSession().getAttribute("storeid"),
+                        Integer.parseInt(request.getParameter("role")));
+
+                // Sebuah method yang akan mengupdate akun ke dalam database
+                accountService.updateAccoutWithoutPass(account);
+            }
 
             // Redirect menuju halaman success
             String address = "/view/database/success.jsp";

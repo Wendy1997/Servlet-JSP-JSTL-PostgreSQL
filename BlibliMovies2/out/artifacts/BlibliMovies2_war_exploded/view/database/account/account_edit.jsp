@@ -22,7 +22,7 @@
 
                     <div class="form-group">
                         <label for="password">Password:</label>
-                        <input type="name" class="form-control" name="password" id="password" value="${account.password}" required>
+                        <input type="name" class="form-control" name="password" id="password">
                     </div>
 
                     <div class="form-group">

@@ -1,5 +1,5 @@
 <%@ include file = "/include/head.jsp" %>
-<%@ include file = "/include/navbarAccount.jsp" %>
+<%@ include file = "/include/navbarSuperAdmin.jsp" %>
 
 <!-- Content -->
 <div class="container-fluid" align="center">
@@ -69,12 +69,12 @@
                             '<td scope="row">' + result[key].username + '</td>\n' +
                             '<td>' + result[key].password + '</td>\n' +
                             '<td>' + result[key].nama + '</td>\n' +
-                            '<td><a href=/admin/storeaccount/edit?id=' + result[key].id + '>Edit</a></td>\n';
+                            '<td><a href=/admin/storeaccount/edit?id=' + result[key].username + '>Edit</a></td>\n';
 
                         if(result[key].status){
-                            output += '<td><a href=/admin/storeaccount/delete?id=' + result[key].id + '>Delete</a></td>\n';
+                            output += '<td><a href=/admin/storeaccount/delete?id=' + result[key].username + '>Delete</a></td>\n';
                         } else {
-                            output += '<td><a href=/admin/storeaccount/delete?id=' + result[key].id + '>Retrieve</a></td>\n';
+                            output += '<td><a href=/admin/storeaccount/delete?id=' + result[key].username + '>Retrieve</a></td>\n';
                         }
                     }
 

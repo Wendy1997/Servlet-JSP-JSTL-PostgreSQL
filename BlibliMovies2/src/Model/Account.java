@@ -32,6 +32,12 @@ public class Account {
         setStoreid(storeid);
     }
 
+    public Account(String username, int storeid, int roleid){
+        setUsername(username);
+        setRoleid(roleid);
+        setStoreid(storeid);
+    }
+
     public String getUsername(){
         return this.username;
     }
