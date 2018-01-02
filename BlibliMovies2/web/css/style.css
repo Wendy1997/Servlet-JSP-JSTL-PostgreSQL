@@ -120,6 +120,7 @@ a:hover{
 	-webkit-transition: all .2s ease-in;
 	transition: all .2s ease-in;
 	text-decoration: none;
+	margin: 20px;
 }
 
 .title:hover{
@@ -482,6 +483,10 @@ Dummy Image
 	#dtlChooseSeat {
 		margin-left: 80px;
 	}
+
+	/*.jumbotron .title {*/
+		/*margin: 20px;*/
+	/*}*/
 }
 
 @media screen and (min-width:992px) and (max-width: 1199px) {
@@ -526,6 +531,10 @@ Dummy Image
 	#btnChooseSeat button {
 		font-size: 32px;
 	}
+
+	/*.jumbotron .title {*/
+		/*margin: 20px;*/
+	/*}*/
 }
 
 @media screen and (min-width:768px) and (max-width: 991px) {
@@ -794,6 +803,10 @@ Dummy Image
 
 	.ledger.total-income h4 {
 		font-size: 20px;
+	}
+
+	.jumbotron .title {
+		margin-left: 50px;
 	}
 
 }
