@@ -21,7 +21,7 @@
             </div>
 
             <div class="row">
-                <div class="col-12 col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <div class="col-12 col-xs-12 col-sm-12 col-md-12 col- lg-12 col-xl-12">
                     <h3>Order Details:</h3><br>
                 </div>
             </div>
@@ -56,7 +56,7 @@
                 </div>
 
                 <div class="row" data-html2canvas-ignore="true">
-                    <button type="submit" class="btn btn-default" id="accept">Print ></button>
+                    <button type="submit" class="btn btn-default print-invoice" id="accept">Print ></button>
                 </div>
             </div>
         </div>

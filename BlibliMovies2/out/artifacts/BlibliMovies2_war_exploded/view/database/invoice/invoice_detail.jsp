@@ -56,7 +56,7 @@
                 </div>
 
                 <div class="row" data-html2canvas-ignore="true">
-                    <button type="submit" class="btn btn-default" id="accept">Print ></button>
+                    <button type="submit" class="btn btn-default print-invoice" id="accept">Print ></button>
                 </div>
             </div>
         </div>
