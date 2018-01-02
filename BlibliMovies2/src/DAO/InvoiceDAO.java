@@ -213,7 +213,7 @@ public class InvoiceDAO {
                 "EXTRACT (day from orderdate) = ? AND " +
                 "EXTRACT (month from orderdate) = ? and " +
                 "EXTRACT (year from orderdate) = ? and " +
-                "storeid = ? LIMIT 10 OFFSET ?");
+                "storeid = ? ORDER BY id LIMIT 10 OFFSET ?");
         ps.setDouble(1, Double.parseDouble(day));
         ps.setDouble(2, Double.parseDouble(month));
         ps.setDouble(3, Double.parseDouble(year));
@@ -293,7 +293,7 @@ public class InvoiceDAO {
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM invoice where " +
                 "EXTRACT (week from orderdate) = ? and " +
                 "EXTRACT (year from orderdate) = ? and " +
-                "storeid = ? LIMIT 10 OFFSET ?");
+                "storeid = ? ORDER BY id LIMIT 10 OFFSET ?");
         ps.setDouble(1, Double.parseDouble(week));
         ps.setDouble(2, Double.parseDouble(year));
         ps.setInt(3, storeid);
@@ -369,7 +369,7 @@ public class InvoiceDAO {
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM invoice where " +
                 "EXTRACT (month from orderdate) = ? and " +
                 "EXTRACT (year from orderdate) = ? and " +
-                "storeid = ? LIMIT 10 OFFSET ?");
+                "storeid = ? ORDER BY id LIMIT 10 OFFSET ?");
         ps.setDouble(1, Double.parseDouble(month));
         ps.setDouble(2, Double.parseDouble(year));
         ps.setInt(3, storeid);
@@ -443,7 +443,7 @@ public class InvoiceDAO {
     public List<Invoice> getYearlyInvoice(String year, int storeid, int offset) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM invoice where " +
                 "EXTRACT (year from orderdate) = ? and " +
-                "storeid = ? LIMIT 10 OFFSET ?");
+                "storeid = ? ORDER BY id LIMIT 10 OFFSET ?");
         ps.setDouble(1, Double.parseDouble(year));
         ps.setInt(2, storeid);
         ps.setInt(3, offset);

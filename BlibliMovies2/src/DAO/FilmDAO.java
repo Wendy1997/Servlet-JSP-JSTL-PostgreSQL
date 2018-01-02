@@ -50,7 +50,7 @@ public class FilmDAO {
      */
     public Film getFilm(String film, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM film where id = ? and storeid = ?");
-        ps.setString(1, film);
+        ps.setInt(1, Integer.parseInt(film));
         ps.setInt(2, storeid);
 
         ResultSet rs = ps.executeQuery();
@@ -93,7 +93,7 @@ public class FilmDAO {
      */
     public Film getFilmTrue(String film, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM film where id = ? and storeid = ? and status = true");
-        ps.setString(1, film);
+        ps.setInt(1, Integer.parseInt(film));
         ps.setInt(2, storeid);
 
         ResultSet rs = ps.executeQuery();
@@ -280,7 +280,7 @@ public class FilmDAO {
      */
     public void deleteFilm(String id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("update film set status = false where id = ? and storeid = ?");
-        ps.setString(1, id);
+        ps.setInt(1, Integer.parseInt(id));
         ps.setInt(2, storeid);
         ps.executeUpdate();
         ps.close();
@@ -296,7 +296,7 @@ public class FilmDAO {
      */
     public void retrieveFilm(String id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("update film set status = true where id = ? and storeid = ?");
-        ps.setString(1, id);
+        ps.setInt(1, Integer.parseInt(id));
         ps.setInt(2, storeid);
         ps.executeUpdate();
         ps.close();
@@ -324,7 +324,7 @@ public class FilmDAO {
         ps.setString(11, film.getSubtitle());
         ps.setString(12, film.getActor());
         ps.setString(13, film.getSinopsis());
-        ps.setString(14, film.getId() + "");
+        ps.setInt(14, film.getId());
         ps.setInt(15, film.getStoreID());
         ps.executeUpdate();
         ps.close();

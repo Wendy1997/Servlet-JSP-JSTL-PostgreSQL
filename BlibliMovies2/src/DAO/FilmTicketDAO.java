@@ -69,9 +69,9 @@ public class FilmTicketDAO {
      */
     public FilmTicket getFilmTicket(String id, String film_id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("select * from filmTicket where id = ? and storeid = ? and filmid = ? and status = true");
-        ps.setString(1, id);
+        ps.setInt(1, Integer.parseInt(id));
         ps.setInt(2, storeid);
-        ps.setString(3, film_id);
+        ps.setInt(3, Integer.parseInt(film_id));
 
         ResultSet rs = ps.executeQuery();
 
@@ -106,9 +106,9 @@ public class FilmTicketDAO {
     public List<FilmTicket> getAllFilmTicket(String filmid, String studio, String screening, int storeid, String date) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("select * from filmTicket where storeid = ? and filmid = ? and screeningid=? and studioid=? and date = ?");
         ps.setInt(1, storeid);
-        ps.setString(2, filmid);
-        ps.setString(3, screening);
-        ps.setString(4, studio);
+        ps.setInt(2, Integer.parseInt(filmid));
+        ps.setInt(3, Integer.parseInt(screening));
+        ps.setInt(4, Integer.parseInt(studio));
         ps.setDate(5, java.sql.Date.valueOf(date));
 
         ResultSet rs = ps.executeQuery();

@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -42,6 +43,7 @@ public class LedgerViewYearlyPagination extends HttpServlet {
 
             // Pengambilan list invoice pada hari tersebut pada offset halaman tersebut
             List<Invoice> invoiceList = invoiceService.getYearlyInvoice(request.getParameter("date"), (int)request.getSession().getAttribute("storeid"), page);
+//            invoiceList.sort(Comparator.comparingInt(Invoice::getId));
 
             // Inisialisasi dan mengubah objek menjadi JSON
             Gson gson = new Gson();

@@ -48,7 +48,7 @@ public class MemberCardDAO {
      */
     public MemberCard getMemberCard(String id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM membercard where id = ? and storeid = ?");
-        ps.setString(1, id);
+        ps.setInt(1, Integer.parseInt(id));
         ps.setInt(2, storeid);
 
         ResultSet rs = ps.executeQuery();
@@ -82,7 +82,7 @@ public class MemberCardDAO {
      */
     public MemberCard getMemberCardTrue(String id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM membercard where id = ? and storeid = ? and status = true");
-        ps.setString(1, id);
+        ps.setInt(1, Integer.parseInt(id));
         ps.setInt(2, storeid);
 
         ResultSet rs = ps.executeQuery();
@@ -224,7 +224,7 @@ public class MemberCardDAO {
      */
     public void deleteMemberCard(String id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE membercard set status = false where id = ? and storeid = ?");
-        ps.setString(1, id);
+        ps.setInt(1, Integer.parseInt(id));
         ps.setInt(2, storeid);
         ps.executeUpdate();
         ps.close();
@@ -240,7 +240,7 @@ public class MemberCardDAO {
      */
     public void retrieveMemberCard(String id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE membercard set status = true where id = ? and storeid = ?");
-        ps.setString(1, id);
+        ps.setInt(1, Integer.parseInt(id));
         ps.setInt(2, storeid);
         ps.executeUpdate();
         ps.close();
@@ -260,7 +260,7 @@ public class MemberCardDAO {
         ps.setDate(3, java.sql.Date.valueOf(memberCard.getBirthDate()));
         ps.setString(4, memberCard.getPhoneNumber());
         ps.setString(5, memberCard.getEmail());
-        ps.setString(6, memberCard.getId() + "");
+        ps.setInt(6, memberCard.getId());
         ps.setInt(7,memberCard.getStoreID());
 
         ps.executeUpdate();
