@@ -5,6 +5,7 @@ import Model.MemberCard;
 import Model.MemberGender;
 import Service.MemberCardService;
 import Service.MemberCardServiceDatabase;
+import com.google.gson.Gson;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -69,6 +71,7 @@ public class MemberCardAdd extends HttpServlet {
      */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        System.out.println("masuk");
         try{
             // Inisialisasi member card
             MemberCard memberCard = new MemberCard((int)request.getSession().getAttribute("storeid"),
@@ -81,13 +84,18 @@ public class MemberCardAdd extends HttpServlet {
             // Sebuah method yang akan memasukkan member card pada database
             memberCardService.addMemberCard(memberCard);
 
-            // Redirect menuju halaman success
-            String address = "/view/database/success.jsp";
-            request.setAttribute("title", "MemberCard");
-            request.setAttribute("complete", "Created");
-            request.setAttribute("link", "/admin/membercard");
+            int id = memberCardService.getIDMemberCardTerbaru((int)request.getSession().getAttribute("storeid"));
+            memberCard = memberCardService.getMemberCard(id + "", (int)request.getSession().getAttribute("storeid"));
 
-            request.getRequestDispatcher(address).forward(request,response);
+            String hash = memberCard.getId() + memberCard.getFullname() + memberCard.getPhoneNumber();
+            int hashCode = hash.hashCode();
+
+            Gson gson = new Gson();
+            String json = gson.toJson(memberCard);
+
+            PrintWriter out = response.getWriter();
+            out.print("{\"hash\": \"" + hashCode + "\",");
+            out.print(" \"result\" : " + json + "}");
         } catch (SQLException e){
             e.printStackTrace();
         }

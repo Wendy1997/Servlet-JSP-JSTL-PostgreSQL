@@ -48,8 +48,46 @@ public class MemberCardDAO {
      */
     public MemberCard getMemberCard(String id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM membercard where id = ? and storeid = ?");
-        ps.setString(1, id);
+        ps.setInt(1, Integer.parseInt(id));
         ps.setInt(2, storeid);
+        System.out.println(ps.toString());
+        ResultSet rs = ps.executeQuery();
+
+        MemberCard output;
+        if(rs.next()){
+            output = new MemberCard(rs.getInt(1),
+                    rs.getInt(2),
+                    rs.getString(3),
+                    rs.getInt(4),
+                    rs.getString(5).substring(0,10),
+                    rs.getString(6),
+                    rs.getString(7),
+                    rs.getBoolean(8));
+        } else{
+            output = null;
+        }
+
+        System.out.println(output.getId());
+
+        ps.close();
+        conn.close();
+        return output;
+    }
+
+    /**
+     * Sebuah method untuk mengambil data Member Card dari db
+     *
+     * @param id
+     * @param storeid
+     * @return
+     * @throws SQLException
+     */
+    public MemberCard getMemberCardByEmail(String id, int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM membercard where id = ? and storeid = ?");
+        ps.setInt(1, Integer.parseInt(id));
+        ps.setInt(2, storeid);
+
+        System.out.println(ps.toString());
 
         ResultSet rs = ps.executeQuery();
 
@@ -168,6 +206,28 @@ public class MemberCardDAO {
     }
 
     /**
+     * Sebuah method yang akan menghitung jumlah halaman dari seluruh data member card
+     *
+     * @param storeid
+     * @return
+     * @throws SQLException
+     */
+    public int getIDMemberCardTerbaru(int storeid) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM membercard where storeid = ? ORDER BY id desc limit 1");
+        ps.setInt(1, storeid);
+        ResultSet rs = ps.executeQuery();
+
+        int count = 0;
+        if(rs.next()){
+            count = rs.getInt(1);
+        }
+
+        ps.close();
+        conn.close();
+        return count;
+    }
+
+    /**
      * Sebuah method yang akan mengambil seluruh data member card yang memiliki status aktif
      *
      * @param storeid
@@ -240,7 +300,7 @@ public class MemberCardDAO {
      */
     public void retrieveMemberCard(String id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE membercard set status = true where id = ? and storeid = ?");
-        ps.setString(1, id);
+        ps.setInt(1, Integer.parseInt(id));
         ps.setInt(2, storeid);
         ps.executeUpdate();
         ps.close();

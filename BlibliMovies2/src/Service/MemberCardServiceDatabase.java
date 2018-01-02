@@ -37,6 +37,12 @@ public class MemberCardServiceDatabase implements MemberCardService{
     }
 
     @Override
+    public int getIDMemberCardTerbaru(int storeid) throws SQLException {
+        memberCardDAO = new MemberCardDAO();
+        return memberCardDAO.getIDMemberCardTerbaru(storeid);
+    }
+
+    @Override
     public List<MemberCard> getAllMemberCardTrue(int storeid) throws SQLException {
         memberCardDAO = new MemberCardDAO();
         return memberCardDAO.getAllMemberCardTrue(storeid);
