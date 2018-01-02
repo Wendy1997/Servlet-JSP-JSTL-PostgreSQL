@@ -16,6 +16,10 @@
             <div class="stripe"></div><br>
 
             <div class="container film">
+
+                <label for="now">Date:</label>
+                <input type="date" class="form-control" id="now" name="now"><br>
+
                 <div class="filmcontainer-responsive row">
                     <c:forEach items="${films}" var="film">
                         <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-10">
@@ -74,10 +78,79 @@
                         <p>${film.sinopsis}</p>
                     </c:forEach>
                 </div>
-
-
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+       $('#now').change(function () {
+           $.ajax({
+               type: 'GET',
+               dataType: "JSON",
+               url: "/view/film",
+               data: {
+                   now: $('#now').val()
+               },
+               success: function(response) {
+
+                   var output = "";
+                   var outputSinopsis = "";
+
+                   for(var key in response){
+                       output += '<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-10">\n' +
+                           '                            <div class="row box">\n' +
+                           '                                <div class="col-3 col-sm-3 col-md-3 col-lg-4 col-xl-3">\n' +
+                           '                                    <div class="circle" id="thumbnail" style="background-image:url(\'' + response[key].cover + '\');"></div>\n' +
+                           '                                </div>\n' +
+                           '                                <div class="col-9 col-sm-9 col-md-9 col-lg-8 col-xl-9">\n' +
+                           '                                    <div id="txtMovieTitle">' + response[key].title + '</div>\n' +
+                           '                                    <div id="txtMovieSubtitle">' + response[key].subtitle + '</div>\n' +
+                           '\n' +
+                           '                                    <div class="tab">\n';
+
+                       var screenList = response[key].screeningList;
+                       for(var screen in screenList){
+                           output += '                                             <p style="margin-bottom: 0">' + screen + ':\n';
+                           for(var screenTime in screenList[screen]){
+                                output += '                                                <button class="tablinks" style="float: none;"><a class="screeningTimeTab" href="/cashier/film/detail?id=' + response.id + '&screeningtime=' + screenList[screen][screenTime].id + '">' + screenList[screen][screenTime].time + '</a></button>\n';
+                           }
+                       }
+                       output +=    '                                            </p>\n' +
+                           '                                    </div>\n' +
+                           '                                </div>\n' +
+                           '                            </div>\n' +
+                           '                        </div>';
+
+
+                       outputSinopsis +=
+                           '<div class="row">\n' +
+                           '                            <div class="col-lg-12 col-xl-10">\n' +
+                           '                                <div class="row box">\n' +
+                           '                                    <div class="col-lg-4 col-xl-4">\n' +
+                           '                                        <div class="circle" id="smallThumbnail" style="background-image:url(\'' + response[key].cover + '\');"></div>\n' +
+                           '                                    </div>\n' +
+                           '                                    <div class="col-lg-8 col-xl-8">\n' +
+                           '                                        <div id="txtMovieTitle">' + response[key].title + '</div>\n' +
+                           '                                        <div id="txtMovieSubtitle">' + response[key].subtitle + '</div>\n' +
+                           '                                        <p class="rating">' + response[key].rating + '/5 (' + response[key].reviewTotal + ')</p>\n' +
+                           '                                    </div>\n' +
+                           '                                </div>\n' +
+                           '                            </div>\n' +
+                           '                        </div>\n' +
+                           '                        <p>' + response[key].sinopsis + '</p>';
+                   }
+
+                   $('.filmcontainer-responsive')[0].innerHTML = output;
+                   $('.synopsiscontainer-responsive')[0].innerHTML = outputSinopsis;
+                   console.log("berhasil");
+               },
+               error: function (response) {
+                   console.log(response);
+               }
+           });
+       });
+    });
+</script>
     <%@ include file = "/include/foot.jsp" %>
