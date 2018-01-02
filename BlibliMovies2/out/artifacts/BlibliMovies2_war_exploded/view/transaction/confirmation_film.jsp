@@ -30,7 +30,7 @@
                 <p>${film.sinopsis}</p>
             </div>
             <div class="col-lg-4">
-                <a href="/cashier/seat?id=${film.id}&screeningid=${screeningTime.id}&studioid=${studio.id}"><h2>Pick Your Seat ></h2></a>
+                <a href="/cashier/seat?id=${film.id}&screeningid=${screeningTime.id}&studioid=${studio.id}&date=${date}"><h2>Pick Your Seat ></h2></a>
             </div>
         </div>
     </div>

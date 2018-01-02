@@ -61,6 +61,7 @@ public class ChooseFilmDetail extends HttpServlet {
 
             request.setAttribute("genre", filmGenre.getGenre());
             request.setAttribute("film", film);
+            request.setAttribute("date", request.getParameter("date"));
             request.setAttribute("screeningTime", screeningTime);
             request.setAttribute("studio", studio);
         } catch (SQLException e){

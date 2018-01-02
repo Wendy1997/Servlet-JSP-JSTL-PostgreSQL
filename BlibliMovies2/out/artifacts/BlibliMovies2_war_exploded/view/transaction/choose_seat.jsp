@@ -116,21 +116,21 @@
 
     function print(listTicket) {
         var widthTicket = 300;
-        var heightTicket = 200;
+        var heightTicket = 220;
 
         console.log(listTicket);
         console.log(listTicket.length);
 
         if(listTicket.length > 1){
-            var doc = new jsPDF('l', 'pt', [widthTicket , heightTicket * listTicket.length]);
+            var doc = new jsPDF('p', 'pt', [widthTicket , heightTicket * listTicket.length]);
         } else {
-            var doc = new jsPDF('p', 'pt', [widthTicket , heightTicket]);
+            var doc = new jsPDF('l', 'pt', [widthTicket , heightTicket]);
         }
 
         // Filled yellow square
         doc.setDrawColor(0);
         doc.setFillColor(252, 172, 64);
-        doc.rect(0, 0, 300, 200 * listTicket.length, 'F');
+        doc.rect(0, 0, widthTicket, heightTicket * listTicket.length, 'F');
 
         doc.line(0, 0, 300, 0); // horizontal line
         doc.setLineWidth(1);
@@ -151,8 +151,9 @@
             doc.text(20, 130 + temp, 'Film: ' + '${film.title}');
             doc.text(20, 150 + temp, 'Studio: ' + '${namaStudio}');
             doc.text(20, 170 + temp, 'Pukul: ' + '${screeningTime}');
+            doc.text(20, 190 + temp, 'Tanggal: ' + '${date}');
 
-            doc.line(0, 200 + temp, 300, 200 + temp); // horizontal line
+            doc.line(0, heightTicket + temp, widthTicket, heightTicket + temp); // horizontal line
             doc.setLineWidth(1);
         }
 
@@ -193,10 +194,12 @@
                     type: 'POST',
                     url: "/cashier/seat",
                     dataType: "JSON",
-                    data: {tickets: listTicket.toString(),
+                    data: {
+                        tickets: listTicket.toString(),
                         filmid: ${filmid},
                         screeningid: ${screeningid},
-                        studioid: ${studioid}
+                        studioid: ${studioid},
+                        date: "${date}"
                     },
                     success: window.location.href = "/cashier/fnb?film=" + ${filmid} + "&screeningid=" + ${screeningid} + "&studioid=" + ${studioid} + "&ticketQuantity=" + listTicket.length
                 });

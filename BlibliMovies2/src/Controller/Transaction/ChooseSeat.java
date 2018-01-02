@@ -53,12 +53,8 @@ public class ChooseSeat extends HttpServlet {
 
         try{
 
-            // Pengambilan data waktu saat ini
-            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-            LocalDateTime now = LocalDateTime.now();
-
             // Pengambilan data kursi yang telah diambil
-            List<FilmTicket> filmTicketList = filmTicketService.getAllTickets(request.getParameter("id"),request.getParameter("studioid"),request.getParameter("screeningid"),(int)request.getSession().getAttribute("storeid"), dtf.format(now));
+            List<FilmTicket> filmTicketList = filmTicketService.getAllTickets(request.getParameter("id"),request.getParameter("studioid"),request.getParameter("screeningid"),(int)request.getSession().getAttribute("storeid"), request.getParameter("date"));
 
             // Pengambilan data film yang dipilih
             Film film = filmService.getFilmTrue(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
@@ -72,6 +68,7 @@ public class ChooseSeat extends HttpServlet {
             request.setAttribute("screeningid", request.getParameter("screeningid"));
             request.setAttribute("filmTickets",filmTicketList);
             request.setAttribute("film", film);
+            request.setAttribute("date", request.getParameter("date"));
         }catch (SQLException e){
             e.printStackTrace();
         }
@@ -99,14 +96,12 @@ public class ChooseSeat extends HttpServlet {
             // Inisialisasi studio yang dipilih
             Studio studio = filmService.getStudio(request.getParameter("studioid"), (int)request.getSession().getAttribute("storeid"));
 
-            // Pengambilan data waktu saat ini
-            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-            LocalDateTime now = LocalDateTime.now();
-
             // Looping untuk memasukkan list ticket pada db sesuai dengan film, studio dan screening time yang dipilih
             for(int i = 0; i < seatList.length; i++){
-                if(!seatList[i].isEmpty())
-                    filmTicketService.addTicket(new FilmTicket(Integer.parseInt(request.getParameter("filmid")), Integer.parseInt(request.getParameter("studioid")), seatList[i], Integer.parseInt(request.getParameter("screeningid")), studio.getPrice(), (int)request.getSession().getAttribute("storeid"), dtf.format(now)));
+                if(!seatList[i].isEmpty()) {
+                    filmTicketService.addTicket(new FilmTicket(Integer.parseInt(request.getParameter("filmid")), Integer.parseInt(request.getParameter("studioid")), seatList[i], Integer.parseInt(request.getParameter("screeningid")), studio.getPrice(), (int) request.getSession().getAttribute("storeid"), request.getParameter("date")));
+                    System.out.println("masuk");
+                }
             }
         } catch (SQLException e){
             e.printStackTrace();
