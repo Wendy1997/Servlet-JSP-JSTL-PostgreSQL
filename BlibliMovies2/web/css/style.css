@@ -452,7 +452,7 @@ Dummy Image
 /* End */
 
 @media screen and (min-width:1200px) {
-	.filmcontainer-responsive.row , .box-window.synopsiscontainer-responsive , .fnbcontainer-responsive.row {
+	.box-window.synopsiscontainer-responsive , .fnbcontainer-responsive.row {
 		height: 80vh;
 	}
 
@@ -492,7 +492,7 @@ Dummy Image
 }
 
 @media screen and (min-width:992px) and (max-width: 1199px) {
-	.filmcontainer-responsive.row , .box-window.synopsiscontainer-responsive , .fnbcontainer-responsive.row {
+	.box-window.synopsiscontainer-responsive , .fnbcontainer-responsive.row {
 		height: 88vh;
 	}
 
@@ -536,10 +536,6 @@ Dummy Image
 }
 
 @media screen and (min-width:768px) and (max-width: 991px) {
-	.filmcontainer-responsive.row {
-		height: 85vh;
-	}
-
 	.fnbcontainer-responsive.row {
 		height: 42vh;
 	}
@@ -620,10 +616,6 @@ Dummy Image
 	.circle{
 		width: 110px;
 		height: 110px;
-	}
-
-	.filmcontainer-responsive.row {
-		height: 82vh;
 	}
 
 	.fnbcontainer-responsive.row {
@@ -717,10 +709,6 @@ Dummy Image
 	.circle {
 		width: 65px;
 		height: 65px;
-	}
-
-	.filmcontainer-responsive.row {
-		height: 78vh;
 	}
 
 	.fnbcontainer-responsive.row {
