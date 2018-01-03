@@ -24,6 +24,8 @@ import java.util.ServiceConfigurationError;
 public class InvoiceMenuPagination extends HttpServlet {
     InvoiceService invoiceService = new InvoiceServiceDatabase();
 
+    private final String storeIdSession = "storeid";
+
     /**
      * Sebuah method GET yang memberikan data list invoice pada suatu halaman
      *
@@ -38,7 +40,7 @@ public class InvoiceMenuPagination extends HttpServlet {
             int page = (Integer.parseInt(request.getParameter("page")) - 1) * 10;
 
             // Pengambilan list invoice pada offset halaman tersebut
-            List<Invoice> invoices = invoiceService.getAllInvoice((int)request.getSession().getAttribute("storeid"), page);
+            List<Invoice> invoices = invoiceService.getAllInvoice((int)request.getSession().getAttribute(storeIdSession), page);
 
             // Inisialisasi dan mengubah objek menjadi JSON
             Gson gson = new Gson();

@@ -20,6 +20,8 @@ import java.util.ServiceConfigurationError;
 public class StoreAccountMenuPagination extends HttpServlet {
     StoreAccountService storeAccountService = new StoreAccountServiceDatabase();
 
+    private final String storeIdSession = "storeid";
+
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         try{
             int page = (Integer.parseInt(request.getParameter("page")) - 1) * 10;

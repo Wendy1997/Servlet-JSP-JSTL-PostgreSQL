@@ -24,6 +24,7 @@ import java.util.List;
 @WebServlet("/cashier/member")
 public class ViewMember extends HttpServlet {
     MemberCardService memberService = new MemberCardServiceDatabase();
+    private final String storeIdSession = "storeid";
 
     /**
      * Sebuah method POST yang akan mengecek apakah member valid atau tidak
@@ -36,7 +37,7 @@ public class ViewMember extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         try{
             // Inisialisasi member card
-            MemberCard member = memberService.getMemberCardTrue(request.getParameter("memberid"), (int)request.getSession().getAttribute("storeid"));
+            MemberCard member = memberService.getMemberCardTrue(request.getParameter("memberid"), (int)request.getSession().getAttribute(storeIdSession));
 
             // Merubah model menjadi json
             Gson gson = new Gson();

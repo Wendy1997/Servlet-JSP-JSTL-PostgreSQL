@@ -23,6 +23,8 @@ public class ViewFnB extends HttpServlet {
 
     FnBService fnBService = new FnBServiceDatabase();
 
+    private final String storeIdSession = "storeid";
+
     /**
      * Sebuah method POST yang akan mengirimkan data fnb ke AJAX
      *
@@ -39,7 +41,7 @@ public class ViewFnB extends HttpServlet {
         try {
 
             // Inisialisasi FnB
-            FnB fnb = fnBService.getFnBTrue(id, (int)request.getSession().getAttribute("storeid"));
+            FnB fnb = fnBService.getFnBTrue(id, (int)request.getSession().getAttribute(storeIdSession));
 
             // Merubah model menjadi json
             Gson gson = new Gson();

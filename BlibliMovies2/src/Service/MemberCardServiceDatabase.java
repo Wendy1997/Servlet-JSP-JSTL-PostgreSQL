@@ -13,6 +13,12 @@ public class MemberCardServiceDatabase implements MemberCardService{
     MemberGenderDAO memberGenderDAO;
 
     @Override
+    public MemberCard getMemberCard(String id) throws SQLException {
+        memberCardDAO = new MemberCardDAO();
+        return memberCardDAO.getMemberCard(id);
+    }
+
+    @Override
     public MemberCard getMemberCard(String id, int storeid) throws SQLException {
         memberCardDAO = new MemberCardDAO();
         return memberCardDAO.getMemberCard(id, storeid);
@@ -64,6 +70,12 @@ public class MemberCardServiceDatabase implements MemberCardService{
     public void retrieveMemberCard(String id, int storeid) throws SQLException {
         memberCardDAO = new MemberCardDAO();
         memberCardDAO.retrieveMemberCard(id, storeid);
+    }
+
+    @Override
+    public void retrieveMemberCard(String id) throws SQLException {
+        memberCardDAO = new MemberCardDAO();
+        memberCardDAO.retrieveMemberCard(id);
     }
 
     @Override

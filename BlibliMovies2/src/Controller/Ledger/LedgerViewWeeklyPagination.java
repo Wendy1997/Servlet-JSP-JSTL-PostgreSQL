@@ -27,6 +27,8 @@ import java.util.List;
 public class LedgerViewWeeklyPagination extends HttpServlet {
     InvoiceService invoiceService = new InvoiceServiceDatabase();
 
+    private final String storeIdSession = "storeid";
+
     /**
      * Sebuah method GET yang memberikan data list invoice minggu tersebut pada suatu halaman
      *
@@ -41,7 +43,7 @@ public class LedgerViewWeeklyPagination extends HttpServlet {
             int page = (Integer.parseInt(request.getParameter("page")) - 1) * 10;
 
             // Pengambilan list invoice pada minggu tersebut pada offset halaman tersebut
-            List<Invoice> invoiceList = invoiceService.getWeeklyInvoice(request.getParameter("date"), (int)request.getSession().getAttribute("storeid"), page);
+            List<Invoice> invoiceList = invoiceService.getWeeklyInvoice(request.getParameter("date"), (int)request.getSession().getAttribute(storeIdSession), page);
             invoiceList.sort(Comparator.comparingInt(Invoice::getId));
 
             // Inisialisasi dan mengubah objek menjadi JSON

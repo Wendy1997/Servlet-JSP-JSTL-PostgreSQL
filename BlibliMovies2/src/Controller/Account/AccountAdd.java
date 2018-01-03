@@ -23,7 +23,6 @@ import java.util.List;
 @WebServlet("/admin/account/add")
 public class AccountAdd extends HttpServlet {
     private AccountService accountService = new AccountServiceDatabase();
-
     private final String storeLoginAddress = "/view/login/store_login.jsp";
     private final String accountLoginAddress = "/view/login/account_login.jsp";
     private final String addAccountAddress = "/view/database/account/account_add.jsp";
@@ -32,6 +31,12 @@ public class AccountAdd extends HttpServlet {
     private final String storeIdSession = "storeid";
     private final String roleAccountSession = "role";
     private final String roleAdmin = "admin";
+
+    private final String title = "Account";
+    private final String statusBerhasil = "Created";
+    private final String statusGagal = "Has Taken";
+    private final String link = "/admin/account";
+
 
     /**
      * Sebuah method GET yang memberikan halaman form tambah akun
@@ -43,34 +48,28 @@ public class AccountAdd extends HttpServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        // Initial Address
-        String address = addAccountAddress;
-
         // Validasi apakah sudah login store
         if(request.getSession().getAttribute(storeIdSession) == null){
-            address = storeLoginAddress;
+            request.getRequestDispatcher(storeLoginAddress).forward(request, response);
         }
-
         // Validasi apakah sudah login akun
         else if (request.getSession().getAttribute(roleAccountSession) == null){
-            address = accountLoginAddress;
+            request.getRequestDispatcher(accountLoginAddress).forward(request, response);
         }
-
         // Validasi apakah sudah login as admin
         else if(!request.getSession().getAttribute(roleAccountSession).equals(roleAdmin)){
-            address = accountLoginAddress;
+            request.getRequestDispatcher(accountLoginAddress).forward(request, response);
         }
 
         try{
             // Pengambilan data seluruh role akun untuk dimasukkan kedalam form
             List<AccountRole> accountRoleList = accountService.getAllAccountRoleTrue((int)request.getSession().getAttribute(storeIdSession));
             request.setAttribute("role", accountRoleList);
-
         }catch (SQLException e){
             e.printStackTrace();
         }
 
-        request.getRequestDispatcher(address).forward(request, response);
+        request.getRequestDispatcher(addAccountAddress).forward(request, response);
     }
 
     /**
@@ -84,32 +83,32 @@ public class AccountAdd extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         try{
-
             // Inisialisasi Account dari hasil form
-            Account account = new Account( request.getParameter("username"),
+            Account account = new Account(
+                    request.getParameter("username"),
                     (int)request.getSession().getAttribute(storeIdSession),
                     request.getParameter("password").hashCode() + "",
-                    Integer.parseInt(request.getParameter(roleAccountSession)));
-
-            String address = successAddress;
+                    Integer.parseInt(request.getParameter(roleAccountSession))
+            );
 
             try{
                 accountService.getAccount(request.getParameter("username"), (int)request.getSession().getAttribute(storeIdSession)).getUsername().length();
+
                 // Redirect menuju halaman success
-                request.setAttribute("title", "Account");
-                request.setAttribute("complete", "Has Taken");
-                request.setAttribute("link", "/admin/account");
+                request.setAttribute("title", title);
+                request.setAttribute("complete", statusGagal);
+                request.setAttribute("link", link);
 
             } catch (NullPointerException e){
                 // Sebuah method yang akan memasukkan akun ke dalam database
                 accountService.addAccount(account);
 
                 // Redirect menuju halaman success
-                request.setAttribute("title", "Account");
-                request.setAttribute("complete", "Created");
-                request.setAttribute("link", "/admin/account");
+                request.setAttribute("title", title);
+                request.setAttribute("complete", statusBerhasil);
+                request.setAttribute("link", link);
             } finally {
-                request.getRequestDispatcher(address).forward(request,response);
+                request.getRequestDispatcher(successAddress).forward(request,response);
             }
         } catch (SQLException e){
            e.printStackTrace();

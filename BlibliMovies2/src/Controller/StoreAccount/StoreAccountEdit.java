@@ -17,13 +17,21 @@ import java.util.List;
 public class StoreAccountEdit extends HttpServlet{
     StoreAccountService storeAccountService = new StoreAccountServiceDatabase();
 
+    private final String superLoginAddress = "/view/login/superadmin_login.jsp";
+    private final String successAddress = "/view/database/success.jsp";
+    private final String editStoreAccountAddress = "/view/database/storeaccount/storeaccount_edit.jsp";
+
+    private final String superAdminSession = "superadminid";
+
+    private final String title = "Store Account";
+    private final String statusEditBerhasil = "Updated";
+    private final String link = "/admin/storeaccount";
+
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        String address = "/view/database/storeaccount/storeaccount_edit.jsp";
 
         // Validasi apakah sudah login as super
-        if(request.getSession().getAttribute("superadminid") == null){
-            address = "/view/login/superadmin_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
+        if(request.getSession().getAttribute(superAdminSession) == null){
+            request.getRequestDispatcher(superLoginAddress).forward(request, response);
         }
 
         try {
@@ -33,7 +41,7 @@ public class StoreAccountEdit extends HttpServlet{
             System.out.println(e.getMessage());
         }
 
-        request.getRequestDispatcher(address).forward(request, response);
+        request.getRequestDispatcher(editStoreAccountAddress).forward(request, response);
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
@@ -54,12 +62,12 @@ public class StoreAccountEdit extends HttpServlet{
                 storeAccountService.updateStoreAccountWithoutPass(storeAccount);
             }
 
-            String address = "/view/database/success.jsp";
-            request.setAttribute("title", "Store Account");
-            request.setAttribute("complete", "Updated");
-            request.setAttribute("link", "/admin/storeaccount");
+            // Redirect menuju halaman success
+            request.setAttribute("title", title);
+            request.setAttribute("complete", statusEditBerhasil);
+            request.setAttribute("link", link);
 
-            request.getRequestDispatcher(address).forward(request, response);
+            request.getRequestDispatcher(successAddress).forward(request, response);
 
         } catch (Exception e){
             e.printStackTrace();

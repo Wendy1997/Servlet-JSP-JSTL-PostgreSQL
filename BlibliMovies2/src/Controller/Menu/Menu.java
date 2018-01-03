@@ -19,6 +19,14 @@ import java.sql.SQLException;
 public class Menu extends HttpServlet {
     AccountService accountService = new AccountServiceDatabase();
 
+    private final String storeLoginAddress = "/view/login/store_login.jsp";
+    private final String accountLoginAddress = "/view/login/account_login.jsp";
+    private final String successAddress = "/view/database/success.jsp";
+
+    private final String storeIdSession = "storeid";
+    private final String roleAccountSession = "role";
+    private final String roleAdmin = "admin";
+
     /**
      * Sebuah method GET yang memberikan halaman main menu
      *
@@ -29,22 +37,17 @@ public class Menu extends HttpServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
-        // Initial address
-        String address = "/view/login/store_login.jsp";
-
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storeid") == null){
-            address = "/view/login/store_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
+        if(request.getSession().getAttribute(storeIdSession) == null){
+            request.getRequestDispatcher(storeLoginAddress).forward(request, response);
+        }
+        // Validasi apakah sudah login akun
+        else if (request.getSession().getAttribute(roleAccountSession) == null){
+            request.getRequestDispatcher(accountLoginAddress).forward(request, response);
         }
 
-        // Validasi apakah sudah login akun
-        else if (request.getSession().getAttribute("role") == null){
-            address = "/view/login/account_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
-        }
 
         // Redirect apakah ia menuju admin atau cashier
-        response.sendRedirect("/"+ request.getSession().getAttribute("role"));
+        response.sendRedirect("/"+ request.getSession().getAttribute(roleAccountSession));
     }
 }

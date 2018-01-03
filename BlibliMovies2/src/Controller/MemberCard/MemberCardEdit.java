@@ -23,6 +23,19 @@ import java.util.List;
 public class MemberCardEdit extends HttpServlet{
     MemberCardService memberCardService = new MemberCardServiceDatabase();
 
+    private final String storeLoginAddress = "/view/login/store_login.jsp";
+    private final String accountLoginAddress = "/view/login/account_login.jsp";
+    private final String editMemberCardAddress = "/view/database/member/member_edit.jsp";
+    private final String successAddress = "/view/database/success.jsp";
+
+    private final String storeIdSession = "storeid";
+    private final String roleAccountSession = "role";
+    private final String roleAdmin = "admin";
+
+    private final String title = "Member Card";
+    private final String statusEditBerhasil = "Updated";
+    private final String link = "/admin/membercard";
+
     /**
      * Sebuah method GET yang memberikan halaman form edit member card
      *
@@ -33,40 +46,33 @@ public class MemberCardEdit extends HttpServlet{
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
-        // Initial Address
-        String address = "/view/database/member/member_edit.jsp";
-
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storeid") == null){
-            address = "/view/login/store_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
+        if(request.getSession().getAttribute(storeIdSession) == null){
+            request.getRequestDispatcher(storeLoginAddress).forward(request, response);
         }
-
         // Validasi apakah sudah login akun
-        else if (request.getSession().getAttribute("role") == null){
-            address = "/view/login/account_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
+        else if (request.getSession().getAttribute(roleAccountSession) == null){
+            request.getRequestDispatcher(accountLoginAddress).forward(request, response);
+        }
+        // Validasi apakah sudah login as admin
+        else if(!request.getSession().getAttribute(roleAccountSession).equals(roleAdmin)){
+            request.getRequestDispatcher(accountLoginAddress).forward(request, response);
         }
 
-        // Validasi apakah sudah login as admin
-        else if(!request.getSession().getAttribute("role").equals("admin")){
-            address = "/view/login/account_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
-        }
 
         try {
             // Pengambilan data member card yang bersangkutan
-            MemberCard memberCard = memberCardService.getMemberCard(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
+            MemberCard memberCard = memberCardService.getMemberCard(request.getParameter("id"), (int)request.getSession().getAttribute(storeIdSession));
             request.setAttribute("memberCard", memberCard);
 
             // Pengambilan seluruh gender yang akan ditampilkan pada form
-            List<MemberGender> memberGenderList = memberCardService.getAllMemberGenderTrue((int)request.getSession().getAttribute("storeid"));
+            List<MemberGender> memberGenderList = memberCardService.getAllMemberGenderTrue((int)request.getSession().getAttribute(storeIdSession));
             request.setAttribute("gender", memberGenderList);
         } catch (Exception e){
             e.printStackTrace();
         }
 
-        request.getRequestDispatcher(address).forward(request, response);
+        request.getRequestDispatcher(editMemberCardAddress).forward(request, response);
     }
 
     /**
@@ -81,7 +87,8 @@ public class MemberCardEdit extends HttpServlet{
 
         try{
             // Inisialisasi Member Card
-            MemberCard memberCard = new MemberCard( Integer.parseInt(request.getParameter("id")),
+            MemberCard memberCard = new MemberCard(
+                    Integer.parseInt(request.getParameter("id")),
                     (int)request.getSession().getAttribute("storeid"),
                     request.getParameter("fullname"),
                     Integer.parseInt(request.getParameter("gender")),
@@ -93,12 +100,11 @@ public class MemberCardEdit extends HttpServlet{
             memberCardService.updateAccout(memberCard);
 
             // Redirect menuju halaman success
-            String address = "/view/database/success.jsp";
-            request.setAttribute("title", "MemberCard");
-            request.setAttribute("complete", "Updated");
-            request.setAttribute("link", "/admin/membercard");
+            request.setAttribute("title", title);
+            request.setAttribute("complete", statusEditBerhasil);
+            request.setAttribute("link", link);
 
-            request.getRequestDispatcher(address).forward(request, response);
+            request.getRequestDispatcher(successAddress).forward(request, response);
 
         } catch (SQLException e){
             e.printStackTrace();

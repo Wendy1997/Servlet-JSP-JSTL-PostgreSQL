@@ -24,6 +24,15 @@ import java.util.*;
 public class FilmDetail extends HttpServlet{
     FilmService filmService = new FilmServiceDatabase();
 
+    private final String storeLoginAddress = "/view/login/store_login.jsp";
+    private final String accountLoginAddress = "/view/login/account_login.jsp";
+    private final String detailFilmAddress = "/view/database/film/film_detail.jsp";
+    private final String successAddress = "/view/database/success.jsp";
+
+    private final String storeIdSession = "storeid";
+    private final String roleAccountSession = "role";
+    private final String roleAdmin = "admin";
+
     /**
      * Sebuah method GET yang akan memberikan informasi detail mengenai film tersebut
      *
@@ -34,33 +43,26 @@ public class FilmDetail extends HttpServlet{
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
 
-        // Initial Address
-        String address = "/view/database/film/film_detail.jsp";
-
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storeid") == null){
-            address = "/view/login/store_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
+        if(request.getSession().getAttribute(storeIdSession) == null){
+            request.getRequestDispatcher(storeLoginAddress).forward(request, response);
         }
-
         // Validasi apakah sudah login akun
-        else if (request.getSession().getAttribute("role") == null){
-            address = "/view/login/account_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
+        else if (request.getSession().getAttribute(roleAccountSession) == null){
+            request.getRequestDispatcher(accountLoginAddress).forward(request, response);
+        }
+        // Validasi apakah sudah login as admin
+        else if(!request.getSession().getAttribute(roleAccountSession).equals(roleAdmin)){
+            request.getRequestDispatcher(accountLoginAddress).forward(request, response);
         }
 
-        // Validasi apakah sudah login as admin
-        else if(!request.getSession().getAttribute("role").equals("admin")){
-            address = "/view/login/account_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
-        }
 
         try{
 
             // Inisialisasi Film, Genre Film tersebut dan List Screening Time dari film tersebut
-            Film film = filmService.getFilm(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
-            List<ScreeningTime> screeningTimeList = filmService.getAllScreeningTimeTrue((int)request.getSession().getAttribute("storeid"), request.getParameter("id"));
-            FilmGenre filmGenre = filmService.getFilmGenre(film.getGenre() + "", (int)request.getSession().getAttribute("storeid"));
+            Film film = filmService.getFilm(request.getParameter("id"), (int)request.getSession().getAttribute(storeIdSession));
+            List<ScreeningTime> screeningTimeList = filmService.getAllScreeningTimeTrue((int)request.getSession().getAttribute(storeIdSession), request.getParameter("id"));
+            FilmGenre filmGenre = filmService.getFilmGenre(film.getGenre() + "", (int)request.getSession().getAttribute(storeIdSession));
 
             // Membuat sebuah objek yang akan mengklasifikasi screening time berdasarkan studio
             Map<Integer, List<ScreeningTime>> screeningList = new TreeMap<>();
@@ -81,7 +83,7 @@ public class FilmDetail extends HttpServlet{
             request.setAttribute("genre", filmGenre);
             request.setAttribute("screeningTime", screeningList);
 
-            request.getRequestDispatcher(address).forward(request, response);
+            request.getRequestDispatcher(detailFilmAddress).forward(request, response);
         } catch (SQLException e){
             System.out.println(e.getMessage());
         }

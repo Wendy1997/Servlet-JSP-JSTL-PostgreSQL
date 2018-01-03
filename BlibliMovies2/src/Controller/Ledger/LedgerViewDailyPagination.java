@@ -27,6 +27,8 @@ import java.util.List;
 public class LedgerViewDailyPagination extends HttpServlet {
     InvoiceService invoiceService = new InvoiceServiceDatabase();
 
+    private final String storeIdSession = "storeid";
+
     /**
      * Sebuah method GET yang memberikan data list invoice hari tersebut pada suatu halaman
      *
@@ -41,7 +43,7 @@ public class LedgerViewDailyPagination extends HttpServlet {
             int page = (Integer.parseInt(request.getParameter("page")) - 1) * 10;
 
             // Pengambilan list invoice pada hari tersebut pada offset halaman tersebut
-            List<Invoice> invoiceList = invoiceService.getDailyInvoice(request.getParameter("date"), (int)request.getSession().getAttribute("storeid"), page);
+            List<Invoice> invoiceList = invoiceService.getDailyInvoice(request.getParameter("date"), (int)request.getSession().getAttribute(storeIdSession), page);
             invoiceList.sort(Comparator.comparingInt(Invoice::getId));
 
             // Inisialisasi dan mengubah objek menjadi JSON

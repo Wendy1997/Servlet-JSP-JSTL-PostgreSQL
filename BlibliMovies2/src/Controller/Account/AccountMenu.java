@@ -23,6 +23,17 @@ import java.util.List;
 public class AccountMenu extends HttpServlet{
     AccountService accountService = new AccountServiceDatabase();
 
+    private final String storeLoginAddress = "/view/login/store_login.jsp";
+    private final String accountLoginAddress = "/view/login/account_login.jsp";
+    private final String menuAccountAddress = "/view/database/account/account_menu.jsp";
+    private final String successAddress = "/view/database/success.jsp";
+
+    private final String storeIdSession = "storeid";
+    private final String roleAccountSession = "role";
+    private final String roleAdmin = "admin";
+
+    private final int initialPage = 0;
+
     /**
      * Sebuah method GET yang memberikan halaman list akun
      *
@@ -33,40 +44,33 @@ public class AccountMenu extends HttpServlet{
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        // Initial Address
-        String address = "/view/database/account/account_menu.jsp";
-
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storeid") == null){
-            address = "/view/login/store_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
+        if(request.getSession().getAttribute(storeIdSession) == null){
+            request.getRequestDispatcher(storeLoginAddress).forward(request, response);
         }
-
         // Validasi apakah sudah login akun
-        else if (request.getSession().getAttribute("role") == null){
-            address = "/view/login/account_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
+        else if (request.getSession().getAttribute(roleAccountSession) == null){
+            request.getRequestDispatcher(accountLoginAddress).forward(request, response);
+        }
+        // Validasi apakah sudah login as admin
+        else if(!request.getSession().getAttribute(roleAccountSession).equals(roleAdmin)){
+            request.getRequestDispatcher(accountLoginAddress).forward(request, response);
         }
 
-        // Validasi apakah sudah login as admin
-        else if(!request.getSession().getAttribute("role").equals("admin")){
-            address = "/view/login/account_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
-        }
 
         try{
             // Pengambilan data list akun dan juga role akun untuk diretrieve pada menu
-            List<Account> accounts = accountService.getAllAccount((int)request.getSession().getAttribute("storeid"), 0);
-            List<AccountRole> accountRoles = accountService.getAllAccountRole((int)request.getSession().getAttribute("storeid"));
+            List<Account> accounts = accountService.getAllAccount((int)request.getSession().getAttribute(storeIdSession), initialPage);
+            List<AccountRole> accountRoles = accountService.getAllAccountRole((int)request.getSession().getAttribute(storeIdSession));
 
             // Pengambilan data jumlah halaman yang akan ditampilkan pada menu
-            int pageCounter = accountService.getCountAllAccount((int)request.getSession().getAttribute("storeid"));
+            int pageCounter = accountService.getCountAllAccount((int)request.getSession().getAttribute(storeIdSession));
 
             request.setAttribute("roles", accountRoles);
             request.setAttribute("accounts", accounts);
             request.setAttribute("page", pageCounter);
 
-            request.getRequestDispatcher(address).forward(request, response);
+            request.getRequestDispatcher(menuAccountAddress).forward(request, response);
         } catch (SQLException e){
             e.printStackTrace();
         }

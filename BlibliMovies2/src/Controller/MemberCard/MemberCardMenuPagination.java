@@ -24,6 +24,8 @@ import java.util.ServiceConfigurationError;
 public class MemberCardMenuPagination extends HttpServlet {
     MemberCardService membercardService = new MemberCardServiceDatabase();
 
+    private final String storeIdSession = "storeid";
+
     /**
      * Sebuah method GET yang memberikan data list member card pada suatu halaman
      *
@@ -38,7 +40,7 @@ public class MemberCardMenuPagination extends HttpServlet {
             int page = (Integer.parseInt(request.getParameter("page")) - 1) * 10;
 
             // Pengambilan list fnb pada offset halaman tersebut
-            List<MemberCard> membercards = membercardService.getAllMemberCard((int)request.getSession().getAttribute("storeid"), page);
+            List<MemberCard> membercards = membercardService.getAllMemberCard((int)request.getSession().getAttribute(storeIdSession), page);
 
             // Inisialisasi dan mengubah objek menjadi JSON
             Gson gson = new Gson();

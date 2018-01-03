@@ -24,6 +24,8 @@ import java.util.ServiceConfigurationError;
 public class FilmMenuPagination extends HttpServlet {
     FilmService filmService = new FilmServiceDatabase();
 
+    private final String storeIdSession = "storeid";
+
     /**
      * Sebuah method GET yang memberikan data list film pada suatu halaman
      *
@@ -38,7 +40,7 @@ public class FilmMenuPagination extends HttpServlet {
             int page = (Integer.parseInt(request.getParameter("page")) - 1) * 10;
 
             // Pengambilan list film pada offset halaman tersebut
-            List<Film> films = filmService.getAllFilm((int)request.getSession().getAttribute("storeid"), page);
+            List<Film> films = filmService.getAllFilm((int)request.getSession().getAttribute(storeIdSession), page);
 
             // Inisialisasi dan mengubah objek menjadi JSON
             Gson gson = new Gson();

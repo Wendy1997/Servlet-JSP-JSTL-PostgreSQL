@@ -23,6 +23,19 @@ import java.util.List;
 public class FnBTypeAdd extends HttpServlet {
     FnBService fnbService = new FnBServiceDatabase();
 
+    private final String storeLoginAddress = "/view/login/store_login.jsp";
+    private final String accountLoginAddress = "/view/login/account_login.jsp";
+    private final String addFnBTypeAddress = "/view/database/fnbtype/fnbtype_add.jsp";
+    private final String successAddress = "/view/database/success.jsp";
+
+    private final String storeIdSession = "storeid";
+    private final String roleAccountSession = "role";
+    private final String roleAdmin = "admin";
+
+    private final String title = "FnB Type";
+    private final String statusAddBerhasil = "Created";
+    private final String link = "/admin/fnbtype";
+
     /**
      * Sebuah method GET yang memberikan form penambahan fnb type
      *
@@ -33,25 +46,21 @@ public class FnBTypeAdd extends HttpServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        // Initial Address
-        String address = "/view/database/fnbtype/fnbtype_add.jsp";
-
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storeid") == null){
-            address = "/view/login/store_login.jsp";
+        if(request.getSession().getAttribute(storeIdSession) == null){
+            request.getRequestDispatcher(storeLoginAddress).forward(request, response);
         }
-
         // Validasi apakah sudah login akun
-        else if (request.getSession().getAttribute("role") == null){
-            address = "/view/login/account_login.jsp";
+        else if (request.getSession().getAttribute(roleAccountSession) == null){
+            request.getRequestDispatcher(accountLoginAddress).forward(request, response);
         }
-
         // Validasi apakah sudah login as admin
-        else if(!request.getSession().getAttribute("role").equals("admin")){
-            address = "/view/login/account_login.jsp";
+        else if(!request.getSession().getAttribute(roleAccountSession).equals(roleAdmin)){
+            request.getRequestDispatcher(accountLoginAddress).forward(request, response);
         }
 
-        request.getRequestDispatcher(address).forward(request, response);
+
+        request.getRequestDispatcher(addFnBTypeAddress).forward(request, response);
     }
 
     /**
@@ -67,18 +76,17 @@ public class FnBTypeAdd extends HttpServlet {
         try{
             // Inisialisasi FnB
             FnBType fnBType = new FnBType( request.getParameter("type"),
-                    (int)request.getSession().getAttribute("storeid"));
+                    (int)request.getSession().getAttribute(storeIdSession));
 
             // Sebuah method yang akan memasukkan fnb pada database
             fnbService.addFnBType(fnBType);
 
             // Redirect menuju halaman success
-            String address = "/view/database/success.jsp";
-            request.setAttribute("title", "FnB Type");
-            request.setAttribute("complete", "Created");
-            request.setAttribute("link", "/admin/fnbtype");
+            request.setAttribute("title", title);
+            request.setAttribute("complete", statusAddBerhasil);
+            request.setAttribute("link", link);
 
-            request.getRequestDispatcher(address).forward(request,response);
+            request.getRequestDispatcher(successAddress).forward(request,response);
         } catch (SQLException e){
             e.printStackTrace();
         }

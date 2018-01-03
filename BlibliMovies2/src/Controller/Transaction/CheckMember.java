@@ -27,6 +27,9 @@ public class CheckMember extends HttpServlet{
     InvoiceService promoDAO = new InvoiceServiceDatabase();
     MemberCardService memberCardService = new MemberCardServiceDatabase();
 
+    private final String storeIdSession = "storeid";
+    private final String notFound = "0";
+
     /**
      * Sebuah method POST yang akan mengecek apakah member valid atau tidak
      *
@@ -40,14 +43,14 @@ public class CheckMember extends HttpServlet{
 
         try {
             // Inisialisasi member card
-            MemberCard memberCard = memberCardService.getMemberCardTrue(id, (int)request.getSession().getAttribute("storeid"));
+            MemberCard memberCard = memberCardService.getMemberCardTrue(id, (int)request.getSession().getAttribute(storeIdSession));
 
             // Pengecekan apakah valid?
             PrintWriter out = response.getWriter();
             if(memberCard == null){
-                out.print("0");
+                out.print(notFound);
             } else {
-                out.print(promoDAO.getPromo((int)request.getSession().getAttribute("storeid")).getDiscountAmount());
+                out.print(promoDAO.getPromo((int)request.getSession().getAttribute(storeIdSession)).getDiscountAmount());
             }
         } catch (SQLException e){
             e.printStackTrace();

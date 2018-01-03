@@ -18,13 +18,21 @@ import java.sql.SQLException;
 public class StoreAccountDelete extends HttpServlet {
     StoreAccountService storeAccountService = new StoreAccountServiceDatabase();
 
+    private final String superLoginAddress = "/view/login/superadmin_login.jsp";
+    private final String successAddress = "/view/database/success.jsp";
+
+    private final String superAdminSession = "superadminid";
+
+    private final String title = "Store Account";
+    private final String statusDeleteBerhasil = "Deleted";
+    private final String statusRetrieveBerhasil = "Retrieved";
+    private final String link = "/admin/storeaccount";
+
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        String address = "/view/database/storeaccount/storeaccount_menu.jsp";
 
         // Validasi apakah sudah login as super
-        if(request.getSession().getAttribute("superadminid") == null){
-            address = "/view/login/superadmin_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
+        if(request.getSession().getAttribute(superAdminSession) == null){
+            request.getRequestDispatcher(superLoginAddress).forward(request, response);
         }
 
         try{
@@ -32,17 +40,17 @@ public class StoreAccountDelete extends HttpServlet {
 
             if(storeAccount.getStatus()){
                 storeAccountService.deleteStoreAccount(storeAccount.getId());
-                request.setAttribute("complete", "Deleted");
+                request.setAttribute("complete", statusDeleteBerhasil);
             } else{
-                request.setAttribute("complete", "Retrieved");
+                request.setAttribute("complete", statusRetrieveBerhasil);
                 storeAccountService.retrieveStoreAccount(storeAccount.getId());
             }
 
-            address = "/view/database/success.jsp";
-            request.setAttribute("title", "Store Account");
-            request.setAttribute("link", "/admin/storeaccount");
+            // Redirect menuju halaman success
+            request.setAttribute("title", title);
+            request.setAttribute("link", link);
 
-            request.getRequestDispatcher(address).forward(request, response);
+            request.getRequestDispatcher(successAddress).forward(request, response);
 
         } catch (Exception e){
             e.printStackTrace();

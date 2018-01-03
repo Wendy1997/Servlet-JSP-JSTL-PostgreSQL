@@ -26,6 +26,21 @@ public class ChooseSeat extends HttpServlet {
     FilmService filmService = new FilmServiceDatabase();
     FilmTicketService filmTicketService = new FilmTicketServiceDatabase();
 
+    private final String storeLoginAddress = "/view/login/store_login.jsp";
+    private final String accountLoginAddress = "/view/login/account_login.jsp";
+    private final String chooseSeatAddress = "/view/transaction/choose_seat.jsp";
+    private final String chooseFnBAddress = "/view/transaction/choose_fnb.jsp";
+    private final String successAddress = "/view/database/success.jsp";
+
+    private final String storeIdSession = "storeid";
+    private final String roleAccountSession = "role";
+    private final String roleAdmin = "admin";
+
+    private final String title = "Account";
+    private final String statusDeleteBerhasil = "Deleted";
+    private final String statusRetrieveBerhasil = "Retrieved";
+    private final String link = "admin";
+
     /**
      * Sebuah method GET yang akan menampilkan list tempat duduk yang akan dipilih
      *
@@ -36,35 +51,30 @@ public class ChooseSeat extends HttpServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
-        // Initial Address
-        String address = "/view/transaction/choose_seat.jsp";
-
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storeid") == null){
-            address = "/view/login/store_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
+        if(request.getSession().getAttribute(storeIdSession) == null){
+            request.getRequestDispatcher(storeLoginAddress).forward(request, response);
         }
 
         // Validasi apakah sudah login akun
-        else if (request.getSession().getAttribute("role") == null){
-            address = "/view/login/account_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
+        else if (request.getSession().getAttribute(roleAccountSession) == null){
+            request.getRequestDispatcher(accountLoginAddress).forward(request, response);
         }
 
         try{
 
             // Pengambilan data kursi yang telah diambil
-            List<FilmTicket> filmTicketList = filmTicketService.getAllTickets(request.getParameter("id"),request.getParameter("studioid"),request.getParameter("screeningid"),(int)request.getSession().getAttribute("storeid"), request.getParameter("date"));
+            List<FilmTicket> filmTicketList = filmTicketService.getAllTickets(request.getParameter("id"),request.getParameter("studioid"),request.getParameter("screeningid"),(int)request.getSession().getAttribute(storeIdSession), request.getParameter("date"));
 
             // Pengambilan data film yang dipilih
-            Film film = filmService.getFilmTrue(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
-            FilmGenre filmGenre = filmService.getFilmGenre(film.getGenre() + "", (int)request.getSession().getAttribute("storeid"));
+            Film film = filmService.getFilmTrue(request.getParameter("id"), (int)request.getSession().getAttribute(storeIdSession));
+            FilmGenre filmGenre = filmService.getFilmGenre(film.getGenre() + "", (int)request.getSession().getAttribute(storeIdSession));
 
             request.setAttribute("genre", filmGenre.getGenre());
             request.setAttribute("filmid", request.getParameter("id"));
             request.setAttribute("studioid", request.getParameter("studioid"));
-            request.setAttribute("namaStudio", filmService.getStudioTrue(request.getParameter("studioid"), (int)request.getSession().getAttribute("storeid")).getName());
-            request.setAttribute("screeningTime", filmService.getScreeningTimeTrue(request.getParameter("screeningid"), request.getParameter("id"), (int)request.getSession().getAttribute("storeid")).getTime());
+            request.setAttribute("namaStudio", filmService.getStudioTrue(request.getParameter("studioid"), (int)request.getSession().getAttribute(storeIdSession)).getName());
+            request.setAttribute("screeningTime", filmService.getScreeningTimeTrue(request.getParameter("screeningid"), request.getParameter("id"), (int)request.getSession().getAttribute(storeIdSession)).getTime());
             request.setAttribute("screeningid", request.getParameter("screeningid"));
             request.setAttribute("filmTickets",filmTicketList);
             request.setAttribute("film", film);
@@ -73,7 +83,7 @@ public class ChooseSeat extends HttpServlet {
             e.printStackTrace();
         }
 
-        request.getRequestDispatcher(address).forward(request, response);
+        request.getRequestDispatcher(chooseSeatAddress).forward(request, response);
     }
 
     /**
@@ -86,20 +96,17 @@ public class ChooseSeat extends HttpServlet {
      */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
-        // Initial Address
-        String address = "/view/transaction/choose_fnb.jsp";
-
         // Inialisasi list seat yang diambil
         String[] seatList = request.getParameter("tickets").split(",");
 
         try {
             // Inisialisasi studio yang dipilih
-            Studio studio = filmService.getStudio(request.getParameter("studioid"), (int)request.getSession().getAttribute("storeid"));
+            Studio studio = filmService.getStudio(request.getParameter("studioid"), (int)request.getSession().getAttribute(storeIdSession));
 
             // Looping untuk memasukkan list ticket pada db sesuai dengan film, studio dan screening time yang dipilih
             for(int i = 0; i < seatList.length; i++){
                 if(!seatList[i].isEmpty()) {
-                    filmTicketService.addTicket(new FilmTicket(Integer.parseInt(request.getParameter("filmid")), Integer.parseInt(request.getParameter("studioid")), seatList[i], Integer.parseInt(request.getParameter("screeningid")), studio.getPrice(), (int) request.getSession().getAttribute("storeid"), request.getParameter("date")));
+                    filmTicketService.addTicket(new FilmTicket(Integer.parseInt(request.getParameter("filmid")), Integer.parseInt(request.getParameter("studioid")), seatList[i], Integer.parseInt(request.getParameter("screeningid")), studio.getPrice(), (int) request.getSession().getAttribute(storeIdSession), request.getParameter("date")));
                     System.out.println("masuk");
                 }
             }
@@ -107,6 +114,6 @@ public class ChooseSeat extends HttpServlet {
             e.printStackTrace();
         }
 
-        request.getRequestDispatcher(address).forward(request, response);
+        request.getRequestDispatcher(chooseFnBAddress).forward(request, response);
     }
 }

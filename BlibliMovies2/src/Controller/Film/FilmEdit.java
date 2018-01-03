@@ -32,6 +32,19 @@ public class FilmEdit extends HttpServlet{
     FilmService filmService = new FilmServiceDatabase();
     private static final String UPLOAD_DIR = "web\\uploads";
 
+    private final String storeLoginAddress = "/view/login/store_login.jsp";
+    private final String accountLoginAddress = "/view/login/account_login.jsp";
+    private final String editFilmAddress = "/view/database/film/film_edit.jsp";
+    private final String successAddress = "/view/database/success.jsp";
+
+    private final String storeIdSession = "storeid";
+    private final String roleAccountSession = "role";
+    private final String roleAdmin = "admin";
+
+    private final String title = "Film";
+    private final String statusEditBerhasil = "Updated";
+    private final String link = "/admin/film";
+
     /**
      * Sebuah method GET yang memberikan halaman form edit film
      *
@@ -42,41 +55,33 @@ public class FilmEdit extends HttpServlet{
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
-        // Initial Address
-        String address = "/view/database/film/film_edit.jsp";
-
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storeid") == null){
-            address = "/view/login/store_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
+        if(request.getSession().getAttribute(storeIdSession) == null){
+            request.getRequestDispatcher(storeLoginAddress).forward(request, response);
         }
-
         // Validasi apakah sudah login akun
-        else if (request.getSession().getAttribute("role") == null){
-            address = "/view/login/account_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
+        else if (request.getSession().getAttribute(roleAccountSession) == null){
+            request.getRequestDispatcher(accountLoginAddress).forward(request, response);
         }
-
         // Validasi apakah sudah login as admin
-        else if(!request.getSession().getAttribute("role").equals("admin")){
-            address = "/view/login/account_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
+        else if(!request.getSession().getAttribute(roleAccountSession).equals(roleAdmin)){
+            request.getRequestDispatcher(accountLoginAddress).forward(request, response);
         }
 
         try {
 
             // Pengambilan data film yang bersangkutan
-            Film film = filmService.getFilm(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
+            Film film = filmService.getFilm(request.getParameter("id"), (int)request.getSession().getAttribute(storeIdSession));
             request.setAttribute("film", film);
 
             // Pengambilan seluruh genre yang akan ditampilkan pada form
-            List<FilmGenre> filmGenreList = filmService.getAllFilmGenreTrue((int)request.getSession().getAttribute("storeid"));
+            List<FilmGenre> filmGenreList = filmService.getAllFilmGenreTrue((int)request.getSession().getAttribute(storeIdSession));
             request.setAttribute("genre", filmGenreList);
         } catch (SQLException e){
             e.printStackTrace();
         }
 
-        request.getRequestDispatcher(address).forward(request, response);
+        request.getRequestDispatcher(editFilmAddress).forward(request, response);
     }
 
     /**
@@ -96,7 +101,7 @@ public class FilmEdit extends HttpServlet{
             String random = dtf.format(now);
 
             // Pengambilan data cover sebelumnya
-            String cover = filmService.getFilm(request.getParameter("id"), (int)request.getSession().getAttribute("storeid")).getCover();
+            String cover = filmService.getFilm(request.getParameter("id"), (int)request.getSession().getAttribute(storeIdSession)).getCover();
             String[] randomList = cover.split("/");
 
             Film film = new Film();
@@ -112,7 +117,7 @@ public class FilmEdit extends HttpServlet{
                 }
 
                 // Memberikan direktori upload file
-                uploadFilePath += UPLOAD_DIR + "\\" + (int)request.getSession().getAttribute("storeid") + "\\film";
+                uploadFilePath += UPLOAD_DIR + "\\" + (int)request.getSession().getAttribute(storeIdSession) + "\\film";
 
                 // Menghapus file lama
                 File fileLama = new File(uploadFilePath + "\\" + randomList[3]);
@@ -132,8 +137,8 @@ public class FilmEdit extends HttpServlet{
                 // Inisialisasi Film
                 film = new Film(
                         Integer.parseInt(request.getParameter("id")),
-                        (int)request.getSession().getAttribute("storeid"),
-                        "/" + (int)request.getSession().getAttribute("storeid") + "/film/" + request.getParameter("nama") + " (" + request.getParameter("waktu_mulai").substring(0,4) + ") [" + random + "].jpg",
+                        (int)request.getSession().getAttribute(storeIdSession),
+                        "/" + (int)request.getSession().getAttribute(storeIdSession) + "/film/" + request.getParameter("nama") + " (" + request.getParameter("waktu_mulai").substring(0,4) + ") [" + random + "].jpg",
                         request.getParameter("nama"),
                         Integer.parseInt(request.getParameter("genre")),
                         Integer.parseInt(request.getParameter("durasi")),
@@ -151,8 +156,8 @@ public class FilmEdit extends HttpServlet{
                 // Inisialisasi Film
                 film = new Film(
                         Integer.parseInt(request.getParameter("id")),
-                        (int)request.getSession().getAttribute("storeid"),
-                        filmService.getFilm(request.getParameter("id"), (int)request.getSession().getAttribute("storeid")).getCover(),
+                        (int)request.getSession().getAttribute(storeIdSession),
+                        filmService.getFilm(request.getParameter("id"), (int)request.getSession().getAttribute(storeIdSession)).getCover(),
                         request.getParameter("nama"),
                         Integer.parseInt(request.getParameter("genre")),
                         Integer.parseInt(request.getParameter("durasi")),
@@ -171,12 +176,11 @@ public class FilmEdit extends HttpServlet{
             filmService.updateFilm(film);
 
             // Redirect menuju halaman success
-            String address = "/view/database/success.jsp";
-            request.setAttribute("title", "Film");
-            request.setAttribute("complete", "Updated");
-            request.setAttribute("link", "/admin/film");
+            request.setAttribute("title", title);
+            request.setAttribute("complete", statusEditBerhasil);
+            request.setAttribute("link", link);
 
-            request.getRequestDispatcher(address).forward(request, response);
+            request.getRequestDispatcher(successAddress).forward(request, response);
 
         } catch (SQLException e){
             e.printStackTrace();

@@ -20,22 +20,30 @@ public class StoreAccountAdd extends HttpServlet {
     MemberCardService memberCardService = new MemberCardServiceDatabase();
     InvoiceService invoiceService = new InvoiceServiceDatabase();
 
+    private final String superLoginAddress = "/view/login/superadmin_login.jsp";
+    private final String successAddress = "/view/database/success.jsp";
+    private final String addStoreAccountAddress = "/view/database/storeaccount/storeaccount_add.jsp";
+
+    private final String superAdminSession = "superadminid";
+
+    private final String title = "Store Account";
+    private final String statusAddBerhasil = "Created";
+    private final String statusAddGagal = "Has Taken";
+    private final String link = "/admin/storeaccount";
+
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String address = "/view/database/storeaccount/storeaccount_add.jsp";
 
         // Validasi apakah sudah login as super
-        if(request.getSession().getAttribute("superadminid") == null){
-            address = "/view/login/superadmin_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
+        if(request.getSession().getAttribute(superAdminSession) == null){
+            request.getRequestDispatcher(superLoginAddress).forward(request, response);
         }
 
-        request.getRequestDispatcher(address).forward(request, response);
+        request.getRequestDispatcher(addStoreAccountAddress).forward(request, response);
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         try{
-            String address = "/view/database/success.jsp";
 
             StoreAccount storeAccount = new StoreAccount( request.getParameter("username"),
                     request.getParameter("password").hashCode() + "",
@@ -45,9 +53,9 @@ public class StoreAccountAdd extends HttpServlet {
                 storeAccountService.getStoreAccount(request.getParameter("username")).getUsername();
 
                 // Redirect menuju halaman success
-                request.setAttribute("title", "Store Account");
-                request.setAttribute("complete", "Has Taken");
-                request.setAttribute("link", "/admin/storeaccount");
+                request.setAttribute("title", title);
+                request.setAttribute("complete", statusAddGagal);
+                request.setAttribute("link", link);
 
             } catch (NullPointerException e){
                 storeAccountService.addStoreAccount(storeAccount);
@@ -81,11 +89,12 @@ public class StoreAccountAdd extends HttpServlet {
                 Promo promo = new Promo(storeid, "tes", "tes", 10);
                 invoiceService.addPromo(promo);
 
-                request.setAttribute("title", "Store Account");
-                request.setAttribute("complete", "Created");
-                request.setAttribute("link", "/admin/storeaccount");
+                // Redirect menuju halaman success
+                request.setAttribute("title", title);
+                request.setAttribute("complete", statusAddBerhasil);
+                request.setAttribute("link", link);
             } finally {
-                request.getRequestDispatcher(address).forward(request,response);
+                request.getRequestDispatcher(successAddress).forward(request,response);
             }
         } catch (Exception e){
            e.printStackTrace();
