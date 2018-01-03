@@ -200,6 +200,13 @@
 
                    if(response == 0){
                        alert("Member ID not found");
+
+                       diskon = response;
+                       $('#discount')[0].innerHTML = 'Member Discount: -%';
+
+                       hargaFinal = harga;
+                       $('#amount')[0].innerHTML = "Rp. "+ hargaFinal +" ,-";
+
                    } else {
                        diskon = response;
                        $('#discount')[0].innerHTML = 'Member Discount: ' + diskon + '%';
