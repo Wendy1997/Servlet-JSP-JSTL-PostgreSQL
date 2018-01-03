@@ -862,7 +862,6 @@ ALTER TABLE ONLY superadmin ALTER COLUMN id SET DEFAULT nextval('superadmin_id_s
 --
 
 COPY account (username, storeid, password, roleid, status, id) FROM stdin;
-ndi	1	1325902686	1	t	1
 lala	1	3583	1	t	3
 tampan	1	1743073945	2	t	4
 admin	1	-1408658752	1	t	2
@@ -883,6 +882,7 @@ admin	28	92668751	44	t	36
 admin	1	92668751	1	t	37
 lala	1	3583	1	t	38
 damar	1	113141045	1	t	39
+ndi	1	1325902686	1	f	1
 \.
 
 
@@ -952,14 +952,12 @@ COPY film (id, storeid, cover, title, genre, duration, director, rating, reviewt
 19	1	asd	asd	1	1	asdas	12312	1231	2017-12-31	2016-12-31	123	123	1123	123\n	f
 17	1	asd	asd	1	1	asdas	12312	1231	2017-12-31	2016-12-31	123	123	1123	123\n	f
 18	1	asd	asd	1	1	asdas	12312	1231	2017-12-31	2016-12-31	123	123	1123	123\n	f
-15	1	asd	asdasd	1	1231	asdasd	123	1123	2017-12-31	0012-12-12	aadds	asasd	asdasd	asdasd	f
 16	1	asd	asdasd	1	1231	asdasd	123	1123	2017-12-31	0012-12-12	aadds	asasd	asdasd	asdasd	f
 13	1	asda	asdasd	1	13123	asdasd	13123	313	2017-12-31	2017-12-31	asdasd	asdasd	asdasd	asd	f
 14	1	asda	asdasd	1	13123	asdasd	13123	313	2017-12-31	2017-12-31	asdasd	asdasd	asdasd	asd	f
 12	1	asda	asdasd	1	13123	asdasd	13123	313	2017-12-31	2017-12-31	asdasd	asdasd	asdasd	asd	f
 23	1	\\blibli\\film\\WendyDamar (2017).jpg	WendyDamar	2	123	asd	12	123	2017-12-03	2017-01-03	indon	indon	wendy	asd	f
 8	1	tampan	asdasd	1	123	123	123	123	2017-12-31	2017-12-31	123	2123	123	123	f
-6	1	asd	ad	1	123	asda	13	123	2017-12-31	2017-01-01	asdasd	asd	asd	asd	f
 7	1	asd	asdasd	1	123	123	123	123	2017-12-31	2017-12-31	123	2123	123	123	f
 9	1	asda	asdasd	1	13123	asdasd	13123	313	2017-12-31	2017-12-31	asdasd	asdasd	asdasd	asd	f
 30	1	/blibli/film/[20171203224541] asdasd (2017).jpg	asdasd	1	1	1	1	1	2017-12-03	2017-12-03	1	1	1	1	f
@@ -972,6 +970,9 @@ COPY film (id, storeid, cover, title, genre, duration, director, rating, reviewt
 33	1	/1/film/asd (2017) [20171228152018].jpg	asd	2	123	asd	12	12	2017-12-31	2018-12-31	asd	asd	asd	To check for any empty file input in the form while uploding any file to the server best way follow my instructions 1. use @MultipartConfig() at the top of your servlet class 2. add the following method to your class private InputStream getImageStream(HttpServletRequest request, String image){ try { Part part 	t
 28	1	/blibli/film/qsd (2017).jpg	qsd	1	1	1	1	1	2017-12-03	2018-12-03	1	1	1	1	t
 10	1	asda	asdasd	1	13123	asdasd	13123	313	2017-12-31	2017-12-31	asdasd	asdasd	asdasd	asd	t
+6	1	asd	ad	1	123	asda	13	123	2017-12-31	2017-01-01	asdasd	asd	asd	asd	t
+38	1	/1/film/N (2018) [20180102172550].jpg	Naaaa	1	1	a	0	1	2018-01-11	2018-01-12	sd	as	a	-	f
+15	1	asd	asdasd	1	1231	asdasd	123	1123	2017-12-31	0012-12-12	aadds	asasd	asdasd	asdasd	t
 \.
 
 
@@ -979,7 +980,7 @@ COPY film (id, storeid, cover, title, genre, duration, director, rating, reviewt
 -- Name: film_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('film_id_seq', 37, true);
+SELECT pg_catalog.setval('film_id_seq', 38, true);
 
 
 --
@@ -993,11 +994,11 @@ COPY filmgenre (id, genre, storeid, status) FROM stdin;
 6	Comedy	1	t
 5	Adventure	1	t
 4	Melodrama	1	t
-9	aleleleandro	1	f
 2	HorrorBgt	1	t
 10	Baru	1	t
 11	Banget	1	f
 1	Action	1	t
+9	aleleleandro	1	f
 \.
 
 
@@ -1117,7 +1118,6 @@ SELECT pg_catalog.setval('fnbtype_id_seq', 11, true);
 --
 
 COPY foodandbeverages (id, storeid, cover, name, type, size, price, status) FROM stdin;
-7	1	/1/fnb/wendyyyy (1) [20171229091252].jpg	wendyyyy	3	1	20000	t
 8	1	/1/fnb/Walala (1) [20171229091302].jpg	Walala	3	1	10000	t
 9	1	/1/fnb/tes (1) [20171229091152].jpg	tes	1	1	100	t
 10	1	/1/fnb/tes (1) [20171229091152].jpg	tes	1	1	100	t
@@ -1130,6 +1130,7 @@ COPY foodandbeverages (id, storeid, cover, name, type, size, price, status) FROM
 17	1	/1/fnb/tes (1) [20171229091152].jpg	tes	1	1	100	t
 18	1	/1/fnb/tes (1) [20171229091152].jpg	tes	1	1	100	t
 19	1	/1/fnb/tes (1) [20171229091152].jpg	tes	1	1	100	t
+7	1	/1/fnb/wendyyyy (1) [20171229091252].jpg	wendyyyyLA	3	1	20000	t
 \.
 
 
@@ -1251,9 +1252,9 @@ SELECT pg_catalog.setval('invoice_id_seq', 95, true);
 --
 
 COPY membercard (id, storeid, fullname, gender, birthdate, phonenumber, email, status) FROM stdin;
-1	1	Tampan	2	2017-12-31 00:00:00	123	wendydamar.wb@gmail.com	t
 2	1	asd	2	2017-12-31 00:00:00	12312	wendydamarA.wb@gmail.com	t
 3	1	as	2	2017-12-31 00:00:00	123	we@aA	f
+1	1	Tampanaaa	2	2017-12-31 00:00:00	1230000000	wendydamar.wb@gmail.com	f
 \.
 
 
@@ -2343,7 +2344,7 @@ COPY studio (id, storeid, name, type, price, status) FROM stdin;
 6	1	D	1	40000	t
 4	1	C	2	30000	t
 11	1	asds	1	123	t
-1	1	AA	1	10000	t
+1	1	A	1	10000	t
 \.
 
 
