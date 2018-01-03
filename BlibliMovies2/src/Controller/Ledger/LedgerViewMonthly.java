@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -40,6 +41,7 @@ public class LedgerViewMonthly extends HttpServlet {
 
             // Pengambilan list invoice bulan tersebut
             List<Invoice> invoiceList = invoiceService.getMonthlyInvoice(request.getParameter("date"), (int)request.getSession().getAttribute("storeid"), 0);
+            invoiceList.sort(Comparator.comparingInt(Invoice::getId));
 
             // Inisialisasi dan mengubah objek menjadi JSON
             Gson gson = new Gson();

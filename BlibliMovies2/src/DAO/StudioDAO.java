@@ -142,7 +142,7 @@ public class StudioDAO {
      */
     public Studio getStudio(String studio, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM studio where id = ? and storeid = ?");
-        ps.setString(1, studio);
+        ps.setInt(1, Integer.parseInt(studio));
         ps.setInt(2, storeid);
 
         ResultSet rs = ps.executeQuery();
@@ -175,7 +175,7 @@ public class StudioDAO {
      */
     public Studio getStudioTrue(String studio, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM studio where id = ? and storeid = ? and status = true");
-        ps.setString(1, studio);
+        ps.setInt(1, Integer.parseInt(studio));
         ps.setInt(2, storeid);
 
         ResultSet rs = ps.executeQuery();
@@ -227,7 +227,7 @@ public class StudioDAO {
      */
     public void deleteStudio(String id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("update studio set status = false where id = ? AND storeid = ?");
-        ps.setString(1, id);
+        ps.setInt(1, Integer.parseInt(id));
         ps.setInt(2, storeid);
         ps.executeUpdate();
         ps.close();
@@ -243,7 +243,7 @@ public class StudioDAO {
      */
     public void retrieveStudio(String id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("update studio set status = true where id = ? AND storeid = ?");
-        ps.setString(1, id);
+        ps.setInt(1, Integer.parseInt(id));
         ps.setInt(2, storeid);
         ps.executeUpdate();
         ps.close();
@@ -262,7 +262,7 @@ public class StudioDAO {
         ps.setString(1, studio.getName());
         ps.setInt(2, studio.getType());
         ps.setInt(3, studio.getPrice());
-        ps.setString(4, studio.getId() + "");
+        ps.setInt(4, studio.getId());
         ps.setInt(5, studio.getStoreID());
 
         ps.executeUpdate();

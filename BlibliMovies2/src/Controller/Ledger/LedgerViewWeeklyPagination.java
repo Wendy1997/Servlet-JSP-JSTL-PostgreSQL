@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -41,6 +42,7 @@ public class LedgerViewWeeklyPagination extends HttpServlet {
 
             // Pengambilan list invoice pada minggu tersebut pada offset halaman tersebut
             List<Invoice> invoiceList = invoiceService.getWeeklyInvoice(request.getParameter("date"), (int)request.getSession().getAttribute("storeid"), page);
+            invoiceList.sort(Comparator.comparingInt(Invoice::getId));
 
             // Inisialisasi dan mengubah objek menjadi JSON
             Gson gson = new Gson();

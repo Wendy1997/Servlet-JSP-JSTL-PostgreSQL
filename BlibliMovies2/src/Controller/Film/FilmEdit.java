@@ -98,7 +98,6 @@ public class FilmEdit extends HttpServlet{
             // Pengambilan data cover sebelumnya
             String cover = filmService.getFilm(request.getParameter("id"), (int)request.getSession().getAttribute("storeid")).getCover();
             String[] randomList = cover.split("/");
-            String randomNumber = randomList[3].substring(randomList[3].length()-19, randomList[3].length()-5);
 
             Film film = new Film();
 
@@ -128,13 +127,13 @@ public class FilmEdit extends HttpServlet{
                 // Save data ke direktori tersebut
                 Part part = request.getPart("file");
                 part.write(uploadFilePath + "\\" + request.getParameter("nama") + " (" + request.getParameter("waktu_mulai").substring(0,4) + ") [" + random + "].jpg");
-                randomNumber = random;
+                random = random;
 
                 // Inisialisasi Film
                 film = new Film(
                         Integer.parseInt(request.getParameter("id")),
                         (int)request.getSession().getAttribute("storeid"),
-                        "/" + (int)request.getSession().getAttribute("storeid") + "/film/" + request.getParameter("nama") + " (" + request.getParameter("waktu_mulai").substring(0,4) + ") [" + randomNumber + "].jpg",
+                        "/" + (int)request.getSession().getAttribute("storeid") + "/film/" + request.getParameter("nama") + " (" + request.getParameter("waktu_mulai").substring(0,4) + ") [" + random + "].jpg",
                         request.getParameter("nama"),
                         Integer.parseInt(request.getParameter("genre")),
                         Integer.parseInt(request.getParameter("durasi")),

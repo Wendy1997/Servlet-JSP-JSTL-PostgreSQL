@@ -15,8 +15,8 @@
     </database>
     <schema id="5" parent="4" name="public">
       <ObjectId>2200</ObjectId>
-      <IntrospectionTimestamp>2018-01-02.14:59:32.686</IntrospectionTimestamp>
-      <IntrospectionStateNumber>40781</IntrospectionStateNumber>
+      <IntrospectionTimestamp>2018-01-03.08:17:42.714</IntrospectionTimestamp>
+      <IntrospectionStateNumber>40841</IntrospectionStateNumber>
       <Current>1</Current>
       <Visible>1</Visible>
     </schema>
@@ -159,7 +159,7 @@
     </table>
     <table id="32" parent="5" name="film">
       <ObjectId>21332</ObjectId>
-      <StateNumber>40775</StateNumber>
+      <StateNumber>40809</StateNumber>
     </table>
     <table id="33" parent="5" name="filmgenre">
       <ObjectId>21341</ObjectId>
@@ -167,7 +167,7 @@
     </table>
     <table id="34" parent="5" name="filmticket">
       <ObjectId>21347</ObjectId>
-      <StateNumber>40759</StateNumber>
+      <StateNumber>40841</StateNumber>
     </table>
     <table id="35" parent="5" name="fnbsize">
       <ObjectId>21352</ObjectId>
@@ -179,15 +179,15 @@
     </table>
     <table id="37" parent="5" name="foodandbeverages">
       <ObjectId>21364</ObjectId>
-      <StateNumber>40764</StateNumber>
+      <StateNumber>40811</StateNumber>
     </table>
     <table id="38" parent="5" name="invoice">
       <ObjectId>21370</ObjectId>
-      <StateNumber>40772</StateNumber>
+      <StateNumber>40823</StateNumber>
     </table>
     <table id="39" parent="5" name="membercard">
       <ObjectId>21375</ObjectId>
-      <StateNumber>40770</StateNumber>
+      <StateNumber>40817</StateNumber>
     </table>
     <table id="40" parent="5" name="membergender">
       <ObjectId>21381</ObjectId>
@@ -195,19 +195,19 @@
     </table>
     <table id="41" parent="5" name="orderdetail">
       <ObjectId>21387</ObjectId>
-      <StateNumber>40773</StateNumber>
+      <StateNumber>40818</StateNumber>
     </table>
     <table id="42" parent="5" name="promo">
       <ObjectId>21392</ObjectId>
-      <StateNumber>40774</StateNumber>
+      <StateNumber>40823</StateNumber>
     </table>
     <table id="43" parent="5" name="screeningtime">
       <ObjectId>21401</ObjectId>
-      <StateNumber>40777</StateNumber>
+      <StateNumber>40840</StateNumber>
     </table>
     <table id="44" parent="5" name="seat">
       <ObjectId>21407</ObjectId>
-      <StateNumber>40778</StateNumber>
+      <StateNumber>40839</StateNumber>
     </table>
     <table id="45" parent="5" name="storeaccount">
       <ObjectId>21412</ObjectId>
@@ -215,7 +215,7 @@
     </table>
     <table id="46" parent="5" name="studio">
       <ObjectId>21418</ObjectId>
-      <StateNumber>40780</StateNumber>
+      <StateNumber>40841</StateNumber>
     </table>
     <table id="47" parent="5" name="studiotype">
       <ObjectId>21424</ObjectId>
@@ -346,9 +346,9 @@
     </foreign-key>
     <column id="68" parent="32" name="id">
       <Position>1</Position>
-      <DataType>varchar(20)|0</DataType>
+      <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>39432</StateNumber>
+      <StateNumber>40807</StateNumber>
       <SequenceName>film_id_seq</SequenceName>
       <DefaultExpression>nextval(&apos;film_id_seq&apos;::regclass)</DefaultExpression>
     </column>
@@ -429,12 +429,12 @@
       <DefaultExpression>true</DefaultExpression>
     </column>
     <index id="84" parent="32" name="film_pkey">
-      <ObjectId>21459</ObjectId>
+      <ObjectId>21708</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
     <key id="85" parent="32" name="film_pkey">
-      <ObjectId>21460</ObjectId>
+      <ObjectId>21709</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>film_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
@@ -509,21 +509,21 @@
     </foreign-key>
     <column id="96" parent="34" name="id">
       <Position>1</Position>
-      <DataType>varchar(20)|0</DataType>
+      <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>39434</StateNumber>
+      <StateNumber>40810</StateNumber>
       <SequenceName>filmticket_id_seq</SequenceName>
       <DefaultExpression>nextval(&apos;filmticket_id_seq&apos;::regclass)</DefaultExpression>
     </column>
     <column id="97" parent="34" name="filmid">
       <Position>2</Position>
-      <DataType>varchar(20)|0</DataType>
-      <StateNumber>39385</StateNumber>
+      <DataType>integer|0</DataType>
+      <StateNumber>40806</StateNumber>
     </column>
     <column id="98" parent="34" name="studioid">
       <Position>3</Position>
-      <DataType>varchar(20)|0</DataType>
-      <StateNumber>39385</StateNumber>
+      <DataType>integer|0</DataType>
+      <StateNumber>40831</StateNumber>
     </column>
     <column id="99" parent="34" name="seatnumber">
       <Position>4</Position>
@@ -532,8 +532,8 @@
     </column>
     <column id="100" parent="34" name="screeningid">
       <Position>5</Position>
-      <DataType>varchar(20)|0</DataType>
-      <StateNumber>39385</StateNumber>
+      <DataType>integer|0</DataType>
+      <StateNumber>40826</StateNumber>
     </column>
     <column id="101" parent="34" name="price">
       <Position>6</Position>
@@ -551,18 +551,18 @@
       <StateNumber>39385</StateNumber>
     </column>
     <index id="104" parent="34" name="filmticket_pkey">
-      <ObjectId>21463</ObjectId>
+      <ObjectId>21728</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
     <key id="105" parent="34" name="filmticket_pkey">
-      <ObjectId>21464</ObjectId>
+      <ObjectId>21729</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>filmticket_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="106" parent="34" name="filmticket_filmid_fkey">
-      <ObjectId>21533</ObjectId>
+    <foreign-key id="106" parent="34" name="filmticket_film_id_fk">
+      <ObjectId>21717</ObjectId>
       <ColNames>filmid</ColNames>
       <RefTableId>21332</RefTableId>
       <RefColPositions>1</RefColPositions>
@@ -570,8 +570,8 @@
       <RefKeyName>film_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="107" parent="34" name="filmticket_studioid_fkey">
-      <ObjectId>21548</ObjectId>
+    <foreign-key id="107" parent="34" name="filmticket_studio_id_fk">
+      <ObjectId>21849</ObjectId>
       <ColNames>studioid</ColNames>
       <RefTableId>21418</RefTableId>
       <RefColPositions>1</RefColPositions>
@@ -579,8 +579,8 @@
       <RefKeyName>studio_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="108" parent="34" name="filmticket_screeningid_fkey">
-      <ObjectId>21538</ObjectId>
+    <foreign-key id="108" parent="34" name="filmticket_screeningtime_id_fk">
+      <ObjectId>21806</ObjectId>
       <ColNames>screeningid</ColNames>
       <RefTableId>21401</RefTableId>
       <RefColPositions>1</RefColPositions>
@@ -699,9 +699,9 @@
     </foreign-key>
     <column id="126" parent="37" name="id">
       <Position>1</Position>
-      <DataType>varchar(20)|0</DataType>
+      <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>39437</StateNumber>
+      <StateNumber>40811</StateNumber>
       <SequenceName>foodandbeverages_id_seq</SequenceName>
       <DefaultExpression>nextval(&apos;foodandbeverages_id_seq&apos;::regclass)</DefaultExpression>
     </column>
@@ -742,12 +742,12 @@
       <DefaultExpression>true</DefaultExpression>
     </column>
     <index id="134" parent="37" name="foodandbeverages_pkey">
-      <ObjectId>21469</ObjectId>
+      <ObjectId>21735</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
     <key id="135" parent="37" name="foodandbeverages_pkey">
-      <ObjectId>21470</ObjectId>
+      <ObjectId>21736</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>foodandbeverages_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
@@ -781,16 +781,16 @@
     </foreign-key>
     <column id="139" parent="38" name="id">
       <Position>1</Position>
-      <DataType>varchar(20)|0</DataType>
+      <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>39438</StateNumber>
+      <StateNumber>40795</StateNumber>
       <SequenceName>invoice_id_seq</SequenceName>
       <DefaultExpression>nextval(&apos;invoice_id_seq&apos;::regclass)</DefaultExpression>
     </column>
     <column id="140" parent="38" name="memberid">
       <Position>2</Position>
-      <DataType>varchar(20)|0</DataType>
-      <StateNumber>39397</StateNumber>
+      <DataType>integer|0</DataType>
+      <StateNumber>40815</StateNumber>
     </column>
     <column id="141" parent="38" name="cashierid">
       <Position>3</Position>
@@ -804,8 +804,8 @@
     </column>
     <column id="143" parent="38" name="promoid">
       <Position>5</Position>
-      <DataType>varchar(10)|0</DataType>
-      <StateNumber>39397</StateNumber>
+      <DataType>integer|0</DataType>
+      <StateNumber>40821</StateNumber>
     </column>
     <column id="144" parent="38" name="orderdate">
       <Position>6</Position>
@@ -818,18 +818,18 @@
       <StateNumber>39397</StateNumber>
     </column>
     <index id="146" parent="38" name="invoice_pkey">
-      <ObjectId>21471</ObjectId>
+      <ObjectId>21671</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
     <key id="147" parent="38" name="invoice_pkey">
-      <ObjectId>21472</ObjectId>
+      <ObjectId>21672</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>invoice_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="148" parent="38" name="invoice_memberid_fkey">
-      <ObjectId>21583</ObjectId>
+    <foreign-key id="148" parent="38" name="invoice_membercard_id_fk">
+      <ObjectId>21758</ObjectId>
       <ColNames>memberid</ColNames>
       <RefTableId>21375</RefTableId>
       <RefColPositions>1</RefColPositions>
@@ -855,8 +855,8 @@
       <RefKeyName>storeaccount_id_pk</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="151" parent="38" name="invoice_promoid_fkey">
-      <ObjectId>21588</ObjectId>
+    <foreign-key id="151" parent="38" name="invoice_promo_id_fk">
+      <ObjectId>21787</ObjectId>
       <ColNames>promoid</ColNames>
       <RefTableId>21392</RefTableId>
       <RefColPositions>1</RefColPositions>
@@ -866,9 +866,9 @@
     </foreign-key>
     <column id="152" parent="39" name="id">
       <Position>1</Position>
-      <DataType>varchar(20)|0</DataType>
+      <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>39439</StateNumber>
+      <StateNumber>40816</StateNumber>
       <SequenceName>membercard_id_seq</SequenceName>
       <DefaultExpression>nextval(&apos;membercard_id_seq&apos;::regclass)</DefaultExpression>
     </column>
@@ -912,12 +912,12 @@
       <DefaultExpression>false</DefaultExpression>
     </column>
     <index id="160" parent="39" name="membercard_pkey">
-      <ObjectId>21473</ObjectId>
+      <ObjectId>21752</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
     <key id="161" parent="39" name="membercard_pkey">
-      <ObjectId>21474</ObjectId>
+      <ObjectId>21753</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>membercard_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
@@ -991,16 +991,16 @@
     </foreign-key>
     <column id="172" parent="41" name="id">
       <Position>1</Position>
-      <DataType>varchar(20)|0</DataType>
+      <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>39441</StateNumber>
+      <StateNumber>40818</StateNumber>
       <SequenceName>orderdetail_id_seq</SequenceName>
       <DefaultExpression>nextval(&apos;orderdetail_id_seq&apos;::regclass)</DefaultExpression>
     </column>
     <column id="173" parent="41" name="invoiceid">
       <Position>2</Position>
-      <DataType>varchar(20)|0</DataType>
-      <StateNumber>39406</StateNumber>
+      <DataType>integer|0</DataType>
+      <StateNumber>40794</StateNumber>
     </column>
     <column id="174" parent="41" name="storeid">
       <Position>3</Position>
@@ -1028,18 +1028,18 @@
       <StateNumber>39406</StateNumber>
     </column>
     <index id="179" parent="41" name="orderdetail_pkey">
-      <ObjectId>21477</ObjectId>
+      <ObjectId>21764</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
     <key id="180" parent="41" name="orderdetail_pkey">
-      <ObjectId>21478</ObjectId>
+      <ObjectId>21765</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>orderdetail_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="181" parent="41" name="orderdetail_invoiceid_fkey">
-      <ObjectId>21613</ObjectId>
+    <foreign-key id="181" parent="41" name="orderdetail_invoice_id_fk">
+      <ObjectId>21677</ObjectId>
       <ColNames>invoiceid</ColNames>
       <RefTableId>21370</RefTableId>
       <RefColPositions>1</RefColPositions>
@@ -1058,9 +1058,9 @@
     </foreign-key>
     <column id="183" parent="42" name="id">
       <Position>1</Position>
-      <DataType>varchar(20)|0</DataType>
+      <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>39442</StateNumber>
+      <StateNumber>40822</StateNumber>
       <SequenceName>promo_id_seq</SequenceName>
       <DefaultExpression>nextval(&apos;promo_id_seq&apos;::regclass)</DefaultExpression>
     </column>
@@ -1091,12 +1091,12 @@
       <StateNumber>39409</StateNumber>
     </column>
     <index id="189" parent="42" name="promo_pkey">
-      <ObjectId>21479</ObjectId>
+      <ObjectId>21778</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
     <key id="190" parent="42" name="promo_pkey">
-      <ObjectId>21480</ObjectId>
+      <ObjectId>21779</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>promo_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
@@ -1112,21 +1112,21 @@
     </foreign-key>
     <column id="192" parent="43" name="id">
       <Position>1</Position>
-      <DataType>varchar(20)|0</DataType>
+      <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>39443</StateNumber>
+      <StateNumber>40827</StateNumber>
       <SequenceName>screeningtime_id_seq</SequenceName>
       <DefaultExpression>nextval(&apos;screeningtime_id_seq&apos;::regclass)</DefaultExpression>
     </column>
     <column id="193" parent="43" name="filmid">
       <Position>2</Position>
-      <DataType>varchar(20)|0</DataType>
-      <StateNumber>39412</StateNumber>
+      <DataType>integer|0</DataType>
+      <StateNumber>40803</StateNumber>
     </column>
     <column id="194" parent="43" name="studioid">
       <Position>3</Position>
-      <DataType>varchar(20)|0</DataType>
-      <StateNumber>39412</StateNumber>
+      <DataType>integer|0</DataType>
+      <StateNumber>40834</StateNumber>
     </column>
     <column id="195" parent="43" name="storeid">
       <Position>4</Position>
@@ -1150,18 +1150,18 @@
       <DefaultExpression>true</DefaultExpression>
     </column>
     <index id="199" parent="43" name="screeningtime_pkey">
-      <ObjectId>21481</ObjectId>
+      <ObjectId>21800</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
     <key id="200" parent="43" name="screeningtime_pkey">
-      <ObjectId>21482</ObjectId>
+      <ObjectId>21801</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>screeningtime_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="201" parent="43" name="screeningtime_filmid_fkey">
-      <ObjectId>21628</ObjectId>
+    <foreign-key id="201" parent="43" name="screeningtime_film_id_fk">
+      <ObjectId>21722</ObjectId>
       <ColNames>filmid</ColNames>
       <RefTableId>21332</RefTableId>
       <RefColPositions>1</RefColPositions>
@@ -1169,8 +1169,8 @@
       <RefKeyName>film_pkey</RefKeyName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <foreign-key id="202" parent="43" name="screeningtime_studioid_fkey">
-      <ObjectId>21638</ObjectId>
+    <foreign-key id="202" parent="43" name="screeningtime_studio_id_fk">
+      <ObjectId>21844</ObjectId>
       <ColNames>studioid</ColNames>
       <RefTableId>21418</RefTableId>
       <RefColPositions>1</RefColPositions>
@@ -1197,8 +1197,8 @@
     </column>
     <column id="205" parent="44" name="studioid">
       <Position>2</Position>
-      <DataType>varchar(20)|0</DataType>
-      <StateNumber>39415</StateNumber>
+      <DataType>integer|0</DataType>
+      <StateNumber>40837</StateNumber>
     </column>
     <column id="206" parent="44" name="name">
       <Position>3</Position>
@@ -1216,8 +1216,8 @@
       <UnderlyingIndexName>seat_pkey</UnderlyingIndexName>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="209" parent="44" name="seat_studioid_fkey">
-      <ObjectId>21643</ObjectId>
+    <foreign-key id="209" parent="44" name="seat_studio_id_fk">
+      <ObjectId>21839</ObjectId>
       <ColNames>studioid</ColNames>
       <RefTableId>21418</RefTableId>
       <RefColPositions>1</RefColPositions>
@@ -1273,9 +1273,9 @@
     </key>
     <column id="218" parent="46" name="id">
       <Position>1</Position>
-      <DataType>varchar(20)|0</DataType>
+      <DataType>integer|0</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>39446</StateNumber>
+      <StateNumber>40838</StateNumber>
       <SequenceName>studio_id_seq</SequenceName>
       <DefaultExpression>nextval(&apos;studio_id_seq&apos;::regclass)</DefaultExpression>
     </column>
@@ -1306,12 +1306,12 @@
       <DefaultExpression>true</DefaultExpression>
     </column>
     <index id="224" parent="46" name="studio_pkey">
-      <ObjectId>21487</ObjectId>
+      <ObjectId>21833</ObjectId>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
     </index>
     <key id="225" parent="46" name="studio_pkey">
-      <ObjectId>21488</ObjectId>
+      <ObjectId>21834</ObjectId>
       <ColNames>id</ColNames>
       <UnderlyingIndexName>studio_pkey</UnderlyingIndexName>
       <Primary>1</Primary>

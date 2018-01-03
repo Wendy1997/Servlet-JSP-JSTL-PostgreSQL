@@ -48,7 +48,7 @@ public class OrderDetailDAO {
      */
     public List<OrderDetail> getAllOrderDetail(String id, int storeid) throws SQLException {
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM orderdetail where invoiceid = ? AND storeid = ? ORDER BY id");
-        ps.setString(1, id);
+        ps.setInt(1, Integer.parseInt(id));
         ps.setInt(2, storeid);
         ResultSet rs = ps.executeQuery();
 

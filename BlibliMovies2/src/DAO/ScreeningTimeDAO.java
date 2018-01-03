@@ -71,9 +71,9 @@ public class ScreeningTimeDAO {
      */
     public ScreeningTime getScreeningTime(String id, String film_id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("select * from screeningtime where id = ? and storeid = ? and filmid = ?");
-        ps.setString(1, id);
+        ps.setInt(1, Integer.parseInt(id));
         ps.setInt(2, storeid);
-        ps.setString(3, film_id);
+        ps.setInt(3, Integer.parseInt(film_id));
 
         ResultSet rs = ps.executeQuery();
 
@@ -106,9 +106,9 @@ public class ScreeningTimeDAO {
      */
     public ScreeningTime getScreeningTimeTrue(String id, String film_id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("select * from screeningtime where id = ? and storeid = ? and filmid = ? and status = true");
-        ps.setString(1, id);
+        ps.setInt(1, Integer.parseInt(id));
         ps.setInt(2, storeid);
-        ps.setString(3, film_id);
+        ps.setInt(3, Integer.parseInt(film_id));
 
         ResultSet rs = ps.executeQuery();
 
@@ -142,7 +142,7 @@ public class ScreeningTimeDAO {
     public List<ScreeningTime> getAllScreeningTime(int storeid, String filmid, int offset) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("select * from screeningtime where storeid = ? and filmid = ? ORDER BY id LIMIT 10 OFFSET ?");
         ps.setInt(1, storeid);
-        ps.setString(2, filmid);
+        ps.setInt(2, Integer.parseInt(filmid));
         ps.setInt(3, offset);
 
         ResultSet rs = ps.executeQuery();
@@ -175,7 +175,7 @@ public class ScreeningTimeDAO {
     public int getCountAllScreeningTime(int storeid, String filmid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("select count(*) from (select * from screeningtime where storeid = ? and filmid = ? ORDER BY id) as count");
         ps.setInt(1, storeid);
-        ps.setString(2, filmid);
+        ps.setInt(2, Integer.parseInt(filmid));
 
         ResultSet rs = ps.executeQuery();
 
@@ -208,7 +208,7 @@ public class ScreeningTimeDAO {
     public List<ScreeningTime> getAllScreeningTimeTrue(int storeid, String filmid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("select * from screeningtime where storeid = ? and filmid = ? and status = true ORDER BY id");
         ps.setInt(1, storeid);
-        ps.setString(2, filmid);
+        ps.setInt(2, Integer.parseInt(filmid));
 
         ResultSet rs = ps.executeQuery();
 
@@ -237,12 +237,12 @@ public class ScreeningTimeDAO {
      */
     public void updateScreeningTime(ScreeningTime screeningTime) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE screeningtime set studioid = ?, time = CAST(? AS TIME), duration = ? where id = ? and storeid = ? and filmid = ?");
-        ps.setString(1, screeningTime.getStudioId() + "");
+        ps.setInt(1, screeningTime.getStudioId());
         ps.setString(2, screeningTime.getTime());
         ps.setInt(3, screeningTime.getDuration());
-        ps.setString(4, screeningTime.getId() + "");
+        ps.setInt(4, screeningTime.getId());
         ps.setInt(5, screeningTime.getStoreID());
-        ps.setString(6, screeningTime.getFilmId() + "");
+        ps.setInt(6, screeningTime.getFilmId());
         ps.executeUpdate();
         ps.close();
         conn.close();
@@ -258,8 +258,8 @@ public class ScreeningTimeDAO {
      */
     public void deleteScreeningTime(String id, String filmid, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE screeningtime set status = false where id = ? and filmid = ? and storeid = ?");
-        ps.setString(1, id + "");
-        ps.setString(2, filmid + "");
+        ps.setInt(1, Integer.parseInt(id));
+        ps.setInt(2, Integer.parseInt(filmid));
         ps.setInt(3, storeid);
         ps.executeUpdate();
         ps.close();
@@ -276,8 +276,8 @@ public class ScreeningTimeDAO {
      */
     public void retrieveScreeningTime(String id, String filmid, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE screeningtime set status = true where id = ? and filmid = ? and storeid = ?");
-        ps.setString(1, id + "");
-        ps.setString(2, filmid + "");
+        ps.setInt(1, Integer.parseInt(id));
+        ps.setInt(2, Integer.parseInt(filmid));
         ps.setInt(3, storeid);
         ps.executeUpdate();
         ps.close();

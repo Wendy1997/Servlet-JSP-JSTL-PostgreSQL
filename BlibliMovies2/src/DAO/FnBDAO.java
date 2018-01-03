@@ -50,7 +50,7 @@ public class FnBDAO {
      */
     public FnB getFnB(String fnb, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM foodandbeverages where id = ? and storeid = ?");
-        ps.setString(1, fnb);
+        ps.setInt(1, Integer.parseInt(fnb));
         ps.setInt(2, storeid);
 
         ResultSet rs = ps.executeQuery();
@@ -85,7 +85,7 @@ public class FnBDAO {
      */
     public FnB getFnBTrue(String fnb, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM foodandbeverages where id = ? and storeid = ? and status = true");
-        ps.setString(1, fnb);
+        ps.setInt(1, Integer.parseInt(fnb));
         ps.setInt(2, storeid);
 
         ResultSet rs = ps.executeQuery();
@@ -237,7 +237,7 @@ public class FnBDAO {
      */
     public void deleteFnB(String id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE foodandbeverages set status = false where id = ? AND storeid = ?");
-        ps.setString(1, id);
+        ps.setInt(1, Integer.parseInt(id));
         ps.setInt(2, storeid);
         ps.executeUpdate();
         ps.close();
@@ -253,7 +253,7 @@ public class FnBDAO {
      */
     public void retrieveFnB(String id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("UPDATE foodandbeverages set status = true where id = ? AND storeid = ?");
-        ps.setString(1, id);
+        ps.setInt(1, Integer.parseInt(id));
         ps.setInt(2, storeid);
         ps.executeUpdate();
         ps.close();
@@ -274,7 +274,7 @@ public class FnBDAO {
         ps.setInt(3, fnb.getType());
         ps.setInt(4, fnb.getSize());
         ps.setInt(5, fnb.getPrice());
-        ps.setString(6, fnb.getId() + "");
+        ps.setInt(6, fnb.getId());
         ps.setInt(7, fnb.getStoreID());
 
         ps.executeUpdate();
