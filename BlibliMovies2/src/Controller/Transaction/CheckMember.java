@@ -3,6 +3,8 @@ package Controller.Transaction;
 import DAO.PromoDAO;
 import Model.FnB;
 import Model.MemberCard;
+import Service.InvoiceService;
+import Service.InvoiceServiceDatabase;
 import Service.MemberCardService;
 import Service.MemberCardServiceDatabase;
 import com.google.gson.Gson;
@@ -22,7 +24,7 @@ import java.sql.SQLException;
  */
 @WebServlet("/check/member")
 public class CheckMember extends HttpServlet{
-    PromoDAO promoDAO = new PromoDAO();
+    InvoiceService promoDAO = new InvoiceServiceDatabase();
     MemberCardService memberCardService = new MemberCardServiceDatabase();
 
     /**
