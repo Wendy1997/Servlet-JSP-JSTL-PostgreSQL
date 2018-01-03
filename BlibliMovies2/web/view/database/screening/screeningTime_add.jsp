@@ -10,13 +10,13 @@
     <div class="jumbotron">
 
         <!-- Title -->
-        <h1>Create Film</h1>
+        <h1>Create Screening Time</h1>
         <div class="stripe"></div>
         <br><br>
 
         <!-- Forms -->
         <form action="/admin/screentime/add" method="post" onsubmit="return confirm('Are You Sure?');">
-            <div class="row">
+            <div>
                 <div class="col-lg-6" id="form1">
                     <h2>Screening Time</h2><br>
 
