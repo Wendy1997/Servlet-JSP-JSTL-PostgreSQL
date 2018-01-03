@@ -48,7 +48,7 @@ public class InvoiceDAO {
      */
     public Invoice getInvoice(String username, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM invoice where id = ? and storeid = ?");
-        ps.setString(1, username);
+        ps.setInt(1, Integer.parseInt(username));
         ps.setInt(2, storeid);
 
         ResultSet rs = ps.executeQuery();

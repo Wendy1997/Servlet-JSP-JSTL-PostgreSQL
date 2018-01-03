@@ -62,7 +62,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="config.properties" pinned="false" current-in-tab="false">
+      <file leaf-file-name="config.properties" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/config.properties">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="72">
@@ -72,10 +72,40 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MemberCardDAO.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="InvoiceDAO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/DAO/InvoiceDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="55" column="23" lean-forward="false" selection-start-line="55" selection-start-column="23" selection-end-line="55" selection-end-column="23" />
+              <folding>
+                <marker date="1514890681947" expanded="true" signature="1264:1314" ph="SELECT * FRO... invoice" />
+                <marker date="1514890681947" expanded="true" signature="2142:2236" ph="SELECT * FRO... invoice" />
+                <marker date="1514890681947" expanded="true" signature="3240:3309" ph="SELECT * FRO... invoice" />
+                <marker date="1514890681947" expanded="true" signature="4159:4242" ph="SELECT count... *" />
+                <marker date="1514890681947" expanded="true" signature="4181:4232" ph="SELECT * FRO... invoice" />
+                <marker date="1514890681947" expanded="true" signature="5035:5115" ph="INSERT INTO invoice... " />
+                <marker date="1514890681947" expanded="true" signature="5516:5619" ph="INSERT INTO invoice... " />
+                <marker date="1514890681947" expanded="true" signature="6467:6734" ph="SELECT * FRO... invoice" />
+                <marker date="1514890681947" expanded="true" signature="7872:8158" ph="select count... *" />
+                <marker date="1514890681947" expanded="true" signature="7911:8148" ph="SELECT * FRO... invoice" />
+                <marker date="1514890681947" expanded="true" signature="9254:9462" ph="SELECT * FRO... invoice" />
+                <marker date="1514890681947" expanded="true" signature="10519:10746" ph="SELECT count... *" />
+                <marker date="1514890681947" expanded="true" signature="10558:10736" ph="SELECT * FRO... invoice" />
+                <marker date="1514890681947" expanded="true" signature="11795:12004" ph="SELECT * FRO... invoice" />
+                <marker date="1514890681947" expanded="true" signature="13066:13294" ph="SELECT count... *" />
+                <marker date="1514890681947" expanded="true" signature="13105:13284" ph="SELECT * FRO... invoice" />
+                <marker date="1514890681947" expanded="true" signature="14308:14457" ph="SELECT * FRO... invoice" />
+                <marker date="1514890681947" expanded="true" signature="15431:15599" ph="Select count... *" />
+                <marker date="1514890681947" expanded="true" signature="15470:15589" ph="SELECT * FRO... invoice" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MemberCardDAO.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DAO/MemberCardDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-517">
+            <state relative-caret-position="1440">
               <caret line="87" column="43" lean-forward="false" selection-start-line="87" selection-start-column="43" selection-end-line="87" selection-end-column="43" />
               <folding>
                 <marker date="1514890168075" expanded="true" signature="1275:1328" ph="SELECT * FRO... membercard" />
@@ -95,10 +125,32 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="StoreAccountDAO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/DAO/StoreAccountDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+              <folding>
+                <marker date="1514862004979" expanded="true" signature="1040:1085" ph="SELECT * FRO... storeAccount" />
+                <marker date="1514862004979" expanded="true" signature="1608:1671" ph="SELECT * FRO... storeAccount" />
+                <marker date="1514862004979" expanded="true" signature="2190:2246" ph="SELECT * FRO... storeAccount" />
+                <marker date="1514862004979" expanded="true" signature="2761:2831" ph="SELECT count... *" />
+                <marker date="1514862004979" expanded="true" signature="2783:2821" ph="SELECT * FRO... storeaccount" />
+                <marker date="1514862004979" expanded="true" signature="3383:3441" ph="SELECT * FRO... storeAccount" />
+                <marker date="1514862004979" expanded="true" signature="3944:4015" ph="INSERT INTO storeAccount... " />
+                <marker date="1514862004979" expanded="true" signature="4368:4419" ph="UPDATE store... " />
+                <marker date="1514862004979" expanded="true" signature="4646:4696" ph="UPDATE store... " />
+                <marker date="1514862004979" expanded="true" signature="4940:5004" ph="UPDATE store... " />
+                <marker date="1514862004979" expanded="true" signature="5379:5429" ph="UPDATE store... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="AccountDAO.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DAO/AccountDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
+            <state relative-caret-position="3114">
               <caret line="181" column="20" lean-forward="false" selection-start-line="181" selection-start-column="11" selection-end-line="181" selection-end-column="20" />
               <folding>
                 <marker date="1514862004894" expanded="true" signature="1288:1344" ph="SELECT * FRO... account" />
@@ -120,7 +172,7 @@
       <file leaf-file-name="AccountRoleDAO.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DAO/AccountRoleDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
+            <state relative-caret-position="2844">
               <caret line="167" column="20" lean-forward="false" selection-start-line="167" selection-start-column="11" selection-end-line="167" selection-end-column="20" />
               <folding>
                 <marker date="1514862004896" expanded="true" signature="1344:1398" ph="SELECT * FRO... accountRole" />
@@ -141,7 +193,7 @@
       <file leaf-file-name="FilmDAO.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DAO/FilmDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
+            <state relative-caret-position="486">
               <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
               <folding>
                 <marker date="1514888392745" expanded="true" signature="1303:1350" ph="SELECT * FRO... film" />
@@ -162,7 +214,7 @@
       <file leaf-file-name="FilmEdit.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/Film/FilmEdit.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
+            <state relative-caret-position="1548">
               <caret line="104" column="70" lean-forward="false" selection-start-line="104" selection-start-column="70" selection-end-line="104" selection-end-column="70" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -181,52 +233,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StudioDAO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DAO/StudioDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="211" column="20" lean-forward="false" selection-start-line="211" selection-start-column="11" selection-end-line="211" selection-end-column="20" />
-              <folding>
-                <marker date="1514888059834" expanded="true" signature="1303:1371" ph="SELECT * FRO... studio" />
-                <marker date="1514888059834" expanded="true" signature="2199:2281" ph="SELECT count... *" />
-                <marker date="1514888059834" expanded="true" signature="2221:2271" ph="SELECT * FRO... studio" />
-                <marker date="1514888059834" expanded="true" signature="3040:3108" ph="SELECT * FRO... studio" />
-                <marker date="1514888059834" expanded="true" signature="3912:3961" ph="SELECT * FRO... studio" />
-                <marker date="1514888059834" expanded="true" signature="4836:4903" ph="SELECT * FRO... studio" />
-                <marker date="1514888059834" expanded="true" signature="5705:5769" ph="INSERT INTO studio... " />
-                <marker date="1514888059834" expanded="true" signature="6300:6361" ph="update studi... " />
-                <marker date="1514888059834" expanded="true" signature="6808:6868" ph="update studi... " />
-                <marker date="1514888059834" expanded="true" signature="7274:7350" ph="UPDATE studi... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StudioTypeDAO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DAO/StudioTypeDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="171" column="20" lean-forward="false" selection-start-line="171" selection-start-column="11" selection-end-line="171" selection-end-column="20" />
-              <folding>
-                <marker date="1514862004982" expanded="true" signature="1241:1294" ph="SELECT * FRO... studioType" />
-                <marker date="1514862004982" expanded="true" signature="2013:2085" ph="SELECT * FRO... studioType" />
-                <marker date="1514862004982" expanded="true" signature="2785:2839" ph="SELECT * FRO... studioType" />
-                <marker date="1514862004982" expanded="true" signature="3506:3593" ph="select count... *" />
-                <marker date="1514862004982" expanded="true" signature="3529:3583" ph="SELECT * FRO... studioType" />
-                <marker date="1514862004982" expanded="true" signature="4363:4435" ph="SELECT * FRO... studioType" />
-                <marker date="1514862004982" expanded="true" signature="5068:5119" ph="INSERT INTO studioType... " />
-                <marker date="1514862004982" expanded="true" signature="5600:5665" ph="UPDATE studi... " />
-                <marker date="1514862004982" expanded="true" signature="6145:6209" ph="UPDATE studi... " />
-                <marker date="1514862004982" expanded="true" signature="6644:6721" ph="UPDATE studi... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="SuperAdminDAO.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/DAO/SuperAdminDAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
+            <state relative-caret-position="522">
               <caret line="35" column="20" lean-forward="false" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="20" />
               <folding>
                 <marker date="1514862005027" expanded="true" signature="969:1012" ph="SELECT * FRO... superAdmin" />
@@ -258,7 +268,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>tabl</find>
       <find>tablin</find>
       <find>ledger</find>
       <find>Date</find>
@@ -288,6 +297,7 @@
       <find>getId</find>
       <find>Id</find>
       <find>setString</find>
+      <find>head</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -337,7 +347,6 @@
         <option value="$PROJECT_DIR$/src/Controller/Ledger/LedgerViewMonthlyPagination.java" />
         <option value="$PROJECT_DIR$/src/Controller/Ledger/LedgerViewMonthly.java" />
         <option value="$PROJECT_DIR$/src/Controller/Ledger/LedgerViewDailyPagination.java" />
-        <option value="$PROJECT_DIR$/src/DAO/InvoiceDAO.java" />
         <option value="$PROJECT_DIR$/src/Controller/Ledger/LedgerViewYearlyPagination.java" />
         <option value="$PROJECT_DIR$/src/Controller/Ledger/LedgerViewYearly.java" />
         <option value="$PROJECT_DIR$/src/DAO/FilmTicketDAO.java" />
@@ -347,8 +356,9 @@
         <option value="$PROJECT_DIR$/src/DAO/StudioDAO.java" />
         <option value="$PROJECT_DIR$/src/DAO/FilmDAO.java" />
         <option value="$PROJECT_DIR$/src/Controller/Film/FilmEdit.java" />
-        <option value="$PROJECT_DIR$/src/config.properties" />
         <option value="$PROJECT_DIR$/src/DAO/MemberCardDAO.java" />
+        <option value="$PROJECT_DIR$/src/DAO/InvoiceDAO.java" />
+        <option value="$PROJECT_DIR$/src/config.properties" />
       </list>
     </option>
   </component>
@@ -388,6 +398,7 @@
       <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -600,7 +611,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1089,12 +1099,13 @@
       <workItem from="1514853529147" duration="7713000" />
       <workItem from="1514862065806" duration="1897000" />
       <workItem from="1514864119255" duration="7402000" />
-      <workItem from="1514876194592" duration="13565000" />
+      <workItem from="1514876194592" duration="14658000" />
+      <workItem from="1514941459192" duration="1545000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="438777000" />
+    <option name="totallyTimeSpent" value="441415000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1119,14 +1130,14 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295325" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32764506" sideWeight="0.66263235" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32764506" sideWeight="0.66263235" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" x="588" y="224" width="743" height="581" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34568834" sideWeight="0.4960091" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35098335" sideWeight="0.4960091" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30021483" sideWeight="0.5039909" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12556732" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22617246" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1208,7 +1219,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1232,7 +1242,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1269,7 +1278,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="268">
           <caret line="814" column="20" lean-forward="false" selection-start-line="814" selection-start-column="20" selection-end-line="814" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1277,7 +1285,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="239">
           <caret line="43" column="34" lean-forward="false" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1285,7 +1292,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="44" column="70" lean-forward="false" selection-start-line="44" selection-start-column="70" selection-end-line="44" selection-end-column="70" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1293,7 +1299,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="148">
           <caret line="43" column="70" lean-forward="false" selection-start-line="43" selection-start-column="70" selection-end-line="43" selection-end-column="70" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1301,7 +1306,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="44" column="70" lean-forward="false" selection-start-line="44" selection-start-column="70" selection-end-line="44" selection-end-column="70" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1317,7 +1321,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-242">
           <caret line="53" column="38" lean-forward="false" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1381,7 +1384,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1389,9 +1391,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
           <caret line="43" column="53" lean-forward="false" selection-start-line="43" selection-start-column="53" selection-end-line="43" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1399,7 +1398,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1407,7 +1405,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="44" column="70" lean-forward="false" selection-start-line="44" selection-start-column="70" selection-end-line="44" selection-end-column="70" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1415,7 +1412,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="148">
           <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1430,19 +1426,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="201" column="20" lean-forward="false" selection-start-line="201" selection-start-column="11" selection-end-line="201" selection-end-column="20" />
-          <folding>
-            <marker date="1514862004960" expanded="true" signature="1295:1347" ph="SELECT * FRO... filmGenre" />
-            <marker date="1514862004960" expanded="true" signature="2064:2134" ph="SELECT * FRO... filmGenre" />
-            <marker date="1514862004960" expanded="true" signature="2848:2919" ph="SELECT * FRO... filmGenre" />
-            <marker date="1514862004960" expanded="true" signature="3610:3663" ph="SELECT * FRO... filmGenre" />
-            <marker date="1514862004960" expanded="true" signature="4323:4408" ph="Select Count... *" />
-            <marker date="1514862004960" expanded="true" signature="4345:4398" ph="SELECT * FRO... filmGenre" />
-            <marker date="1514862004960" expanded="true" signature="5175:5246" ph="SELECT * FRO... filmGenre" />
-            <marker date="1514862004960" expanded="true" signature="5868:5919" ph="INSERT INTO filmGenre... " />
-            <marker date="1514862004960" expanded="true" signature="6395:6459" ph="UPDATE filmG... " />
-            <marker date="1514862004960" expanded="true" signature="6934:6997" ph="UPDATE filmG... " />
-            <marker date="1514862004960" expanded="true" signature="7426:7503" ph="UPDATE filmG... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1450,11 +1433,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="50" column="20" lean-forward="false" selection-start-line="50" selection-start-column="11" selection-end-line="50" selection-end-column="20" />
-          <folding>
-            <marker date="1514886732699" expanded="true" signature="1202:1313" ph="INSERT INTO filmTicket... " />
-            <marker date="1514886732699" expanded="true" signature="2086:2172" ph="select * fro... filmTicket" />
-            <marker date="1514886732699" expanded="true" signature="3191:3294" ph="select * fro... filmTicket" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1462,18 +1440,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="219" column="20" lean-forward="false" selection-start-line="219" selection-start-column="11" selection-end-line="219" selection-end-column="20" />
-          <folding>
-            <marker date="1514886979071" expanded="true" signature="1294:1353" ph="SELECT * FRO... foodandbeverages" />
-            <marker date="1514886979071" expanded="true" signature="2254:2331" ph="SELECT * FRO... foodandbeverages" />
-            <marker date="1514886979071" expanded="true" signature="3227:3305" ph="SELECT * FRO... foodandbeverages" />
-            <marker date="1514886979071" expanded="true" signature="4159:4251" ph="Select count... *" />
-            <marker date="1514886979071" expanded="true" signature="4181:4241" ph="SELECT * FRO... foodandbeverages" />
-            <marker date="1514886979071" expanded="true" signature="5001:5079" ph="SELECT * FRO... foodandbeverages" />
-            <marker date="1514886979071" expanded="true" signature="5848:5939" ph="INSERT INTO foodandbeverages... " />
-            <marker date="1514886979071" expanded="true" signature="6530:6601" ph="UPDATE fooda... " />
-            <marker date="1514886979071" expanded="true" signature="7042:7112" ph="UPDATE fooda... " />
-            <marker date="1514886979071" expanded="true" signature="7503:7628" ph="UPDATE fooda... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1481,19 +1447,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="247" column="20" lean-forward="false" selection-start-line="247" selection-start-column="11" selection-end-line="247" selection-end-column="20" />
-          <folding>
-            <marker date="1514862004966" expanded="true" signature="1281:1331" ph="SELECT * FRO... fnBSize" />
-            <marker date="1514862004966" expanded="true" signature="2038:2106" ph="SELECT * FRO... fnBSize" />
-            <marker date="1514862004966" expanded="true" signature="2810:2879" ph="SELECT * FRO... fnBSize" />
-            <marker date="1514862004966" expanded="true" signature="3563:3614" ph="SELECT * FRO... fnBSize" />
-            <marker date="1514862004966" expanded="true" signature="4258:4341" ph="SELECT count... *" />
-            <marker date="1514862004966" expanded="true" signature="4280:4331" ph="SELECT * FRO... fnBSize" />
-            <marker date="1514862004966" expanded="true" signature="5102:5171" ph="SELECT * FRO... fnBSize" />
-            <marker date="1514862004966" expanded="true" signature="5771:5819" ph="INSERT INTO fnBSize... " />
-            <marker date="1514862004966" expanded="true" signature="6282:6344" ph="UPDATE fnBSi... " />
-            <marker date="1514862004966" expanded="true" signature="6809:6870" ph="UPDATE fnBSi... " />
-            <marker date="1514862004966" expanded="true" signature="7287:7361" ph="UPDATE fnBSi... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1501,47 +1454,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="247" column="20" lean-forward="false" selection-start-line="247" selection-start-column="11" selection-end-line="247" selection-end-column="20" />
-          <folding>
-            <marker date="1514862004968" expanded="true" signature="1281:1331" ph="SELECT * FRO... fnBType" />
-            <marker date="1514862004968" expanded="true" signature="2038:2106" ph="SELECT * FRO... fnBType" />
-            <marker date="1514862004968" expanded="true" signature="2810:2879" ph="SELECT * FRO... fnBType" />
-            <marker date="1514862004968" expanded="true" signature="3563:3614" ph="SELECT * FRO... fnBType" />
-            <marker date="1514862004968" expanded="true" signature="4258:4341" ph="SELECT count... *" />
-            <marker date="1514862004968" expanded="true" signature="4280:4331" ph="SELECT * FRO... fnBType" />
-            <marker date="1514862004968" expanded="true" signature="5102:5171" ph="SELECT * FRO... fnBType" />
-            <marker date="1514862004968" expanded="true" signature="5771:5819" ph="INSERT INTO fnBType... " />
-            <marker date="1514862004968" expanded="true" signature="6282:6344" ph="UPDATE fnBTy... " />
-            <marker date="1514862004968" expanded="true" signature="6809:6870" ph="UPDATE fnBTy... " />
-            <marker date="1514862004968" expanded="true" signature="7287:7361" ph="UPDATE fnBTy... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DAO/InvoiceDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="50" column="20" lean-forward="false" selection-start-line="50" selection-start-column="11" selection-end-line="50" selection-end-column="20" />
-          <folding>
-            <marker date="1514883170207" expanded="true" signature="1264:1314" ph="SELECT * FRO... invoice" />
-            <marker date="1514883170207" expanded="true" signature="2127:2221" ph="SELECT * FRO... invoice" />
-            <marker date="1514883170207" expanded="true" signature="3225:3294" ph="SELECT * FRO... invoice" />
-            <marker date="1514883170207" expanded="true" signature="4144:4227" ph="SELECT count... *" />
-            <marker date="1514883170207" expanded="true" signature="4166:4217" ph="SELECT * FRO... invoice" />
-            <marker date="1514883170207" expanded="true" signature="5020:5100" ph="INSERT INTO invoice... " />
-            <marker date="1514883170207" expanded="true" signature="5501:5604" ph="INSERT INTO invoice... " />
-            <marker date="1514883170207" expanded="true" signature="6452:6719" ph="SELECT * FRO... invoice" />
-            <marker date="1514883170207" expanded="true" signature="7857:8143" ph="select count... *" />
-            <marker date="1514883170207" expanded="true" signature="7896:8133" ph="SELECT * FRO... invoice" />
-            <marker date="1514883170207" expanded="true" signature="9239:9447" ph="SELECT * FRO... invoice" />
-            <marker date="1514883170207" expanded="true" signature="10504:10731" ph="SELECT count... *" />
-            <marker date="1514883170207" expanded="true" signature="10543:10721" ph="SELECT * FRO... invoice" />
-            <marker date="1514883170207" expanded="true" signature="11780:11989" ph="SELECT * FRO... invoice" />
-            <marker date="1514883170207" expanded="true" signature="13051:13279" ph="SELECT count... *" />
-            <marker date="1514883170207" expanded="true" signature="13090:13269" ph="SELECT * FRO... invoice" />
-            <marker date="1514883170207" expanded="true" signature="14293:14442" ph="SELECT * FRO... invoice" />
-            <marker date="1514883170207" expanded="true" signature="15416:15584" ph="Select count... *" />
-            <marker date="1514883170207" expanded="true" signature="15455:15574" ph="SELECT * FRO... invoice" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1549,11 +1461,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="93" column="20" lean-forward="false" selection-start-line="93" selection-start-column="11" selection-end-line="93" selection-end-column="20" />
-          <folding>
-            <marker date="1514862004973" expanded="true" signature="1301:1357" ph="SELECT * FRO... memberGender" />
-            <marker date="1514862004973" expanded="true" signature="2061:2135" ph="SELECT * FRO... memberGender" />
-            <marker date="1514862004973" expanded="true" signature="2790:2845" ph="INSERT INTO memberGender... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1561,10 +1468,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="80" column="20" lean-forward="false" selection-start-line="80" selection-start-column="11" selection-end-line="80" selection-end-column="20" />
-          <folding>
-            <marker date="1514887494021" expanded="true" signature="1334:1407" ph="SELECT * FRO... orderdetail" />
-            <marker date="1514887494021" expanded="true" signature="2258:2366" ph="INSERT INTO orderdetail... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1572,10 +1475,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="78" column="20" lean-forward="false" selection-start-line="78" selection-start-column="11" selection-end-line="78" selection-end-column="20" />
-          <folding>
-            <marker date="1514862004975" expanded="true" signature="1160:1197" ph="SELECT * FRO... promo" />
-            <marker date="1514862004975" expanded="true" signature="1913:1992" ph="insert into promo... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1583,38 +1482,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="240" column="20" lean-forward="false" selection-start-line="240" selection-start-column="11" selection-end-line="240" selection-end-column="20" />
-          <folding>
-            <marker date="1514887877023" expanded="true" signature="1313:1415" ph="INSERT INTO screeningTime... " />
-            <marker date="1514887877023" expanded="true" signature="2096:2167" ph="select * fro... screeningtime" />
-            <marker date="1514887877023" expanded="true" signature="3170:3259" ph="select * fro... screeningtime" />
-            <marker date="1514887877023" expanded="true" signature="4257:4347" ph="select * fro... screeningtime" />
-            <marker date="1514887877023" expanded="true" signature="5333:5437" ph="select count... *" />
-            <marker date="1514887877023" expanded="true" signature="5355:5427" ph="select * fro... screeningtime" />
-            <marker date="1514887877023" expanded="true" signature="6301:6391" ph="select * fro... screeningtime" />
-            <marker date="1514887877023" expanded="true" signature="7291:7410" ph="UPDATE scree... " />
-            <marker date="1514887877023" expanded="true" signature="8119:8202" ph="UPDATE scree... " />
-            <marker date="1514887877023" expanded="true" signature="8748:8830" ph="UPDATE scree... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/DAO/StoreAccountDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="55" column="20" lean-forward="false" selection-start-line="55" selection-start-column="11" selection-end-line="55" selection-end-column="20" />
-          <folding>
-            <marker date="1514862004979" expanded="true" signature="1040:1085" ph="SELECT * FRO... storeAccount" />
-            <marker date="1514862004979" expanded="true" signature="1608:1671" ph="SELECT * FRO... storeAccount" />
-            <marker date="1514862004979" expanded="true" signature="2190:2246" ph="SELECT * FRO... storeAccount" />
-            <marker date="1514862004979" expanded="true" signature="2761:2831" ph="SELECT count... *" />
-            <marker date="1514862004979" expanded="true" signature="2783:2821" ph="SELECT * FRO... storeaccount" />
-            <marker date="1514862004979" expanded="true" signature="3383:3441" ph="SELECT * FRO... storeAccount" />
-            <marker date="1514862004979" expanded="true" signature="3944:4015" ph="INSERT INTO storeAccount... " />
-            <marker date="1514862004979" expanded="true" signature="4368:4419" ph="UPDATE store... " />
-            <marker date="1514862004979" expanded="true" signature="4646:4696" ph="UPDATE store... " />
-            <marker date="1514862004979" expanded="true" signature="4940:5004" ph="UPDATE store... " />
-            <marker date="1514862004979" expanded="true" signature="5379:5429" ph="UPDATE store... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1622,18 +1489,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="211" column="20" lean-forward="false" selection-start-line="211" selection-start-column="11" selection-end-line="211" selection-end-column="20" />
-          <folding>
-            <marker date="1514888059834" expanded="true" signature="1303:1371" ph="SELECT * FRO... studio" />
-            <marker date="1514888059834" expanded="true" signature="2199:2281" ph="SELECT count... *" />
-            <marker date="1514888059834" expanded="true" signature="2221:2271" ph="SELECT * FRO... studio" />
-            <marker date="1514888059834" expanded="true" signature="3040:3108" ph="SELECT * FRO... studio" />
-            <marker date="1514888059834" expanded="true" signature="3912:3961" ph="SELECT * FRO... studio" />
-            <marker date="1514888059834" expanded="true" signature="4836:4903" ph="SELECT * FRO... studio" />
-            <marker date="1514888059834" expanded="true" signature="5705:5769" ph="INSERT INTO studio... " />
-            <marker date="1514888059834" expanded="true" signature="6300:6361" ph="update studi... " />
-            <marker date="1514888059834" expanded="true" signature="6808:6868" ph="update studi... " />
-            <marker date="1514888059834" expanded="true" signature="7274:7350" ph="UPDATE studi... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1641,24 +1496,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="171" column="20" lean-forward="false" selection-start-line="171" selection-start-column="11" selection-end-line="171" selection-end-column="20" />
-          <folding>
-            <marker date="1514862004982" expanded="true" signature="1241:1294" ph="SELECT * FRO... studioType" />
-            <marker date="1514862004982" expanded="true" signature="2013:2085" ph="SELECT * FRO... studioType" />
-            <marker date="1514862004982" expanded="true" signature="2785:2839" ph="SELECT * FRO... studioType" />
-            <marker date="1514862004982" expanded="true" signature="3506:3593" ph="select count... *" />
-            <marker date="1514862004982" expanded="true" signature="3529:3583" ph="SELECT * FRO... studioType" />
-            <marker date="1514862004982" expanded="true" signature="4363:4435" ph="SELECT * FRO... studioType" />
-            <marker date="1514862004982" expanded="true" signature="5068:5119" ph="INSERT INTO studioType... " />
-            <marker date="1514862004982" expanded="true" signature="5600:5665" ph="UPDATE studi... " />
-            <marker date="1514862004982" expanded="true" signature="6145:6209" ph="UPDATE studi... " />
-            <marker date="1514862004982" expanded="true" signature="6644:6721" ph="UPDATE studi... " />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DAO/SuperAdminDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
+        <state relative-caret-position="522">
           <caret line="35" column="20" lean-forward="false" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="20" />
           <folding>
             <marker date="1514862005027" expanded="true" signature="969:1012" ph="SELECT * FRO... superAdmin" />
@@ -1677,7 +1520,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DAO/AccountDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
+        <state relative-caret-position="3114">
           <caret line="181" column="20" lean-forward="false" selection-start-line="181" selection-start-column="11" selection-end-line="181" selection-end-column="20" />
           <folding>
             <marker date="1514862004894" expanded="true" signature="1288:1344" ph="SELECT * FRO... account" />
@@ -1697,7 +1540,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DAO/AccountRoleDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
+        <state relative-caret-position="2844">
           <caret line="167" column="20" lean-forward="false" selection-start-line="167" selection-start-column="11" selection-end-line="167" selection-end-column="20" />
           <folding>
             <marker date="1514862004896" expanded="true" signature="1344:1398" ph="SELECT * FRO... accountRole" />
@@ -1724,7 +1567,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Film/FilmEdit.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
+        <state relative-caret-position="1548">
           <caret line="104" column="70" lean-forward="false" selection-start-line="104" selection-start-column="70" selection-end-line="104" selection-end-column="70" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1734,7 +1577,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/DAO/FilmDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
+        <state relative-caret-position="486">
           <caret line="36" column="0" lean-forward="false" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding>
             <marker date="1514888392745" expanded="true" signature="1303:1350" ph="SELECT * FRO... film" />
@@ -1751,17 +1594,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/config.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/DAO/MemberCardDAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-517">
+        <state relative-caret-position="1440">
           <caret line="87" column="43" lean-forward="false" selection-start-line="87" selection-start-column="43" selection-end-line="87" selection-end-column="43" />
           <folding>
             <marker date="1514890168075" expanded="true" signature="1275:1328" ph="SELECT * FRO... membercard" />
@@ -1777,6 +1612,62 @@
             <marker date="1514890168075" expanded="true" signature="9089:9153" ph="UPDATE membe... " />
             <marker date="1514890168075" expanded="true" signature="9573:9691" ph="UPDATE membe... " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DAO/StoreAccountDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <marker date="1514862004979" expanded="true" signature="1040:1085" ph="SELECT * FRO... storeAccount" />
+            <marker date="1514862004979" expanded="true" signature="1608:1671" ph="SELECT * FRO... storeAccount" />
+            <marker date="1514862004979" expanded="true" signature="2190:2246" ph="SELECT * FRO... storeAccount" />
+            <marker date="1514862004979" expanded="true" signature="2761:2831" ph="SELECT count... *" />
+            <marker date="1514862004979" expanded="true" signature="2783:2821" ph="SELECT * FRO... storeaccount" />
+            <marker date="1514862004979" expanded="true" signature="3383:3441" ph="SELECT * FRO... storeAccount" />
+            <marker date="1514862004979" expanded="true" signature="3944:4015" ph="INSERT INTO storeAccount... " />
+            <marker date="1514862004979" expanded="true" signature="4368:4419" ph="UPDATE store... " />
+            <marker date="1514862004979" expanded="true" signature="4646:4696" ph="UPDATE store... " />
+            <marker date="1514862004979" expanded="true" signature="4940:5004" ph="UPDATE store... " />
+            <marker date="1514862004979" expanded="true" signature="5379:5429" ph="UPDATE store... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/DAO/InvoiceDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="55" column="23" lean-forward="false" selection-start-line="55" selection-start-column="23" selection-end-line="55" selection-end-column="23" />
+          <folding>
+            <marker date="1514890681947" expanded="true" signature="1264:1314" ph="SELECT * FRO... invoice" />
+            <marker date="1514890681947" expanded="true" signature="2142:2236" ph="SELECT * FRO... invoice" />
+            <marker date="1514890681947" expanded="true" signature="3240:3309" ph="SELECT * FRO... invoice" />
+            <marker date="1514890681947" expanded="true" signature="4159:4242" ph="SELECT count... *" />
+            <marker date="1514890681947" expanded="true" signature="4181:4232" ph="SELECT * FRO... invoice" />
+            <marker date="1514890681947" expanded="true" signature="5035:5115" ph="INSERT INTO invoice... " />
+            <marker date="1514890681947" expanded="true" signature="5516:5619" ph="INSERT INTO invoice... " />
+            <marker date="1514890681947" expanded="true" signature="6467:6734" ph="SELECT * FRO... invoice" />
+            <marker date="1514890681947" expanded="true" signature="7872:8158" ph="select count... *" />
+            <marker date="1514890681947" expanded="true" signature="7911:8148" ph="SELECT * FRO... invoice" />
+            <marker date="1514890681947" expanded="true" signature="9254:9462" ph="SELECT * FRO... invoice" />
+            <marker date="1514890681947" expanded="true" signature="10519:10746" ph="SELECT count... *" />
+            <marker date="1514890681947" expanded="true" signature="10558:10736" ph="SELECT * FRO... invoice" />
+            <marker date="1514890681947" expanded="true" signature="11795:12004" ph="SELECT * FRO... invoice" />
+            <marker date="1514890681947" expanded="true" signature="13066:13294" ph="SELECT count... *" />
+            <marker date="1514890681947" expanded="true" signature="13105:13284" ph="SELECT * FRO... invoice" />
+            <marker date="1514890681947" expanded="true" signature="14308:14457" ph="SELECT * FRO... invoice" />
+            <marker date="1514890681947" expanded="true" signature="15431:15599" ph="Select count... *" />
+            <marker date="1514890681947" expanded="true" signature="15470:15589" ph="SELECT * FRO... invoice" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/config.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
