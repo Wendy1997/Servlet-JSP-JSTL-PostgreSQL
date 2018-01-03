@@ -9,7 +9,7 @@
                 <div class="d-flex flex-row">
                     <div class="p-2 active-tab">Ticket</div>
                     <div class="p-2">Pick Your Seat</div>
-                    <div class="p-2">Snack and Beverages</div>
+                    <div class="p-2">Food and Beverages</div>
                 </div>
             </nav>
 
