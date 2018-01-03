@@ -20,6 +20,19 @@ import java.sql.SQLException;
 public class StudioTypeEdit extends HttpServlet{
     FilmService studioService = new FilmServiceDatabase();
 
+    private final String storeLoginAddress = "/view/login/store_login.jsp";
+    private final String accountLoginAddress = "/view/login/account_login.jsp";
+    private final String editStudioTypeAddress = "/view/database/studiotype/studiotype_edit.jsp";
+    private final String successAddress = "/view/database/success.jsp";
+
+    private final String storeIdSession = "storeid";
+    private final String roleAccountSession = "role";
+    private final String roleAdmin = "admin";
+
+    private final String title = "Studio Type";
+    private final String statusEditBerhasil = "Updated";
+    private final String link = "/admin/studiotype";
+
     /**
      * Sebuah method GET yang memberikan halaman form edit studio type
      *
@@ -34,32 +47,28 @@ public class StudioTypeEdit extends HttpServlet{
         String address = "/view/database/studiotype/studiotype_edit.jsp";
 
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storeid") == null){
-            address = "/view/login/store_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
+        if(request.getSession().getAttribute(storeIdSession) == null){
+            request.getRequestDispatcher(storeLoginAddress).forward(request, response);
         }
-
         // Validasi apakah sudah login akun
-        else if (request.getSession().getAttribute("role") == null){
-            address = "/view/login/account_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
+        else if (request.getSession().getAttribute(roleAccountSession) == null){
+            request.getRequestDispatcher(accountLoginAddress).forward(request, response);
+        }
+        // Validasi apakah sudah login as admin
+        else if(!request.getSession().getAttribute(roleAccountSession).equals(roleAdmin)){
+            request.getRequestDispatcher(accountLoginAddress).forward(request, response);
         }
 
-        // Validasi apakah sudah login as admin
-        else if(!request.getSession().getAttribute("role").equals("admin")){
-            address = "/view/login/account_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
-        }
 
         try {
             // Pengambilan data studio type yang bersangkutan
-            StudioType studioType = studioService.getStudioType(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
+            StudioType studioType = studioService.getStudioType(request.getParameter("id"), (int)request.getSession().getAttribute(storeIdSession));
             request.setAttribute("type", studioType);
         } catch (SQLException e){
             e.printStackTrace();
         }
 
-        request.getRequestDispatcher(address).forward(request, response);
+        request.getRequestDispatcher(editStudioTypeAddress).forward(request, response);
     }
 
     /**
@@ -76,18 +85,17 @@ public class StudioTypeEdit extends HttpServlet{
             // Inisialisasi Studio Type
             StudioType studioType = new StudioType( Integer.parseInt(request.getParameter("id")),
                     request.getParameter("type"),
-                    (int)request.getSession().getAttribute("storeid"));
+                    (int)request.getSession().getAttribute(storeIdSession));
 
             // Sebuah method yang akan memasukkan studio type pada database
             studioService.updateStudioType(studioType);
 
             // Redirect menuju halaman success
-            String address = "/view/database/success.jsp";
-            request.setAttribute("title", "Studio Type");
-            request.setAttribute("complete", "Updated");
-            request.setAttribute("link", "/admin/studiotype");
+            request.setAttribute("title", title);
+            request.setAttribute("complete", statusEditBerhasil);
+            request.setAttribute("link", link);
 
-            request.getRequestDispatcher(address).forward(request, response);
+            request.getRequestDispatcher(successAddress).forward(request, response);
 
         } catch (SQLException e){
            e.printStackTrace();

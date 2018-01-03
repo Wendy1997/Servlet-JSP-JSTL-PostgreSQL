@@ -24,6 +24,8 @@ import java.util.ServiceConfigurationError;
 public class ScreeningTimeMenuPagination extends HttpServlet {
     FilmService filmService = new FilmServiceDatabase();
 
+    private final String storeIdSession = "storeid";
+
     /**
      * Sebuah method GET yang memberikan data list screening time pada suatu halaman
      *
@@ -38,7 +40,7 @@ public class ScreeningTimeMenuPagination extends HttpServlet {
             int page = (Integer.parseInt(request.getParameter("page")) - 1) * 10;
 
             // Pengambilan list fnb pada offset halaman tersebut
-            List<ScreeningTime> screeningTimeList = filmService.getAllScreeningTime((int)request.getSession().getAttribute("storeid"), request.getParameter("filmid"), page);
+            List<ScreeningTime> screeningTimeList = filmService.getAllScreeningTime((int)request.getSession().getAttribute(storeIdSession), request.getParameter("filmid"), page);
 
             // Inisialisasi dan mengubah objek menjadi JSON
             Gson gson = new Gson();

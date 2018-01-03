@@ -29,6 +29,20 @@ import java.util.TreeMap;
 public class ChooseFilm extends HttpServlet {
     FilmService filmService = new FilmServiceDatabase();
 
+    private final String storeLoginAddress = "/view/login/store_login.jsp";
+    private final String accountLoginAddress = "/view/login/account_login.jsp";
+    private final String chooseFilmAddress = "/view/transaction/choose_film.jsp";
+    private final String successAddress = "/view/database/success.jsp";
+
+    private final String storeIdSession = "storeid";
+    private final String roleAccountSession = "role";
+    private final String roleAdmin = "admin";
+
+    private final String title = "Account";
+    private final String statusDeleteBerhasil = "Deleted";
+    private final String statusRetrieveBerhasil = "Retrieved";
+    private final String link = "admin";
+
     /**
      * Sebuah method GET yang akan menampilkan seluruh film beserta dengan sinopsisnya
      *
@@ -39,19 +53,14 @@ public class ChooseFilm extends HttpServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
-        // Initial Address
-        String address = "/view/transaction/choose_film.jsp";
-
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storeid") == null){
-            address = "/view/login/store_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
+        if(request.getSession().getAttribute(storeIdSession) == null){
+            request.getRequestDispatcher(storeLoginAddress).forward(request, response);
         }
 
         // Validasi apakah sudah login akun
-        else if (request.getSession().getAttribute("role") == null){
-            address = "/view/login/account_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
+        else if (request.getSession().getAttribute(roleAccountSession) == null){
+            request.getRequestDispatcher(accountLoginAddress).forward(request, response);
         }
 
         try{
@@ -60,13 +69,13 @@ public class ChooseFilm extends HttpServlet {
             LocalDateTime now = LocalDateTime.now();
 
             // Mengambil semua data film yang memiliki status aktif
-            List<Film> films = filmService.getAllFilmTrue((int)request.getSession().getAttribute("storeid"), dtf.format(now));
+            List<Film> films = filmService.getAllFilmTrue((int)request.getSession().getAttribute(storeIdSession), dtf.format(now));
 
             // Melakukan looping pada setiap filmnya untuk memasukkan list screening time dan menambahkan direktori uploads
             for(int i = 0; i < films.size(); i++){
                 films.get(i).setCover("/uploads" + films.get(i).getCover());
 
-                List<ScreeningTime> temp = filmService.getAllScreeningTimeTrue((int)request.getSession().getAttribute("storeid"), films.get(i).getId()+ "");
+                List<ScreeningTime> temp = filmService.getAllScreeningTimeTrue((int)request.getSession().getAttribute(storeIdSession), films.get(i).getId()+ "");
 
                 if(temp.size() == 0){
                     films.remove(i);
@@ -75,8 +84,8 @@ public class ChooseFilm extends HttpServlet {
                     // Membuat sebuah objek yang akan mengklasifikasi screening time berdasarkan studio
                     Map<String, List<ScreeningTime>> screeningList = new TreeMap<>();
                     for(int j = 0; j < temp.size(); j++){
-                        Studio tempStudio = filmService.getStudio(temp.get(j).getStudioId() + "",(int)request.getSession().getAttribute("storeid"));
-                        StudioType tempStudioType = filmService.getStudioType(tempStudio.getType() + "", (int)request.getSession().getAttribute("storeid"));
+                        Studio tempStudio = filmService.getStudio(temp.get(j).getStudioId() + "",(int)request.getSession().getAttribute(storeIdSession));
+                        StudioType tempStudioType = filmService.getStudioType(tempStudio.getType() + "", (int)request.getSession().getAttribute(storeIdSession));
                         if(screeningList.containsKey(tempStudioType.getType())){
                             screeningList.get(tempStudioType.getType()).add(temp.get(j));
                         } else{
@@ -96,6 +105,6 @@ public class ChooseFilm extends HttpServlet {
             e.printStackTrace();
         }
 
-        request.getRequestDispatcher(address).forward(request, response);
+        request.getRequestDispatcher(chooseFilmAddress).forward(request, response);
     }
 }

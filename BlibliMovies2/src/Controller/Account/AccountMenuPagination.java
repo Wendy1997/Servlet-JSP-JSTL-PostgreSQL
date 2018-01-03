@@ -24,6 +24,8 @@ import java.util.ServiceConfigurationError;
 public class AccountMenuPagination extends HttpServlet {
     AccountService accountService = new AccountServiceDatabase();
 
+    private final String storeIdSession = "storeid";
+
     /**
      * Sebuah method GET yang memberikan data list akun pada suatu halaman
      *
@@ -38,7 +40,7 @@ public class AccountMenuPagination extends HttpServlet {
             int page = (Integer.parseInt(request.getParameter("page")) - 1) * 10;
 
             // Pengambilan list akun pada offset halaman tersebut
-            List<Account> accounts = accountService.getAllAccount((int)request.getSession().getAttribute("storeid"), page);
+            List<Account> accounts = accountService.getAllAccount((int)request.getSession().getAttribute(storeIdSession), page);
 
             // Inisialisasi dan mengubah objek menjadi JSON
             Gson gson = new Gson();
@@ -46,7 +48,7 @@ public class AccountMenuPagination extends HttpServlet {
 
             // Pengiriman data menuju AJAX
             PrintWriter out = response.getWriter();
-            out.print("{\"count\": " + 123 + ",");
+            out.print("{\"count\": " + 123 + ","); //TODO
             out.print(" \"result\" : " + json + "}");
         } catch (SQLException e){
             e.printStackTrace();

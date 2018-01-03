@@ -26,6 +26,19 @@ import java.util.List;
 public class FilmGenreEdit extends HttpServlet{
     FilmService filmService = new FilmServiceDatabase();
 
+    private final String storeLoginAddress = "/view/login/store_login.jsp";
+    private final String accountLoginAddress = "/view/login/account_login.jsp";
+    private final String editFilmGenreAddress = "/view/database/filmgenre/filmgenre_edit.jsp";
+    private final String successAddress = "/view/database/success.jsp";
+
+    private final String storeIdSession = "storeid";
+    private final String roleAccountSession = "role";
+    private final String roleAdmin = "admin";
+
+    private final String title = "Film Genre";
+    private final String statusEditBerhasil = "Updated";
+    private final String link = "/admin/filmgenre";
+
     /**
      * Sebuah method GET yang memberikan halaman form edit film genre
      *
@@ -36,37 +49,30 @@ public class FilmGenreEdit extends HttpServlet{
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
-        // Initial address
-        String address = "/view/database/filmgenre/filmgenre_edit.jsp";
-
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storeid") == null){
-            address = "/view/login/store_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
+        if(request.getSession().getAttribute(storeIdSession) == null){
+            request.getRequestDispatcher(storeLoginAddress).forward(request, response);
         }
-
         // Validasi apakah sudah login akun
-        else if (request.getSession().getAttribute("role") == null){
-            address = "/view/login/account_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
+        else if (request.getSession().getAttribute(roleAccountSession) == null){
+            request.getRequestDispatcher(accountLoginAddress).forward(request, response);
+        }
+        // Validasi apakah sudah login as admin
+        else if(!request.getSession().getAttribute(roleAccountSession).equals(roleAdmin)){
+            request.getRequestDispatcher(accountLoginAddress).forward(request, response);
         }
 
-        // Validasi apakah sudah login as admin
-        else if(!request.getSession().getAttribute("role").equals("admin")){
-            address = "/view/login/account_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
-        }
 
         try {
 
             // Pengambilan data film genre yang bersangkutan
-            FilmGenre filmGenre = filmService.getFilmGenre(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
+            FilmGenre filmGenre = filmService.getFilmGenre(request.getParameter("id"), (int)request.getSession().getAttribute(storeIdSession));
             request.setAttribute("genre", filmGenre);
         } catch (SQLException e){
             e.printStackTrace();
         }
 
-        request.getRequestDispatcher(address).forward(request, response);
+        request.getRequestDispatcher(editFilmGenreAddress).forward(request, response);
     }
 
     /**
@@ -83,18 +89,17 @@ public class FilmGenreEdit extends HttpServlet{
             // Inisialisasi Film Genre
             FilmGenre filmGenre = new FilmGenre( Integer.parseInt(request.getParameter("id")),
                     request.getParameter("genre"),
-                    (int)request.getSession().getAttribute("storeid"));
+                    (int)request.getSession().getAttribute(storeIdSession));
 
             // Sebuah method yang akan memasukkan film pada database
             filmService.updateFilmGenre(filmGenre);
 
             // Redirect menuju halaman success
-            String address = "/view/database/success.jsp";
-            request.setAttribute("title", "Film Genre");
-            request.setAttribute("complete", "Updated");
-            request.setAttribute("link", "/admin/filmgenre");
+            request.setAttribute("title", title);
+            request.setAttribute("complete", statusEditBerhasil);
+            request.setAttribute("link", link);
 
-            request.getRequestDispatcher(address).forward(request, response);
+            request.getRequestDispatcher(successAddress).forward(request, response);
 
         } catch (Exception e){
            e.printStackTrace();

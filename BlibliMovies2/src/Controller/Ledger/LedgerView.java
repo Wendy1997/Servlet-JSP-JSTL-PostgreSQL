@@ -20,6 +20,20 @@ import java.util.Date;
 @WebServlet("/admin/ledger")
 public class LedgerView extends HttpServlet{
 
+    private final String storeLoginAddress = "/view/login/store_login.jsp";
+    private final String accountLoginAddress = "/view/login/account_login.jsp";
+    private final String viewLedgerAddress = "/view/database/ledger/ledger_menu.jsp";
+    private final String successAddress = "/view/database/success.jsp";
+
+    private final String storeIdSession = "storeid";
+    private final String roleAccountSession = "role";
+    private final String roleAdmin = "admin";
+
+    private final String title = "Account";
+    private final String statusDeleteBerhasil = "Deleted";
+    private final String statusRetrieveBerhasil = "Retrieved";
+    private final String link = "admin";
+
     /**
      * Sebuah method GET yang memberikan halaman list invoice pada setiap hari, minggu, bulan atau tahun
      *
@@ -29,25 +43,20 @@ public class LedgerView extends HttpServlet{
      * @throws IOException
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String address = "/view/database/ledger/ledger_menu.jsp";
 
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storeid") == null){
-            address = "/view/login/store_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
+        if(request.getSession().getAttribute(storeIdSession) == null){
+            request.getRequestDispatcher(storeLoginAddress).forward(request, response);
         }
-
         // Validasi apakah sudah login akun
-        else if (request.getSession().getAttribute("role") == null){
-            address = "/view/login/account_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
+        else if (request.getSession().getAttribute(roleAccountSession) == null){
+            request.getRequestDispatcher(accountLoginAddress).forward(request, response);
+        }
+        // Validasi apakah sudah login as admin
+        else if(!request.getSession().getAttribute(roleAccountSession).equals(roleAdmin)){
+            request.getRequestDispatcher(accountLoginAddress).forward(request, response);
         }
 
-        // Validasi apakah sudah login as admin
-        else if(!request.getSession().getAttribute("role").equals("admin")){
-            address = "/view/login/account_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
-        }
 
         // Pengambilan data waktu saat ini
         LocalDate now = LocalDate.now();
@@ -80,12 +89,7 @@ public class LedgerView extends HttpServlet{
         request.setAttribute("year", year);
         request.setAttribute("week", week);
 
-        System.out.println("day = " + day );
-        System.out.println("week = " + week );
-        System.out.println("month = " + month );
-        System.out.println("year = " + year );
-
-        request.getRequestDispatcher(address).forward(request, response);
+        request.getRequestDispatcher(viewLedgerAddress).forward(request, response);
     }
 
 }

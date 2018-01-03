@@ -27,6 +27,8 @@ import java.util.List;
 public class LedgerViewMonthlyPagination extends HttpServlet {
     InvoiceService invoiceService = new InvoiceServiceDatabase();
 
+    private final String storeIdSession = "storeid";
+
     /**
      * Sebuah method GET yang memberikan data list invoice bulan tersebut pada suatu halaman
      *
@@ -41,7 +43,7 @@ public class LedgerViewMonthlyPagination extends HttpServlet {
             int page = (Integer.parseInt(request.getParameter("page")) - 1) * 10;
 
             // Pengambilan list invoice pada bulan tersebut pada offset halaman tersebut
-            List<Invoice> invoiceList = invoiceService.getMonthlyInvoice(request.getParameter("date"), (int)request.getSession().getAttribute("storeid"), page);
+            List<Invoice> invoiceList = invoiceService.getMonthlyInvoice(request.getParameter("date"), (int)request.getSession().getAttribute(storeIdSession), page);
             invoiceList.sort(Comparator.comparingInt(Invoice::getId));
 
             // Inisialisasi dan mengubah objek menjadi JSON

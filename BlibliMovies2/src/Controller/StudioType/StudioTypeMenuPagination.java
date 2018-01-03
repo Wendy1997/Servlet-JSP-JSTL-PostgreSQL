@@ -24,6 +24,8 @@ import java.util.ServiceConfigurationError;
 public class StudioTypeMenuPagination extends HttpServlet {
     FilmService filmService = new FilmServiceDatabase();
 
+    private final String storeIdSession = "storeid";
+
     /**
      * Sebuah method GET yang memberikan data list studio type pada suatu halaman
      *
@@ -38,7 +40,7 @@ public class StudioTypeMenuPagination extends HttpServlet {
             int page = (Integer.parseInt(request.getParameter("page")) - 1) * 10;
 
             // Pengambilan list studio type pada offset halaman tersebut
-            List<StudioType> studiotypes = filmService.getAllStudioType((int)request.getSession().getAttribute("storeid"), page);
+            List<StudioType> studiotypes = filmService.getAllStudioType((int)request.getSession().getAttribute(storeIdSession), page);
 
             // Inisialisasi dan mengubah objek menjadi JSON
             Gson gson = new Gson();

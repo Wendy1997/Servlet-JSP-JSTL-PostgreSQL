@@ -10,28 +10,37 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 
 @WebServlet("/admin/superadmin/edit")
 public class SuperAdminEdit extends HttpServlet{
     SuperAdminService superAdminService = new SuperAdminServiceDatabase();
 
+    private final String superLoginAddress = "/view/login/superadmin_login.jsp";
+    private final String successAddress = "/view/database/success.jsp";
+    private final String editSuperAdminAddress = "/view/database/superadmin/superadmin_edit.jsp";
+
+    private final String superAdminSession = "superadminid";
+
+    private final String title = "Super Admin";
+    private final String statusEditBerhasil = "Updated";
+    private final String link = "/admin/superadmin";
+
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        String address = "/view/database/superadmin/superadmin_edit.jsp";
 
         // Validasi apakah sudah login as super
-        if(request.getSession().getAttribute("superadminid") == null){
-            address = "/view/login/superadmin_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
+        if(request.getSession().getAttribute(superAdminSession) == null){
+            request.getRequestDispatcher(superLoginAddress).forward(request, response);
         }
 
         try {
             SuperAdmin superAdmin = superAdminService.getSuperAdmin(request.getParameter("id"));
             request.setAttribute("superadmin", superAdmin);
-        } catch (Exception e){
-            System.out.println(e.getMessage());
+        } catch (SQLException e){
+            e.printStackTrace();
         }
 
-        request.getRequestDispatcher(address).forward(request, response);
+        request.getRequestDispatcher(editSuperAdminAddress).forward(request, response);
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
@@ -46,14 +55,14 @@ public class SuperAdminEdit extends HttpServlet{
 
                 superAdminService.updateSuperAdmin(superAdmin);
 
-                String address = "/view/database/success.jsp";
-                request.setAttribute("title", "Super Admin");
-                request.setAttribute("complete", "Updated");
-                request.setAttribute("link", "/admin/superadmin");
+                // Redirect menuju halaman success
+                request.setAttribute("title", title);
+                request.setAttribute("complete", statusEditBerhasil);
+                request.setAttribute("link", link);
 
-                request.getRequestDispatcher(address).forward(request, response);
+                request.getRequestDispatcher(successAddress).forward(request, response);
             }
-        } catch (Exception e){
+        } catch (SQLException e){
             e.printStackTrace();
         }
     }

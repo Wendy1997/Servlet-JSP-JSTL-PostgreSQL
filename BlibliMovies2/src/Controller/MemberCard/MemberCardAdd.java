@@ -25,6 +25,14 @@ import java.util.List;
 public class MemberCardAdd extends HttpServlet {
     MemberCardService memberCardService = new MemberCardServiceDatabase();
 
+    private final String storeLoginAddress = "/view/login/store_login.jsp";
+    private final String accountLoginAddress = "/view/login/account_login.jsp";
+    private final String addMemberCardAddress = "/view/database/member/member_add.jsp";
+
+    private final String storeIdSession = "storeid";
+    private final String roleAccountSession = "role";
+    private final String roleAdmin = "admin";
+
     /**
      * Sebuah method GET yang memberikan form penambahan member card
      *
@@ -34,31 +42,28 @@ public class MemberCardAdd extends HttpServlet {
      * @throws IOException
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String address = "/view/database/member/member_add.jsp";
-
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storeid") == null){
-            address = "/view/login/store_login.jsp";
+        if(request.getSession().getAttribute(storeIdSession) == null){
+            request.getRequestDispatcher(storeLoginAddress).forward(request, response);
         }
-
         // Validasi apakah sudah login akun
-        else if (request.getSession().getAttribute("role") == null){
-            address = "/view/login/account_login.jsp";
+        else if (request.getSession().getAttribute(roleAccountSession) == null){
+            request.getRequestDispatcher(accountLoginAddress).forward(request, response);
+        }
+        // Validasi apakah sudah login as admin
+        else if(!request.getSession().getAttribute(roleAccountSession).equals(roleAdmin)){
+            request.getRequestDispatcher(accountLoginAddress).forward(request, response);
         }
 
-        // Validasi apakah sudah login as admin
-        else if(!request.getSession().getAttribute("role").equals("admin")){
-            address = "/view/login/account_login.jsp";
-        }
 
         try{
-            List<MemberGender> memberGenderList = memberCardService.getAllMemberGenderTrue((int)request.getSession().getAttribute("storeid"));
+            List<MemberGender> memberGenderList = memberCardService.getAllMemberGenderTrue((int)request.getSession().getAttribute(storeIdSession));
             request.setAttribute("gender", memberGenderList);
         }catch (SQLException e){
             e.printStackTrace();
         }
 
-        request.getRequestDispatcher(address).forward(request, response);
+        request.getRequestDispatcher(addMemberCardAddress).forward(request, response);
     }
 
     /**
@@ -70,11 +75,9 @@ public class MemberCardAdd extends HttpServlet {
      * @throws IOException
      */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        System.out.println("masuk");
         try{
             // Inisialisasi member card
-            MemberCard memberCard = new MemberCard((int)request.getSession().getAttribute("storeid"),
+            MemberCard memberCard = new MemberCard((int)request.getSession().getAttribute(storeIdSession),
                     request.getParameter("fullname"),
                     Integer.parseInt(request.getParameter("gender")),
                     request.getParameter("birthdate"),
@@ -84,8 +87,8 @@ public class MemberCardAdd extends HttpServlet {
             // Sebuah method yang akan memasukkan member card pada database
             memberCardService.addMemberCard(memberCard);
 
-            int id = memberCardService.getIDMemberCardTerbaru((int)request.getSession().getAttribute("storeid"));
-            memberCard = memberCardService.getMemberCard(id + "", (int)request.getSession().getAttribute("storeid"));
+            int id = memberCardService.getIDMemberCardTerbaru((int)request.getSession().getAttribute(storeIdSession));
+            memberCard = memberCardService.getMemberCard(id + "", (int)request.getSession().getAttribute(storeIdSession));
 
             String hash = memberCard.getId() + memberCard.getFullname() + memberCard.getPhoneNumber();
             int hashCode = hash.hashCode();

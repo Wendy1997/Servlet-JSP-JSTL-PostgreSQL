@@ -17,22 +17,33 @@ import java.util.List;
 public class SuperAdminMenu extends HttpServlet{
     SuperAdminService superAdminService = new SuperAdminServiceDatabase();
 
+    private final String superLoginAddress = "/view/login/superadmin_login.jsp";
+    private final String successAddress = "/view/database/success.jsp";
+    private final String menuSuperAdminAddress = "/view/database/superadmin/superadmin_menu.jsp";
+
+    private final String superAdminSession = "superadminid";
+
+    private final String title = "Account";
+    private final String statusDeleteBerhasil = "Deleted";
+    private final String statusRetrieveBerhasil = "Retrieved";
+    private final String link = "admin";
+
+    private final int initialPage = 0;
+
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String address = "/view/database/superadmin/superadmin_menu.jsp";
 
         // Validasi apakah sudah login as super
-        if(request.getSession().getAttribute("superadminid") == null){
-            address = "/view/login/superadmin_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
+        if(request.getSession().getAttribute(superAdminSession) == null){
+            request.getRequestDispatcher(superLoginAddress).forward(request, response);
         }
 
         try{
-            List<SuperAdmin> superAdmins = superAdminService.getAllSuperAdmin(0);
+            List<SuperAdmin> superAdmins = superAdminService.getAllSuperAdmin(initialPage);
             int pageCounter = superAdminService.getCountAllSuperAdmin();
 
             request.setAttribute("superadmins", superAdmins);
             request.setAttribute("page", pageCounter);
-            request.getRequestDispatcher(address).forward(request, response);
+            request.getRequestDispatcher(menuSuperAdminAddress).forward(request, response);
         } catch (SQLException e){
             e.printStackTrace();
         }

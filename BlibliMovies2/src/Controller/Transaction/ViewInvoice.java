@@ -21,6 +21,12 @@ import java.util.List;
 @WebServlet("/cashier/invoice")
 public class ViewInvoice extends HttpServlet {
     InvoiceService invoiceService = new InvoiceServiceDatabase();
+    private final String viewInvoiceAddress = "/view/transaction/view_invoice.jsp";
+    private final String storeLoginAddress = "/view/login/store_login.jsp";
+    private final String accountLoginAddress = "/view/login/account_login.jsp";
+
+    private final String storeIdSession = "storeid";
+    private final String roleAccountSession = "role";
 
     /**
      * Sebuah method GET yang akan menampilkan invoice setelah melakukan transaksi
@@ -32,36 +38,31 @@ public class ViewInvoice extends HttpServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
-        // Initial Address
-        String address = "/view/transaction/view_invoice.jsp";
-
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storeid") == null){
-            address = "/view/login/store_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
+        if(request.getSession().getAttribute(storeIdSession) == null){
+            request.getRequestDispatcher(storeLoginAddress).forward(request, response);
         }
 
         // Validasi apakah sudah login akun
-        else if (request.getSession().getAttribute("role") == null){
-            address = "/view/login/account_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
+        else if (request.getSession().getAttribute(roleAccountSession) == null){
+            request.getRequestDispatcher(accountLoginAddress).forward(request, response);
         }
 
         try{
             // Pengambilan data invoice dan order details
-            Invoice invoice = invoiceService.getInvoice(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
-            List<OrderDetail> orderDetails = invoiceService.getAllOrderDetail(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
+            Invoice invoice = invoiceService.getInvoice(request.getParameter("id"), (int)request.getSession().getAttribute(storeIdSession));
+            List<OrderDetail> orderDetails = invoiceService.getAllOrderDetail(request.getParameter("id"), (int)request.getSession().getAttribute(storeIdSession));
 
             // Pengecekan jika memiliki member
             if(invoice.getMemberId() != 0){
-                Promo promo = invoiceService.getPromo((int)request.getSession().getAttribute("storeid"));
+                Promo promo = invoiceService.getPromo((int)request.getSession().getAttribute(storeIdSession));
                 request.setAttribute("promo", promo);
             }
 
             request.setAttribute("invoice", invoice);
             request.setAttribute("orderDetails", orderDetails);
 
-            request.getRequestDispatcher(address).forward(request, response);
+            request.getRequestDispatcher(viewInvoiceAddress).forward(request, response);
         } catch (SQLException e){
             e.printStackTrace();
         }

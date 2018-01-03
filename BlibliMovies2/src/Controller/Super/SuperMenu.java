@@ -14,6 +14,9 @@ import java.io.IOException;
 @WebServlet("/supermenu")
 public class SuperMenu extends HttpServlet{
 
+    private final String superAdminLoginAddress = "/view/login/superadmin_login.jsp";
+    private final String superMenuAddress = "/view/menu/super_menu.jsp";
+
     /**
      * Sebuah method GET yang memberikan halaman menu super
      *
@@ -24,15 +27,11 @@ public class SuperMenu extends HttpServlet{
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
-        // Initial address
-        String address = "/view/menu/super_menu.jsp";
-
         // Validasi apakah sudah login as super
         if(request.getSession().getAttribute("superadminid") == null){
-            address = "/view/login/superadmin_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
+            request.getRequestDispatcher(superAdminLoginAddress).forward(request, response);
         }
 
-        request.getRequestDispatcher(address).forward(request, response);
+        request.getRequestDispatcher(superMenuAddress).forward(request, response);
     }
 }

@@ -15,13 +15,21 @@ import java.io.IOException;
 public class SuperAdminDelete extends HttpServlet {
     SuperAdminService superAdminService = new SuperAdminServiceDatabase();
 
+    private final String superLoginAddress = "/view/login/superadmin_login.jsp";
+    private final String successAddress = "/view/database/success.jsp";
+
+    private final String superAdminSession = "superadminid";
+
+    private final String title = "Super Admin";
+    private final String statusDeleteBerhasil = "Deleted";
+    private final String statusRetrieveBerhasil = "Retrieved";
+    private final String link = "/admin/superadmin";
+
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        String address = "/view/database/superadmin/superadmin_menu.jsp";
 
         // Validasi apakah sudah login as super
-        if(request.getSession().getAttribute("superadminid") == null){
-            address = "/view/login/superadmin_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
+        if(request.getSession().getAttribute(superAdminSession) == null){
+            request.getRequestDispatcher(superLoginAddress).forward(request, response);
         }
 
         try{
@@ -29,17 +37,17 @@ public class SuperAdminDelete extends HttpServlet {
 
             if(superAdmin.getStatus()){
                 superAdminService.deleteSuperAdmin(superAdmin.getId());
-                request.setAttribute("complete", "Deleted");
+                request.setAttribute("complete", statusDeleteBerhasil);
             } else{
-                request.setAttribute("complete", "Retrieved");
+                request.setAttribute("complete", statusRetrieveBerhasil);
                 superAdminService.retrieveSuperAdmin(superAdmin.getId());
             }
 
-            address = "/view/database/success.jsp";
-            request.setAttribute("title", "Super Admin");
-            request.setAttribute("link", "/admin/superadmin");
+            // Redirect menuju halaman success
+            request.setAttribute("title", title);
+            request.setAttribute("link", link);
 
-            request.getRequestDispatcher(address).forward(request, response);
+            request.getRequestDispatcher(successAddress).forward(request, response);
 
         } catch (Exception e){
             e.printStackTrace();

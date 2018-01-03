@@ -19,6 +19,17 @@ import java.sql.SQLException;
 public class SuperAdmin extends HttpServlet {
     SuperAdminService superAdminService = new SuperAdminServiceDatabase();
 
+    private final String superLoginAddress = "/view/login/superadmin_login.jsp";
+    private final String successAddress = "/view/database/success.jsp";
+
+    private final String superAdminSession = "superadminid";
+
+    private final String title = "Login";
+    private final String statusLoginBerhasil = "Success";
+    private final String statusLoginGagal = "Failed";
+    private final String link = "/supermenu";
+
+
     /**
      * Suatu Controller yang akan me redirect menuju halaman Super Admin Login dan melakukan logout
      *
@@ -28,16 +39,15 @@ public class SuperAdmin extends HttpServlet {
      * @throws IOException
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-        String address = "/view/login/superadmin_login.jsp";
 
         // validasi Logout
         if(request.getParameter("page") != null){
             if(request.getParameter("page").equals("logout")){
-                request.getSession().removeAttribute("superadminid");
+                request.getSession().removeAttribute(superAdminSession);
             }
         }
 
-        request.getRequestDispatcher(address).forward(request, response);
+        request.getRequestDispatcher(superLoginAddress).forward(request, response);
     }
 
     /**
@@ -50,12 +60,7 @@ public class SuperAdmin extends HttpServlet {
      */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        // Initial address
-        String address = "/view/login/superadmin_login.jsp";
-
         try {
-
-            System.out.println(request.getParameter("password").hashCode());
             // Inisialisasi akun
             Model.SuperAdmin superAdmin = superAdminService.getSuperAdmin(request.getParameter("username"));
 
@@ -66,29 +71,26 @@ public class SuperAdmin extends HttpServlet {
                     // Set session superAdminid dan superAdminname
                     request.getSession().setAttribute("superadminid", superAdmin.getId());
 
-                    // Redirect halaman success
-                    address = "/view/database/success.jsp";
-                    request.setAttribute("title", "Login");
-                    request.setAttribute("complete", "Sukses");
-                    request.setAttribute("link", "/supermenu");
+                    // Redirect menuju halaman success
+                    request.setAttribute("title", title);
+                    request.setAttribute("complete", statusLoginBerhasil);
+                    request.setAttribute("link", link);
 
                 } else{
 
-                    // Redirect halaman success
-                    address = "/view/database/success.jsp";
-                    request.setAttribute("title", "Login");
-                    request.setAttribute("complete", "Gagal");
-                    request.setAttribute("link", "/super");
+                    // Redirect menuju halaman success
+                    request.setAttribute("title", title);
+                    request.setAttribute("complete", statusLoginGagal);
+                    request.setAttribute("link", link);
                 }
             } else {
-                // Redirect halaman success
-                address = "/view/database/success.jsp";
-                request.setAttribute("title", "Login");
-                request.setAttribute("complete", "Gagal");
-                request.setAttribute("link", "/super");
+                // Redirect menuju halaman success
+                request.setAttribute("title", title);
+                request.setAttribute("complete", statusLoginGagal);
+                request.setAttribute("link", link);
             }
 
-            request.getRequestDispatcher(address).forward(request, response);
+            request.getRequestDispatcher(successAddress).forward(request, response);
         } catch (SQLException e){
             e.printStackTrace();
         }

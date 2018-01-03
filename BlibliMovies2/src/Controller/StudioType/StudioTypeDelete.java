@@ -20,6 +20,19 @@ import java.sql.SQLException;
 public class StudioTypeDelete extends HttpServlet {
     FilmService filmService = new FilmServiceDatabase();
 
+    private final String storeLoginAddress = "/view/login/store_login.jsp";
+    private final String accountLoginAddress = "/view/login/account_login.jsp";
+    private final String successAddress = "/view/database/success.jsp";
+
+    private final String storeIdSession = "storeid";
+    private final String roleAccountSession = "role";
+    private final String roleAdmin = "admin";
+
+    private final String title = "Studio Type";
+    private final String statusDeleteBerhasil = "Deleted";
+    private final String statusRetrieveBerhasil = "Retrieved";
+    private final String link = "/admin/studiotype";
+
     /**
      * Sebuah method GET yang akan melakukan penghapusan ataupun pengembalian studio type
      *
@@ -30,50 +43,42 @@ public class StudioTypeDelete extends HttpServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
-        // Initial Address
-        String address = "/view/database/studiotype/studiotype_menu.jsp";
-
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storeid") == null){
-            address = "/view/login/store_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
+        if(request.getSession().getAttribute(storeIdSession) == null){
+            request.getRequestDispatcher(storeLoginAddress).forward(request, response);
         }
-
         // Validasi apakah sudah login akun
-        else if (request.getSession().getAttribute("role") == null){
-            address = "/view/login/account_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
+        else if (request.getSession().getAttribute(roleAccountSession) == null){
+            request.getRequestDispatcher(accountLoginAddress).forward(request, response);
+        }
+        // Validasi apakah sudah login as admin
+        else if(!request.getSession().getAttribute(roleAccountSession).equals(roleAdmin)){
+            request.getRequestDispatcher(accountLoginAddress).forward(request, response);
         }
 
-        // Validasi apakah sudah login as admin
-        else if(!request.getSession().getAttribute("role").equals("admin")){
-            address = "/view/login/account_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
-        }
 
         try{
             // Pengambilan data studio type yang bersangkutan
-            StudioType studioType = filmService.getStudioType(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
+            StudioType studioType = filmService.getStudioType(request.getParameter("id"), (int)request.getSession().getAttribute(storeIdSession));
 
             // Pengecekan apakah status studio type tersebut aktif atau tidak
             if(studioType.isStatus()){
 
                 // Jika aktif maka akan didelete
-                filmService.deleteStudioType(studioType.getId() + "", (int)request.getSession().getAttribute("storeid"));
-                request.setAttribute("complete", "Deleted");
+                filmService.deleteStudioType(studioType.getId() + "", (int)request.getSession().getAttribute(storeIdSession));
+                request.setAttribute("complete", statusDeleteBerhasil);
             } else {
 
                 // Jika pasif maka akan di retrieve
-                filmService.retrieveStudioType(studioType.getId() + "", (int)request.getSession().getAttribute("storeid"));
-                request.setAttribute("complete", "Retrieved");
+                filmService.retrieveStudioType(studioType.getId() + "", (int)request.getSession().getAttribute(storeIdSession));
+                request.setAttribute("complete", statusRetrieveBerhasil);
             }
 
             // Redirect menuju halaman success
-            address = "/view/database/success.jsp";
-            request.setAttribute("title", "Studio Type");
-            request.setAttribute("link", "/admin/studiotype");
+            request.setAttribute("title", title);
+            request.setAttribute("link", link);
 
-            request.getRequestDispatcher(address).forward(request, response);
+            request.getRequestDispatcher(successAddress).forward(request, response);
 
         } catch (SQLException e){
             e.printStackTrace();

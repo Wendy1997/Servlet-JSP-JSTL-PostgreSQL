@@ -26,17 +26,19 @@ import java.util.TreeMap;
 public class ChooseFilmDate extends HttpServlet {
     FilmService filmService = new FilmServiceDatabase();
 
+    private final String storeIdSession = "storeid";
+
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
         try{
             // Mengambil semua data film yang memiliki status aktif
-            List<Film> films = filmService.getAllFilmTrue((int)request.getSession().getAttribute("storeid"), request.getParameter("now"));
+            List<Film> films = filmService.getAllFilmTrue((int)request.getSession().getAttribute(storeIdSession), request.getParameter("now"));
 
             // Melakukan looping pada setiap filmnya untuk memasukkan list screening time dan menambahkan direktori uploads
             for(int i = 0; i < films.size(); i++){
                 films.get(i).setCover("/uploads" + films.get(i).getCover());
 
-                List<ScreeningTime> temp = filmService.getAllScreeningTimeTrue((int)request.getSession().getAttribute("storeid"), films.get(i).getId()+ "");
+                List<ScreeningTime> temp = filmService.getAllScreeningTimeTrue((int)request.getSession().getAttribute(storeIdSession), films.get(i).getId()+ "");
 
                 if(temp.size() == 0){
                     films.remove(i);
@@ -45,8 +47,8 @@ public class ChooseFilmDate extends HttpServlet {
                     // Membuat sebuah objek yang akan mengklasifikasi screening time berdasarkan studio
                     Map<String, List<ScreeningTime>> screeningList = new TreeMap<>();
                     for(int j = 0; j < temp.size(); j++){
-                        Studio tempStudio = filmService.getStudio(temp.get(j).getStudioId() + "",(int)request.getSession().getAttribute("storeid"));
-                        StudioType tempStudioType = filmService.getStudioType(tempStudio.getType() + "", (int)request.getSession().getAttribute("storeid"));
+                        Studio tempStudio = filmService.getStudio(temp.get(j).getStudioId() + "",(int)request.getSession().getAttribute(storeIdSession));
+                        StudioType tempStudioType = filmService.getStudioType(tempStudio.getType() + "", (int)request.getSession().getAttribute(storeIdSession));
                         if(screeningList.containsKey(tempStudioType.getType())){
                             screeningList.get(tempStudioType.getType()).add(temp.get(j));
                         } else{

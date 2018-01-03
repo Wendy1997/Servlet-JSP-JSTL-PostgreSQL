@@ -23,6 +23,19 @@ import java.util.List;
 public class AccountEdit extends HttpServlet{
     AccountService accountService = new AccountServiceDatabase();
 
+    private final String storeLoginAddress = "/view/login/store_login.jsp";
+    private final String accountLoginAddress = "/view/login/account_login.jsp";
+    private final String editAccountAddress = "/view/database/account/account_edit.jsp";
+    private final String successAddress = "/view/database/success.jsp";
+
+    private final String storeIdSession = "storeid";
+    private final String roleAccountSession = "role";
+    private final String roleAdmin = "admin";
+
+    private final String title = "Account";
+    private final String statusEditBerhasil = "Updated";
+    private final String link = "/admin/account";
+
     /**
      * Sebuah method GET yang memberikan halaman form edit akun
      *
@@ -33,41 +46,33 @@ public class AccountEdit extends HttpServlet{
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
-        // Initial Address
-        String address = "/view/database/account/account_edit.jsp";
-
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storeid") == null){
-            address = "/view/login/store_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
+        if(request.getSession().getAttribute(storeIdSession) == null){
+            request.getRequestDispatcher(storeLoginAddress).forward(request, response);
         }
-
         // Validasi apakah sudah login akun
-        else if (request.getSession().getAttribute("role") == null){
-            address = "/view/login/account_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
+        else if (request.getSession().getAttribute(roleAccountSession) == null){
+            request.getRequestDispatcher(accountLoginAddress).forward(request, response);
         }
-
         // Validasi apakah sudah login as admin
-        else if(!request.getSession().getAttribute("role").equals("admin")){
-            address = "/view/login/account_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
+        else if(!request.getSession().getAttribute(roleAccountSession).equals(roleAdmin)){
+            request.getRequestDispatcher(accountLoginAddress).forward(request, response);
         }
 
         try {
 
             // Pengambilan data akun yang ingin diedit agar langsung dapat di retrieve
-            Account account = accountService.getAccount(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
+            Account account = accountService.getAccount(request.getParameter("id"), (int)request.getSession().getAttribute(storeIdSession));
             request.setAttribute("account", account);
 
             // Pengambilan data seluruh role akun untuk dimasukkan kedalam form
-            List<AccountRole> accountRoleList = accountService.getAllAccountRoleTrue((int)request.getSession().getAttribute("storeid"));
+            List<AccountRole> accountRoleList = accountService.getAllAccountRoleTrue((int)request.getSession().getAttribute(storeIdSession));
             request.setAttribute("role", accountRoleList);
         } catch (SQLException e){
             e.printStackTrace();
         }
 
-        request.getRequestDispatcher(address).forward(request, response);
+        request.getRequestDispatcher(editAccountAddress).forward(request, response);
     }
 
     /**
@@ -85,7 +90,7 @@ public class AccountEdit extends HttpServlet{
             if(request.getParameter("password").length() > 0){
                 // Inisialisasi Account dari hasil form
                 Account account = new Account( request.getParameter("username"),
-                        (int)request.getSession().getAttribute("storeid"),
+                        (int)request.getSession().getAttribute(storeIdSession),
                         request.getParameter("password").hashCode() + "",
                         Integer.parseInt(request.getParameter("role")));
 
@@ -94,7 +99,7 @@ public class AccountEdit extends HttpServlet{
             } else {
                 // Inisialisasi Account dari hasil form
                 Account account = new Account( request.getParameter("username"),
-                        (int)request.getSession().getAttribute("storeid"),
+                        (int)request.getSession().getAttribute(storeIdSession),
                         Integer.parseInt(request.getParameter("role")));
 
                 // Sebuah method yang akan mengupdate akun ke dalam database
@@ -102,12 +107,11 @@ public class AccountEdit extends HttpServlet{
             }
 
             // Redirect menuju halaman success
-            String address = "/view/database/success.jsp";
-            request.setAttribute("title", "Account");
-            request.setAttribute("complete", "Updated");
-            request.setAttribute("link", "/admin/account");
+            request.setAttribute("title", title);
+            request.setAttribute("complete", statusEditBerhasil);
+            request.setAttribute("link", link);
 
-            request.getRequestDispatcher(address).forward(request, response);
+            request.getRequestDispatcher(successAddress).forward(request, response);
         } catch (SQLException e){
             e.printStackTrace();
         }

@@ -25,6 +25,8 @@ import java.util.List;
 public class MemberConfirmation extends HttpServlet {
     MemberCardService memberCardService = new MemberCardServiceDatabase();
 
+    private final String storeIdSession = "storeid";
+
     /**
      * Sebuah method GET yang memberikan form penambahan member card
      *
@@ -36,7 +38,6 @@ public class MemberConfirmation extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
        int hash = Integer.parseInt(request.getParameter("code"));
         String id = request.getParameter("id");
-        System.out.println(id);
 
         // Redirect menuju halaman success
         String address = "/view/database/success.jsp";
@@ -45,17 +46,14 @@ public class MemberConfirmation extends HttpServlet {
         request.setAttribute("link", "/index");
 
         try{
-            MemberCard memberCard = memberCardService.getMemberCard(id, (int)request.getSession().getAttribute("storeid"));
+            MemberCard memberCard = memberCardService.getMemberCard(id);
             String member = memberCard.getId() + memberCard.getFullname() + memberCard.getPhoneNumber();
             int hashCode = member.hashCode();
 
-            System.out.println(hash);
-            System.out.println(hashCode);
-
             if(hash == hashCode){
-                memberCardService.retrieveMemberCard(id, (int)request.getSession().getAttribute("storeid"));
+                memberCardService.retrieveMemberCard(id);
 
-                request.setAttribute("title", "Confirmation");
+                request.setAttribute("title", "Confirmation"); //TODO
                 request.setAttribute("complete", "Success");
                 request.setAttribute("link", "/index");
             }

@@ -24,6 +24,8 @@ import java.util.ServiceConfigurationError;
 public class FnBMenuPagination extends HttpServlet {
     FnBService fnbService = new FnBServiceDatabase();
 
+    private final String storeIdSession = "storeid";
+
     /**
      * Sebuah method GET yang memberikan data list fnb pada suatu halaman
      *
@@ -38,7 +40,7 @@ public class FnBMenuPagination extends HttpServlet {
             int page = (Integer.parseInt(request.getParameter("page")) - 1) * 10;
 
             // Pengambilan list fnb pada offset halaman tersebut
-            List<FnB> fnbs = fnbService.getAllFnB((int)request.getSession().getAttribute("storeid"), page);
+            List<FnB> fnbs = fnbService.getAllFnB((int)request.getSession().getAttribute(storeIdSession), page);
 
             // Inisialisasi dan mengubah objek menjadi JSON
             Gson gson = new Gson();

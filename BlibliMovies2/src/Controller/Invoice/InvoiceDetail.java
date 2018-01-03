@@ -23,6 +23,20 @@ import java.util.List;
 public class InvoiceDetail extends HttpServlet {
     InvoiceService invoiceService = new InvoiceServiceDatabase();
 
+    private final String storeLoginAddress = "/view/login/store_login.jsp";
+    private final String accountLoginAddress = "/view/login/account_login.jsp";
+    private final String detailInvoiceAddress = "/view/database/invoice/invoice_detail.jsp";
+    private final String successAddress = "/view/database/success.jsp";
+
+    private final String storeIdSession = "storeid";
+    private final String roleAccountSession = "role";
+    private final String roleAdmin = "admin";
+
+    private final String title = "Account";
+    private final String statusDeleteBerhasil = "Deleted";
+    private final String statusRetrieveBerhasil = "Retrieved";
+    private final String link = "admin";
+
     /**
      * Sebuah method GET yang akan memberikan informasi detail mengenai invoice tersebut
      *
@@ -33,44 +47,37 @@ public class InvoiceDetail extends HttpServlet {
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
-        // Initial Address
-        String address = "/view/database/invoice/invoice_detail.jsp";
-
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storeid") == null){
-            address = "/view/login/store_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
+        if(request.getSession().getAttribute(storeIdSession) == null){
+            request.getRequestDispatcher(storeLoginAddress).forward(request, response);
         }
-
         // Validasi apakah sudah login akun
-        else if (request.getSession().getAttribute("role") == null){
-            address = "/view/login/account_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
+        else if (request.getSession().getAttribute(roleAccountSession) == null){
+            request.getRequestDispatcher(accountLoginAddress).forward(request, response);
+        }
+        // Validasi apakah sudah login as admin
+        else if(!request.getSession().getAttribute(roleAccountSession).equals(roleAdmin)){
+            request.getRequestDispatcher(accountLoginAddress).forward(request, response);
         }
 
-        // Validasi apakah sudah login as admin
-        else if(!request.getSession().getAttribute("role").equals("admin")){
-            address = "/view/login/account_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
-        }
 
         try{
             // Inisialisasi Invoice dan oreder details dari invoice tersebut
-            Invoice invoice = invoiceService.getInvoice(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
-            List<OrderDetail> orderDetails = invoiceService.getAllOrderDetail(request.getParameter("id"), (int)request.getSession().getAttribute("storeid"));
+            Invoice invoice = invoiceService.getInvoice(request.getParameter("id"), (int)request.getSession().getAttribute(storeIdSession));
+            List<OrderDetail> orderDetails = invoiceService.getAllOrderDetail(request.getParameter("id"), (int)request.getSession().getAttribute(storeIdSession));
 
             // Sebuah pengecekan apakah ia member atau bukan
             if(invoice.getMemberId() != 0){
 
                 // Jika member maka ia akan memberikan promo
-                Promo promo = invoiceService.getPromo((int)request.getSession().getAttribute("storeid"));
+                Promo promo = invoiceService.getPromo((int)request.getSession().getAttribute(storeIdSession));
                 request.setAttribute("promo", promo);
             }
 
             request.setAttribute("invoice", invoice);
             request.setAttribute("orderDetails", orderDetails);
 
-            request.getRequestDispatcher(address).forward(request, response);
+            request.getRequestDispatcher(detailInvoiceAddress).forward(request, response);
         } catch (SQLException e){
             e.printStackTrace();
         }

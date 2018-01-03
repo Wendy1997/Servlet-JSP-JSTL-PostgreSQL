@@ -75,6 +75,33 @@ public class MemberCardDAO {
         return output;
     }
 
+    public MemberCard getMemberCard(String id) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("SELECT * FROM membercard where id = ?");
+        ps.setInt(1, Integer.parseInt(id));
+
+        ResultSet rs = ps.executeQuery();
+
+        MemberCard output;
+        if(rs.next()){
+            output = new MemberCard(rs.getInt(1),
+                    rs.getInt(2),
+                    rs.getString(3),
+                    rs.getInt(4),
+                    rs.getString(5).substring(0,10),
+                    rs.getString(6),
+                    rs.getString(7),
+                    rs.getBoolean(8));
+        } else{
+            output = null;
+        }
+
+        System.out.println(ps.toString());
+
+        ps.close();
+        conn.close();
+        return output;
+    }
+
     /**
      * Sebuah method untuk mengambil data Member Card dari db
      *
@@ -303,6 +330,21 @@ public class MemberCardDAO {
         PreparedStatement ps = conn.prepareStatement("UPDATE membercard set status = true where id = ? and storeid = ?");
         ps.setInt(1, Integer.parseInt(id));
         ps.setInt(2, storeid);
+        ps.executeUpdate();
+        ps.close();
+        conn.close();
+    }
+
+    /**
+     * Sebuah method yang akan mengembalikan member card yang telah dihapus
+     *
+     * @param id
+     * @param storeid
+     * @throws SQLException
+     */
+    public void retrieveMemberCard(String id) throws SQLException{
+        PreparedStatement ps = conn.prepareStatement("UPDATE membercard set status = true where id = ?");
+        ps.setInt(1, Integer.parseInt(id));
         ps.executeUpdate();
         ps.close();
         conn.close();

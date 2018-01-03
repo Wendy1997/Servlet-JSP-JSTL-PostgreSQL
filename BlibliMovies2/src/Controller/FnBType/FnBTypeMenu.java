@@ -25,6 +25,22 @@ import java.util.List;
 public class FnBTypeMenu extends HttpServlet{
     FnBService fnbService = new FnBServiceDatabase();
 
+    private final String storeLoginAddress = "/view/login/store_login.jsp";
+    private final String accountLoginAddress = "/view/login/account_login.jsp";
+    private final String menuFnBTypeAddress = "/view/database/fnbtype/fnbtype_menu.jsp";
+    private final String successAddress = "/view/database/success.jsp";
+
+    private final String storeIdSession = "storeid";
+    private final String roleAccountSession = "role";
+    private final String roleAdmin = "admin";
+
+    private final String title = "Account";
+    private final String statusDeleteBerhasil = "Deleted";
+    private final String statusRetrieveBerhasil = "Retrieved";
+    private final String link = "admin";
+
+    private final int initialPage = 0;
+
     /**
      * Sebuah method GET yang memberikan halaman list fnb type
      *
@@ -35,38 +51,31 @@ public class FnBTypeMenu extends HttpServlet{
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        // Initial address
-        String address = "/view/database/fnbtype/fnbtype_menu.jsp";
-
         // Validasi apakah sudah login store
-        if(request.getSession().getAttribute("storeid") == null){
-            address = "/view/login/store_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
+        if(request.getSession().getAttribute(storeIdSession) == null){
+            request.getRequestDispatcher(storeLoginAddress).forward(request, response);
         }
-
         // Validasi apakah sudah login akun
-        else if (request.getSession().getAttribute("role") == null){
-            address = "/view/login/account_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
+        else if (request.getSession().getAttribute(roleAccountSession) == null){
+            request.getRequestDispatcher(accountLoginAddress).forward(request, response);
+        }
+        // Validasi apakah sudah login as admin
+        else if(!request.getSession().getAttribute(roleAccountSession).equals(roleAdmin)){
+            request.getRequestDispatcher(accountLoginAddress).forward(request, response);
         }
 
-        // Validasi apakah sudah login as admin
-        else if(!request.getSession().getAttribute("role").equals("admin")){
-            address = "/view/login/account_login.jsp";
-            request.getRequestDispatcher(address).forward(request, response);
-        }
 
         try{
             // Pengambilan data list fnb type untuk diretrieve pada menu
-            List<FnBType> fnbTypeList = fnbService.getAllFnBType((int)request.getSession().getAttribute("storeid"), 0);
+            List<FnBType> fnbTypeList = fnbService.getAllFnBType((int)request.getSession().getAttribute(storeIdSession), initialPage);
 
             // Pengambilan data jumlah halaman yang akan ditampilkan pada menu
-            int pageCounter = fnbService.getCountAllFnBType((int)request.getSession().getAttribute("storeid"));
+            int pageCounter = fnbService.getCountAllFnBType((int)request.getSession().getAttribute(storeIdSession));
 
             request.setAttribute("type", fnbTypeList);
             request.setAttribute("page", pageCounter);
 
-            request.getRequestDispatcher(address).forward(request, response);
+            request.getRequestDispatcher(menuFnBTypeAddress).forward(request, response);
         } catch (SQLException e){
             e.printStackTrace();
         }
