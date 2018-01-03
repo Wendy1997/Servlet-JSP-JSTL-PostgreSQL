@@ -87,7 +87,7 @@
 
                         <c:forEach items="${genre}" var="genre">
                             if(result[key].genre == ${genre.id}){
-                                output += ${genre.genre}
+                                output += '${genre.genre}'
                             }
                         </c:forEach>
 

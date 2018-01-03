@@ -275,6 +275,8 @@
                 console.log(response);
             }
         });
+
+        return false;
     }
 
     function getLedgerWeek(){
@@ -356,6 +358,8 @@
                 console.log(response);
             }
         });
+
+        return false;
     }
 
 
@@ -440,6 +444,8 @@
                 console.log(response);
             }
         });
+
+        return false;
     }
 
     function getLedgerYear(){
@@ -522,6 +528,8 @@
                 console.log(response);
             }
         });
+
+        return false;
     }
 
 
@@ -532,18 +540,22 @@
 
         $('#day').change(function () {
           getLedgerDay();
+            return false;
         });
 
         $('#week').change(function () {
             getLedgerWeek();
+            return false;
         });
 
         $('#month').change(function () {
             getLedgerMonth();
+            return false;
         });
 
         $('#year').change(function () {
             getLedgerYear();
+            return false;
         });
     });
 

@@ -68,6 +68,8 @@ public class MemberCardEdit extends HttpServlet{
             // Pengambilan seluruh gender yang akan ditampilkan pada form
             List<MemberGender> memberGenderList = memberCardService.getAllMemberGenderTrue((int)request.getSession().getAttribute(storeIdSession));
             request.setAttribute("gender", memberGenderList);
+
+            memberCard.toString();
         } catch (Exception e){
             e.printStackTrace();
         }

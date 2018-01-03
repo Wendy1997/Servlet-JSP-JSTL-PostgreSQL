@@ -67,6 +67,9 @@ public class FnBTypeEdit extends HttpServlet{
             // Pengambilan data fnb type yang bersangkutan
             FnBType fnbType = fnbService.getFnBType(request.getParameter("id"), (int)request.getSession().getAttribute(storeIdSession));
             request.setAttribute("type", fnbType);
+
+            fnbType.toString();
+
         } catch (SQLException e){
             e.printStackTrace();
         }

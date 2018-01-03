@@ -31,7 +31,7 @@ public class ScreeningTimeEdit extends HttpServlet {
 
     private final String title = "Screening Time";
     private final String statusEditBerhasil = "Updated";
-    private final String link = "/admin/screentime";
+    private final String link = "/admin/screentime?filmid=";
 
     /**
      * Sebuah method GET yang memberikan halaman form edit screentime
@@ -68,6 +68,8 @@ public class ScreeningTimeEdit extends HttpServlet {
             request.setAttribute("screeningTime", screeningTime);
             request.setAttribute("studio", filmService.getAllStudioTrue((int)request.getSession().getAttribute(storeIdSession)));
 
+            screeningTime.toString();
+
             request.getRequestDispatcher(editScreeningTimeAddress).forward(request, response);
         }catch (SQLException e){
             e.printStackTrace();
@@ -98,7 +100,7 @@ public class ScreeningTimeEdit extends HttpServlet {
             // Redirect menuju halaman success
             request.setAttribute("title", title);
             request.setAttribute("complete", statusEditBerhasil);
-            request.setAttribute("link", link);
+            request.setAttribute("link", link + request.getParameter("id"));
 
             request.getRequestDispatcher(successAddress).forward(request,response);
         } catch (SQLException e){

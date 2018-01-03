@@ -32,7 +32,7 @@ public class ScreeningTimeDelete extends HttpServlet{
     private final String title = "Screening Time";
     private final String statusDeleteBerhasil = "Deleted";
     private final String statusRetrieveBerhasil = "Retrieved";
-    private final String link = "/admin/screentime";
+    private final String link = "/admin/screentime?filmid=";
 
     /**
      * Sebuah method GET yang akan melakukan penghapusan ataupun pengembalian screening time
@@ -77,7 +77,7 @@ public class ScreeningTimeDelete extends HttpServlet{
 
             // Redirect menuju halaman success
             request.setAttribute("title", title);
-            request.setAttribute("link", link);
+            request.setAttribute("link", link + request.getParameter("filmid"));
 
             request.getRequestDispatcher(successAddress).forward(request, response);
         } catch (SQLException e){

@@ -65,7 +65,7 @@ public class Store extends HttpServlet {
         try {
 
             // Inisialisasi akun
-            StoreAccount store = storeAccountService.getStoreAccount(request.getParameter("username"));
+            StoreAccount store = storeAccountService.getStoreAccountTrue(request.getParameter("username"));
 
             // Apakah akun tersedia?
             if(store != null){

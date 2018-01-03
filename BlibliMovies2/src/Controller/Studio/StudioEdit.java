@@ -64,6 +64,8 @@ public class StudioEdit extends HttpServlet{
             Studio studio = studioService.getStudio(request.getParameter("id"), (int)request.getSession().getAttribute(storeIdSession));
             request.setAttribute("studio", studio);
 
+            studio.toString();
+
             // Pengambilan seluruh type yang akan ditampilkan pada form
             List<StudioType> studioTypeList = studioService.getAllStudioTypeTrue((int)request.getSession().getAttribute(storeIdSession));
             request.setAttribute("type", studioTypeList);

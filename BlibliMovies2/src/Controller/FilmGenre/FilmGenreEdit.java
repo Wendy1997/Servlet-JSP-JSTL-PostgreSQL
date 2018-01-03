@@ -68,6 +68,8 @@ public class FilmGenreEdit extends HttpServlet{
             // Pengambilan data film genre yang bersangkutan
             FilmGenre filmGenre = filmService.getFilmGenre(request.getParameter("id"), (int)request.getSession().getAttribute(storeIdSession));
             request.setAttribute("genre", filmGenre);
+
+            filmGenre.toString();
         } catch (SQLException e){
             e.printStackTrace();
         }

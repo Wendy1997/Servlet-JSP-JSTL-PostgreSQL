@@ -36,6 +36,9 @@ public class SuperAdminEdit extends HttpServlet{
         try {
             SuperAdmin superAdmin = superAdminService.getSuperAdmin(request.getParameter("id"));
             request.setAttribute("superadmin", superAdmin);
+
+            superAdmin.toString();
+
         } catch (SQLException e){
             e.printStackTrace();
         }

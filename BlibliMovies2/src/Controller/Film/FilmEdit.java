@@ -74,6 +74,8 @@ public class FilmEdit extends HttpServlet{
             Film film = filmService.getFilm(request.getParameter("id"), (int)request.getSession().getAttribute(storeIdSession));
             request.setAttribute("film", film);
 
+            film.toString();
+
             // Pengambilan seluruh genre yang akan ditampilkan pada form
             List<FilmGenre> filmGenreList = filmService.getAllFilmGenreTrue((int)request.getSession().getAttribute(storeIdSession));
             request.setAttribute("genre", filmGenreList);

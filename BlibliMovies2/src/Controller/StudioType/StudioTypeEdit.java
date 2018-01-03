@@ -64,6 +64,9 @@ public class StudioTypeEdit extends HttpServlet{
             // Pengambilan data studio type yang bersangkutan
             StudioType studioType = studioService.getStudioType(request.getParameter("id"), (int)request.getSession().getAttribute(storeIdSession));
             request.setAttribute("type", studioType);
+
+            studioType.toString();
+
         } catch (SQLException e){
             e.printStackTrace();
         }

@@ -34,7 +34,7 @@ public class ScreeningTimeAdd extends HttpServlet{
 
     private final String title = "Screening Time";
     private final String statusAddBerhasil = "Created";
-    private final String link = "/admin/screentime";
+    private final String link = "/admin/screentime?filmid=";
 
     /**
      * Sebuah method GET yang memberikan form penambahan screening time
@@ -87,7 +87,7 @@ public class ScreeningTimeAdd extends HttpServlet{
             // Redirect menuju halaman success
             request.setAttribute("title", title);
             request.setAttribute("complete", statusAddBerhasil);
-            request.setAttribute("link", link);
+            request.setAttribute("link", link + request.getParameter("filmid"));
 
             request.getRequestDispatcher(successAddress).forward(request,response);
         } catch (SQLException e){

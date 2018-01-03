@@ -78,6 +78,8 @@ public class FnBEdit extends HttpServlet{
             List<FnBSize> fnBSizeList = fnbService.getAllFnBSizeTrue((int)request.getSession().getAttribute(storeIdSession));
             List<FnBType> fnBTypeList = fnbService.getAllFnBTypeTrue((int)request.getSession().getAttribute(storeIdSession));
 
+            fnb.toString();
+
             request.setAttribute("size", fnBSizeList);
             request.setAttribute("type", fnBTypeList);
         } catch (SQLException e){

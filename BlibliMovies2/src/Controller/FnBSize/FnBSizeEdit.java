@@ -67,6 +67,8 @@ public class FnBSizeEdit extends HttpServlet{
             // Pengambilan data fnb yang bersangkutan
             FnBSize fnbSize = fnbService.getFnBSize(request.getParameter("id"), (int)request.getSession().getAttribute(storeIdSession));
             request.setAttribute("size", fnbSize);
+
+            fnbSize.toString();
         } catch (SQLException e){
             e.printStackTrace();
         }

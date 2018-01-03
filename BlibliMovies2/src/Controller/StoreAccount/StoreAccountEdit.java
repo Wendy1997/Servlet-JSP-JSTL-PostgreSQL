@@ -37,6 +37,8 @@ public class StoreAccountEdit extends HttpServlet{
         try {
             StoreAccount storeAccount = storeAccountService.getStoreAccount(request.getParameter("id"));
             request.setAttribute("storeaccount", storeAccount);
+
+            storeAccount.toString();
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
