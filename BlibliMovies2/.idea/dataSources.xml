@@ -10,5 +10,11 @@
         <property name="ApplicationName" value="DataGrip" />
       </driver-properties>
     </data-source>
+    <data-source source="LOCAL" name="de9gomjd85d80i@ec2-54-227-237-27.compute-1.amazonaws.com" uuid="412138d6-7155-4192-b491-9d6836069993">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://ec2-54-227-237-27.compute-1.amazonaws.com:5432/de9gomjd85d80i?sslmode=require</jdbc-url>
+    </data-source>
   </component>
 </project>

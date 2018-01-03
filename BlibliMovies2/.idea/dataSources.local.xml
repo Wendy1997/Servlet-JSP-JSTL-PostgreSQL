@@ -9,5 +9,14 @@
       <user-name>postgres</user-name>
       <introspection-schemas>bliblimovies:public</introspection-schemas>
     </data-source>
+    <data-source name="de9gomjd85d80i@ec2-54-227-237-27.compute-1.amazonaws.com" uuid="412138d6-7155-4192-b491-9d6836069993">
+      <database-info product="PostgreSQL" version="10.1" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.1.1">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>hudpjjlrtzbeqc</user-name>
+      <introspection-schemas>de9gomjd85d80i:public</introspection-schemas>
+    </data-source>
   </component>
 </project>

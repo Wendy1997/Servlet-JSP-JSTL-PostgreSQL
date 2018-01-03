@@ -21,7 +21,7 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- Name: account; Type: TABLE; Schema: public; Owner: postgres
+-- Name: account; Type: TABLE; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE TABLE account (
@@ -34,10 +34,10 @@ CREATE TABLE account (
 );
 
 
-ALTER TABLE account OWNER TO postgres;
+ALTER TABLE account OWNER TO hudpjjlrtzbeqc;
 
 --
--- Name: account_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: account_id_seq; Type: SEQUENCE; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE SEQUENCE account_id_seq
@@ -48,17 +48,17 @@ CREATE SEQUENCE account_id_seq
     CACHE 1;
 
 
-ALTER TABLE account_id_seq OWNER TO postgres;
+ALTER TABLE account_id_seq OWNER TO hudpjjlrtzbeqc;
 
 --
--- Name: account_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: account_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER SEQUENCE account_id_seq OWNED BY account.id;
 
 
 --
--- Name: accountrole; Type: TABLE; Schema: public; Owner: postgres
+-- Name: accountrole; Type: TABLE; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE TABLE accountrole (
@@ -69,10 +69,10 @@ CREATE TABLE accountrole (
 );
 
 
-ALTER TABLE accountrole OWNER TO postgres;
+ALTER TABLE accountrole OWNER TO hudpjjlrtzbeqc;
 
 --
--- Name: accountrole_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: accountrole_id_seq; Type: SEQUENCE; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE SEQUENCE accountrole_id_seq
@@ -83,17 +83,17 @@ CREATE SEQUENCE accountrole_id_seq
     CACHE 1;
 
 
-ALTER TABLE accountrole_id_seq OWNER TO postgres;
+ALTER TABLE accountrole_id_seq OWNER TO hudpjjlrtzbeqc;
 
 --
--- Name: accountrole_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: accountrole_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER SEQUENCE accountrole_id_seq OWNED BY accountrole.id;
 
 
 --
--- Name: film; Type: TABLE; Schema: public; Owner: postgres
+-- Name: film; Type: TABLE; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE TABLE film (
@@ -116,10 +116,10 @@ CREATE TABLE film (
 );
 
 
-ALTER TABLE film OWNER TO postgres;
+ALTER TABLE film OWNER TO hudpjjlrtzbeqc;
 
 --
--- Name: film_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: film_id_seq; Type: SEQUENCE; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE SEQUENCE film_id_seq
@@ -130,17 +130,17 @@ CREATE SEQUENCE film_id_seq
     CACHE 1;
 
 
-ALTER TABLE film_id_seq OWNER TO postgres;
+ALTER TABLE film_id_seq OWNER TO hudpjjlrtzbeqc;
 
 --
--- Name: film_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: film_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER SEQUENCE film_id_seq OWNED BY film.id;
 
 
 --
--- Name: filmgenre; Type: TABLE; Schema: public; Owner: postgres
+-- Name: filmgenre; Type: TABLE; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE TABLE filmgenre (
@@ -151,10 +151,10 @@ CREATE TABLE filmgenre (
 );
 
 
-ALTER TABLE filmgenre OWNER TO postgres;
+ALTER TABLE filmgenre OWNER TO hudpjjlrtzbeqc;
 
 --
--- Name: filmgenre_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: filmgenre_id_seq; Type: SEQUENCE; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE SEQUENCE filmgenre_id_seq
@@ -165,17 +165,17 @@ CREATE SEQUENCE filmgenre_id_seq
     CACHE 1;
 
 
-ALTER TABLE filmgenre_id_seq OWNER TO postgres;
+ALTER TABLE filmgenre_id_seq OWNER TO hudpjjlrtzbeqc;
 
 --
--- Name: filmgenre_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: filmgenre_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER SEQUENCE filmgenre_id_seq OWNED BY filmgenre.id;
 
 
 --
--- Name: filmticket; Type: TABLE; Schema: public; Owner: postgres
+-- Name: filmticket; Type: TABLE; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE TABLE filmticket (
@@ -190,10 +190,10 @@ CREATE TABLE filmticket (
 );
 
 
-ALTER TABLE filmticket OWNER TO postgres;
+ALTER TABLE filmticket OWNER TO hudpjjlrtzbeqc;
 
 --
--- Name: filmticket_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: filmticket_id_seq; Type: SEQUENCE; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE SEQUENCE filmticket_id_seq
@@ -204,17 +204,17 @@ CREATE SEQUENCE filmticket_id_seq
     CACHE 1;
 
 
-ALTER TABLE filmticket_id_seq OWNER TO postgres;
+ALTER TABLE filmticket_id_seq OWNER TO hudpjjlrtzbeqc;
 
 --
--- Name: filmticket_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: filmticket_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER SEQUENCE filmticket_id_seq OWNED BY filmticket.id;
 
 
 --
--- Name: fnbsize; Type: TABLE; Schema: public; Owner: postgres
+-- Name: fnbsize; Type: TABLE; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE TABLE fnbsize (
@@ -225,10 +225,10 @@ CREATE TABLE fnbsize (
 );
 
 
-ALTER TABLE fnbsize OWNER TO postgres;
+ALTER TABLE fnbsize OWNER TO hudpjjlrtzbeqc;
 
 --
--- Name: fnbsize_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: fnbsize_id_seq; Type: SEQUENCE; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE SEQUENCE fnbsize_id_seq
@@ -239,17 +239,17 @@ CREATE SEQUENCE fnbsize_id_seq
     CACHE 1;
 
 
-ALTER TABLE fnbsize_id_seq OWNER TO postgres;
+ALTER TABLE fnbsize_id_seq OWNER TO hudpjjlrtzbeqc;
 
 --
--- Name: fnbsize_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: fnbsize_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER SEQUENCE fnbsize_id_seq OWNED BY fnbsize.id;
 
 
 --
--- Name: fnbtype; Type: TABLE; Schema: public; Owner: postgres
+-- Name: fnbtype; Type: TABLE; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE TABLE fnbtype (
@@ -260,10 +260,10 @@ CREATE TABLE fnbtype (
 );
 
 
-ALTER TABLE fnbtype OWNER TO postgres;
+ALTER TABLE fnbtype OWNER TO hudpjjlrtzbeqc;
 
 --
--- Name: fnbtype_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: fnbtype_id_seq; Type: SEQUENCE; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE SEQUENCE fnbtype_id_seq
@@ -274,17 +274,17 @@ CREATE SEQUENCE fnbtype_id_seq
     CACHE 1;
 
 
-ALTER TABLE fnbtype_id_seq OWNER TO postgres;
+ALTER TABLE fnbtype_id_seq OWNER TO hudpjjlrtzbeqc;
 
 --
--- Name: fnbtype_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: fnbtype_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER SEQUENCE fnbtype_id_seq OWNED BY fnbtype.id;
 
 
 --
--- Name: foodandbeverages; Type: TABLE; Schema: public; Owner: postgres
+-- Name: foodandbeverages; Type: TABLE; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE TABLE foodandbeverages (
@@ -299,10 +299,10 @@ CREATE TABLE foodandbeverages (
 );
 
 
-ALTER TABLE foodandbeverages OWNER TO postgres;
+ALTER TABLE foodandbeverages OWNER TO hudpjjlrtzbeqc;
 
 --
--- Name: foodandbeverages_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: foodandbeverages_id_seq; Type: SEQUENCE; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE SEQUENCE foodandbeverages_id_seq
@@ -313,17 +313,17 @@ CREATE SEQUENCE foodandbeverages_id_seq
     CACHE 1;
 
 
-ALTER TABLE foodandbeverages_id_seq OWNER TO postgres;
+ALTER TABLE foodandbeverages_id_seq OWNER TO hudpjjlrtzbeqc;
 
 --
--- Name: foodandbeverages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: foodandbeverages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER SEQUENCE foodandbeverages_id_seq OWNED BY foodandbeverages.id;
 
 
 --
--- Name: invoice; Type: TABLE; Schema: public; Owner: postgres
+-- Name: invoice; Type: TABLE; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE TABLE invoice (
@@ -337,10 +337,10 @@ CREATE TABLE invoice (
 );
 
 
-ALTER TABLE invoice OWNER TO postgres;
+ALTER TABLE invoice OWNER TO hudpjjlrtzbeqc;
 
 --
--- Name: invoice_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: invoice_id_seq; Type: SEQUENCE; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE SEQUENCE invoice_id_seq
@@ -351,17 +351,17 @@ CREATE SEQUENCE invoice_id_seq
     CACHE 1;
 
 
-ALTER TABLE invoice_id_seq OWNER TO postgres;
+ALTER TABLE invoice_id_seq OWNER TO hudpjjlrtzbeqc;
 
 --
--- Name: invoice_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: invoice_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER SEQUENCE invoice_id_seq OWNED BY invoice.id;
 
 
 --
--- Name: membercard; Type: TABLE; Schema: public; Owner: postgres
+-- Name: membercard; Type: TABLE; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE TABLE membercard (
@@ -376,10 +376,10 @@ CREATE TABLE membercard (
 );
 
 
-ALTER TABLE membercard OWNER TO postgres;
+ALTER TABLE membercard OWNER TO hudpjjlrtzbeqc;
 
 --
--- Name: membercard_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: membercard_id_seq; Type: SEQUENCE; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE SEQUENCE membercard_id_seq
@@ -390,17 +390,17 @@ CREATE SEQUENCE membercard_id_seq
     CACHE 1;
 
 
-ALTER TABLE membercard_id_seq OWNER TO postgres;
+ALTER TABLE membercard_id_seq OWNER TO hudpjjlrtzbeqc;
 
 --
--- Name: membercard_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: membercard_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER SEQUENCE membercard_id_seq OWNED BY membercard.id;
 
 
 --
--- Name: membergender; Type: TABLE; Schema: public; Owner: postgres
+-- Name: membergender; Type: TABLE; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE TABLE membergender (
@@ -411,10 +411,10 @@ CREATE TABLE membergender (
 );
 
 
-ALTER TABLE membergender OWNER TO postgres;
+ALTER TABLE membergender OWNER TO hudpjjlrtzbeqc;
 
 --
--- Name: membergender_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: membergender_id_seq; Type: SEQUENCE; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE SEQUENCE membergender_id_seq
@@ -425,17 +425,17 @@ CREATE SEQUENCE membergender_id_seq
     CACHE 1;
 
 
-ALTER TABLE membergender_id_seq OWNER TO postgres;
+ALTER TABLE membergender_id_seq OWNER TO hudpjjlrtzbeqc;
 
 --
--- Name: membergender_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: membergender_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER SEQUENCE membergender_id_seq OWNED BY membergender.id;
 
 
 --
--- Name: orderdetail; Type: TABLE; Schema: public; Owner: postgres
+-- Name: orderdetail; Type: TABLE; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE TABLE orderdetail (
@@ -449,10 +449,10 @@ CREATE TABLE orderdetail (
 );
 
 
-ALTER TABLE orderdetail OWNER TO postgres;
+ALTER TABLE orderdetail OWNER TO hudpjjlrtzbeqc;
 
 --
--- Name: orderdetail_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: orderdetail_id_seq; Type: SEQUENCE; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE SEQUENCE orderdetail_id_seq
@@ -463,17 +463,17 @@ CREATE SEQUENCE orderdetail_id_seq
     CACHE 1;
 
 
-ALTER TABLE orderdetail_id_seq OWNER TO postgres;
+ALTER TABLE orderdetail_id_seq OWNER TO hudpjjlrtzbeqc;
 
 --
--- Name: orderdetail_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: orderdetail_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER SEQUENCE orderdetail_id_seq OWNED BY orderdetail.id;
 
 
 --
--- Name: promo; Type: TABLE; Schema: public; Owner: postgres
+-- Name: promo; Type: TABLE; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE TABLE promo (
@@ -486,10 +486,10 @@ CREATE TABLE promo (
 );
 
 
-ALTER TABLE promo OWNER TO postgres;
+ALTER TABLE promo OWNER TO hudpjjlrtzbeqc;
 
 --
--- Name: promo_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: promo_id_seq; Type: SEQUENCE; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE SEQUENCE promo_id_seq
@@ -500,17 +500,17 @@ CREATE SEQUENCE promo_id_seq
     CACHE 1;
 
 
-ALTER TABLE promo_id_seq OWNER TO postgres;
+ALTER TABLE promo_id_seq OWNER TO hudpjjlrtzbeqc;
 
 --
--- Name: promo_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: promo_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER SEQUENCE promo_id_seq OWNED BY promo.id;
 
 
 --
--- Name: screeningtime; Type: TABLE; Schema: public; Owner: postgres
+-- Name: screeningtime; Type: TABLE; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE TABLE screeningtime (
@@ -524,10 +524,10 @@ CREATE TABLE screeningtime (
 );
 
 
-ALTER TABLE screeningtime OWNER TO postgres;
+ALTER TABLE screeningtime OWNER TO hudpjjlrtzbeqc;
 
 --
--- Name: screeningtime_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: screeningtime_id_seq; Type: SEQUENCE; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE SEQUENCE screeningtime_id_seq
@@ -538,17 +538,17 @@ CREATE SEQUENCE screeningtime_id_seq
     CACHE 1;
 
 
-ALTER TABLE screeningtime_id_seq OWNER TO postgres;
+ALTER TABLE screeningtime_id_seq OWNER TO hudpjjlrtzbeqc;
 
 --
--- Name: screeningtime_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: screeningtime_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER SEQUENCE screeningtime_id_seq OWNED BY screeningtime.id;
 
 
 --
--- Name: seat; Type: TABLE; Schema: public; Owner: postgres
+-- Name: seat; Type: TABLE; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE TABLE seat (
@@ -558,10 +558,10 @@ CREATE TABLE seat (
 );
 
 
-ALTER TABLE seat OWNER TO postgres;
+ALTER TABLE seat OWNER TO hudpjjlrtzbeqc;
 
 --
--- Name: seat_number_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: seat_number_seq; Type: SEQUENCE; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE SEQUENCE seat_number_seq
@@ -572,17 +572,17 @@ CREATE SEQUENCE seat_number_seq
     CACHE 1;
 
 
-ALTER TABLE seat_number_seq OWNER TO postgres;
+ALTER TABLE seat_number_seq OWNER TO hudpjjlrtzbeqc;
 
 --
--- Name: seat_number_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: seat_number_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER SEQUENCE seat_number_seq OWNED BY seat.number;
 
 
 --
--- Name: storeaccount; Type: TABLE; Schema: public; Owner: postgres
+-- Name: storeaccount; Type: TABLE; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE TABLE storeaccount (
@@ -594,10 +594,10 @@ CREATE TABLE storeaccount (
 );
 
 
-ALTER TABLE storeaccount OWNER TO postgres;
+ALTER TABLE storeaccount OWNER TO hudpjjlrtzbeqc;
 
 --
--- Name: storeaccount_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: storeaccount_id_seq; Type: SEQUENCE; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE SEQUENCE storeaccount_id_seq
@@ -608,17 +608,17 @@ CREATE SEQUENCE storeaccount_id_seq
     CACHE 1;
 
 
-ALTER TABLE storeaccount_id_seq OWNER TO postgres;
+ALTER TABLE storeaccount_id_seq OWNER TO hudpjjlrtzbeqc;
 
 --
--- Name: storeaccount_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: storeaccount_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER SEQUENCE storeaccount_id_seq OWNED BY storeaccount.id;
 
 
 --
--- Name: studio; Type: TABLE; Schema: public; Owner: postgres
+-- Name: studio; Type: TABLE; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE TABLE studio (
@@ -631,10 +631,10 @@ CREATE TABLE studio (
 );
 
 
-ALTER TABLE studio OWNER TO postgres;
+ALTER TABLE studio OWNER TO hudpjjlrtzbeqc;
 
 --
--- Name: studio_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: studio_id_seq; Type: SEQUENCE; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE SEQUENCE studio_id_seq
@@ -645,17 +645,17 @@ CREATE SEQUENCE studio_id_seq
     CACHE 1;
 
 
-ALTER TABLE studio_id_seq OWNER TO postgres;
+ALTER TABLE studio_id_seq OWNER TO hudpjjlrtzbeqc;
 
 --
--- Name: studio_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: studio_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER SEQUENCE studio_id_seq OWNED BY studio.id;
 
 
 --
--- Name: studiotype; Type: TABLE; Schema: public; Owner: postgres
+-- Name: studiotype; Type: TABLE; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE TABLE studiotype (
@@ -666,10 +666,10 @@ CREATE TABLE studiotype (
 );
 
 
-ALTER TABLE studiotype OWNER TO postgres;
+ALTER TABLE studiotype OWNER TO hudpjjlrtzbeqc;
 
 --
--- Name: studiotype_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: studiotype_id_seq; Type: SEQUENCE; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE SEQUENCE studiotype_id_seq
@@ -680,17 +680,17 @@ CREATE SEQUENCE studiotype_id_seq
     CACHE 1;
 
 
-ALTER TABLE studiotype_id_seq OWNER TO postgres;
+ALTER TABLE studiotype_id_seq OWNER TO hudpjjlrtzbeqc;
 
 --
--- Name: studiotype_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: studiotype_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER SEQUENCE studiotype_id_seq OWNED BY studiotype.id;
 
 
 --
--- Name: superadmin; Type: TABLE; Schema: public; Owner: postgres
+-- Name: superadmin; Type: TABLE; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE TABLE superadmin (
@@ -701,10 +701,10 @@ CREATE TABLE superadmin (
 );
 
 
-ALTER TABLE superadmin OWNER TO postgres;
+ALTER TABLE superadmin OWNER TO hudpjjlrtzbeqc;
 
 --
--- Name: superadmin_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+-- Name: superadmin_id_seq; Type: SEQUENCE; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE SEQUENCE superadmin_id_seq
@@ -715,150 +715,150 @@ CREATE SEQUENCE superadmin_id_seq
     CACHE 1;
 
 
-ALTER TABLE superadmin_id_seq OWNER TO postgres;
+ALTER TABLE superadmin_id_seq OWNER TO hudpjjlrtzbeqc;
 
 --
--- Name: superadmin_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+-- Name: superadmin_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER SEQUENCE superadmin_id_seq OWNED BY superadmin.id;
 
 
 --
--- Name: account id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: account id; Type: DEFAULT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY account ALTER COLUMN id SET DEFAULT nextval('account_id_seq'::regclass);
 
 
 --
--- Name: accountrole id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: accountrole id; Type: DEFAULT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY accountrole ALTER COLUMN id SET DEFAULT nextval('accountrole_id_seq'::regclass);
 
 
 --
--- Name: film id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: film id; Type: DEFAULT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY film ALTER COLUMN id SET DEFAULT nextval('film_id_seq'::regclass);
 
 
 --
--- Name: filmgenre id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: filmgenre id; Type: DEFAULT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY filmgenre ALTER COLUMN id SET DEFAULT nextval('filmgenre_id_seq'::regclass);
 
 
 --
--- Name: filmticket id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: filmticket id; Type: DEFAULT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY filmticket ALTER COLUMN id SET DEFAULT nextval('filmticket_id_seq'::regclass);
 
 
 --
--- Name: fnbsize id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: fnbsize id; Type: DEFAULT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY fnbsize ALTER COLUMN id SET DEFAULT nextval('fnbsize_id_seq'::regclass);
 
 
 --
--- Name: fnbtype id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: fnbtype id; Type: DEFAULT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY fnbtype ALTER COLUMN id SET DEFAULT nextval('fnbtype_id_seq'::regclass);
 
 
 --
--- Name: foodandbeverages id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: foodandbeverages id; Type: DEFAULT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY foodandbeverages ALTER COLUMN id SET DEFAULT nextval('foodandbeverages_id_seq'::regclass);
 
 
 --
--- Name: invoice id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: invoice id; Type: DEFAULT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY invoice ALTER COLUMN id SET DEFAULT nextval('invoice_id_seq'::regclass);
 
 
 --
--- Name: membercard id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: membercard id; Type: DEFAULT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY membercard ALTER COLUMN id SET DEFAULT nextval('membercard_id_seq'::regclass);
 
 
 --
--- Name: membergender id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: membergender id; Type: DEFAULT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY membergender ALTER COLUMN id SET DEFAULT nextval('membergender_id_seq'::regclass);
 
 
 --
--- Name: orderdetail id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: orderdetail id; Type: DEFAULT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY orderdetail ALTER COLUMN id SET DEFAULT nextval('orderdetail_id_seq'::regclass);
 
 
 --
--- Name: promo id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: promo id; Type: DEFAULT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY promo ALTER COLUMN id SET DEFAULT nextval('promo_id_seq'::regclass);
 
 
 --
--- Name: screeningtime id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: screeningtime id; Type: DEFAULT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY screeningtime ALTER COLUMN id SET DEFAULT nextval('screeningtime_id_seq'::regclass);
 
 
 --
--- Name: seat number; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: seat number; Type: DEFAULT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY seat ALTER COLUMN number SET DEFAULT nextval('seat_number_seq'::regclass);
 
 
 --
--- Name: storeaccount id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: storeaccount id; Type: DEFAULT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY storeaccount ALTER COLUMN id SET DEFAULT nextval('storeaccount_id_seq'::regclass);
 
 
 --
--- Name: studio id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: studio id; Type: DEFAULT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY studio ALTER COLUMN id SET DEFAULT nextval('studio_id_seq'::regclass);
 
 
 --
--- Name: studiotype id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: studiotype id; Type: DEFAULT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY studiotype ALTER COLUMN id SET DEFAULT nextval('studiotype_id_seq'::regclass);
 
 
 --
--- Name: superadmin id; Type: DEFAULT; Schema: public; Owner: postgres
+-- Name: superadmin id; Type: DEFAULT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY superadmin ALTER COLUMN id SET DEFAULT nextval('superadmin_id_seq'::regclass);
 
 
 --
--- Data for Name: account; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: account; Type: TABLE DATA; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 INSERT INTO account (username, storeid, password, roleid, status, id) VALUES ('lala', 1, '3583', 1, true, 3);
@@ -890,14 +890,14 @@ INSERT INTO account (username, storeid, password, roleid, status, id) VALUES ('a
 
 
 --
--- Name: account_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: account_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 SELECT pg_catalog.setval('account_id_seq', 44, true);
 
 
 --
--- Data for Name: accountrole; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: accountrole; Type: TABLE DATA; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 INSERT INTO accountrole (id, role, storeid, status) VALUES (2, 'cashier', 1, true);
@@ -937,14 +937,14 @@ INSERT INTO accountrole (id, role, storeid, status) VALUES (51, 'cashier', 31, t
 
 
 --
--- Name: accountrole_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: accountrole_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 SELECT pg_catalog.setval('accountrole_id_seq', 51, true);
 
 
 --
--- Data for Name: film; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: film; Type: TABLE DATA; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 INSERT INTO film (id, storeid, cover, title, genre, duration, director, rating, reviewtotal, starttime, endtime, language, subtitle, actor, synopsis, status) VALUES (20, 1, 'asd', 'asd', 1, 1, 'asdas', 12312, 1231, '2017-12-31', '2016-12-31', '123', '123', '1123', '123
@@ -991,14 +991,14 @@ INSERT INTO film (id, storeid, cover, title, genre, duration, director, rating, 
 
 
 --
--- Name: film_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: film_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 SELECT pg_catalog.setval('film_id_seq', 40, true);
 
 
 --
--- Data for Name: filmgenre; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: filmgenre; Type: TABLE DATA; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 INSERT INTO filmgenre (id, genre, storeid, status) VALUES (8, 'mantapgg', 1, false);
@@ -1018,14 +1018,14 @@ INSERT INTO filmgenre (id, genre, storeid, status) VALUES (14, 'asds', 1, true);
 
 
 --
--- Name: filmgenre_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: filmgenre_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 SELECT pg_catalog.setval('filmgenre_id_seq', 14, true);
 
 
 --
--- Data for Name: filmticket; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: filmticket; Type: TABLE DATA; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, storeid, date) VALUES (18, 6, 1, 'A2', 2, 0, 1, '2018-01-01');
@@ -1093,14 +1093,14 @@ INSERT INTO filmticket (id, filmid, studioid, seatnumber, screeningid, price, st
 
 
 --
--- Name: filmticket_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: filmticket_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 SELECT pg_catalog.setval('filmticket_id_seq', 68, true);
 
 
 --
--- Data for Name: fnbsize; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: fnbsize; Type: TABLE DATA; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 INSERT INTO fnbsize (id, size, storeid, status) VALUES (3, 'Jumbo', 1, true);
@@ -1112,14 +1112,14 @@ INSERT INTO fnbsize (id, size, storeid, status) VALUES (16, 'XLL', 1, true);
 
 
 --
--- Name: fnbsize_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: fnbsize_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 SELECT pg_catalog.setval('fnbsize_id_seq', 16, true);
 
 
 --
--- Data for Name: fnbtype; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: fnbtype; Type: TABLE DATA; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 INSERT INTO fnbtype (id, type, storeid, status) VALUES (4, 'barubgt', 1, false);
@@ -1131,14 +1131,14 @@ INSERT INTO fnbtype (id, type, storeid, status) VALUES (13, 'asdasdss', 1, true)
 
 
 --
--- Name: fnbtype_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: fnbtype_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 SELECT pg_catalog.setval('fnbtype_id_seq', 13, true);
 
 
 --
--- Data for Name: foodandbeverages; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: foodandbeverages; Type: TABLE DATA; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 INSERT INTO foodandbeverages (id, storeid, cover, name, type, size, price, status) VALUES (8, 1, '/1/fnb/Walala (1) [20171229091302].jpg', 'Walala', 3, 1, 10000, true);
@@ -1159,14 +1159,14 @@ INSERT INTO foodandbeverages (id, storeid, cover, name, type, size, price, statu
 
 
 --
--- Name: foodandbeverages_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: foodandbeverages_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 SELECT pg_catalog.setval('foodandbeverages_id_seq', 21, true);
 
 
 --
--- Data for Name: invoice; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: invoice; Type: TABLE DATA; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, totalprice) VALUES (45, NULL, 1, 1, NULL, '2017-11-27 12:58:53', 6169750);
@@ -1269,14 +1269,14 @@ INSERT INTO invoice (id, memberid, cashierid, storeid, promoid, orderdate, total
 
 
 --
--- Name: invoice_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: invoice_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 SELECT pg_catalog.setval('invoice_id_seq', 101, true);
 
 
 --
--- Data for Name: membercard; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: membercard; Type: TABLE DATA; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 INSERT INTO membercard (id, storeid, fullname, gender, birthdate, phonenumber, email, status) VALUES (2, 1, 'asd', 2, '2017-12-31 00:00:00', '12312', 'wendydamarA.wb@gmail.com', true);
@@ -1287,14 +1287,14 @@ INSERT INTO membercard (id, storeid, fullname, gender, birthdate, phonenumber, e
 
 
 --
--- Name: membercard_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: membercard_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 SELECT pg_catalog.setval('membercard_id_seq', 15, true);
 
 
 --
--- Data for Name: membergender; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: membergender; Type: TABLE DATA; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 INSERT INTO membergender (id, gender, storeid, status) VALUES (2, 'Wanita', 1, true);
@@ -1334,14 +1334,14 @@ INSERT INTO membergender (id, gender, storeid, status) VALUES (47, 'Wanita', 31,
 
 
 --
--- Name: membergender_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: membergender_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 SELECT pg_catalog.setval('membergender_id_seq', 47, true);
 
 
 --
--- Data for Name: orderdetail; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: orderdetail; Type: TABLE DATA; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, discountstatus) VALUES (48, 51, 1, 'Mempeseona', 20, 132, 'false');
@@ -1465,14 +1465,14 @@ INSERT INTO orderdetail (id, invoiceid, storeid, itemname, quantity, price, disc
 
 
 --
--- Name: orderdetail_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: orderdetail_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 SELECT pg_catalog.setval('orderdetail_id_seq', 118, true);
 
 
 --
--- Data for Name: promo; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: promo; Type: TABLE DATA; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 INSERT INTO promo (id, storeid, name, description, status, discountamount) VALUES (1, 1, 'ululu', 'diskon 10%', true, 10);
@@ -1491,14 +1491,14 @@ INSERT INTO promo (id, storeid, name, description, status, discountamount) VALUE
 
 
 --
--- Name: promo_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: promo_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 SELECT pg_catalog.setval('promo_id_seq', 15, true);
 
 
 --
--- Data for Name: screeningtime; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: screeningtime; Type: TABLE DATA; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 INSERT INTO screeningtime (id, filmid, studioid, storeid, "time", duration, status) VALUES (9, 6, 3, 1, '23:56:00', 123, true);
@@ -1522,14 +1522,14 @@ INSERT INTO screeningtime (id, filmid, studioid, storeid, "time", duration, stat
 
 
 --
--- Name: screeningtime_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: screeningtime_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 SELECT pg_catalog.setval('screeningtime_id_seq', 27, true);
 
 
 --
--- Data for Name: seat; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: seat; Type: TABLE DATA; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 INSERT INTO seat (number, studioid, name) VALUES ('3', 1, 'A3');
@@ -2335,14 +2335,14 @@ INSERT INTO seat (number, studioid, name) VALUES ('1', 1, 'A1');
 
 
 --
--- Name: seat_number_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: seat_number_seq; Type: SEQUENCE SET; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 SELECT pg_catalog.setval('seat_number_seq', 801, true);
 
 
 --
--- Data for Name: storeaccount; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: storeaccount; Type: TABLE DATA; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 INSERT INTO storeaccount (username, password, storename, id, status) VALUES ('blibli', '-1081416709', 'global digital niaga', 1, true);
@@ -2362,14 +2362,14 @@ INSERT INTO storeaccount (username, password, storename, id, status) VALUES ('bl
 
 
 --
--- Name: storeaccount_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: storeaccount_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 SELECT pg_catalog.setval('storeaccount_id_seq', 31, true);
 
 
 --
--- Data for Name: studio; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: studio; Type: TABLE DATA; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 INSERT INTO studio (id, storeid, name, type, price, status) VALUES (9, 1, 'Mantap', 1, 123, false);
@@ -2388,14 +2388,14 @@ INSERT INTO studio (id, storeid, name, type, price, status) VALUES (13, 1, 'mant
 
 
 --
--- Name: studio_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: studio_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 SELECT pg_catalog.setval('studio_id_seq', 13, true);
 
 
 --
--- Data for Name: studiotype; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: studiotype; Type: TABLE DATA; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 INSERT INTO studiotype (id, type, storeid, status) VALUES (4, 'WawwBgt', 1, false);
@@ -2407,14 +2407,14 @@ INSERT INTO studiotype (id, type, storeid, status) VALUES (19, 'Suitesss', 1, tr
 
 
 --
--- Name: studiotype_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: studiotype_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 SELECT pg_catalog.setval('studiotype_id_seq', 19, true);
 
 
 --
--- Data for Name: superadmin; Type: TABLE DATA; Schema: public; Owner: postgres
+-- Data for Name: superadmin; Type: TABLE DATA; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 INSERT INTO superadmin (id, username, password, status) VALUES (1, 'wendy', '-1110123361', false);
@@ -2436,14 +2436,14 @@ INSERT INTO superadmin (id, username, password, status) VALUES (18, 'lalas', '35
 
 
 --
--- Name: superadmin_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: superadmin_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 SELECT pg_catalog.setval('superadmin_id_seq', 18, true);
 
 
 --
--- Name: account account_id_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: account account_id_pk; Type: CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY account
@@ -2451,7 +2451,7 @@ ALTER TABLE ONLY account
 
 
 --
--- Name: accountrole accountrole_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: accountrole accountrole_pkey; Type: CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY accountrole
@@ -2459,7 +2459,7 @@ ALTER TABLE ONLY accountrole
 
 
 --
--- Name: film film_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: film film_pkey; Type: CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY film
@@ -2467,7 +2467,7 @@ ALTER TABLE ONLY film
 
 
 --
--- Name: filmgenre filmgenre_id_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: filmgenre filmgenre_id_pk; Type: CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY filmgenre
@@ -2475,7 +2475,7 @@ ALTER TABLE ONLY filmgenre
 
 
 --
--- Name: filmticket filmticket_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: filmticket filmticket_pkey; Type: CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY filmticket
@@ -2483,7 +2483,7 @@ ALTER TABLE ONLY filmticket
 
 
 --
--- Name: fnbsize fnbsize_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: fnbsize fnbsize_pkey; Type: CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY fnbsize
@@ -2491,7 +2491,7 @@ ALTER TABLE ONLY fnbsize
 
 
 --
--- Name: fnbtype fnbtype_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: fnbtype fnbtype_pkey; Type: CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY fnbtype
@@ -2499,7 +2499,7 @@ ALTER TABLE ONLY fnbtype
 
 
 --
--- Name: foodandbeverages foodandbeverages_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: foodandbeverages foodandbeverages_pkey; Type: CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY foodandbeverages
@@ -2507,7 +2507,7 @@ ALTER TABLE ONLY foodandbeverages
 
 
 --
--- Name: invoice invoice_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: invoice invoice_pkey; Type: CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY invoice
@@ -2515,7 +2515,7 @@ ALTER TABLE ONLY invoice
 
 
 --
--- Name: membercard membercard_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: membercard membercard_pkey; Type: CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY membercard
@@ -2523,7 +2523,7 @@ ALTER TABLE ONLY membercard
 
 
 --
--- Name: membergender membergender_id_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: membergender membergender_id_pk; Type: CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY membergender
@@ -2531,7 +2531,7 @@ ALTER TABLE ONLY membergender
 
 
 --
--- Name: orderdetail orderdetail_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: orderdetail orderdetail_pkey; Type: CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY orderdetail
@@ -2539,7 +2539,7 @@ ALTER TABLE ONLY orderdetail
 
 
 --
--- Name: promo promo_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: promo promo_pkey; Type: CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY promo
@@ -2547,7 +2547,7 @@ ALTER TABLE ONLY promo
 
 
 --
--- Name: screeningtime screeningtime_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: screeningtime screeningtime_pkey; Type: CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY screeningtime
@@ -2555,7 +2555,7 @@ ALTER TABLE ONLY screeningtime
 
 
 --
--- Name: seat seat_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: seat seat_pkey; Type: CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY seat
@@ -2563,7 +2563,7 @@ ALTER TABLE ONLY seat
 
 
 --
--- Name: storeaccount storeaccount_id_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: storeaccount storeaccount_id_pk; Type: CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY storeaccount
@@ -2571,7 +2571,7 @@ ALTER TABLE ONLY storeaccount
 
 
 --
--- Name: studio studio_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: studio studio_pkey; Type: CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY studio
@@ -2579,7 +2579,7 @@ ALTER TABLE ONLY studio
 
 
 --
--- Name: studiotype studiotype_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: studiotype studiotype_pkey; Type: CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY studiotype
@@ -2587,7 +2587,7 @@ ALTER TABLE ONLY studiotype
 
 
 --
--- Name: superadmin superadmin_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+-- Name: superadmin superadmin_pkey; Type: CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY superadmin
@@ -2595,77 +2595,77 @@ ALTER TABLE ONLY superadmin
 
 
 --
--- Name: account_id_uindex; Type: INDEX; Schema: public; Owner: postgres
+-- Name: account_id_uindex; Type: INDEX; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE UNIQUE INDEX account_id_uindex ON account USING btree (id);
 
 
 --
--- Name: accountrole_id_uindex; Type: INDEX; Schema: public; Owner: postgres
+-- Name: accountrole_id_uindex; Type: INDEX; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE UNIQUE INDEX accountrole_id_uindex ON accountrole USING btree (id);
 
 
 --
--- Name: filmgenre_id_uindex; Type: INDEX; Schema: public; Owner: postgres
+-- Name: filmgenre_id_uindex; Type: INDEX; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE UNIQUE INDEX filmgenre_id_uindex ON filmgenre USING btree (id);
 
 
 --
--- Name: fnbsize_id_uindex; Type: INDEX; Schema: public; Owner: postgres
+-- Name: fnbsize_id_uindex; Type: INDEX; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE UNIQUE INDEX fnbsize_id_uindex ON fnbsize USING btree (id);
 
 
 --
--- Name: fnbtype_id_uindex; Type: INDEX; Schema: public; Owner: postgres
+-- Name: fnbtype_id_uindex; Type: INDEX; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE UNIQUE INDEX fnbtype_id_uindex ON fnbtype USING btree (id);
 
 
 --
--- Name: membergender_id_uindex; Type: INDEX; Schema: public; Owner: postgres
+-- Name: membergender_id_uindex; Type: INDEX; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE UNIQUE INDEX membergender_id_uindex ON membergender USING btree (id);
 
 
 --
--- Name: storeaccount_id_uindex; Type: INDEX; Schema: public; Owner: postgres
+-- Name: storeaccount_id_uindex; Type: INDEX; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE UNIQUE INDEX storeaccount_id_uindex ON storeaccount USING btree (id);
 
 
 --
--- Name: studiotype_id_uindex; Type: INDEX; Schema: public; Owner: postgres
+-- Name: studiotype_id_uindex; Type: INDEX; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE UNIQUE INDEX studiotype_id_uindex ON studiotype USING btree (id);
 
 
 --
--- Name: superadmin_id_uindex; Type: INDEX; Schema: public; Owner: postgres
+-- Name: superadmin_id_uindex; Type: INDEX; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE UNIQUE INDEX superadmin_id_uindex ON superadmin USING btree (id);
 
 
 --
--- Name: superadmin_username_uindex; Type: INDEX; Schema: public; Owner: postgres
+-- Name: superadmin_username_uindex; Type: INDEX; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 CREATE UNIQUE INDEX superadmin_username_uindex ON superadmin USING btree (username);
 
 
 --
--- Name: account account_accountrole_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: account account_accountrole_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY account
@@ -2673,7 +2673,7 @@ ALTER TABLE ONLY account
 
 
 --
--- Name: account account_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: account account_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY account
@@ -2681,7 +2681,7 @@ ALTER TABLE ONLY account
 
 
 --
--- Name: accountrole accountrole_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: accountrole accountrole_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY accountrole
@@ -2689,7 +2689,7 @@ ALTER TABLE ONLY accountrole
 
 
 --
--- Name: film film_filmgenre_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: film film_filmgenre_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY film
@@ -2697,7 +2697,7 @@ ALTER TABLE ONLY film
 
 
 --
--- Name: film film_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: film film_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY film
@@ -2705,7 +2705,7 @@ ALTER TABLE ONLY film
 
 
 --
--- Name: filmgenre filmgenre_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: filmgenre filmgenre_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY filmgenre
@@ -2713,7 +2713,7 @@ ALTER TABLE ONLY filmgenre
 
 
 --
--- Name: filmticket filmticket_film_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: filmticket filmticket_film_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY filmticket
@@ -2721,7 +2721,7 @@ ALTER TABLE ONLY filmticket
 
 
 --
--- Name: filmticket filmticket_screeningtime_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: filmticket filmticket_screeningtime_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY filmticket
@@ -2729,7 +2729,7 @@ ALTER TABLE ONLY filmticket
 
 
 --
--- Name: filmticket filmticket_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: filmticket filmticket_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY filmticket
@@ -2737,7 +2737,7 @@ ALTER TABLE ONLY filmticket
 
 
 --
--- Name: filmticket filmticket_studio_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: filmticket filmticket_studio_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY filmticket
@@ -2745,7 +2745,7 @@ ALTER TABLE ONLY filmticket
 
 
 --
--- Name: fnbsize fnbsize_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: fnbsize fnbsize_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY fnbsize
@@ -2753,7 +2753,7 @@ ALTER TABLE ONLY fnbsize
 
 
 --
--- Name: fnbtype fnbtype_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: fnbtype fnbtype_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY fnbtype
@@ -2761,7 +2761,7 @@ ALTER TABLE ONLY fnbtype
 
 
 --
--- Name: foodandbeverages foodandbeverages_fnbsize_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: foodandbeverages foodandbeverages_fnbsize_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY foodandbeverages
@@ -2769,7 +2769,7 @@ ALTER TABLE ONLY foodandbeverages
 
 
 --
--- Name: foodandbeverages foodandbeverages_fnbtype_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: foodandbeverages foodandbeverages_fnbtype_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY foodandbeverages
@@ -2777,7 +2777,7 @@ ALTER TABLE ONLY foodandbeverages
 
 
 --
--- Name: foodandbeverages foodandbeverages_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: foodandbeverages foodandbeverages_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY foodandbeverages
@@ -2785,7 +2785,7 @@ ALTER TABLE ONLY foodandbeverages
 
 
 --
--- Name: invoice invoice_account_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: invoice invoice_account_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY invoice
@@ -2793,7 +2793,7 @@ ALTER TABLE ONLY invoice
 
 
 --
--- Name: invoice invoice_membercard_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: invoice invoice_membercard_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY invoice
@@ -2801,7 +2801,7 @@ ALTER TABLE ONLY invoice
 
 
 --
--- Name: invoice invoice_promo_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: invoice invoice_promo_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY invoice
@@ -2809,7 +2809,7 @@ ALTER TABLE ONLY invoice
 
 
 --
--- Name: invoice invoice_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: invoice invoice_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY invoice
@@ -2817,7 +2817,7 @@ ALTER TABLE ONLY invoice
 
 
 --
--- Name: membercard membercard_membergender_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: membercard membercard_membergender_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY membercard
@@ -2825,7 +2825,7 @@ ALTER TABLE ONLY membercard
 
 
 --
--- Name: membercard membercard_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: membercard membercard_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY membercard
@@ -2833,7 +2833,7 @@ ALTER TABLE ONLY membercard
 
 
 --
--- Name: membergender membergender_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: membergender membergender_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY membergender
@@ -2841,7 +2841,7 @@ ALTER TABLE ONLY membergender
 
 
 --
--- Name: orderdetail orderdetail_invoice_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: orderdetail orderdetail_invoice_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY orderdetail
@@ -2849,7 +2849,7 @@ ALTER TABLE ONLY orderdetail
 
 
 --
--- Name: orderdetail orderdetail_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: orderdetail orderdetail_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY orderdetail
@@ -2857,7 +2857,7 @@ ALTER TABLE ONLY orderdetail
 
 
 --
--- Name: promo promo_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: promo promo_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY promo
@@ -2865,7 +2865,7 @@ ALTER TABLE ONLY promo
 
 
 --
--- Name: screeningtime screeningtime_film_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: screeningtime screeningtime_film_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY screeningtime
@@ -2873,7 +2873,7 @@ ALTER TABLE ONLY screeningtime
 
 
 --
--- Name: screeningtime screeningtime_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: screeningtime screeningtime_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY screeningtime
@@ -2881,7 +2881,7 @@ ALTER TABLE ONLY screeningtime
 
 
 --
--- Name: screeningtime screeningtime_studio_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: screeningtime screeningtime_studio_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY screeningtime
@@ -2889,7 +2889,7 @@ ALTER TABLE ONLY screeningtime
 
 
 --
--- Name: seat seat_studio_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: seat seat_studio_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY seat
@@ -2897,7 +2897,7 @@ ALTER TABLE ONLY seat
 
 
 --
--- Name: studio studio_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: studio studio_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY studio
@@ -2905,7 +2905,7 @@ ALTER TABLE ONLY studio
 
 
 --
--- Name: studio studio_studiotype_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: studio studio_studiotype_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY studio
@@ -2913,7 +2913,7 @@ ALTER TABLE ONLY studio
 
 
 --
--- Name: studiotype studiotype_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+-- Name: studiotype studiotype_storeaccount_id_fk; Type: FK CONSTRAINT; Schema: public; Owner: hudpjjlrtzbeqc
 --
 
 ALTER TABLE ONLY studiotype
