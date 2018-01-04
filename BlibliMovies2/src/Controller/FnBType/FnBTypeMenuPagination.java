@@ -23,7 +23,6 @@ import java.util.ServiceConfigurationError;
 @WebServlet("/admin/fnbtype/page")
 public class FnBTypeMenuPagination extends HttpServlet {
     FnBService fnbService = new FnBServiceDatabase();
-
     private final String storeIdSession = "storeid";
 
     /**

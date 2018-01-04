@@ -23,7 +23,6 @@ public class LedgerView extends HttpServlet{
     private final String storeLoginAddress = "/view/login/store_login.jsp";
     private final String accountLoginAddress = "/view/login/account_login.jsp";
     private final String viewLedgerAddress = "/view/database/ledger/ledger_menu.jsp";
-
     private final String storeIdSession = "storeid";
     private final String roleAccountSession = "role";
     private final String roleAdmin = "admin";

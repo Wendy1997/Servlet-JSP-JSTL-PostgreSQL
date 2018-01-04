@@ -104,7 +104,6 @@ public class AccountDAO {
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM account where storeid = ? ORDER BY id LIMIT 10 OFFSET ?");
         ps.setInt(1, storeid);
         ps.setInt(2, offset);
-        System.out.println(storeid);
         ResultSet rs = ps.executeQuery();
 
         List<Account> accounts = new ArrayList<Account>();
@@ -158,7 +157,6 @@ public class AccountDAO {
     public List<Account> getAllAccountTrue(int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM account where storeid = ? and status = true ORDER BY id");
         ps.setInt(1, storeid);
-        System.out.println(storeid);
         ResultSet rs = ps.executeQuery();
 
         List<Account> accounts = new ArrayList<Account>();

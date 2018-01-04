@@ -25,7 +25,6 @@ import java.util.List;
 @WebServlet("/admin/ledger/monthly")
 public class LedgerViewMonthly extends HttpServlet {
     InvoiceService invoiceService = new InvoiceServiceDatabase();
-
     private final String storeIdSession = "storeid";
     private final int initialPage = 0;
 

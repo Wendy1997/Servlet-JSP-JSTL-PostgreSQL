@@ -28,22 +28,20 @@ import java.util.zip.Adler32;
  * url: /admin/fnb/add
  */
 @WebServlet("/admin/fnb/add")
-@MultipartConfig(fileSizeThreshold=1024*1024*10, 	// 10 MB
-        maxFileSize=1024*1024*50,      	// 50 MB
+@MultipartConfig(
+        fileSizeThreshold=1024*1024*10, 	// 10 MB
+        maxFileSize=1024*1024*50,      	    // 50 MB
         maxRequestSize=1024*1024*100)   	// 100 MB
 public class FnBAdd extends HttpServlet{
     FnBService fnbDAO = new FnBServiceDatabase();
     private static final String UPLOAD_DIR = "web\\uploads";
-
     private final String storeLoginAddress = "/view/login/store_login.jsp";
     private final String accountLoginAddress = "/view/login/account_login.jsp";
     private final String addFnBAddress = "/view/database/fnb/fnb_add.jsp";
     private final String successAddress = "/view/database/success.jsp";
-
     private final String storeIdSession = "storeid";
     private final String roleAccountSession = "role";
     private final String roleAdmin = "admin";
-
     private final String title = "Food and Beverages";
     private final String statusAddBerhasil = "Created";
     private final String link = "/admin/fnb";

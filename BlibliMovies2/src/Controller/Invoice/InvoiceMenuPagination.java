@@ -23,7 +23,6 @@ import java.util.ServiceConfigurationError;
 @WebServlet("/admin/invoice/page")
 public class InvoiceMenuPagination extends HttpServlet {
     InvoiceService invoiceService = new InvoiceServiceDatabase();
-
     private final String storeIdSession = "storeid";
 
     /**

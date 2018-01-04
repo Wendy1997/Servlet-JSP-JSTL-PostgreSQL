@@ -22,19 +22,12 @@ import java.util.List;
 @WebServlet("/admin/screentime")
 public class ScreeningTimeMenu extends HttpServlet{
     FilmService filmService = new FilmServiceDatabase();
-
     private final String storeLoginAddress = "/view/login/store_login.jsp";
     private final String accountLoginAddress = "/view/login/account_login.jsp";
     private final String menuScreeningTimeAddress = "/view/database/screening/screeningTime_menu.jsp";
-
     private final String storeIdSession = "storeid";
     private final String roleAccountSession = "role";
     private final String roleAdmin = "admin";
-
-    private final String title = "Account";
-    private final String statusDeleteBerhasil = "Deleted";
-    private final String statusRetrieveBerhasil = "Retrieved";
-    private final String link = "admin";
 
     /**
      * Sebuah method GET yang memberikan halaman list screening time

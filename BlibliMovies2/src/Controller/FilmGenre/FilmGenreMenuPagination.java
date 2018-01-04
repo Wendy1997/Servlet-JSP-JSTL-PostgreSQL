@@ -24,7 +24,6 @@ import java.util.ServiceConfigurationError;
 @WebServlet("/admin/filmgenre/page")
 public class FilmGenreMenuPagination extends HttpServlet {
     FilmService filmService = new FilmServiceDatabase();
-
     private final String storeIdSession = "storeid";
 
     /**

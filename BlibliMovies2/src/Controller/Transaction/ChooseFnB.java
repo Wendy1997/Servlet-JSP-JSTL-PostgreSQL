@@ -33,20 +33,11 @@ public class ChooseFnB extends HttpServlet{
     FnBService fnBService = new FnBServiceDatabase();
     InvoiceService invoiceService = new InvoiceServiceDatabase();
     FilmService filmService = new FilmServiceDatabase();
-
     private final String storeLoginAddress = "/view/login/store_login.jsp";
     private final String accountLoginAddress = "/view/login/account_login.jsp";
     private final String chooseFnBAddress = "/view/transaction/choose_fnb.jsp";
-    private final String successAddress = "/view/database/success.jsp";
-
     private final String storeIdSession = "storeid";
     private final String roleAccountSession = "role";
-    private final String roleAdmin = "admin";
-
-    private final String title = "Account";
-    private final String statusDeleteBerhasil = "Deleted";
-    private final String statusRetrieveBerhasil = "Retrieved";
-    private final String link = "admin";
 
     /**
      * Sebuah method GET yang akan menampilkan data fnb, summary ayng telah dibeli dan juga member card
@@ -180,7 +171,6 @@ public class ChooseFnB extends HttpServlet{
                 // Pengecekan apabila pembeli membeli tiket film
                 if(request.getParameter("hasFilm").equals("true")){
                     String[] entry = request.getParameter("idFilm").split(",");
-                    System.out.println(entry[0] + "," + entry[1] + "," + entry[2]);
                     OrderDetail orderDetail = new OrderDetail(id, (int)request.getSession().getAttribute(storeIdSession), entry[0], Integer.parseInt(entry[1]), Integer.parseInt(entry[2]), true);
                     invoiceService.addOrderDetail(orderDetail);
 
@@ -192,7 +182,6 @@ public class ChooseFnB extends HttpServlet{
                     String[] entry = listFnb[i].split(",");
 
                     FnB fnb = fnBService.getFnB(entry[0] + "", (int)request.getSession().getAttribute(storeIdSession));
-                    System.out.println(entry[0]);
                     OrderDetail orderDetail = new OrderDetail(id, (int)request.getSession().getAttribute(storeIdSession), fnb.getName(), Integer.parseInt(entry[1]), fnb.getPrice(), false);
                     invoiceService.addOrderDetail(orderDetail);
 

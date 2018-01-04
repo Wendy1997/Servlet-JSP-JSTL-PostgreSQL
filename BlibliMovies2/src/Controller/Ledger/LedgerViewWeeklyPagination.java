@@ -26,7 +26,6 @@ import java.util.List;
 @WebServlet("/admin/ledger/weekly/page")
 public class LedgerViewWeeklyPagination extends HttpServlet {
     InvoiceService invoiceService = new InvoiceServiceDatabase();
-
     private final String storeIdSession = "storeid";
 
     /**

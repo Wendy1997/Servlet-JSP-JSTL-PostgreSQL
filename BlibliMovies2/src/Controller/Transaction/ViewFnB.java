@@ -22,7 +22,6 @@ import java.sql.SQLException;
 public class ViewFnB extends HttpServlet {
 
     FnBService fnBService = new FnBServiceDatabase();
-
     private final String storeIdSession = "storeid";
 
     /**

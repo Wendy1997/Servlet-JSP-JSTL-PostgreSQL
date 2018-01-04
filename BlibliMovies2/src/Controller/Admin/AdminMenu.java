@@ -17,7 +17,6 @@ public class AdminMenu extends HttpServlet{
     private final String storeLoginAddress = "/view/login/store_login.jsp";
     private final String accountLoginAddress = "/view/login/account_login.jsp";
     private final String adminMenuAddress = "/view/menu/admin_menu.jsp";
-
     private final String storeIdSession = "storeid";
     private final String roleAccountSession = "role";
     private final String roleAdmin = "admin";

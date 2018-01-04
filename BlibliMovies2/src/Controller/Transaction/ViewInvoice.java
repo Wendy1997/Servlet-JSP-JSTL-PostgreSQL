@@ -24,7 +24,6 @@ public class ViewInvoice extends HttpServlet {
     private final String viewInvoiceAddress = "/view/transaction/view_invoice.jsp";
     private final String storeLoginAddress = "/view/login/store_login.jsp";
     private final String accountLoginAddress = "/view/login/account_login.jsp";
-
     private final String storeIdSession = "storeid";
     private final String roleAccountSession = "role";
 

@@ -20,15 +20,12 @@ import java.util.List;
 @WebServlet("/admin/invoice")
 public class InvoiceMenu extends HttpServlet {
     InvoiceService invoiceService = new InvoiceServiceDatabase();
-
     private final String storeLoginAddress = "/view/login/store_login.jsp";
     private final String accountLoginAddress = "/view/login/account_login.jsp";
     private final String menuInvoiceAddress = "/view/database/invoice/invoice_menu.jsp";
-
     private final String storeIdSession = "storeid";
     private final String roleAccountSession = "role";
     private final String roleAdmin = "admin";
-
     private final int initialPage = 0;
 
     /**

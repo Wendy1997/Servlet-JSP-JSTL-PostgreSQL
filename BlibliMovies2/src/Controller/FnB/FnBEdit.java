@@ -31,16 +31,13 @@ import java.util.List;
 public class FnBEdit extends HttpServlet{
     FnBService fnbService = new FnBServiceDatabase();
     private static final String UPLOAD_DIR = "web\\uploads";
-
     private final String storeLoginAddress = "/view/login/store_login.jsp";
     private final String accountLoginAddress = "/view/login/account_login.jsp";
     private final String editFnBAddress = "/view/database/fnb/fnb_edit.jsp";
     private final String successAddress = "/view/database/success.jsp";
-
     private final String storeIdSession = "storeid";
     private final String roleAccountSession = "role";
     private final String roleAdmin = "admin";
-
     private final String title = "Food and Beverages";
     private final String statusEditBerhasil = "Updated";
     private final String link = "/admin/fnb";

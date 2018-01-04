@@ -27,22 +27,20 @@ import java.util.List;
  * url: /admin/film/add
  */
 @WebServlet("/admin/film/add")
-@MultipartConfig(fileSizeThreshold=1024*1024*10, 	// 10 MB
-        maxFileSize=1024*1024*50,      	            // 50 MB
-        maxRequestSize=1024*1024*100)   	        // 100 MB
+@MultipartConfig(
+        fileSizeThreshold=1024*1024*10, 	      // 10 MB
+        maxFileSize=1024*1024*50,      	          // 50 MB
+        maxRequestSize=1024*1024*100)             // 100 MB
 public class FilmAdd extends HttpServlet {
     FilmService filmService = new FilmServiceDatabase();
     private static final String UPLOAD_DIR = "web\\uploads";
-
     private final String storeLoginAddress = "/view/login/store_login.jsp";
     private final String accountLoginAddress = "/view/login/account_login.jsp";
     private final String addFilmAddress = "/view/database/film/film_add.jsp";
     private final String successAddress = "/view/database/success.jsp";
-
     private final String storeIdSession = "storeid";
     private final String roleAccountSession = "role";
     private final String roleAdmin = "admin";
-
     private final String title = "Film";
     private final String statusAddBerhasil = "Created";
     private final String link = "/admin/film";

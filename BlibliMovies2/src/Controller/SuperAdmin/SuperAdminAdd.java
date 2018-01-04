@@ -12,21 +12,31 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * Sebuah method yang menghandle penambahan super admin
+ *
+ * url: /admin/superadmin/add
+ */
 @WebServlet("/admin/superadmin/add")
 public class SuperAdminAdd extends HttpServlet {
     SuperAdminService superAdminService = new SuperAdminServiceDatabase();
-
     private final String superLoginAddress = "/view/login/superadmin_login.jsp";
     private final String successAddress = "/view/database/success.jsp";
     private final String addSuperAdminAddress = "/view/database/superadmin/superadmin_add.jsp";
-
     private final String superAdminSession = "superadminid";
-
     private final String title = "Super Admin";
     private final String statusAddBerhasil = "Created";
     private final String statusAddGagal = "Has Taken";
     private final String link = "/admin/superadmin";
 
+    /**
+     * Sebuah method GET yang memberikan form penambahan super admin
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         // Validasi apakah sudah login as super
@@ -40,9 +50,11 @@ public class SuperAdminAdd extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         try{
+            // Inisialisasi super admin
             SuperAdmin superAdmin = new SuperAdmin( request.getParameter("username"),
                     request.getParameter("password").hashCode() + "");
 
+            // Sebuah pengecekan apakah superadmin telah tersedia atau belum
             try{
                 superAdminService.getSuperAdmin(request.getParameter("username")).getUsername();
 
@@ -52,6 +64,7 @@ public class SuperAdminAdd extends HttpServlet {
                 request.setAttribute("link", link);
 
             } catch (NullPointerException e){
+                // Penambahan super admin
                 superAdminService.addSuperAdmin(superAdmin);
 
                 // Redirect menuju halaman success

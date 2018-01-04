@@ -19,16 +19,13 @@ import java.sql.SQLException;
 @WebServlet("/admin/studiotype/edit")
 public class StudioTypeEdit extends HttpServlet{
     FilmService studioService = new FilmServiceDatabase();
-
     private final String storeLoginAddress = "/view/login/store_login.jsp";
     private final String accountLoginAddress = "/view/login/account_login.jsp";
     private final String editStudioTypeAddress = "/view/database/studiotype/studiotype_edit.jsp";
     private final String successAddress = "/view/database/success.jsp";
-
     private final String storeIdSession = "storeid";
     private final String roleAccountSession = "role";
     private final String roleAdmin = "admin";
-
     private final String title = "Studio Type";
     private final String statusEditBerhasil = "Updated";
     private final String link = "/admin/studiotype";
@@ -65,6 +62,7 @@ public class StudioTypeEdit extends HttpServlet{
             StudioType studioType = studioService.getStudioType(request.getParameter("id"), (int)request.getSession().getAttribute(storeIdSession));
             request.setAttribute("type", studioType);
 
+            // Validasi apakah id tersedia
             studioType.toString();
 
         } catch (SQLException e){

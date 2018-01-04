@@ -23,7 +23,6 @@ import java.util.ServiceConfigurationError;
 @WebServlet("/admin/membercard/page")
 public class MemberCardMenuPagination extends HttpServlet {
     MemberCardService membercardService = new MemberCardServiceDatabase();
-
     private final String storeIdSession = "storeid";
 
     /**

@@ -20,10 +20,8 @@ import java.sql.SQLException;
 @WebServlet("/index")
 public class Store extends HttpServlet {
     StoreAccountService storeAccountService = new StoreAccountServiceDatabase();
-
     private final String storeLoginAddress = "/view/login/store_login.jsp";
     private final String successAddress = "/view/database/success.jsp";
-
     private final String title = "Login";
     private final String statusLoginBerhasil = "Success";
     private final String statusLoginGagal = "Failed";

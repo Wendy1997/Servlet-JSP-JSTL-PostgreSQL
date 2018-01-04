@@ -23,7 +23,6 @@ import java.util.ServiceConfigurationError;
 @WebServlet("/admin/account/page")
 public class AccountMenuPagination extends HttpServlet {
     AccountService accountService = new AccountServiceDatabase();
-
     private final String storeIdSession = "storeid";
 
     /**

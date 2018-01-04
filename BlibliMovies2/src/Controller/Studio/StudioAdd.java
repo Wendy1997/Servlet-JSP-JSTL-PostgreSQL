@@ -21,16 +21,13 @@ import java.util.List;
 @WebServlet("/admin/studio/add")
 public class StudioAdd extends HttpServlet {
     FilmService studioService = new FilmServiceDatabase();
-
     private final String storeLoginAddress = "/view/login/store_login.jsp";
     private final String accountLoginAddress = "/view/login/account_login.jsp";
     private final String addStudioAddress = "/view/database/studio/studio_add.jsp";
     private final String successAddress = "/view/database/success.jsp";
-
     private final String storeIdSession = "storeid";
     private final String roleAccountSession = "role";
     private final String roleAdmin = "admin";
-
     private final String title = "Studio";
     private final String statusAddBerhasil = "Created";
     private final String link = "/admin/studio";

@@ -77,102 +77,110 @@
     <favorites_list name="BlibliMovies2" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="MemberCardEdit.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/MemberCard/MemberCardEdit.java">
+    <leaf>
+      <file leaf-file-name="store_login.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/view/login/store_login.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="406">
-              <caret line="116" column="1" lean-forward="false" selection-start-line="116" selection-start-column="1" selection-end-line="116" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MemberCardMenu.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/MemberCard/MemberCardMenu.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="406">
-              <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MemberCardMenuPagination.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/MemberCard/MemberCardMenuPagination.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="50" column="24" lean-forward="false" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MemberConfirmation.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/MemberCard/MemberConfirmation.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Store.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/Login/Store.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="343">
-              <caret line="99" column="9" lean-forward="false" selection-start-line="99" selection-start-column="9" selection-end-line="99" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SuperAdmin.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/Login/SuperAdmin.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="406">
-              <caret line="98" column="0" lean-forward="false" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.properties" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/config.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="-40">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MemberCardAdd.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/MemberCard/MemberCardAdd.java">
+      <file leaf-file-name="superadmin_login.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/view/login/superadmin_login.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="97" column="58" lean-forward="false" selection-start-line="97" selection-start-column="58" selection-end-line="97" selection-end-column="58" />
+            <state relative-caret-position="-40">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MemberCardAddSuccess.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/MemberCard/MemberCardAddSuccess.java">
+      <file leaf-file-name="admin_menu.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/view/menu/admin_menu.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state relative-caret-position="-40">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MemberCardDelete.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Controller/MemberCard/MemberCardDelete.java">
+      <file leaf-file-name="cashier_menu.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/view/menu/cashier_menu.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="406">
-              <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+            <state relative-caret-position="-40">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="super_menu.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/view/menu/super_menu.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-40">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="choose_film.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/view/transaction/choose_film.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="222">
+              <caret line="151" column="30" lean-forward="false" selection-start-line="151" selection-start-column="19" selection-end-line="151" selection-end-column="30" />
+              <folding>
+                <marker date="1515032325380" expanded="true" signature="4939:4991" ph="..." />
+                <marker date="1515032325380" expanded="true" signature="5789:5805" ph="..." />
+                <marker date="1515032325380" expanded="true" signature="6020:6032" ph="..." />
+                <marker date="1515032325380" expanded="true" signature="7177:7229" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="choose_fnb.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/view/transaction/choose_fnb.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="164">
+              <caret line="241" column="38" lean-forward="false" selection-start-line="241" selection-start-column="27" selection-end-line="241" selection-end-column="38" />
+              <folding>
+                <marker date="1515032323439" expanded="true" signature="5369:5454" ph="..." />
+                <marker date="1515032323439" expanded="true" signature="7445:7530" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="choose_seat.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/view/transaction/choose_seat.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="143">
+              <caret line="164" column="44" lean-forward="false" selection-start-line="164" selection-start-column="44" selection-end-line="164" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="confirmation_film.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/web/view/transaction/confirmation_film.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="338">
+              <caret line="18" column="33" lean-forward="true" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="view_invoice.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/view/transaction/view_invoice.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="164">
+              <caret line="160" column="43" lean-forward="false" selection-start-line="160" selection-start-column="32" selection-end-line="160" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -192,9 +200,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>tablink</find>
-      <find>tab</find>
-      <find>S</find>
       <find>storename = ?</find>
       <find>storename</find>
       <find>storeaccount</find>
@@ -222,6 +227,9 @@
       <find>studio</find>
       <find>filmid</find>
       <find>create</find>
+      <find>System.out.println</find>
+      <find>console</find>
+      <find>console.log</find>
     </findStrings>
   </component>
   <component name="GradleLocalSettings">
@@ -232,57 +240,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/web/css/style.css" />
-        <option value="$PROJECT_DIR$/src/Controller/Ledger/LedgerViewDaily.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Ledger/LedgerViewWeekly.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Ledger/LedgerViewMonthly.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Ledger/LedgerViewYearly.java" />
-        <option value="$PROJECT_DIR$/src/DAO/FilmTicketDAO.java" />
-        <option value="$PROJECT_DIR$/src/DAO/FnBDAO.java" />
-        <option value="$PROJECT_DIR$/src/DAO/OrderDetailDAO.java" />
-        <option value="$PROJECT_DIR$/src/DAO/ScreeningTimeDAO.java" />
-        <option value="$PROJECT_DIR$/src/DAO/StudioDAO.java" />
-        <option value="$PROJECT_DIR$/src/DAO/FilmDAO.java" />
-        <option value="$PROJECT_DIR$/src/DAO/MemberCardDAO.java" />
-        <option value="$PROJECT_DIR$/src/DAO/InvoiceDAO.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Transaction/CheckMember.java" />
-        <option value="$PROJECT_DIR$/web/view/transaction/choose_fnb.jsp" />
-        <option value="$PROJECT_DIR$/web/view/database/screening/screeningTime_add.jsp" />
-        <option value="$PROJECT_DIR$/web/view/database/screening/screeningTime_edit.jsp" />
-        <option value="$PROJECT_DIR$/src/config.properties" />
-        <option value="$PROJECT_DIR$/src/Controller/Account/AccountAdd.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Account/AccountMenuPagination.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Admin/AdminMenu.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Account/AccountMenu.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Film/FilmDelete.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Film/FilmDetail.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Film/FilmMenu.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Film/FilmMenuPagination.java" />
-        <option value="$PROJECT_DIR$/src/Controller/FilmGenre/FilmGenreAdd.java" />
-        <option value="$PROJECT_DIR$/src/Controller/FilmGenre/FilmGenreEdit.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Film/FilmEdit.java" />
-        <option value="$PROJECT_DIR$/src/Controller/FilmGenre/FilmGenreMenu.java" />
-        <option value="$PROJECT_DIR$/src/Controller/FilmGenre/FilmGenreMenuPagination.java" />
-        <option value="$PROJECT_DIR$/src/Controller/FnB/FnBMenu.java" />
-        <option value="$PROJECT_DIR$/src/Controller/FnB/FnBEdit.java" />
-        <option value="$PROJECT_DIR$/src/Controller/FnBSize/FnBSizeMenuPagination.java" />
-        <option value="$PROJECT_DIR$/src/Controller/FnBType/FnBTypeEdit.java" />
-        <option value="$PROJECT_DIR$/src/Controller/FnBType/FnBTypeMenu.java" />
-        <option value="$PROJECT_DIR$/src/Controller/FnBType/FnBTypeMenuPagination.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Invoice/InvoiceDetail.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Invoice/InvoiceMenu.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Invoice/InvoiceMenuPagination.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Ledger/LedgerView.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Ledger/LedgerViewDailyPagination.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Ledger/LedgerViewMonthlyPagination.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Ledger/LedgerViewWeeklyPagination.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Ledger/LedgerViewYearlyPagination.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Login/Account.java" />
-        <option value="$PROJECT_DIR$/src/Controller/MemberCard/MemberCardAdd.java" />
+        <option value="$PROJECT_DIR$/src/Controller/MemberCard/MemberCardAddSuccess.java" />
+        <option value="$PROJECT_DIR$/src/Controller/MemberCard/MemberCardDelete.java" />
         <option value="$PROJECT_DIR$/src/Controller/MemberCard/MemberCardEdit.java" />
         <option value="$PROJECT_DIR$/src/Controller/MemberCard/MemberCardMenu.java" />
         <option value="$PROJECT_DIR$/src/Controller/MemberCard/MemberCardMenuPagination.java" />
-        <option value="$PROJECT_DIR$/src/Controller/MemberCard/MemberCardAddSuccess.java" />
+        <option value="$PROJECT_DIR$/src/Controller/MemberCard/MemberConfirmation.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Menu/Menu.java" />
+        <option value="$PROJECT_DIR$/src/Controller/ScreeningTime/ScreeningTimeAdd.java" />
+        <option value="$PROJECT_DIR$/src/Controller/ScreeningTime/ScreeningTimeDelete.java" />
+        <option value="$PROJECT_DIR$/src/Controller/ScreeningTime/ScreeningTimeEdit.java" />
+        <option value="$PROJECT_DIR$/src/Controller/ScreeningTime/ScreeningTimeMenu.java" />
+        <option value="$PROJECT_DIR$/src/Controller/ScreeningTime/ScreeningTimeMenuPagination.java" />
+        <option value="$PROJECT_DIR$/src/Controller/StoreAccount/StoreAccountAdd.java" />
+        <option value="$PROJECT_DIR$/src/Controller/StoreAccount/StoreAccountDelete.java" />
+        <option value="$PROJECT_DIR$/src/Controller/StoreAccount/StoreAccountMenu.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Studio/StudioAdd.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Studio/StudioDelete.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Studio/StudioEdit.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Studio/StudioMenu.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Studio/StudioMenuPagination.java" />
+        <option value="$PROJECT_DIR$/src/Controller/StudioType/StudioTypeAdd.java" />
+        <option value="$PROJECT_DIR$/src/Controller/StudioType/StudioTypeDelete.java" />
+        <option value="$PROJECT_DIR$/src/Controller/StudioType/StudioTypeEdit.java" />
+        <option value="$PROJECT_DIR$/src/Controller/StudioType/StudioTypeMenu.java" />
+        <option value="$PROJECT_DIR$/src/Controller/StudioType/StudioTypeMenuPagination.java" />
+        <option value="$PROJECT_DIR$/src/Controller/SuperAdmin/SuperAdminAdd.java" />
+        <option value="$PROJECT_DIR$/src/Controller/SuperAdmin/SuperAdminDelete.java" />
+        <option value="$PROJECT_DIR$/src/Controller/SuperAdmin/SuperAdminEdit.java" />
+        <option value="$PROJECT_DIR$/src/Controller/SuperAdmin/SuperAdminMenu.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Transaction/CashierMenu.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Transaction/CheckMember.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Transaction/ChooseFilm.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Transaction/ChooseFilmDetail.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Transaction/ViewFnB.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Transaction/ViewInvoice.java" />
+        <option value="$PROJECT_DIR$/src/Controller/StoreAccount/StoreAccountEdit.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Transaction/ChooseFnB.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Transaction/ChooseSeat.java" />
+        <option value="$PROJECT_DIR$/src/DAO/AccountDAO.java" />
+        <option value="$PROJECT_DIR$/src/DAO/FilmDAO.java" />
+        <option value="$PROJECT_DIR$/src/Service/MemberCardService.java" />
+        <option value="$PROJECT_DIR$/src/Service/MemberCardServiceDatabase.java" />
+        <option value="$PROJECT_DIR$/src/DAO/MemberCardDAO.java" />
+        <option value="$PROJECT_DIR$/web/view/database/ledger/ledger_menu.jsp" />
+        <option value="$PROJECT_DIR$/web/view/database/member/member_add.jsp" />
+        <option value="$PROJECT_DIR$/web/view/error/error503.jsp" />
+        <option value="$PROJECT_DIR$/web/view/error/error500.jsp" />
+        <option value="$PROJECT_DIR$/web/view/error/error404.jsp" />
+        <option value="$PROJECT_DIR$/web/view/transaction/choose_film.jsp" />
+        <option value="$PROJECT_DIR$/web/view/transaction/choose_fnb.jsp" />
+        <option value="$PROJECT_DIR$/web/view/transaction/choose_seat.jsp" />
       </list>
     </option>
   </component>
@@ -432,6 +440,74 @@
             <path>
               <item name="BlibliMovies2" type="b2602c69:ProjectViewProjectNode" />
               <item name="BlibliMovies2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+              <item name="Menu" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BlibliMovies2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BlibliMovies2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+              <item name="ScreeningTime" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BlibliMovies2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BlibliMovies2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+              <item name="StoreAccount" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BlibliMovies2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BlibliMovies2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+              <item name="Studio" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BlibliMovies2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BlibliMovies2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+              <item name="StudioType" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BlibliMovies2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BlibliMovies2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+              <item name="Super" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BlibliMovies2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BlibliMovies2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+              <item name="SuperAdmin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BlibliMovies2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BlibliMovies2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+              <item name="Transaction" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BlibliMovies2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BlibliMovies2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="DAO" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BlibliMovies2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BlibliMovies2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BlibliMovies2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BlibliMovies2" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -522,6 +598,54 @@
               <item name="view" type="462c0819:PsiDirectoryNode" />
               <item name="database" type="462c0819:PsiDirectoryNode" />
               <item name="ledger" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BlibliMovies2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BlibliMovies2" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="member" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BlibliMovies2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BlibliMovies2" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="screening" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BlibliMovies2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BlibliMovies2" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="storeaccount" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BlibliMovies2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BlibliMovies2" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="studio" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BlibliMovies2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BlibliMovies2" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="studiotype" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BlibliMovies2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BlibliMovies2" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="superadmin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BlibliMovies2" type="b2602c69:ProjectViewProjectNode" />
@@ -1051,12 +1175,12 @@
       <workItem from="1514941459192" duration="1545000" />
       <workItem from="1514945180835" duration="2067000" />
       <workItem from="1514993744961" duration="2230000" />
-      <workItem from="1515027571723" duration="1384000" />
+      <workItem from="1515027571723" duration="4950000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="463591000" />
+    <option name="totallyTimeSpent" value="467157000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1150,410 +1274,418 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Controller/Studio/StudioEdit.java">
+    <entry file="file://$PROJECT_DIR$/web/view/database/film/film_detail.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1134">
-          <caret line="66" column="30" lean-forward="false" selection-start-line="66" selection-start-column="30" selection-end-line="66" selection-end-column="30" />
+        <state relative-caret-position="-40">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Admin/AdminMenu.java">
+    <entry file="file://$PROJECT_DIR$/web/view/database/film/film_edit.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="23" column="4" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
+        <state relative-caret-position="-40">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Account/AccountAdd.java">
+    <entry file="file://$PROJECT_DIR$/web/view/database/film/film_menu.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="110" column="27" lean-forward="false" selection-start-line="110" selection-start-column="20" selection-end-line="110" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/filmgenre/filmgenre_add.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-40">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/filmgenre/filmgenre_edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-40">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/filmgenre/filmgenre_menu.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="81" column="27" lean-forward="false" selection-start-line="81" selection-start-column="20" selection-end-line="81" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/fnb/fnb_add.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-40">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/fnb/fnb_edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-40">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/fnb/fnb_menu.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="118" column="27" lean-forward="false" selection-start-line="118" selection-start-column="20" selection-end-line="118" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/fnbsize/fnbsize_add.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-40">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/fnbsize/fnbsize_edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-40">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/fnbsize/fnbsize_menu.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="81" column="27" lean-forward="false" selection-start-line="81" selection-start-column="20" selection-end-line="81" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/fnbtype/fnbtype_add.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-40">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/fnbtype/fnbtype_edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-40">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/fnbtype/fnbtype_menu.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="81" column="27" lean-forward="false" selection-start-line="81" selection-start-column="20" selection-end-line="81" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/invoice/invoice_detail.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-40">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/invoice/invoice_menu.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
-          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <caret line="92" column="27" lean-forward="false" selection-start-line="92" selection-start-column="20" selection-end-line="92" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Account/AccountDelete.java">
+    <entry file="file://$PROJECT_DIR$/web/view/database/ledger/ledger_menu.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1239">
-          <caret line="71" column="13" lean-forward="true" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="13" />
+        <state relative-caret-position="164">
+          <caret line="272" column="23" lean-forward="false" selection-start-line="272" selection-start-column="16" selection-end-line="272" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Account/AccountMenu.java">
+    <entry file="file://$PROJECT_DIR$/web/view/database/member/member_add.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="28" column="3" lean-forward="false" selection-start-line="28" selection-start-column="3" selection-end-line="28" selection-end-column="3" />
+        <state relative-caret-position="164">
+          <caret line="119" column="42" lean-forward="false" selection-start-line="119" selection-start-column="31" selection-end-line="119" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Account/AccountMenuPagination.java">
+    <entry file="file://$PROJECT_DIR$/web/view/database/member/member_edit.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
-          <caret line="50" column="23" lean-forward="true" selection-start-line="50" selection-start-column="23" selection-end-line="50" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/StudioType/StudioTypeEdit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1218">
-          <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Film/FilmAdd.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2121">
-          <caret line="32" column="13" lean-forward="false" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Film/FilmDelete.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="85" column="8" lean-forward="false" selection-start-line="85" selection-start-column="8" selection-end-line="85" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Film/FilmDetail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="86" column="32" lean-forward="true" selection-start-line="86" selection-start-column="32" selection-end-line="86" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Film/FilmMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="32" column="4" lean-forward="false" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Film/FilmMenuPagination.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="50" column="24" lean-forward="false" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/FilmGenre/FilmGenreAdd.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-276">
-          <caret line="63" column="8" lean-forward="false" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/FilmGenre/FilmGenreDelete.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1022">
-          <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Film/FilmEdit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="76" column="51" lean-forward="false" selection-start-line="76" selection-start-column="51" selection-end-line="76" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Account/AccountEdit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="65" column="33" lean-forward="false" selection-start-line="65" selection-start-column="33" selection-end-line="65" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/FilmGenre/FilmGenreMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="73" column="32" lean-forward="true" selection-start-line="73" selection-start-column="32" selection-end-line="73" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/FilmGenre/FilmGenreMenuPagination.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="51" column="24" lean-forward="false" selection-start-line="51" selection-start-column="24" selection-end-line="51" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/FnB/FnBAdd.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2006">
-          <caret line="33" column="13" lean-forward="false" selection-start-line="33" selection-start-column="13" selection-end-line="33" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/FnB/FnBDelete.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="721">
-          <caret line="89" column="0" lean-forward="true" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/FnB/FnBMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="84" column="0" lean-forward="true" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/FnB/FnBEdit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="80" column="51" lean-forward="false" selection-start-line="80" selection-start-column="51" selection-end-line="80" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/FilmGenre/FilmGenreEdit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1050">
-          <caret line="103" column="17" lean-forward="true" selection-start-line="103" selection-start-column="17" selection-end-line="103" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/FnBSize/FnBSizeEdit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="70" column="31" lean-forward="false" selection-start-line="70" selection-start-column="31" selection-end-line="70" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/FnBSize/FnBSizeMenuPagination.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="50" column="24" lean-forward="false" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/FnBType/FnBTypeAdd.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="94" column="0" lean-forward="true" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/FnBType/FnBTypeDelete.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="91" column="0" lean-forward="true" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/FnBType/FnBTypeMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/FnBType/FnBTypeEdit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-516">
-          <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/FnBType/FnBTypeMenuPagination.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="50" column="24" lean-forward="false" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Invoice/InvoiceMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="30" column="4" lean-forward="false" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Invoice/InvoiceDetail.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="65" column="23" lean-forward="true" selection-start-line="65" selection-start-column="23" selection-end-line="65" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Invoice/InvoiceMenuPagination.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="50" column="24" lean-forward="false" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Ledger/LedgerView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="89" column="0" lean-forward="true" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Ledger/LedgerViewDaily.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="58" column="6" lean-forward="true" selection-start-line="58" selection-start-column="6" selection-end-line="58" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Ledger/LedgerViewDailyPagination.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="766">
-          <caret line="54" column="24" lean-forward="false" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Ledger/LedgerViewMonthly.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-389">
-          <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Ledger/LedgerViewMonthlyPagination.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="54" column="24" lean-forward="false" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Ledger/LedgerViewWeeklyPagination.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="54" column="24" lean-forward="false" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Ledger/LedgerViewYearlyPagination.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="55" column="24" lean-forward="false" selection-start-line="55" selection-start-column="24" selection-end-line="55" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Login/Account.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="106" column="0" lean-forward="false" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Login/Store.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="343">
-          <caret line="99" column="9" lean-forward="false" selection-start-line="99" selection-start-column="9" selection-end-line="99" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Login/SuperAdmin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="98" column="0" lean-forward="false" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/MemberCard/MemberCardAdd.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="97" column="58" lean-forward="false" selection-start-line="97" selection-start-column="58" selection-end-line="97" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/MemberCard/MemberCardDelete.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/MemberCard/MemberCardEdit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="116" column="1" lean-forward="false" selection-start-line="116" selection-start-column="1" selection-end-line="116" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/MemberCard/MemberCardMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/MemberCard/MemberCardMenuPagination.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="50" column="24" lean-forward="false" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/MemberCard/MemberConfirmation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/MemberCard/MemberCardAddSuccess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/config.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="-40">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/member/member_menu.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="105" column="31" lean-forward="false" selection-start-line="105" selection-start-column="20" selection-end-line="105" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/screening/screeningTime_add.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-40">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/screening/screeningTime_edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-40">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/screening/screeningTime_menu.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="95" column="31" lean-forward="false" selection-start-line="95" selection-start-column="20" selection-end-line="95" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/storeaccount/storeaccount_add.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-40">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/storeaccount/storeaccount_edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-40">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/storeaccount/storeaccount_menu.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="83" column="31" lean-forward="false" selection-start-line="83" selection-start-column="20" selection-end-line="83" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/studio/studio_add.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-40">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/studio/studio_edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-40">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/studio/studio_menu.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="99" column="31" lean-forward="false" selection-start-line="99" selection-start-column="20" selection-end-line="99" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/studiotype/studiotype_add.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-40">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/studiotype/studiotype_edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-40">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/studiotype/studiotype_menu.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="81" column="31" lean-forward="false" selection-start-line="81" selection-start-column="20" selection-end-line="81" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/superadmin/superadmin_add.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-40">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/superadmin/superadmin_edit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-40">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/superadmin/superadmin_menu.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="80" column="31" lean-forward="false" selection-start-line="80" selection-start-column="20" selection-end-line="80" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/database/success.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-40">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/error/error503.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="38" lean-forward="false" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/error/error500.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="38" lean-forward="false" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/error/error404.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="12" column="38" lean-forward="false" selection-start-line="12" selection-start-column="38" selection-end-line="12" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/login/account_login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-40">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/login/store_login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-40">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/login/superadmin_login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-40">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/menu/admin_menu.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-40">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/menu/cashier_menu.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-40">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/menu/super_menu.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-40">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/transaction/choose_film.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="151" column="30" lean-forward="false" selection-start-line="151" selection-start-column="19" selection-end-line="151" selection-end-column="30" />
+          <folding>
+            <marker date="1515032325380" expanded="true" signature="4939:4991" ph="..." />
+            <marker date="1515032325380" expanded="true" signature="5789:5805" ph="..." />
+            <marker date="1515032325380" expanded="true" signature="6020:6032" ph="..." />
+            <marker date="1515032325380" expanded="true" signature="7177:7229" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/transaction/choose_fnb.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="241" column="38" lean-forward="false" selection-start-line="241" selection-start-column="27" selection-end-line="241" selection-end-column="38" />
+          <folding>
+            <marker date="1515032323439" expanded="true" signature="5369:5454" ph="..." />
+            <marker date="1515032323439" expanded="true" signature="7445:7530" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/transaction/choose_seat.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="164" column="44" lean-forward="false" selection-start-line="164" selection-start-column="44" selection-end-line="164" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/transaction/confirmation_film.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="18" column="33" lean-forward="true" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/transaction/view_invoice.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="160" column="43" lean-forward="false" selection-start-line="160" selection-start-column="32" selection-end-line="160" selection-end-column="43" />
           <folding />
         </state>
       </provider>

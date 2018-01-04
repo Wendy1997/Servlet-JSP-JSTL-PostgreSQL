@@ -49,9 +49,7 @@ public class MemberCardDAO {
     public MemberCard getMemberCard(String id, int storeid) throws SQLException{
         PreparedStatement ps = conn.prepareStatement("SELECT * FROM membercard where id = ? and storeid = ?");
         ps.setInt(1, Integer.parseInt(id));
-
         ps.setInt(2, storeid);
-        System.out.println(ps.toString());
         ResultSet rs = ps.executeQuery();
 
         MemberCard output;
@@ -96,42 +94,6 @@ public class MemberCardDAO {
         }
 
         System.out.println(ps.toString());
-
-        ps.close();
-        conn.close();
-        return output;
-    }
-
-    /**
-     * Sebuah method untuk mengambil data Member Card dari db
-     *
-     * @param id
-     * @param storeid
-     * @return
-     * @throws SQLException
-     */
-    public MemberCard getMemberCardByEmail(String id, int storeid) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM membercard where id = ? and storeid = ?");
-        ps.setInt(1, Integer.parseInt(id));
-        ps.setInt(2, storeid);
-
-        System.out.println(ps.toString());
-
-        ResultSet rs = ps.executeQuery();
-
-        MemberCard output;
-        if(rs.next()){
-            output = new MemberCard(rs.getInt(1),
-                    rs.getInt(2),
-                    rs.getString(3),
-                    rs.getInt(4),
-                    rs.getString(5).substring(0,10),
-                    rs.getString(6),
-                    rs.getString(7),
-                    rs.getBoolean(8));
-        } else{
-            output = null;
-        }
 
         ps.close();
         conn.close();
@@ -253,35 +215,6 @@ public class MemberCardDAO {
         ps.close();
         conn.close();
         return count;
-    }
-
-    /**
-     * Sebuah method yang akan mengambil seluruh data member card yang memiliki status aktif
-     *
-     * @param storeid
-     * @return
-     * @throws SQLException
-     */
-    public List<MemberCard> getAllMemberCardTrue(int storeid) throws SQLException{
-        PreparedStatement ps = conn.prepareStatement("SELECT * FROM membercard where storeid = ? and status = true ORDER BY id");
-        ps.setInt(1, storeid);
-        ResultSet rs = ps.executeQuery();
-
-        List<MemberCard> memberCards = new ArrayList<MemberCard>();
-        while(rs.next()){
-            memberCards.add(new MemberCard(rs.getInt(1),
-                    rs.getInt(2),
-                    rs.getString(3),
-                    rs.getInt(4),
-                    rs.getString(5).substring(0,10),
-                    rs.getString(6),
-                    rs.getString(7),
-                    rs.getBoolean(8)));
-        }
-
-        ps.close();
-        conn.close();
-        return memberCards;
     }
 
     /**

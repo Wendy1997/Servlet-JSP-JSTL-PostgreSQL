@@ -24,15 +24,12 @@ import java.sql.SQLException;
 @WebServlet("/admin/fnbtype/delete")
 public class FnBTypeDelete extends HttpServlet {
     FnBService fnbService = new FnBServiceDatabase();
-
     private final String storeLoginAddress = "/view/login/store_login.jsp";
     private final String accountLoginAddress = "/view/login/account_login.jsp";
     private final String successAddress = "/view/database/success.jsp";
-
     private final String storeIdSession = "storeid";
     private final String roleAccountSession = "role";
     private final String roleAdmin = "admin";
-
     private final String title = "FnB Type";
     private final String statusDeleteBerhasil = "Deleted";
     private final String statusRetrieveBerhasil = "Retrieved";

@@ -22,15 +22,12 @@ import java.util.List;
 @WebServlet("/admin/membercard")
 public class MemberCardMenu extends HttpServlet{
     MemberCardService memberCardService = new MemberCardServiceDatabase();
-
     private final String storeLoginAddress = "/view/login/store_login.jsp";
     private final String accountLoginAddress = "/view/login/account_login.jsp";
     private final String menuMemberCardAddress = "/view/database/member/member_menu.jsp";
-
     private final String storeIdSession = "storeid";
     private final String roleAccountSession = "role";
     private final String roleAdmin = "admin";
-
     private final int initialPage = 0;
 
     /**

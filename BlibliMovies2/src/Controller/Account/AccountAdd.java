@@ -27,11 +27,9 @@ public class AccountAdd extends HttpServlet {
     private final String accountLoginAddress = "/view/login/account_login.jsp";
     private final String addAccountAddress = "/view/database/account/account_add.jsp";
     private final String successAddress = "/view/database/success.jsp";
-
     private final String storeIdSession = "storeid";
     private final String roleAccountSession = "role";
     private final String roleAdmin = "admin";
-
     private final String title = "Account";
     private final String statusBerhasil = "Created";
     private final String statusGagal = "Has Taken";

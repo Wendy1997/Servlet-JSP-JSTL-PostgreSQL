@@ -20,16 +20,13 @@ import java.sql.SQLException;
 @WebServlet("/login")
 public class Account extends HttpServlet {
     AccountService accountService = new AccountServiceDatabase();
-
     private final String storeLoginAddress = "/view/login/store_login.jsp";
     private final String accountLoginAddress = "/view/login/account_login.jsp";
     private final String successAddress = "/view/database/success.jsp";
-
     private final String storeIdSession = "storeid";
     private final String userIdSession = "userId";
     private final String userNameSession = "username";
     private final String roleAccountSession = "role";
-
     private final String title = "Login";
     private final String statusLoginBerhasil = "Success";
     private final String statusLoginGagal = "Failed";

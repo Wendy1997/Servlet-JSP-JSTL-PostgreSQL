@@ -88,7 +88,6 @@
         type['${type.id}'] = '${type.type}';
     </c:forEach>
 
-    console.log(type);
     var listBuy = [];
     var listHarga = [];
     var harga = 0;

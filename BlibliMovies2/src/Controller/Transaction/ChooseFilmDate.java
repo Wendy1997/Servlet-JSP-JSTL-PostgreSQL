@@ -25,7 +25,6 @@ import java.util.TreeMap;
 @WebServlet("/view/film")
 public class ChooseFilmDate extends HttpServlet {
     FilmService filmService = new FilmServiceDatabase();
-
     private final String storeIdSession = "storeid";
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{

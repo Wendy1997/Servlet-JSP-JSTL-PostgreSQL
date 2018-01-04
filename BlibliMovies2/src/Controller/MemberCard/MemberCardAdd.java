@@ -24,11 +24,9 @@ import java.util.List;
 @WebServlet("/admin/membercard/add")
 public class MemberCardAdd extends HttpServlet {
     MemberCardService memberCardService = new MemberCardServiceDatabase();
-
     private final String storeLoginAddress = "/view/login/store_login.jsp";
     private final String accountLoginAddress = "/view/login/account_login.jsp";
     private final String addMemberCardAddress = "/view/database/member/member_add.jsp";
-
     private final String storeIdSession = "storeid";
     private final String roleAccountSession = "role";
     private final String roleAdmin = "admin";

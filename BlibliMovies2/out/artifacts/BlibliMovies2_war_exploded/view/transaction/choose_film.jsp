@@ -100,9 +100,6 @@
                    var outputSinopsis = "";
 
                    var result = response["result"];
-                   console.log(response);
-                   console.log(response["date"]);
-
 
                    for(var key in result){
                        output += '<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-10">\n' +
@@ -150,7 +147,6 @@
 
                    $('.filmcontainer-responsive')[0].innerHTML = output;
                    $('.synopsiscontainer-responsive')[0].innerHTML = outputSinopsis;
-                   console.log("berhasil");
                },
                error: function (response) {
                    console.log(response);

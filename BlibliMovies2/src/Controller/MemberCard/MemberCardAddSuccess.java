@@ -7,22 +7,32 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-
+/**
+ * Sebuah kelas yang akan merefer ke halaman sukses
+ *
+ * url: /admin/membercard/add/success
+ */
 @WebServlet("/admin/membercard/add/success")
 public class MemberCardAddSuccess extends HttpServlet {
 
     private final String storeLoginAddress = "/view/login/store_login.jsp";
     private final String accountLoginAddress = "/view/login/account_login.jsp";
     private final String successAddress = "/view/database/success.jsp";
-
     private final String storeIdSession = "storeid";
     private final String roleAccountSession = "role";
     private final String roleAdmin = "admin";
-
     private final String title = "Member Card";
     private final String statusAddBerhasil = "Created";
     private final String link = "/admin/membercard";
 
+    /**
+     * Sebuah method yang akan merefer halaman menuju halaman sukses
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         // Validasi apakah sudah login store
         if(request.getSession().getAttribute(storeIdSession) == null){

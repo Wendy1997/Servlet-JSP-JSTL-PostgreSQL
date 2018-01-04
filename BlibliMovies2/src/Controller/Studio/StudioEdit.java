@@ -21,16 +21,13 @@ import java.util.List;
 @WebServlet("/admin/studio/edit")
 public class StudioEdit extends HttpServlet{
     FilmService studioService = new FilmServiceDatabase();
-
     private final String storeLoginAddress = "/view/login/store_login.jsp";
     private final String accountLoginAddress = "/view/login/account_login.jsp";
     private final String editStudioAddress = "/view/database/studio/studio_edit.jsp";
     private final String successAddress = "/view/database/success.jsp";
-
     private final String storeIdSession = "storeid";
     private final String roleAccountSession = "role";
     private final String roleAdmin = "admin";
-
     private final String title = "Studio";
     private final String statusEditBerhasil = "Updated";
     private final String link = "/admin/studio";
@@ -64,6 +61,7 @@ public class StudioEdit extends HttpServlet{
             Studio studio = studioService.getStudio(request.getParameter("id"), (int)request.getSession().getAttribute(storeIdSession));
             request.setAttribute("studio", studio);
 
+            // Validasi apakah id tersedia
             studio.toString();
 
             // Pengambilan seluruh type yang akan ditampilkan pada form

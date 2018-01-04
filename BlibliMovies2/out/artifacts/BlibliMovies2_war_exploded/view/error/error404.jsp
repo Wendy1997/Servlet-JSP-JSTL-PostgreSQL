@@ -11,7 +11,6 @@
     <div class="confirmation">
         <h1 class="title">Error 404: Page Not Found</h1>
         <div class="stripe"></div><br>
-        <%--<a id="link" href="<c:out value="${link}"></c:out>"><c:out value="${title} >"></c:out></a>--%>
     </div>
 </div>
 
