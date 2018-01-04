@@ -118,9 +118,6 @@
         var widthTicket = 300;
         var heightTicket = 220;
 
-        console.log(listTicket);
-        console.log(listTicket.length);
-
         if(listTicket.length > 1){
             var doc = new jsPDF('p', 'pt', [widthTicket , heightTicket * listTicket.length]);
         } else {
@@ -165,9 +162,7 @@
         prepare();
 
         $(".smallSquare").click(function(e) {
-            if($(this).hasClass('nonSeat')){
-                console.log('asdasd');
-            } else {
+            if(!$(this).hasClass('nonSeat')){
                 if ($(this).hasClass('smallSquare unavailableSeat'))
                     $(this).click(false);
                 else {

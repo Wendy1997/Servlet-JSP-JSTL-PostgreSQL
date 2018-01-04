@@ -19,15 +19,12 @@ import java.sql.SQLException;
 @WebServlet("/admin/studiotype/delete")
 public class StudioTypeDelete extends HttpServlet {
     FilmService filmService = new FilmServiceDatabase();
-
     private final String storeLoginAddress = "/view/login/store_login.jsp";
     private final String accountLoginAddress = "/view/login/account_login.jsp";
     private final String successAddress = "/view/database/success.jsp";
-
     private final String storeIdSession = "storeid";
     private final String roleAccountSession = "role";
     private final String roleAdmin = "admin";
-
     private final String title = "Studio Type";
     private final String statusDeleteBerhasil = "Deleted";
     private final String statusRetrieveBerhasil = "Retrieved";

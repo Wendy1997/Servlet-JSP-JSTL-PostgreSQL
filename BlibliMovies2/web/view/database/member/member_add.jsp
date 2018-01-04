@@ -74,7 +74,6 @@
                        email: $('#email').val()
                    },
                    success: function (response) {
-                       console.log(response);
                        var head = '<%@ include file = "/include/emailHead.jsp" %>';
                        var foot = '<%@ include file = "/include/emailFoot.jsp" %>';
                        var content =

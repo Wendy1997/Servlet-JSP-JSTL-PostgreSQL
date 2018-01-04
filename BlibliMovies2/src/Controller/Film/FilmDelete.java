@@ -21,15 +21,12 @@ import java.sql.SQLException;
 @WebServlet("/admin/film/delete")
 public class FilmDelete extends HttpServlet {
     FilmService filmService = new FilmServiceDatabase();
-
     private final String storeLoginAddress = "/view/login/store_login.jsp";
     private final String accountLoginAddress = "/view/login/account_login.jsp";
     private final String successAddress = "/view/database/success.jsp";
-
     private final String storeIdSession = "storeid";
     private final String roleAccountSession = "role";
     private final String roleAdmin = "admin";
-
     private final String title = "Film";
     private final String statusDeleteBerhasil = "Deleted";
     private final String statusRetrieveBerhasil = "Retrieved";
@@ -81,8 +78,8 @@ public class FilmDelete extends HttpServlet {
             request.setAttribute("link", link);
 
             request.getRequestDispatcher(successAddress).forward(request, response);
-        } catch (Exception e){
-            System.out.println(e.getMessage());
+        } catch (SQLException e){
+            e.printStackTrace();
         }
     }
 }

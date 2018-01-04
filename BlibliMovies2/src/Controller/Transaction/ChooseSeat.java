@@ -30,16 +30,8 @@ public class ChooseSeat extends HttpServlet {
     private final String accountLoginAddress = "/view/login/account_login.jsp";
     private final String chooseSeatAddress = "/view/transaction/choose_seat.jsp";
     private final String chooseFnBAddress = "/view/transaction/choose_fnb.jsp";
-    private final String successAddress = "/view/database/success.jsp";
-
     private final String storeIdSession = "storeid";
     private final String roleAccountSession = "role";
-    private final String roleAdmin = "admin";
-
-    private final String title = "Account";
-    private final String statusDeleteBerhasil = "Deleted";
-    private final String statusRetrieveBerhasil = "Retrieved";
-    private final String link = "admin";
 
     /**
      * Sebuah method GET yang akan menampilkan list tempat duduk yang akan dipilih
@@ -107,7 +99,6 @@ public class ChooseSeat extends HttpServlet {
             for(int i = 0; i < seatList.length; i++){
                 if(!seatList[i].isEmpty()) {
                     filmTicketService.addTicket(new FilmTicket(Integer.parseInt(request.getParameter("filmid")), Integer.parseInt(request.getParameter("studioid")), seatList[i], Integer.parseInt(request.getParameter("screeningid")), studio.getPrice(), (int) request.getSession().getAttribute(storeIdSession), request.getParameter("date")));
-                    System.out.println("masuk");
                 }
             }
         } catch (SQLException e){

@@ -6,7 +6,7 @@
 <div class="container-fluid" align="center">
 
     <!-- Close Button -->
-    <a type="button" class="close" href="javascript:history.back()">&times;</a>
+    <a type="button" class="close" href="/admin">&times;</a>
 
     <!-- Title -->
     <div class="jumbotron">
@@ -87,7 +87,7 @@
 
                         <c:forEach items="${genre}" var="genre">
                             if(result[key].genre == ${genre.id}){
-                                output += ${genre.genre}
+                                output += '${genre.genre}'
                             }
                         </c:forEach>
 

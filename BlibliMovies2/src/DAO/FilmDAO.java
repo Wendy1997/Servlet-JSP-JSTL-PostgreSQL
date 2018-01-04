@@ -211,8 +211,6 @@ public class FilmDAO {
         ps.setDate(2, java.sql.Date.valueOf(dateNow));
         ps.setDate(3, java.sql.Date.valueOf(dateNow));
 
-        System.out.println(ps.toString());
-
         ResultSet rs = ps.executeQuery();
 
         List<Film> films = new ArrayList<Film>();

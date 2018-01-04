@@ -22,16 +22,13 @@ import java.util.List;
 @WebServlet("/admin/membercard/edit")
 public class MemberCardEdit extends HttpServlet{
     MemberCardService memberCardService = new MemberCardServiceDatabase();
-
     private final String storeLoginAddress = "/view/login/store_login.jsp";
     private final String accountLoginAddress = "/view/login/account_login.jsp";
     private final String editMemberCardAddress = "/view/database/member/member_edit.jsp";
     private final String successAddress = "/view/database/success.jsp";
-
     private final String storeIdSession = "storeid";
     private final String roleAccountSession = "role";
     private final String roleAdmin = "admin";
-
     private final String title = "Member Card";
     private final String statusEditBerhasil = "Updated";
     private final String link = "/admin/membercard";
@@ -68,6 +65,10 @@ public class MemberCardEdit extends HttpServlet{
             // Pengambilan seluruh gender yang akan ditampilkan pada form
             List<MemberGender> memberGenderList = memberCardService.getAllMemberGenderTrue((int)request.getSession().getAttribute(storeIdSession));
             request.setAttribute("gender", memberGenderList);
+
+            // Validasi jika id tersedia atau tidak
+            memberCard.toString();
+
         } catch (Exception e){
             e.printStackTrace();
         }

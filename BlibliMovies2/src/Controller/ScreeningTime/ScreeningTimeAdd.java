@@ -22,19 +22,16 @@ import java.sql.SQLException;
 @WebServlet("/admin/screentime/add")
 public class ScreeningTimeAdd extends HttpServlet{
     FilmService filmService = new FilmServiceDatabase();
-
     private final String storeLoginAddress = "/view/login/store_login.jsp";
     private final String accountLoginAddress = "/view/login/account_login.jsp";
     private final String addScreeningTimeAddress = "/view/database/screening/screeningTime_add.jsp";
     private final String successAddress = "/view/database/success.jsp";
-
     private final String storeIdSession = "storeid";
     private final String roleAccountSession = "role";
     private final String roleAdmin = "admin";
-
     private final String title = "Screening Time";
     private final String statusAddBerhasil = "Created";
-    private final String link = "/admin/screentime";
+    private final String link = "/admin/screentime?filmid=";
 
     /**
      * Sebuah method GET yang memberikan form penambahan screening time
@@ -66,12 +63,20 @@ public class ScreeningTimeAdd extends HttpServlet{
         try{
             request.setAttribute("studio", filmService.getAllStudioTrue((int)request.getSession().getAttribute(storeIdSession)));
         } catch (SQLException e){
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
 
         request.getRequestDispatcher(addScreeningTimeAddress).forward(request,response);
     }
 
+    /**
+     * Sebuah method POST yang akan mengolah hasil input form dari halaman tambah screening time
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         try{
             // Inisialisasi screening time
@@ -87,7 +92,7 @@ public class ScreeningTimeAdd extends HttpServlet{
             // Redirect menuju halaman success
             request.setAttribute("title", title);
             request.setAttribute("complete", statusAddBerhasil);
-            request.setAttribute("link", link);
+            request.setAttribute("link", link + request.getParameter("filmid"));
 
             request.getRequestDispatcher(successAddress).forward(request,response);
         } catch (SQLException e){

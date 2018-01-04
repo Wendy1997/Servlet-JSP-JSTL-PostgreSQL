@@ -20,19 +20,16 @@ import java.sql.SQLException;
 @WebServlet("/admin/screentime/delete")
 public class ScreeningTimeDelete extends HttpServlet{
     FilmService filmService = new FilmServiceDatabase();
-
     private final String storeLoginAddress = "/view/login/store_login.jsp";
     private final String accountLoginAddress = "/view/login/account_login.jsp";
     private final String successAddress = "/view/database/success.jsp";
-
     private final String storeIdSession = "storeid";
     private final String roleAccountSession = "role";
     private final String roleAdmin = "admin";
-
     private final String title = "Screening Time";
     private final String statusDeleteBerhasil = "Deleted";
     private final String statusRetrieveBerhasil = "Retrieved";
-    private final String link = "/admin/screentime";
+    private final String link = "/admin/screentime?filmid=";
 
     /**
      * Sebuah method GET yang akan melakukan penghapusan ataupun pengembalian screening time
@@ -77,7 +74,7 @@ public class ScreeningTimeDelete extends HttpServlet{
 
             // Redirect menuju halaman success
             request.setAttribute("title", title);
-            request.setAttribute("link", link);
+            request.setAttribute("link", link + request.getParameter("filmid"));
 
             request.getRequestDispatcher(successAddress).forward(request, response);
         } catch (SQLException e){

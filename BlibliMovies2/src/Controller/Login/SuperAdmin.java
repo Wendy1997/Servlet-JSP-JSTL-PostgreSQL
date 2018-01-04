@@ -18,12 +18,9 @@ import java.sql.SQLException;
 @WebServlet("/super")
 public class SuperAdmin extends HttpServlet {
     SuperAdminService superAdminService = new SuperAdminServiceDatabase();
-
     private final String superLoginAddress = "/view/login/superadmin_login.jsp";
     private final String successAddress = "/view/database/success.jsp";
-
     private final String superAdminSession = "superadminid";
-
     private final String title = "Login";
     private final String statusLoginBerhasil = "Success";
     private final String statusLoginGagal = "Failed";

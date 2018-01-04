@@ -22,16 +22,12 @@ import java.util.List;
 @WebServlet("/admin/account")
 public class AccountMenu extends HttpServlet{
     AccountService accountService = new AccountServiceDatabase();
-
     private final String storeLoginAddress = "/view/login/store_login.jsp";
     private final String accountLoginAddress = "/view/login/account_login.jsp";
     private final String menuAccountAddress = "/view/database/account/account_menu.jsp";
-    private final String successAddress = "/view/database/success.jsp";
-
     private final String storeIdSession = "storeid";
     private final String roleAccountSession = "role";
     private final String roleAdmin = "admin";
-
     private final int initialPage = 0;
 
     /**

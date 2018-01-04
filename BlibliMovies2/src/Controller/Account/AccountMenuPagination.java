@@ -23,7 +23,6 @@ import java.util.ServiceConfigurationError;
 @WebServlet("/admin/account/page")
 public class AccountMenuPagination extends HttpServlet {
     AccountService accountService = new AccountServiceDatabase();
-
     private final String storeIdSession = "storeid";
 
     /**
@@ -48,8 +47,7 @@ public class AccountMenuPagination extends HttpServlet {
 
             // Pengiriman data menuju AJAX
             PrintWriter out = response.getWriter();
-            out.print("{\"count\": " + 123 + ","); //TODO
-            out.print(" \"result\" : " + json + "}");
+            out.print("{\"result\" : " + json + "}");
         } catch (SQLException e){
             e.printStackTrace();
         }

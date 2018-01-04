@@ -23,7 +23,6 @@ import java.util.ServiceConfigurationError;
 @WebServlet("/admin/membercard/page")
 public class MemberCardMenuPagination extends HttpServlet {
     MemberCardService membercardService = new MemberCardServiceDatabase();
-
     private final String storeIdSession = "storeid";
 
     /**
@@ -48,8 +47,7 @@ public class MemberCardMenuPagination extends HttpServlet {
 
             // Pengiriman data menuju AJAX
             PrintWriter out = response.getWriter();
-            out.print("{\"count\": " + 123 + ",");
-            out.print(" \"result\" : " + json + "}");
+            out.print("{\"result\" : " + json + "}");
         } catch (SQLException e){
             e.printStackTrace();
         }

@@ -17,6 +17,12 @@ public class StoreAccountServiceDatabase implements StoreAccountService {
     }
 
     @Override
+    public StoreAccount getStoreAccountTrue(String username) throws SQLException {
+        storeAccountDAO = new StoreAccountDAO();
+        return storeAccountDAO.getStoreAccountTrue(username);
+    }
+
+    @Override
     public List<StoreAccount> getAllStoreAccount(int offset) throws SQLException {
         storeAccountDAO = new StoreAccountDAO();
         return storeAccountDAO.getAllStoreAccount(offset);

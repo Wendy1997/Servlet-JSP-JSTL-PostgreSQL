@@ -23,12 +23,9 @@ import java.util.*;
 @WebServlet("/admin/film/detail")
 public class FilmDetail extends HttpServlet{
     FilmService filmService = new FilmServiceDatabase();
-
     private final String storeLoginAddress = "/view/login/store_login.jsp";
     private final String accountLoginAddress = "/view/login/account_login.jsp";
     private final String detailFilmAddress = "/view/database/film/film_detail.jsp";
-    private final String successAddress = "/view/database/success.jsp";
-
     private final String storeIdSession = "storeid";
     private final String roleAccountSession = "role";
     private final String roleAdmin = "admin";
@@ -85,7 +82,7 @@ public class FilmDetail extends HttpServlet{
 
             request.getRequestDispatcher(detailFilmAddress).forward(request, response);
         } catch (SQLException e){
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 }

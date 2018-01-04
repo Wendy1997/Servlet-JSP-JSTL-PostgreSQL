@@ -23,7 +23,6 @@ import java.util.ServiceConfigurationError;
 @WebServlet("/admin/screentime/page")
 public class ScreeningTimeMenuPagination extends HttpServlet {
     FilmService filmService = new FilmServiceDatabase();
-
     private final String storeIdSession = "storeid";
 
     /**
@@ -39,7 +38,7 @@ public class ScreeningTimeMenuPagination extends HttpServlet {
             // Pengambilan data offset
             int page = (Integer.parseInt(request.getParameter("page")) - 1) * 10;
 
-            // Pengambilan list fnb pada offset halaman tersebut
+            // Pengambilan list screening time pada offset halaman tersebut
             List<ScreeningTime> screeningTimeList = filmService.getAllScreeningTime((int)request.getSession().getAttribute(storeIdSession), request.getParameter("filmid"), page);
 
             // Inisialisasi dan mengubah objek menjadi JSON
@@ -48,8 +47,7 @@ public class ScreeningTimeMenuPagination extends HttpServlet {
 
             // Pengiriman data menuju AJAX
             PrintWriter out = response.getWriter();
-            out.print("{\"count\": " + 123 + ",");
-            out.print(" \"result\" : " + json + "}");
+            out.print("{\"result\" : " + json + "}");
         } catch (SQLException e){
             e.printStackTrace();
         }

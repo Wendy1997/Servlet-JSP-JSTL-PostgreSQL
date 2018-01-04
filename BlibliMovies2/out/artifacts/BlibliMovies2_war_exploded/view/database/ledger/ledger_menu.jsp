@@ -202,7 +202,6 @@
                 date: $('#day').val()
             },
             success: function(response) {
-                console.log(response);
                 if(response["result"].length == 0){
                     var income = 0.0;
                     document.getElementById("day-income").innerHTML = "<h4>Total Income = Rp " + income + ",-</h4>";
@@ -268,13 +267,14 @@
                         "<td><a href='/admin/invoice/detail?id=" + result[key].id + "'>Detail</td>\n" +
                         "</tr>\n";
                 }
-                console.log(output);
                 document.getElementById("day-content").innerHTML = output;
             },
             error: function (response) {
                 console.log(response);
             }
         });
+
+        return false;
     }
 
     function getLedgerWeek(){
@@ -356,6 +356,8 @@
                 console.log(response);
             }
         });
+
+        return false;
     }
 
 
@@ -410,7 +412,6 @@
     }
 
     function getLedgerMonthPage(page){
-        console.log("masuk");
         $.ajax({
             type: 'GET',
             dataType: "JSON",
@@ -433,13 +434,14 @@
                         "<td><a href='/admin/invoice/detail?id=" + result[key].id + "'>Detail</td>\n" +
                         "</tr>\n";
                 }
-                console.log(output);
                 document.getElementById("month-content").innerHTML = output;
             },
             error: function (response) {
                 console.log(response);
             }
         });
+
+        return false;
     }
 
     function getLedgerYear(){
@@ -515,13 +517,14 @@
                         "<td><a href='/admin/invoice/detail?id=" + result[key].id + "'>Detail</td>\n" +
                         "</tr>\n";
                 }
-                console.log(output);
                 document.getElementById("year-content").innerHTML = output;
             },
             error: function (response) {
                 console.log(response);
             }
         });
+
+        return false;
     }
 
 
@@ -532,18 +535,22 @@
 
         $('#day').change(function () {
           getLedgerDay();
+            return false;
         });
 
         $('#week').change(function () {
             getLedgerWeek();
+            return false;
         });
 
         $('#month').change(function () {
             getLedgerMonth();
+            return false;
         });
 
         $('#year').change(function () {
             getLedgerYear();
+            return false;
         });
     });
 

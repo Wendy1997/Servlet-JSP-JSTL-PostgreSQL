@@ -25,16 +25,13 @@ import java.util.List;
 @WebServlet("/admin/filmgenre/edit")
 public class FilmGenreEdit extends HttpServlet{
     FilmService filmService = new FilmServiceDatabase();
-
     private final String storeLoginAddress = "/view/login/store_login.jsp";
     private final String accountLoginAddress = "/view/login/account_login.jsp";
     private final String editFilmGenreAddress = "/view/database/filmgenre/filmgenre_edit.jsp";
     private final String successAddress = "/view/database/success.jsp";
-
     private final String storeIdSession = "storeid";
     private final String roleAccountSession = "role";
     private final String roleAdmin = "admin";
-
     private final String title = "Film Genre";
     private final String statusEditBerhasil = "Updated";
     private final String link = "/admin/filmgenre";
@@ -68,6 +65,10 @@ public class FilmGenreEdit extends HttpServlet{
             // Pengambilan data film genre yang bersangkutan
             FilmGenre filmGenre = filmService.getFilmGenre(request.getParameter("id"), (int)request.getSession().getAttribute(storeIdSession));
             request.setAttribute("genre", filmGenre);
+
+            // Validasi jika id tersedia atau tidak
+            filmGenre.toString();
+
         } catch (SQLException e){
             e.printStackTrace();
         }

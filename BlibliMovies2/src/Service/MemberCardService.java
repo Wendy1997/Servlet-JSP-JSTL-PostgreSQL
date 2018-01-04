@@ -14,7 +14,6 @@ public interface MemberCardService {
     List<MemberCard> getAllMemberCard(int storeid, int offset) throws SQLException;
     int getCountAllMemberCard(int storeid) throws SQLException;
     int getIDMemberCardTerbaru(int storeid) throws SQLException;
-    List<MemberCard> getAllMemberCardTrue(int storeid) throws SQLException;
     void addMemberCard(MemberCard memberCard) throws SQLException;
     void deleteMemberCard(String id, int storeid) throws SQLException;
     void retrieveMemberCard(String id, int storeid) throws SQLException;

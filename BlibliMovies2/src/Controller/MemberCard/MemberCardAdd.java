@@ -24,11 +24,9 @@ import java.util.List;
 @WebServlet("/admin/membercard/add")
 public class MemberCardAdd extends HttpServlet {
     MemberCardService memberCardService = new MemberCardServiceDatabase();
-
     private final String storeLoginAddress = "/view/login/store_login.jsp";
     private final String accountLoginAddress = "/view/login/account_login.jsp";
     private final String addMemberCardAddress = "/view/database/member/member_add.jsp";
-
     private final String storeIdSession = "storeid";
     private final String roleAccountSession = "role";
     private final String roleAdmin = "admin";
@@ -87,12 +85,15 @@ public class MemberCardAdd extends HttpServlet {
             // Sebuah method yang akan memasukkan member card pada database
             memberCardService.addMemberCard(memberCard);
 
+            // Mencari member card yang baru terdaftar
             int id = memberCardService.getIDMemberCardTerbaru((int)request.getSession().getAttribute(storeIdSession));
             memberCard = memberCardService.getMemberCard(id + "", (int)request.getSession().getAttribute(storeIdSession));
 
+            // Menyiapkan hash untuk link konfirmasi email
             String hash = memberCard.getId() + memberCard.getFullname() + memberCard.getPhoneNumber();
             int hashCode = hash.hashCode();
 
+            // Mengirim response menuju AJAX untuk dikirim
             Gson gson = new Gson();
             String json = gson.toJson(memberCard);
 

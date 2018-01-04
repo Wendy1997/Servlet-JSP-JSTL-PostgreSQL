@@ -8,6 +8,7 @@ import java.util.List;
 
 public interface StoreAccountService {
     StoreAccount getStoreAccount(String username) throws SQLException;
+    StoreAccount getStoreAccountTrue(String username) throws SQLException;
     List<StoreAccount> getAllStoreAccount(int offset) throws SQLException;
     int getCountAllStoreAccount() throws SQLException;
     void addStoreAccount(StoreAccount account) throws SQLException;

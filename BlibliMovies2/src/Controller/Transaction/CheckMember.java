@@ -26,7 +26,6 @@ import java.sql.SQLException;
 public class CheckMember extends HttpServlet{
     InvoiceService promoDAO = new InvoiceServiceDatabase();
     MemberCardService memberCardService = new MemberCardServiceDatabase();
-
     private final String storeIdSession = "storeid";
     private final String notFound = "0";
 

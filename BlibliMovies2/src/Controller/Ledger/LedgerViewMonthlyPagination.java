@@ -26,7 +26,6 @@ import java.util.List;
 @WebServlet("/admin/ledger/monthly/page")
 public class LedgerViewMonthlyPagination extends HttpServlet {
     InvoiceService invoiceService = new InvoiceServiceDatabase();
-
     private final String storeIdSession = "storeid";
 
     /**
@@ -52,8 +51,7 @@ public class LedgerViewMonthlyPagination extends HttpServlet {
 
             // Pengiriman data menuju AJAX
             PrintWriter out = response.getWriter();
-            out.print("{\"count\": " + 123 + ",");
-            out.print(" \"result\" : " + json + "}");
+            out.print("{\"result\" : " + json + "}");
         } catch (SQLException e){
             e.printStackTrace();
         }
