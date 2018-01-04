@@ -100,7 +100,7 @@ public class ScreeningTimeEdit extends HttpServlet {
             // Redirect menuju halaman success
             request.setAttribute("title", title);
             request.setAttribute("complete", statusEditBerhasil);
-            request.setAttribute("link", link + request.getParameter("id"));
+            request.setAttribute("link", link + request.getParameter("filmid"));
 
             request.getRequestDispatcher(successAddress).forward(request,response);
         } catch (SQLException e){
