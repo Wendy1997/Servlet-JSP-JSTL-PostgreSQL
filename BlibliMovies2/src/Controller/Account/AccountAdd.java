@@ -91,6 +91,7 @@ public class AccountAdd extends HttpServlet {
                     Integer.parseInt(request.getParameter(roleAccountSession))
             );
 
+            // Sebuah pengecekan apakah username telah tersedia
             try{
                 accountService.getAccount(request.getParameter("username"), (int)request.getSession().getAttribute(storeIdSession)).getUsername().length();
 

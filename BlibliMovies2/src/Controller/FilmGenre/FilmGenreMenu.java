@@ -27,16 +27,10 @@ public class FilmGenreMenu extends HttpServlet{
     private final String storeLoginAddress = "/view/login/store_login.jsp";
     private final String accountLoginAddress = "/view/login/account_login.jsp";
     private final String menuFilmGenreAddress = "/view/database/filmgenre/filmgenre_menu.jsp";
-    private final String successAddress = "/view/database/success.jsp";
 
     private final String storeIdSession = "storeid";
     private final String roleAccountSession = "role";
     private final String roleAdmin = "admin";
-
-    private final String title = "Account";
-    private final String statusDeleteBerhasil = "Deleted";
-    private final String statusRetrieveBerhasil = "Retrieved";
-    private final String link = "admin";
 
     private final int initialPage = 0;
 
@@ -77,7 +71,7 @@ public class FilmGenreMenu extends HttpServlet{
 
             request.getRequestDispatcher(menuFilmGenreAddress).forward(request, response);
         } catch (SQLException e){
-            System.out.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 }

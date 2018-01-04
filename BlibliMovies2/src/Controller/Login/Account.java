@@ -29,7 +29,6 @@ public class Account extends HttpServlet {
     private final String userIdSession = "userId";
     private final String userNameSession = "username";
     private final String roleAccountSession = "role";
-    private final String roleAdmin = "admin";
 
     private final String title = "Login";
     private final String statusLoginBerhasil = "Success";

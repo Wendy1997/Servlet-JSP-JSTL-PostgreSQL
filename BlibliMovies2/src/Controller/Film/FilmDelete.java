@@ -81,8 +81,8 @@ public class FilmDelete extends HttpServlet {
             request.setAttribute("link", link);
 
             request.getRequestDispatcher(successAddress).forward(request, response);
-        } catch (Exception e){
-            System.out.println(e.getMessage());
+        } catch (SQLException e){
+            e.printStackTrace();
         }
     }
 }

@@ -26,7 +26,6 @@ public class AccountMenu extends HttpServlet{
     private final String storeLoginAddress = "/view/login/store_login.jsp";
     private final String accountLoginAddress = "/view/login/account_login.jsp";
     private final String menuAccountAddress = "/view/database/account/account_menu.jsp";
-    private final String successAddress = "/view/database/success.jsp";
 
     private final String storeIdSession = "storeid";
     private final String roleAccountSession = "role";

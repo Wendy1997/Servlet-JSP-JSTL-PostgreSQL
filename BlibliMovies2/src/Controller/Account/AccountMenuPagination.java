@@ -48,8 +48,7 @@ public class AccountMenuPagination extends HttpServlet {
 
             // Pengiriman data menuju AJAX
             PrintWriter out = response.getWriter();
-            out.print("{\"count\": " + 123 + ","); //TODO
-            out.print(" \"result\" : " + json + "}");
+            out.print("{\"result\" : " + json + "}");
         } catch (SQLException e){
             e.printStackTrace();
         }

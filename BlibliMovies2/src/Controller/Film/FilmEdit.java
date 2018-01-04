@@ -74,6 +74,7 @@ public class FilmEdit extends HttpServlet{
             Film film = filmService.getFilm(request.getParameter("id"), (int)request.getSession().getAttribute(storeIdSession));
             request.setAttribute("film", film);
 
+            // Validasi jika id tersedia atau tidak
             film.toString();
 
             // Pengambilan seluruh genre yang akan ditampilkan pada form

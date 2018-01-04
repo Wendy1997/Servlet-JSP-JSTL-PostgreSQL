@@ -26,16 +26,10 @@ public class FilmMenu extends HttpServlet{
     private final String storeLoginAddress = "/view/login/store_login.jsp";
     private final String accountLoginAddress = "/view/login/account_login.jsp";
     private final String menuFilmAddress = "/view/database/film/film_menu.jsp";
-    private final String successAddress = "/view/database/success.jsp";
 
     private final String storeIdSession = "storeid";
     private final String roleAccountSession = "role";
     private final String roleAdmin = "admin";
-
-    private final String title = "Account";
-    private final String statusDeleteBerhasil = "Deleted";
-    private final String statusRetrieveBerhasil = "Retrieved";
-    private final String link = "admin";
 
     private final int initialPage = 0;
 

@@ -53,8 +53,7 @@ public class LedgerViewYearlyPagination extends HttpServlet {
 
             // Pengiriman data menuju AJAX
             PrintWriter out = response.getWriter();
-            out.print("{\"count\": " + 123 + ",");
-            out.print(" \"result\" : " + json + "}");
+            out.print("{\"result\" : " + json + "}");
         } catch (SQLException e){
             e.printStackTrace();
         }

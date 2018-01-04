@@ -62,7 +62,6 @@ public class FilmGenreAdd extends HttpServlet {
             request.getRequestDispatcher(accountLoginAddress).forward(request, response);
         }
 
-
         request.getRequestDispatcher(addFilmGenreAddress).forward(request, response);
     }
 

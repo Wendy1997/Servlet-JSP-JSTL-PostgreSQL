@@ -69,7 +69,9 @@ public class MemberCardEdit extends HttpServlet{
             List<MemberGender> memberGenderList = memberCardService.getAllMemberGenderTrue((int)request.getSession().getAttribute(storeIdSession));
             request.setAttribute("gender", memberGenderList);
 
+            // Validasi jika id tersedia atau tidak
             memberCard.toString();
+
         } catch (Exception e){
             e.printStackTrace();
         }
