@@ -5,7 +5,7 @@
 <div class="container-fluid" align="center">
 
     <!-- Close Button -->
-    <a type="button" class="close" href="/admin/screentime?filmid=${film.id}">&times;</a>
+    <a type="button" class="close" href="/admin/film/detail?id=${film.id}">&times;</a>
 
     <!-- Title -->
     <div class="jumbotron">

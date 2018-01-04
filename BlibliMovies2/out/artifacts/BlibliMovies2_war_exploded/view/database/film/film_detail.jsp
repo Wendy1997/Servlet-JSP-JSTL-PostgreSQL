@@ -5,7 +5,7 @@
 <div class="container-fluid">
 
     <!-- Close Button -->
-    <a type="button" class="close" href="javascript:history.back()">&times;</a>
+    <a type="button" class="close" href="/admin/film">&times;</a>
 
     <div class="jumbotron" id="detail">
 
