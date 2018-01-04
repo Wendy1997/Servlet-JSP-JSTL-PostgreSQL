@@ -47,6 +47,14 @@ public class SuperAdminAdd extends HttpServlet {
         request.getRequestDispatcher(addSuperAdminAddress).forward(request, response);
     }
 
+    /**
+     * Sebuah method POST yang akan mengolah hasil input form dari halaman tambah superadmin
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         try{

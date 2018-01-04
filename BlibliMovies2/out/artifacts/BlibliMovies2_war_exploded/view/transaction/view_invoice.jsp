@@ -58,6 +58,10 @@
                 <div class="row" data-html2canvas-ignore="true">
                     <button type="submit" class="btn btn-default print-invoice" id="accept">Print ></button>
                 </div>
+
+                <div class="row" data-html2canvas-ignore="true">
+                    <a class="btn-default print-invoice" href="/menu">Another Transaction ></a>
+                </div>
             </div>
         </div>
     </div>

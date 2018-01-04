@@ -22,11 +22,23 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+/**
+ * Sebuah kelas yang menghandle pemilihan film berdasarkan tanggal
+ * url: /view/film
+ */
 @WebServlet("/view/film")
 public class ChooseFilmDate extends HttpServlet {
     FilmService filmService = new FilmServiceDatabase();
     private final String storeIdSession = "storeid";
 
+    /**
+     * Sebuah method GET untuk menampilkan film dalam waktu yang telah dpilih
+     *
+     * @param request
+     * @param response
+     * @throws ServletException
+     * @throws IOException
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
         try{
