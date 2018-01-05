@@ -66,8 +66,6 @@ public class MemberCardDAO {
             output = null;
         }
 
-        System.out.println(output.getId());
-
         ps.close();
         conn.close();
         return output;
@@ -92,8 +90,6 @@ public class MemberCardDAO {
         } else{
             output = null;
         }
-
-        System.out.println(ps.toString());
 
         ps.close();
         conn.close();
