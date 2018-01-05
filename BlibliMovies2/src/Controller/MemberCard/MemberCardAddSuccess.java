@@ -23,7 +23,8 @@ public class MemberCardAddSuccess extends HttpServlet {
     private final String roleAdmin = "admin";
     private final String title = "Member Card";
     private final String statusAddBerhasil = "Created";
-    private final String link = "/admin/membercard";
+    private final String linkAdmin = "/admin/membercard";
+    private final String linkCashier = "/cashier";
 
     /**
      * Sebuah method yang akan merefer halaman menuju halaman sukses
@@ -42,16 +43,17 @@ public class MemberCardAddSuccess extends HttpServlet {
         else if (request.getSession().getAttribute(roleAccountSession) == null){
             request.getRequestDispatcher(accountLoginAddress).forward(request, response);
         }
-        // Validasi apakah sudah login as admin
-        else if(!request.getSession().getAttribute(roleAccountSession).equals(roleAdmin)){
-            request.getRequestDispatcher(accountLoginAddress).forward(request, response);
-        }
 
+        // Validasi apakah sudah login as admin
+        if(request.getSession().getAttribute(roleAccountSession).equals(roleAdmin)){
+            request.setAttribute("link", linkAdmin);
+        } else {
+            request.setAttribute("link", linkCashier);
+        }
 
         // Redirect menuju halaman success
         request.setAttribute("title", title);
         request.setAttribute("complete", statusAddBerhasil);
-        request.setAttribute("link", link);
 
         request.getRequestDispatcher(successAddress).forward(request,response);
     }

@@ -48,11 +48,6 @@ public class MemberCardAdd extends HttpServlet {
         else if (request.getSession().getAttribute(roleAccountSession) == null){
             request.getRequestDispatcher(accountLoginAddress).forward(request, response);
         }
-        // Validasi apakah sudah login as admin
-        else if(!request.getSession().getAttribute(roleAccountSession).equals(roleAdmin)){
-            request.getRequestDispatcher(accountLoginAddress).forward(request, response);
-        }
-
 
         try{
             List<MemberGender> memberGenderList = memberCardService.getAllMemberGenderTrue((int)request.getSession().getAttribute(storeIdSession));

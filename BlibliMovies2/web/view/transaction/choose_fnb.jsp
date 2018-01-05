@@ -58,6 +58,7 @@
                 <input type="hidden" id="studioPrice" name="studioid" value="${studio.price}">
                 <input type="hidden" id="filmTitle" name="ticket" value="${film.title}">
                 <button type="submit" class="btn btn-default" id="memberAccept">Member Accept ></button>
+                <button class="btn btn-default" id="memberAdd">Member Add ></button>
 
                 <div class="stripe summary"></div>
 
@@ -111,6 +112,10 @@
     }
 
     $(document).ready(function () {
+        $('#memberAdd').click(function () {
+            window.open("/admin/membercard/add", '_blank');
+        });
+
        $('.col-4').click(function () {
           var jumlah = prompt("Masukkan jumlah");
           if(jumlah > 0){

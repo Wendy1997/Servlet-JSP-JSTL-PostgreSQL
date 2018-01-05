@@ -84,6 +84,12 @@
                            '         </td>\n' +
                            '        </tr>\n' +
                            '        <tr>\n' +
+                           '        <tr>\n' +
+                           '         <td class="content-block">\n' +
+                           '          <h3 class="aligncenter">Your ID is ' + response["result"].id + '!</h3>\n' +
+                           '         </td>\n' +
+                           '        </tr>\n' +
+                           '        <tr>\n' +
                            '         <td class="content-block">\n' +
                            '          <h2 class="aligncenter">Please confirm your email by click this link</h2>\n' +
                            '         </td>\n' +

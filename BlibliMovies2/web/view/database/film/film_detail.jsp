@@ -1,12 +1,6 @@
 <%@ include file = "/include/head.jsp" %>
 <%@ include file = "/include/navbarAccount.jsp" %>
 
-<%
-    response.setHeader("Cache-Control","no-store");
-    response.setHeader("Pragma","no-cache");
-    response.setHeader ("Expires", "0"); //prevents caching at the proxy server
-%>
-
 <!-- Content -->
 <div class="container-fluid">
 
