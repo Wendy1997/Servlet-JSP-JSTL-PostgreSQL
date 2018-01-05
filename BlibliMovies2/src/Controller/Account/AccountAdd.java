@@ -35,7 +35,6 @@ public class AccountAdd extends HttpServlet {
     private final String statusGagal = "Has Taken";
     private final String link = "/admin/account";
 
-
     /**
      * Sebuah method GET yang memberikan halaman form tambah akun
      *

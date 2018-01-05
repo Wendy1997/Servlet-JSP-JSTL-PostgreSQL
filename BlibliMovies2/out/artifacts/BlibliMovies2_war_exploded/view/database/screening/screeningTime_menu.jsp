@@ -35,7 +35,11 @@
                     <tr>
                         <td scope="row"><c:out value="${screenTime.id}"></c:out></td>
                         <td><c:out value="${screenTime.filmId}"></c:out></td>
-                        <td><c:out value="${screenTime.studioId}"></c:out></td>
+                        <td>
+                            <c:forEach items="${studio}" var="studio">
+                                ${studio.id == screenTime.studioId ? studio.name : ""}
+                            </c:forEach>
+                        </td>
                         <td><c:out value="${screenTime.time}"></c:out></td>
                         <td><c:out value="${screenTime.duration}"></c:out></td>
                         <td><a href="/admin/screentime/update?id=${screenTime.id}&filmid=${film.id}&duration=${film.duration}"}>Edit</a></td>

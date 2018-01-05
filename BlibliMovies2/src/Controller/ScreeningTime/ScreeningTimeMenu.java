@@ -3,6 +3,7 @@ package Controller.ScreeningTime;
 import DAO.FilmDAO;
 import Model.Film;
 import Model.ScreeningTime;
+import Model.Studio;
 import Service.FilmService;
 import Service.FilmServiceDatabase;
 
@@ -55,10 +56,13 @@ public class ScreeningTimeMenu extends HttpServlet{
         try{
             // Pengambilan data list screening time untuk diretrieve pada menu
             List<ScreeningTime> screeningTimeList = filmService.getAllScreeningTime((int)request.getSession().getAttribute(storeIdSession), request.getParameter("filmid"), 0);
+            List<Studio> studioList = filmService.getAllStudioTrue((int)request.getSession().getAttribute(storeIdSession));
 
             // Pengambilan data jumlah halaman yang akan ditampilkan pada menu
             int pageCounter = filmService.getCountAllScreeningTime((int)request.getSession().getAttribute(storeIdSession), request.getParameter("filmid"));
 
+
+            request.setAttribute("studio", studioList);
             request.setAttribute("screenTime", screeningTimeList);
             request.setAttribute("film", filmService.getFilm(request.getParameter("filmid"), (int)request.getSession().getAttribute(storeIdSession)));
             request.setAttribute("page", pageCounter);

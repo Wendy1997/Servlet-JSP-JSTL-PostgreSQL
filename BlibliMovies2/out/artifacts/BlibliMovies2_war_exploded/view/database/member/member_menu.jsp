@@ -80,10 +80,10 @@
                             '<td>' + result[key].fullname + '</td>\n' +
                             '<td>\n';
 
-                        <c:forEach items="${gender}" var="gender">
-                        if(result[key].gender == ${gender.id}){
-                            output += '${gender.gender}';
-                        }
+                        <c:forEach items="${studio}" var="studio">
+                            if(result[key].studioId == ${studio.id}){
+                                output += '${studio.name}';
+                            }
                         </c:forEach>
 
                         output += '<td>' + result[key].birthDate + '</td>\n' +

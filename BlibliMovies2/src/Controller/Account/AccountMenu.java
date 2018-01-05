@@ -53,7 +53,6 @@ public class AccountMenu extends HttpServlet{
             request.getRequestDispatcher(accountLoginAddress).forward(request, response);
         }
 
-
         try{
             // Pengambilan data list akun dan juga role akun untuk diretrieve pada menu
             List<Account> accounts = accountService.getAllAccount((int)request.getSession().getAttribute(storeIdSession), initialPage);
