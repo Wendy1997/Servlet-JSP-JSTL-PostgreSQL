@@ -2,6 +2,9 @@
 
 <!-- Content -->
 <div class="container-fluid invoice-pdf">
+    
+    <!-- Close Button -->
+    <a type="button" class="close" href="javascript:history.back()">&times;</a>
 
     <div class="jumbotron" id="detail">
 

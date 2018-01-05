@@ -10,7 +10,7 @@
     <div class="jumbotron">
 
         <!-- Title -->
-        <h1>Create Genre</h1>
+        <h1>Create Type</h1>
         <div class="stripe"></div>
         <br><br>
 
@@ -18,7 +18,7 @@
         <form action="/admin/fnbtype/add" method="post" onsubmit="return confirm('Are You Sure?');">
             <div class="row">
                 <div class="col-lg-6" id="form1">
-                    <h2>Data Genre</h2><br>
+                    <h2>Data Type</h2><br>
 
                     <div class="form-group">
                         <label for="type">Name:</label>
