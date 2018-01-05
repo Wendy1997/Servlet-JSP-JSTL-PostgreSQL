@@ -132,7 +132,7 @@ public class ChooseFnB extends HttpServlet{
                     // Memasukkan tiket film pada order detail dari invoice tersebut
                     String title = entry[0];
                     int quantity = Integer.parseInt(entry[1]);
-                    int price = Integer.parseInt(entry[1]);
+                    int price = Integer.parseInt(entry[2]) * quantity;
                     OrderDetail orderDetail = new OrderDetail(id, (int)request.getSession().getAttribute(storeIdSession), title, quantity, price, true);
                     invoiceService.addOrderDetail(orderDetail);
                     i--;
