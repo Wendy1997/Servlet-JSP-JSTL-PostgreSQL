@@ -19,7 +19,7 @@
                 <div class="fnbcontainer-responsive row">
                     <c:forEach items="${fnblist}" var="fnb">
                         <div id="${fnb.id}" class="col-4 col-sm-4 col-md-3 col-lg-4 col-xl-3">
-                            <img class="circle" id="thumbnail" src="${fnb.cover}">
+                            <img class="circle" id="thumbnail" style="background-image: url('${fnb.cover}')">
                             <p>${fnb.name}
                                 <c:forEach items="${fnbsize}" var="size">
                                     ${fnb.size == size.id ? size.size : ""}
