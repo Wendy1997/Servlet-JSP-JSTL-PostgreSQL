@@ -63,17 +63,8 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="filmticket" pinned="false" current-in-tab="true">
+      <file leaf-file-name="filmticket" pinned="false" current-in-tab="false">
         <entry file="das://table:/3455e5c3/54228e0a-66fb-405f-a40c-278ed4229e2d/bliblimovies.public.filmticket">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="screeningtime" pinned="false" current-in-tab="false">
-        <entry file="das://table:/3455e5c3/54228e0a-66fb-405f-a40c-278ed4229e2d/bliblimovies.public.screeningtime">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
             <state>
               <filtering enabled="true" />
@@ -144,6 +135,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="confirmation_film.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/view/transaction/confirmation_film.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="252">
+              <caret line="24" column="44" lean-forward="false" selection-start-line="24" selection-start-column="44" selection-end-line="24" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="filmgenre" pinned="false" current-in-tab="false">
         <entry file="das://table:/3455e5c3/54228e0a-66fb-405f-a40c-278ed4229e2d/bliblimovies.public.filmgenre">
           <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
@@ -207,7 +208,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Controller/Transaction/CheckMember.java" />
         <option value="$PROJECT_DIR$/src/Controller/Transaction/ChooseFilm.java" />
         <option value="$PROJECT_DIR$/src/Controller/Transaction/ChooseFilmDetail.java" />
         <option value="$PROJECT_DIR$/src/Controller/Transaction/ViewFnB.java" />
@@ -258,6 +258,7 @@
         <option value="$PROJECT_DIR$/src/Controller/Account/AccountMenu.java" />
         <option value="$PROJECT_DIR$/web/view/transaction/choose_fnb.jsp" />
         <option value="$PROJECT_DIR$/src/Controller/Transaction/ChooseFnB.java" />
+        <option value="$PROJECT_DIR$/web/view/transaction/confirmation_film.jsp" />
       </list>
     </option>
   </component>
@@ -889,12 +890,12 @@
       <workItem from="1514993744961" duration="2230000" />
       <workItem from="1515027571723" duration="15730000" />
       <workItem from="1515123816905" duration="8336000" />
-      <workItem from="1515159009182" duration="10493000" />
+      <workItem from="1515159009182" duration="10578000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="496767000" />
+    <option name="totallyTimeSpent" value="496852000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -996,14 +997,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Controller/MemberCard/MemberCardDelete.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/MemberCard/MemberCardMenuPagination.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -1274,7 +1267,7 @@
         <state relative-caret-position="252">
           <caret line="27" column="117" lean-forward="false" selection-start-line="27" selection-start-column="71" selection-end-line="27" selection-end-column="117" />
           <folding>
-            <element signature="e#1186#1232#0#HTML" expanded="true" />
+            <element signature="e#1186#1232#0#HTML" expanded="false" />
             <marker date="1515032325380" expanded="true" signature="4939:4991" ph="..." />
             <marker date="1515032325380" expanded="true" signature="5789:5805" ph="..." />
             <marker date="1515032325380" expanded="true" signature="6020:6032" ph="..." />
@@ -1386,13 +1379,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/3455e5c3/54228e0a-66fb-405f-a40c-278ed4229e2d/bliblimovies.public.film">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://table:/3455e5c3/54228e0a-66fb-405f-a40c-278ed4229e2d/bliblimovies.public.filmgenre">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -1404,6 +1390,21 @@
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/3455e5c3/54228e0a-66fb-405f-a40c-278ed4229e2d/bliblimovies.public.film">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/view/transaction/confirmation_film.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="24" column="44" lean-forward="false" selection-start-line="24" selection-start-column="44" selection-end-line="24" selection-end-column="44" />
+          <folding />
         </state>
       </provider>
     </entry>

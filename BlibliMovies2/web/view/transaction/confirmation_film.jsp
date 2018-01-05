@@ -23,7 +23,6 @@
                 <p>Language: ${film.language}</p>
                 <p>Subtitle: ${film.subtitle}</p>
                 <p>Actors: ${film.actor}</p>
-                <p>Harga: ${studio.price}</p>
                 <p>Studio: ${studio.name}</p>
                 <p>Price: Rp. ${studio.price},- /pax</p>
                 <p>Ratings: ${film.rating}(${film.reviewTotal})</p>
